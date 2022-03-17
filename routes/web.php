@@ -27,7 +27,7 @@ Route::get('/a', function () {
 });
 
 Route::get('/b', function () {
-    return view('hr.blog-details');
+    return view('hr.blog.show');
     # code...
 });
 
@@ -36,5 +36,5 @@ Route::get('/c', function () {
 });
 
 Route::get('/d', function () {
-    return view('hr.blog');
+    return view('hr.blog.index');
 });
