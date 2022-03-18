@@ -245,6 +245,17 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="/ar/dist/js/app.js"></script>
 
     @yield('script')
+
+    {{-- <script>
+        $('#sidebar li a').click(function() {
+            // remove existing active class inside li elements
+            // $('a').removeClass('active');
+            // add class to current clicked element
+            // $(this).closest('a').addClass('active');
+            $(this).parents('li a').toggleClass('side-menu--active');
+        });
+
+    </script> --}}
     <!-- END: JS Assets-->
 </body>
 </html>

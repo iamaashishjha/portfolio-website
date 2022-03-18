@@ -40,9 +40,6 @@ Route::put(
     [App\Http\Controllers\AdminUserDetailController::class, 'profileUpdate']
 )->name('admin.profileUpdate');
 
-Route::get('/profile', function () {
-    return view('auth.profile');
-});
 
 Route::get('/a', function () {
     return view('ar.index');
@@ -63,12 +60,10 @@ Route::get('/d', function () {
 
 Route::get('/abcd', function () {
     return view('ar.base.create');
-    // return "hello";
 });
 
 Route::get('/abc', function () {
     return view('ar.blog.blog-post.create');
-    // return "hello";
 });
 
 Route::get('/f', function () {

@@ -1,5 +1,5 @@
 <!-- BEGIN: Side Menu -->
-<nav class="side-nav">
+<nav class="side-nav" id="sidebar">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
         <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
         <span class="hidden xl:block text-white text-lg ml-3"> Mid<span class="font-medium">one</span> </span>
@@ -13,6 +13,46 @@
             </a>
         </li>
         <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Blogs <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="">
+                <li>
+                    <a href="index.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> All Blogs </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/abc" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Create New Blog </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="top-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Blog Categories </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="top-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Blog Tags </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="top-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Trashed Blogs </div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
+        {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
                 <div class="side-menu__title"> Menu Layout <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
@@ -37,7 +77,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
         <li>
             <a href="side-menu-inbox.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>

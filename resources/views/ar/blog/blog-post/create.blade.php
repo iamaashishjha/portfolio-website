@@ -42,50 +42,78 @@
     <div class="intro-y col-span-12 lg:col-span-8">
         <input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13" placeholder="Title">
         <div class="post intro-y overflow-hidden box mt-5">
-            <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600">
-                <a title="Fill in the article content" data-toggle="tab" data-target="#content" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center active"> <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Content </a>
-                <a title="Adjust the meta title" data-toggle="tab" data-target="#meta-title" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="code" class="w-4 h-4 mr-2"></i> Meta Title </a>
-                <a title="Use search keywords" data-toggle="tab" data-target="#keywords" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="align-left" class="w-4 h-4 mr-2"></i> Keywords </a>
+            <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600" style="align-items: center!important;">
+                <a title="Fill in the article content" data-toggle="tab" id="content-button" data-target="#content" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center active"> <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Content </a>
+                <a title="Upload Necessary Images and Captions" data-toggle="tab" id="images-button" data-target="#images" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="align-left" class="w-4 h-4 mr-2"></i> Images </a>
+                <a title="Adjust the meta title" data-toggle="tab" id="meta-data-button" data-target="#meta-data" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="code" class="w-4 h-4 mr-2"></i> Meta Data </a>
             </div>
             <div class="post__content tab-content">
                 <div class="tab-content__pane p-5 active" id="content">
                     <div class="border border-gray-200 rounded-md p-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5"> <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> Description </div>
+                        <div class="mt-5">
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-md p-5 mt-5">
                         <div class="font-medium flex items-center border-b border-gray-200 pb-5"> <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> Text Content </div>
                         <div class="mt-5">
                             <textarea data-feature="all" class="summernote" data-height="250" name="editor"></textarea>
                         </div>
                     </div>
+                </div>
+                <div class="tab-content__pane p-5 active" id="meta-data">
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
-                        <div class="font-medium flex items-center border-b border-gray-200 pb-5"> <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> Caption & Images </div>
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5">
+                            <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
+                            Slug
+                        </div>
                         <div class="mt-5">
-                            <div>
-                                <label>Caption</label>
-                                <input type="text" class="input w-full border mt-2" placeholder="Write caption">
-                            </div>
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-md p-5 mt-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5">
+                            <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
+                            Meta - Description
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-md p-5 mt-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5">
+                            <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
+                            Meta - Title
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-content__pane p-5 active" id="images">
+                    <div class="border border-gray-200 rounded-md p-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5"> <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>ALT Text </div>
+                        <div class="mt-5">
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-md p-5 mt-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5"> <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> Upload Image </div>
+                        <div class="mt-5">
                             <div class="mt-3">
                                 <label>Upload Image</label>
                                 <div class="border-2 border-dashed rounded-md mt-3 pt-4">
                                     <div class="flex flex-wrap px-4">
                                         <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                            <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/preview-6.jpg">
-                                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
-                                        </div>
-                                        <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                            <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/preview-12.jpg">
-                                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
-                                        </div>
-                                        <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                            <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/preview-9.jpg">
-                                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
-                                        </div>
-                                        <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                            <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/preview-13.jpg">
-                                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
+                                            <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/preview-6.jpg" id="post-image">
                                         </div>
                                     </div>
                                     <div class="px-4 pb-4 flex items-center cursor-pointer relative">
                                         <i data-feather="image" class="w-4 h-4 mr-2"></i> <span class="text-theme-1 mr-1">Upload a file</span> or drag and drop
-                                        <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
+                                        <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0" onchange="loadFile(event)">
+
                                     </div>
                                 </div>
                             </div>
@@ -99,52 +127,6 @@
     <!-- BEGIN: Post Info -->
     <div class="col-span-12 lg:col-span-4">
         <div class="intro-y box p-5">
-            <div>
-                <label>Written By</label>
-                <div class="dropdown relative mt-2">
-                    <button class="dropdown-toggle button w-full border flex items-center">
-                        <div class="w-6 h-6 absolute image-fit mr-3">
-                            <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-2.jpg">
-                        </div>
-                        <div class="ml-8 pl-1 truncate">John Travolta</div>
-                        <i class="w-4 h-4 ml-auto" data-feather="chevron-down"></i>
-                    </button>
-                    <div class="dropdown-box mt-10 absolute w-full top-0 right-0 z-20">
-                        <div class="dropdown-box__content box p-2">
-                            <a href="javascript:;" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                <div class="w-6 h-6 absolute image-fit mr-3">
-                                    <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-2.jpg">
-                                </div>
-                                <div class="ml-8 pl-1">John Travolta</div>
-                            </a>
-                            <a href="javascript:;" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                <div class="w-6 h-6 absolute image-fit mr-3">
-                                    <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-1.jpg">
-                                </div>
-                                <div class="ml-8 pl-1">Tom Cruise</div>
-                            </a>
-                            <a href="javascript:;" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                <div class="w-6 h-6 absolute image-fit mr-3">
-                                    <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-15.jpg">
-                                </div>
-                                <div class="ml-8 pl-1">Al Pacino</div>
-                            </a>
-                            <a href="javascript:;" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                <div class="w-6 h-6 absolute image-fit mr-3">
-                                    <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-11.jpg">
-                                </div>
-                                <div class="ml-8 pl-1">Leonardo DiCaprio</div>
-                            </a>
-                            <a href="javascript:;" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md">
-                                <div class="w-6 h-6 absolute image-fit mr-3">
-                                    <img class="rounded" alt="Midone Tailwind HTML Admin Template" src="/ar/dist/images/profile-2.jpg">
-                                </div>
-                                <div class="ml-8 pl-1">Kevin Spacey</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="mt-3">
                 <label>Post Date</label>
                 <input data-timepicker="true" class="datepicker input w-full border mt-2">
@@ -180,7 +162,7 @@
                 </div>
             </div>
             <div class="mt-3">
-                <label>Show Author Name</label>
+                <label>Featured Post</label>
                 <div class="mt-2">
                     <input class="input input--switch border" type="checkbox">
                 </div>
@@ -190,5 +172,39 @@
     <!-- END: Post Info -->
 </div>
 
+@endsection
+@section('script')
 
+<script>
+    $(document).ready(function() {
+        
+        $("#meta-data").hide();
+        $("#images").hide();
+        $("#content").show();
+
+        $("#content-button").click(function() {
+            $("#meta-data").hide();
+            $("#images").hide();
+            $("#content").show();
+        });
+
+        $("#images-button").click(function() {
+            $("#meta-data").hide();
+            $("#images").show();
+            $("#content").hide();
+        });
+
+        $("#meta-data-button").click(function() {
+            $("#meta-data").show();
+            $("#images").hide();
+            $("#content").hide();
+        });
+
+    });
+    var loadFile = function(event) {
+        var image = document.getElementById('post-image');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+</script>
 @endsection
