@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminBlogCategoryController;
+use App\Http\Controllers\AdminBlogPostController;
+use App\Http\Controllers\AdminBlogTagController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,50 +43,17 @@ Route::put(
     [App\Http\Controllers\AdminUserDetailController::class, 'profileUpdate']
 )->name('admin.profileUpdate');
 
+Route::resource(
+    'admin/blog/category',
+    AdminBlogCategoryController::class
+);
 
-Route::get('/a', function () {
-    return view('ar.index');
-    # code...
-});
+Route::resource(
+    'admin/blog/tag',
+    AdminBlogTagController::class
+);
 
-Route::get('/b', function () {
-    return view('hr.blog.show');
-});
-
-Route::get('/c', function () {
-    return view('hr.index');
-});
-
-Route::get('/d', function () {
-    return view('hr.blog.index');
-});
-
-Route::get('/abcd', function () {
-    return view('ar.base.create');
-});
-
-Route::get('/abc', function () {
-    return view('ar.blog.blog-post.create');
-});
-
-Route::get('/f', function () {
-    return view('ar.base.index');
-});
-
-Route::get('/g', function () {
-    return view('ar.base.show');
-});
-
-Route::get('/h', function () {
-    return view('ar.base.trash');
-});
-
-
-
-Route::get('/login1', function () {
-    return view('auth.login1');
-});
-
-Route::get('/register1', function () {
-    return view('auth.register1');
-});
+Route::resource(
+    'admin/blog/post',
+    AdminBlogPostController::class
+);

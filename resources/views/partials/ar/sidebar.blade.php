@@ -19,27 +19,15 @@
             </a>
             <ul class="">
                 <li>
-                    <a href="index.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> All Blogs </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="/abc" class="side-menu">
+                    <a href="{{ route('post.create') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Create New Blog </div>
                     </a>
                 </li>
                 <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
+                    <a href="{{ route('post.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Blog Categories </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Blog Tags </div>
+                        <div class="side-menu__title"> All Blogs </div>
                     </a>
                 </li>
                 <li>
@@ -48,6 +36,19 @@
                         <div class="side-menu__title"> Trashed Blogs </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('category.index') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Blog Categories </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('tag.index') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Blog Tags </div>
+                    </a>
+                </li>
+
 
             </ul>
         </li>

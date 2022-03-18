@@ -8,6 +8,10 @@
 </div>
 @endsection
 
+@section('title')
+Create New Blog Post | Aashish Jha
+@endsection
+
 @section('content')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
@@ -81,6 +85,16 @@
                             <input type="text" class="input w-full border mt-2" placeholder="Write caption">
                         </div>
                     </div>
+                    <div class="border border-gray-200 rounded-md p-5 mt-5">
+                        <div class="font-medium flex items-center border-b border-gray-200 pb-5">
+                            <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
+                            Keywords
+                        </div>
+                        <div class="mt-5">
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption">
+                        </div>
+                    </div>
+
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
                         <div class="font-medium flex items-center border-b border-gray-200 pb-5">
                             <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
@@ -177,7 +191,7 @@
 
 <script>
     $(document).ready(function() {
-        
+
         $("#meta-data").hide();
         $("#images").hide();
         $("#content").show();
