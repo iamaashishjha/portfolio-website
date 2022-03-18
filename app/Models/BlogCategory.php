@@ -12,7 +12,8 @@ class BlogCategory extends Model
     protected $table = 'blog_categories';
 
     protected $fillable = [
-        'title', 'description', 'image', 'slug', 'meta_description', 'meta_title', 'user_id'
+        'title', 'description', 'category_image',
+        'slug', 'meta_description', 'meta_title', 'user_id', 'keywords'
     ];
 
     protected $guarded = ['id'];

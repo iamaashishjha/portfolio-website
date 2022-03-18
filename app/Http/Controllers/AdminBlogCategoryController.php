@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminCategoryCreateRequest;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBlogCategoryController extends Controller
 {
@@ -32,9 +35,29 @@ class AdminBlogCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminCategoryCreateRequest $request)
     {
-        //
+        $path = $request->category_image->store('blogs', 'public');
+        $blogCategory = new BlogCategory();
+        $blogCategory->title = $request->title;
+        $blogCategory->description = $request->description;
+        $blogCategory->category_image = $path;
+        $blogCategory->meta_description = $request->meta_description;
+        $blogCategory->meta_title = $request->meta_title;
+        $blogCategory->keywords = $request->keywords;
+        $blogCategory->user_id = Auth::user()->id;
+        $blogCategory->save();
+
+        // BlogCategory::create([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'category_image' => $path,
+        //     'meta_description' => $request->meta_description,
+        //     'meta_title' => $request->meta_title,
+        //     'keywords' => $request->keywords,
+        //     'user_id' => Auth::user()->id
+        // ]);
+        return redirect(route('category.index'));
     }
 
     /**

@@ -29,17 +29,9 @@ class AdminUserDetailController extends Controller
         $data['designation'] = $request->designation;
 
         if ($request->profile_image) {
-
             $path = $request->profile_image->store('users', 'public');
-            # code...
-            // $path = Storage::storeAs(
-            //     'users',
-            //     $request->file('profile_image'),
-            //     $request->user()->id
-            // );
             $data['profile_image'] = $path;
         }
-        // dd($request->profile_image);
         $user->update($data);
         return redirect()->back();
     }
