@@ -7,43 +7,47 @@
     <div class="side-nav__devider my-6"></div>
     <ul>
         <li>
-            <a href="/admin" class="side-menu side-menu--active" id="dashboard">
+            <a href="/admin" class="side-menu {{ request()->is('admin') ? 'side-menu--active' : '' }} " id="dashboard">
                 <div class="side-menu__icon"> <i data-feather="home"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
         <li>
-            <a href="javascript:;" class="side-menu">
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} " id="blog_menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
                 <div class="side-menu__title"> Blogs <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
-            <ul class="">
+            <ul class="collapse">
                 <li>
-                    <a href="{{ route('post.create') }}" class="side-menu">
+                    <a href="{{ route('post.create') }}" class="side-menu" id="blog_submenu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Create New Blog </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('post.index') }}" class="side-menu">
+                    <a href="{{ route('post.index') }}" class="side-menu" id="blog_submenu">
+
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> All Blogs </div>
                     </a>
                 </li>
                 <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
+                    <a href="top-menu-dashboard.html" class="side-menu" id="blog_submenu">
+
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Trashed Blogs </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('category.index') }}" class="side-menu">
+                    <a href="{{ route('category.index') }}" class="side-menu" id="blog_submenu">
+
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Blog Categories </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('tag.index') }}" class="side-menu">
+                    <a href="{{ route('tag.index') }}" class="side-menu" id="blog_submenu">
+
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Blog Tags </div>
                     </a>

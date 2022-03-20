@@ -30,7 +30,8 @@ class AdminCategoryCreateRequest extends FormRequest
             'slug' => 'required|unique:blog_categories,title',
             'meta_description' => 'required',
             'keywords' => 'required',
-            'meta_title' => 'required'
+            'meta_title' => 'required',
+            'status' => ' nullable'
         ];
     }
 

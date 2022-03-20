@@ -23,6 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     {{-- <link rel="stylesheet" href="/css/app.css" /> --}}
 
@@ -30,6 +31,11 @@ License: You must have a valid license purchased only from themeforest(the above
 </head>
 <!-- END: Head -->
 <body class="app">
+    @php
+
+    @endphp
+
+    @include('sweetalert::alert')
     @include('partials.ar.mobileMenu')
     <div class="flex">
         @include('partials.ar.sidebar')
@@ -247,19 +253,23 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
     <script src="/ar/dist/js/app.js"></script>
-
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('script')
 
-    {{-- <script>
-        $('#sidebar li a').click(function() {
-            // remove existing active class inside li elements
-            // $('a').removeClass('active');
-            // add class to current clicked element
-            // $(this).closest('a').addClass('active');
-            $(this).parents('li a').toggleClass('side-menu--active');
-        });
 
-    </script> --}}
+    <script>
+        // $("#sidebar li #blog_submenu").on("click", function(e) {
+        //     // e.preventDefault();
+        //     if ($(this).parent().hasClass('collapse')) {
+        //         $(this).parent().parent().addClass("side-menu--active");
+        //     } else {
+        //         $("#sidebar li a").removeClass("side-menu--active");
+        //         $("#sidebar li #blog_menu").addClass("side-menu--active");
+        //     }
+        // });
+
+    </script>
     <!-- END: JS Assets-->
 </body>
 </html>
