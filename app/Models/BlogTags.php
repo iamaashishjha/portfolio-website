@@ -48,4 +48,10 @@ class BlogTags extends Model
     {
         return '/storage/' . $this->tag_image;
     }
+
+    public function posts()
+    {
+        # code...
+        return $this->belongsToMany(BlogPost::class, 'blog_post_id', 'id');
+    }
 }

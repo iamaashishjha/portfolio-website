@@ -15,8 +15,8 @@ class BlogPost extends Model
     protected $table = 'blog_posts';
 
     protected $fillable = [
-        'title', 'description', 'content', 'alt_text', 'image', 'post_date', 'category_id',
-        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id'
+        'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
+        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords'
     ];
 
     protected $guarded = ['id'];
@@ -41,5 +41,34 @@ class BlogPost extends Model
         } else {
             return 'checked';
         }
+    }
+
+    public function getStatusAttribute()
+    {
+        $status = $this->attributes['status'];
+        if ($status == 0) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-6' . '"> <i data-feather=' . '"check-square' . '" class="w-4 h-4 mr-2' . '"></i> Inactive </div>';
+        } elseif ($status == 1) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-9' . '"> <i data-feather=' . '"check-square' . '" class="w-4 h-4 mr-2' . '"></i> Active </div>';
+        } else {
+            return 'NULL';
+        }
+    }
+
+    public function getImageAttribute()
+    {
+        return '/storage/' . $this->post_image;
+    }
+
+    public function category()
+    {
+        # code...
+        return $this->belongsTo(BlogCategory::class, 'category_id', 'id');
+    }
+
+    public function blogTags()
+    {
+        # code...
+        return $this->belongsToMany(BlogTags::class);
     }
 }

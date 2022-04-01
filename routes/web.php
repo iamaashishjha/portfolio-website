@@ -57,3 +57,14 @@ Route::resource(
     'admin/blog/post',
     AdminBlogPostController::class
 );
+
+Route::get(
+    'admin/blog/trashed-post',
+    // AdminBlogPostController::class
+    [App\Http\Controllers\AdminBlogPostController::class, 'trashed']
+)->name('post.trashed');
+
+Route::put(
+    'admin/blog/restorPost/{id}',
+    [App\Http\Controllers\AdminBlogPostController::class, 'restore']
+)->name('post.restore');

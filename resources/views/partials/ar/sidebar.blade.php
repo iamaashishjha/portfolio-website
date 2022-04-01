@@ -21,21 +21,21 @@
                 <li>
                     <a href="{{ route('post.create') }}" class="side-menu" id="blog_submenu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Create New Blog </div>
+                        <div class="side-menu__title"> Create New Post </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('post.index') }}" class="side-menu" id="blog_submenu">
 
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> All Blogs </div>
+                        <div class="side-menu__title"> All Posts </div>
                     </a>
                 </li>
                 <li>
-                    <a href="top-menu-dashboard.html" class="side-menu" id="blog_submenu">
+                    <a href="{{ route('post.trashed') }}" class="side-menu" id="blog_submenu">
 
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Trashed Blogs </div>
+                        <div class="side-menu__title"> Trashed Posts </div>
                     </a>
                 </li>
                 <li>
@@ -83,58 +83,58 @@
                 </li>
             </ul>
         </li> --}}
-        <li>
-            <a href="side-menu-inbox.html" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                <div class="side-menu__title"> Inbox </div>
-            </a>
-        </li>
-        <li>
+        {{-- <li>
             <a href="side-menu-file-manager.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
                 <div class="side-menu__title"> File Manager </div>
             </a>
-        </li>
+        </li> --}}
+
         <li>
-            <a href="side-menu-point-of-sale.html" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                <div class="side-menu__title"> Point of Sale </div>
+            <a href="javascript:;" class="side-menu " id="information_menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Information <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
-        </li>
-        <li>
-            <a href="side-menu-chat.html" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                <div class="side-menu__title"> Chat </div>
-            </a>
-        </li>
-        <li>
-            <a href="side-menu-post.html" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                <div class="side-menu__title"> Post </div>
-            </a>
-        </li>
-        <li class="side-nav__devider my-6"></li>
-        <li>
-            <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
-                <div class="side-menu__title"> Crud <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
-            </a>
-            <ul class="">
+            <ul class="collapse">
                 <li>
-                    <a href="side-menu-crud-data-list.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Data List </div>
+                    <a href="side-menu-inbox.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                        <div class="side-menu__title"> Education </div>
+                    </a>
+                </li>
+        
+                <li>
+                    <a href="side-menu-point-of-sale.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
+                        <div class="side-menu__title"> Experience </div>
                     </a>
                 </li>
                 <li>
-                    <a href="side-menu-crud-form.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Form </div>
+                    <a href="side-menu-chat.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
+                        <div class="side-menu__title"> References </div>
                     </a>
                 </li>
+                <li>
+                    <a href="side-menu-post.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+                        <div class="side-menu__title"> Portfolio </div>
+                    </a>
+                </li>
+                
             </ul>
         </li>
-        <li>
+        <li class="side-nav__devider my-6"></li>
+                <li>
+                    <a href="javascript:;" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+                        <div class="side-menu__title">
+                            About Me
+                        </div>
+                    </a>
+                </li>
+        
+        {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
@@ -159,7 +159,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
     </ul>
 </nav>
 <!-- END: Side Menu -->

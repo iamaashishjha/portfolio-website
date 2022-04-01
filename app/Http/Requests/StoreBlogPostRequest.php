@@ -24,7 +24,18 @@ class StoreBlogPostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|unique:blog_posts,title',
+            'description' => 'required|max:250',
+            'content' => 'required',
+            'post_image' => 'required|max:20000',
+            'alt_text' => 'required',
+            'slug' => 'required|unique:blog_posts,title',
+            'meta_description' => 'required',
+            'keywords' => 'required',
+            'meta_title' => 'required',
+            'status' => ' nullable',
+            'tags' => 'nullable',
+            'category_id' => 'required'
         ];
     }
 }

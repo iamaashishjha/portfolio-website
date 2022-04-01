@@ -13,7 +13,7 @@ class UpdateBlogPostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,19 @@ class UpdateBlogPostRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required',
+            'description' => 'required|max:250',
+            'content' => 'required',
+            'post_image' => 'max:20000',
+            'alt_text' => 'required',
+            'slug' => 'required',
+            'meta_description' => 'required',
+            'keywords' => 'required',
+            'meta_title' => 'required',
+            'status' => ' nullable',
+            'tags' => 'nullable',
+            'category_id' => 'required'
+
         ];
     }
 }

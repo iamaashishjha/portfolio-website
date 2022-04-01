@@ -19,15 +19,19 @@ class CreateBlogPostsTable extends Migration
             $table->string('description')->nullable();
             $table->text('content')->nullable();
             $table->string('alt_text')->nullable();
-            $table->string('image')->nullable();
-            $table->dateTime('post_date')->nullable();
+            $table->string('post_image')->nullable();
+            $table->string('post_date')->nullable();
             $table->unsignedSmallInteger('category_id')->nullable();
             $table->boolean('status')->default(0);
             $table->boolean('featured')->default(0);
             $table->string('slug')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_title')->nullable();
-            $table->unsignedSmallInteger('user_id');
+            $table->string('keywords')->nullable();
+            $table->boolean('is_deleted')->default(0);
+            $table->unsignedSmallInteger('created_by')->nullable();
+            $table->unsignedSmallInteger('updated_by')->nullable();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

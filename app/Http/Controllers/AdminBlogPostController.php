@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
 use App\Models\BlogCategory;
+use App\Models\BlogPost;
 use App\Models\BlogTags;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminBlogPostController extends Controller
 {
@@ -24,9 +28,15 @@ class AdminBlogPostController extends Controller
         $tags = BlogTags::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
+
+        $posts = BlogPost::where('is_deleted', 0)
+            // ->where('status', 1)
+            ->get();
+
         return view('ar.blog.post.index')
             ->with('tags', $tags)
-            ->with('categories', $categories);
+            ->with('categories', $categories)
+            ->with('posts', $posts);
     }
 
     /**
@@ -58,6 +68,45 @@ class AdminBlogPostController extends Controller
     public function store(StoreBlogPostRequest $request)
     {
         //
+        $post = new BlogPost();
+
+        // dd($request->tags);
+
+        $path = $request->post_image->store('blogs/blog-post', 'public');
+        // $blogCategory = new BlogCategory();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->content = $request->content;
+        $post->post_image = $path;
+        $post->alt_text = $request->alt_text;
+        $post->post_date = $request->post_date;
+        $post->meta_description = $request->meta_description;
+        $post->meta_title = $request->meta_title;
+        $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
+
+        if ($request->has('status')) {
+            //Checkbox checked
+            $post->status = 1;
+        } else {
+            //Checkbox not checked
+            $post->status = 0;
+        }
+
+        if ($request->has('featured')) {
+            //Checkbox checked
+            $post->featured = 1;
+        } else {
+            //Checkbox not checked
+            $post->featured = 0;
+        }
+
+        $post->keywords = $request->keywords;
+        $post->created_by = Auth::user()->id;
+        $post->save();
+        $post->blogTags()->attach($request->tags);
+        Alert::toast('Post Created Successfully', 'success');
+        return redirect(route('post.index'));
     }
 
     /**
@@ -79,7 +128,20 @@ class AdminBlogPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = BlogCategory::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+
+        $tags = BlogTags::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+
+        $post = BlogPost::find($id);
+
+        return view('ar.blog.post.create')
+            ->with('tags', $tags)
+            ->with('categories', $categories)
+            ->with('post', $post);
     }
 
     /**
@@ -92,6 +154,51 @@ class AdminBlogPostController extends Controller
     public function update(UpdateBlogPostRequest $request, $id)
     {
         //
+        $post = BlogPost::find($id);
+
+        dd($request->tags);
+        
+
+        // $blogCategory = new BlogCategory();
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $post->content = $request->content;
+        $post->alt_text = $request->alt_text;
+        $post->post_date = $request->post_date;
+        $post->meta_description = $request->meta_description;
+        $post->meta_title = $request->meta_title;
+        $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
+
+    $post->tags()->attach($request->tags);
+
+        if($request->has('post_image')){
+            $path = $request->post_image->store('blogs/blog-post', 'public');
+            $post->post_image = $path;
+            }
+
+        if ($request->has('status')) {
+            //Checkbox checked
+            $post->status = 1;
+        } else {
+            //Checkbox not checked
+            $post->status = 0;
+        }
+
+        if ($request->has('featured')) {
+            //Checkbox checked
+            $post->featured = 1;
+        } else {
+            //Checkbox not checked
+            $post->featured = 0;
+        }
+
+        $post->keywords = $request->keywords;
+        $post->created_by = Auth::user()->id;
+        $post->save();
+
+        Alert::toast('Post Updated Successfully', 'success');
+        return redirect(route('post.index'));
     }
 
     /**
@@ -103,5 +210,40 @@ class AdminBlogPostController extends Controller
     public function destroy($id)
     {
         //
+        $post = BlogPost::withTrashed()
+            ->where('id', $id)->first();
+        if ($post->trashed()) {
+            Storage::delete($post->image);
+            $post->forceDelete();
+            Alert::toast('Post Deleted Successfully', 'success');
+            return redirect()->back();
+        } else {
+            $post->delete();
+            $post->is_deleted = 1;
+            $post->status = 0;
+            $post->deleted_by = Auth::user()->id;
+            Alert::toast('Post Trashed Successfully', 'success');
+            return redirect()->back();
+        }
+    }
+
+    public function trashed()
+    {
+        # code...
+        $posts = BlogPost::onlyTrashed()->where('is_deleted', 0)->get();
+        return view('ar.blog.post.trash')
+            ->with('posts', $posts);
+    }
+
+    public function restore($id)
+    {
+        $post = BlogPost::onlyTrashed()
+            ->where('id', $id)
+            ->first();
+
+        $post->restore();
+        Alert::toast('Post Restored Successfully', 'success');
+        return redirect()->back();
+        # code...
     }
 }

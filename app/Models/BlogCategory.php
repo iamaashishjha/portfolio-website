@@ -48,4 +48,10 @@ class BlogCategory extends Model
     {
         return '/storage/' . $this->category_image;
     }
+
+    public function posts()
+    {
+        # code...
+        // return $this->
+    }
 }

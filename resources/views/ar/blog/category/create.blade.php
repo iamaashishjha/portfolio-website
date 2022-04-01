@@ -7,7 +7,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('category.index') }}" class="">Blogs</a>
+        <a href="{{ route('category.index') }}" class="">Blog Category</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{ isset($category) ? 'Edit Category ' : 'Create New Blog Category' }}</a>
     </div>
