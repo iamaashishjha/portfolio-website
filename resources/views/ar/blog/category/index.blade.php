@@ -15,7 +15,7 @@ All Blog Categories | Aashish Jha
 @section('content')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Datatable
+        Blog Categories
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('category.create') }}">Create New Category</a>

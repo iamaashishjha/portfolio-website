@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBlogPostRequest;
+use App\Http\Requests\UpdateBlogPostRequest;
+use App\Models\BlogCategory;
+use App\Models\BlogTags;
 use Illuminate\Http\Request;
 
 class AdminBlogPostController extends Controller
@@ -13,7 +17,16 @@ class AdminBlogPostController extends Controller
      */
     public function index()
     {
-        return view('ar.blog.post.index');
+        $categories = BlogCategory::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+
+        $tags = BlogTags::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+        return view('ar.blog.post.index')
+            ->with('tags', $tags)
+            ->with('categories', $categories);
     }
 
     /**
@@ -23,7 +36,17 @@ class AdminBlogPostController extends Controller
      */
     public function create()
     {
-        return view('ar.blog.post.create');
+        $categories = BlogCategory::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+
+        $tags = BlogTags::where('is_deleted', 0)
+            ->where('status', 1)
+            ->get();
+
+        return view('ar.blog.post.create')
+            ->with('tags', $tags)
+            ->with('categories', $categories);
     }
 
     /**
@@ -32,7 +55,7 @@ class AdminBlogPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogPostRequest $request)
     {
         //
     }
@@ -66,7 +89,7 @@ class AdminBlogPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBlogPostRequest $request, $id)
     {
         //
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminCategoryCreateRequest;
 use App\Http\Requests\AdminCategoryUpdateRequest;
+use App\Http\Requests\StoreBlogCategoryRequest;
+use App\Http\Requests\UpdateBlogCategoryRequest;
 use App\Models\BlogCategory;
 // use Facade\FlareClient\Stacktrace\File;
 
@@ -22,7 +24,8 @@ class AdminBlogCategoryController extends Controller
      */
     public function index()
     {
-        $categories = BlogCategory::all();
+        $categories = BlogCategory::where('is_deleted', 0)
+            ->get();
         return view('ar.blog.category.index')
             ->with('categories', $categories);
     }
@@ -43,7 +46,7 @@ class AdminBlogCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminCategoryCreateRequest $request)
+    public function store(StoreBlogCategoryRequest $request)
     {
         $path = $request->category_image->store('blogs/blog-category', 'public');
         $blogCategory = new BlogCategory();
@@ -101,7 +104,7 @@ class AdminBlogCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminCategoryUpdateRequest $request, $id)
+    public function update(UpdateBlogCategoryRequest $request, $id)
     {
         $blogCategory = BlogCategory::find($id);
 
@@ -109,9 +112,10 @@ class AdminBlogCategoryController extends Controller
         $blogCategory->description = $request->description;
 
         if ($request->has('category_image') && ($request->category_image != '')) {
-            $imagePath = public_path('storage/' . $blogCategory->image);
+            $imagePath = public_path('storage/' . $blogCategory->category_image);
             if (File::exists($imagePath)) {
                 unlink($imagePath);
+                File::delete('blogs/blog-category/' . $blogCategory->category_image);
             }
             $path = $request->category_image->store('blogs/blog-category', 'public');
             $blogCategory->category_image = $path;
@@ -146,6 +150,8 @@ class AdminBlogCategoryController extends Controller
     {
         $category = BlogCategory::find($id);
         $category->delete();
+        // $category->is_deleted = 1;
+        // $category->deleted_by = Auth::user()->id;
         Alert::toast('Category Deleted Successfully', 'success');
         return redirect()->back();
     }

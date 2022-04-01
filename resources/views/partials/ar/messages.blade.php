@@ -1,5 +1,5 @@
 @if ($errors->any())
-{{-- <div class="row">
+<div class="row">
     <div class="card">
         <div class="card-header">
             <h1 class="text-center">Errors</h1>
@@ -12,8 +12,8 @@
 </ul>
 </div>
 </div>
-</div> --}}
-@foreach ($errors->all() as $error)
+</div>
+{{-- @foreach ($errors->all() as $error)
 <script>
     $(document).ready(function() {
         var error = {
@@ -28,5 +28,5 @@
     });
 
 </script>
-@endforeach
+@endforeach --}}
 @endif

@@ -20,4 +20,26 @@ class BlogPost extends Model
     ];
 
     protected $guarded = ['id'];
+
+    public function checkStatus()
+    {
+        # code...
+        $status = $this->attributes['status'];
+        if ($status == 0) {
+            return '';
+        } else {
+            return 'checked';
+        }
+    }
+
+    public function checkFeatured()
+    {
+        # code...
+        $featured = $this->attributes['featured'];
+        if ($featured == 0) {
+            return '';
+        } else {
+            return 'checked';
+        }
+    }
 }

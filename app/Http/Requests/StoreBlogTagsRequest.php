@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminCategoryUpdateRequest extends FormRequest
+class StoreBlogTagsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class AdminCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|unique:blog_categories,title',
             'description' => 'required|max:250',
-            'category_image' => 'max:20000',
-            'slug' => 'required',
+            'tag_image' => 'required|max:20000',
+            'slug' => 'required|unique:blog_categories,title',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',
-            'status' => 'nullable'
+            'status' => ' nullable'
         ];
     }
 
@@ -43,7 +43,12 @@ class AdminCategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-
+            // 'title.required' => 'A title is required',
+            // 'body.required' => 'A message is required',
+            // 'same' => 'The :attribute and :other must match.',
+            // 'size' => 'The :attribute must be exactly :size.',
+            // 'between' => 'The :attribute value :input is not between :min - :max.',
+            // 'in' => 'The :attribute must be one of the following types: :values',
             'unique' => 'The :attribute must be unique',
             'required' => 'The :attribute field is required',
         ];
@@ -57,13 +62,13 @@ class AdminCategoryUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'Category Title',
-            'description' => 'Category Description',
-            'category_image' => 'Category Image',
-            'slug' => 'Category Slug',
-            'meta_description' => 'Category Meta Description',
-            'keywords' => 'Category Keywords',
-            'meta_title' => 'Category Meta Title'
+            'title' => 'Tag Title',
+            'description' => 'Tag Description',
+            'tag_image' => 'Tag Image',
+            'slug' => 'Tag Slug',
+            'meta_description' => 'Tag Meta Description',
+            'keywords' => 'Tag Keywords',
+            'meta_title' => 'Tag Meta Title'
         ];
     }
 }

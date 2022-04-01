@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BlogCategory extends Model
+class BlogTags extends Model
 {
     use HasFactory;
 
-    protected $table = 'blog_categories';
+    protected $table = 'blog_tags';
 
     protected $fillable = [
-        'title', 'description', 'category_image',
+        'title', 'description', 'tag_image',
         'slug', 'meta_description', 'meta_title', 'keywords',
         'status', 'is_deleted', 'created_by', 'updated_by', 'deleted_by'
     ];
@@ -24,9 +24,9 @@ class BlogCategory extends Model
     {
         # code...
         $status = $this->attributes['status'];
-        if ($status == 0) {
+        if($status == 0){
             return '';
-        } else {
+        }else{
             return 'checked';
         }
     }
@@ -46,6 +46,6 @@ class BlogCategory extends Model
 
     public function getImageAttribute()
     {
-        return '/storage/' . $this->category_image;
+        return '/storage/' . $this->tag_image;
     }
 }
