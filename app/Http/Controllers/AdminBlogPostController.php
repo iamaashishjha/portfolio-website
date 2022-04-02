@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminBlogPostController extends Controller
+class AdminBlogPostController extends BaseController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -156,8 +158,8 @@ class AdminBlogPostController extends Controller
         //
         $post = BlogPost::find($id);
 
-        dd($request->tags);
-        
+        // dd($request->tags);
+
 
         // $blogCategory = new BlogCategory();
         $post->title = $request->title;
@@ -170,12 +172,23 @@ class AdminBlogPostController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
 
-    $post->tags()->attach($request->tags);
+        $post->tags()->attach($request->tags);
 
-        if($request->has('post_image')){
+        if ($request->has('post_image')) {
             $path = $request->post_image->store('blogs/blog-post', 'public');
             $post->post_image = $path;
+        }
+
+        if ($request->has('post_image') && ($request->post_image != '')) {
+
+            $imagePath = $post->image;
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $post->deleteImage();
             }
+            $path = $request->category_image->store('blogs/blog-post', 'public');
+            $post->category_image = $path;
+        }
 
         if ($request->has('status')) {
             //Checkbox checked
@@ -212,8 +225,10 @@ class AdminBlogPostController extends Controller
         //
         $post = BlogPost::withTrashed()
             ->where('id', $id)->first();
+        $imagePath = $post->image;    
         if ($post->trashed()) {
-            Storage::delete($post->image);
+            unlink($imagePath);
+            $post->deleteImage();
             $post->forceDelete();
             Alert::toast('Post Deleted Successfully', 'success');
             return redirect()->back();

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class BlogPost extends Model
 {
@@ -60,6 +61,17 @@ class BlogPost extends Model
         return '/storage/' . $this->post_image;
     }
 
+    public function getTagsAttribute()
+    {
+        # code...
+        $tags = $this->blogTags;
+        foreach ($tags as $tag) {
+            # code...
+           return '<button class='.'"button w-24 shadow-md mr-1 mb-2 text-gray-700'.'">'.$tag->title.'</button>';
+        }
+    }
+
+
     public function category()
     {
         # code...
@@ -71,4 +83,11 @@ class BlogPost extends Model
         # code...
         return $this->belongsToMany(BlogTags::class);
     }
+
+    public function deleteImage()
+    {
+        Storage::delete($this->image);
+    }
+
+
 }

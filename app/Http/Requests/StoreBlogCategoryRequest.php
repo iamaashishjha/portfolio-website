@@ -23,11 +23,12 @@ class StoreBlogCategoryRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'title' => 'required|unique:blog_categories,title',
             'description' => 'required|max:250',
             'category_image' => 'required|max:20000',
-            'slug' => 'required|unique:blog_categories,title',
+            'slug' => 'required|unique:blog_categories,slug',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',
@@ -51,6 +52,7 @@ class StoreBlogCategoryRequest extends FormRequest
             // 'in' => 'The :attribute must be one of the following types: :values',
             'unique' => 'The :attribute must be unique',
             'required' => 'The :attribute field is required',
+            'max' => 'The :attribute size cannot be greater than :max'
         ];
     }
 

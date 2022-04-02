@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminUserDetailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,43 +29,53 @@ Route::get(
     [App\Http\Controllers\HomeController::class, 'index']
 )->name('home');
 
-Route::get(
-    '/admin',
-    [App\Http\Controllers\AdminDashboardController::class, 'index']
-)->name('admin.index');
+Route::middleware(['auth'])->prefix('admin')->group(function () {
 
-Route::get(
-    '/admin/{user_id}/profile',
-    [App\Http\Controllers\AdminUserDetailController::class, 'profile']
-)->name('admin.profile');
+    Route::name('admin.')->group(function () {
 
-Route::put(
-    '/admin/{user_id}/profile',
-    [App\Http\Controllers\AdminUserDetailController::class, 'profileUpdate']
-)->name('admin.profileUpdate');
+        Route::get(
+            '/',
+            [App\Http\Controllers\AdminDashboardController::class, 'index']
+        )->name('index');
 
-Route::resource(
-    'admin/blog/category',
-    AdminBlogCategoryController::class
-);
+        Route::controller(AdminUserDetailController::class)->group(function () {
 
-Route::resource(
-    'admin/blog/tag',
-    AdminBlogTagController::class
-);
+            Route::get('/info/{user_id}/profile', 'profile')->name('profile');
 
-Route::resource(
-    'admin/blog/post',
-    AdminBlogPostController::class
-);
+            Route::put('/{user_id}/profile', 'profileUpdate')->name('profileUpdate');
 
-Route::get(
-    'admin/blog/trashed-post',
-    // AdminBlogPostController::class
-    [App\Http\Controllers\AdminBlogPostController::class, 'trashed']
-)->name('post.trashed');
+        });
 
-Route::put(
-    'admin/blog/restorPost/{id}',
-    [App\Http\Controllers\AdminBlogPostController::class, 'restore']
-)->name('post.restore');
+    });
+
+    Route::prefix('blog')->group(function () {
+
+        Route::resource('/category', AdminBlogCategoryController::class);
+        
+        Route::resource('/tag', AdminBlogTagController::class);
+
+        Route::resource('/post', AdminBlogPostController::class);
+
+        Route::controller(AdminBlogPostController::class)->group(function () {
+
+            Route::name('post.')->group(function () {
+
+                Route::get('/trashed-post', 'trashed')->name('trashed');
+
+                Route::put('/restorPost/{id}', 'restore')->name('restore');
+                
+            });
+            
+        });
+
+    });
+    
+    Route::prefix('info')->group(function () {
+
+        // Route::get('/users', function () {
+        //     // Matches The "/admin/users" URL
+        // });
+
+    });
+
+});

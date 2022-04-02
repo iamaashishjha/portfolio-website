@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateBlogPostRequest extends FormRequest
+class StoreEducationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,23 +24,17 @@ class UpdateBlogPostRequest extends FormRequest
      */
     public function rules()
     {
-        $route = $this->route('post');
-        $id_check = ($route) ? "," . $route : ",NULL";
         return [
-            //
-            'title' => 'required|unique:blog_posts,title'.$id_check,
+            'title' => 'required|unique:info_educations,title',
             'description' => 'required|max:250',
-            'content' => 'required',
-            'post_image' => 'max:20000',
-            'alt_text' => 'required',
-            'slug' => 'required|unique:blog_posts,slug'.$id_check,
-            'meta_description' => 'required',
-            'keywords' => 'required',
-            'meta_title' => 'required',
-            'status' => ' nullable',
-            'tags' => 'nullable',
-            'category_id' => 'required'
-
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'education_image' => 'required|max:20000',
+            'institution' => 'required',
+            'university' => 'nullable',
+            'grades' => 'required',
+            'no_of_year' => 'required',
+            'is_active' => 'nullable',
         ];
     }
 
@@ -66,18 +61,16 @@ class UpdateBlogPostRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'Post Title',
-            'description' => 'Post Description',
-            'content' => 'Post Content',
-            'post_image' => 'Post Imgae',
-            'alt_text' => 'Post Image Alt-Text',
-            'slug' => 'Post Slug',
-            'meta_description' => 'Post Meta Description',
-            'keywords' => 'Post Keywords',
-            'meta_title' => 'Post Meta Title',
-            'status' => ' Post Status',
-            'tags' => 'Post Tags',
-            'category_id' => 'Post Category',
+            'title' => 'Education Title',
+            'description' => 'Education Description',
+            'start_date' => 'Education Start Date',
+            'end_date' => 'Education End Date',
+            'education_image' => 'Education Image',
+            'institution' => 'Education Institution Name',
+            'university' => 'Education University',
+            'grades' => 'Education Grades',
+            'no_of_year' => 'No of Years',
+            'is_active' => 'Is Active',
         ];
     }
 }

@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
-class AdminUserDetailController extends Controller
+class AdminUserDetailController extends BaseController
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function profile($id)
     {
@@ -35,4 +31,5 @@ class AdminUserDetailController extends Controller
         $user->update($data);
         return redirect()->back();
     }
+
 }

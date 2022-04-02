@@ -18,6 +18,8 @@
 
 
 @section('content')
+@include('partials.ar.modelMessage')
+
 <div class="intro-y flex items-center mt-8 ">
     <h2 class="text-lg font-medium mr-auto">
         {{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'".' : 'Create New Blog Tag' }}
@@ -28,12 +30,11 @@
         <!-- BEGIN: Input -->
         <div class="intro-y box">
             <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 {{ isset($tag) ? 'bg-theme-9 text-white' : 'bg-theme-1 text-white' }}">
-
                 <h2 class="font-medium text-base mr-auto">
                     Enter Tag Details
                 </h2>
             </div>
-            @include('partials.ar.messages')
+            {{-- @include('partials.ar.messages') --}}
             <form action="{{ isset($tag) ? route('tag.update', $tag->id) : route('tag.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($tag))
@@ -47,11 +48,7 @@
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="title" name="title" class="{{ isset($tag) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('title') border-theme-6 @enderror" placeholder="Enter Name" value="{{ isset($tag) ? $tag->title : old('title') }}" {{ isset($tag) ? 'readonly' : '' }}>
-                            @error('title')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            
                         </div>
                         <div class="mt-3">
                             <h5 class="text-lg ext-theme-9 @error('description') text-theme-6 @enderror font-medium leading-none">
@@ -59,11 +56,7 @@
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="description" name="description" class="input w-full border mt-2 @error('description') border-theme-6 @enderror" placeholder="Enter Description in 250 Words." value="{{ isset($tag) ? $tag->description : old('description') }}">
-                            @error('description')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            
                         </div>
                         <div class="mt-5 mb-5">
                             <div class="w-full sm:w-auto flex items-center sm:ml-auto mt-3 sm:mt-0">
@@ -84,11 +77,7 @@
                                     <input type="file" name="tag_image" class="w-full h-full top-0 left-0 absolute opacity-0" onchange="loadFile(event)" value="{{ old('tag_image') }}">
                                 </div>
                             </div>
-                            @error('tag_image')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            
                         </div>
                         <div class="mt-3">
                             <label>Tag Slug</label>

@@ -51,6 +51,8 @@ class StoreBlogTagsRequest extends FormRequest
             // 'in' => 'The :attribute must be one of the following types: :values',
             'unique' => 'The :attribute must be unique',
             'required' => 'The :attribute field is required',
+            'max' => 'The :attribute size cannot be greater than :max'
+
         ];
     }
 

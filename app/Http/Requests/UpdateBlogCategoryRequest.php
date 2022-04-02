@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\BlogCategory;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateBlogCategoryRequest extends FormRequest
@@ -23,15 +24,18 @@ class UpdateBlogCategoryRequest extends FormRequest
      */
     public function rules()
     {
+        $route = $this->route('category');
+        $id_check = ($route) ? "," . $route : ",NULL";
+
         return [
-            'title' => 'required',
+            'title' => 'required|unique:blog_categories,title'.$id_check,
             'description' => 'required|max:250',
-            'category_image' => 'max:20000',
-            'slug' => 'required',
+            'category_image' => 'nullable|max:20000',
+            'slug' => 'required|unique:blog_categories,title'.$id_check,
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',
-            'status' => 'nullable'
+            'status' => ' nullable'
         ];
     }
 

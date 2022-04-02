@@ -4,38 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
-class BlogCategory extends Model
+class InfoEducation extends Model
 {
     use HasFactory;
 
-    protected $table = 'blog_categories';
+    use SoftDeletes;
+
+    protected $table = 'info_educations';
 
     protected $fillable = [
-        'title', 'description', 'category_image',
-        'slug', 'meta_description', 'meta_title', 'keywords',
-        'status', 'is_deleted', 'created_by', 'updated_by', 'deleted_by'
+        'title', 'description', 'start_date', 'end_date', 'education_image',
+        'university', 'grades', 'no_of_year', 'created_by', 'updated_by', 'deleted_by',
+        'is_active', 'is_deleted', 'institution',
     ];
 
     protected $guarded = ['id'];
 
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    // public function getRouteKeyName()
-    // {
-    //     return 'slug';
-    // }
-
-
     public function checkStatus()
     {
         # code...
-        $status = $this->attributes['status'];
+        $status = $this->attributes['is_active'];
         if ($status == 0) {
             return '';
         } else {
@@ -43,8 +34,7 @@ class BlogCategory extends Model
         }
     }
 
-
-    public function getStatusAttribute()
+    public function getIsActiveAttribute()
     {
         $status = $this->attributes['status'];
         if ($status == 0) {
@@ -58,13 +48,7 @@ class BlogCategory extends Model
 
     public function getImageAttribute()
     {
-        return '/storage/' . $this->category_image;
-    }
-
-    public function posts()
-    {
-        # code...
-        return $this->hasMany(BlogPost::class, 'category_id', 'id');
+        return '/storage/' . $this->tag_image;
     }
 
     public function deleteImage()

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class BlogTags extends Model
 {
@@ -22,7 +23,6 @@ class BlogTags extends Model
 
     public function checkStatus()
     {
-        # code...
         $status = $this->attributes['status'];
         if($status == 0){
             return '';
@@ -30,7 +30,6 @@ class BlogTags extends Model
             return 'checked';
         }
     }
-
 
     public function getStatusAttribute()
     {
@@ -53,5 +52,10 @@ class BlogTags extends Model
     {
         # code...
         return $this->belongsToMany(BlogPost::class);
+    }
+
+    public function deleteImage()
+    {
+        Storage::delete($this->image);
     }
 }

@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AdminCategoryCreateRequest;
-use App\Http\Requests\AdminCategoryUpdateRequest;
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreBlogCategoryRequest;
 use App\Http\Requests\UpdateBlogCategoryRequest;
 use App\Models\BlogCategory;
-// use Facade\FlareClient\Stacktrace\File;
 
 use Illuminate\Support\Facades\File;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use UxWeb\SweetAlert\SweetAlert;
 
-class AdminBlogCategoryController extends Controller
+class AdminBlogCategoryController extends BaseController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -70,6 +67,7 @@ class AdminBlogCategoryController extends Controller
         $blogCategory->save();
 
         Alert::toast('Category Created Successfully', 'success');
+        // alert()->success('Success Message', 'Category Created Successfully');
         return redirect(route('category.index'));
     }
 
@@ -112,10 +110,11 @@ class AdminBlogCategoryController extends Controller
         $blogCategory->description = $request->description;
 
         if ($request->has('category_image') && ($request->category_image != '')) {
-            $imagePath = public_path('storage/' . $blogCategory->category_image);
+
+            $imagePath = $blogCategory->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
-                File::delete('blogs/blog-category/' . $blogCategory->category_image);
+                $blogCategory->deleteImage();
             }
             $path = $request->category_image->store('blogs/blog-category', 'public');
             $blogCategory->category_image = $path;
@@ -137,7 +136,8 @@ class AdminBlogCategoryController extends Controller
 
         $blogCategory->save();
         Alert::toast('Category Updated Successfully', 'success');
-        return redirect(route('category.index'));
+
+        // return redirect()->route('category.index')->with('message','Data added Successfully');
     }
 
     /**
@@ -149,10 +149,19 @@ class AdminBlogCategoryController extends Controller
     public function destroy($id)
     {
         $category = BlogCategory::find($id);
-        $category->delete();
-        // $category->is_deleted = 1;
-        // $category->deleted_by = Auth::user()->id;
-        Alert::toast('Category Deleted Successfully', 'success');
-        return redirect()->back();
+        $imagePath = $category->image;
+        if ($category->posts->count() < 0) {
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $category->deleteImage();
+            }
+
+            $category->delete();
+            Alert::toast('Category Deleted Successfully', 'success');
+            return redirect()->back();
+        } else {
+            Alert::toast('Category has Posts. Delete them first.', 'error');
+            return redirect()->back();
+        }
     }
 }

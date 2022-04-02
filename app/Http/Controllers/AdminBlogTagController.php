@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreBlogTagsRequest;
 use App\Http\Requests\UpdateBlogTagsRequest;
 use App\Models\BlogTags;
@@ -15,8 +16,10 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use UxWeb\SweetAlert\SweetAlert;
 
-class AdminBlogTagController extends Controller
+class AdminBlogTagController extends BaseController
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -111,12 +114,12 @@ class AdminBlogTagController extends Controller
         $tag->description = $request->description;
 
         if ($request->has('tag_image') && ($request->tag_image != '')) {
-            $imagePath = public_path('storage/' . $tag->tag_image);
+            $imagePath = $tag->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
-                File::delete('blogs/blog-category/' . $tag->tag_image);
+                File::delete('blogs/blog-tag/' . $tag->tag_image);
             }
-            $path = $request->tag_image->store('blogs/blog-category', 'public');
+            $path = $request->tag_image->store('blogs/blog-tag', 'public');
             $tag->tag_image = $path;
         }
 
@@ -148,7 +151,12 @@ class AdminBlogTagController extends Controller
     public function destroy($id)
     {
         $tag = BlogTags::find($id);
+        $imagePath = $tag->image;
+        unlink($imagePath);
+        $tag->deleteImage();
         $tag->delete();
+
+        
         // $category->is_deleted = 1;
         // $category->deleted_by = Auth::user()->id;
         Alert::toast('Tag Deleted Successfully', 'success');

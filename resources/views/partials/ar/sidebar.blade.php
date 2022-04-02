@@ -1,8 +1,8 @@
 <!-- BEGIN: Side Menu -->
 <nav class="side-nav" id="sidebar">
-    <a href="" class="intro-x flex items-center pl-5 pt-4">
+    <a href="/admin" class="intro-x flex items-center pl-5 pt-4">
         <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
-        <span class="hidden xl:block text-white text-lg ml-3"> Mid<span class="font-medium">one</span> </span>
+        <span class="hidden xl:block text-white text-lg ml-3"> Aashish <span class="font-medium">Jha</span> </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -56,6 +56,53 @@
 
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/info/*') ? 'side-menu--active' : '' }} " id="information_menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Information <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="side-menu-inbox.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                        <div class="side-menu__title"> Education </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="side-menu-point-of-sale.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
+                        <div class="side-menu__title"> Experience </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="side-menu-chat.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
+                        <div class="side-menu__title"> References </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="side-menu-post.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+                        <div class="side-menu__title"> Portfolio </div>
+                    </a>
+                </li>
+                @php
+                    $user = Auth::user();
+                @endphp
+                <li>
+                    <a href="{{ route('admin.profile', $user->id) }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+                        <div class="side-menu__title">
+                            About Me
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        {{-- <li class="side-nav__devider my-6"></li> --}}
+
 
         {{-- <li>
             <a href="javascript:;" class="side-menu">
@@ -90,50 +137,8 @@
             </a>
         </li> --}}
 
-        <li>
-            <a href="javascript:;" class="side-menu " id="information_menu">
-                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                <div class="side-menu__title"> Information <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
-            </a>
-            <ul class="collapse">
-                <li>
-                    <a href="side-menu-inbox.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                        <div class="side-menu__title"> Education </div>
-                    </a>
-                </li>
-        
-                <li>
-                    <a href="side-menu-point-of-sale.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                        <div class="side-menu__title"> Experience </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-chat.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                        <div class="side-menu__title"> References </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-post.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                        <div class="side-menu__title"> Portfolio </div>
-                    </a>
-                </li>
-                
-            </ul>
-        </li>
-        <li class="side-nav__devider my-6"></li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
-                        <div class="side-menu__title">
-                            About Me
-                        </div>
-                    </a>
-                </li>
-        
+
+
         {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>

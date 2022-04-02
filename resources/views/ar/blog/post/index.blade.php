@@ -17,6 +17,8 @@ All Blog Posts
 @endsection
 
 @section('content')
+@include('partials.ar.modelMessage')
+
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         All Blog Posts
@@ -67,8 +69,8 @@ All Blog Posts
                         {{ $post->category->title }}
                     </td>
 
-                    <td class="w-40 border-b">
-                        {{ $post->category->title }}
+                    <td class="text-center w-40 border-b">
+                    {!! $post->tags !!}
                     </td>
                     <td class="w-40 border-b">
                         {!! $post->status !!}

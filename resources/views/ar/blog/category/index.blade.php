@@ -13,6 +13,7 @@ All Blog Categories | Aashish Jha
 @endsection
 
 @section('content')
+@include('partials.ar.modelMessage')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         Blog Categories
@@ -98,6 +99,8 @@ All Blog Categories | Aashish Jha
 @endsection
 
 @section('script')
+@include('partials.ar.messageScript')
+
 <script>
     $(document).ready(function() {
         var t = $('.datatable').DataTable({
