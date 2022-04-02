@@ -117,7 +117,7 @@ class AdminBlogTagController extends BaseController
             $imagePath = $tag->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
-                File::delete('blogs/blog-tag/' . $tag->tag_image);
+                $tag->deleteImage();
             }
             $path = $request->tag_image->store('blogs/blog-tag', 'public');
             $tag->tag_image = $path;
@@ -152,8 +152,10 @@ class AdminBlogTagController extends BaseController
     {
         $tag = BlogTags::find($id);
         $imagePath = $tag->image;
-        unlink($imagePath);
-        $tag->deleteImage();
+        if (File::exists($imagePath)) {
+            unlink($imagePath);
+            $tag->deleteImage();
+        }
         $tag->delete();
 
         

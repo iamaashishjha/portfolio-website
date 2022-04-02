@@ -172,7 +172,6 @@ class AdminBlogPostController extends BaseController
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
 
-        $post->tags()->attach($request->tags);
 
         if ($request->has('post_image')) {
             $path = $request->post_image->store('blogs/blog-post', 'public');
@@ -210,6 +209,8 @@ class AdminBlogPostController extends BaseController
         $post->created_by = Auth::user()->id;
         $post->save();
 
+        $post->blogTags()->attach($request->tags);
+
         Alert::toast('Post Updated Successfully', 'success');
         return redirect(route('post.index'));
     }
@@ -227,8 +228,10 @@ class AdminBlogPostController extends BaseController
             ->where('id', $id)->first();
         $imagePath = $post->image;    
         if ($post->trashed()) {
-            unlink($imagePath);
-            $post->deleteImage();
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $post->deleteImage();
+            }
             $post->forceDelete();
             Alert::toast('Post Deleted Successfully', 'success');
             return redirect()->back();
