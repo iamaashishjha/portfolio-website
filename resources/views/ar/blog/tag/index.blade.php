@@ -32,7 +32,7 @@ All Blog Tags | Aashish Jha
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Tag Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Slug</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Created At</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
@@ -54,7 +54,7 @@ All Blog Tags | Aashish Jha
                         </div>
                     </div>
                 </td>
-                <td class="text-center border-b">{{ $tag->slug }}</td>
+                <td class="text-center border-b">{{ isset($tag->posts) ? $tag->posts->count() : '0' }}</td>
                 <td class="w-40 border-b">
                     {!! $tag->status !!}
                 </td>
@@ -64,11 +64,11 @@ All Blog Tags | Aashish Jha
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3" href="{{ route('tag.edit', $tag->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $tag->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                     </div>
                 </td>
             </tr>
-            <div class="modal" id="delete-modal-preview">
+            <div class="modal" id="delete-modal-preview-{{ $tag->id }}">
                 <div class="modal__content">
                     <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                         <div class="text-3xl mt-5">Are you sure?</div>

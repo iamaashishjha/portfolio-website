@@ -8,6 +8,56 @@
     </div>
     <ul class="border-t border-theme-24 py-5 hidden">
         <li>
+            <a href="/admin" class="menu {{ request()->is('admin') ? 'menu--active' : 'menu--active' }} " id="dashboard">
+                <div class="menu__icon"> <i data-feather="home"></i> </div>
+                <div class="menu__title"> Dashboard </div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="menu {{ request()->is('admin/blog/*') ? 'menu--active' : '' }} " id="blog_menu">
+                <div class="menu__icon"> <i data-feather="box"></i> </div>
+                <div class="menu__title"> Blogs <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="{{ route('post.create') }}" class="menu" id="blog_submenu">
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title"> Create New Post </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('post.index') }}" class="menu" id="blog_submenu">
+
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title"> All Posts </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('post.trashed') }}" class="menu" id="blog_submenu">
+
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title"> Trashed Posts </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('category.index') }}" class="menu" id="blog_submenu">
+
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title"> Blog Categories </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('tag.index') }}" class="menu" id="blog_submenu">
+
+                        <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="menu__title"> Blog Tags </div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+        {{-- <li>
             <a href="index.html" class="menu menu--active">
                 <div class="menu__icon"> <i data-feather="home"></i> </div>
                 <div class="menu__title"> Dashboard </div>
@@ -462,7 +512,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
     </ul>
 </div>
 <!-- END: Mobile Menu -->

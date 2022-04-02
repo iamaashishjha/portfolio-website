@@ -7,7 +7,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('category.index') }}" class="">Blog Category</a>
+    <a href="{{ route('category.index') }}" class="">Blog Category</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{ isset($category) ? 'Edit Category ' : 'Create New Blog Category' }}</a>
     </div>
@@ -30,7 +30,8 @@
                         Enter Category Details
                     </h2>
                 </div>
-                @include('partials.ar.messages')
+                {{-- @include('partials.ar.messages') --}}
+                @include('partials.ar.modelMessage')
                 <form action="{{ isset($category) ? route('category.update', $category->id) : route('category.store') }}"
                     method="post" enctype="multipart/form-data">
                     @csrf
@@ -159,19 +160,11 @@
 @endsection
 
 @section('script')
+<script src="/ar/dist/js/custom.js"></script>
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('category-image');
             image.src = URL.createObjectURL(event.target.files[0]);
         };
-        // $(document).ready(function() {
-        //     Swal.fire({
-        //         title: 'Error!'
-        //         , text: 'Do you want to continue'
-        //         , icon: 'error'
-        //         , confirmButtonText: 'Cool'
-        //     })
-        // });
     </script>
-    <script src="/ar/dist/js/custom.js"></script>
 @endsection

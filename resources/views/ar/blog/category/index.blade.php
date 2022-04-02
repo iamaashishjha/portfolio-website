@@ -6,7 +6,7 @@ All Blog Categories | Aashish Jha
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="" class="">Blogs</a>
+    <a href="{{ route('category.index') }}" class="">Blog Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Blog Categories</a>
 </div>
@@ -29,7 +29,7 @@ All Blog Categories | Aashish Jha
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Category Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Slug</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Created At</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
@@ -51,7 +51,7 @@ All Blog Categories | Aashish Jha
                         </div>
                     </div>
                 </td>
-                <td class="text-center border-b">{{ $category->slug }}</td>
+                <td class="text-center border-b">{{ $category->posts->count() }}</td>
                 <td class="w-40 border-b">
                     {!! $category->status !!}
                 </td>
@@ -61,11 +61,11 @@ All Blog Categories | Aashish Jha
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3" href="{{ route('category.edit', $category->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
-                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
+                        <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $category->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                     </div>
                 </td>
             </tr>
-            <div class="modal" id="delete-modal-preview">
+            <div class="modal" id="delete-modal-preview-{{ $category->id }}">
                 <div class="modal__content">
                     <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                         <div class="text-3xl mt-5">Are you sure?</div>

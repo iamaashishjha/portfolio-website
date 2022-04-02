@@ -256,20 +256,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="sweetalert2.all.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @yield('script')
-
-
-    <script>
-        // $("#sidebar li #blog_submenu").on("click", function(e) {
-        //     // e.preventDefault();
-        //     if ($(this).parent().hasClass('collapse')) {
-        //         $(this).parent().parent().addClass("side-menu--active");
-        //     } else {
-        //         $("#sidebar li a").removeClass("side-menu--active");
-        //         $("#sidebar li #blog_menu").addClass("side-menu--active");
-        //     }
-        // });
-
-    </script>
     <!-- END: JS Assets-->
 </body>
 </html>

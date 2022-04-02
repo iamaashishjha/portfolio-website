@@ -52,6 +52,6 @@ class BlogTags extends Model
     public function posts()
     {
         # code...
-        return $this->belongsToMany(BlogPost::class, 'blog_post_id', 'id');
+        return $this->belongsToMany(BlogPost::class);
     }
 }
