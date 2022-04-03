@@ -25,11 +25,8 @@ class CreateEducationTable extends Migration
             $table->string('grades')->nullable();
             $table->smallInteger('no_of_year');
             $table->boolean('is_active')->default(0);
-            $table->boolean('is_deleted')->default(0);
             $table->unsignedSmallInteger('created_by')->nullable();
             $table->unsignedSmallInteger('updated_by')->nullable();
-            $table->unsignedSmallInteger('deleted_by')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-{{ isset($post) ? 'Edit New Blog Post ' . '"' . $post->title . '". | Aashish Jha' : 'Create New Blog Post | Aashish Jha' }}
+{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Aashish Jha' : 'Create New Blog Post | Aashish Jha' }}
 
 
 @endsection

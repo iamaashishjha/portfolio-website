@@ -26,11 +26,11 @@ class UpdateEducationRequest extends FormRequest
         $route = $this->route('education');
         $id_check = ($route) ? "," . $route : ",NULL";
         return [
-            'title' => 'required|unique:info_educations,title',
+            'title' => 'required|unique:info_educations,title'.$id_check,
             'description' => 'required|max:250',
             'start_date' => 'required',
             'end_date' => 'required',
-            'education_image' => 'required|max:20000',
+            'education_image' => 'max:20000',
             'university' => 'nullable',
             'grades' => 'required',
             'no_of_year' => 'required',

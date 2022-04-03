@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminInfoEducationController;
 use App\Http\Controllers\AdminUserDetailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -72,9 +73,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     
     Route::prefix('info')->group(function () {
 
-        // Route::get('/users', function () {
-        //     // Matches The "/admin/users" URL
-        // });
+        Route::resource('/education', AdminInfoEducationController::class);
 
     });
 

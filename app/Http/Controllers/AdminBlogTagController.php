@@ -51,25 +51,25 @@ class AdminBlogTagController extends BaseController
     public function store(StoreBlogTagsRequest $request)
     {
         $path = $request->tag_image->store('blogs/blog-tag', 'public');
-        $blogCategory = new BlogTags();
-        $blogCategory->title = $request->title;
-        $blogCategory->description = $request->description;
-        $blogCategory->tag_image = $path;
-        $blogCategory->meta_description = $request->meta_description;
-        $blogCategory->meta_title = $request->meta_title;
-        $blogCategory->slug = $request->slug;
+        $tag = new BlogTags();
+        $tag->title = $request->title;
+        $tag->description = $request->description;
+        $tag->tag_image = $path;
+        $tag->meta_description = $request->meta_description;
+        $tag->meta_title = $request->meta_title;
+        $tag->slug = $request->slug;
 
         if ($request->has('status')) {
             //Checkbox checked
-            $blogCategory->status = 1;
+            $tag->status = 1;
         } else {
             //Checkbox not checked
-            $blogCategory->status = 0;
+            $tag->status = 0;
         }
 
-        $blogCategory->keywords = $request->keywords;
-        $blogCategory->created_by = Auth::user()->id;
-        $blogCategory->save();
+        $tag->keywords = $request->keywords;
+        $tag->created_by = Auth::user()->id;
+        $tag->save();
 
         Alert::toast('Tag Created Successfully', 'success');
         return redirect(route('tag.index'));

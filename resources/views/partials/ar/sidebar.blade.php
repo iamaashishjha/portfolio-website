@@ -63,12 +63,11 @@
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="side-menu-inbox.html" class="side-menu">
+                    <a href="{{ route('education.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
                         <div class="side-menu__title"> Education </div>
                     </a>
                 </li>
-
                 <li>
                     <a href="side-menu-point-of-sale.html" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>

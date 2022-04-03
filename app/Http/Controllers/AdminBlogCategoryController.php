@@ -46,25 +46,25 @@ class AdminBlogCategoryController extends BaseController
     public function store(StoreBlogCategoryRequest $request)
     {
         $path = $request->category_image->store('blogs/blog-category', 'public');
-        $blogCategory = new BlogCategory();
-        $blogCategory->title = $request->title;
-        $blogCategory->description = $request->description;
-        $blogCategory->category_image = $path;
-        $blogCategory->meta_description = $request->meta_description;
-        $blogCategory->meta_title = $request->meta_title;
-        $blogCategory->slug = $request->slug;
+        $category = new BlogCategory();
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->category_image = $path;
+        $category->meta_description = $request->meta_description;
+        $category->meta_title = $request->meta_title;
+        $category->slug = $request->slug;
 
         if ($request->has('status')) {
             //Checkbox checked
-            $blogCategory->status = 1;
+            $category->status = 1;
         } else {
             //Checkbox not checked
-            $blogCategory->status = 0;
+            $category->status = 0;
         }
 
-        $blogCategory->keywords = $request->keywords;
-        $blogCategory->created_by = Auth::user()->id;
-        $blogCategory->save();
+        $category->keywords = $request->keywords;
+        $category->created_by = Auth::user()->id;
+        $category->save();
 
         Alert::toast('Category Created Successfully', 'success');
         // alert()->success('Success Message', 'Category Created Successfully');
@@ -104,37 +104,37 @@ class AdminBlogCategoryController extends BaseController
      */
     public function update(UpdateBlogCategoryRequest $request, $id)
     {
-        $blogCategory = BlogCategory::find($id);
+        $category = BlogCategory::find($id);
 
-        $blogCategory->title = $request->title;
-        $blogCategory->description = $request->description;
+        $category->title = $request->title;
+        $category->description = $request->description;
 
         if ($request->has('category_image') && ($request->category_image != '')) {
 
-            $imagePath = $blogCategory->image;
+            $imagePath = $category->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
-                $blogCategory->deleteImage();
+                $category->deleteImage();
             }
             $path = $request->category_image->store('blogs/blog-category', 'public');
-            $blogCategory->category_image = $path;
+            $category->category_image = $path;
         }
 
         if ($request->has('status')) {
-            $blogCategory->status = 1;
+            $category->status = 1;
         } else {
-            $blogCategory->status = 0;
+            $category->status = 0;
         }
 
-        $blogCategory->meta_description = $request->meta_description;
-        $blogCategory->meta_title = $request->meta_title;
-        $blogCategory->slug = $request->slug;
+        $category->meta_description = $request->meta_description;
+        $category->meta_title = $request->meta_title;
+        $category->slug = $request->slug;
 
-        $blogCategory->keywords = $request->keywords;
-        $blogCategory->updated_by = Auth::user()->id;
-        $blogCategory->updated_at = now();
+        $category->keywords = $request->keywords;
+        $category->updated_by = Auth::user()->id;
+        $category->updated_at = now();
 
-        $blogCategory->save();
+        $category->save();
         Alert::toast('Category Updated Successfully', 'success');
 
         // return redirect()->route('category.index')->with('message','Data added Successfully');
