@@ -15,7 +15,8 @@ class BlogCategory extends Model
     protected $fillable = [
         'title', 'description', 'category_image',
         'slug', 'meta_description', 'meta_title', 'keywords',
-        'status', 'is_deleted', 'created_by', 'updated_by', 'deleted_by'
+        'status', 'is_deleted', 'created_by', 'updated_by',
+        'deleted_by'
     ];
 
     protected $guarded = ['id'];
@@ -70,5 +71,11 @@ class BlogCategory extends Model
     public function deleteImage()
     {
         Storage::delete($this->image);
+    }
+
+    public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class);
     }
 }

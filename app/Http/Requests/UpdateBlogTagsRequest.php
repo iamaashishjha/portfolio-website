@@ -26,10 +26,11 @@ class UpdateBlogTagsRequest extends FormRequest
         $route = $this->route('tag');
         $id_check = ($route) ? "," . $route : ",NULL";
         return [
-            'title' => 'requiredunique:blog_tags,title'.$id_check,
+            'title' => 'required|unique:blog_tags,title'.$id_check,
             'description' => 'required|max:250',
             'tag_image' => 'max:20000',
             'slug' => 'required|unique:blog_tags,slug'.$id_check,
+            // 'slug' => 'required',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',

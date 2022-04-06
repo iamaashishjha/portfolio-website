@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,12 +17,13 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            // 'name' => Str::random(10),
+        User::create([
             'name' => 'Aashish Jha',
-            // 'email' => Str::random(10) . '@gmail.com',
             'email' => 'admin@admin.com',
             'password' => Hash::make('Admin@1234'),
+            'email_verified_at' => now(),
+            'admin' => 1
         ]);
+        User::factory()->count(10)->create();
     }
 }

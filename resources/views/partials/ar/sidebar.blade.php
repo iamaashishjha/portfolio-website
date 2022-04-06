@@ -86,11 +86,31 @@
                         <div class="side-menu__title"> Portfolio </div>
                     </a>
                 </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} " id="information_menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="{{ route('admin.user.registered') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
+                        <div class="side-menu__title"> Registered Users </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.user.admin') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
+                        <div class="side-menu__title"> Admin Users </div>
+                    </a>
+                </li>
                 @php
                     $user = Auth::user();
                 @endphp
                 <li>
-                    <a href="{{ route('admin.profile', $user->id) }}" class="side-menu">
+                    <a href="{{ route('admin.user.profile', $user->id) }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
                         <div class="side-menu__title">
                             About Me

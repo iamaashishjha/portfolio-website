@@ -17,7 +17,7 @@ class BlogPost extends Model
 
     protected $fillable = [
         'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
-        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords'
+        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views'
     ];
 
     protected $guarded = ['id'];
@@ -67,10 +67,15 @@ class BlogPost extends Model
         $tags = $this->blogTags;
         foreach ($tags as $tag) {
             # code...
-           return '<button class='.'"button w-24 shadow-md mr-1 mb-2 text-gray-700'.'">'.$tag->title.'</button>';
+            return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
         }
     }
 
+    public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class);
+    }
 
     public function category()
     {
@@ -89,5 +94,9 @@ class BlogPost extends Model
         Storage::delete($this->image);
     }
 
-
+    public function viewIncrement()
+    {
+        $view = $this->views;
+        return $view++;
+    }
 }

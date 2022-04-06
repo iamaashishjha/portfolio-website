@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\BlogCategory;
-use Carbon\Carbon;
+use App\Models\BlogPost;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-
-class BlogCategorySeeder extends Seeder
+class BlogPostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,6 +14,6 @@ class BlogCategorySeeder extends Seeder
      */
     public function run()
     {
-        BlogCategory::factory()->count(10)->create();
+        BlogPost::factory()->count(50)->create();
     }
 }

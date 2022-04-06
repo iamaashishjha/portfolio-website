@@ -54,6 +54,12 @@ class BlogTags extends Model
         return $this->belongsToMany(BlogPost::class);
     }
 
+    public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class);
+    }
+
     public function deleteImage()
     {
         Storage::delete($this->image);

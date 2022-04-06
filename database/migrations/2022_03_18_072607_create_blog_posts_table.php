@@ -14,6 +14,7 @@ class CreateBlogPostsTable extends Migration
     public function up()
     {
         Schema::create('blog_posts', function (Blueprint $table) {
+            
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
@@ -25,6 +26,7 @@ class CreateBlogPostsTable extends Migration
             $table->boolean('status')->default(0);
             $table->boolean('featured')->default(0);
             $table->string('slug')->nullable();
+            $table->bigInteger('views')->default(0);
             $table->string('meta_description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('keywords')->nullable();
@@ -34,7 +36,6 @@ class CreateBlogPostsTable extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
 
             // $table->foreign('category_id')
             //     ->references('id')

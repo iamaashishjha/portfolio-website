@@ -24,7 +24,8 @@ class User extends Authenticatable
         'profile_image',
         'phone_number',
         'address',
-        'designation'
+        'designation',
+        'admin'
     ];
 
     /**
@@ -45,4 +46,46 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function blogCategories()
+    {
+        return $this->hasMany(BlogCategory::class, 'created_by', 'id');
+    }
+
+    public function catCount()
+    {
+        return $this->blogCategories->count();
+    }
+
+    public function blogTags()
+    {
+        return $this->hasMany(BlogTags::class, 'created_by', 'id');
+    }
+
+    public function tagCount()
+    {
+        return $this->blogTags->count();
+    }
+
+    public function blogPost()
+    {
+        return $this->hasMany(BlogPost::class, 'created_by', 'id');
+    }
+
+    public function postCount()
+    {
+        return $this->blogPost()->count();
+    }
+
+    public function getAdminAttribute()
+    {
+        $status = $this->attributes['admin'];
+        if ($status == 0) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-6' . '"> <i data-feather=' . '"user' . '" class="w-4 h-4 mr-2' . '"></i> User </div>';
+        } elseif ($status == 1) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-9' . '"> <i data-feather=' . '"user-check' . '" class="w-4 h-4 mr-2' . '"></i> Admin </div>';
+        } else {
+            return 'NULL';
+        }
+    }
 }

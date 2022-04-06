@@ -72,10 +72,7 @@ class AdminBlogPostController extends BaseController
         //
         $post = new BlogPost();
 
-        // dd($request->tags);
-
         $path = $request->post_image->store('blogs/blog-post', 'public');
-        // $blogCategory = new BlogCategory();
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -158,10 +155,6 @@ class AdminBlogPostController extends BaseController
         //
         $post = BlogPost::find($id);
 
-        // dd($request->tags);
-
-
-        // $blogCategory = new BlogCategory();
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -171,7 +164,6 @@ class AdminBlogPostController extends BaseController
         $post->meta_title = $request->meta_title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-
 
         if ($request->has('post_image')) {
             $path = $request->post_image->store('blogs/blog-post', 'public');
