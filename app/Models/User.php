@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Laravolt\Avatar\Avatar;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class User extends Authenticatable
 {
@@ -80,12 +83,34 @@ class User extends Authenticatable
     public function getAdminAttribute()
     {
         $status = $this->attributes['admin'];
-        if ($status == 0) {
-            return '<div class=' . '"flex items-center sm:justify-center text-theme-6' . '"> <i data-feather=' . '"user' . '" class="w-4 h-4 mr-2' . '"></i> User </div>';
-        } elseif ($status == 1) {
-            return '<div class=' . '"flex items-center sm:justify-center text-theme-9' . '"> <i data-feather=' . '"user-check' . '" class="w-4 h-4 mr-2' . '"></i> Admin </div>';
-        } else {
-            return 'NULL';
+        return $status;
+    }
+
+    public function getImageAttribute()
+    {
+        $image = $this->profile_image;
+        if ($image != NULL) {
+            # code...
+        return '/storage/' . $image;
+
+        }else{
+            return null;
+        }
+    }
+
+    public function deleteImage()
+    {
+        Storage::delete($this->image);
+    }
+
+    public function isAdmin()
+    {
+        $role = $this->admin;
+        if ($role == 1) {
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }

@@ -20,16 +20,11 @@
         <div class="intro-y box mt-5">
             <div class="relative flex items-center p-5">
                 <div class="w-12 h-12 image-fit">
-                    @if ($user->profile_image)
-                    {{-- <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('storage/avatars/avatar.jpg'); }}"> --}}
-                    <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ asset('storage/').'/'.$user->profile_image }}">
-                    @else
-                    <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="/ar/dist/images/profile-11.jpg">
-                    @endif
+                    <img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}">
                 </div>
                 <div class="ml-4 mr-auto">
                     <div class="font-medium text-base">{{ $user->name }}</div>
-                    <div class="text-gray-600">{{ ($user->designation) ? $user->designation : 'Software Engineer' }}</div>
+                    <div class="text-gray-600">{{ ($user->designation) ? $user->designation : '' }}</div>
                 </div>
                 {{-- <div class="dropdown relative">
                     <a class="dropdown-toggle w-5 h-5 block" href="javascript:;"> <i data-feather="more-horizontal" class="w-5 h-5 text-gray-700"></i> </a>
@@ -54,7 +49,10 @@
                 </div> --}}
             </div>
             <div class="p-5 border-t border-gray-200">
-                <a class="flex items-center text-theme-1 font-medium" href=""> <i data-feather="activity" class="w-4 h-4 mr-2"></i> Personal Information </a>
+                <a class="flex items-center text-theme-1 font-medium" href="">
+                     <i data-feather="activity" class="w-4 h-4 mr-2"></i>
+                      Personal Information 
+                    </a>
                 {{-- <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Account Settings </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Change Password </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> User Settings </a> --}}
@@ -85,7 +83,7 @@
                     <div class="col-span-12 xl:col-span-4">
                         <div class="border border-gray-200 rounded-md p-5">
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                                <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="{{ ($user->profile_image) ? '/storage/'.$user->profile_image : '/ar/dist/images/profile-11.jpg' }}" id="profile_image_display">
+                                <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}" id="profile_image_display">
                             </div>
                             <form action="{{ route('admin.user.profileUpdate', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -108,15 +106,15 @@
                         </div>
                         <div class="mt-3">
                             <label>Phone Number</label>
-                            <input type="text" name="phone_number" class="input w-full border mt-2" placeholder="Enter Phone Number" value="{{ ($user->phone_number ? $user->phone_number : '65570828') }}">
+                            <input type="text" name="phone_number" class="input w-full border mt-2" placeholder="Enter Phone Number" value="{{ ($user->phone_number ? $user->phone_number : '') }}">
                         </div>
                         <div class="mt-3">
                             <label>Designation</label>
-                            <input type="text" name="designation" class="input w-full border mt-2" placeholder="Enter Current Designation" value="{{ ($user->designation ? $user->designation : 'Software Engineer') }}">
+                            <input type="text" name="designation" class="input w-full border mt-2" placeholder="Enter Current Designation" value="{{ ($user->designation ? $user->designation : '') }}">
                         </div>
                         <div class="mt-3">
                             <label>Address</label>
-                            <textarea name="address" class="input w-full border mt-2" placeholder="Adress">{{ ($user->address) ? $user->address : '10 Anson Road, International Plaza, #10-11, 079903 Singapore, Singapore'}}</textarea>
+                            <textarea name="address" class="input w-full border mt-2" placeholder="Adress">{{ ($user->address) ? $user->address : '' }}</textarea>
                         </div>
                         <button type="submit" class="button w-20 bg-theme-1 text-white mt-3">Save</button>
                         </form>

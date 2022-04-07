@@ -31,7 +31,7 @@ Route::get(
     [App\Http\Controllers\HomeController::class, 'index']
 )->name('home');
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::name('admin.')->group(function () {
 
@@ -50,7 +50,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
                     Route::get('/registered-users', 'registeredUsers')->name('registered');
 
+                    Route::put('/registered-user/{user_id}', 'makeAdmin')->name('admin.make');
+
                     Route::get('/admin-users', 'adminUsers')->name('admin');
+
+                    Route::put('/admin-user/{user_id}', 'removeAdmin')->name('admin.remove');
+
+                    Route::delete('/user/{user_id}', 'deleteUser')->name('admin.delete');
 
                     Route::put('/{user_id}/profile', 'profileUpdate')->name('profileUpdate');
                 });

@@ -164,6 +164,8 @@ return [
         // 'Prologue\Alerts\AlertsServiceProvider',
         // UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -236,6 +238,8 @@ return [
         // 'Alert' => 'Prologue\Alerts\Facades\Alert',
         // 'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Avatar'    => Laravolt\Avatar\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

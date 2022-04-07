@@ -2,24 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Models\User;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\File;
 
-class AdminUserController extends Controller
+class AdminUserController extends BaseController
 {
     public function registeredUsers()
     {
         # code...
         $users = User::where('admin', 0)->get();
         return view('ar.user.registered')
-        ->with('users', $users);
+            ->with('users', $users);
     }
 
     public function adminUsers()
     {
         $users = User::where('admin', 1)->get();
         return view('ar.user.admin')
-        ->with('users', $users);
+            ->with('users', $users);
+    }
+
+    public function makeAdmin($id)
+    {
+        $user = User::find($id);
+        $user->admin = 1;
+        $user->save();
+        Alert::toast('User has been made admin', 'success');
+        return redirect()->back();
+    }
+
+    public function removeAdmin($id)
+    {
+        $user = User::find($id);
+        if ($user->id === 1) {
+            Alert::error('User cannot be removed from Admin');
+            return redirect()->back();
+        } elseif(($user->catCount() > 0) || ($user->tagCount() > 0) ){
+            Alert::error('User cannot be removed from Admin. User has Created Categories/Tags. Delete them before removing user from admin.');
+            return redirect()->back();
+        }else {
+            $user->admin = 0;
+            $user->save();
+            Alert::toast('User removed from admin', 'success');
+            return redirect()->back();
+        }
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+
+        if ($user->id === 1) {
+            Alert::toast('User cannot be Deleted.', 'error');
+            return redirect()->back();
+        }
+        elseif(($user->catCount() > 0) || ($user->tagCount() > 0) ){
+            Alert::error('User cannot be deleted. User has Created Categories/Tags. Delete them before deleting user.');
+            return redirect()->back();
+        }elseif($user->id == Auth::user()->id){
+            Alert::toast('User cannot Delete itself.', 'error');
+            return redirect()->back();
+        }else {
+            $imagePath = $user->image;
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $user->deleteImage();
+            }
+            $user->delete();
+            Alert::toast('User has been deleted.', 'success');
+            return redirect()->back();
+        }
     }
 
     public function profile($id)
@@ -31,15 +88,25 @@ class AdminUserController extends Controller
     public function profileUpdate(Request $request, $id)
     {
         $user = User::find($id);
-        $data['phone_number'] = $request->phone_number;
-        $data['address'] = $request->address;
-        $data['designation'] = $request->designation;
 
-        if ($request->profile_image) {
+        $user->phone_number = $request->phone_number;
+
+        $user->address = $request->address;
+
+        $user->designation = $request->designation;
+
+        if ($request->has('profile_image') && ($request->profile_image != '')) {
+            $imagePath = $user->image;
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $user->deleteImage();
+            }
             $path = $request->profile_image->store('users', 'public');
-            $data['profile_image'] = $path;
+            $user->profile_image = $path;
         }
-        $user->update($data);
+
+        $user->save();
+        Alert::toast('Profile Updated Successfully', 'success');
         return redirect()->back();
     }
 }
