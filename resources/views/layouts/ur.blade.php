@@ -19,7 +19,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="author" content="LEFT4CODE">
 
     <title>
-        @yield('title', 'Admin Panel')
+        @yield('title', 'User Panel')
     </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
@@ -38,17 +38,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END: Head -->
 <body class="app">
     @php
-use Prologue\Alerts\Facades\Alert;
+
     @endphp
 
-    {{-- @include('sweetalert::alert') --}}
-    @foreach (Alert::all() as $alert)
-    {{ $alert }}
-@endforeach
+    @include('sweetalert::alert')
     {{-- @include('sweet::alert') --}}
-    @include('partials.ar.mobileMenu')
+    @include('partials.ur.mobileMenu')
     <div class="flex">
-        @include('partials.ar.sidebar')
+        @include('partials.ur.sidebar')
         <div class="content">
             <!-- BEGIN: Top Bar -->
             <div class="top-bar">
@@ -158,7 +155,7 @@ use Prologue\Alerts\Facades\Alert;
                                 <div class="text-xs text-theme-41">{{ ($user->designation) ? $user->designation : 'Software Engineer' }}</div>
                             </div>
                             <div class="p-2">
-                                <a href="{{ route('admin.user.profile', $user->id) }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>
+                                <a href="{{ route('user.profile.view', $user->id) }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>
                                 {{-- <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="edit" class="w-4 h-4 mr-2"></i> Add Account </a>
                                 <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Reset Password </a>
                                 <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help </a> --}}

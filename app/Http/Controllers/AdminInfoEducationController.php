@@ -70,7 +70,7 @@ class AdminInfoEducationController extends BaseController
         $education->save();
 
         Alert::toast('Education Created Successfully', 'success');
-        return redirect()->route('education.index');
+        return redirect()->route('admin.info.education.index');
     }
 
     /**
@@ -139,7 +139,7 @@ class AdminInfoEducationController extends BaseController
         $education->save();
 
         Alert::toast('Education Updated Successfully', 'success');
-        return redirect()->route('education.index');
+        return redirect()->route('admin.info.education.index');
     }
 
     /**

@@ -161,9 +161,11 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        // 'Prologue\Alerts\AlertsServiceProvider',
+        Prologue\Alerts\AlertsServiceProvider::class,
         // UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Laravolt\Avatar\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -233,9 +235,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // 'Alert' => 'Prologue\Alerts\Facades\Alert',
+        'Alert' => 'Prologue\Alerts\Facades\Alert',
         // 'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        // 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Avatar'    => Laravolt\Avatar\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

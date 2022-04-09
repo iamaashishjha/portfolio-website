@@ -1,8 +1,12 @@
-@extends('layouts.ar')
+@extends('layouts.ur')
+
+@section('title')
+    User Dashboard
+@endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="/admin" class="">Profile</a>
+    <a href="/dashboard" class="">Profile</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">User Profile Update</a>
 </div>
@@ -85,7 +89,7 @@
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}" id="profile_image_display">
                             </div>
-                            <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="w-40 mx-auto cursor-pointer relative mt-5">

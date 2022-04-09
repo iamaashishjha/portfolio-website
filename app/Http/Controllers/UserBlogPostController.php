@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\User\BaseController;
 use App\Http\Requests\StoreBlogPostRequest;
+use App\Http\Requests\StoreUserBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
+use App\Http\Requests\UpdateUserBlogPostRequest;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
@@ -13,9 +15,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminBlogPostController extends BaseController
+class UserBlogPostController extends BaseController
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +24,7 @@ class AdminBlogPostController extends BaseController
      */
     public function index()
     {
+        $user = Auth::user()->id;
         $categories = BlogCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -32,10 +34,10 @@ class AdminBlogPostController extends BaseController
             ->get();
 
         $posts = BlogPost::where('is_deleted', 0)
-            // ->where('status', 1)
+            ->where('created_by', $user)
             ->get();
 
-        return view('ar.blog.post.index')
+        return view('ur.blog.post.index')
             ->with('tags', $tags)
             ->with('categories', $categories)
             ->with('posts', $posts);
@@ -56,7 +58,7 @@ class AdminBlogPostController extends BaseController
             ->where('status', 1)
             ->get();
 
-        return view('ar.blog.post.create')
+        return view('ur.blog.post.create')
             ->with('tags', $tags)
             ->with('categories', $categories);
     }
@@ -67,9 +69,8 @@ class AdminBlogPostController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogPostRequest $request)
+    public function store(StoreUserBlogPostRequest $request)
     {
-        //
         $post = new BlogPost();
 
         $path = $request->post_image->store('blogs/blog-post', 'public');
@@ -105,7 +106,7 @@ class AdminBlogPostController extends BaseController
         $post->save();
         $post->blogTags()->attach($request->tags);
         Alert::toast('Post Created Successfully', 'success');
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('user.post.index');
     }
 
     /**
@@ -150,9 +151,8 @@ class AdminBlogPostController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogPostRequest $request, $id)
+    public function update(UpdateUserBlogPostRequest $request, $id)
     {
-        //
         $post = BlogPost::find($id);
 
         $post->title = $request->title;
@@ -204,7 +204,7 @@ class AdminBlogPostController extends BaseController
         $post->blogTags()->attach($request->tags);
 
         Alert::toast('Post Updated Successfully', 'success');
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('user.post.index');
     }
 
     /**
@@ -215,7 +215,6 @@ class AdminBlogPostController extends BaseController
      */
     public function destroy($id)
     {
-        //
         $post = BlogPost::withTrashed()
             ->where('id', $id)->first();
         $imagePath = $post->image;    
@@ -239,9 +238,9 @@ class AdminBlogPostController extends BaseController
 
     public function trashed()
     {
-        # code...
-        $posts = BlogPost::onlyTrashed()->where('is_deleted', 0)->get();
-        return view('ar.blog.post.trash')
+        $user = Auth::user()->id;
+        $posts = BlogPost::onlyTrashed()->where('is_deleted', 0)->where('created_by', $user)->get();
+        return view('ur.blog.post.trash')
             ->with('posts', $posts);
     }
 
@@ -254,5 +253,6 @@ class AdminBlogPostController extends BaseController
         $post->restore();
         Alert::toast('Post Restored Successfully', 'success');
         return redirect()->back();
+        # code...
     }
 }

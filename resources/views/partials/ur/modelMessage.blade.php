@@ -2,7 +2,6 @@
 @php
 $array = array($errors->all());
 toast($array,'error');
-// Alert::info($array);
 @endphp
 {{-- <script>
     var has_error = ({{ $array->count() > 0 ? "true" : }})

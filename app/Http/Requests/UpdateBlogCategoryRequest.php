@@ -28,7 +28,7 @@ class UpdateBlogCategoryRequest extends FormRequest
         $id_check = ($route) ? "," . $route : ",NULL";
 
         return [
-            'title' => 'required|unique:blog_categories,title'.$id_check,
+            // 'title' => 'required|unique:blog_categories,title'.$id_check,
             'description' => 'required|max:250',
             'category_image' => 'nullable|max:20000',
             // 'slug' => 'required|unique:blog_categories,title'.$id_check,
