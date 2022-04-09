@@ -7,7 +7,7 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('category.index') }}" class="">Blog Category</a>
+    <a href="{{ route('admin.blog.category.index') }}" class="">Blog Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">{{ isset($category) ? 'Edit Category ' : 'Create New Blog Category' }}</a>
 </div>
@@ -20,7 +20,7 @@
     </h2>
 
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('category.index') }}">All Blog Categories</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.category.index') }}">All Blog Categories</a>
     </div>
 </div>
 <div class="grid grid-cols-12 gap-6 mt-5">
@@ -36,7 +36,7 @@
             </div>
             {{-- @include('partials.ar.messages') --}}
             @include('partials.ar.modelMessage')
-            <form action="{{ isset($category) ? route('category.update', $category->id) : route('category.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($category) ? route('admin.blog.category.update', $category->id) : route('admin.blog.category.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($category))
                 @method('PUT')

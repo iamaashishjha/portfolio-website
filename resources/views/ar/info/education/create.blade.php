@@ -19,7 +19,7 @@
         {{ isset($education) ? 'Edit Education ' . '"' . $education->title . '".' : 'Create New Education' }}
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('education.index') }}">All Educations</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.info.education.index') }}">All Educations</a>
     </div>
 </div>
 <div class="grid grid-cols-12 gap-6 mt-5">
@@ -35,7 +35,7 @@
             </div>
             {{-- @include('partials.ar.messages') --}}
             @include('partials.ar.modelMessage')
-            <form action="{{ isset($education) ? route('education.update', $education->id) : route('education.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($education) ? route('admin.info.education.update', $education->id) : route('admin.info.education.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($education))
                 @method('PUT')

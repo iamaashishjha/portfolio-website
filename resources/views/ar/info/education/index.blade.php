@@ -6,7 +6,7 @@ All Educations | Aashish Jha
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('education.index') }}" class="">Education</a>
+    <a href="{{ route('admin.info.education.index') }}" class="">Education</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Educations</a>
 </div>
@@ -19,7 +19,7 @@ All Educations | Aashish Jha
         Educations
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('education.create') }}">Create New Education</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.info.education.create') }}">Create New Education</a>
 
     </div>
 </div>
@@ -62,7 +62,7 @@ All Educations | Aashish Jha
                 </td>
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center mr-3" href="{{ route('education.edit', $education->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                        <a class="flex items-center mr-3" href="{{ route('admin.info.education.edit', $education->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                         <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $education->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                     </div>
                 </td>
@@ -74,7 +74,7 @@ All Educations | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to delete these records? This process cannot be undone.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('education.destroy', $education->id) }}" method="post">
+                        <form action="{{ route('admin.info.education.destroy', $education->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>

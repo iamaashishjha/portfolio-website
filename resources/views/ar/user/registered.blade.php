@@ -19,7 +19,7 @@ All Registerd Users | Aashish Jha
         Registerd Users
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.user.admin') }}">Admin Users</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.user.admin') }}">Admin Users</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -92,7 +92,7 @@ All Registerd Users | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to make this user Admin?</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.admin.make', $user->id) }}" method="post">
+                        <form action="{{ route('admin.user.make', $user->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
@@ -108,7 +108,7 @@ All Registerd Users | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to delete this user?</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.admin.delete', $user->id) }}" method="post">
+                        <form action="{{ route('admin.user.delete', $user->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>

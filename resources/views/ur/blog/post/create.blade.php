@@ -1,4 +1,4 @@
-@extends('layouts.ar')
+@extends('layouts.ur')
 
 @section('title')
 {{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Aashish Jha' : 'Create New Blog Post | Aashish Jha' }}
@@ -8,7 +8,7 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.post.index') }}" class="">Blog Post</a>
+    <a href="{{ route('user.post.index') }}" class="">Blog Post</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">
         {{ isset($post) ? 'Edit New Blog Post ' . '"' . $post->title . '".' : 'Create New Blog Post' }}
@@ -27,8 +27,8 @@
             <i class="w-4 h-4 mr-2" data-feather="eye"></i>
             Preview
         </button>
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">All Blog Posts</a>
-        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.blog.post.trashed') }}">Trashed Blog Posts</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('user.post.index') }}">All Blog Posts</a>
+        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('user.post.trashed') }}">Trashed Blog Posts</a>
 
     </div>
 </div>
@@ -37,7 +37,7 @@
 
 
 {{-- <div class="pos intro-y grid grid-cols-12 gap-5 mt-5"> --}}
-<form action="{{ isset($post) ? route('admin.blog.post.update', $post->id) : route('admin.blog.post.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
+<form action="{{ isset($post) ? route('user.post.update', $post->id) : route('user.post.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
     @csrf
     @if (isset($post))
         @method('PUT')

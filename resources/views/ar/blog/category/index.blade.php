@@ -6,7 +6,7 @@ All Blog Categories | Aashish Jha
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('category.index') }}" class="">Blog Category</a>
+    <a href="{{ route('admin.blog.category.index') }}" class="">Blog Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Blog Categories</a>
 </div>
@@ -19,7 +19,7 @@ All Blog Categories | Aashish Jha
         Blog Categories
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('category.create') }}">Create New Category</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.category.create') }}">Create New Category</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -61,7 +61,7 @@ All Blog Categories | Aashish Jha
                 </td>
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center mr-3" href="{{ route('category.edit', $category->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                        <a class="flex items-center mr-3" href="{{ route('admin.blog.category.edit', $category->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                         <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $category->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                     </div>
                 </td>
@@ -73,7 +73,7 @@ All Blog Categories | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to delete these records? This process cannot be undone.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('category.destroy', $category->id) }}" method="post">
+                        <form action="{{ route('admin.blog.category.destroy', $category->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>

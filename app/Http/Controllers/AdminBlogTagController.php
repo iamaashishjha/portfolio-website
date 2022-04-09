@@ -72,7 +72,7 @@ class AdminBlogTagController extends BaseController
         $tag->save();
 
         Alert::toast('Tag Created Successfully', 'success');
-        return redirect(route('tag.index'));
+        return redirect()->route('admin.blog.tag.index');
     }
 
     /**
@@ -139,7 +139,7 @@ class AdminBlogTagController extends BaseController
 
         $tag->save();
         Alert::toast('Tag Updated Successfully', 'success');
-        return redirect(route('tag.index'));
+        return redirect()->route('admin.blog.tag.index');
     }
 
     /**

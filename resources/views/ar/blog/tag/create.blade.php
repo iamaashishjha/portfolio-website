@@ -9,7 +9,7 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('tag.index') }}" class="">Blogs</a>
+    <a href="{{ route('admin.blog.tag.index') }}" class="">Blogs</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">{{ isset($tag) ? 'Edit Tag ' : 'Create New Blog Tag' }}</a>
 </div>
@@ -35,7 +35,7 @@
                 </h2>
             </div>
             {{-- @include('partials.ar.messages') --}}
-            <form action="{{ isset($tag) ? route('tag.update', $tag->id) : route('tag.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($tag) ? route('admin.blog.tag.update', $tag->id) : route('admin.blog.tag.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($tag))
                 @method('PUT')

@@ -92,7 +92,7 @@ All Administrative Users | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to remove user from Admin? User will be demoted to registered user only.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.admin.remove', $user->id) }}" method="post">
+                        <form action="{{ route('admin.user.remove', $user->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
@@ -108,7 +108,7 @@ All Administrative Users | Aashish Jha
                         <div class="text-gray-600 mt-2">Do you really want to delete user? This process cannot be undone.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.admin.delete', $user->id) }}" method="post">
+                        <form action="{{ route('admin.user.delete', $user->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>

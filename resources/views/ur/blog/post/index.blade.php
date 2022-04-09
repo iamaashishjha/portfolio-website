@@ -1,4 +1,4 @@
-@extends('layouts.ar')
+@extends('layouts.ur')
 
 @section('title')
 All Blog Posts | Aashish Jha
@@ -6,7 +6,7 @@ All Blog Posts | Aashish Jha
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.post.index') }}" class="">Blogs</a>
+    <a href="{{ route('user.post.index') }}" class="">Blogs</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Posts</a>
 </div>
@@ -25,8 +25,8 @@ All Blog Posts
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         {{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Product</button> --}}
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.post.create') }}">Create New Blog Post</a>
-        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.blog.post.trashed') }}">Trashed Blog Posts</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('user.post.create') }}">Create New Blog Post</a>
+        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('user.post.trashed') }}">Trashed Blog Posts</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -78,7 +78,7 @@ All Blog Posts
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
-                            <a class="flex items-center mr-3" href="{{ route('admin.blog.post.edit', $post->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                            <a class="flex items-center mr-3" href="{{ route('user.post.edit', $post->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                             <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $post->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Trash </a>
                         </div>
                     </td>
@@ -90,7 +90,7 @@ All Blog Posts
                             <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
                         </div>
                         <div class="px-5 pb-8 text-center">
-                            <form action="{{ route('admin.blog.post.destroy', $post->id) }}" method="post">
+                            <form action="{{ route('user.post.destroy', $post->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
