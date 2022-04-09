@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('Admin@1234'),
             'email_verified_at' => now(),
-            'admin' => 1
+            'role' => 1
         ]);
         User::factory()->count(10)->create();
     }
