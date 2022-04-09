@@ -85,7 +85,7 @@
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}" id="profile_image_display">
                             </div>
-                            <form action="{{ route('admin.user.profileUpdate', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="w-40 mx-auto cursor-pointer relative mt-5">
