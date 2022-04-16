@@ -15,14 +15,14 @@ class AdminUserController extends BaseController
     public function registeredUsers()
     {
         # code...
-        $users = User::where('admin', 0)->get();
+        $users = User::where('role', 0)->get();
         return view('ar.user.registered')
             ->with('users', $users);
     }
 
     public function adminUsers()
     {
-        $users = User::where('admin', 1)->get();
+        $users = User::where('role', 1)->get();
         return view('ar.user.admin')
             ->with('users', $users);
     }

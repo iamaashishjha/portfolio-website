@@ -22,11 +22,12 @@ class AdminDashboardController extends BaseController
         $tags = BlogTags::where('status', 1)->get();
         $tagCount = $tags->count();
         $post = BlogPost::where('status', 1)->get();
-        $postCount = $post->count();
-        return view('ar.index')
+        $postsCount = $post->count();
+        // return view('ar.index')
+        return view('dashboard.index')
         ->with('userCount', $userCount)
         ->with('catCount', $catCount)
         ->with('tagCount', $tagCount)
-        ->with('postCount', $postCount);
+        ->with('postsCount', $postsCount);
     }
 }

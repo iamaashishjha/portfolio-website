@@ -1,8 +1,8 @@
-@extends('layouts.ar');
+@extends('layouts.dashboard');
 
 
 @section('title')
-Dashboard
+Admin Dashboard
 @endsection
 
 @section('breadcum')

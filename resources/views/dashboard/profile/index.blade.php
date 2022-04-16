@@ -1,20 +1,14 @@
 @extends('layouts.dashboard')
 
-{{-- @section('breadcum')
-<div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="/admin" class="">Profile</a>
-    <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-    <a href="" class="breadcrumb--active">Profile Update</a>
-</div>
-@endsection --}}
-
 @section('title')
-Update Profile || Admin
+@can('isAdmin') Update Profile | Admin Dashboard @elsecan('isUser') Update Profile | Dashboard @endcan
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="/admin" class="">Admin Dashboard</a>
+    <a href="@can('isAdmin') /admin @elsecan('isUser') /dashboard @endcan" class="breadcrumb--active">
+		@can('isAdmin') Admin Dashboard @elsecan('isUser') Dashboard @endcan
+    </a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">Update Your Profile</a>
 </div>
@@ -23,7 +17,7 @@ Update Profile || Admin
 @section('content')
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Update Profile
+        Update Your Profile 
     </h2>
 </div>
 <div class="grid grid-cols-12 gap-6">
@@ -62,19 +56,19 @@ Update Profile || Admin
             </div>
             <div class="p-5 border-t border-gray-200">
                 <a class="flex items-center text-theme-1 font-medium" href="">
-                     <i data-feather="activity" class="w-4 h-4 mr-2"></i>
-                      Personal Information 
-                    </a>
-                {{-- <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Account Settings </a>
+                    <i data-feather="activity" class="w-4 h-4 mr-2"></i>
+                    Personal Information
+                </a>
+                <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Account Settings </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Change Password </a>
-                <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> User Settings </a> --}}
+                <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> User Settings </a>
             </div>
-            {{-- <div class="p-5 border-t border-gray-200">
+            <div class="p-5 border-t border-gray-200">
                 <a class="flex items-center" href=""> <i data-feather="activity" class="w-4 h-4 mr-2"></i> Email Settings </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Saved Credit Cards </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Social Networks </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> Tax Information </a>
-            </div> --}}
+            </div>
             {{-- <div class="p-5 border-t flex">
                 <button type="button" class="button button--sm block bg-theme-1 text-white">New Group</button>
                 <button type="button" class="button button--sm border text-gray-700 ml-auto">New Quick Link</button>
@@ -97,7 +91,7 @@ Update Profile || Admin
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 <img class="rounded-md" alt="Midone Tailwind HTML Admin Template" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}" id="profile_image_display">
                             </div>
-                            <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="w-40 mx-auto cursor-pointer relative mt-5">
@@ -107,7 +101,6 @@ Update Profile || Admin
                         </div>
                     </div>
                     <div class="col-span-12 xl:col-span-8">
-
                         <div>
                             <label>Full Name</label>
                             <input type="text" class="input w-full border bg-gray-100 cursor-not-allowed mt-2" placeholder="Enter Full Name" value="{{ $user->name }}" disabled>
@@ -130,7 +123,6 @@ Update Profile || Admin
                         </div>
                         <button type="submit" class="button w-20 bg-theme-1 text-white mt-3">Save</button>
                         </form>
-
                     </div>
                 </div>
             </div>

@@ -27,7 +27,8 @@ class UserDashboardController extends BaseController
         $posts = BlogPost::where('status', 1)->get();
         $postsCount = $posts->count();
         $postCount = $post->count();
-        return view('ur.index')
+        // return view('ur.index')
+        return view('dashboard.index')
         ->with('userCount', $userCount)
         ->with('catCount', $catCount)
         ->with('tagCount', $tagCount)
@@ -38,7 +39,7 @@ class UserDashboardController extends BaseController
     public function profile($id)
     {
         $user = User::find($id);
-        return view('ur.profile')->with('user', $user);
+        return view('dashboard.profile.index')->with('user', $user);
     }
 
     public function profileUpdate(Request $request, $id)
