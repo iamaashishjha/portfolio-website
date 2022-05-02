@@ -226,7 +226,6 @@
 @section('script')
 <script>
     $(document).ready(function() {
-
         $("#meta-data").hide();
         $("#images").hide();
         $("#content").show();

@@ -18,7 +18,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ((Auth::user()) &&  ((Auth::user()->admin) == 1)) {
+        if ((Auth::user()) &&  ((Auth::user()->role) == 1)) {
             return $next($request);
         }
         Alert::toast('You donot have admin access', 'error');

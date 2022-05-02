@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['reset' => false, 'verify' => true, 'register' => false]);
+Auth::routes(['verify' => true, 'register' => false]);
 
 Route::get(
     '/home',
@@ -57,6 +57,7 @@ Route::middleware(['auth', 'admin', 'verified'])
                 Route::delete('/{user_id}', 'deleteUser')->name('delete');
                 Route::get('/profile/{id}', 'profile')->name('profile');
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
+                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
             });
 
         Route::prefix('/blog')
@@ -147,6 +148,7 @@ Route::middleware(['auth', 'user', 'verified'])
             ->group(function () {
                 Route::get('profile/{user_id}', 'profile')->name('view');
                 Route::put('profile/{user_id}', 'profileUpdate')->name('update');
+                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
             });
     });
 

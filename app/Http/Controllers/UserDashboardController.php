@@ -62,4 +62,10 @@ class UserDashboardController extends BaseController
         Alert::toast('Profile Updated Successfully', 'success');
         return redirect()->back();
     }
+
+    public function changePassword($id)
+    {
+        $user = User::find($id);
+        return view('auth.profile')->with('user', $user);
+    }
 }
