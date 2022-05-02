@@ -21,7 +21,7 @@ class User
         if ((Auth::user()) &&  ((Auth::user()->role) == 0)) {
             return $next($request);
         }
-        Alert::toast('You donot have admin access', 'error');
+        Alert::toast('You donot have User access', 'error');
         return redirect('/');
     }
 }

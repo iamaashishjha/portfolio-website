@@ -7,7 +7,7 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('category.index') }}" class="">Education</a>
+    <a href="{{ route('admin.info.education.index') }}" class="">Education</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">{{ isset($education) ? 'Edit Education ' : 'Create New Education' }}</a>
 </div>

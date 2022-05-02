@@ -12,6 +12,32 @@
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
+        {{-- <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Primary Data <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="">
+                <li>
+                    <a href="index.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst Country </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="simple-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst Province </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="top-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst District </div>
+                    </a>
+                </li>
+            </ul>
+        </li> --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} " id="blog_menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -121,32 +147,7 @@
         {{-- <li class="side-nav__devider my-6"></li> --}}
 
 
-        {{-- <li>
-            <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                <div class="side-menu__title"> Menu Layout <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="index.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Side Menu </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="simple-menu-dashboard.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Simple Menu </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Top Menu </div>
-                    </a>
-                </li>
-            </ul>
-        </li> --}}
+        
         {{-- <li>
             <a href="side-menu-file-manager.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>

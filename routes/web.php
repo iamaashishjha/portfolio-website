@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminUserDetailController;
@@ -27,7 +28,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true, 'register' => false]);
+Auth::routes(['verify' => false, 'register' => false]);
 
 Route::get(
     '/home',
@@ -37,7 +38,7 @@ Route::get(
 
 
 
-Route::middleware(['auth', 'admin', 'verified'])
+Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -105,7 +106,23 @@ Route::middleware(['auth', 'admin', 'verified'])
             ->group(function () {
                 Route::prefix('/education')
                     ->name('education.')
-                    ->controller(InfoEducation::class)
+                    ->controller(AdminInfoEducationController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+            });
+
+            Route::prefix('/home')
+            ->name('home.')
+            ->group(function () {
+                Route::prefix('/header-footer')
+                    ->name('headerFooter.')
+                    ->controller(AdminHeaderFooterController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
