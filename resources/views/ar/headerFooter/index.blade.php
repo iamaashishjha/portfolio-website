@@ -29,11 +29,11 @@ All Header/Footer | Aashish Jha
         <thead>
             <tr>
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
-                <th class="border-b-2 text-center  whitespace-no-wrap">Header/Footer Name</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">No. of Year</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Start Date</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">End Date</th>
+                <th class="border-b-2 text-center  whitespace-no-wrap">Name</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Logo</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Email</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Telephone</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Address</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
         </thead>
@@ -44,21 +44,21 @@ All Header/Footer | Aashish Jha
                 <td class="border-b text-center">
                 </td>
                 <td class="border-b text-center">
-                    <div class="font-medium whitespace-no-wrap">{{ $headerFooter->title }}</div>
+                    <div class="font-medium whitespace-no-wrap">{{ $headerFooter->name }}</div>
                 </td>
                 <td class="text-center border-b">
                     <div class="flex sm:justify-center">
                         <div class="intro-x w-10 h-10 image-fit">
-                            <img alt="{{ $headerFooter->description }}" class="rounded-full" src="{{ $headerFooter->image }}">
+                            <img alt="{{ $headerFooter->name }}" class="rounded-full" src="{{ $headerFooter->logo_image }}">
                         </div>
                     </div>
                 </td>
-                <td class="text-center border-b">{{ $headerFooter->no_of_year }}</td>
+                <td class="text-center border-b">{{ $headerFooter->email }}</td>
                 <td class="w-40 border-b">
-					<div class="flex items-center sm:justify-center text-theme-9"> <i data-feather="calendar" class="w-4 h-4 mr-2"></i> {{ $headerFooter->end_date }} </div>
+					{{ $headerFooter->telephone }} 
                 </td>
                 <td class="w-40 border-b">
-                    <div class="flex items-center sm:justify-center text-theme-6"> <i data-feather="calendar" class="w-4 h-4 mr-2"></i> {{ $headerFooter->start_date }} </div>
+                    {{ $headerFooter->address }}
                 </td>
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">

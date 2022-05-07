@@ -36,7 +36,7 @@ All Sliders | Aashish Jha
                 <th class="border-b-2 text-center whitespace-no-wrap">Image 3</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image 4</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image 5</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Actions</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
         </thead>
         <tbody>

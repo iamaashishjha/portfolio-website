@@ -15,16 +15,19 @@ class CreateHeaderFootersTable extends Migration
     {
         Schema::create('header_footers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('header')->nullable();
+            $table->string('name');
             $table->string('logo')->nullable();
-            $table->text('description')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('phone1')->nullable();
+            $table->string('phone2')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-            $table->string('footer')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('keywords')->nullable();
             $table->smallInteger('created_by')->nullable();
-            $table->boolean('is_Active')->default(1);
+            $table->boolean('is_active')->default(1);
+            $table->string('start_date')->nullable();
             $table->timestamps();
         });
     }

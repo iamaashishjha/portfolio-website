@@ -22,7 +22,7 @@ class AdminHeaderFooterController extends BaseController
      */
     public function index()
     {
-        $this->data['headerFooters'] = HeaderFooter::first();
+        $this->data['headerFooters'] = HeaderFooter::all();
         return view('ar.headerFooter.index', $this->data);
     }
 
@@ -44,25 +44,29 @@ class AdminHeaderFooterController extends BaseController
      */
     public function store(StoreHeaderFooterRequest $request)
     {
-        $path = $request->tag_image->store('home/header-footer', 'public');
+        $path = $request->logo_image->store('home/header-footer', 'public');
         $headerFooter = new HeaderFooter();
 
-        $headerFooter->title = $request->title;
-        $headerFooter->header = $request->header;
+        $headerFooter->name = $request->name;
         $headerFooter->logo = $path;
-        $headerFooter->description = $request->description;
 
-        $headerFooter->phone = $request->phone;
+        $headerFooter->telephone = $request->telephone;
+        $headerFooter->phone1 = $request->phone1;
+        $headerFooter->phone2 = $request->phone2;
         $headerFooter->email = $request->email;
         $headerFooter->address = $request->address;
-        $headerFooter->footer = $request->footer;
+        $headerFooter->start_date = $request->start_date;
 
         $headerFooter->meta_description = $request->meta_description;
         $headerFooter->meta_title = $request->meta_title;
         $headerFooter->keywords = $request->keywords;
 
         $headerFooter->created_by = Auth::user()->id;
-
+        if ($request->has('is_active')) {
+            $headerFooter->is_active = 1;
+        } else {
+            $headerFooter->is_active = 0;
+        }
         $headerFooter->save();
 
         Alert::toast('Header/Footer Created Successfully', 'success');
@@ -103,33 +107,34 @@ class AdminHeaderFooterController extends BaseController
     {
         $headerFooter = HeaderFooter::find($id);
 
-        $headerFooter->title = $request->title;
-        $headerFooter->description = $request->description;
+        $headerFooter->name = $request->name;
 
-        if ($request->has('logo') && ($request->logo != '')) {
+        if ($request->has('logo') && ($request->logo_image != '')) {
             $imagePath = $headerFooter->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
                 $headerFooter->deleteImage();
             }
-            $path = $request->logo->store('home/header-footer', 'public');
+            $path = $request->logo_image->store('home/header-footer', 'public');
             $headerFooter->logo = $path;
         }
 
-        $headerFooter->title = $request->title;
-        $headerFooter->header = $request->header;
-        $headerFooter->logo = $path;
-        $headerFooter->description = $request->description;
-
-        $headerFooter->phone = $request->phone;
+        $headerFooter->telephone = $request->telephone;
+        $headerFooter->phone1 = $request->phone1;
+        $headerFooter->phone2 = $request->phone2;
         $headerFooter->email = $request->email;
         $headerFooter->address = $request->address;
-        $headerFooter->footer = $request->footer;
+        $headerFooter->start_date = $request->start_date;
 
         $headerFooter->meta_description = $request->meta_description;
         $headerFooter->meta_title = $request->meta_title;
         $headerFooter->keywords = $request->keywords;
         $headerFooter->updated_at = now();
+        if ($request->has('is_active')) {
+            $headerFooter->is_active = 1;
+        } else {
+            $headerFooter->is_active = 0;
+        }
 
         $headerFooter->save();
         Alert::toast('Header/Footer Updated Successfully', 'success');
