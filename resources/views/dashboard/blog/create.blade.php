@@ -45,7 +45,7 @@
         <input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} " placeholder="Title" name="title" id="title" value="{{ isset($post) ? $post->title : old('title') }}" {{ isset($post) ? 'readonly' : '' }}>
         
         <div class="post intro-y overflow-hidden box mt-5">
-            <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600" style="align-items: center!important;">
+            <div class="post__tabs nav-tabs flex justify-center items-center flex-col sm:flex-row bg-gray-200 text-gray-600" >
                 <a title="Fill in the article content" data-toggle="tab" id="content-button" data-target="#content" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center active"> <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Content </a>
                 <a title="Upload Necessary Images and Captions" data-toggle="tab" id="images-button" data-target="#images" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="align-left" class="w-4 h-4 mr-2"></i> Images </a>
                 <a title="Adjust the meta title" data-toggle="tab" id="meta-data-button" data-target="#meta-data" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center"> <i data-feather="code" class="w-4 h-4 mr-2"></i> Meta Data </a>
