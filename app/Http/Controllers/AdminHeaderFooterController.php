@@ -22,7 +22,7 @@ class AdminHeaderFooterController extends BaseController
      */
     public function index()
     {
-        $this->data['headerFooter'] = HeaderFooter::first();
+        $this->data['headerFooters'] = HeaderFooter::first();
         return view('ar.headerFooter.index', $this->data);
     }
 

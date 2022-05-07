@@ -85,3 +85,7 @@ textarea.form-control.is-invalid {
 .input-group .form-select.is-invalid:focus {
     z-index: 3;
 }
+
+.input-height{
+height: 85px;
+}

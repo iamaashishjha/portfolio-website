@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
+use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminUserDetailController;
 use App\Http\Controllers\UserBlogPostController;
@@ -123,6 +124,17 @@ Route::middleware(['auth', 'admin'])
                 Route::prefix('/header-footer')
                     ->name('headerFooter.')
                     ->controller(AdminHeaderFooterController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+                    Route::prefix('/slider')
+                    ->name('slider.')
+                    ->controller(AdminSliderController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
