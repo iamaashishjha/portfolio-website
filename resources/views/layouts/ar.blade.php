@@ -23,6 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
+    <link rel="stylesheet" href="/ar/dist/css/custom.css" />
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -158,10 +159,20 @@ use Prologue\Alerts\Facades\Alert;
                                 <div class="text-xs text-theme-41">{{ ($user->designation) ? $user->designation : 'Software Engineer' }}</div>
                             </div>
                             <div class="p-2">
-                                <a href="{{ route('admin.user.profile', $user->id) }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>
+                                <a href="{{ route('admin.user.profile', $user->id) }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
+                                    <i data-feather="user" class="w-4 h-4 mr-2"></i>
+                                    Profile
+                                </a>
+                                
+
                                 {{-- <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="edit" class="w-4 h-4 mr-2"></i> Add Account </a>
-                                <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Reset Password </a>
                                 <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help </a> --}}
+                            </div>
+                            <div>
+                                <a href="#" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
+                                    <i data-feather="lock" class="w-4 h-4 mr-2"></i>
+                                    Reset Password
+                                </a>
                             </div>
                             <div class="p-2 border-t border-theme-40">
                                 <a class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

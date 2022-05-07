@@ -28,7 +28,7 @@ class BlogCategoryFactory extends Factory
             'keywords' => (string)$this->faker->words($nbWords = 1, $variableNbWords = true, true),
             'status' => 1,
             'is_deleted' => 0,
-            'created_by' => $this->faker->randomDigitNot(0),
+            'created_by' => 1,
             'updated_by' => null,
             'deleted_by' => null,
             'created_at' =>  now(),

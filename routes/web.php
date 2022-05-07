@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
+use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminUserDetailController;
 use App\Http\Controllers\UserBlogPostController;
@@ -27,7 +29,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['reset' => false, 'verify' => false, 'register' => false]);
+Auth::routes(['verify' => false, 'register' => false]);
 
 Route::get(
     '/home',
@@ -57,6 +59,7 @@ Route::middleware(['auth', 'admin'])
                 Route::delete('/{user_id}', 'deleteUser')->name('delete');
                 Route::get('/profile/{id}', 'profile')->name('profile');
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
+                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
             });
 
         Route::prefix('/blog')
@@ -104,7 +107,34 @@ Route::middleware(['auth', 'admin'])
             ->group(function () {
                 Route::prefix('/education')
                     ->name('education.')
-                    ->controller(InfoEducation::class)
+                    ->controller(AdminInfoEducationController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+            });
+
+            Route::prefix('/home')
+            ->name('home.')
+            ->group(function () {
+                Route::prefix('/header-footer')
+                    ->name('headerFooter.')
+                    ->controller(AdminHeaderFooterController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+                    Route::prefix('/slider')
+                    ->name('slider.')
+                    ->controller(AdminSliderController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
@@ -116,7 +146,7 @@ Route::middleware(['auth', 'admin'])
             });
     });
 
-Route::middleware(['auth'])
+Route::middleware(['auth', 'user', 'verified'])
     ->prefix('dashboard')
     ->name('user.')
     ->group(function () {
@@ -129,48 +159,28 @@ Route::middleware(['auth'])
             ->controller(UserBlogPostController::class)
             ->group(function () {
                 Route::prefix('/post')
-            ->group(function () {
-                Route::get('/create', 'create')->name('create');
-                Route::post('/', 'store')->name('store');
-                Route::get('/', 'index')->name('index');
-                Route::get('/edit/{id}', 'edit')->name('edit');
-                Route::put('/edit/{id}', 'update')->name('update');
-                Route::delete('/{id}', 'destroy')->name('destroy');
-                Route::get('/trash', 'trashed')->name('trashed');
-                Route::put('/restore/{id}', 'restore')->name('restore');
-            });
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                        Route::get('/trash', 'trashed')->name('trashed');
+                        Route::put('/restore/{id}', 'restore')->name('restore');
+                    });
             });
 
-            Route::prefix('/')
+        Route::prefix('/')
             ->name('profile.')
             ->controller(UserDashboardController::class)
             ->group(function () {
-                Route::get('{user_id}/profile', 'profile')->name('view');
-                Route::put('{user_id}/profile', 'profileUpdate')->name('update');
+                Route::get('profile/{user_id}', 'profile')->name('view');
+                Route::put('profile/{user_id}', 'profileUpdate')->name('update');
+                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
             });
     });
-
-
-
-
-// Route::get(
-//     '/dashboard',
-//     [App\Http\Controllers\UserDashboardController::class, 'index']
-// )->name('dashboard');
-
-// Route::prefix('dashboard')->group(function () {
-//     Route::get('users', function () {
-//         // Matches The "/admin/users" URL
-//     });
-// });
 
 Route::fallback(function () {
     return "You're message goes here!";
 });
-
-
-// Route::prefix('admin')->group(function () {
-//     Route::get('users', function () {
-//         // Matches The "/admin/users" URL
-//     });
-// });

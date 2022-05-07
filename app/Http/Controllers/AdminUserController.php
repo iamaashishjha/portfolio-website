@@ -15,14 +15,14 @@ class AdminUserController extends BaseController
     public function registeredUsers()
     {
         # code...
-        $users = User::where('admin', 0)->get();
+        $users = User::where('role', 0)->get();
         return view('ar.user.registered')
             ->with('users', $users);
     }
 
     public function adminUsers()
     {
-        $users = User::where('admin', 1)->get();
+        $users = User::where('role', 1)->get();
         return view('ar.user.admin')
             ->with('users', $users);
     }
@@ -30,7 +30,7 @@ class AdminUserController extends BaseController
     public function makeAdmin($id)
     {
         $user = User::find($id);
-        $user->admin = 1;
+        $user->role = 1;
         $user->save();
         Alert::toast('User has been made admin', 'success');
         return redirect()->back();
@@ -46,7 +46,7 @@ class AdminUserController extends BaseController
             Alert::error('User cannot be removed from Admin. User has Created Categories/Tags. Delete them before removing user from admin.');
             return redirect()->back();
         }else {
-            $user->admin = 0;
+            $user->role = 0;
             $user->save();
             Alert::toast('User removed from admin', 'success');
             return redirect()->back();
@@ -108,5 +108,11 @@ class AdminUserController extends BaseController
         $user->save();
         Alert::toast('Profile Updated Successfully', 'success');
         return redirect()->back();
+    }
+
+    public function changePassword($id)
+    {
+        $user = User::find($id);
+        return view('auth.profile')->with('user', $user);
     }
 }

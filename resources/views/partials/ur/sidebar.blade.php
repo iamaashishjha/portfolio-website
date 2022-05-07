@@ -40,29 +40,35 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} " id="information_menu">
+            @php
+            $user = Auth::user();
+            @endphp
+            <a href="{{ route('user.profile.view', $user->id) }}" class="side-menu {{ request()->is('dashboard/profile/*') ? 'side-menu--active' : '' }} " id="information_menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                <div class="side-menu__title">
+                    Users
+                    {{-- <i data-feather="chevron-down" class="side-menu__sub-icon"></i> --}}
+                </div>
             </a>
-            <ul class="collapse">
+            {{-- <ul class="collapse">
                 @php
                     $user = Auth::user();
                 @endphp
                 <li>
                     <a href="{{ route('user.profile.view', $user->id) }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
-                        <div class="side-menu__title">
-                            About Me
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+            <div class="side-menu__title">
+                About Me
+            </div>
+            </a>
         </li>
+    </ul> --}}
+    </li>
 
-        {{-- <li class="side-nav__devider my-6"></li> --}}
+    {{-- <li class="side-nav__devider my-6"></li> --}}
 
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
                 <div class="side-menu__title"> Menu Layout <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
@@ -88,7 +94,7 @@
                 </li>
             </ul>
         </li> --}}
-        {{-- <li>
+    {{-- <li>
             <a href="side-menu-file-manager.html" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
                 <div class="side-menu__title"> File Manager </div>
@@ -97,7 +103,7 @@
 
 
 
-        {{-- <li>
+    {{-- <li>
             <a href="javascript:;" class="side-menu">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>

@@ -12,6 +12,32 @@
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
+        {{-- <li>
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__title"> Primary Data <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="">
+                <li>
+                    <a href="index.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst Country </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="simple-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst Province </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="top-menu-dashboard.html" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Mst District </div>
+                    </a>
+                </li>
+            </ul>
+        </li> --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} " id="blog_menu">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
@@ -86,9 +112,21 @@
                 </li>
             </ul>
         </li>
+        
+
+        <li class="side-nav__devider my-6"></li>
+        
+        {{-- <li>
+            <a href="side-menu-file-manager.html" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
+                <div class="side-menu__title"> File Manager </div>
+            </a>
+        </li> --}}
+
+        {{-- User Management --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} " id="information_menu">
-                <div class="side-menu__icon"> <i data-feather="box"></i> </div>
+                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
                 <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
             <ul class="collapse">
@@ -118,60 +156,24 @@
             </ul>
         </li>
 
-        {{-- <li class="side-nav__devider my-6"></li> --}}
+        {{-- App Settings --}}
 
-
-        {{-- <li>
-            <a href="javascript:;" class="side-menu">
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/home/*') ? 'side-menu--active' : '' }} ">
                 <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                <div class="side-menu__title"> Menu Layout <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                <div class="side-menu__title"> Appsetting <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
             <ul class="">
                 <li>
-                    <a href="index.html" class="side-menu">
+                    <a href="{{ route('admin.home.headerFooter.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Side Menu </div>
+                        <div class="side-menu__title"> Header/Footer </div>
                     </a>
                 </li>
                 <li>
-                    <a href="simple-menu-dashboard.html" class="side-menu">
+                    <a href="{{ route('admin.home.slider.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Simple Menu </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="top-menu-dashboard.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Top Menu </div>
-                    </a>
-                </li>
-            </ul>
-        </li> --}}
-        {{-- <li>
-            <a href="side-menu-file-manager.html" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                <div class="side-menu__title"> File Manager </div>
-            </a>
-        </li> --}}
-
-
-
-        {{-- <li>
-            <a href="javascript:;" class="side-menu">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
-            </a>
-            <ul class="">
-                <li>
-                    <a href="side-menu-users-layout-1.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Layout 1 </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-users-layout-2.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Layout 2 </div>
+                        <div class="side-menu__title"> Slider </div>
                     </a>
                 </li>
                 <li>
@@ -181,7 +183,7 @@
                     </a>
                 </li>
             </ul>
-        </li> --}}
+        </li>
     </ul>
 </nav>
 <!-- END: Side Menu -->

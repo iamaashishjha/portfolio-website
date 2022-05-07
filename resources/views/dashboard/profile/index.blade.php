@@ -1,12 +1,14 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Update Profile
+@can('isAdmin') Update Profile | Admin Dashboard @elsecan('isUser') Update Profile | Dashboard @endcan
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="/dashboard" class="">Dashboard</a>
+    <a href="@can('isAdmin') /admin @elsecan('isUser') /dashboard @endcan" class="breadcrumb--active">
+		@can('isAdmin') Admin Dashboard @elsecan('isUser') Dashboard @endcan
+    </a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">Update Your Profile</a>
 </div>
@@ -15,7 +17,7 @@ Update Profile
 @section('content')
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Update Profile
+        Update Your Profile 
     </h2>
 </div>
 <div class="grid grid-cols-12 gap-6">
@@ -53,24 +55,20 @@ Update Profile
                 </div> --}}
             </div>
             <div class="p-5 border-t border-gray-200">
-                <a class="flex items-center text-theme-1 font-medium" href="javascript:void(0);" id="personalInformation">
+                <a class="flex items-center text-theme-1 font-medium" href="">
                     <i data-feather="activity" class="w-4 h-4 mr-2"></i>
                     Personal Information
                 </a>
-                <a class="flex items-center mt-5" id="changePassword" href="javascript:void(0);">
-                    <i data-feather="lock" class="w-4 h-4 mr-2"></i>
-                    Change Password
-                </a>
-                {{-- <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Account Settings </a>
+                <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Account Settings </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Change Password </a>
-                <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> User Settings </a> --}}
+                <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> User Settings </a>
             </div>
-            {{-- <div class="p-5 border-t border-gray-200">
+            <div class="p-5 border-t border-gray-200">
                 <a class="flex items-center" href=""> <i data-feather="activity" class="w-4 h-4 mr-2"></i> Email Settings </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="box" class="w-4 h-4 mr-2"></i> Saved Credit Cards </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Social Networks </a>
                 <a class="flex items-center mt-5" href=""> <i data-feather="settings" class="w-4 h-4 mr-2"></i> Tax Information </a>
-            </div> --}}
+            </div>
             {{-- <div class="p-5 border-t flex">
                 <button type="button" class="button button--sm block bg-theme-1 text-white">New Group</button>
                 <button type="button" class="button button--sm border text-gray-700 ml-auto">New Quick Link</button>
@@ -78,7 +76,7 @@ Update Profile
         </div>
     </div>
     <!-- END: Profile Menu -->
-    <div class="col-span-12 lg:col-span-8 xxl:col-span-9" id="personalInformationContent">
+    <div class="col-span-12 lg:col-span-8 xxl:col-span-9">
         <!-- BEGIN: Display Information -->
         <div class="intro-y box lg:mt-5">
             <div class="flex items-center p-5 border-b border-gray-200">
@@ -131,37 +129,6 @@ Update Profile
         </div>
         <!-- END: Display Information -->
     </div>
-
-    <div class="col-span-12 lg:col-span-8 xxl:col-span-9" id="changePasswordContent">
-        <!-- BEGIN: Change Password -->
-        <div class="intro-y box lg:mt-5">
-            <div class="flex items-center p-5 border-b border-gray-200">
-                <h2 class="font-medium text-base mr-auto">
-                    Change Password
-                </h2>
-            </div>
-            <div class="p-5">
-                <form action="{{ route('password.update') }}" method="POST">
-                    @csrf
-                    <div>
-                        <label>Email Address</label>
-                        <input type="text" class="input w-full border  bg-gray-100 cursor-not-allowed  mt-2" name="email" value="{{ $email ?? old('email') }}" disabled >
-                    </div>
-                    <div class="mt-3">
-                        <label>New Password</label>
-                        <input type="password" class="input w-full border mt-2" placeholder="Input password" name="password">
-                    </div>
-                    <div class="mt-3">
-                        <label>Confirm New Password</label>
-                        <input type="password" class="input w-full border mt-2" placeholder="Re Enter Password" name="password_confirmation">
-                    </div>
-                    <button type="submit" class="button bg-theme-1 text-white mt-4">Change Password</button>
-                </form>
-
-            </div>
-        </div>
-        <!-- END: Change Password -->
-    </div>
 </div>
 
 @endsection
@@ -178,26 +145,5 @@ Update Profile
         // $('#profile_image_display').attr("src", "images/card-front.jpg");
     });
 
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#personalInformationContent').show();
-        $('#changePasswordContent').hide();
-
-        $("#personalInformation").click(function() {
-            $('#personalInformation').addClass('text-theme-1');
-            $('#changePassword').removeClass('text-theme-1');
-            $('#personalInformationContent').show();
-            $('#changePasswordContent').hide();
-        });
-
-        $("#changePassword").click(function() {
-            $('#personalInformation').removeClass('text-theme-1');
-            $('#changePassword').addClass('text-theme-1');
-            $('#personalInformationContent').hide();
-            $('#changePasswordContent').show();
-        });
-    });
 </script>
 @endsection

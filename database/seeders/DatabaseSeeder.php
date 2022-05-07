@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             BlogCategorySeeder::class,
             BlogPostSeeder::class,
             BlogTagsSeeder::class,
-            // User::factory(10)->has(BlogCategory::factory()->count(5), 'categories')->create()
         ]);
     }
 }
