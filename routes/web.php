@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
+use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminUserDetailController;
@@ -35,9 +36,6 @@ Route::get(
     '/home',
     [App\Http\Controllers\HomeController::class, 'index']
 )->name('home');
-
-
-
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -118,7 +116,7 @@ Route::middleware(['auth', 'admin'])
                     });
             });
 
-            Route::prefix('/home')
+        Route::prefix('/home')
             ->name('home.')
             ->group(function () {
                 Route::prefix('/header-footer')
@@ -132,7 +130,7 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
-                    Route::prefix('/slider')
+                Route::prefix('/slider')
                     ->name('slider.')
                     ->controller(AdminSliderController::class)
                     ->group(function () {
@@ -143,6 +141,32 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
+            });
+            Route::prefix('/member')
+            ->name('member.')
+            ->group(function () {
+                Route::prefix('/membership')
+                    ->name('membership.')
+                    ->controller(AdminMembershipController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+                // Route::prefix('/slider')
+                //     ->name('slider.')
+                //     ->controller(AdminSliderController::class)
+                //     ->group(function () {
+                //         Route::get('/create', 'create')->name('create');
+                //         Route::post('/', 'store')->name('store');
+                //         Route::get('/', 'index')->name('index');
+                //         Route::get('/edit/{id}', 'edit')->name('edit');
+                //         Route::put('/edit/{id}', 'update')->name('update');
+                //         Route::delete('/{id}', 'destroy')->name('destroy');
+                //     });
             });
     });
 

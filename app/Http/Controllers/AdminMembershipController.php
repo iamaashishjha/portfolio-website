@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Membership;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminMemberController extends Controller
+
+class AdminMembershipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,8 @@ class AdminMemberController extends Controller
      */
     public function index()
     {
-        //
+        $this->data['members'] = Membership::all();
+        return view('ar.member.membership.index', $this->data);
     }
 
     /**
@@ -23,7 +27,7 @@ class AdminMemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('ar.member.membership.create');
     }
 
     /**
@@ -56,7 +60,8 @@ class AdminMemberController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->data['member'] = Membership::find($id);
+        return view('ar.member.membership.create', $this->data);
     }
 
     /**
@@ -79,6 +84,10 @@ class AdminMemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = Membership::find($id);
+        $member->delete();
+        Alert::toast('Member Deleted Successfully', 'success');
+        return redirect()->back();
+
     }
 }
