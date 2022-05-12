@@ -16,6 +16,6 @@ class District extends Model
 
     public function getNameAttribute()
     {
-        return $this->code.' - '.$this->name;
+        return $this->code.' - '.($this->name_en).' ('.$this->name_lc.') ';
     }
 }

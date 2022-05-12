@@ -24,6 +24,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
     <link rel="stylesheet" href="/ar/dist/css/custom.css" />
+    <link rel="stylesheet" href="/ar/dist/css/nepali-date-picker.min.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -31,6 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
      alpha/css/bootstrap.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    @yield('css')
 
     {{-- <link rel="stylesheet" href="/css/app.css" /> --}}
 
@@ -194,17 +196,17 @@ use Prologue\Alerts\Facades\Alert;
 
     </div>
     <!-- BEGIN: JS Assets-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script> --}}
     <script src="/ar/dist/js/app.js"></script>
     {{-- <script src="sweetalert2.all.min.js"></script> --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> --}}
+    <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
+    <script src="/ar/dist/js/custom.js"></script>
     @yield('script')
     <!-- END: JS Assets-->
 </body>

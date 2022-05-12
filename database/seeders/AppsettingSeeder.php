@@ -14,11 +14,21 @@ class AppsettingSeeder extends Seeder
      */
     public function run()
     {
+        $this->mst_gender();
         $this->mst_fed_province();
         $this->mst_fed_district();
-        // $this->mst_fed_local_level_type();
+        $this->mst_fed_local_level_type();
         $this->mst_fed_local_level();
-        // $this->mst_gender();
+    }
+
+    private function mst_gender()
+    {
+        DB::table('genders')->insert([
+            array('id' => 1, 'code' => 1, 'name_en' => 'Male', 'name_lc' => 'पुरुष'),
+            array('id' => 2, 'code' => 2, 'name_en' => 'Female', 'name_lc' => 'महिला'),
+            array('id' => 3, 'code' => 3, 'name_en' => 'Third Gender', 'name_lc' => 'तेश्रो लिंगी'),
+            array('id' => 4, 'code' => 4, 'name_en' => 'Other', 'name_lc' => 'अन्य'),
+        ]);
     }
 
     private function mst_fed_province()
@@ -33,7 +43,6 @@ class AppsettingSeeder extends Seeder
             array('id' => 7, 'code' => '7', 'name_en' => 'SudurPashchim', 'name_lc' => 'सुदूरपश्चिम'),
 
         ]);
-        // DB::statement("SELECT SETVAL('mst_fed_province_id_seq',1000)");
     }
     private function mst_fed_district()
     {
@@ -115,20 +124,17 @@ class AppsettingSeeder extends Seeder
             array('id' => 75, 'code' => '707', 'name_en' => 'ACHHAM', 'name_lc' => 'अछाम', 'province_id' => 7),
             array('id' => 76, 'code' => '708', 'name_en' => 'KAILALI', 'name_lc' => 'कैलाली', 'province_id' => 7),
             array('id' => 77, 'code' => '709', 'name_en' => 'KANCHANPUR', 'name_lc' => 'कञ्चनपुर', 'province_id' => 7),
-
         ]);
-        // DB::statement("SELECT SETVAL('districts_id_seq',1000)");
     }
 
     private function mst_fed_local_level_type()
     {
-        DB::table('local_levels_type')->insert([
+        DB::table('local_level_types')->insert([
             array('id' => 1, 'code' => '1', 'name_en' => 'Rural Municipal', 'name_lc' => 'गाउँपालिका'),
             array('id' => 2, 'code' => '2', 'name_en' => 'Municipal', 'name_lc' => 'नगरपालिका'),
             array('id' => 3, 'code' => '3', 'name_en' => 'Sub-Metropolitan City', 'name_lc' => 'उपमहानगरपालिका'),
             array('id' => 4, 'code' => '4', 'name_en' => 'Metropolitan city', 'name_lc' => 'महानगरपालिका'),
         ]);
-        // DB::statement("SELECT SETVAL('local_levels_type_id_seq',1000)");
     }
 
     private function mst_fed_local_level()
@@ -888,17 +894,7 @@ class AppsettingSeeder extends Seeder
             array('id' => 752, 'code' => '70908', 'name_en' => 'Belouri Municipality', 'name_lc' => 'बेलौरी नगरपालिका', 'district_id' => 77, 'level_type_id' => 2),
             array('id' => 753, 'code' => '70909', 'name_en' => 'Beldandi Rural Municipality', 'name_lc' => 'बेलडाँडी गाउँपालिका', 'district_id' => 77, 'level_type_id' => 1)
         ]);
-        // DB::statement("SELECT SETVAL('local_levels_id_seq',10000)");
     }
 
-    private function mst_gender()
-    {
-        DB::table('mst_gender')->insert([
-            array('id' => 1, 'name_en' => 'Male', 'name_lc' => 'पुरुष'),
-            array('id' => 2, 'name_en' => 'Female', 'name_lc' => 'महिला'),
-            array('id' => 3, 'name_en' => 'Third Gender', 'name_lc' => 'तेश्रो लिंगी'),
-            array('id' => 4, 'name_en' => 'Other', 'name_lc' => 'अन्य'),
-        ]);
-        // DB::statement("SELECT SETVAL('mst_gender_id_seq',1000)");
-    }
+    
 }

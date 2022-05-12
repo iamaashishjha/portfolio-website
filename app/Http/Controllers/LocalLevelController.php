@@ -15,7 +15,7 @@ class LocalLevelController extends Controller
 
     public function getLocalLevel($id)
     {
-        $localLevel = LocalLevel::where('district_id',$id)->get();
-    return response()->json($localLevel);
+        $localLeveltype = LocalLevel::where('district_id', $id)->get();
+        return response()->json($localLeveltype);
     }
 }

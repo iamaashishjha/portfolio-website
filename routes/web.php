@@ -209,5 +209,7 @@ Route::fallback(function () {
     return "You're message goes here!";
 });
 
+Route::get('getProvince/',[App\Http\Controllers\ProvinceController::class, 'getProvince']);
 Route::get('getDistrict/{id}',[App\Http\Controllers\DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}',[App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
+Route::get('getLocalLevelType/{id}',[App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);

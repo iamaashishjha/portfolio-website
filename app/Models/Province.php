@@ -18,6 +18,6 @@ class Province extends Model
 
     public function getNameAttribute()
     {
-        return $this->code.' - '.$this->name_lc;
+        return $this->code.' - '.($this->name_en).' ('.$this->name_lc.') ';
     }
 }

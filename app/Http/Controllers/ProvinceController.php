@@ -12,4 +12,11 @@ class ProvinceController extends Controller
         $this->data['provinces'] = Province::all();
         return view('ar.appSetting.province', $this->data);
     }
+
+    public function getProvince()
+    {
+        $provinces = Province::all();
+        return response()->json($provinces);
+        
+    }
 }
