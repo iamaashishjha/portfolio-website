@@ -5,16 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Provision extends Model
+class Province extends Model
 {
     use HasFactory;
 
+    protected $table = 'provinces';
+
+    protected $guarded = ['id'];
     protected $fillable = [
-        'name', 'code'
+        'code','name_en','name_lc',
     ];
 
     public function getNameAttribute()
     {
-        return $this->code.' - '.$this->name;
+        return $this->code.' - '.$this->name_lc;
     }
 }

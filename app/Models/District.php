@@ -9,8 +9,9 @@ class District extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $fillable = [
-        'name', 'code', 'provision_id'
+        'province_id','code','name_en','name_lc',
     ];
 
     public function getNameAttribute()

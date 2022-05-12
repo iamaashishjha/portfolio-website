@@ -12,4 +12,10 @@ class LocalLevelController extends Controller
         $this->data['localLevels'] = LocalLevel::all();
         return view('ar.appSetting.localLevel', $this->data);
     }
+
+    public function getLocalLevel($id)
+    {
+        $localLevel = LocalLevel::where('district_id',$id)->get();
+    return response()->json($localLevel);
+    }
 }

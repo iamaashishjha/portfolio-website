@@ -11,6 +11,11 @@ class DistrictController extends Controller
     {
         $this->data['districts'] = District::all();
         return view('ar.appSetting.district', $this->data);
+    }
 
+    public function getDistrict($id)
+    {
+        $district = District::where('province_id',$id)->get();
+    return response()->json($district);
     }
 }

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BlogCategorySeeder::class,
             BlogPostSeeder::class,
             BlogTagsSeeder::class,
+            AppsettingSeeder::class,
         ]);
     }
 }

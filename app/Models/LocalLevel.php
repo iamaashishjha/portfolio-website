@@ -9,8 +9,10 @@ class LocalLevel extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $fillable = [
-        'name', 'code', 'provision_id', 'district_id',
+        'district_id','code','name_en','name_lc',
+        'level_type_id','wards_count',
     ];
 
     public function getNameAttribute()

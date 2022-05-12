@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Membership;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -27,7 +28,8 @@ class AdminMembershipController extends Controller
      */
     public function create()
     {
-        return view('ar.member.membership.create');
+        $this->data['provinces'] = Province::all();
+        return view('ar.member.membership.create', $this->data);
     }
 
     /**

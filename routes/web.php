@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminInfoEducationController;
 use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\AdminUserDetailController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\UserDashboardController;
 use App\Models\InfoEducation;
@@ -208,3 +208,6 @@ Route::middleware(['auth', 'user', 'verified'])
 Route::fallback(function () {
     return "You're message goes here!";
 });
+
+Route::get('getDistrict/{id}',[App\Http\Controllers\DistrictController::class, 'getDistrict']);
+Route::get('getLocalLevel/{id}',[App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);

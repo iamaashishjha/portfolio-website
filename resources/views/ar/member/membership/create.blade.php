@@ -45,24 +45,11 @@
         @endif
         <!-- BEGIN: Post Content -->
         <div class="intro-y col-span-12">
-            <div class="grid grid-cols-2 gap-2">
-                {{-- <input type="text"
-                    class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} "
-                    placeholder="Write Name in English" name="name_en" id="name_en"
-                    value="{{ isset($post->name_en) ? $post->name_en : old('name_en') }}"
-                    {{ isset($post) ? 'readonly' : '' }}>
-                <input type="text"
-                    class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} "
-                    placeholder="नेपाली मा नाम लेख्नुहोस |" name="name_lc" id="name_lc"
-                    value="{{ isset($post->name_lc) ? $post->name_lc : old('name_lc') }}"
-                    {{ isset($post) ? 'readonly' : '' }}> --}}
-            </div>
-
             <div class="post intro-y overflow-hidden box mt-5">
                 <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600"
                     style="align-items: center!important;">
-                    <a title="Fill in the Personal Information" data-toggle="tab" id="content-button" data-target="#content-02"
-                        href="javascript:;"
+                    <a title="Fill in the Personal Information" data-toggle="tab" id="content-button"
+                        data-target="#content-02" href="javascript:;"
                         class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center active">
                         <i data-feather="file-text" class="w-4 h-4 mr-2"></i>
                         Personal
@@ -131,68 +118,58 @@
                         </div>
                         <div class="grid grid-cols-3 gap-2">
                             <div class="mt-3 mr-2">
-                                <label class="@error('category_id') text-theme-6 @enderror">
+                                <label class="@error('province_id') text-theme-6 @enderror">
                                     Province (प्रदेश)
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </label>
                                 <div class="mt-2">
-                                    <select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="category_id" multiple>
-                                        {{-- @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if (isset($post)) @if($post->category->id == $category->id)
-                                            selected
-                                            @endif
-                                            @endif
-                                            >{{ $category->title }}</option>
-                                        @endforeach --}}
+                                    <select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="province_id"
+                                        id="province_id" onchange="getDistrict()">
+                                        <option hidden>---  प्रदेश छान्नुहोस् |  ---</option>
+                                        @foreach ($provinces as $province)
+                                            <option value="{{ $province->id }}"
+                                                @if (isset($post)) @if ($post->province->id == $province->id)
+                                            selected @endif
+                                                @endif
+                                                >{{ $province->name }}</option>
+                                        @endforeach
                                     </select>
-                                    @error('category_id')
-                                    <span class="text-theme-6 mt-2" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    @error('province_id')
+                                        <span class="text-theme-6 mt-2" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="mt-3 mr-2">
-                                <label class="@error('category_id') text-theme-6 @enderror">
+                                <label class="@error('district_id') text-theme-6 @enderror">
                                     District (जिल्ला)
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </label>
                                 <div class="mt-2">
-                                    <select data-placeholder="पहिला प्रदेश छान्नुहोस् |" class="select2 w-full" name="category_id" multiple>
-                                        {{-- @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if (isset($post)) @if($post->category->id == $category->id)
-                                            selected
-                                            @endif
-                                            @endif
-                                            >{{ $category->title }}</option>
-                                        @endforeach --}}
+                                    <select data-placeholder="पहिला प्रदेश छान्नुहोस् |" class="select2 w-full items-center"
+                                        name="district_id" id="district_id" onchange="getLocalLevel()">
                                     </select>
-                                    @error('category_id')
-                                    <span class="text-theme-6 mt-2" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    @error('district_id')
+                                        <span class="text-theme-6 mt-2" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <label class="@error('category_id') text-theme-6 @enderror">
+                                <label class="@error('local_level_id') text-theme-6 @enderror">
                                     Local Level (स्थानइय तह)
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </label>
                                 <div class="mt-2">
-                                    <select data-placeholder="पहिला जिल्ला छान्नुहोस् |" class="select2 w-full" name="category_id" multiple>
-                                        {{-- @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}" @if (isset($post)) @if($post->category->id == $category->id)
-                                            selected
-                                            @endif
-                                            @endif
-                                            >{{ $category->title }}</option>
-                                        @endforeach --}}
+                                    <select data-placeholder="पहिला जिल्ला छान्नुहोस् |" class="select2 w-full"
+                                        name="local_level_id" id="local_level_id">
                                     </select>
-                                    @error('category_id')
-                                    <span class="text-theme-6 mt-2" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    @error('local_level_id')
+                                        <span class="text-theme-6 mt-2" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>
@@ -208,11 +185,13 @@
                                 </div>
                                 <input type="text"
                                     class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} "
-                                    placeholder="नगरिकता प्र. प्र. नं. लेख्नुहोस |" name="citizenship_number" id="citizenship_number"
+                                    placeholder="नगरिकता प्र. प्र. नं. लेख्नुहोस |" name="citizenship_number"
+                                    id="citizenship_number"
                                     value="{{ isset($post->citizenship_number) ? $post->citizenship_number : old('citizenship_number') }}">
                             </div>
                             <div>
-                                <div class="font-medium mt-3 ml-2  @error('description') text-theme-6 @enderror  flex items-center">
+                                <div
+                                    class="font-medium mt-3 ml-2  @error('description') text-theme-6 @enderror  flex items-center">
                                     {{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
                                     Passport Number
                                     {{-- <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span> --}}
@@ -223,7 +202,8 @@
                                     value="{{ isset($post->passport_number) ? $post->passport_number : old('passport_number') }}">
                             </div>
                             <div>
-                                <div class="font-medium mt-3 ml-2  @error('description') text-theme-6 @enderror  flex items-center">
+                                <div
+                                    class="font-medium mt-3 ml-2  @error('description') text-theme-6 @enderror  flex items-center">
                                     {{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
                                     Voter Id Number
                                     {{-- <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span> --}}
@@ -363,9 +343,8 @@
                     </div>
 
                     <div class="tab-content__pane p-5 active" id="content-02">
-                        <div class="border border-gray-200 rounded-md p-5">
                             <div
-                                class="font-medium  @error('description') text-theme-6 @enderror  flex items-center border-b border-gray-200 pb-5">
+                                class="font-medium  @error('description') text-theme-6 @enderror  flex items-center">
                                 <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
                                 Description
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
@@ -375,12 +354,9 @@
                                     class="input w-full border mt-2  @error('description') border-theme-6 @enderror"
                                     placeholder="Write caption" name="description" id="description"
                                     value="{{ isset($post) ? $post->description : old('description') }}">
-
-                            </div>
                         </div>
-                        <div class="border border-gray-200 rounded-md p-5 mt-5">
                             <div
-                                class="font-medium flex items-center border-b border-gray-200 pb-5 @error('content') text-theme-6 @enderror ">
+                                class="font-medium flex items-center @error('content') text-theme-6 @enderror mt-3">
                                 <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i>
                                 Text Content
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
@@ -391,7 +367,6 @@
                             </div>
 
                         </div>
-                    </div>
 
                     <div class="tab-content__pane p-5 active" id="images-02">
                         <div class="border border-gray-200 rounded-md p-5">
@@ -502,7 +477,6 @@
 @section('script')
     <script>
         $(document).ready(function() {
-
             $("#meta-data").hide();
             $("#images").hide();
             $("#content-02").show();
@@ -539,6 +513,71 @@
             var image = document.getElementById('post-image');
             image.src = URL.createObjectURL(event.target.files[0]);
         };
+    </script>
+    <script>
+        function getDistrict() {
+            var provinceId = $('select[name="province_id"]').val();
+            if (provinceId) {
+                $.ajax({
+                    url: '/getDistrict/' + provinceId,
+                    type: "GET",
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data) {
+                            $('select[name="district_id"]').empty();
+                            $('select[name="district_id"]').append(
+                                '<option hidden>---  जिल्ला छान्नुहोस् |  ---</option>');
+                            $.each(data, function(key, district) {
+                                $('select[name="district_id"]').append('<option value="' + district.id +
+                                    '">' + district.name_lc + '</option>');
+                            });
+                        } else {
+                            $('select[name="district_id"]').append(
+                                '<option hidden>---  पहिला प्रदेश छान्नुहोस् |  ---</option>');
+                        }
+                    }
+                });
+            }
+            else{
+                $('select[name="province_id"]').append(
+                                '<option hidden>---  प्रदेश छान्नुहोस् |  ---</option>');
+            }
+        }
+
+        function getLocalLevel() {
+            var districtId = $('select[name="district_id"]').val();
+            console.log(districtId);
+            if (districtId) {
+                $.ajax({
+                    url: '/getLocalLevel/' + districtId,
+                    type: "GET",
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data) {
+                            $('select[name="local_level_id"]').empty();
+                            $('select[name="local_level_id"]').append(
+                                '<option hidden>---  स्थानइय तह छान्नुहोस् |  ---</option>');
+                            $.each(data, function(key, localLevel) {
+                                console.log(data);
+                                $('select[name="local_level_id"]').append('<option value="' + localLevel.id +
+                                    '">' + localLevel.name_lc + '</option>');
+                            });
+                        } else {
+                            $('select[name="local_level_id"]').append(
+                                '<option hidden>---  पहिला जिल्ला छान्नुहोस् |  ---</option>');
+                        }
+                    }
+                });
+            }
+        }
+
+
     </script>
     <script src="/ar/dist/js/custom.js"></script>
 @endsection
