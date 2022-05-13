@@ -62,49 +62,64 @@ class Membership extends Model
 
     // protected $guarded = ['id'];
 
-    public function getOwnimageAttribute()
+    public function getDocOwnImageAttribute()
     {
         return '/storage/' . $this->own_image;
     }
 
-    public function getSignimageAttribute()
+    public function getDocSignImageAttribute()
     {
         return '/storage/' . $this->sign_image;
     }
 
-    public function getCitizenshipfrontAttribute()
+    public function getDocCitizenshipFrontAttribute()
     {
         return '/storage/' . $this->citizenship_front;
     }
 
-    public function getCitizenshipbackAttribute()
+    public function getDocCitizenshipBackAttribute()
     {
         return '/storage/' . $this->citizenship_back;
     }
 
-    public function getPassportfrontAttribute()
+    public function getDocPassportFrontAttribute()
     {
         return '/storage/' . $this->passport_front;
     }
 
-    public function getPassportbackAttribute()
+    public function getDocPassportBackAttribute()
     {
         return '/storage/' . $this->passport_back;
     }
 
-    public function getLicenseimageAttribute()
+    public function getDocLicenseImageAttribute()
     {
         return '/storage/' . $this->license_image;
     }
 
-    public function getPanfrontAttribute()
+    public function getDocPanFrontAttribute()
     {
         return '/storage/' . $this->pan_front;
     }
 
-    public function getPanbackAttribute()
+    public function getDocPanBackAttribute()
     {
         return '/storage/' . $this->pan_back;
+    }
+
+    public function citizenProvince()
+    {
+        return $this->belongsTo(Province::class, 'citizen_province_id', 'id');
+    }
+
+    public function permProvince()
+    {
+        return $this->belongsTo(Province::class, 'perm_province_id', 'id');
+    }
+
+    public function tempProvince()
+    {
+        return $this->belongsTo(Province::class, 'temp_province_id', 'id');
     }
 
     public function gender()

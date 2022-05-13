@@ -82,7 +82,6 @@
                 <div class="post__content tab-content">
 
                     <div class="tab-content__pane p-5 active" id="citizenship-content">
-
                         <h1 class="text-4xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">Citizenship
                             Based Details (नागरिकता अनुशारको विवरण |)</h1>
                         <hr class="mt-5 mb-5">
@@ -177,7 +176,7 @@
                                         <option hidden>--- नगरिकता प्राप्त प्रदेश छान्नुहोस् | ---</option>
                                         @foreach ($provinces as $province)
                                             <option value="{{ $province->id }}"
-                                                @if (isset($member)) @if ($member->province->id == $province->id)
+                                                @if (isset($member)) @if ($member->citizenProvince->id == $province->id)
                                             selected @endif
                                                 @endif
                                                 >{{ $province->name }}</option>
@@ -268,7 +267,7 @@
                                             <option hidden>प्रदेश छान्नुहोस्</option>
                                             @foreach ($provinces as $province)
                                                 <option value="{{ $province->id }}"
-                                                    @if (isset($member)) @if ($member->province->id == $province->id)
+                                                    @if (isset($member)) @if ($member->permProvince->id == $province->id)
                                                 selected @endif
                                                     @endif
                                                     >{{ $province->name }}</option>
@@ -406,7 +405,7 @@
                                             <option hidden>प्रदेश छान्नुहोस्</option>
                                             @foreach ($provinces as $province)
                                                 <option value="{{ $province->id }}"
-                                                    @if (isset($member)) @if ($member->province->id == $province->id)
+                                                    @if (isset($member)) @if ($member->tempProvince->id == $province->id)
                                                 selected @endif
                                                     @endif
                                                     >{{ $province->name }}</option>
@@ -492,10 +491,9 @@
                                     <input type="text"
                                         class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
                                         placeholder="Write Ward Number" name="temp_ward_number" id="temp_ward_number"
-                                        value="{{ isset($member->temp_ward_number) ? $member->temp_ward_number : old('temp_ward_number') }}"
-                                        {{ isset($member) ? 'readonly' : '' }}>
+                                        value="{{ isset($member->temp_ward_number) ? $member->temp_ward_number : old('temp_ward_number') }}">
                                 </div>
-
+                                {{-- {{ dd($member->temp_tole, $member->temp_ward_number) }} --}}
                                 {{-- Tole Name --}}
                                 <div class="mt-3 ml-2">
                                     <div
@@ -508,8 +506,7 @@
                                     <input type="text"
                                         class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
                                         placeholder="Write Tole Name" name="temp_tole" id="temp_tole"
-                                        value="{{ isset($member->temp_tole) ? $member->temp_tole : old('temp_tole') }}"
-                                        {{ isset($member) ? 'readonly' : '' }}>
+                                        value="{{ isset($member->temp_tole) ? $member->temp_tole : old('temp_tole') }}">
                                 </div>
 
                             </div>
@@ -1007,7 +1004,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->own_image : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_own_image : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="own_image">
                                             </div>
                                         </div>
@@ -1034,7 +1031,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->sign_image : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_sign_image : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="sign_image">
                                             </div>
                                         </div>
@@ -1061,7 +1058,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->citizenship_front : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_citizenship_front : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="citizenship_front">
                                             </div>
                                         </div>
@@ -1089,7 +1086,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->citizenship_back : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_citizenship_back : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="citizenship_back">
                                             </div>
                                         </div>
@@ -1114,7 +1111,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->passport_front : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_passport_front : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="passport_front">
                                             </div>
                                         </div>
@@ -1139,7 +1136,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->passport_back : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_passport_back : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="passport_back">
                                             </div>
                                         </div>
@@ -1164,7 +1161,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->license_image : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_license_image : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="license_image">
                                             </div>
                                         </div>
@@ -1189,7 +1186,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->pan_front : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_pan_front : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="pan_front">
                                             </div>
                                         </div>
@@ -1214,7 +1211,7 @@
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($member) ? $member->name_en : '' }}"
-                                                    src="{{ isset($member) ? $member->pan_back : '/ar/dist/images/preview-6.jpg' }}"
+                                                    src="{{ isset($member) ? $member->doc_pan_back : '/ar/dist/images/preview-6.jpg' }}"
                                                     id="pan_back">
                                             </div>
                                         </div>
@@ -1232,16 +1229,20 @@
 
                 </div>
 
-
             </div>
         </div>
+        <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+            <button class="button w-24 justify-center block bg-theme-6 text-white mr-2">Previous</button>
+            <button type="submit" class="button w-24 justify-center block bg-theme-1 text-white ml-2">Next</button>
+        </div>
         {{-- <button type="submit">Submit</button> --}}
-        <div class="col-span-12 mt-3 items-center justify-center">
+        {{-- <div class="col-span-12 mt-3 items-center justify-center">
             <button type="submit" class="button w-32 mr-2 mb-2 flex items-center justify-center bg-theme-1 text-white">
                 <i data-feather="activity" class="w-4 h-4 mr-2"></i>
                 Create
             </button>
-        </div>
+        </div> --}}
+
         {{-- </div> --}}
         <!-- END: Post Content -->
     </form>

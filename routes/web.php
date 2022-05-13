@@ -213,3 +213,11 @@ Route::get('getProvince/',[App\Http\Controllers\ProvinceController::class, 'getP
 Route::get('getDistrict/{id}',[App\Http\Controllers\DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}',[App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
 Route::get('getLocalLevelType/{id}',[App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
+
+Route::get('member/create', function(){
+    return view('member.create');
+});
+
+Route::get('member/test', function(){
+    return view('member.test');
+});

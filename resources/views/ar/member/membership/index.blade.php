@@ -56,11 +56,11 @@ All Blog Posts
                         </div>
                     </td>
                     <td class="text-center border-b">
-                        {{-- <div class="flex sm:justify-center">
+                        <div class="flex sm:justify-center">
                             <div class="intro-x w-10 h-10 image-fit">
-                                <img alt="{{ $member->name_en }}" class="rounded-full" src="{{ $member->getOwnimageAttribute() }}">
+                                <img alt="{{ $member->name_en }}" class="rounded-full" src="{{ $member->doc_own_image() }}">
                             </div>
-                        </div> --}}
+                        </div>
                     </td>
 
 

@@ -20,8 +20,5 @@ class LocalLevelType extends Model
         return $this->code.' - '.($this->name_en).' ('.$this->name_lc.') ';
     }
 
-    public function district()
-    {
-        return $this->belongsTo(District::class, 'district_id', 'id');
-    }
+    
 }

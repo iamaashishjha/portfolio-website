@@ -25,8 +25,13 @@ class LocalLevel extends Model
         return $this->belongsTo(LocalLevelType::class, 'level_type_id', 'id');
     }
 
-    public function provision()
+    // public function provision()
+    // {
+    //     return $this->belongsTo(Provision::class, 'provision_id', 'id');
+    // }
+
+    public function district()
     {
-        return $this->belongsTo(Provision::class, 'provision_id', 'id');
+        return $this->belongsTo(District::class, 'district_id', 'id');
     }
 }
