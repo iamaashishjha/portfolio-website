@@ -89,3 +89,23 @@ textarea.form-control.is-invalid {
 .input-height{
 height: 85px;
 }
+
+.tab {
+    display: none;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #04AA6D!important;
+    color: white!important;
+}
+
+.step.current{
+    background-color: #1C3FAA!important;
+    color: white!important;
+}

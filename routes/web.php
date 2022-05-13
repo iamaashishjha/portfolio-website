@@ -152,21 +152,11 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
                         Route::get('/', 'index')->name('index');
+                        Route::get('/show/{id}', 'show')->name('show');
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
-                // Route::prefix('/slider')
-                //     ->name('slider.')
-                //     ->controller(AdminSliderController::class)
-                //     ->group(function () {
-                //         Route::get('/create', 'create')->name('create');
-                //         Route::post('/', 'store')->name('store');
-                //         Route::get('/', 'index')->name('index');
-                //         Route::get('/edit/{id}', 'edit')->name('edit');
-                //         Route::put('/edit/{id}', 'update')->name('update');
-                //         Route::delete('/{id}', 'destroy')->name('destroy');
-                //     });
             });
     });
 

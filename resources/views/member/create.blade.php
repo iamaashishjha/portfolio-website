@@ -23,26 +23,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <title>Create New Member</title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
+    <link rel="stylesheet" href="/ar/dist/css/custom.css" />
     <style>
-        .tab {
-            display: none;
-        }
-
-        /* Mark input boxes that gets an error on validation: */
-        input.invalid {
-            background-color: #ffdddd;
-        }
-
-        /* Mark the steps that are finished and valid: */
-        .step.finish {
-            background-color: #04AA6D!important;
-            color: white!important;
-        }
-
-        .step.current{
-            background-color: #1C3FAA!important;
-            color: white!important;
-        }
+        
 
     </style>
     <!-- END: CSS Assets-->
@@ -325,8 +308,6 @@ License: You must have a valid license purchased only from themeforest(the above
             } else {
                 document.getElementById("nextBtn").innerHTML = "Next";
             }
-
-            //... and run a function that will display the correct step indicator:
             fixStepIndicator(n)
         }
 

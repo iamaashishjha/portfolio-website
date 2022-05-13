@@ -1235,16 +1235,6 @@
             <button class="button w-24 justify-center block bg-theme-6 text-white mr-2">Previous</button>
             <button type="submit" class="button w-24 justify-center block bg-theme-1 text-white ml-2">Next</button>
         </div>
-        {{-- <button type="submit">Submit</button> --}}
-        {{-- <div class="col-span-12 mt-3 items-center justify-center">
-            <button type="submit" class="button w-32 mr-2 mb-2 flex items-center justify-center bg-theme-1 text-white">
-                <i data-feather="activity" class="w-4 h-4 mr-2"></i>
-                Create
-            </button>
-        </div> --}}
-
-        {{-- </div> --}}
-        <!-- END: Post Content -->
     </form>
     {{-- </div> --}}
 @endsection
