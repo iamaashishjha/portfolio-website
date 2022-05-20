@@ -95,9 +95,9 @@ height: 85px;
 }
 
 /* Mark input boxes that gets an error on validation: */
-input.invalid {
+/* input.invalid {
     background-color: #ffdddd;
-}
+} */
 
 /* Mark the steps that are finished and valid: */
 .step.finish {

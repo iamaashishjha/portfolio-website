@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\UserDashboardController;
 use App\Models\InfoEducation;
@@ -142,7 +143,7 @@ Route::middleware(['auth', 'admin'])
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
             });
-            Route::prefix('/member')
+        Route::prefix('/member')
             ->name('member.')
             ->group(function () {
                 Route::prefix('/membership')
@@ -199,15 +200,21 @@ Route::fallback(function () {
     return "You're message goes here!";
 });
 
-Route::get('getProvince/',[App\Http\Controllers\ProvinceController::class, 'getProvince']);
-Route::get('getDistrict/{id}',[App\Http\Controllers\DistrictController::class, 'getDistrict']);
-Route::get('getLocalLevel/{id}',[App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
-Route::get('getLocalLevelType/{id}',[App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
+Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);
+Route::get('getDistrict/{id}', [App\Http\Controllers\DistrictController::class, 'getDistrict']);
+Route::get('getLocalLevel/{id}', [App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
+Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
 
-Route::get('member/create', function(){
-    return view('member.create');
-});
+Route::get('member/create', [App\Http\Controllers\MembershipController::class, 'create']);
 
-Route::get('member/test', function(){
+Route::get('member/store', function () {
     return view('member.test');
 });
+
+Route::prefix('member')
+    ->name('member.')
+    ->controller(MembershipController::class)
+    ->group(function () {
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+    });

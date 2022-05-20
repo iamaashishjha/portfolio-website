@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\File;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
-
 class AdminMembershipController extends Controller
 {
     /**
@@ -219,10 +218,7 @@ class AdminMembershipController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        
-
-        
+    {        
 
         $member = Membership::find($id);
 

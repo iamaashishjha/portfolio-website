@@ -40,6 +40,16 @@ function copyMetaData() {
     });
 }
 
+$(document).ready(function() {
+    $('#btnDiv').hide();
+
+    $('#documents-button').click(function(e) {
+        e.preventDefault();
+        $('#btnDiv').show();
+
+    });
+});
+
 function createMemberPageLoad() {
     // debugger;
     $("#citizenship-content").show();
@@ -48,6 +58,9 @@ function createMemberPageLoad() {
     $("#old-membership-content").hide();
     $("#documents-content").hide();
     $("#remarks-content").hide();
+    $('#btnDiv').hide();
+    $(this).addClass('bg-theme-9 text-white');
+        $(this).removeClass('bg-gray-200');
 
     $("#personal-button").click(function() {
         $("#personal-content").show();
@@ -56,6 +69,11 @@ function createMemberPageLoad() {
         $("#old-membership-content").hide();
         $("#documents-content").hide();
         $("#remarks-content").hide();
+        $('#btnDiv').hide();
+        $(this).addClass('bg-theme-9 text-white');
+        $(this).removeClass('bg-gray-200');
+        // debugger;
+
     });
 
     $("#citizenship-button").click(function() {
@@ -65,6 +83,9 @@ function createMemberPageLoad() {
         $("#old-membership-content").hide();
         $("#documents-content").hide();
         $("#remarks-content").hide();
+        $('#btnDiv').hide();
+        
+
     });
 
     $("#property-button").click(function() {
@@ -74,6 +95,8 @@ function createMemberPageLoad() {
         $("#old-membership-content").hide();
         $("#documents-content").hide();
         $("#remarks-content").hide();
+        $('#btnDiv').hide();
+
     });
 
     $("#old-membership-button").click(function() {
@@ -83,6 +106,8 @@ function createMemberPageLoad() {
         $("#old-membership-content").show();
         $("#documents-content").hide();
         $("#remarks-content").hide();
+        $('#btnDiv').hide();
+
     });
 
     $("#documents-button").click(function() {
@@ -92,6 +117,7 @@ function createMemberPageLoad() {
         $("#old-membership-content").hide();
         $("#documents-content").show();
         $("#remarks-content").hide();
+        $('#btnDiv').show();
     });
 
     $("#remarks-button").click(function() {

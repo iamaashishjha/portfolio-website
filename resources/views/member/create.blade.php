@@ -20,14 +20,28 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="keywords"
         content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="LEFT4CODE">
-    <title>Create New Member</title>
+
+    <title>
+        @yield('title', 'Register Membership')
+    </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
     <link rel="stylesheet" href="/ar/dist/css/custom.css" />
-    <style>
-        
+    <link rel="stylesheet" href="/ar/dist/css/nepali-date-picker.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css"
+        integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
+     alpha/css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    @yield('css')
+
+    {{-- <link rel="stylesheet" href="/css/app.css" /> --}}
+
     <!-- END: CSS Assets-->
 </head>
 <!-- END: Head -->
@@ -41,241 +55,33 @@ License: You must have a valid license purchased only from themeforest(the above
                     नया सदस्यताता को लागि Online फोरम भर्नुहोस् |
                 </h2>
             </div>
-            <form action="/" id="membershipForm" method="POST" >
+            <form action="{{ route('member.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- BEGIN: Wizard Layout -->
                 <div class="intro-y box py-10 sm:py-20 mt-5">
-                    <div class="wizard flex flex-col lg:flex-row justify-center px-5 sm:px-20">
-                        <div class="intro-x lg:text-center flex items-center lg:block flex-1 z-10">
-                            <button class="w-10 h-10 rounded-full button text-white bg-theme-1 step" disabled>1</button>
-                            <div class="lg:w-32 font-medium text-base lg:mt-3 ml-3 lg:mx-auto">Citizenship</div>
-                        </div>
-                        <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-                            <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200 step" disabled>2</button>
-                            <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Personal</div>
-                        </div>
-                        <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-                            <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200 step" disabled>3</button>
-                            <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Income / Property
-                            </div>
-                        </div>
-                        <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-                            <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200 step" disabled>4</button>
-                            <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Political</div>
-                        </div>
-                        <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
-                            <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200 step" disabled>5</button>
-                            <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Documents</div>
-                        </div>
-                        <div class="wizard__line hidden lg:block w-2/3 bg-gray-200 absolute mt-5"></div>
-                    </div>
-                    <div class="tab">
-                        <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 ">
-                            <h1 class="text-4xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">Citizenship
-                                Based Details (नागरिकता अनुशारको विवरण |)</h1>
-                            <hr class="mt-5 mb-5">
-                            {{-- <div class="font-medium text-base ">Citizenship</div> --}}
-                            <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">From</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">To</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Subject</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Important Meeting">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Has the Words</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Doesn't Have</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                
-                            </div>
+                    
+                    @include('member.partials.tabs')
 
-                            <hr class="mt-5 mb-5">
-                        <h1 class="text-4xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Permanent Address
-                            (स्थायी ठेगाना |) </h1>
-                        <hr class="mt-5 mb-5">
-                        <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                            <div class="intro-y col-span-12 sm:col-span-6">
-                                <div class="mb-2">From</div>
-                                <input type="text" class="input w-full border flex-1"
-                                    placeholder="example@gmail.com">
-                            </div>
-                            <div class="intro-y col-span-12 sm:col-span-6">
-                                <div class="mb-2">To</div>
-                                <input type="text" class="input w-full border flex-1"
-                                    placeholder="example@gmail.com">
-                            </div>
-                            <div class="intro-y col-span-12 sm:col-span-6">
-                                <div class="mb-2">Subject</div>
-                                <input type="text" class="input w-full border flex-1"
-                                    placeholder="Important Meeting">
-                            </div>
-                            <div class="intro-y col-span-12 sm:col-span-6">
-                                <div class="mb-2">Has the Words</div>
-                                <input type="text" class="input w-full border flex-1"
-                                    placeholder="Job, Work, Documentation">
-                            </div>
-                            <div class="intro-y col-span-12 sm:col-span-6">
-                                <div class="mb-2">Doesn't Have</div>
-                                <input type="text" class="input w-full border flex-1"
-                                    placeholder="Job, Work, Documentation">
-                            </div>
-                            
-                        </div>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 ">
-                            {{-- <div class="font-medium text-base ">Personal</div> --}}
-                            <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">From</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">To</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Subject</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Important Meeting" >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Has the Words</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation" >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Doesn't Have</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation" >
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 ">
-                            {{-- <div class="font-medium text-base ">Personal</div> --}}
-                            <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">From</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com"  >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">To</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com" >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Subject</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Important Meeting"  >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Has the Words</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation"  >
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Doesn't Have</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation"  >
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 ">
-                            {{-- <div class="font-medium text-base ">Personal</div> --}}
-                            <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">From</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">To</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Subject</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Important Meeting">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Has the Words</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Doesn't Have</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 ">
-                            {{-- <div class="font-medium text-base ">Personal</div> --}}
-                            <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">From</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">To</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="example@gmail.com">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Subject</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Important Meeting">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Has the Words</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                <div class="intro-y col-span-12 sm:col-span-6">
-                                    <div class="mb-2">Doesn't Have</div>
-                                    <input type="text" class="input w-full border flex-1"
-                                        placeholder="Job, Work, Documentation">
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                    {{-- Citizenship --}}
+                    @include('member.partials.citizenship')
+
+                    {{-- Personal --}}
+                    @include('member.partials.personal')
+
+                    {{-- Income / Property --}}
+                    @include('member.partials.property')
+
+                    {{-- Political --}}
+                    @include('member.partials.political')
+
+                    {{-- Documents --}}
+                    @include('member.partials.document')
+
                 </div>
-                <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-                    <button class="button w-24 justify-center block bg-theme-6 text-white ml-2"
-                    type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button class="button w-24 justify-center block bg-theme-1 text-white ml-2"
-                    type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5" id="btnDiv"
+                    hidden>
+                    <button type="submit"
+                        class="button w-24 justify-center block bg-theme-1 text-white ml-2">Submit</button>
                 </div>
                 <!-- END: Wizard Layout -->
             </form>
@@ -284,86 +90,137 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END: Content -->
     </div>
     <!-- BEGIN: JS Assets-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"
+        integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script> --}}
     <script src="/ar/dist/js/app.js"></script>
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
+    <script src="/ar/dist/js/custom.js"></script>
     <script>
-        var currentTab = 0; // Current tab is set to be the first tab (0)
-        showTab(currentTab); // Display the current tab
+        var ownImage = function(event) {
+            var image = document.getElementById('own_image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-        function showTab(n) {
+        var signImage = function(event) {
+            var image = document.getElementById('sign_image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-            // This function will display the specified tab of the form...
-            var x = document.getElementsByClassName("tab");
-            x[n].style.display = "block";
-            //... and fix the Previous/Next buttons:
-            if (n == 0) {
-                document.getElementById("prevBtn").style.display = "none";
-            } else {
-                document.getElementById("prevBtn").style.display = "inline";
-            }
-            if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
-            } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
-            }
-            fixStepIndicator(n)
-        }
+        var citizenshipFront = function(event) {
+            var image = document.getElementById('citizenship_front');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-        function nextPrev(n) {
-            // This function will figure out which tab to display
-            var x = document.getElementsByClassName("tab");
-            // Exit the function if any field in the current tab is invalid:
-            if (n == 1 && !validateForm()) return false;
-            // Hide the current tab:
-            x[currentTab].style.display = "none";
-            // Increase or decrease the current tab by 1:
-            currentTab = currentTab + n;
-            // if you have reached the end of the form...
-            if (currentTab >= x.length) {
-                // ... the form gets submitted:
-                document.getElementById("membershipForm").submit();
-                return false;
-            }
-            // Otherwise, display the correct tab:
-            showTab(currentTab);
-        }
+        var citizenshipBack = function(event) {
+            var image = document.getElementById('citizenship_back');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-        function validateForm() {
-            // This function deals with validation of the form fields
-            var x, y, i, valid = true;
-            x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("input");
+        var passportFront = function(event) {
+            var image = document.getElementById('passport_front');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-            // A loop that checks every input field in the current tab:
-            for (i = 0; i < y.length; i++) {
-                // If a field is empty...
-                if (y[i].value == "") {
-                    // add an "invalid" class to the field:
-                    y[i].className += " invalid";
-                    // and set the current valid status to false
-                    valid = false;
-                }
-            }
+        var passportBack = function(event) {
+            var image = document.getElementById('passport_back');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-            // If the valid status is true, mark the step as finished and valid:
-            if (valid) {
-                document.getElementsByClassName("step")[currentTab].className += " finish";
-            }
-            return valid; // return the valid status
-        }
+        var licenseImage = function(event) {
+            var image = document.getElementById('license_image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-        function fixStepIndicator(n) {
+        var panFront = function(event) {
+            var image = document.getElementById('pan_front');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
 
-            // This function removes the "active" class of all steps...
-            var i, x = document.getElementsByClassName("step");
+        var panBack = function(event) {
+            var image = document.getElementById('pan_back');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 
-            for (i = 0; i < x.length; i++) {
-                x[i].className = x[i].className.replace("current", "");
-            }
-            x[n].className += " current";
-        }
+    <script>
+        $(document).ready(function() {
+            $("#citizenship-button").addClass('bg-theme-9 text-white');
+            $("#citizenship-button").removeClass('bg-gray-200 text-gray-600');
+
+            $("#personal-button").click(function() {
+                $(this).addClass('bg-theme-9 text-white');
+                $(this).removeClass('bg-gray-200 text-gray-600');
+                $("#citizenship-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").removeClass('bg-theme-9 text-white');
+                $("#property-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#property-button").removeClass('bg-theme-9 text-white');
+                $("#old-membership-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#old-membership-button").removeClass('bg-theme-9 text-white');
+                $("#documents-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#documents-button").removeClass('bg-theme-9 text-white');
+            });
+
+            $("#citizenship-button").click(function() {
+                $(this).addClass('bg-theme-9 text-white');
+                $(this).removeClass('bg-gray-200 text-gray-600 ');
+                $("#personal-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#personal-button").removeClass('bg-theme-9 text-white');
+                $("#property-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#property-button").removeClass('bg-theme-9 text-white');
+                $("#old-membership-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#old-membership-button").removeClass('bg-theme-9 text-white');
+                $("#documents-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#documents-button").removeClass('bg-theme-9 text-white');
+            });
+
+            $("#property-button").click(function() {
+                $(this).addClass('bg-theme-9 text-white');
+                $(this).removeClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").removeClass('bg-theme-9 text-white');
+                $("#personal-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#personal-button").removeClass('bg-theme-9 text-white');
+                $("#old-membership-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#old-membership-button").removeClass('bg-theme-9 text-white');
+                $("#documents-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#documents-button").removeClass('bg-theme-9 text-white');
+            });
+
+            $("#old-membership-button").click(function() {
+                $(this).addClass('bg-theme-9 text-white');
+                $(this).removeClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").removeClass('bg-theme-9 text-white');
+                $("#personal-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#personal-button").removeClass('bg-theme-9 text-white');
+                $("#property-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#property-button").removeClass('bg-theme-9 text-white');
+                $("#documents-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#documents-button").removeClass('bg-theme-9 text-white');
+            });
+
+            $("#documents-button").click(function() {
+                $(this).addClass('bg-theme-9 text-white');
+                $(this).removeClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#citizenship-button").removeClass('bg-theme-9 text-white');
+                $("#personal-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#personal-button").removeClass('bg-theme-9 text-white');
+                $("#property-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#property-button").removeClass('bg-theme-9 text-white');
+                $("#old-membership-button").addClass('bg-gray-200 text-gray-600 ');
+                $("#old-membership-button").removeClass('bg-theme-9 text-white');
+            });
+        });
     </script>
     <!-- END: JS Assets-->
 </body>
