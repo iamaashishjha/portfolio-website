@@ -122,19 +122,19 @@
 
         {{-- Members Management --}}
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} " id="information_menu">
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/member/*') ? 'side-menu--active' : '' }} " id="information_menu">
                 <div class="side-menu__icon"> <i data-feather="scissors"></i> </div>
                 <div class="side-menu__title"> Members <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.user.registered') }}" class="side-menu">
+                    <a href="{{ route('admin.member.membership.create') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Register New Member </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.user.admin') }}" class="side-menu">
+                    <a href="{{ route('admin.member.membership.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> All Mmebers </div>
                     </a>

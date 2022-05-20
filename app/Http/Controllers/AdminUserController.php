@@ -14,7 +14,6 @@ class AdminUserController extends BaseController
 {
     public function registeredUsers()
     {
-        # code...
         $users = User::where('role', 0)->get();
         return view('ar.user.registered')
             ->with('users', $users);

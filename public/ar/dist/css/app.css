@@ -37465,8 +37465,11 @@ video {
   height: 0.25rem;
 }
 
+/* To Change form tab dimension comment following width */
+
 .post .post__tabs a {
   border-bottom-width: 0;
+  width:1000px;
 }
 
 .post .post__tabs a.active {

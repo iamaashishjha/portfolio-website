@@ -5,9 +5,11 @@ use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
+use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\AdminUserDetailController;
+use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\UserDashboardController;
 use App\Models\InfoEducation;
@@ -35,9 +37,6 @@ Route::get(
     '/home',
     [App\Http\Controllers\HomeController::class, 'index']
 )->name('home');
-
-
-
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -118,7 +117,7 @@ Route::middleware(['auth', 'admin'])
                     });
             });
 
-            Route::prefix('/home')
+        Route::prefix('/home')
             ->name('home.')
             ->group(function () {
                 Route::prefix('/header-footer')
@@ -132,13 +131,29 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
-                    Route::prefix('/slider')
+                Route::prefix('/slider')
                     ->name('slider.')
                     ->controller(AdminSliderController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
                         Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+            });
+        Route::prefix('/member')
+            ->name('member.')
+            ->group(function () {
+                Route::prefix('/membership')
+                    ->name('membership.')
+                    ->controller(AdminMembershipController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/show/{id}', 'show')->name('show');
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
@@ -184,3 +199,22 @@ Route::middleware(['auth', 'user', 'verified'])
 Route::fallback(function () {
     return "You're message goes here!";
 });
+
+Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);
+Route::get('getDistrict/{id}', [App\Http\Controllers\DistrictController::class, 'getDistrict']);
+Route::get('getLocalLevel/{id}', [App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
+Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
+
+Route::get('member/create', [App\Http\Controllers\MembershipController::class, 'create']);
+
+Route::get('member/store', function () {
+    return view('member.test');
+});
+
+Route::prefix('member')
+    ->name('member.')
+    ->controller(MembershipController::class)
+    ->group(function () {
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+    });
