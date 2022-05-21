@@ -126,4 +126,15 @@
 				@enderror
 			</div>
 		</div>
+		<div class="mt-3">
+			<div
+				class="font-medium flex items-center @error('political_background') text-theme-6 @enderror mt-3">
+				Political Background (राजनीतिक पृष्ठभूमि)
+				<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+			</div>
+			<div class="mt-5">
+				<textarea data-feature="all" class="summernote" data-height="550"
+					name="political_background">{{ isset($member->political_background) ? $member->political_background : old('political_background') }}</textarea>
+			</div>
+		</div>
 	</div>

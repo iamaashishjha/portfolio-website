@@ -131,4 +131,73 @@ class Membership extends Model
     {
         Storage::delete($this->image);
     }
+
+    public function getDocs()
+    {
+        $files = [];
+        if (isset($this->doc_own_image)) {
+            $arrayData = [
+                'file' => $this->doc_own_image,
+                'name' => 'Own Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_sign_image)) {
+            $arrayData = [
+                'file' => $this->doc_sign_image,
+                'name' => 'Signature Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_citizenship_front)) {
+            $arrayData = [
+                'file' => $this->doc_citizenship_front,
+                'name' => 'Citizenship Front Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_citizenship_back)) {
+            $arrayData = [
+                'file' => $this->doc_citizenship_back,
+                'name' => 'Citizenship Back Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_passport_front)) {
+            $arrayData = [
+                'file' => $this->doc_passport_front,
+                'name' => 'Passport Front Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_passport_back)) {
+            $arrayData = [
+                'file' => $this->doc_passport_back,
+                'name' => 'Passport Back Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_license_image)) {
+            $arrayData = [
+                'file' => $this->doc_license_image,
+                'name' => 'License Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_pan_front)) {
+            $arrayData = [
+                'file' => $this->doc_pan_front,
+                'name' => 'Pan Card Front Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        if (isset($this->doc_pan_back)) {
+            $arrayData = [
+                'file' => $this->doc_pan_back,
+                'name' => 'Pan Card Back Image'
+            ];
+            array_push($files, $arrayData);
+        }
+        return $files;
+    }
 }

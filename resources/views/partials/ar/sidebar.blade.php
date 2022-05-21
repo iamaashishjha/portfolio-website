@@ -12,10 +12,14 @@
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
+
+        {{-- Blogs  --}}
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} " id="blog_menu">
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} "
+                id="blog_menu">
                 <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                <div class="side-menu__title"> Blogs <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                <div class="side-menu__title"> Blogs <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
             </a>
             <ul class="collapse">
                 <li>
@@ -52,46 +56,20 @@
                 </li>
             </ul>
         </li>
-        {{-- <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/info/*') ? 'side-menu--active' : '' }} " id="information_menu">
-                <div class="side-menu__icon"> <i data-feather="layout"></i> </div>
-                <div class="side-menu__title"> Information <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
-            </a>
-            <ul class="collapse">
-                <li>
-                    <a href="{{ route('admin.info.education.index') }}" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                        <div class="side-menu__title"> Education </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                        <div class="side-menu__title"> Experience </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                        <div class="side-menu__title"> References </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                        <div class="side-menu__title"> Portfolio </div>
-                    </a>
-                </li>
-            </ul>
-        </li> --}}
 
         <li class="side-nav__devider my-6"></li>
 
         {{-- User Management --}}
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} " id="information_menu">
-                <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                <div class="side-menu__title"> Users <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/user/*') ? 'side-menu--active' : '' }} "
+                id="information_menu">
+                <div class="side-menu__icon">
+                    <i data-feather="users"></i>
+                </div>
+                <div class="side-menu__title">
+                    Users
+                    <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
             </a>
             <ul class="collapse">
                 <li>
@@ -107,7 +85,7 @@
                     </a>
                 </li>
                 @php
-                    $user = Auth::user();
+                $user = Auth::user();
                 @endphp
                 <li>
                     <a href="{{ route('admin.user.profile', $user->id) }}" class="side-menu">
@@ -122,9 +100,11 @@
 
         {{-- Members Management --}}
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/member/*') ? 'side-menu--active' : '' }} " id="information_menu">
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/member/*') ? 'side-menu--active' : '' }} "
+                id="information_menu">
                 <div class="side-menu__icon"> <i data-feather="scissors"></i> </div>
-                <div class="side-menu__title"> Members <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                <div class="side-menu__title"> Members <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
             </a>
             <ul class="collapse">
                 <li>
@@ -136,7 +116,7 @@
                 <li>
                     <a href="{{ route('admin.member.membership.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> All Mmebers </div>
+                        <div class="side-menu__title"> All Members </div>
                     </a>
                 </li>
             </ul>
@@ -145,11 +125,13 @@
 
         {{-- App Settings --}}
         <li>
-            <a href="javascript:;" class="side-menu {{ request()->is('admin/home/*') ? 'side-menu--active' : '' }} ">
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/home/*') ? 'side-menu--active' : '' }} "
+                id="appSetting_menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                <div class="side-menu__title"> Appsetting <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+                <div class="side-menu__title"> Appsetting <i data-feather="chevron-down"
+                        class="side-menu__sub-icon"></i> </div>
             </a>
-            <ul class="">
+            <ul class="collapse">
                 <li>
                     <a href="{{ route('admin.home.headerFooter.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
@@ -162,12 +144,6 @@
                         <div class="side-menu__title"> Slider </div>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="side-menu-users-layout-3.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Layout 3 </div>
-                    </a>
-                </li> --}}
             </ul>
         </li>
     </ul>

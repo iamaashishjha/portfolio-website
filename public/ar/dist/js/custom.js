@@ -51,7 +51,6 @@ $(document).ready(function() {
 });
 
 function createMemberPageLoad() {
-    // debugger;
     $("#citizenship-content").show();
     $("#personal-content").hide();
     $("#property-content").hide();
@@ -60,7 +59,7 @@ function createMemberPageLoad() {
     $("#remarks-content").hide();
     $('#btnDiv').hide();
     $(this).addClass('bg-theme-9 text-white');
-        $(this).removeClass('bg-gray-200');
+    $(this).removeClass('bg-gray-200');
 
     $("#personal-button").click(function() {
         $("#personal-content").show();
@@ -70,9 +69,6 @@ function createMemberPageLoad() {
         $("#documents-content").hide();
         $("#remarks-content").hide();
         $('#btnDiv').hide();
-        $(this).addClass('bg-theme-9 text-white');
-        $(this).removeClass('bg-gray-200');
-        // debugger;
 
     });
 
@@ -84,6 +80,7 @@ function createMemberPageLoad() {
         $("#documents-content").hide();
         $("#remarks-content").hide();
         $('#btnDiv').hide();
+        
         
 
     });
