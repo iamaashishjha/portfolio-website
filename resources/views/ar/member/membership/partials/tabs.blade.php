@@ -5,7 +5,7 @@
     Citizenship
 </a>
 <a title="Personal Details (व्यक्तिगत बिबरण)" data-toggle="tab" id="personal-button" data-target="#personal-content"
-    href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center ">
+    href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center">
     <i data-feather="file-text" class="w-4 h-4 mr-2"></i>
     Personal
 </a>

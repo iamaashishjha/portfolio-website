@@ -1,5 +1,5 @@
 
-	<div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 tab-content__pane" id="personal-content">
+	<div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 tab-content__pane" id="old-membership-content">
 	{{-- Political History --}}
 	<h1 class="text-4xl text-theme-9 font-medium leading-none mt-2 mb-2 text-center">Political Details
 		(राजनैतिक विवरण |)
