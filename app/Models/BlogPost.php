@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Notifications\Notifiable;
 
 class BlogPost extends Model
 {
     use HasFactory;
 
     use SoftDeletes;
+
+    use Notifiable;
 
     protected $table = 'blog_posts';
 

@@ -21,11 +21,10 @@ class InfoEducation extends Model
         'is_active', 'institution',
     ];
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
     public function checkStatus()
     {
-        # code...
         $status = $this->attributes['is_active'];
         if ($status == 0) {
             return '';
@@ -63,6 +62,12 @@ class InfoEducation extends Model
     public function getImageAttribute()
     {
         return '/storage/' . $this->education_image;
+    }
+
+    public function user()
+    {
+        # code...
+        return $this->belongsTo(User::class);
     }
 
     public function deleteImage()

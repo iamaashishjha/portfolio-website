@@ -1,4 +1,4 @@
-@extends('layouts.ur');
+@extends('layouts.dashboard');
 
 
 @section('title')
@@ -7,9 +7,9 @@ Dashboard
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="/dashboard" class="">Application</a>
-    <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-    <a href="" class="breadcrumb--active">Dashboard</a>
+    <a href="/dashboard" class="">Dashboard</a>
+    {{-- <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+    <a href="" class="breadcrumb--active">Dashboard</a> --}}
 </div>
 @endsection
 

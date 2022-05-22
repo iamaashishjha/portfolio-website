@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\User\BaseController;
+use App\Http\Middleware\User;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\StoreUserBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
@@ -10,6 +11,8 @@ use App\Http\Requests\UpdateUserBlogPostRequest;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
+use App\Notifications\PostCreated;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -105,8 +108,22 @@ class UserBlogPostController extends BaseController
         $post->created_by = Auth::user()->id;
         $post->save();
         $post->blogTags()->attach($request->tags);
+
         Alert::toast('Post Created Successfully', 'success');
         return redirect()->route('user.post.index');
+
+        // $userSchema = Auth::user();
+  
+        // $post = [
+        //     'name' => $post->title,
+        //     'body' => $post->description = $request->description,
+        //     'thanks' => 'Thank you',
+        //     'offerText' => 'Check out the offer',
+        //     'offerUrl' => url('/'),
+        // ];
+  
+        // Notification::send($userSchema, new PostCreated($post));
+        // $userSchema->notify(new PostCreated($post));
     }
 
     /**

@@ -9,9 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laravolt\Avatar\Avatar;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class User extends Authenticatable
+class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -28,7 +29,8 @@ class User extends Authenticatable
         'phone_number',
         'address',
         'designation',
-        'admin'
+        'role',
+        
     ];
 
     /**
@@ -82,7 +84,7 @@ class User extends Authenticatable
 
     public function getAdminAttribute()
     {
-        $status = $this->attributes['admin'];
+        $status = $this->attributes['role'];
         return $status;
     }
 
@@ -105,7 +107,7 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        $role = $this->admin;
+        $role = $this->role;
         if ($role == 1) {
             return true;
         }
