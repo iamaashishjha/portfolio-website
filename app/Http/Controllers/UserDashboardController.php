@@ -27,7 +27,6 @@ class UserDashboardController extends BaseController
         $posts = BlogPost::where('status', 1)->get();
         $postsCount = $posts->count();
         $postCount = $post->count();
-        // return view('ur.index')
         return view('dashboard.index')
         ->with('userCount', $userCount)
         ->with('catCount', $catCount)

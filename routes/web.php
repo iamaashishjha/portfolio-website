@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\UserDashboardController;
@@ -33,10 +34,46 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => false, 'register' => false]);
 
-Route::get(
-    '/home',
-    [App\Http\Controllers\HomeController::class, 'index']
-)->name('home');
+Route::prefix('/')
+    ->name('home.')
+    ->controller(HomeController::class)
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/contact', 'contactPage')->name('contact');
+        Route::get('/about', 'aboutUsPage')->name('about');
+
+        Route::prefix('events')
+            ->name('events.')
+            ->controller(HomeController::class)
+            ->group(function () {
+                Route::get('/', 'listEvent')->name('index');
+                Route::get('/{id}', 'listEvent')->name('show');
+        });
+
+        Route::prefix('news')
+            ->name('news.')
+            ->controller(HomeController::class)
+            ->group(function () {
+                Route::get('/', 'listNews')->name('index');
+                Route::get('/{id}', 'showNews')->name('show');
+        });
+
+        Route::prefix('blogs')
+            ->name('blogs.')
+            ->controller(HomeController::class)
+            ->group(function () {
+                Route::get('/', 'listBlog')->name('index');
+                Route::get('/{id}', 'showBlog')->name('show');
+        });
+
+        Route::prefix('member')
+            ->name('member.')
+            ->controller(MembershipController::class)
+            ->group(function () {
+                Route::get('/create', 'create')->name('create');
+                Route::post('/', 'store')->name('store');
+            });
+    });
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -165,10 +202,18 @@ Route::middleware(['auth', 'user', 'verified'])
     ->prefix('dashboard')
     ->name('user.')
     ->group(function () {
-        Route::get(
-            '/',
-            [App\Http\Controllers\UserDashboardController::class, 'index']
-        )->name('index');
+        Route::get('/', [App\Http\Controllers\UserDashboardController::class, 'index'])->name('index');
+
+        Route::prefix('/')
+            ->name('profile.')
+            ->controller(UserDashboardController::class)
+            ->group(function () {
+                // Route::get('', 'index')->name('index');
+                Route::get('profile/{user_id}', 'profile')->name('view');
+                Route::put('profile/{user_id}', 'profileUpdate')->name('update');
+                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
+            });
+
         Route::prefix('/blog')
             ->name('post.')
             ->controller(UserBlogPostController::class)
@@ -185,15 +230,6 @@ Route::middleware(['auth', 'user', 'verified'])
                         Route::put('/restore/{id}', 'restore')->name('restore');
                     });
             });
-
-        Route::prefix('/')
-            ->name('profile.')
-            ->controller(UserDashboardController::class)
-            ->group(function () {
-                Route::get('profile/{user_id}', 'profile')->name('view');
-                Route::put('profile/{user_id}', 'profileUpdate')->name('update');
-                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
-            });
     });
 
 Route::fallback(function () {
@@ -204,17 +240,3 @@ Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'get
 Route::get('getDistrict/{id}', [App\Http\Controllers\DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}', [App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
 Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
-
-Route::get('member/create', [App\Http\Controllers\MembershipController::class, 'create']);
-
-Route::get('member/store', function () {
-    return view('member.test');
-});
-
-Route::prefix('member')
-    ->name('member.')
-    ->controller(MembershipController::class)
-    ->group(function () {
-        Route::get('/create', 'create')->name('create');
-        Route::post('/', 'store')->name('store');
-    });
