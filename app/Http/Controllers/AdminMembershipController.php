@@ -21,7 +21,7 @@ class AdminMembershipController extends Controller
     public function index()
     {
         $this->data['members'] = Membership::all();
-        return view('ar.member.membership.index', $this->data);
+        return view('ar.membership.index', $this->data);
     }
 
     /**
@@ -34,7 +34,7 @@ class AdminMembershipController extends Controller
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
-        return view('ar.member.membership.create', $this->data);
+        return view('ar.membership.create', $this->data);
     }
 
     /**
@@ -207,7 +207,7 @@ class AdminMembershipController extends Controller
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
-        return view('ar.member.membership.create', $this->data);
+        return view('ar.membership.create', $this->data);
     }
 
     /**

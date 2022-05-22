@@ -14,7 +14,26 @@ class CreateMembershipsTable extends Migration
     public function up()
     {
         Schema::create('memberships', function (Blueprint $table) {
+
             $table->id();
+
+            // personal 
+            // $table->string('name_en')->nullable();
+            // $table->string('name_lc')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('mobile_number')->nullable();
+
+            $table->string('cast')->nullable();
+            $table->string('category')->nullable();
+            $table->string('category_source')->nullable();
+
+            $table->string('education_qualification')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('other_identity')->nullable();
+
+            // citizenship 
+
             $table->string('name_en')->nullable();
             $table->string('name_lc')->nullable();
             $table->smallInteger('gender_id')->nullable();
@@ -40,23 +59,10 @@ class CreateMembershipsTable extends Migration
             $table->smallInteger('temp_province_id')->nullable();
             $table->smallInteger('temp_district_id')->nullable();
             $table->smallInteger('temp_local_level_id')->nullable();
-            
+
             $table->smallInteger('temp_local_level_type_id')->nullable();
             $table->string('temp_ward_number')->nullable();
             $table->string('temp_tole')->nullable();
-
-
-            $table->string('email')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->string('mobile_number')->nullable();
-
-            $table->string('cast')->nullable();
-            $table->string('category')->nullable();
-            $table->string('category_source')->nullable();
-
-            $table->string('education_qualification')->nullable();
-            $table->string('blood_group')->nullable();
-            $table->string('other_identity')->nullable();
 
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();
@@ -68,6 +74,8 @@ class CreateMembershipsTable extends Migration
             $table->string('wife_name')->nullable();
             $table->integer('total_family_member')->nullable();
 
+            // property 
+
             $table->string('profession')->nullable();
             $table->string('source_income')->nullable();
 
@@ -77,18 +85,18 @@ class CreateMembershipsTable extends Migration
 
             $table->string('property_other')->nullable();
 
-            
+            // party political
             $table->string('party_post')->nullable();
             $table->string('committee_name')->nullable();
             $table->string('party_lebidar')->nullable();
-            
+
             $table->string('party_joined_date_ad')->nullable();
             $table->string('party_joined_date_bs')->nullable();
             $table->string('party_location')->nullable();
 
             $table->string('political_background')->nullable();
 
-
+            // document 
             $table->string('own_image')->nullable();
             $table->string('sign_image')->nullable();
             $table->string('citizenship_front')->nullable();
@@ -101,7 +109,34 @@ class CreateMembershipsTable extends Migration
             $table->string('pan_front')->nullable();
             $table->string('pan_back')->nullable();
 
-            $table->integer('verified_by')->nullable();
+            //general
+            $table->boolean('is_verified');
+
+            $table->boolean('verification_code');
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('approved_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
