@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             BlogPostSeeder::class,
             BlogTagsSeeder::class,
             AppsettingSeeder::class,
+            NewsCategorySeeder::class,
+            NewsPostSeeder::class,
+            NewsTagsSeeder::class,
         ]);
     }
 }

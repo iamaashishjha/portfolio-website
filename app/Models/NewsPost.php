@@ -66,7 +66,7 @@ class NewsPost extends Model
     public function getTagsAttribute()
     {
         # code...
-        $tags = $this->blogTags;
+        $tags = $this->newsTags;
         foreach ($tags as $tag) {
             # code...
             return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
@@ -82,13 +82,13 @@ class NewsPost extends Model
     public function category()
     {
         # code...
-        return $this->belongsTo(BlogCategory::class, 'category_id', 'id');
+        return $this->belongsTo(NewsCategory::class, 'category_id', 'id');
     }
 
-    public function blogTags()
+    public function newsTags()
     {
         # code...
-        return $this->belongsToMany(BlogTags::class);
+        return $this->belongsToMany(NewsTags::class);
     }
 
     public function deleteImage()

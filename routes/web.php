@@ -6,6 +6,9 @@ use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
 use App\Http\Controllers\AdminMembershipController;
+use App\Http\Controllers\AdminNewsCategoryController;
+use App\Http\Controllers\AdminNewsPostController;
+use App\Http\Controllers\AdminNewsTagController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\DistrictController;
@@ -48,7 +51,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listEvent')->name('index');
                 Route::get('/{id}', 'listEvent')->name('show');
-        });
+            });
 
         Route::prefix('news')
             ->name('news.')
@@ -56,7 +59,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listNews')->name('index');
                 Route::get('/{id}', 'showNews')->name('show');
-        });
+            });
 
         Route::prefix('blogs')
             ->name('blogs.')
@@ -64,7 +67,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listBlog')->name('index');
                 Route::get('/{id}', 'showBlog')->name('show');
-        });
+            });
 
         Route::prefix('member')
             ->name('member.')
@@ -138,12 +141,12 @@ Route::middleware(['auth', 'admin'])
                     });
             });
 
-        Route::prefix('/info')
-            ->name('info.')
+        Route::prefix('/news')
+            ->name('news.')
             ->group(function () {
-                Route::prefix('/education')
-                    ->name('education.')
-                    ->controller(AdminInfoEducationController::class)
+                Route::prefix('/category')
+                    ->name('category.')
+                    ->controller(AdminNewsCategoryController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
@@ -152,7 +155,47 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
+                Route::prefix('/tag')
+                    ->name('tag.')
+                    ->controller(AdminNewsTagController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
+                Route::prefix('/post')
+                    ->name('post.')
+                    ->controller(AdminNewsPostController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                        Route::get('/trash', 'trashed')->name('trashed');
+                        Route::put('/restore/{id}', 'restore')->name('restore');
+                    });
             });
+
+        // Route::prefix('/info')
+        //     ->name('info.')
+        //     ->group(function () {
+        //         Route::prefix('/education')
+        //             ->name('education.')
+        //             ->controller(AdminInfoEducationController::class)
+        //             ->group(function () {
+        //                 Route::get('/create', 'create')->name('create');
+        //                 Route::post('/', 'store')->name('store');
+        //                 Route::get('/', 'index')->name('index');
+        //                 Route::get('/edit/{id}', 'edit')->name('edit');
+        //                 Route::put('/edit/{id}', 'update')->name('update');
+        //                 Route::delete('/{id}', 'destroy')->name('destroy');
+        //             });
+        //     });
 
         Route::prefix('/home')
             ->name('home.')
@@ -233,7 +276,8 @@ Route::middleware(['auth', 'user', 'verified'])
     });
 
 Route::fallback(function () {
-    return "You're message goes here!";
+    // return view('customBlade.errors.404');
+    abort(404);
 });
 
 Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);

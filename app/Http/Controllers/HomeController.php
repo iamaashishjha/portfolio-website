@@ -6,6 +6,7 @@ use App\Models\BlogPost;
 use App\Models\Event;
 use App\Models\HeaderFooter;
 use App\Models\News;
+use App\Models\NewsPost;
 use App\Models\Slider;
 
 class HomeController extends Controller
@@ -59,14 +60,14 @@ class HomeController extends Controller
 
     public function listNews()
     {
-        $this->data['news'] = News::all();
-        return view('hr.event.index', $this->data);
+        $this->data['news'] = NewsPost::all();
+        return view('hr.news.index', $this->data);
     }
 
     public function showNews($id)
     {
-        $this->data['news'] = News::find($id);
-        return view('hr.event.show');
+        $this->data['news'] = NewsPost::find($id);
+        return view('hr.news.show');
     }
 
     public function listEvent()

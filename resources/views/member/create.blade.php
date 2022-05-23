@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     नया सदस्यताता को लागि Online फोरम भर्नुहोस् |
                 </h2>
             </div>
-            <form action="{{ route('member.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('home.member.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- BEGIN: Wizard Layout -->
                 <div class="intro-y box py-10 sm:py-20 mt-5">

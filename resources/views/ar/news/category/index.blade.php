@@ -30,7 +30,7 @@ All Blog Categories | Aashish Jha
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Category Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">News</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Created At</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>

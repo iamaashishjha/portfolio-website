@@ -13,7 +13,52 @@
             </a>
         </li>
 
-        {{-- Blogs  --}}
+        
+        {{-- News --}}
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/news/*') ? 'side-menu--active' : '' }} "
+                id="blog_menu">
+                <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+                <div class="side-menu__title"> News <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="{{ route('admin.news.post.create') }}" class="side-menu" id="blog_submenu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Create New Post </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.news.post.index') }}" class="side-menu" id="blog_submenu">
+
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> All Posts </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.news.post.trashed') }}" class="side-menu" id="blog_submenu">
+
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Trashed Posts </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.news.category.index') }}" class="side-menu" id="blog_submenu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> News Categories </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.news.tag.index') }}" class="side-menu" id="blog_submenu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> News Tags </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        {{-- Blogs --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/blog/*') ? 'side-menu--active' : '' }} "
                 id="blog_menu">
