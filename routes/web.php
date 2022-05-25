@@ -45,6 +45,8 @@ Route::prefix('/')
         Route::get('/contact', 'contactPage')->name('contact');
         Route::get('/about', 'aboutUsPage')->name('about');
 
+        Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
+
         Route::prefix('events')
             ->name('events.')
             ->controller(HomeController::class)

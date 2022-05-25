@@ -634,7 +634,7 @@
         if ($('.static-banner-one__bg').length) {
             $('.static-banner-one__bg-inner').vegas({
                 slides: [
-                    { src: "assets/images/background/banner-bg-1-1.jpg" },
+                    { src: "hr/assets/images/background/banner-bg-1-1.jpg" },
                     { src: "assets/images/background/banner-bg-1-2.jpg" }
                 ],
                 transition: 'slideUp',

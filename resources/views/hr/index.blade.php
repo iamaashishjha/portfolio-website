@@ -17,12 +17,13 @@
 			America <span class="typed-effect" id="type-1" data-strings="Forward, Powerful"></span>
 		</h2>
 		<p class="static-banner-one__text">Become a part of our campaign, sign up for updates.</p>
-		<form class="static-banner-one__form mc-form" data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&amp;id=cc0ee8140e">
+		<form class="static-banner-one__form" action="{{ route('home.sliderForm') }}" method="POST">
+			@csrf
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="static-banner-one__form-fields ">
-						<input placeholder="Email Address" type="email" required="required" class="formInput">
-						<input type="text" name="zip" placeholder="Zip Code">
+						<input placeholder="Email Address" type="email" name="email" value="{{ old('email') }}" required="required" class="formInput">
+						<input type="text" name="zip" placeholder="Zip Code" value="{{ old('zip') }}">
 					</div><!-- /.static-banner-one__form-fields -->
 					<button type="submit" class="thm-btn static-banner-one__form-btn">Sign Up</button>
 				</div><!-- /.col-lg-6 -->

@@ -44,7 +44,7 @@ License: You must have a valid license purchased only from themeforest(the above
 use Prologue\Alerts\Facades\Alert;
     @endphp
 
-    {{-- @include('sweetalert::alert') --}}
+    @include('sweetalert::alert')
     @foreach (Alert::all() as $alert)
     {{ $alert }}
 @endforeach

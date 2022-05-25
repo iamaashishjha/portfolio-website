@@ -89,6 +89,14 @@ class CreateMasterDataTables extends Migration
                 ->onDelete('cascade');
         });
 
+
+        Schema::create('data', function(Blueprint $table){
+            $table->id();
+            $table->string('slider_subscribe_email')->nullable();
+            $table->string('slider_subscribe_zip')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('genders', function (Blueprint $table) {
             $table->id();
             

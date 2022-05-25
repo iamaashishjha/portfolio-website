@@ -38,6 +38,8 @@
     <div class="preloader">
         <img src="/hr/assets/images/loader.png" class="preloader__image" alt="">
     </div><!-- /.preloader -->
+    @include('sweetalert::alert')
+
     <div class="page-wrapper">
         @include('partials.hr.navbar')
 

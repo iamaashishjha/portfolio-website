@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogPost;
+use App\Models\Data;
 use App\Models\Event;
 use App\Models\HeaderFooter;
 use App\Models\News;
 use App\Models\NewsPost;
 use App\Models\Slider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -33,6 +37,55 @@ class HomeController extends Controller
         $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
         $this->data['events'] = Event::all();
         return view('hr.index', $this->data);
+    }
+
+    public function indexPageSliderForm(Request $request)
+    {
+
+        // $validator = $request->validate(
+        //     [
+        //         'email' => 'required|email',
+        //         'zip' => 'required|integer'
+        //     ],
+        //     [
+        //         'email' => 'Email',
+        //         'zip' > 'Zip Code',
+        //     ],
+        //     [
+        //         'required' => 'The :attribute field is required.',
+        //         'email' => 'The :attribute field must be email.',
+        //         'integer' => 'The :attribute field must be number.',
+        //     ]
+        // );
+
+        $validator =Validator::make($request->all(),
+            [
+                'email' => 'required|email',
+                'zip' => 'required|integer'
+            ],
+            [
+                'email' => 'Email',
+                'zip' > 'Zip Code',
+            ],
+            [
+                'required' => 'The :attribute field is required.',
+                'email' => 'The :attribute field must be email.',
+                'integer' => 'The :attribute field must be number.',
+            ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+
+        $data = new Data();
+        $data->slider_subscribe_email = $request->email;
+        $data->slider_subscribe_zip = $request->zip;
+        $data->save();
+        Alert::toast('We Will get back to you', 'success');
+        return redirect()->back();
     }
 
     public function aboutUsPage()
