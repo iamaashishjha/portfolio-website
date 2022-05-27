@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Sliders | Aashish Jha
+All Sliders | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')

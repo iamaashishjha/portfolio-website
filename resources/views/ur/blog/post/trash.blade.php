@@ -1,7 +1,7 @@
 @extends('layouts.ur')
 
 @section('title')
-Trashed Blog Posts | Aashish Jha
+Trashed Blog Posts | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')

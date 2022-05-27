@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Blog Category | Aashish Jha --}}
-{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Aashish Jha': 'Create New Blog Category | Aashish Jha' }}
+{{-- Create New Blog Category | Nagrik Unmukti Party --}}
+{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti Party': 'Create New Blog Category | Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')

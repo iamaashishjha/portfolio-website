@@ -21,7 +21,7 @@ class NewsCategory extends Model
         'deleted_by'
     ];
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
 
     /**

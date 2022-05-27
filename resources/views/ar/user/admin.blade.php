@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Administrative Users | Aashish Jha
+All Administrative Users | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')

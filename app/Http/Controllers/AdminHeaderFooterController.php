@@ -33,7 +33,15 @@ class AdminHeaderFooterController extends BaseController
      */
     public function create()
     {
-        return view('ar.headerFooter.create');
+        $totalData = count(HeaderFooter::all());
+
+        if ($totalData <= 1) {
+            return view('ar.headerFooter.create');
+        }
+        else {
+            Alert::error('Header/Footer Data alreadty exists');
+            return redirect()->route('admin.home.headerFooter.index');
+        }
     }
 
     /**
@@ -44,33 +52,42 @@ class AdminHeaderFooterController extends BaseController
      */
     public function store(StoreHeaderFooterRequest $request)
     {
-        $path = $request->logo_image->store('home/header-footer', 'public');
-        $headerFooter = new HeaderFooter();
+        $totalData = count(HeaderFooter::all());
 
-        $headerFooter->name = $request->name;
-        $headerFooter->logo = $path;
+        if ($totalData <= 1) {
+            $path = $request->logo_image->store('home/header-footer', 'public');
+            $headerFooter = new HeaderFooter();
 
-        $headerFooter->telephone = $request->telephone;
-        $headerFooter->phone1 = $request->phone1;
-        $headerFooter->phone2 = $request->phone2;
-        $headerFooter->email = $request->email;
-        $headerFooter->address = $request->address;
-        $headerFooter->start_date = $request->start_date;
+            $headerFooter->site_title = $request->site_title;
+            $headerFooter->name = $request->name;
+            $headerFooter->company_description = $request->company_description;
+            $headerFooter->logo = $path;
 
-        $headerFooter->meta_description = $request->meta_description;
-        $headerFooter->meta_title = $request->meta_title;
-        $headerFooter->keywords = $request->keywords;
+            $headerFooter->telephone = $request->telephone;
+            $headerFooter->phone1 = $request->phone1;
+            $headerFooter->phone2 = $request->phone2;
+            $headerFooter->email = $request->email;
+            $headerFooter->address = $request->address;
+            $headerFooter->start_date = $request->start_date;
 
-        $headerFooter->created_by = Auth::user()->id;
-        if ($request->has('is_active')) {
-            $headerFooter->is_active = 1;
+            $headerFooter->meta_description = $request->meta_description;
+            $headerFooter->meta_title = $request->meta_title;
+            $headerFooter->keywords = $request->keywords;
+
+            $headerFooter->created_by = Auth::user()->id;
+            if ($request->has('is_active')) {
+                $headerFooter->is_active = 1;
+            } else {
+                $headerFooter->is_active = 0;
+            }
+            $headerFooter->save();
+
+            Alert::success('Header/Footer Created Successfully');
+            return redirect()->route('admin.home.headerFooter.index');
         } else {
-            $headerFooter->is_active = 0;
+            Alert::error('Header/Footer Data alreadty exists');
+            return redirect()->route('admin.home.headerFooter.index');
         }
-        $headerFooter->save();
-
-        Alert::toast('Header/Footer Created Successfully', 'success');
-        return redirect()->route('admin.home.headerFooter.index');
     }
 
     /**
@@ -107,7 +124,9 @@ class AdminHeaderFooterController extends BaseController
     {
         $headerFooter = HeaderFooter::find($id);
 
+        $headerFooter->site_title = $request->site_title;
         $headerFooter->name = $request->name;
+        $headerFooter->company_description = $request->company_description;
 
         if ($request->has('logo') && ($request->logo_image != '')) {
             $imagePath = $headerFooter->image;

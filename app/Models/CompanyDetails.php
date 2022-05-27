@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Data extends Model
+class CompanyDetails extends Model
 {
     use HasFactory;
-    
-    protected $table = 'data';
-    
-    protected $fillable = [
-        'slider_subscribe_email',
-        'slider_subscribe_zip',
-        'subscribe_us_email'
-    ];
 
+    protected $fillable = [
+        'about_us', 'our_history',
+        'created_by', 'deleted_by', 'updated_by'
+    ];
 }

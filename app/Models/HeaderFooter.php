@@ -11,11 +11,11 @@ class HeaderFooter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'logo', 
-        'telephone', 'email', 'address', 
+        'site_title','name', 'logo', 
+        'telephone', 'email', 'address', 'company_description',
         'meta_description', 'meta_title', 'keywords',
         'created_by', 'is_active', 'start_date',
-        'phone1', 'phone2',
+        'phone1', 'phone2', 
     ];
 
     public function getLogoImageAttribute()

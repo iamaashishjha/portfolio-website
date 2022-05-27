@@ -1,7 +1,7 @@
 @extends('layouts.ur')
 
 @section('title')
-All Blog Posts | Aashish Jha
+All Blog Posts | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')

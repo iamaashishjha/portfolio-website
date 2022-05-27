@@ -30,17 +30,17 @@
             <div class="main-navigation">
                 <ul class=" navigation-box">
                     <li class="current">
-                        <a href="{{ route('home.index') }}">Home</a>
+                        <a href="{{ route('home.index') }}">{{ __('menuItems.home') }}</a>
                     </li>
                     <li>
-                        <a href="javascript:;">Membership</a>
+                        <a href="javascript:;">{{ __('menuItems.membership') }}</a>
                         <ul class="sub-menu">
                             <li><a href="{{ route('home.member.create') }}">Register</a></li>
                             <li><a href="{{ route('admin.member.membership.index') }}">Dashboard</a></li>
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
-                        <a href="javascript:;">Posts</a>
+                        <a href="javascript:;">{{ __('menuItems.posts') }}</a>
                         <ul class="sub-menu">
                             <li><a href="{{ route('home.events.index') }}">Events</a></li>
                             <li><a href="{{ route('home.news.index') }}">News</a></li>
@@ -58,7 +58,18 @@
                         <a href="{{ route('home.contact') }}">Contact</a>
                     </li>
                 </ul>
+                {{-- {{ dd(App::currentLocale())  }} --}}
+                <ul class="navbar-nav me-auto">
+                    <form action="{{url('/locale')}}" method="post">
+                        @csrf
+                        <select class="form-select" name="locale" onchange="this.form.submit()">
+                            <option value="en" {{ (App::currentLocale() == 'en') ? 'selected' : '' }}>English</option>
+                            <option value="np" {{ (App::currentLocale() == 'np') ? 'selected' : '' }}>नेपाली</option>
+                        </select>
+                    </form>
+                </ul>
             </div><!-- /.navbar-collapse -->
+            
             <div class="right-side-box">
                 <div class="header-social">
                     <a href="#" class="fa fa-twitter"></a>

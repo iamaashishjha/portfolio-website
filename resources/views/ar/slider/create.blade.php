@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Slider | Aashish Jha --}}
-    {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '". | Aashish Jha' : 'Create New Slider | Aashish Jha' }}
+    {{-- Create New Slider | Nagrik Unmukti Party --}}
+    {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '". | Nagrik Unmukti Party' : 'Create New Slider | Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')

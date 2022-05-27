@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Header/Footer | Aashish Jha
+All Header/Footer | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')
@@ -29,6 +29,7 @@ All Header/Footer | Aashish Jha
         <thead>
             <tr>
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
+                <th class="border-b-2 text-center  whitespace-no-wrap">Site Title</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Logo</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Email</th>
@@ -42,6 +43,9 @@ All Header/Footer | Aashish Jha
             @foreach ($headerFooters as $headerFooter)
             <tr>
                 <td class="border-b text-center">
+                </td>
+                <td class="border-b text-center">
+                    <div class="font-medium whitespace-no-wrap">{{ $headerFooter->site_title }}</div>
                 </td>
                 <td class="border-b text-center">
                     <div class="font-medium whitespace-no-wrap">{{ $headerFooter->name }}</div>
@@ -85,7 +89,7 @@ All Header/Footer | Aashish Jha
             </div>
             @endforeach
             @else
-            <td class="text-center border-b" colspan="7">
+            <td class="text-center border-b" colspan="8">
                 No Header/Footer Available
             </td>
             @endif

@@ -2,7 +2,7 @@
 <nav class="side-nav" id="sidebar">
     <a href="/admin" class="intro-x flex items-center pl-5 pt-4">
         <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
-        <span class="hidden xl:block text-white text-lg ml-3"> Aashish <span class="font-medium">Jha</span> </span>
+        <span class="hidden xl:block text-white text-lg ml-3"> Nagrik Unmukti <span class="font-medium">Party</span> </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -13,7 +13,31 @@
             </a>
         </li>
 
-        
+        {{-- Events --}}
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/event/*') ? 'side-menu--active' : '' }} "
+                id="blog_menu">
+                <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
+                <div class="side-menu__title"> Events <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="{{ route('admin.event.create') }}" class="side-menu" id="blog_submenu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Create New Event </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.event.index') }}" class="side-menu" id="blog_submenu">
+
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> All Events </div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         {{-- News --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/news/*') ? 'side-menu--active' : '' }} "
@@ -181,6 +205,12 @@
                     <a href="{{ route('admin.home.headerFooter.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Header/Footer </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.home.companyDetails.index') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                        <div class="side-menu__title"> Company Details </div>
                     </a>
                 </li>
                 <li>

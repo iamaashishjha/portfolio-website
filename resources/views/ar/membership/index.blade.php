@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Members | Aashish Jha
+All Members | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')

@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 @section('title')
-{{-- Create New Blog Tag | Aashish Jha --}}
-{{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'". | Aashish Jha' : 'Create New Blog Tag | Aashish Jha' }}
+{{-- Create New Blog Tag | Nagrik Unmukti Party --}}
+{{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'". | Nagrik Unmukti Party' : 'Create New Blog Tag | Nagrik Unmukti Party' }}
 
 
 

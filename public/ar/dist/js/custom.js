@@ -24,7 +24,7 @@ function copyMetaData() {
     $("#title").keyup(function() {
         var Text = $(this).val();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, ' ');
-        $("#meta_title").val(Text + " || Aashish Jha");
+        $("#meta_title").val(Text + " || Nagrik Unmukti Party");
     });
     $("#title").keyup(function() {
         var Text = $(this).val();

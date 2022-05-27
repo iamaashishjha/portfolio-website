@@ -15,18 +15,46 @@ class CreateMasterDataTables extends Migration
     {
         Schema::create('header_footers', function (Blueprint $table) {
             $table->id();
+            $table->string('site_title');
             $table->string('name');
+            $table->string('company_description')->nullable();
             $table->string('logo')->nullable();
             $table->string('telephone')->nullable();
             $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
+            $table->bigInteger('total_members')->nullable();
             $table->text('meta_description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('keywords')->nullable();
             $table->boolean('is_active')->default(1);
             $table->string('start_date')->nullable();
+            $table->timestamps();
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('company_details', function (Blueprint $table) {
+            $table->id();
+            $table->text('about_us');
+            $table->text('our_history');
             $table->timestamps();
 
             $table->foreignId('created_by')
@@ -94,6 +122,7 @@ class CreateMasterDataTables extends Migration
             $table->id();
             $table->string('slider_subscribe_email')->nullable();
             $table->string('slider_subscribe_zip')->nullable();
+            $table->string('subscribe_us_email')->nullable();
             $table->timestamps();
         });
 

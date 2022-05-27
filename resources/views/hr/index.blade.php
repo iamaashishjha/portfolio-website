@@ -1,9 +1,13 @@
 @extends('layouts.hr')
 
+@section('title')
+{{ isset($headerFooter->site_title) ? $headerFooter->site_title : 'Nagrik Unmukti Party'}}
+@endsection
+
 
 
 @section('css')
-	
+
 @endsection
 
 @section('content')
@@ -22,7 +26,8 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="static-banner-one__form-fields ">
-						<input placeholder="Email Address" type="email" name="email" value="{{ old('email') }}" required="required" class="formInput">
+						<input placeholder="Email Address" type="email" name="email" value="{{ old('email') }}"
+							required="required" class="formInput">
 						<input type="text" name="zip" placeholder="Zip Code" value="{{ old('zip') }}">
 					</div><!-- /.static-banner-one__form-fields -->
 					<button type="submit" class="thm-btn static-banner-one__form-btn">Sign Up</button>
@@ -39,7 +44,8 @@
 				<div class="about-four__content">
 					<div class="block-title text-left">
 						<p class="block-title__tag-line">Potisen Politics</p>
-						<h2 class="block-title__title">We can build <br> better future <br> together</h2><!-- /.block-title__title -->
+						<h2 class="block-title__title">We can build <br> better future <br> together</h2>
+						<!-- /.block-title__title -->
 					</div><!-- /.block-title -->
 					<ul class="list-unstyled about-four__list">
 						<li>
@@ -69,8 +75,10 @@
 				<div class="row low-gutters">
 					<div class="col-md-6 wow fadeInUp" data-wow-duration="1500ms">
 						<div class="about-four__image">
-							<img src="/hr/assets/images/resources/about-1-1.jpg" class="img-fluid" alt="Awesome Image" />
-							<img src="/hr/assets/images/resources/sign.png" class="about-four__sign" alt="Awesome Image" />
+							<img src="/hr/assets/images/resources/about-1-1.jpg" class="img-fluid"
+								alt="Awesome Image" />
+							<img src="/hr/assets/images/resources/sign.png" class="about-four__sign"
+								alt="Awesome Image" />
 						</div><!-- /.about-four__image -->
 					</div><!-- /.col-md-6 -->
 					<div class="col-md-6">
@@ -79,7 +87,9 @@
 								<i class="potisen-icon-poll"></i>
 								<h4 class="about-four__box-title">Vote Status</h4><!-- /.about-four__box-title -->
 							</div><!-- /.about-four__box-top -->
-							<p class="about-four__box-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour or randomised.</p><!-- /.about-four__box-text -->
+							<p class="about-four__box-text">There are many variations of passages of Lorem Ipsum
+								available, but the majority have suffered alteration in some form, by injected humour or
+								randomised.</p><!-- /.about-four__box-text -->
 							<a href="#" class="thm-btn about-four__btn">Learn More</a>
 						</div><!-- /.about-four__box -->
 					</div><!-- /.col-md-6 -->
@@ -107,25 +117,31 @@
 			<div class="col-lg-6">
 				<div class="about-three__content">
 					<div class="block-title text-left">
-						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image"
+							class="wow rotateIn" data-wow-duration="1500ms">
 						<p class="block-title__tag-line">About Potisen</p>
 						<h2 class="block-title__title">Mission and Vision</h2><!-- /.block-title__title -->
 					</div><!-- /.block-title -->
 					<div class="about-three__box-wrap">
 						<div class="about-three__box">
 							<i class="potisen-icon-bid"></i>
-							<h4 class="about-three__box-title">Civil Rights <br> Attorney</h4><!-- /.about-three__box-title -->
+							<h4 class="about-three__box-title">Civil Rights <br> Attorney</h4>
+							<!-- /.about-three__box-title -->
 						</div><!-- /.about-three__box -->
 						<div class="about-three__box">
 							<i class="potisen-icon-work"></i>
-							<h4 class="about-three__box-title">Majored in <br> Political</h4><!-- /.about-three__box-title -->
+							<h4 class="about-three__box-title">Majored in <br> Political</h4>
+							<!-- /.about-three__box-title -->
 						</div><!-- /.about-three__box -->
 						<div class="about-three__box">
 							<i class="potisen-icon-politics"></i>
-							<h4 class="about-three__box-title">Political <br> Solutions</h4><!-- /.about-three__box-title -->
+							<h4 class="about-three__box-title">Political <br> Solutions</h4>
+							<!-- /.about-three__box-title -->
 						</div><!-- /.about-three__box -->
 					</div><!-- /.about-three__box-wrap -->
-					<p class="about-three__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p><!-- /.about-three__text -->
+					<p class="about-three__text">There are many variations of passages of Lorem Ipsum available, but the
+						majority have suffered alteration in some form, by injected humour, or randomised words which
+						don't look even slightly believable.</p><!-- /.about-three__text -->
 					<a href="#" class="thm-btn about-three__btn">Learn More</a>
 				</div><!-- /.about-three__content -->
 			</div><!-- /.col-lg-6 -->
@@ -143,7 +159,8 @@
 			<div class="inner-container thm-base-bg-2">
 				<div class="row align-items-center">
 					<div class="col-lg-5">
-						<h3 class="donation-contribute__title">Contribute to help us win</h3><!-- /.donation-contribute__title -->
+						<h3 class="donation-contribute__title">Contribute to help us win</h3>
+						<!-- /.donation-contribute__title -->
 					</div><!-- /.col-lg-5 -->
 					<div class="col-lg-7">
 						<form class="donation-contribute__form">
@@ -166,7 +183,8 @@
 <section class="campaing-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">Policy Positions</p>
 			<h2 class="block-title__title">Campaign Principles</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
@@ -202,60 +220,42 @@
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 		</div><!-- /.row -->
-		<p class="campaing-one__more-text text-center">How we can build a better country together!. <a href="donation.html">Donate or Volunteer.</a></p><!-- /.campaing-one__more-text -->
+		<p class="campaing-one__more-text text-center">How we can build a better country together!. <a
+				href="donation.html">Donate or Volunteer.</a></p><!-- /.campaing-one__more-text -->
 	</div><!-- /.container -->
 </section><!-- /.campaing-one -->
+
 <section class="event-one thm-gray-bg event-one__home-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">Join Campaigns</p>
 			<h2 class="block-title__title">Upcoming Events</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
+			@foreach ($events as $event)
 			<div class="col-xl-4">
 				<div class="event-one__single">
 					<div class="event-one__image">
 						<div class="event-one__image-inner">
-							<img src="/hr/assets/images/event/event-1-1.jpg" alt="">
+							<img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/event/event-1-1.jpg' }}" alt="" style="height:150px;width:150px">
 						</div><!-- /.event-one__image-inner -->
 					</div><!-- /.event-one__image -->
 					<div class="event-one__content">
-						<p class="event-one__date">20 Oct, 2019</p>
-						<h3 class="event-one__title"><a href="event-details.html">Let’s meet your candidate in america</a></h3><!-- /.event-one__title -->
+						<p class="event-one__date">{{ $event->created_at->diffForHumans() }}</p>
+						<h3 class="event-one__title"><a href="{{ route('home.events.show', $event->id) }}">{{$event->title}}</a></h3><!-- /.event-one__title -->
 					</div><!-- /.event-one__content -->
 				</div><!-- /.event-one__single -->
 			</div><!-- /.col-lg-6 -->
-			<div class="col-xl-4">
-				<div class="event-one__single">
-					<div class="event-one__image">
-						<div class="event-one__image-inner">
-							<img src="/hr/assets/images/event/event-1-2.jpg" alt="">
-						</div><!-- /.event-one__image-inner -->
-					</div><!-- /.event-one__image -->
-					<div class="event-one__content">
-						<p class="event-one__date">20 Oct, 2019</p>
-						<h3 class="event-one__title"><a href="event-details.html">Let’s meet your candidate in america</a></h3><!-- /.event-one__title -->
-					</div><!-- /.event-one__content -->
-				</div><!-- /.event-one__single -->
-			</div><!-- /.col-lg-6 -->
-			<div class="col-xl-4">
-				<div class="event-one__single">
-					<div class="event-one__image">
-						<div class="event-one__image-inner">
-							<img src="/hr/assets/images/event/event-1-3.jpg" alt="">
-						</div><!-- /.event-one__image-inner -->
-					</div><!-- /.event-one__image -->
-					<div class="event-one__content">
-						<p class="event-one__date">20 Oct, 2019</p>
-						<h3 class="event-one__title"><a href="event-details.html">Let’s meet your candidate in america</a></h3><!-- /.event-one__title -->
-					</div><!-- /.event-one__content -->
-				</div><!-- /.event-one__single -->
-			</div><!-- /.col-lg-6 -->
+			@endforeach
+			
+			
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.event-one -->
-<section class="countdown-one thm-gray-bg countdown-one__home-one">
+
+{{-- <section class="countdown-one thm-gray-bg countdown-one__home-one">
 	<div class="container">
 		<div class="inner-container">
 			<div class="row align-items-xl-center align-items-lg-center">
@@ -272,11 +272,14 @@
 			</div><!-- /.row -->
 		</div><!-- /.inner-container -->
 	</div><!-- /.container -->
-</section><!-- /.countdown-one -->
+</section><!-- /.countdown-one --> --}}
+
+
 <section class="about-two">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">Join Campaigns</p>
 			<h2 class="block-title__title">We Will Make <br> History Together</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
@@ -294,7 +297,11 @@
 							<img src="/hr/assets/images/resources/history-1-3.jpg" alt="" class="img-fluid" />
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
-					<p class="about-two__text">Lorem Ipsum is simply dummy text of the printing and type setting industry has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled to make a type specimen book. It has survived not only five centuries but also the leap into electronic type setting.</p><!-- /.about-two__text -->
+					<p class="about-two__text">Lorem Ipsum is simply dummy text of the printing and type setting
+						industry has been the industry's standard dummy text ever since the 1500s, when an unknown
+						printer took a galley of type and scrambled to make a type specimen book. It has survived not
+						only five centuries but also the leap into electronic type setting.</p>
+					<!-- /.about-two__text -->
 				</div><!-- /.about-two__content -->
 			</div><!-- /.col-lg-6 -->
 			<div class="col-lg-6">
@@ -305,7 +312,9 @@
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
+								<p>It has survived not only five centuries but also the leap into electronic type
+									setting. when an unknown printer took a galley of type and scrambled to make a type
+									specimen book.</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
@@ -315,7 +324,9 @@
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
+								<p>It has survived not only five centuries but also the leap into electronic type
+									setting. when an unknown printer took a galley of type and scrambled to make a type
+									specimen book.</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
@@ -325,7 +336,9 @@
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
+								<p>It has survived not only five centuries but also the leap into electronic type
+									setting. when an unknown printer took a galley of type and scrambled to make a type
+									specimen book.</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
@@ -334,16 +347,21 @@
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.about-two -->
-<section class="testimonials-two">
+
+
+{{-- <section class="testimonials-two">
 	<div class="testimonials-two__carousel">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<div class="testimonials-two__single" style="background-image: url(/hr/assets/images/testimonials/testimonials-1-bg.jpg);">
+				<div class="testimonials-two__single"
+					style="background-image: url(/hr/assets/images/testimonials/testimonials-1-bg.jpg);">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-7">
 								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.</h3>
+								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
+									pricing and customer support. It’s throughly refresing to get such a personal touch.
+								</h3>
 								<p class="testimonials-two__name">Gary Hilk</p><!-- /.testimonials-two__name -->
 							</div><!-- /.col-lg-7 -->
 							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
@@ -351,7 +369,9 @@
 									<a href="#" class="testimonials-two__btn">
 										<i class="fa fa-play"></i>
 									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img src="/hr/assets/images/resources/video-arrow.png" alt="Awesome Image" /></span>
+									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
+											src="/hr/assets/images/resources/video-arrow.png"
+											alt="Awesome Image" /></span>
 								</div><!-- /.testimonials-two__btn-wrap -->
 							</div><!-- /.col-lg-5 -->
 						</div><!-- /.row -->
@@ -359,12 +379,15 @@
 				</div><!-- /.testimonials-two__single -->
 			</div><!-- /.swiper-slide -->
 			<div class="swiper-slide">
-				<div class="testimonials-two__single" style="background-image: url(/hr/assets/images/testimonials/testimonials-2-bg.jpg);">
+				<div class="testimonials-two__single"
+					style="background-image: url(/hr/assets/images/testimonials/testimonials-2-bg.jpg);">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-7">
 								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.</h3>
+								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
+									pricing and customer support. It’s throughly refresing to get such a personal touch.
+								</h3>
 								<p class="testimonials-two__name">Naida Bowline</p><!-- /.testimonials-two__name -->
 							</div><!-- /.col-lg-7 -->
 							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
@@ -372,7 +395,9 @@
 									<a href="#" class="testimonials-two__btn">
 										<i class="fa fa-play"></i>
 									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img src="/hr/assets/images/resources/video-arrow.png" alt="Awesome Image" /></span>
+									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
+											src="/hr/assets/images/resources/video-arrow.png"
+											alt="Awesome Image" /></span>
 								</div><!-- /.testimonials-two__btn-wrap -->
 							</div><!-- /.col-lg-5 -->
 						</div><!-- /.row -->
@@ -380,20 +405,26 @@
 				</div><!-- /.testimonials-two__single -->
 			</div><!-- /.swiper-slide -->
 			<div class="swiper-slide">
-				<div class="testimonials-two__single" style="background-image: url(/hr/assets/images/testimonials/testimonials-3-bg.jpg);">
+				<div class="testimonials-two__single"
+					style="background-image: url(/hr/assets/images/testimonials/testimonials-3-bg.jpg);">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-7">
 								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.</h3>
-								<p class="testimonials-two__name">Caroline Ocheltree</p><!-- /.testimonials-two__name -->
+								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
+									pricing and customer support. It’s throughly refresing to get such a personal touch.
+								</h3>
+								<p class="testimonials-two__name">Caroline Ocheltree</p>
+								<!-- /.testimonials-two__name -->
 							</div><!-- /.col-lg-7 -->
 							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
 								<div class="testimonials-two__btn-wrap">
 									<a href="#" class="testimonials-two__btn">
 										<i class="fa fa-play"></i>
 									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img src="/hr/assets/images/resources/video-arrow.png" alt="Awesome Image" /></span>
+									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
+											src="/hr/assets/images/resources/video-arrow.png"
+											alt="Awesome Image" /></span>
 								</div><!-- /.testimonials-two__btn-wrap -->
 							</div><!-- /.col-lg-5 -->
 						</div><!-- /.row -->
@@ -401,12 +432,15 @@
 				</div><!-- /.testimonials-two__single -->
 			</div><!-- /.swiper-slide -->
 			<div class="swiper-slide">
-				<div class="testimonials-two__single" style="background-image: url(/hr/assets/images/testimonials/testimonials-4-bg.jpg);">
+				<div class="testimonials-two__single"
+					style="background-image: url(/hr/assets/images/testimonials/testimonials-4-bg.jpg);">
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-7">
 								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch.</h3>
+								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
+									pricing and customer support. It’s throughly refresing to get such a personal touch.
+								</h3>
 								<p class="testimonials-two__name">Corey Gessner</p><!-- /.testimonials-two__name -->
 							</div><!-- /.col-lg-7 -->
 							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
@@ -414,7 +448,9 @@
 									<a href="#" class="testimonials-two__btn">
 										<i class="fa fa-play"></i>
 									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img src="/hr/assets/images/resources/video-arrow.png" alt="Awesome Image" /></span>
+									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
+											src="/hr/assets/images/resources/video-arrow.png"
+											alt="Awesome Image" /></span>
 								</div><!-- /.testimonials-two__btn-wrap -->
 							</div><!-- /.col-lg-5 -->
 						</div><!-- /.row -->
@@ -443,7 +479,7 @@
 			</div><!-- /.testimonials-one__thumb-carousel -->
 		</div><!-- /.container -->
 	</div><!-- /.testimonials-two__bottom -->
-</section><!-- /.testimonials-two -->
+</section><!-- /.testimonials-two --> --}}
 
 <section class="mailchimp-one">
 	<div class="container">
@@ -452,8 +488,8 @@
 				<h3 class="mailchimp-one__title">Don't miss our monthly updates</h3><!-- /.mailchimp-one__title -->
 			</div><!-- /.col-lg-5 -->
 			<div class="col-lg-7">
-				<form class="mailchimp-one__form mc-form" data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&amp;id=cc0ee8140e">
-					<input placeholder="Email Address" type="email" required="required" class="formInput" name="EMAIL">
+				<form class="mailchimp-one__form mc-form" method="POST" action="{{route('home.SubscribeUsForm')}}">
+					<input placeholder="Email Address" type="email" required="required" class="formInput" name="subscribe_us_email">
 					<button type="submit" class="thm-btn mailchimp-one__form-btn">Subscribe</button>
 				</form>
 				<div class="mc-form__response"></div><!-- /.mc-form__response -->
@@ -466,7 +502,8 @@
 <section class="blog-one blog-one__home-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">Potisen Updates</p>
 			<h2 class="block-title__title">From Campaign</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
@@ -475,7 +512,8 @@
 			<div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
 				<div class="blog-one__single">
 					<div class="blog-one__image">
-						<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}" alt="">
+						<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
+							alt="">
 						<a class="blog-one__more-link" href=""><i class="fa fa-link"></i>
 							<!-- /.fa fa-link --></a>
 					</div><!-- /.blog-one__image -->
@@ -495,7 +533,7 @@
 	</div><!-- /.container -->
 </section><!-- /.blog-one -->
 
-<div class="brand-one thm-gray-bg">
+{{-- <div class="brand-one thm-gray-bg">
 	<div class="container">
 		<div class="brand-one__carousel owl-carousel owl-theme">
 			<div class="item">
@@ -539,10 +577,10 @@
 			</div><!-- /.item -->
 		</div><!-- /.brand-one__carousel owl-carousel owl-theme -->
 	</div><!-- /.container -->
-</div><!-- /.brand-one thm-gray-bg -->
+</div><!-- /.brand-one thm-gray-bg --> --}}
 
 
-<section class="social-shares">
+{{-- <section class="social-shares">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
@@ -559,7 +597,11 @@
 					<div class="social-shares__twitter-carousel owl-carousel owl-theme">
 						<div class="item">
 							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled to against <a href="#"><strong>#politics</strong></a> every government, and what no just government should refuse, or rest on inference. <a href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p><!-- /.social-shares__twitter-text -->
+								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
+									to against <a href="#"><strong>#politics</strong></a> every government, and what no
+									just government should refuse, or rest on inference. <a
+										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
+								<!-- /.social-shares__twitter-text -->
 								<div class="social-shares__twitter-info">
 									<p class="social-shares__twitter-info-text">
 										<a href="#">@potisentwitterfollow</a>
@@ -571,7 +613,11 @@
 						</div><!-- /.item -->
 						<div class="item">
 							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled to against <a href="#"><strong>#politics</strong></a> every government, and what no just government should refuse, or rest on inference. <a href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p><!-- /.social-shares__twitter-text -->
+								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
+									to against <a href="#"><strong>#politics</strong></a> every government, and what no
+									just government should refuse, or rest on inference. <a
+										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
+								<!-- /.social-shares__twitter-text -->
 								<div class="social-shares__twitter-info">
 									<p class="social-shares__twitter-info-text">
 										<a href="#">@potisentwitterfollow</a>
@@ -583,7 +629,11 @@
 						</div><!-- /.item -->
 						<div class="item">
 							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled to against <a href="#"><strong>#politics</strong></a> every government, and what no just government should refuse, or rest on inference. <a href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p><!-- /.social-shares__twitter-text -->
+								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
+									to against <a href="#"><strong>#politics</strong></a> every government, and what no
+									just government should refuse, or rest on inference. <a
+										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
+								<!-- /.social-shares__twitter-text -->
 								<div class="social-shares__twitter-info">
 									<p class="social-shares__twitter-info-text">
 										<a href="#">@potisentwitterfollow</a>
@@ -598,9 +648,9 @@
 			</div><!-- /.col-lg-8 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
-</section><!-- /.social-shares -->
+</section><!-- /.social-shares --> --}}
 @endsection
 
 @section('script')
-	
+
 @endsection

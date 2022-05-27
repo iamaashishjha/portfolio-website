@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminCompanyDetailsController;
+use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminHeaderFooterController;
 use App\Http\Controllers\AdminInfoEducationController;
 use App\Http\Controllers\AdminMembershipController;
@@ -31,8 +33,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
+Route::post('/locale', function () {
+    session(['my_locale' => app('request')->input('locale')]);
+    return redirect()->back();
 });
 
 Auth::routes(['verify' => false, 'register' => false]);
@@ -46,13 +51,14 @@ Route::prefix('/')
         Route::get('/about', 'aboutUsPage')->name('about');
 
         Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
+        Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');
 
         Route::prefix('events')
             ->name('events.')
             ->controller(HomeController::class)
             ->group(function () {
                 Route::get('/', 'listEvent')->name('index');
-                Route::get('/{id}', 'listEvent')->name('show');
+                Route::get('/{id}', 'showEvent')->name('show');
             });
 
         Route::prefix('news')
@@ -213,6 +219,17 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
+                    Route::prefix('/company-details')
+                    ->name('companyDetails.')
+                    ->controller(AdminCompanyDetailsController::class)
+                    ->group(function () {
+                        Route::get('/create', 'create')->name('create');
+                        Route::post('/', 'store')->name('store');
+                        Route::get('/', 'index')->name('index');
+                        Route::get('/edit/{id}', 'edit')->name('edit');
+                        Route::put('/edit/{id}', 'update')->name('update');
+                        Route::delete('/{id}', 'destroy')->name('destroy');
+                    });
                 Route::prefix('/slider')
                     ->name('slider.')
                     ->controller(AdminSliderController::class)
@@ -240,6 +257,18 @@ Route::middleware(['auth', 'admin'])
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
                     });
+            });
+        Route::prefix('/event')
+            ->name('event.')
+            ->controller(AdminEventController::class)
+            ->group(function () {
+                Route::get('/create', 'create')->name('create');
+                Route::post('/', 'store')->name('store');
+                Route::get('/', 'index')->name('index');
+                Route::get('/show/{id}', 'show')->name('show');
+                Route::get('/edit/{id}', 'edit')->name('edit');
+                Route::put('/edit/{id}', 'update')->name('update');
+                Route::delete('/{id}', 'destroy')->name('destroy');
             });
     });
 

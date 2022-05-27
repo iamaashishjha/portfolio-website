@@ -1,0 +1,166 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
+use App\Models\Event;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+
+class AdminEventController extends BaseController
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $events = Event::where('is_deleted', 0)
+            ->get();
+        return view('ar.event.index')
+            ->with('events', $events);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('ar.event.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreEventRequest $request)
+    {
+        // $request = request()->all();
+        // dd($request);
+        $path = $request->event_image->store('events', 'public');
+
+        $event = new Event();
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->event_image = $path;
+        $event->meta_description = $request->meta_description;
+        $event->meta_title = $request->meta_title;
+        $event->slug = $request->slug;
+
+        if ($request->has('status')) {
+            //Checkbox checked
+            $event->status = 1;
+        } else {
+            //Checkbox not checked
+            $event->status = 0;
+        }
+
+        $event->keywords = $request->keywords;
+        $event->created_by = Auth::user()->id;
+        $event->save();
+
+        Alert::toast('Event Created Successfully', 'success');
+        // alert()->success('Success Message', 'Category Created Successfully');
+        return redirect()->route('admin.event.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $event = Event::find($id);
+        return view('ar.event.create')
+            ->with('event', $event);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateEventRequest $request, $id)
+    {
+        $event = Event::find($id);
+
+        // $event->title = $request->title;
+        $event->description = $request->description;
+
+        if ($request->has('event_image') && ($request->event_image != '')) {
+
+            $imagePath = $event->image;
+
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $event->deleteImage();
+            }
+
+            $path = $request->event_image->store('events', 'public');
+            $event->event_image = $path;
+        }
+
+        if ($request->has('status')) {
+            $event->status = 1;
+        } else {
+            $event->status = 0;
+        }
+
+        $event->meta_description = $request->meta_description;
+        $event->meta_title = $request->meta_title;
+        $event->slug = $request->slug;
+
+        $event->keywords = $request->keywords;
+        $event->updated_by = Auth::user()->id;
+        $event->updated_at = now();
+
+        $event->save();
+        Alert::success('Event Updated Successfully')->flash();
+        return redirect()->route('admin.event.index');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+        $imagePath = $event->image;
+            if (File::exists($imagePath)) {
+                unlink($imagePath);
+                $event->deleteImage();
+            }
+
+            $event->delete();
+            Alert::toast('Even Deleted Successfully', 'success');
+            return redirect()->back();
+        
+    }
+}

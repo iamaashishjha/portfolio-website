@@ -35,28 +35,13 @@ class HomeController extends Controller
         $this->data['headerFooter'] = HeaderFooter::first();
         $this->data['sliders'] = Slider::first();
         $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
-        $this->data['events'] = Event::all();
+        $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.index', $this->data);
     }
 
     public function indexPageSliderForm(Request $request)
     {
-
-        // $validator = $request->validate(
-        //     [
-        //         'email' => 'required|email',
-        //         'zip' => 'required|integer'
-        //     ],
-        //     [
-        //         'email' => 'Email',
-        //         'zip' > 'Zip Code',
-        //     ],
-        //     [
-        //         'required' => 'The :attribute field is required.',
-        //         'email' => 'The :attribute field must be email.',
-        //         'integer' => 'The :attribute field must be number.',
-        //     ]
-        // );
 
         $validator =Validator::make($request->all(),
             [
@@ -83,6 +68,35 @@ class HomeController extends Controller
         $data = new Data();
         $data->slider_subscribe_email = $request->email;
         $data->slider_subscribe_zip = $request->zip;
+        $data->save();
+        Alert::toast('We Will get back to you', 'success');
+        return redirect()->back();
+    }
+
+    public function indexPageSubscribeUsForm(Request $request)
+    {
+
+        $validator =Validator::make($request->all(),
+            [
+                'email' => 'required|email',
+            ],
+            [
+                'email' => 'Email',
+            ],
+            [
+                'required' => 'The :attribute field is required.',
+                'email' => 'The :attribute field must be email.',
+            ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+
+        $data = new Data();
+        $data->subscribe_us_email = $request->subscribe_us_email;
         $data->save();
         Alert::toast('We Will get back to you', 'success');
         return redirect()->back();
@@ -132,6 +146,6 @@ class HomeController extends Controller
     public function showEvent($id)
     {
         $this->data['event'] = Event::find($id);
-        return view('hr.event.show');
+        return view('hr.event.show', $this->data);
     }
 }

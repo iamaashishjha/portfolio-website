@@ -2,7 +2,7 @@
 
 @section('title')
 
-All Blog Tags | Aashish Jha
+All Blog Tags | Nagrik Unmukti Party
 
 @endsection
 

@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Header/Footer | Aashish Jha --}}
-    {{ isset($headerFooter) ? 'Edit Header/Footer ' . '"' . $headerFooter->title . '". | Aashish Jha' : 'Create New Header/Footer | Aashish Jha' }}
+    {{-- Create New Header/Footer | Nagrik Unmukti Party --}}
+    {{ isset($headerFooter) ? 'Edit Header/Footer ' . '"' . $headerFooter->title . '". | Nagrik Unmukti Party' : 'Create New Header/Footer | Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')
@@ -49,6 +49,16 @@
                         <div class="preview">
                             <div>
                                 <h5 class="text-lg ext-theme-9 @error('name') text-theme-6 @enderror font-medium leading-none">
+                                    Site Title
+                                    <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                </h5>
+                                <input type="text" id="site_title" name="site_title"
+                                    class=" input w-full border mt-2 @error('site_title') border-theme-6 @enderror"
+                                    placeholder="Enter Site Title"
+                                    value="{{ isset($headerFooter) ? $headerFooter->site_title : old('site_title') }}">
+                            </div>
+                            <div class="mt-3">
+                                <h5 class="text-lg ext-theme-9 @error('name') text-theme-6 @enderror font-medium leading-none">
                                     Name
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </h5>
@@ -57,8 +67,16 @@
                                     placeholder="Enter Name"
                                     value="{{ isset($headerFooter) ? $headerFooter->name : old('name') }}">
                             </div>
-
-
+                            <div class="mt-3">
+                                <h5 class="text-lg ext-theme-9 @error('company_description') text-theme-6 @enderror font-medium leading-none">
+                                    Company Description
+                                    <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                </h5>
+                                <input type="text" id="company_description" name="company_description"
+                                    class=" input w-full border mt-2 @error('company_description') border-theme-6 @enderror"
+                                    placeholder="Enter Name"
+                                    value="{{ isset($headerFooter) ? $headerFooter->company_description : old('company_description') }}">
+                            </div>
                             <div class="grid grid-cols-4 gap-4">
                                 <div class="col-span-1">
                                     <div class="mt-3">

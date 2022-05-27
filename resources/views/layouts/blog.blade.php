@@ -26,7 +26,7 @@
 
     <!--	Title
     ==================================================-->
-    <title>@yield('title', 'Blog | Aashish Jha')</title>
+    <title>@yield('title', 'Blog | Nagrik Unmukti Party')</title>
 
 </head>
 

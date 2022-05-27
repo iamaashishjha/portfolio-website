@@ -1,6 +1,6 @@
 <footer class="site-footer">
     <div class="site-footer__logo text-center">
-        <a href="index.html"><img src="/hr/assets/images/logo-light.png" alt="" width="174"></a>
+        <a href=""><img src="{{ isset($headerFooter->logo_image) ? $headerFooter->logo_image : '/hr/assets/images/logo-light.png' }}" alt="" width="174"></a>
     </div><!-- /.site-footer__logo -->
     <div class="site-footer__upper">
         <div class="container">
@@ -8,9 +8,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                     <div class="footer-widget">
                         <h3 class="footer-widget__title">About</h3><!-- /.footer-widget__title -->
-                        <p class="footer-widget__text">Lorem ipsum is simply dolor sit ametcn <br> sectetur adipiscing
-                            elit.
-                            Phasellus vehic <br> sagittis euismod.</p><!-- /.footer-widget__text -->
+                        <p class="footer-widget__text">{{ isset($headerFooter->company_description) ? $headerFooter->company_description : 'Nagrik Unmukti Party' }}</p><!-- /.footer-widget__text -->
                         <div class="footer-widget__social">
                             <a href="#" class="fa fa-twitter"></a><!-- /.fa fa-twitter -->
                             <a href="#" class="fa fa-facebook-square"></a><!-- /.fa fa-facebook-square -->
@@ -23,40 +21,36 @@
                     <div class="footer-widget footer-widget__links">
                         <h3 class="footer-widget__title">Explore</h3><!-- /.footer-widget__title -->
                         <ul class="list-unstyled footer-widget__links-list">
-                            <li><a href="#">About Potisen</a></li>
-                            <li><a href="#">Volunteering</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">History</a></li>
                             <li><a href="#">Contribute</a></li>
-                            <li><a href="#">Join Our Community</a></li>
-                            <li><a href="#">Latest News</a></li>
+                            <li><a href="{{ route('home.member.create') }}">Register as Member</a></li>
+                            <li><a href="{{ route('home.news.index') }}">Latest News</a></li>
                         </ul><!-- /.list-unstyled footer-widget__links-list -->
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-3 -->
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
                     <div class="footer-widget footer-widget__posts">
-                        <h3 class="footer-widget__title">Updates</h3><!-- /.footer-widget__title -->
+                        <h3 class="footer-widget__title">Latest Events</h3><!-- /.footer-widget__title -->
                         <ul class="list-unstyled footer-widget__posts-list">
+                            @foreach ($footerEvents as $footerEvent)
                             <li>
                                 <div class="footer-widget__posts-image">
-                                    <img src="/hr/assets/images/resources/footer-post-1-1.png" alt="">
+                                    <img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/resources/footer-post-1-1.png' }}"
+                                        alt="" style="height: 40px;width:40px;">
                                 </div><!-- /.footer-widget__posts-image -->
                                 <div class="footer-widget__posts-content">
-                                    <h4 class="footer-widget__posts-title"><a href="news-details.html">International
-                                            conference</a></h4><!-- /.footer-widget__posts-title -->
-                                    <p class="footer-widget__posts-date">20 Oct, 2019</p>
+                                    <h4 class="footer-widget__posts-title">
+                                        <a href="{{ route('home.events.show', $event->id) }}">{{ $event->title }}</a>
+                                    </h4><!-- /.footer-widget__posts-title -->
+                                    <p class="footer-widget__posts-date">{{ $event->created_at->format('d M, Y') }}</p>
                                     <!-- /.footer-widget__posts-date -->
                                 </div><!-- /.footer-widget__posts-content -->
                             </li>
-                            <li>
-                                <div class="footer-widget__posts-image">
-                                    <img src="/hr/assets/images/resources/footer-post-1-2.png" alt="">
-                                </div><!-- /.footer-widget__posts-image -->
-                                <div class="footer-widget__posts-content">
-                                    <h4 class="footer-widget__posts-title"><a href="news-details.html">The strength of
-                                            democracy</a></h4><!-- /.footer-widget__posts-title -->
-                                    <p class="footer-widget__posts-date">20 Oct, 2019</p>
-                                    <!-- /.footer-widget__posts-date -->
-                                </div><!-- /.footer-widget__posts-content -->
-                            </li>
+                            @endforeach
+
+
+
                         </ul><!-- /.list-unstyled footer-widget__posts-list -->
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-3 -->
@@ -66,15 +60,22 @@
                         <ul class="list-unstyled footer-widget__contact-list">
                             <li>
                                 <i class="potisen-icon-phone"></i><!-- /. -->
-                                <a href="tel:666-888-000">666 888 000</a>
+                                <a
+                                    href="tel:{{ isset($headerFooter->phone_number) ? $headerFooter->phone_number : '666-888-000' }}">{{
+                                    isset($headerFooter->phone_number) ? $headerFooter->phone_number : '666-888-000'
+                                    }}</a>
+
                             </li>
                             <li>
                                 <i class="potisen-icon-mail"></i><!-- /. -->
-                                <a href="mailto:needhelp@example.com">needhelp@example.com</a>
+                                <a
+                                    href="mailto:{{ isset($headerFooter->email) ? $headerFooter->email : 'needhelp@example.com' }}">{{
+                                    isset($headerFooter->email) ? $headerFooter->email : 'needhelp@example.com' }}</a>
                             </li>
                             <li>
                                 <i class="potisen-icon-pin"></i><!-- /. -->
-                                22 Broklyn Street 30 Road. New <br> York United States
+                                {{ isset($headerFooter->address) ? $headerFooter->address : '22 Broklyn Street 30 Road.
+                                New York United States'}}
                             </li>
                         </ul><!-- /.list-unstyled footer-widget__post-list -->
                     </div><!-- /.footer-widget -->
@@ -85,7 +86,7 @@
     <div class="site-footer__bottom">
         <div class="container">
             <div class="inner-container text-center">
-                <p class="site-footer__copy">&copy; copyright 2019 by <a href="#">Layerdrops.com</a></p>
+                <p class="site-footer__copy">&copy; copyright 2022 by <a href="#">Nagrik Unmukti Party</a></p>
                 <!-- /.site-footer__copy -->
             </div><!-- /.inner-container -->
         </div><!-- /.container -->

@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{ isset($member) ? 'Edit Member ' . '"' . $member->title . '". | Aashish Jha' : 'Create New Member | Aashish Jha' }}
+    {{ isset($member) ? 'Edit Member ' . '"' . $member->title . '". | Nagrik Unmukti Party' : 'Create New Member | Nagrik Unmukti Party' }}
 @endsection
 
 @section('css')
