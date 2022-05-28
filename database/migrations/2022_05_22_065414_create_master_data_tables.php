@@ -53,8 +53,10 @@ class CreateMasterDataTables extends Migration
 
         Schema::create('company_details', function (Blueprint $table) {
             $table->id();
-            $table->text('about_us');
-            $table->text('our_history');
+            $table->text('about_us')->nullable();
+            $table->text('our_history')->nullable();
+            $table->text('our_mission')->nullable();
+            $table->text('our_vision')->nullable();
             $table->timestamps();
 
             $table->foreignId('created_by')

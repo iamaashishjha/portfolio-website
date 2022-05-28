@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CompanyDetails;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminCompanyDetailsController extends Controller
 {
@@ -14,7 +15,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function index()
     {
-        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['companyDetails'] = CompanyDetails::all();
         return view('ar.companyDetails.index', $this->data);
     }
 
@@ -39,7 +40,13 @@ class AdminCompanyDetailsController extends Controller
         $cp = new CompanyDetails();
         $cp->about_us = $request->about_us;
         $cp->our_history = $request->our_history;
+        $cp->our_mission = $request->our_mission;
+        $cp->our_vision = $request->our_vision;
         $cp->save();
+
+        Alert::success('Company Detail Created successfully');
+
+        return redirect()->route('admin.home.companyDetails.index');
     }
 
     /**
@@ -61,7 +68,9 @@ class AdminCompanyDetailsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->data['companyDetail'] = CompanyDetails::find($id);
+        return view('ar.companyDetails.create', $this->data);
+
     }
 
     /**

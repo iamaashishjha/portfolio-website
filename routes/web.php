@@ -59,7 +59,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listEvent')->name('index');
                 Route::get('/{id}', 'showEvent')->name('show');
-            });
+        });
 
         Route::prefix('news')
             ->name('news.')
@@ -67,7 +67,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listNews')->name('index');
                 Route::get('/{id}', 'showNews')->name('show');
-            });
+        });
 
         Route::prefix('blogs')
             ->name('blogs.')
@@ -75,7 +75,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listBlog')->name('index');
                 Route::get('/{id}', 'showBlog')->name('show');
-            });
+        });
 
         Route::prefix('member')
             ->name('member.')
@@ -83,8 +83,8 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/create', 'create')->name('create');
                 Route::post('/', 'store')->name('store');
-            });
-    });
+        });
+});
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -107,7 +107,7 @@ Route::middleware(['auth', 'admin'])
                 Route::get('/profile/{id}', 'profile')->name('profile');
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
                 Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
-            });
+        });
 
         Route::prefix('/blog')
             ->name('blog.')
@@ -122,7 +122,7 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
+                });
                 Route::prefix('/tag')
                     ->name('tag.')
                     ->controller(AdminBlogTagController::class)
@@ -133,7 +133,7 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
+                });
                 Route::prefix('/post')
                     ->name('post.')
                     ->controller(AdminBlogPostController::class)
@@ -146,8 +146,8 @@ Route::middleware(['auth', 'admin'])
                         Route::delete('/{id}', 'destroy')->name('destroy');
                         Route::get('/trash', 'trashed')->name('trashed');
                         Route::put('/restore/{id}', 'restore')->name('restore');
-                    });
-            });
+                });
+        });
 
         Route::prefix('/news')
             ->name('news.')
@@ -162,7 +162,7 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
+                });
                 Route::prefix('/tag')
                     ->name('tag.')
                     ->controller(AdminNewsTagController::class)
@@ -173,7 +173,7 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
+                });
                 Route::prefix('/post')
                     ->name('post.')
                     ->controller(AdminNewsPostController::class)
@@ -186,24 +186,8 @@ Route::middleware(['auth', 'admin'])
                         Route::delete('/{id}', 'destroy')->name('destroy');
                         Route::get('/trash', 'trashed')->name('trashed');
                         Route::put('/restore/{id}', 'restore')->name('restore');
-                    });
-            });
-
-        // Route::prefix('/info')
-        //     ->name('info.')
-        //     ->group(function () {
-        //         Route::prefix('/education')
-        //             ->name('education.')
-        //             ->controller(AdminInfoEducationController::class)
-        //             ->group(function () {
-        //                 Route::get('/create', 'create')->name('create');
-        //                 Route::post('/', 'store')->name('store');
-        //                 Route::get('/', 'index')->name('index');
-        //                 Route::get('/edit/{id}', 'edit')->name('edit');
-        //                 Route::put('/edit/{id}', 'update')->name('update');
-        //                 Route::delete('/{id}', 'destroy')->name('destroy');
-        //             });
-        //     });
+                });
+        });
 
         Route::prefix('/home')
             ->name('home.')
@@ -218,8 +202,9 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
-                    Route::prefix('/company-details')
+                });
+
+                Route::prefix('/company-details')
                     ->name('companyDetails.')
                     ->controller(AdminCompanyDetailsController::class)
                     ->group(function () {
@@ -229,7 +214,8 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
+                });
+
                 Route::prefix('/slider')
                     ->name('slider.')
                     ->controller(AdminSliderController::class)
@@ -240,8 +226,10 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
-            });
+                });
+                
+        });
+
         Route::prefix('/member')
             ->name('member.')
             ->group(function () {
@@ -256,8 +244,9 @@ Route::middleware(['auth', 'admin'])
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
                         Route::delete('/{id}', 'destroy')->name('destroy');
-                    });
-            });
+                });
+        });
+
         Route::prefix('/event')
             ->name('event.')
             ->controller(AdminEventController::class)
@@ -269,24 +258,23 @@ Route::middleware(['auth', 'admin'])
                 Route::get('/edit/{id}', 'edit')->name('edit');
                 Route::put('/edit/{id}', 'update')->name('update');
                 Route::delete('/{id}', 'destroy')->name('destroy');
-            });
-    });
+        });
+
+});
 
 Route::middleware(['auth', 'user', 'verified'])
     ->prefix('dashboard')
     ->name('user.')
     ->group(function () {
         Route::get('/', [App\Http\Controllers\UserDashboardController::class, 'index'])->name('index');
-
         Route::prefix('/')
             ->name('profile.')
             ->controller(UserDashboardController::class)
             ->group(function () {
-                // Route::get('', 'index')->name('index');
                 Route::get('profile/{user_id}', 'profile')->name('view');
                 Route::put('profile/{user_id}', 'profileUpdate')->name('update');
                 Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
-            });
+        });
 
         Route::prefix('/blog')
             ->name('post.')
@@ -302,9 +290,9 @@ Route::middleware(['auth', 'user', 'verified'])
                         Route::delete('/{id}', 'destroy')->name('destroy');
                         Route::get('/trash', 'trashed')->name('trashed');
                         Route::put('/restore/{id}', 'restore')->name('restore');
-                    });
-            });
-    });
+                });
+        });
+});
 
 Route::fallback(function () {
     // return view('customBlade.errors.404');

@@ -1,10 +1,34 @@
+@php
+$lang = App::getLocale();
+@endphp
+
 <div class="topbar-one">
     <div class="container">
         <div class="inner-container">
             <div class="topbar-one__left">
-                <a href="mailto:{{ isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}">{{ isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}</a>
-                <a href="tel:{{ isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}">{{ isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}</a>
+                <a href="mailto:{{ isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}">{{
+                    isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}</a>
+                <a href="tel:{{ isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}">{{
+                    isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}</a>
             </div><!-- /.topbar-one__left -->
+
+            <div>
+                @if ($lang == 'en')
+                <p>{{ \Carbon\Carbon::now()->format('j F Y, l') }} </p>
+                @elseif($lang == 'np')
+                <p> {{ toFormattedNepaliDate(\Carbon\Carbon::now()); }} </p>
+                @endif
+            </div>
+            
+            <div>
+                <form action="{{url('/locale')}}" method="post">
+                    @csrf
+                    <select class="form-select" name="locale" onchange="this.form.submit()">
+                        <option value="en" {{ (App::currentLocale()=='en' ) ? 'selected' : '' }}>English</option>
+                        <option value="np" {{ (App::currentLocale()=='np' ) ? 'selected' : '' }}>नेपाली</option>
+                    </select>
+                </form>
+            </div>
             <div class="topbar-one__right">
                 <a href="#"><i class="fa fa-money"></i> Donate Now</a>
                 <a href="/member/create"><i class="fa fa-user-o"></i>Join Us</a>
@@ -20,7 +44,9 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="logo-box clearfix">
                 <a class="navbar-brand" href="/">
-                    <img src="{{ isset($headerFooter->logo_image) ? $headerFooter->logo_image: '/hr/assets/images/logo-dark.png' }}" class="main-logo"  height="80" alt="{{ isset($headerFooter->name) ? $headerFooter->name : '' }}" />
+                    <img src="{{ isset($headerFooter->logo_image) ? $headerFooter->logo_image: '/hr/assets/images/logo-dark.png' }}"
+                        class="main-logo" height="80"
+                        alt="{{ isset($headerFooter->name) ? $headerFooter->name : '' }}" />
                 </a>
                 <button class="menu-toggler" data-target=".main-navigation">
                     <span class="fa fa-bars"></span>
@@ -58,18 +84,8 @@
                         <a href="{{ route('home.contact') }}">Contact</a>
                     </li>
                 </ul>
-                {{-- {{ dd(App::currentLocale())  }} --}}
-                <ul class="navbar-nav me-auto">
-                    <form action="{{url('/locale')}}" method="post">
-                        @csrf
-                        <select class="form-select" name="locale" onchange="this.form.submit()">
-                            <option value="en" {{ (App::currentLocale() == 'en') ? 'selected' : '' }}>English</option>
-                            <option value="np" {{ (App::currentLocale() == 'np') ? 'selected' : '' }}>नेपाली</option>
-                        </select>
-                    </form>
-                </ul>
             </div><!-- /.navbar-collapse -->
-            
+
             <div class="right-side-box">
                 <div class="header-social">
                     <a href="#" class="fa fa-twitter"></a>
