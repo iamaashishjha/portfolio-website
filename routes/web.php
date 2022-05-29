@@ -5,20 +5,17 @@ use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminCompanyDetailsController;
 use App\Http\Controllers\AdminEventController;
-use App\Http\Controllers\AdminHeaderFooterController;
-use App\Http\Controllers\AdminInfoEducationController;
+use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminNewsPostController;
 use App\Http\Controllers\AdminNewsTagController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\UserDashboardController;
-use App\Models\InfoEducation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,8 +32,15 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
+Route::view('/a', 'ar.blog.post.show');
+
 Route::post('/locale', function () {
-    session(['my_locale' => app('request')->input('locale')]);
+
+    if ((app('request')->input('locale'))) {
+        session(['my_locale' => 'en']);
+    } else {
+        session(['my_locale' => 'np']);
+    }
     return redirect()->back();
 });
 
@@ -52,6 +56,7 @@ Route::prefix('/')
 
         Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
         Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');
+        Route::post('/ContactUsForm', 'storeContactData')->name('contactForm');
 
         Route::prefix('events')
             ->name('events.')
@@ -192,16 +197,15 @@ Route::middleware(['auth', 'admin'])
         Route::prefix('/home')
             ->name('home.')
             ->group(function () {
-                Route::prefix('/header-footer')
-                    ->name('headerFooter.')
-                    ->controller(AdminHeaderFooterController::class)
+                Route::prefix('/app-setting')
+                    ->name('appSetting.')
+                    ->controller(AdminAppSettingsController::class)
                     ->group(function () {
                         Route::get('/create', 'create')->name('create');
                         Route::post('/', 'store')->name('store');
                         Route::get('/', 'index')->name('index');
                         Route::get('/edit/{id}', 'edit')->name('edit');
                         Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
                 });
 
                 Route::prefix('/company-details')

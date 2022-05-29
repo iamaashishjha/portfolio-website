@@ -13,23 +13,13 @@ class CreateMasterDataTables extends Migration
      */
     public function up()
     {
-        Schema::create('header_footers', function (Blueprint $table) {
+        Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('site_title');
-            $table->string('name');
-            $table->string('company_description')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('telephone')->nullable();
-            $table->string('phone1')->nullable();
-            $table->string('phone2')->nullable();
-            $table->string('email')->nullable();
-            $table->string('address')->nullable();
-            $table->bigInteger('total_members')->nullable();
+            $table->string('site_title')->nullable();
+            $table->string('site_title_image')->nullable();
             $table->text('meta_description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('keywords')->nullable();
-            $table->boolean('is_active')->default(1);
-            $table->string('start_date')->nullable();
             $table->timestamps();
 
             $table->foreignId('created_by')
@@ -44,19 +34,48 @@ class CreateMasterDataTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('company_details', function (Blueprint $table) {
+
             $table->id();
+
+            $table->string('company_name_en')->nullable();
+            $table->string('company_name_lc')->nullable();
+            $table->text('company_description')->nullable();
+            $table->string('logo')->nullable();
+
+            $table->string('phone_number')->nullable();
+            $table->string('mobile_number')->nullable();
+
+            $table->string('email_address')->nullable();
+            $table->string('company_address')->nullable();
+            $table->bigInteger('total_members')->nullable();
+
+            $table->text('google_map')->nullable();
+
+            $table->string('start_date_ad')->nullable();
+            $table->string('start_date_bs')->nullable();
+
             $table->text('about_us')->nullable();
             $table->text('our_history')->nullable();
             $table->text('our_mission')->nullable();
             $table->text('our_vision')->nullable();
+
+            $table->text('home_about_content')->nullable();
+
+            $table->text('home_about_image_1')->nullable();
+            $table->text('home_about_image_2')->nullable();
+            $table->text('home_about_image_3')->nullable();
+
+            $table->text('home_about_accordion_title_1')->nullable();
+            $table->text('home_about_accordion_title_2')->nullable();
+            $table->text('home_about_accordion_title_3')->nullable();
+
+            $table->text('home_about_accordion_content_1')->nullable();
+            $table->text('home_about_accordion_content_2')->nullable();
+            $table->text('home_about_accordion_content_3')->nullable();
+
             $table->timestamps();
 
             $table->foreignId('created_by')
@@ -71,11 +90,6 @@ class CreateMasterDataTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('sliders', function (Blueprint $table) {
@@ -125,6 +139,9 @@ class CreateMasterDataTables extends Migration
             $table->string('slider_subscribe_email')->nullable();
             $table->string('slider_subscribe_zip')->nullable();
             $table->string('subscribe_us_email')->nullable();
+            $table->string('contact_us_name')->nullable();
+            $table->string('contact_us_email')->nullable();
+            $table->string('contact_us_message')->nullable();
             $table->timestamps();
         });
 

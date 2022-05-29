@@ -44,6 +44,7 @@ class AppsettingSeeder extends Seeder
 
         ]);
     }
+    
     private function mst_fed_district()
     {
         DB::table('districts')->insert([

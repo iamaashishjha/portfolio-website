@@ -12,6 +12,14 @@ $(document).ready(function() {
     getLocalLevelType();
     sameAddress();
     copyMetaData();
+
+    $('#btnDiv').hide();
+
+    $('#documents-button').click(function(e) {
+        e.preventDefault();
+        $('#btnDiv').show();
+
+    });
 });
 
 function copyMetaData() {
@@ -40,15 +48,6 @@ function copyMetaData() {
     });
 }
 
-$(document).ready(function() {
-    $('#btnDiv').hide();
-
-    $('#documents-button').click(function(e) {
-        e.preventDefault();
-        $('#btnDiv').show();
-
-    });
-});
 
 function createMemberPageLoad() {
     $("#citizenship-content").show();

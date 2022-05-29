@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             NewsPostSeeder::class,
             NewsTagsSeeder::class,
             EventSeeder::class,
+            MasterSeeder::class,
         ]);
     }
 }

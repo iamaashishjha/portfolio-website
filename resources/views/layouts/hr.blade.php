@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : '' }}">
+    <meta name="keywords" content="{{ isset($appSetting->keywords) ? $appSetting->keywords : '' }}">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        @yield('title', 'Nagrik Unmukti Party')
+        @yield('title', isset($appSetting->site_title) ? $appSetting->site_title : 'Nagrik Unmukti Party' )
     </title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/hr/assets/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/hr/assets/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/hr/assets/images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/apple-touch-icon.png' }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-16x16.png' }}">
     <link rel="manifest" href="/hr/assets/images/favicons/site.webmanifest">
 
     <!-- plugin scripts -->

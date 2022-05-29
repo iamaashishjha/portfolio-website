@@ -6,11 +6,12 @@ $lang = App::getLocale();
     <div class="container">
         <div class="inner-container">
             <div class="topbar-one__left">
-                <a href="mailto:{{ isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}">{{
-                    isset($headerFooter->email) ? $headerFooter->email : 'needhelp@potisen.com' }}</a>
-                <a href="tel:{{ isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}">{{
-                    isset($headerFooter->telephone) ? $headerFooter->telephone : '666 888 0000' }}</a>
+                <a href="mailto:{{ isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}">{{
+                    isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}</a>
+                <a href="tel:{{ isset($appSetting->telephone) ? $appSetting->telephone : '666 888 0000' }}">{{
+                    isset($appSetting->telephone) ? $appSetting->telephone : '666 888 0000' }}</a>
             </div><!-- /.topbar-one__left -->
+
 
             <div>
                 @if ($lang == 'en')
@@ -19,19 +20,12 @@ $lang = App::getLocale();
                 <p> {{ toFormattedNepaliDate(\Carbon\Carbon::now()); }} </p>
                 @endif
             </div>
+
+            @include('partials.hr.languageSwitch')
             
-            <div>
-                <form action="{{url('/locale')}}" method="post">
-                    @csrf
-                    <select class="form-select" name="locale" onchange="this.form.submit()">
-                        <option value="en" {{ (App::currentLocale()=='en' ) ? 'selected' : '' }}>English</option>
-                        <option value="np" {{ (App::currentLocale()=='np' ) ? 'selected' : '' }}>नेपाली</option>
-                    </select>
-                </form>
-            </div>
             <div class="topbar-one__right">
-                <a href="#"><i class="fa fa-money"></i> Donate Now</a>
-                <a href="/member/create"><i class="fa fa-user-o"></i>Join Us</a>
+                <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a>
+                <a href="/member/create"><i class="fa fa-user-o"></i>{{ __('home.header.join') }}</a>
             </div><!-- /.topbar-one__right -->
         </div><!-- /.inner-container -->
     </div><!-- /.container -->
@@ -44,9 +38,9 @@ $lang = App::getLocale();
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="logo-box clearfix">
                 <a class="navbar-brand" href="/">
-                    <img src="{{ isset($headerFooter->logo_image) ? $headerFooter->logo_image: '/hr/assets/images/logo-dark.png' }}"
+                    <img src="{{ isset($appSetting->logo_image) ? $appSetting->logo_image: '/hr/assets/images/logo-dark.png' }}"
                         class="main-logo" height="80"
-                        alt="{{ isset($headerFooter->name) ? $headerFooter->name : '' }}" />
+                        alt="{{ isset($appSetting->name) ? $appSetting->name : '' }}" />
                 </a>
                 <button class="menu-toggler" data-target=".main-navigation">
                     <span class="fa fa-bars"></span>
@@ -56,32 +50,35 @@ $lang = App::getLocale();
             <div class="main-navigation">
                 <ul class=" navigation-box">
                     <li class="current">
-                        <a href="{{ route('home.index') }}">{{ __('menuItems.home') }}</a>
+                        <a href="{{ route('home.index') }}">{{ __('home.menuItems.home') }}</a>
                     </li>
                     <li>
-                        <a href="javascript:;">{{ __('menuItems.membership') }}</a>
+                        <a href="javascript:;">{{ __('home.menuItems.membership') }}</a>
                         <ul class="sub-menu">
-                            <li><a href="{{ route('home.member.create') }}">Register</a></li>
-                            <li><a href="{{ route('admin.member.membership.index') }}">Dashboard</a></li>
+                            <li><a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create')
+                                    }}</a></li>
+                            <li><a href="{{ route('admin.member.membership.index') }}">{{
+                                    __('home.menuItems.membership.dashboard') }}</a></li>
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
-                        <a href="javascript:;">{{ __('menuItems.posts') }}</a>
+                        <a href="javascript:;">{{ __('home.menuItems.posts') }}</a>
                         <ul class="sub-menu">
-                            <li><a href="{{ route('home.events.index') }}">Events</a></li>
-                            <li><a href="{{ route('home.news.index') }}">News</a></li>
-                            <li><a href="{{ route('home.blogs.index') }}">Blogs</a></li>
+                            <li><a href="{{ route('home.events.index') }}">{{__('home.menuItems.posts.events')}}</a>
+                            </li>
+                            <li><a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a></li>
+                            <li><a href="{{ route('home.blogs.index') }}">{{__('home.menuItems.posts.blogs')}}</a></li>
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
-                        <a href="javascript:;">About Us</a>
+                        <a href="javascript:;">{{ __('home.menuItems.about') }}</a>
                         <ul class="sub-menu">
-                            <li><a href="{{ route('home.about') }}">About Us</a></li>
-                            <li><a href="javascript:;">History</a></li>
+                            <li><a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a></li>
+                            <li><a href="javascript:;">{{ __('home.menuItems.about.our-history') }}</a></li>
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
-                        <a href="{{ route('home.contact') }}">Contact</a>
+                        <a href="{{ route('home.contact') }}">{{ __('home.menuItems.contact') }}</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

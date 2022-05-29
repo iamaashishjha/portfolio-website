@@ -40,20 +40,20 @@
         <div class="intro-y col-span-12">
             <div class="post intro-y overflow-hidden box mt-5">
                 <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600 justify-items-center">
-                    @include('ar.member.membership.partials.tabs')
+                    @include('ar.membership.partials.tabs')
                 </div>
 
                 <div class="post__content tab-content">
 
-                    @include('ar.member.membership.partials.citizenship')
+                    @include('ar.membership.partials.citizenship')
 
-                    @include('ar.member.membership.partials.personal')
+                    @include('ar.membership.partials.personal')
 
-                    @include('ar.member.membership.partials.property')
+                    @include('ar.membership.partials.property')
 
-                    @include('ar.member.membership.partials.political')
+                    @include('ar.membership.partials.political')
 
-                    @include('ar.member.membership.partials.document')
+                    @include('ar.membership.partials.document')
 
                 </div>
 

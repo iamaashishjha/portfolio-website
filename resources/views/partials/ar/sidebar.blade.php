@@ -197,14 +197,14 @@
             <a href="javascript:;" class="side-menu {{ request()->is('admin/home/*') ? 'side-menu--active' : '' }} "
                 id="appSetting_menu">
                 <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                <div class="side-menu__title"> Appsetting <i data-feather="chevron-down"
+                <div class="side-menu__title"> Setting <i data-feather="chevron-down"
                         class="side-menu__sub-icon"></i> </div>
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.home.headerFooter.index') }}" class="side-menu">
+                    <a href="{{ route('admin.home.appSetting.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title"> Header/Footer </div>
+                        <div class="side-menu__title"> App Settings </div>
                     </a>
                 </li>
                 <li>

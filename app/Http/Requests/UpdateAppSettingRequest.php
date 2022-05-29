@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\BlogCategory;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateHeaderFooterRequest extends FormRequest
+class UpdateAppSettingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,15 +28,11 @@ class UpdateHeaderFooterRequest extends FormRequest
         // $id_check = ($route) ? "," . $route : ",NULL";
 
         return [
-            // 'title' => 'required|unique:blog_categories,title'.$id_check,
-            // 'description' => 'required|max:250',
-            // 'category_image' => 'nullable|max:20000',
-            // // 'slug' => 'required|unique:blog_categories,title'.$id_check,
-            // 'slug' => 'required',
-            // 'meta_description' => 'required',
-            // 'keywords' => 'required',
-            // 'meta_title' => 'required',
-            // 'status' => ' nullable'
+            'site_title' => 'required',
+            'site_title_image' => 'image',
+            'meta_description' => 'required',
+            'keywords' => 'required',
+            'meta_title' => 'required',
         ];
     }
 
@@ -48,8 +44,6 @@ class UpdateHeaderFooterRequest extends FormRequest
     public function messages()
     {
         return [
-
-            'unique' => 'The :attribute must be unique',
             'required' => 'The :attribute field is required',
         ];
     }
@@ -62,13 +56,11 @@ class UpdateHeaderFooterRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'Category Title',
-            'description' => 'Category Description',
-            'category_image' => 'Category Image',
-            'slug' => 'Category Slug',
-            'meta_description' => 'Category Meta Description',
-            'keywords' => 'Category Keywords',
-            'meta_title' => 'Category Meta Title'
+            'site_title' => 'Site Title',
+            'site_title_image' => 'Site Title Image',
+            'meta_description' => 'Site Meta Description',
+            'keywords' => 'Site Keywords',
+            'meta_title' => 'Site Meta Title'
         ];
     }
 }

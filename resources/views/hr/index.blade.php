@@ -1,7 +1,7 @@
 @extends('layouts.hr')
 
 @section('title')
-{{ isset($headerFooter->site_title) ? $headerFooter->site_title : 'Nagrik Unmukti Party'}}
+{{ isset($appSetting->site_title) ? $appSetting->site_title : 'Nagrik Unmukti Party'}}
 @endsection
 
 
@@ -149,10 +149,10 @@
 	</div><!-- /.container -->
 </section><!-- /.about-three -->
 <section class="cta-two cta-two__home-one">
-	<div class="container">
-		<p class="cta-two__tag-line">Join the Fight for Freedom</p><!-- /.cta-two__tag-line -->
-		<h3 class="cta-two__title">Help us Bring <br> the Change we Need</h3><!-- /.cta-two__title -->
-		<a href="#" class="thm-btn cta-two__btn">Become a Volunteer</a>
+	<div class="container mb-2">
+		<p class="cta-two__tag-line">{{ __('home.volunteer.title') }}</p><!-- /.cta-two__tag-line -->
+		<h3 class="cta-two__title">{{ __('home.volunteer.content') }}</h3><!-- /.cta-two__title -->
+		<a href="{{ route('home.member.create') }}" class="thm-btn cta-two__btn">{{ __('home.volunteer.button') }}</a>
 	</div><!-- /.container -->
 	<div class="donation-contribute wow fadeInUp" data-wow-duration="1500ms">
 		<div class="container">
@@ -185,43 +185,43 @@
 		<div class="block-title text-center">
 			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
-			<p class="block-title__tag-line">Policy Positions</p>
-			<h2 class="block-title__title">Campaign Principles</h2><!-- /.block-title__title -->
+			<p class="block-title__tag-line">{{ __('home.campaign.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.campaign.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
 			<div class="column-5">
 				<div class="campaing-one__single">
 					<i class="potisen-icon-sprout"></i>
-					<h3 class="campaing-one__title"><a href="#">Environment</a></h3><!-- /.campaing-one__title -->
+					<h3 class="campaing-one__title"><a href="#">{{ __('home.campaign.first') }}</a></h3><!-- /.campaing-one__title -->
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 			<div class="column-5">
 				<div class="campaing-one__single">
 					<i class="potisen-icon-care"></i>
-					<h3 class="campaing-one__title"><a href="#">Healthcare</a></h3><!-- /.campaing-one__title -->
+					<h3 class="campaing-one__title"><a href="#">{{ __('home.campaign.second') }}</a></h3><!-- /.campaing-one__title -->
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 			<div class="column-5">
 				<div class="campaing-one__single">
 					<i class="potisen-icon-medal"></i>
-					<h3 class="campaing-one__title"><a href="#">Tax Returns</a></h3><!-- /.campaing-one__title -->
+					<h3 class="campaing-one__title"><a href="#">{{ __('home.campaign.third') }}</a></h3><!-- /.campaing-one__title -->
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 			<div class="column-5">
 				<div class="campaing-one__single">
 					<i class="potisen-icon-idea"></i>
-					<h3 class="campaing-one__title"><a href="#">Economy</a></h3><!-- /.campaing-one__title -->
+					<h3 class="campaing-one__title"><a href="#">{{ __('home.campaign.fourth') }}</a></h3><!-- /.campaing-one__title -->
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 			<div class="column-5">
 				<div class="campaing-one__single">
 					<i class="potisen-icon-mortarboard"></i>
-					<h3 class="campaing-one__title"><a href="#">Education</a></h3><!-- /.campaing-one__title -->
+					<h3 class="campaing-one__title"><a href="#">{{ __('home.campaign.fifth') }}</a></h3><!-- /.campaing-one__title -->
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 		</div><!-- /.row -->
-		<p class="campaing-one__more-text text-center">How we can build a better country together!. <a
-				href="donation.html">Donate or Volunteer.</a></p><!-- /.campaing-one__more-text -->
+		<p class="campaing-one__more-text text-center">{{ __('home.campaign.pre-button') }}<a
+				href="donation.html">{{ __('home.campaign.button') }}</a></p><!-- /.campaing-one__more-text -->
 	</div><!-- /.container -->
 </section><!-- /.campaing-one -->
 
@@ -230,8 +230,8 @@
 		<div class="block-title text-center">
 			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
-			<p class="block-title__tag-line">Join Campaigns</p>
-			<h2 class="block-title__title">Upcoming Events</h2><!-- /.block-title__title -->
+			<p class="block-title__tag-line">{{ __('home.event.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.event.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
 			@foreach ($events as $event)
@@ -280,8 +280,8 @@
 		<div class="block-title text-center">
 			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
-			<p class="block-title__tag-line">Join Campaigns</p>
-			<h2 class="block-title__title">We Will Make <br> History Together</h2><!-- /.block-title__title -->
+			<p class="block-title__tag-line">{{ __('home.about.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.about.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
 			<div class="col-lg-6">
@@ -485,12 +485,12 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-5">
-				<h3 class="mailchimp-one__title">Don't miss our monthly updates</h3><!-- /.mailchimp-one__title -->
+				<h3 class="mailchimp-one__title">{{ __('home.subscribe-mail.pre-button') }}</h3><!-- /.mailchimp-one__title -->
 			</div><!-- /.col-lg-5 -->
 			<div class="col-lg-7">
 				<form class="mailchimp-one__form mc-form" method="POST" action="{{route('home.SubscribeUsForm')}}">
 					<input placeholder="Email Address" type="email" required="required" class="formInput" name="subscribe_us_email">
-					<button type="submit" class="thm-btn mailchimp-one__form-btn">Subscribe</button>
+					<button type="submit" class="thm-btn mailchimp-one__form-btn">{{ __('home.subscribe-mail.button') }}</button>
 				</form>
 				<div class="mc-form__response"></div><!-- /.mc-form__response -->
 			</div><!-- /.col-lg-7 -->
@@ -504,8 +504,8 @@
 		<div class="block-title text-center">
 			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
-			<p class="block-title__tag-line">Potisen Updates</p>
-			<h2 class="block-title__title">From Campaign</h2><!-- /.block-title__title -->
+			<p class="block-title__tag-line">{{ __('home.blog.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.blog.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
 			@foreach ($blogPosts as $post)

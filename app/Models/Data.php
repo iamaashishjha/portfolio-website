@@ -14,7 +14,10 @@ class Data extends Model
     protected $fillable = [
         'slider_subscribe_email',
         'slider_subscribe_zip',
-        'subscribe_us_email'
+        'subscribe_us_email',
+        'contact_us_name',
+        'contact_us_email',
+        'contact_us_message',
     ];
 
 }

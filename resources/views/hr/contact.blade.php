@@ -3,7 +3,7 @@
 @section('content')
 <section class="inner-banner">
     <div class="container">
-        <h2 class="inner-banner__title">Contact</h2><!-- /.inner-banner__title -->
+        <h2 class="inner-banner__title">{{ __('contact.heading') }}</h2><!-- /.inner-banner__title -->
         <ul class="list-unstyled thm-breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li>Contact</li>
@@ -21,7 +21,9 @@
                     <div class="contact-info-one__single">
                         <h4 class="contact-info-one__title">
                             <i class="potisen-icon-pin"></i>
-                            22 Broklyn Street, USA
+
+                            {{ isset($appSetting->address) ? $appSetting->address : '22 Broklyn Street, USA' }}
+                            
                         </h4>
                     </div><!-- /.contact-info-one__single -->
                 </div><!-- /.col-xl-4 -->
@@ -29,7 +31,9 @@
                     <div class="contact-info-one__single">
                         <h4 class="contact-info-one__title">
                             <i class="potisen-icon-phone"></i>
-                            <a href="tel:666-888-000">666 888 000</a>
+                            <a href="tel:{{ isset($appSetting->phone_number) ? $appSetting->phone_number : '666-888-000' }}">
+                            {{ isset($appSetting->phone_number) ? $appSetting->phone_number : '666 888 000' }}
+                            </a>
                         </h4>
                     </div><!-- /.contact-info-one__single -->
                 </div><!-- /.col-xl-4 -->
@@ -37,7 +41,10 @@
                     <div class="contact-info-one__single">
                         <h4 class="contact-info-one__title">
                             <i class="potisen-icon-mail"></i>
-                            <a href="mailto:needhelp@potisen.com">needhelp@potisen.com</a>
+                            <a href="mailto:{{ isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}">
+
+                                {{ isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}
+                            </a>
                         </h4>
                     </div><!-- /.contact-info-one__single -->
                 </div><!-- /.col-xl-4 -->
@@ -50,21 +57,22 @@
         <div class="block-title text-center">
             <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
                 data-wow-duration="1500ms">
-            <p class="block-title__tag-line">Contact With Us</p>
-            <h2 class="block-title__title">Leave a Message</h2><!-- /.block-title__title -->
+            <p class="block-title__tag-line">{{ __('contact.title') }}</p>
+            <h2 class="block-title__title">{{ __('contact.message') }}</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
-        <form action="inc/sendemail.php" class="contact-form-one__form contact-form-validated">
+        <form action="{{ route('home.contactForm') }}" method="POST" class="contact-form-one__form contact-form-validated" enctype="multipart/form-data">
+            @csrf
             <div class="row low-gutters">
                 <div class="col-lg-6">
-                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="text" name="contact_us_name" placeholder="Your Name">
                 </div><!-- /.col-lg-6 -->
                 <div class="col-lg-6">
-                    <input type="text" name="email" placeholder="Email Address">
+                    <input type="text" name="contact_us_email" placeholder="Email Address">
                 </div><!-- /.col-lg-6 -->
                 <div class="col-lg-12">
-                    <textarea name="message" placeholder="Write Message"></textarea>
+                    <textarea name="contact_us_message" placeholder="Write Message"></textarea>
                     <div class="text-center">
-                        <button type="submit" class="thm-btn contact-form-one__btn">Send Message</button>
+                        <button type="submit" class="thm-btn contact-form-one__btn">{{ __('contact.button') }}</button>
                     </div><!-- /.text-center -->
                 </div><!-- /.col-lg-12 -->
             </div><!-- /.row -->

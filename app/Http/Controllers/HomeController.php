@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BlogPost;
 use App\Models\Data;
 use App\Models\Event;
-use App\Models\HeaderFooter;
+use App\Models\AppSettings;
+use App\Models\CompanyDetails;
 use App\Models\News;
 use App\Models\NewsPost;
 use App\Models\Slider;
@@ -32,7 +33,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->data['headerFooter'] = HeaderFooter::first();
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['sliders'] = Slider::first();
         $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
         $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
@@ -104,14 +106,53 @@ class HomeController extends Controller
 
     public function aboutUsPage()
     {
-        $this->data['headerFooter'] = HeaderFooter::first();
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.about', $this->data);
     }
 
     public function contactPage()
     {
-        return view('hr.contact');
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        return view('hr.contact',  $this->data);
     }
+
+    public function storeContactData(Request $request)
+    {
+        // dd('ok');
+        $validator =Validator::make($request->all(),
+            [
+                'name' => 'required|string',
+                'email' => 'required|email',
+                'message' => 'required',
+            ],
+            [
+                'name' => 'Name',
+                'email' => 'Email',
+                'message' => 'Message',
+            ],
+            [
+                'required' => 'The :attribute field is required.',
+                'string' => 'The :attribute field must be string.',
+                'email' => 'The :attribute field must be email.',
+            ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+        $data = new Data();
+        $data->contact_us_name = $request->contact_us_name;
+        $data->contact_us_email = $request->contact_us_email;
+        $data->contact_us_message = $request->contact_us_message;
+        $data->save();
+        Alert::toast('We Will get back to you', 'success');
+        return redirect()->back();
+    }
+
 
     public function listBlog()
     {
