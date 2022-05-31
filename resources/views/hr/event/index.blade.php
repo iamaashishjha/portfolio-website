@@ -3,10 +3,10 @@
 @section('content')
     <section class="inner-banner">
         <div class="container">
-            <h2 class="inner-banner__title">All Events</h2><!-- /.inner-banner__title -->
+            <h2 class="inner-banner__title">{{ __('events.title') }}</h2><!-- /.inner-banner__title -->
             <ul class="list-unstyled thm-breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Events</a></li>
+                <li><a href="/">{{ __('home.menuItems.home') }}</a></li>
+                <li>{{ __('home.menuItems.posts.events') }}</li>
             </ul><!-- /.list-unstyled -->
         </div><!-- /.container -->
     </section><!-- /.inner-banner -->
@@ -33,13 +33,7 @@
                 @endforeach
                 
             </div><!-- /.row -->
-            <div class="post-pagination">
-                <a href="#"><i class="fa fa-angle-double-left"></i></a>
-                <a href="#">01</a>
-                <a href="#">..</a>
-                <a href="#">04</a>
-                <a href="#"><i class="fa fa-angle-double-right"></i></a>
-            </div><!-- /.post-pagination -->
+            {{ $events->links('partials.hr.pagination.events') }}
         </div><!-- /.container -->
     </section><!-- /.event-one -->
     <section class="countdown-one thm-base-bg">

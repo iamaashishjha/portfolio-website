@@ -19,6 +19,9 @@ class CreateEventMasterDataTables extends Migration
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('event_image')->nullable();
+            $table->string('venue')->nullable();
+            $table->string('start_date_time')->nullable();
+            $table->text('location_map')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('keywords')->nullable();
@@ -33,13 +36,13 @@ class CreateEventMasterDataTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-                $table->foreignId('updated_by')
+            $table->foreignId('updated_by')
                 ->nullable()
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-                $table->foreignId('deleted_by')
+            $table->foreignId('deleted_by')
                 ->nullable()
                 ->constrained('users')
                 ->onUpdate('cascade')

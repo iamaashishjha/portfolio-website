@@ -43,14 +43,14 @@ class CreateMasterDataTables extends Migration
             $table->string('company_name_en')->nullable();
             $table->string('company_name_lc')->nullable();
             $table->text('company_description')->nullable();
-            $table->string('logo')->nullable();
+            $table->string('logo_image')->nullable();
 
             $table->string('phone_number')->nullable();
             $table->string('mobile_number')->nullable();
 
             $table->string('email_address')->nullable();
             $table->string('company_address')->nullable();
-            $table->bigInteger('total_members')->nullable();
+            $table->string('total_members')->nullable();
 
             $table->text('google_map')->nullable();
 
@@ -61,12 +61,15 @@ class CreateMasterDataTables extends Migration
             $table->text('our_history')->nullable();
             $table->text('our_mission')->nullable();
             $table->text('our_vision')->nullable();
+            
+            $table->string('our_mission_image')->nullable();
+            $table->string('our_vision_image')->nullable();
 
             $table->text('home_about_content')->nullable();
 
-            $table->text('home_about_image_1')->nullable();
-            $table->text('home_about_image_2')->nullable();
-            $table->text('home_about_image_3')->nullable();
+            $table->string('home_about_image_1')->nullable();
+            $table->string('home_about_image_2')->nullable();
+            $table->string('home_about_image_3')->nullable();
 
             $table->text('home_about_accordion_title_1')->nullable();
             $table->text('home_about_accordion_title_2')->nullable();

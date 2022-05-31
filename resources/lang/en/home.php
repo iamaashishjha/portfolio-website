@@ -8,7 +8,7 @@ return [
     'menuItems.home' => 'Home',
     'menuItems.membership' => 'Membership',
     'menuItems.membership.create' => 'Register',
-    'menuItems.membership.dashboard' => 'Dashboard',
+    'menuItems.membership.form' => 'Form',
     'menuItems.posts' => 'Posts',
     'menuItems.posts.events' => 'Events',
     'menuItems.posts.news' => 'News',
@@ -17,6 +17,16 @@ return [
     'menuItems.about.about-us' => 'About Us',
     'menuItems.about.our-history' => 'Our History',
     'menuItems.contact' => 'Contact Us',
+
+    '' => '',
+
+    'vision.sub-heading' => 'Potisen Politics',
+    'vision.heading' => 'Our Vision',
+
+    'mission.sub-heading' => 'About Potisen',
+    'mission.heading' => 'Our Mission',
+
+    'members.title' => 'People have joined the campaigns',
 
     'volunteer.title' => 'Join the Fight for Freedom',
     'volunteer.content' => 'Help us Bring the Change we Need',
@@ -50,5 +60,4 @@ return [
     'footer.contact' => 'Contact',
     'footer.copyright' => 'Nagrik Unmukti Party',
 
-    
 ];

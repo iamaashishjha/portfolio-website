@@ -19,7 +19,8 @@ class NewsPost extends Model
 
     protected $fillable = [
         'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
-        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views'
+        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views',
+        'created_by', 'updated_by', 'deleted_by'
     ];
 
     protected $guarded = ['id'];
@@ -73,10 +74,41 @@ class NewsPost extends Model
         }
     }
 
+    public function getNewsTags()
+    {
+        $tags = $this->newsTags;
+        foreach ($tags as $tag) {
+            return '<a>' . $tag->title . '</a>';
+        }
+    }
+
+    public function comments()
+    {
+        return $this->HasMany(NewsComment::class, 'news_id', 'id');
+    }
+
     public function user()
     {
         # code...
         return $this->belongsTo(User::class);
+    }
+
+    public function createdUser()
+    {
+        # code...
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function updateUser()
+    {
+        # code...
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    public function deleteUser()
+    {
+        # code...
+        return $this->belongsTo(User::class, 'deleted_by', 'id');
     }
 
     public function category()

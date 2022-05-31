@@ -6,13 +6,11 @@ $lang = App::getLocale();
     <div class="container">
         <div class="inner-container">
             <div class="topbar-one__left">
-                <a href="mailto:{{ isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}">{{
-                    isset($appSetting->email) ? $appSetting->email : 'needhelp@potisen.com' }}</a>
-                <a href="tel:{{ isset($appSetting->telephone) ? $appSetting->telephone : '666 888 0000' }}">{{
-                    isset($appSetting->telephone) ? $appSetting->telephone : '666 888 0000' }}</a>
+                <a href="mailto:{{ isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com' }}">{{
+                    isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com' }}</a>
+                <a href="tel:{{ isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}">{{
+                    isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}</a>
             </div><!-- /.topbar-one__left -->
-
-
             <div>
                 @if ($lang == 'en')
                 <p>{{ \Carbon\Carbon::now()->format('j F Y, l') }} </p>
@@ -38,9 +36,9 @@ $lang = App::getLocale();
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="logo-box clearfix">
                 <a class="navbar-brand" href="/">
-                    <img src="{{ isset($appSetting->logo_image) ? $appSetting->logo_image: '/hr/assets/images/logo-dark.png' }}"
+                    <img src="{{ isset($companyDetails->logo) ? $companyDetails->logo: '/hr/assets/images/logo-dark.png' }}"
                         class="main-logo" height="80"
-                        alt="{{ isset($appSetting->name) ? $appSetting->name : '' }}" />
+                        alt="{{ isset($companyDetails->company_name_en) ? $companyDetails->company_name_en : '' }}" />
                 </a>
                 <button class="menu-toggler" data-target=".main-navigation">
                     <span class="fa fa-bars"></span>
@@ -57,8 +55,8 @@ $lang = App::getLocale();
                         <ul class="sub-menu">
                             <li><a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create')
                                     }}</a></li>
-                            <li><a href="{{ route('admin.member.membership.index') }}">{{
-                                    __('home.menuItems.membership.dashboard') }}</a></li>
+                            <li><a href="#">{{
+                                    __('home.menuItems.membership.form') }}</a></li>
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
@@ -71,11 +69,7 @@ $lang = App::getLocale();
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>
-                        <a href="javascript:;">{{ __('home.menuItems.about') }}</a>
-                        <ul class="sub-menu">
-                            <li><a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a></li>
-                            <li><a href="javascript:;">{{ __('home.menuItems.about.our-history') }}</a></li>
-                        </ul><!-- /.sub-menu -->
+                        <a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a>
                     </li>
                     <li>
                         <a href="{{ route('home.contact') }}">{{ __('home.menuItems.contact') }}</a>

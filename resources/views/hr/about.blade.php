@@ -30,65 +30,76 @@
 </section><!-- /.thm-gray-bg about-one -->
 
 <section class="about-two">
-    <div class="container">
-        <div class="block-title text-center">
-            <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
-            <p class="block-title__tag-line">Join Campaigns</p>
-            <h2 class="block-title__title">We Will Make <br> History Together</h2><!-- /.block-title__title -->
-        </div><!-- /.block-title -->
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="about-two__content">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img src="/hr/assets/images/resources/history-1-1.jpg" alt="" class="img-fluid" />
-                        </div><!-- /.col-sm-4 -->
-                        <div class="col-sm-4">
-                            <img src="/hr/assets/images/resources/history-1-2.jpg" alt="" class="img-fluid" />
-                        </div><!-- /.col-sm-4 -->
-                        <div class="col-sm-4">
-                            <img src="/hr/assets/images/resources/history-1-3.jpg" alt="" class="img-fluid" />
-                        </div><!-- /.col-sm-4 -->
-                    </div><!-- /.row -->
-                    <p class="about-two__text">Lorem Ipsum is simply dummy text of the printing and type setting industry has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled to make a type specimen book. It has survived not only five centuries but also the leap into electronic type setting.</p><!-- /.about-two__text -->
-                </div><!-- /.about-two__content -->
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-6">
-                <div class="accrodion-grp" data-grp-name="faq-accrodion">
-                    <div class="accrodion active">
-                        <div class="accrodion-title">
-                            <h4>Political organization that typically seeks</h4>
-                        </div>
-                        <div class="accrodion-content">
-                            <div class="inner">
-                                <p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
-                            </div><!-- /.inner -->
-                        </div>
-                    </div>
-                    <div class="accrodion ">
-                        <div class="accrodion-title">
-                            <h4>Strong politics plan require experience</h4>
-                        </div>
-                        <div class="accrodion-content">
-                            <div class="inner">
-                                <p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
-                            </div><!-- /.inner -->
-                        </div>
-                    </div>
-                    <div class="accrodion">
-                        <div class="accrodion-title">
-                            <h4>Attract and retain quality high paying customers</h4>
-                        </div>
-                        <div class="accrodion-content">
-                            <div class="inner">
-                                <p>It has survived not only five centuries but also the leap into electronic type setting. when an unknown printer took a galley of type and scrambled to make a type specimen book.</p>
-                            </div><!-- /.inner -->
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+	<div class="container">
+		<div class="block-title text-center">
+			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+				data-wow-duration="1500ms">
+			<p class="block-title__tag-line">{{ __('home.about.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.about.heading') }}</h2><!-- /.block-title__title -->
+		</div><!-- /.block-title -->
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="about-two__content">
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
+						</div><!-- /.col-sm-4 -->
+						<div class="col-sm-4">
+							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}" alt="" class="img-fluid" style="height:165px;width:170px"/>
+						</div><!-- /.col-sm-4 -->
+						<div class="col-sm-4">
+							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
+						</div><!-- /.col-sm-4 -->
+					</div><!-- /.row -->
+					<p class="about-two__text">{{ isset($companyDetails->home_about_content) ? $companyDetails->home_about_content : '' }}</p>
+					<!-- /.about-two__text -->
+				</div><!-- /.about-two__content -->
+			</div><!-- /.col-lg-6 -->
+			<div class="col-lg-6">
+				<div class="accrodion-grp" data-grp-name="faq-accrodion">
+					<div class="accrodion active">
+						<div class="accrodion-title">
+							<h4>{{ isset($companyDetails->home_about_accordion_title_1) ? $companyDetails->home_about_accordion_title_1 : '' }}</h4>
+						</div>
+						<div class="accrodion-content">
+							<div class="inner">
+								<p>
+									
+									{{ isset($companyDetails->home_about_accordion_content_1) ? $companyDetails->home_about_accordion_content_1 : '' }}
+									</p>
+							</div><!-- /.inner -->
+						</div>
+					</div>
+					<div class="accrodion ">
+						<div class="accrodion-title">
+							<h4>{{ isset($companyDetails->home_about_accordion_title_2) ? $companyDetails->home_about_accordion_title_2 : '' }}</h4>
+						</div>
+						<div class="accrodion-content">
+							<div class="inner">
+								<p>
+									{{ isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' }}It has survived not only five centuries but also the leap into electronic type
+
+								</p>
+							</div><!-- /.inner -->
+						</div>
+					</div>
+					<div class="accrodion">
+						<div class="accrodion-title">
+							<h4>{{ isset($companyDetails->home_about_accordion_title_3) ? $companyDetails->home_about_accordion_title_3 : '' }}</h4>
+						</div>
+						<div class="accrodion-content">
+							<div class="inner">
+								<p>
+									{{ isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' }}It has survived not only five centuries but also the leap into electronic type
+
+								</p>
+							</div><!-- /.inner -->
+						</div>
+					</div>
+				</div>
+			</div><!-- /.col-lg-6 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
 </section><!-- /.about-two -->
 
 <section class="cta-two">

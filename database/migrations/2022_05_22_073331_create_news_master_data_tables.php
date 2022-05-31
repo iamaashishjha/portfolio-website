@@ -131,6 +131,20 @@ class CreateNewsMasterDataTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        Schema::create('news_comments', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            $table->timestamps();
+
+            $table->foreignId('news_id')
+                ->constrained('news_posts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -140,12 +154,16 @@ class CreateNewsMasterDataTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blog_categories');
+        Schema::dropIfExists('news_categories');
 
-        Schema::dropIfExists('blog_tags');
+        Schema::dropIfExists('news_tags');
 
-        Schema::dropIfExists('blog_posts');
+        Schema::dropIfExists('news_posts');
 
-        Schema::dropIfExists('blog_posts_blog_tags');
+        Schema::dropIfExists('news_posts_news_tags');
+
+        Schema::dropIfExists('news_comments');
+
+        
     }
 }

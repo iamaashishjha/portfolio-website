@@ -48,6 +48,8 @@ class AdminSliderController extends BaseController
 
         // dd($request);
 
+        // dd($request);
+
         $path1 = $request->slider_image_a->store('home/slider', 'public');
         
         if($request->has('slider_image_b')){

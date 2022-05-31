@@ -17,9 +17,10 @@ class Event extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'title', 'description', 'event_image',
+        'venue', 'start_date_time', 'location_map',
         'slug', 'meta_description', 'meta_title', 'keywords',
         'status', 'is_deleted', 'created_by', 'updated_by',
-        'deleted_by'
+        'deleted_by',
     ];
 
     public function checkStatus()

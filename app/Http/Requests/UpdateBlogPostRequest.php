@@ -26,13 +26,13 @@ class UpdateBlogPostRequest extends FormRequest
         $route = $this->route('post');
         $id_check = ($route) ? "," . $route : ",NULL";
         return [
-            //
-            'title' => 'required|unique:blog_posts,title'.$id_check,
+            // 'title' => 'requiredunique:blog_posts,title'.$id_check,
+            'title' => 'required',
             'description' => 'required|max:250',
             'content' => 'required',
             'post_image' => 'max:20000',
             'alt_text' => 'required',
-            'slug' => 'required|unique:blog_posts,slug'.$id_check,
+            'slug' => 'required',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',

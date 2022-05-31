@@ -8,7 +8,7 @@ return [
     'menuItems.home' => 'गृह',
     'menuItems.membership' => 'सदस्यता',
     'menuItems.membership.create' => 'दर्ता गर्नुहोस्',
-    'menuItems.membership.dashboard' => 'ड्यासबोर्ड',
+    'menuItems.membership.form' => 'फोर्म',
     'menuItems.posts' => 'पत्रहरु',
     'menuItems.posts.events' => 'घंताक्रम',
     'menuItems.posts.news' => 'समाचार',
@@ -17,6 +17,14 @@ return [
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
     'menuItems.contact' => 'सम्पर्क',
+
+    'vision.sub-heading' => 'बारेमा',
+    'vision.heading' => 'हाम्रो भिजन',
+
+    'mission.sub-heading' => 'बारेमा',
+    'mission.heading' => 'हाम्रो मिशन',
+
+    'members.title' => 'जनता अभियानमा लागेका छन्',
 
     'volunteer.title' => 'हामी संग जुदनुहोस',
     'volunteer.content' => 'परिबर्तन ल्याउन हामीलाई सहयोग गर्नुहोस',

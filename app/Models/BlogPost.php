@@ -19,10 +19,11 @@ class BlogPost extends Model
 
     protected $fillable = [
         'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
-        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views'
+        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views',
+        'created_by', 'updated_by', 'deleted_by'
     ];
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
     public function checkStatus()
     {
@@ -65,18 +66,36 @@ class BlogPost extends Model
 
     public function getTagsAttribute()
     {
-        # code...
         $tags = $this->blogTags;
         foreach ($tags as $tag) {
-            # code...
             return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
         }
     }
 
-    public function user()
+    public function getBlogTags()
+    {
+        $tags = $this->blogTags;
+        foreach ($tags as $tag) {
+            return '<a>' . $tag->title . '</a>';
+        }
+    }
+
+    public function createdUser()
     {
         # code...
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function updateUser()
+    {
+        # code...
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    public function deleteUser()
+    {
+        # code...
+        return $this->belongsTo(User::class, 'deleted_by', 'id');
     }
 
     public function category()
@@ -89,6 +108,11 @@ class BlogPost extends Model
     {
         # code...
         return $this->belongsToMany(BlogTags::class);
+    }
+
+    public function comments()
+    {
+        return $this->HasMany(BlogsComment::class, 'post_id', 'id');
     }
 
     public function deleteImage()

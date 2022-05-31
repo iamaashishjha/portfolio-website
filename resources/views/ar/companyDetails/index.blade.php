@@ -50,7 +50,11 @@ All Company Details | Nagrik Unmukti Party
                     <div class="font-medium whitespace-no-wrap">{{ $companyDetail->company_name_en }}</div>
                 </td>
                 <td class="border-b text-center">
-                    <div class="font-medium whitespace-no-wrap">{{ $companyDetail->logo }}</div>
+                    <div class="flex sm:justify-center">
+                        <div class="intro-x w-10 h-10 image-fit">
+                            <img alt="{{ $companyDetail->company_description }}" class="rounded-full" src="{{ $companyDetail->logo }}">
+                        </div>
+                    </div>
                 </td>
                 <td class="text-center border-b">
                     {{ $companyDetail->phone_number }}

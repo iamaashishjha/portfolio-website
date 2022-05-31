@@ -72,6 +72,8 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listNews')->name('index');
                 Route::get('/{id}', 'showNews')->name('show');
+                Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
+                Route::post('/{id}', 'storeNewsComments')->name('comment');
         });
 
         Route::prefix('blogs')
@@ -80,6 +82,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listBlog')->name('index');
                 Route::get('/{id}', 'showBlog')->name('show');
+                Route::post('/{id}', 'storeBlogComments')->name('comment');
         });
 
         Route::prefix('member')

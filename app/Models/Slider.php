@@ -40,6 +40,12 @@ class Slider extends Model
         return '/storage/' . $this->image_a;
     }
 
+    // public function setSliderImageAAttribute($value)
+    // {
+    //     // $this->attributes['image_a'] = Image::resize(1920,811);
+
+    // }
+
     public function getSliderImageBAttribute()
     {
         if ($this->image_b != null) {

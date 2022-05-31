@@ -11,107 +11,152 @@
 @endsection
 
 @section('content')
-<section class="static-banner-one">
-	<div class="static-banner-one__bg">
-		<div class="static-banner-one__bg-inner"></div><!-- /.static-banner-one__bg-inner -->
-	</div><!-- /.static-banner-one__bg -->
-	<div class="container">
-		<h2 class="static-banner-one__title">
-			Let's Move <br />
-			America <span class="typed-effect" id="type-1" data-strings="Forward, Powerful"></span>
-		</h2>
-		<p class="static-banner-one__text">Become a part of our campaign, sign up for updates.</p>
-		<form class="static-banner-one__form" action="{{ route('home.sliderForm') }}" method="POST">
-			@csrf
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="static-banner-one__form-fields ">
-						<input placeholder="Email Address" type="email" name="email" value="{{ old('email') }}"
-							required="required" class="formInput">
-						<input type="text" name="zip" placeholder="Zip Code" value="{{ old('zip') }}">
-					</div><!-- /.static-banner-one__form-fields -->
-					<button type="submit" class="thm-btn static-banner-one__form-btn">Sign Up</button>
-				</div><!-- /.col-lg-6 -->
-			</div><!-- /.row -->
-		</form>
-		<div class="mc-form__response"></div><!-- /.mc-form__response -->
-	</div><!-- /.container -->
-</section><!-- /.static-banner-one -->
+<div class="banner-wrapper" id="home">
+	<div class="banner-one__nav">
+		<a href="#" class="banner-one__nav-left"><i class="fa fa-angle-left"></i><!-- /.fa fa-angle-left --></a>
+		<a href="#" class="banner-one__nav-right"><i class="fa fa-angle-right"></i><!-- /.fa fa-angle-right --></a>
+	</div><!-- /.banner-one__nav -->
+	<section class="banner-one banner-carousel__one owl-theme owl-carousel">
+		<div class="item">
+			<div class="banner-one__slide  banner-one__slide-1" style="background-image: url({{ $slider->slider_image_a }});">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="banner-one__title banner-one__light-color">
+								<span>
+									{{ $slider->heading1 }}
+								</span>
+							</h3>
+							<div class="banner-one__btn-block">
+								<a href="{{ route('home.member.create') }}" class="thm-btn banner-one__btn">{{ __('home.menuItems.membership.create') }}</a>
+							</div><!-- /.btn-block -->
+						</div><!-- /.col-lg-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</div><!-- /.banner-one__slide -->
+		</div><!-- /.item -->
+		
+		<div class="item">
+			<div class="banner-one__slide  banner-one__slide-2" style="background-image: url({{ $slider->slider_image_b }});">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="banner-one__title banner-one__light-color">
+								<span>
+									{{ $slider->heading2 }}
+									
+								</span>
+							</h3>
+							<div class="banner-one__btn-block">
+								<a href="{{ route('home.contact') }}" class="thm-btn banner-one__btn">{{ __('home.menuItems.contact') }}</a>
+							</div><!-- /.btn-block -->
+						</div><!-- /.col-lg-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</div><!-- /.banner-one__slide -->
+		</div><!-- /.item -->
+		<div class="item">
+			<div class="banner-one__slide  banner-one__slide-3" style="background-image: url({{ $slider->slider_image_c }});">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="banner-one__title banner-one__light-color">
+								<span>
+									
+									{{ $slider->heading3 }}
+								</span>
+							</h3>
+							<div class="banner-one__btn-block">
+								<a href="{{ route('home.news.index') }}" class="thm-btn banner-one__btn">{{ __('home.menuItems.posts.news') }}</a>
+							</div><!-- /.btn-block -->
+						</div><!-- /.col-lg-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</div><!-- /.banner-one__slide -->
+		</div><!-- /.item -->
+		<div class="item">
+			<div class="banner-one__slide  banner-one__slide-2" style="background-image: url({{ $slider->slider_image_d }});">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="banner-one__title banner-one__light-color">
+								<span>
+									{{$slider->heading4}}
+
+								</span>
+							</h3>
+							<div class="banner-one__btn-block">
+								<a href="{{ route('home.about') }}" class="thm-btn banner-one__btn">{{ __('home.menuItems.about.about-us') }}</a>
+							</div><!-- /.btn-block -->
+						</div><!-- /.col-lg-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</div><!-- /.banner-one__slide -->
+		</div><!-- /.item -->
+		<div class="item">
+			<div class="banner-one__slide  banner-one__slide-3" style="background-image: url({{ $slider->slider_image_e }});">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="banner-one__title banner-one__light-color">
+							
+								<span>
+									{{$slider->heading5}}
+								</span>	
+							</h3>
+							<div class="banner-one__btn-block">
+								<a href="{{ route('home.events.index') }}" class="thm-btn banner-one__btn">{{ __('home.menuItems.posts.events') }}</a>
+							</div><!-- /.btn-block -->
+						</div><!-- /.col-lg-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</div><!-- /.banner-one__slide -->
+		</div><!-- /.item -->
+	</div><!-- /.item -->
+	
+	</section><!-- /.banner-one -->
+</div><!-- /.banner-wrapper -->
+
+
+
 <section class="about-four">
 	<div class="container">
 		<div class="row">
-			<div class="col-xl-4 col-lg-12">
+			<div class="col-xl-8 col-lg-12">
 				<div class="about-four__content">
 					<div class="block-title text-left">
-						<p class="block-title__tag-line">Potisen Politics</p>
-						<h2 class="block-title__title">We can build <br> better future <br> together</h2>
+						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image"
+							class="wow rotateIn" data-wow-duration="1500ms">
+						<p class="block-title__tag-line">{{ __('home.vision.sub-heading') }}</p>
+						<h2 class="block-title__title">{{ __('home.vision.heading') }}</h2>
 						<!-- /.block-title__title -->
 					</div><!-- /.block-title -->
-					<ul class="list-unstyled about-four__list">
-						<li>
-							<img src="/hr/assets/images/resources/menu-active-star.png" alt="Awesome Image" />
-							Lorem ipsum is simply available.
-						</li>
-						<li>
-							<img src="/hr/assets/images/resources/menu-active-star.png" alt="Awesome Image" />
-							The majority have suffered alteration.
-						</li>
-						<li>
-							<img src="/hr/assets/images/resources/menu-active-star.png" alt="Awesome Image" />
-							Don't look even slightly.
-						</li>
-						<li>
-							<img src="/hr/assets/images/resources/menu-active-star.png" alt="Awesome Image" />
-							If you are going to use a passage.
-						</li>
-						<li>
-							<img src="/hr/assets/images/resources/menu-active-star.png" alt="Awesome Image" />
-							You need to sure there embarrassing.
-						</li>
-					</ul><!-- /.list-unstyled about-four__list -->
+					<p class="about-three__text">
+						{{ isset($companyDetails->our_vision) ? $companyDetails->our_vision : '' }}
+					</p>
+					<!-- /.list-unstyled about-four__list -->
 				</div><!-- /.about-four__content -->
 			</div><!-- /.col-lg-4 -->
-			<div class="col-xl-8 col-lg-12">
-				<div class="row low-gutters">
-					<div class="col-md-6 wow fadeInUp" data-wow-duration="1500ms">
+			<div class="col-xl-4 col-lg-12">
+					<div class="low-gutters wow fadeInUp" data-wow-duration="1500ms">
 						<div class="about-four__image">
-							<img src="/hr/assets/images/resources/about-1-1.jpg" class="img-fluid"
-								alt="Awesome Image" />
+							<img src="{{ isset($companyDetails->vision_image) ? $companyDetails->vision_image : '/hr/assets/images/resources/about-1-1.jpg' }}" class="img-fluid"
+								alt="Awesome Image"  style="height:432px; width:379px;"/>
 							<img src="/hr/assets/images/resources/sign.png" class="about-four__sign"
 								alt="Awesome Image" />
 						</div><!-- /.about-four__image -->
 					</div><!-- /.col-md-6 -->
-					<div class="col-md-6">
-						<div class="about-four__box thm-base-bg-2 wow fadeInUp" data-wow-duration="1500ms">
-							<div class="about-four__box-top">
-								<i class="potisen-icon-poll"></i>
-								<h4 class="about-four__box-title">Vote Status</h4><!-- /.about-four__box-title -->
-							</div><!-- /.about-four__box-top -->
-							<p class="about-four__box-text">There are many variations of passages of Lorem Ipsum
-								available, but the majority have suffered alteration in some form, by injected humour or
-								randomised.</p><!-- /.about-four__box-text -->
-							<a href="#" class="thm-btn about-four__btn">Learn More</a>
-						</div><!-- /.about-four__box -->
-					</div><!-- /.col-md-6 -->
-				</div><!-- /.row low-gutters -->
 			</div><!-- /.col-lg-8 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.about-four -->
-<section class="fact-one">
-	<div class="container text-center">
-		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-1" alt="">
-		<h3 class="fact-one__title counter">468,980</h3>
-		<p class="fact-one__text">People have joined the campaigns</p>
-		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-2" alt="">
-	</div><!-- /.container -->
-</section><!-- /.fact-one -->
+
 <section class="about-three thm-gray-bg">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
 				<div class="about-three__image">
-					<img src="/hr/assets/images/resources/mission-vision.jpg" alt="Awesome Image" />
+					<img src="{{ isset($companyDetails->mission_image) ? $companyDetails->mission_image : '/hr/assets/images/resources/mission-vision.jpg' }}" alt="Awesome Image"  style="height:621px ;width:550px ;"/>
 				</div><!-- /.about-three__image -->
 			</div><!-- /.col-lg-6 -->
 			<div class="col-lg-6">
@@ -119,10 +164,10 @@
 					<div class="block-title text-left">
 						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image"
 							class="wow rotateIn" data-wow-duration="1500ms">
-						<p class="block-title__tag-line">About Potisen</p>
-						<h2 class="block-title__title">Mission and Vision</h2><!-- /.block-title__title -->
+						<p class="block-title__tag-line">{{ __('home.mission.sub-heading') }}</p>
+						<h2 class="block-title__title">{{ __('home.mission.heading') }}</h2><!-- /.block-title__title -->
 					</div><!-- /.block-title -->
-					<div class="about-three__box-wrap">
+					{{-- <div class="about-three__box-wrap">
 						<div class="about-three__box">
 							<i class="potisen-icon-bid"></i>
 							<h4 class="about-three__box-title">Civil Rights <br> Attorney</h4>
@@ -138,16 +183,24 @@
 							<h4 class="about-three__box-title">Political <br> Solutions</h4>
 							<!-- /.about-three__box-title -->
 						</div><!-- /.about-three__box -->
-					</div><!-- /.about-three__box-wrap -->
-					<p class="about-three__text">There are many variations of passages of Lorem Ipsum available, but the
-						majority have suffered alteration in some form, by injected humour, or randomised words which
-						don't look even slightly believable.</p><!-- /.about-three__text -->
-					<a href="#" class="thm-btn about-three__btn">Learn More</a>
+					</div><!-- /.about-three__box-wrap --> --}}
+					<p class="about-three__text">
+						{{ isset($companyDetails->our_mission) ? $companyDetails->our_mission : '' }}
+					</p><!-- /.about-three__text -->
+					{{-- <a href="#" class="thm-btn about-three__btn">Learn More</a> --}}
 				</div><!-- /.about-three__content -->
 			</div><!-- /.col-lg-6 -->
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.about-three -->
+<section class="fact-one">
+	<div class="container text-center">
+		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-1" alt="">
+		<h3 class="fact-one__title counter">{{ isset($companyDetails->total_members) ? $companyDetails->total_members : '4,68,980' }}</h3>
+		<p class="fact-one__text">{{ __('home.members.title') }}</p>
+		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-2" alt="">
+	</div><!-- /.container -->
+</section><!-- /.fact-one -->
 <section class="cta-two cta-two__home-one">
 	<div class="container mb-2">
 		<p class="cta-two__tag-line">{{ __('home.volunteer.title') }}</p><!-- /.cta-two__tag-line -->
@@ -180,6 +233,9 @@
 		</div><!-- /.container -->
 	</div><!-- /.donation-contribute -->
 </section><!-- /.cta-two -->
+
+
+
 <section class="campaing-one">
 	<div class="container">
 		<div class="block-title text-center">
@@ -239,7 +295,7 @@
 				<div class="event-one__single">
 					<div class="event-one__image">
 						<div class="event-one__image-inner">
-							<img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/event/event-1-1.jpg' }}" alt="" style="height:150px;width:150px">
+							<img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/event/event-1-1.jpg' }}" alt="" style="height:178px;width:144px">
 						</div><!-- /.event-one__image-inner -->
 					</div><!-- /.event-one__image -->
 					<div class="event-one__content">
@@ -288,19 +344,16 @@
 				<div class="about-two__content">
 					<div class="row">
 						<div class="col-sm-4">
-							<img src="/hr/assets/images/resources/history-1-1.jpg" alt="" class="img-fluid" />
+							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
-							<img src="/hr/assets/images/resources/history-1-2.jpg" alt="" class="img-fluid" />
+							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}" alt="" class="img-fluid" style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
-							<img src="/hr/assets/images/resources/history-1-3.jpg" alt="" class="img-fluid" />
+							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
-					<p class="about-two__text">Lorem Ipsum is simply dummy text of the printing and type setting
-						industry has been the industry's standard dummy text ever since the 1500s, when an unknown
-						printer took a galley of type and scrambled to make a type specimen book. It has survived not
-						only five centuries but also the leap into electronic type setting.</p>
+					<p class="about-two__text">{{ isset($companyDetails->home_about_content) ? $companyDetails->home_about_content : '' }}</p>
 					<!-- /.about-two__text -->
 				</div><!-- /.about-two__content -->
 			</div><!-- /.col-lg-6 -->
@@ -308,37 +361,40 @@
 				<div class="accrodion-grp" data-grp-name="faq-accrodion">
 					<div class="accrodion active">
 						<div class="accrodion-title">
-							<h4>Political organization that typically seeks</h4>
+							<h4>{{ isset($companyDetails->home_about_accordion_title_1) ? $companyDetails->home_about_accordion_title_1 : '' }}</h4>
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type
-									setting. when an unknown printer took a galley of type and scrambled to make a type
-									specimen book.</p>
+								<p>
+									
+									{{ isset($companyDetails->home_about_accordion_content_1) ? $companyDetails->home_about_accordion_content_1 : '' }}
+									</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
 					<div class="accrodion ">
 						<div class="accrodion-title">
-							<h4>Strong politics plan require experience</h4>
+							<h4>{{ isset($companyDetails->home_about_accordion_title_2) ? $companyDetails->home_about_accordion_title_2 : '' }}</h4>
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type
-									setting. when an unknown printer took a galley of type and scrambled to make a type
-									specimen book.</p>
+								<p>
+									{{ isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' }}It has survived not only five centuries but also the leap into electronic type
+
+								</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
 					<div class="accrodion">
 						<div class="accrodion-title">
-							<h4>Attract and retain quality high paying customers</h4>
+							<h4>{{ isset($companyDetails->home_about_accordion_title_3) ? $companyDetails->home_about_accordion_title_3 : '' }}</h4>
 						</div>
 						<div class="accrodion-content">
 							<div class="inner">
-								<p>It has survived not only five centuries but also the leap into electronic type
-									setting. when an unknown printer took a galley of type and scrambled to make a type
-									specimen book.</p>
+								<p>
+									{{ isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' }}It has survived not only five centuries but also the leap into electronic type
+
+								</p>
 							</div><!-- /.inner -->
 						</div>
 					</div>
@@ -513,7 +569,7 @@
 				<div class="blog-one__single">
 					<div class="blog-one__image">
 						<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
-							alt="">
+							alt="" style="height:290px ;width:370px ;">
 						<a class="blog-one__more-link" href=""><i class="fa fa-link"></i>
 							<!-- /.fa fa-link --></a>
 					</div><!-- /.blog-one__image -->

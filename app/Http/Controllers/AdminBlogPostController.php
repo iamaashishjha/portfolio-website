@@ -36,7 +36,7 @@ class AdminBlogPostController extends BaseController
             ->get();
 
         return view('ar.blog.post.index')
-            ->with('tags', $tags)
+            // ->with('tags', $tags)
             ->with('categories', $categories)
             ->with('posts', $posts);
     }
@@ -177,8 +177,8 @@ class AdminBlogPostController extends BaseController
                 unlink($imagePath);
                 $post->deleteImage();
             }
-            $path = $request->category_image->store('blogs/blog-post', 'public');
-            $post->category_image = $path;
+            $path = $request->post_image->store('blogs/blog-post', 'public');
+            $post->post_image = $path;
         }
 
         if ($request->has('status')) {

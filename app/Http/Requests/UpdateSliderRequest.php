@@ -24,11 +24,11 @@ class UpdateSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'slider_title' => 'required',
-            'slider_description' => 'required',
-            'image_a' => 'required',
-            'heading1' => 'required',
-            'subheading1' => 'required',
+            'slider_title' => 'nullable',
+            'slider_description' => 'nullable',
+            'image_a' => 'nullable',
+            'heading1' => 'nullable',
+            'subheading1' => 'nullable',
             'image_b' => 'nullable',
             'heading2' => 'nullable',
             'subheading2' => 'nullable',

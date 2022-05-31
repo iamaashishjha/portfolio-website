@@ -15,7 +15,7 @@
 
 @section('content')
 <div class="intro-y flex items-center mt-8 ">
-    <h2 class="text-lg font-medium mr-auto">
+    <h2 class=" font-medium mr-auto">
         {{ isset($event) ? 'Edit Event ' . '"' . $event->title . '".' : 'Create New Event' }}
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
@@ -45,9 +45,9 @@
                     <div class="preview">
                         <div>
                             <h5
-                                class="text-lg ext-theme-9 @error('title') text-theme-6 @enderror font-medium leading-none">
+                                class=" ext-theme-9 @error('title') text-theme-6 @enderror font-medium leading-none">
                                 Event Title
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="title" name="title"
                                 class="{{ isset($event) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('title') border-theme-6 @enderror"
@@ -55,31 +55,64 @@
                                 isset($event) ? 'readonly' : '' }}>
 
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-5">
                             <h5
-                                class="text-lg ext-theme-9 @error('description') text-theme-6 @enderror font-medium leading-none">
+                                class=" ext-theme-9 @error('description') text-theme-6 @enderror font-medium leading-none">
                                 Event Description
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="description" name="description"
                                 class="input w-full border mt-2 @error('description') border-theme-6 @enderror"
                                 placeholder="Enter Description in 250 Words."
                                 value="{{ isset($event) ? $event->description : old('description') }}">
+                        </div>
+                        <div class="mt-5">
+                            <h5
+                                class=" ext-theme-9 @error('venue') text-theme-6 @enderror font-medium leading-none">
+                                Event Venue
+                                <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                            </h5>
+                            <input type="text" id="venue" name="venue"
+                                class="{{ isset($event) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('venue') border-theme-6 @enderror"
+                                placeholder="Enter Name" value="{{ isset($event) ? $event->venue : old('venue') }}" {{
+                                isset($event) ? 'readonly' : '' }}>
 
+                        </div>
+                        <div class="mt-5">
+                            <h5
+                                class=" ext-theme-9 @error('start_date_time') text-theme-6 @enderror font-medium leading-none">
+                                Event Start Date
+                                <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                            </h5>
+                            <input type="text" id="start_date_time" name="start_date_time"
+                                class="input w-full border mt-2 @error('start_date_time') border-theme-6 @enderror"
+                                placeholder="Enter Description in 250 Words."
+                                value="{{ isset($event) ? $event->start_date_time : old('start_date_time') }}">
+                        </div>
+                        <div class="mt-5">
+                            <h5
+                                class=" ext-theme-9 @error('location_map') text-theme-6 @enderror font-medium leading-none">
+                                Event LOcation Google Embedded link
+                                <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                            </h5>
+                            <input type="text" id="location_map" name="location_map"
+                                class="input w-full border mt-2 @error('location_map') border-theme-6 @enderror"
+                                placeholder="Enter Description in 250 Words."
+                                value="{{ isset($event) ? $event->location_map : old('location_map') }}">
                         </div>
                         <div class="mt-5 mb-5">
                             <div class="w-full sm:w-auto flex items-center sm:ml-auto mt-3 sm:mt-0">
-                                <h5 class="text-lg ext-theme-9  font-medium leading-none mr-3">
+                                <h5 class=" ext-theme-9  font-medium leading-none mr-3">
                                     Is Active</h5>
                                 <input class="show-code input input--switch border" type="checkbox" name="status" {{
                                     isset($event) ? $event->checkStatus() : '' }}>
                             </div>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-5">
                             <h5
-                                class="text-lg ext-theme-9 @error('event_image') text-theme-6 @enderror font-medium leading-none">
+                                class=" ext-theme-9 @error('event_image') text-theme-6 @enderror font-medium leading-none">
                                 Event Image Upload <span
-                                    class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span></h5>
+                                    class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span></h5>
                             <div
                                 class="border-2 border-dashed rounded-md mt-2 pt-4 @error('event_image') border-theme-6 @enderror">
                                 <div class="flex flex-wrap px-4">
@@ -98,14 +131,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-5">
                             <label>Event Slug</label>
                             <input type="text" id="slug" name="slug"
                                 class="input w-full border mt-2 cursor-not-allowed  bg-gray-100"
                                 placeholder="Enter Slug" value="{{ isset($event) ? $event->slug : old('slug') }}"
                                 readonly>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-5">
                             <label>Event Meta Description</label>
                             <input type="text" id="meta_description" name="meta_description"
                                 class="input w-full border mt-2 cursor-not-allowed bg-gray-100"
@@ -120,7 +153,7 @@
                                 placeholder="Enter Keywords"
                                 value="{{ isset($event) ? $event->keywords : old('keywords') }}" readonly>
                         </div>
-                        <div class="mt-3">
+                        <div class="mt-5">
                             <label>Event Meta Title</label>
                             <input type="text" id="meta_title" name="meta_title"
                                 class=" cursor-not-allowed input w-full border mt-2 bg-gray-100"

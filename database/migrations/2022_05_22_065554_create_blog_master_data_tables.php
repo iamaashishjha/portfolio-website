@@ -131,6 +131,20 @@ class CreateBlogMasterDataTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        Schema::create('blogs_comments', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            $table->timestamps();
+
+            $table->foreignId('post_id')
+                ->constrained('blog_posts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+        });
     }
 
     /**
@@ -147,5 +161,7 @@ class CreateBlogMasterDataTables extends Migration
         Schema::dropIfExists('blog_posts');
 
         Schema::dropIfExists('blog_posts_blog_tags');
+
+        Schema::dropIfExists('blogs_comments');
     }
 }

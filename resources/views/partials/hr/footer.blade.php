@@ -21,11 +21,11 @@
                     <div class="footer-widget footer-widget__links">
                         <h3 class="footer-widget__title">{{ __('home.footer.explore') }}</h3><!-- /.footer-widget__title -->
                         <ul class="list-unstyled footer-widget__links-list">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Contribute</a></li>
-                            <li><a href="{{ route('home.member.create') }}">Register as Member</a></li>
-                            <li><a href="{{ route('home.news.index') }}">Latest News</a></li>
+                            <li><a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a></li>
+                            {{-- <li><a href="#">History</a></li>
+                            <li><a href="#">Contribute</a></li> --}}
+                            <li><a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create') }}</a></li>
+                            <li><a href="{{ route('home.news.index') }}">{{ __('home.menuItems.posts.news') }}</a></li>
                         </ul><!-- /.list-unstyled footer-widget__links-list -->
                     </div><!-- /.footer-widget -->
                 </div><!-- /.col-lg-3 -->

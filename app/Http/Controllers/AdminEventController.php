@@ -43,13 +43,14 @@ class AdminEventController extends BaseController
      */
     public function store(StoreEventRequest $request)
     {
-        // $request = request()->all();
-        // dd($request);
         $path = $request->event_image->store('events', 'public');
 
         $event = new Event();
         $event->title = $request->title;
         $event->description = $request->description;
+        $event->venue = $request->venue;
+        $event->start_date_time = $request->start_date_time;
+        $event->location_map = $request->location_map;
         $event->event_image = $path;
         $event->meta_description = $request->meta_description;
         $event->meta_title = $request->meta_title;
@@ -128,6 +129,10 @@ class AdminEventController extends BaseController
         } else {
             $event->status = 0;
         }
+
+        $event->venue = $request->venue;
+        $event->start_date_time = $request->start_date_time;
+        $event->location_map = $request->location_map;
 
         $event->meta_description = $request->meta_description;
         $event->meta_title = $request->meta_title;

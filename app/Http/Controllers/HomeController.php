@@ -6,9 +6,15 @@ use App\Models\BlogPost;
 use App\Models\Data;
 use App\Models\Event;
 use App\Models\AppSettings;
+use App\Models\BlogCategory;
+use App\Models\BlogsComment;
+use App\Models\BlogTags;
 use App\Models\CompanyDetails;
 use App\Models\News;
+use App\Models\NewsCategory;
+use App\Models\NewsComment;
 use App\Models\NewsPost;
+use App\Models\NewsTags;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -35,7 +41,7 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['sliders'] = Slider::first();
+        $this->data['slider'] = Slider::first();
         $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
         $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
@@ -107,6 +113,7 @@ class HomeController extends Controller
     public function aboutUsPage()
     {
         $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.about', $this->data);
     }
@@ -114,23 +121,23 @@ class HomeController extends Controller
     public function contactPage()
     {
         $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.contact',  $this->data);
     }
 
     public function storeContactData(Request $request)
     {
-        // dd('ok');
         $validator =Validator::make($request->all(),
             [
-                'name' => 'required|string',
-                'email' => 'required|email',
-                'message' => 'required',
+                'contact_us_name' => 'required|string',
+                'contact_us_email' => 'required|email',
+                'contact_us_message' => 'required',
             ],
             [
-                'name' => 'Name',
-                'email' => 'Email',
-                'message' => 'Message',
+                'contact_us_name' => 'Name',
+                'contact_us_email' => 'Email',
+                'contact_us_message' => 'Message',
             ],
             [
                 'required' => 'The :attribute field is required.',
@@ -153,39 +160,174 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-
     public function listBlog()
     {
-        $this->data['blogs'] = BlogPost::all();
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['blogs'] = BlogPost::paginate(10);
         return view('hr.blog.index', $this->data);
     }
 
     public function showBlog($id)
     {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blog'] = BlogPost::find($id);
-        return view('hr.blog.show');
+        $this->data['blogTags'] = BlogTags::where('status', 1)->get();
+        $this->data['blogCategories'] = BlogCategory::where('status', 1)->get();
+        $this->data['latestBlogs'] = BlogPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
+
+        $this->data['comments'] = BlogsComment::where('post_id', $id)->get();
+
+        return view('hr.blog.show', $this->data);
+    }
+    public function listCategoryBlogs($id)
+    {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['blogs'] = BlogPost::where('category_id', $id)->paginate(10);
+
+        return view('hr.blogs.index', $this->data);
+    }
+
+    // public function listTagsBlogs($id)
+    // {
+    //     $this->data['appSetting'] = AppSettings::first();
+    //     $this->data['companyDetails'] = CompanyDetails::first();
+    //     $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+    //     $this->data['blogs'] = BlogPost::where('')->paginate(10);
+    //     return view('hr.blogs.index', $this->data);
+    // }
+
+    public function storeBlogComments(Request $request, $id)
+    {
+        $validator =Validator::make($request->all(),
+            [
+                'name' => 'required|string',
+                'email' => 'required',
+                'message' => 'required',
+            ],
+            [
+                'name' => 'Name',
+                'email' => 'Email',
+                'message' => 'Message',
+            ],
+            [
+                'required' => 'The :attribute field is required.',
+                'string' => 'The :attribute field must be string.',
+                'email' => 'The :attribute field must be email.',
+            ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+
+        $comment = new BlogsComment();
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->message = $request->message;
+        $comment->post_id = $id;
+        $comment->save();
+        Alert::toast('We Will get back to you', 'success');
+        return redirect()->back();
     }
 
     public function listNews()
     {
-        $this->data['news'] = NewsPost::all();
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['news'] = NewsPost::paginate(10);
         return view('hr.news.index', $this->data);
     }
 
     public function showNews($id)
     {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::find($id);
-        return view('hr.news.show');
+        $this->data['newsTags'] = NewsTags::where('status', 1)->get();
+        $this->data['newsCategories'] = NewsCategory::where('status', 1)->get();
+        $this->data['latestNews'] = NewsPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
+        return view('hr.news.show', $this->data);
+    }
+
+    public function listCategoryNews($id)
+    {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['news'] = NewsPost::where('category_id', $id)->paginate(10);
+
+        return view('hr.news.index', $this->data);
+    }
+
+    // public function listTagsNews($id)
+    // {
+    //     $this->data['appSetting'] = AppSettings::first();
+    //     $this->data['companyDetails'] = CompanyDetails::first();
+    //     $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+    //     $this->data['news'] = NewsPost::where('')->paginate(10);
+    //     return view('hr.news.index', $this->data);
+    // }
+
+    public function storeNewsComments(Request $request, $id)
+    {
+        $validator =Validator::make($request->all(),
+            [
+                'name' => 'required|string',
+                'email' => 'required',
+                'message' => 'required',
+            ],
+            [
+                'name' => 'Name',
+                'email' => 'Email',
+                'message' => 'Message',
+            ],
+            [
+                'required' => 'The :attribute field is required.',
+                'string' => 'The :attribute field must be string.',
+                'email' => 'The :attribute field must be email.',
+            ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+
+        $comment = new NewsComment();
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->message = $request->message;
+        $comment->news_id = $id;
+        $comment->save();
+        Alert::toast('Commented Successfully', 'success');
+        return redirect()->back();
     }
 
     public function listEvent()
     {
-        $this->data['events'] = Event::all();
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['events'] = Event::paginate(5);
         return view('hr.event.index', $this->data);
     }
 
     public function showEvent($id)
     {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['event'] = Event::find($id);
         return view('hr.event.show', $this->data);
     }
