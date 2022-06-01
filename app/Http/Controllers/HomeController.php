@@ -331,4 +331,15 @@ class HomeController extends Controller
         $this->data['event'] = Event::find($id);
         return view('hr.event.show', $this->data);
     }
+
+    public function notFound()
+    {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        // $this->data['slider'] = Slider::first();
+        // $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
+        // $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        abort(404);
+    }
 }

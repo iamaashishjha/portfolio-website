@@ -47,8 +47,6 @@ class AdminCompanyDetailsController extends Controller
         $our_mission_image = $request->our_mission_image->store('home/comapany-details', 'public');
         $our_vision_image = $request->our_vision_image->store('home/comapany-details', 'public');
 
-
-
         $cp = new CompanyDetails();
         $cp->company_name_en = $request->company_name_en;
         $cp->company_name_lc = $request->company_name_lc;
@@ -73,7 +71,6 @@ class AdminCompanyDetailsController extends Controller
         $cp->home_about_accordion_content_1 = $request->home_about_accordion_content_1;
         $cp->home_about_accordion_content_2 = $request->home_about_accordion_content_2;
         $cp->home_about_accordion_title_3 = $request->home_about_accordion_title_3;
-
 
         $cp->our_misson_image = $our_mission_image;
         $cp->our_vision_image = $our_vision_image;

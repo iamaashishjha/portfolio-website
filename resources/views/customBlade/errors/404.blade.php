@@ -34,7 +34,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="intro-x text-6xl font-medium">404</div>
                     <div class="intro-x text-xl lg:text-3xl font-medium">Oops. This page has gone missing.</div>
                     <div class="intro-x text-lg mt-3">You may have mistyped the address or the page may have moved.</div>
-                    <button class="intro-x button button--lg border border-white mt-10">Back to Home</button>
+                    <button class="intro-x button button--lg border border-white mt-10" onclick="window.location.href='/'">
+                        Back to Home
+                    </button>
                 </div>
             </div>
             <!-- END: Error Page -->

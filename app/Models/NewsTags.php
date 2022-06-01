@@ -50,10 +50,10 @@ class NewsTags extends Model
         return '/storage/' . $this->tag_image;
     }
 
-    public function posts()
+    public function news()
     {
         # code...
-        return $this->belongsToMany(BlogPost::class);
+        return $this->belongsToMany(NewsPost::class);
     }
 
     public function user()

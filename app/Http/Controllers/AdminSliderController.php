@@ -23,6 +23,7 @@ class AdminSliderController extends BaseController
     {
         //
         $this->data['sliders'] = Slider::all();
+        $this->data['totalData'] = count(Slider::all());
         return view('ar.slider.index', $this->data);
     }
 
