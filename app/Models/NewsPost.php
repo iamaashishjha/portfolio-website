@@ -66,20 +66,11 @@ class NewsPost extends Model
 
     public function getTagsAttribute()
     {
-        # code...
-        $tags = $this->newsTags;
-        foreach ($tags as $tag) {
-            # code...
-            return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
-        }
-    }
-
-    public function getNewsTags()
-    {
-        $tags = $this->newsTags;
-        foreach ($tags as $tag) {
-            return '<a>' . $tag->title . '</a>';
-        }
+        return $this->newsTags;
+        // $tags = $this->newsTags;
+        // foreach ($tags as $tag) {
+        //     return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
+        // }
     }
 
     public function comments()

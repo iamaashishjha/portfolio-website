@@ -36,10 +36,12 @@
                         </p>
                         <!-- /.blog-one__text -->
                         <div class="share-block">
-                            @if (isset($news->blogTags))
+                            @if (isset($news->newsTags))
                                 <div class="left-block">
                                     <p>Tags:
-                                        {!! $news->getNewsTags() !!}
+                                        @foreach ($news->tags as $tag)
+                                            <a href="#">{{ $tag->title }}</a>
+                                        @endforeach
                                     </p>
                                 </div><!-- /.left-block -->
                             @endif
@@ -57,13 +59,10 @@
 
                 <div class="blog-details__author">
                     <div class="blog-details__author-image">
-                        <img src="{{ isset($news->createdUser->image) ? $news->createdUser->image : Avatar::create($news->createdUser->name)->toBase64(); }}" alt="{{ $news->createdUser->name }}" />
+                        <img src="{{ isset($news->createdUser->image) ? $news->createdUser->image : Avatar::create($news->createdUser->name)->toBase64(); }}" alt="{{ $news->createdUser->name }}"/>
                     </div><!-- /.blog-details__image -->
                     <div class="blog-details__author-content">
                         <h3>{{ $news->createdUser->name }}</h3>
-                        <p>
-                            
-                        </p>
                     </div><!-- /.blog-details__content -->
                 </div><!-- /.blog-details__author -->
 {{-- {{ dd($news->comments) }} --}}

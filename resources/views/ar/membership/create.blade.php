@@ -30,7 +30,7 @@
     @include('partials.ar.modelMessage')
 
     <form
-        action="{{ isset($member) ? route('admin.member.membership.update', $member->id) : route('admin.member.membership.store') }}"
+        action="{{ isset($member) ? route('admin.member.membership.update', $member->id) : route('admin.member.store') }}"
         method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
         @csrf
         @if (isset($member))

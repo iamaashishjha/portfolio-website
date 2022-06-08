@@ -176,8 +176,8 @@ class AdminNewsPostController extends BaseController
                 unlink($imagePath);
                 $post->deleteImage();
             }
-            $path = $request->category_image->store('news/news-post', 'public');
-            $post->category_image = $path;
+            $path = $request->post_image->store('news/news-post', 'public');
+            $post->post_image = $path;
         }
 
         if ($request->has('status')) {
@@ -200,7 +200,7 @@ class AdminNewsPostController extends BaseController
         $post->created_by = Auth::user()->id;
         $post->save();
 
-        $post->blogTags()->attach($request->tags);
+        $post->newsTags()->attach($request->tags);
 
         Alert::toast('Post Updated Successfully', 'success');
         return redirect()->route('admin.news.post.index');

@@ -116,7 +116,10 @@ class AdminBlogPostController extends BaseController
      */
     public function show($id)
     {
-        //
+        $this->data['post'] = BlogPost::find($id);
+        $this->data['post']->viewIncrement();
+
+        return view('ar.blog.post.show', $this->data);
     }
 
     /**

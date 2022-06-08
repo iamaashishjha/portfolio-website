@@ -66,10 +66,11 @@ class BlogPost extends Model
 
     public function getTagsAttribute()
     {
-        $tags = $this->blogTags;
-        foreach ($tags as $tag) {
-            return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
-        }
+        return $this->blogTags;
+        // $tags = $this->blogTags;
+        // foreach ($tags as $tag) {
+        //     return '<button class=' . '"button w-24 shadow-md mr-1 mb-2 text-gray-700' . '">' . $tag->title . '</button>';
+        // }
     }
 
     public function getBlogTags()

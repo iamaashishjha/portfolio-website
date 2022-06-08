@@ -37,7 +37,7 @@
 
 
 {{-- <div class="pos intro-y grid grid-cols-12 gap-5 mt-5"> --}}
-<form action="{{ isset($post) ? route('admin.blog.post.update', $post->id) : route('admin.blog.post.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
+<form action="{{ isset($post) ? route('admin.news.post.update', $post->id) : route('admin.news.post.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
     @csrf
     @if (isset($post))
         @method('PUT')

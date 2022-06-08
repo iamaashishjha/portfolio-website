@@ -39,7 +39,10 @@
                             @if (isset($blog->blogTags))
                                 <div class="left-block">
                                     <p>Tags:
-                                        {!! $blog->getBlogTags() !!}
+                                        @foreach ($blog->tags as $tag)
+                                            <a href="">{{ $tag->title }}</a>
+                                        @endforeach
+                                        {{-- {!! $blog->getBlogTags() !!} --}}
                                     </p>
                                 </div><!-- /.left-block -->
                             @endif

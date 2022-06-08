@@ -38,7 +38,6 @@ All Blog Posts
                 <th class="border-b-2 text-center  whitespace-no-wrap">Post Title</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Post Image</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Post Category</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Post Tags</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
@@ -69,15 +68,13 @@ All Blog Posts
                         {{ $post->category->title }}
                     </td>
 
-                    <td class="text-center w-40 border-b">
-                    {!! $post->tags !!}
-                    </td>
                     <td class="w-40 border-b">
                         {!! $post->status !!}
                         {{-- <div class="flex items-center sm:justify-center text-theme-1"> <i data-feather="calendar" class="w-4 h-4 mr-2"></i> {{ $post->created_at->format('H:i:s A Y-m-d') }} </div> --}}
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
+                            <a class="flex items-center mr-3" href="{{ route('admin.blog.post.show', $post->id) }}"> <i data-feather="eye" class="w-4 h-4 mr-1"></i> view </a>
                             <a class="flex items-center mr-3" href="{{ route('admin.blog.post.edit', $post->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                             <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $post->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Trash </a>
                         </div>
@@ -102,7 +99,7 @@ All Blog Posts
                 @endforeach
 
             @else
-                <td class="text-center border-b" colspan="7">
+                <td class="text-center border-b" colspan="6">
                     No Posts Available
                 </td>
 

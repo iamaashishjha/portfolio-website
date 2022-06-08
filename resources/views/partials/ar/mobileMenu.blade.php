@@ -172,13 +172,13 @@
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.member.membership.create') }}" class="menu">
+                    <a href="{{ route('admin.member.create') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-user-plus" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Register New Member </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.member.membership.index') }}" class="menu">
+                    <a href="{{ route('admin.member.index') }}" class="menu">
 
                         <div class="menu__icon"> <i class="fa fa-server" aria-hidden="true"></i> </div>
                         <div class="menu__title"> All Members </div>
@@ -198,13 +198,13 @@
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.home.appSetting.index') }}" class="menu">
+                    <a href="{{ route('admin.home.app-setting.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i> </div>
                         <div class="menu__title"> App Setting </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.home.companyDetails.index') }}" class="menu">
+                    <a href="{{ route('admin.home.company-details.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-building" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Company Details </div>
                     </a>

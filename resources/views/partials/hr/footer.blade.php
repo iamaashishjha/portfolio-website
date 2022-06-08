@@ -1,6 +1,6 @@
 <footer class="site-footer">
     <div class="site-footer__logo text-center">
-        <a href=""><img src="{{ isset($appSetting->logo_image) ? $appSetting->logo_image : '/hr/assets/images/logo-light.png' }}" alt="" width="174"></a>
+        <a href=""><img src="{{ isset($companyDetails->logo) ? $companyDetails->logo : '/hr/assets/images/logo-light.png' }}" alt="" width="174"></a>
     </div><!-- /.site-footer__logo -->
     <div class="site-footer__upper">
         <div class="container">
@@ -8,7 +8,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
                     <div class="footer-widget">
                         <h3 class="footer-widget__title">{{ __('home.footer.about') }}</h3><!-- /.footer-widget__title -->
-                        <p class="footer-widget__text">{{ isset($appSetting->company_description) ? $appSetting->company_description : 'Nagrik Unmukti Party' }}</p><!-- /.footer-widget__text -->
+                        <p class="footer-widget__text">{{ isset($$companyDetails->company_description) ? $$companyDetails->company_description : 'Nagrik Unmukti Party' }}</p><!-- /.footer-widget__text -->
                         <div class="footer-widget__social">
                             <a href="#" class="fa fa-twitter"></a><!-- /.fa fa-twitter -->
                             <a href="#" class="fa fa-facebook-square"></a><!-- /.fa fa-facebook-square -->

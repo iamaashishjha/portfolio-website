@@ -40,7 +40,6 @@ All News Posts
                 <th class="border-b-2 text-center  whitespace-no-wrap">Post Title</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Post Image</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Post Category</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Post Tags</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
@@ -71,9 +70,6 @@ All News Posts
                     {{ $post->category->title }}
                 </td>
 
-                <td class="text-center w-40 border-b">
-                    {!! $post->tags !!}
-                </td>
                 <td class="w-40 border-b">
                     {!! $post->status !!}
                     {{-- <div class="flex items-center sm:justify-center text-theme-1"> <i data-feather="calendar"
@@ -110,7 +106,7 @@ All News Posts
             @endforeach
 
             @else
-            <td class="text-center border-b" colspan="7">
+            <td class="text-center border-b" colspan="6">
                 No Posts Available
             </td>
 

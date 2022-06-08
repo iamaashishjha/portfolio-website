@@ -178,8 +178,9 @@ class HomeController extends Controller
         $this->data['blogTags'] = BlogTags::where('status', 1)->get();
         $this->data['blogCategories'] = BlogCategory::where('status', 1)->get();
         $this->data['latestBlogs'] = BlogPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
-
         $this->data['comments'] = BlogsComment::where('post_id', $id)->get();
+
+        $this->data['blog']->viewIncrement();
 
         return view('hr.blog.show', $this->data);
     }
