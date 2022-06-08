@@ -62,14 +62,13 @@
                     <div class="blog-details__author-content">
                         <h3>{{ $news->createdUser->name }}</h3>
                         <p>
-                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining unchanged. It was popularised in the sheets containing.
+                            
                         </p>
                     </div><!-- /.blog-details__content -->
                 </div><!-- /.blog-details__author -->
+{{-- {{ dd($news->comments) }} --}}
 
-
-                <h2 class="blog-details__content-title">{{ $news->comments->count() }} Comments</h2><!-- /.blog-details__content-title -->
+                <h2 class="blog-details__content-title">{{ count($news->comments) }} Comments</h2><!-- /.blog-details__content-title -->
                 <div class="comment-one">
                     @foreach ($news->comments as $comment)
                     <div class="comment-one__single">

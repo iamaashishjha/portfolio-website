@@ -5,8 +5,8 @@
     <div class="container">
         <h2 class="inner-banner__title">{{ __('contact.heading') }}</h2><!-- /.inner-banner__title -->
         <ul class="list-unstyled thm-breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li>Contact</li>
+            <li><a href="/">{{ __('home.menuItems.home') }}</a></li>
+            <li>{{ __('home.menuItems.about.about-us') }}</li>
         </ul><!-- /.list-unstyled -->
     </div><!-- /.container -->
 </section><!-- /.inner-banner -->

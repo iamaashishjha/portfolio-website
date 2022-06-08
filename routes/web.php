@@ -35,7 +35,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::view('/a', 'ar.blog.post.show');
 
 Route::post('/locale', function () {
-
     if ((app('request')->input('locale'))) {
         session(['my_locale' => 'en']);
     } else {
@@ -120,152 +119,33 @@ Route::middleware(['auth', 'admin'])
         Route::prefix('/blog')
             ->name('blog.')
             ->group(function () {
-                Route::prefix('/category')
-                    ->name('category.')
-                    ->controller(AdminBlogCategoryController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-                Route::prefix('/tag')
-                    ->name('tag.')
-                    ->controller(AdminBlogTagController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-                Route::prefix('/post')
-                    ->name('post.')
-                    ->controller(AdminBlogPostController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                        Route::get('/trash', 'trashed')->name('trashed');
-                        Route::put('/restore/{id}', 'restore')->name('restore');
-                });
+                Route::resource('/category', AdminBlogCategoryController::class);
+                Route::resource('/tag', AdminBlogTagController::class);
+                Route::resource('/post', AdminBlogPostController::class);
+                Route::get('/post/trash', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
+                Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
         });
 
         Route::prefix('/news')
             ->name('news.')
             ->group(function () {
-                Route::prefix('/category')
-                    ->name('category.')
-                    ->controller(AdminNewsCategoryController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-                Route::prefix('/tag')
-                    ->name('tag.')
-                    ->controller(AdminNewsTagController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-                Route::prefix('/post')
-                    ->name('post.')
-                    ->controller(AdminNewsPostController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                        Route::get('/trash', 'trashed')->name('trashed');
-                        Route::put('/restore/{id}', 'restore')->name('restore');
-                });
+                Route::resource('/category', AdminNewsCategoryController::class);
+                Route::resource('/tag', AdminNewsTagController::class);
+                Route::resource('/post', AdminNewsPostController::class);
+                Route::get('/post/trash', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
+                Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
         });
 
         Route::prefix('/home')
             ->name('home.')
             ->group(function () {
-                Route::prefix('/app-setting')
-                    ->name('appSetting.')
-                    ->controller(AdminAppSettingsController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                });
-
-                Route::prefix('/company-details')
-                    ->name('companyDetails.')
-                    ->controller(AdminCompanyDetailsController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-
-                Route::prefix('/slider')
-                    ->name('slider.')
-                    ->controller(AdminSliderController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-                
+                Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
+                Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
+                Route::resource('/slider', AdminSliderController::class)->except('destroy'); 
         });
 
-        Route::prefix('/member')
-            ->name('member.')
-            ->group(function () {
-                Route::prefix('/membership')
-                    ->name('membership.')
-                    ->controller(AdminMembershipController::class)
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/show/{id}', 'show')->name('show');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                });
-        });
-
-        Route::prefix('/event')
-            ->name('event.')
-            ->controller(AdminEventController::class)
-            ->group(function () {
-                Route::get('/create', 'create')->name('create');
-                Route::post('/', 'store')->name('store');
-                Route::get('/', 'index')->name('index');
-                Route::get('/show/{id}', 'show')->name('show');
-                Route::get('/edit/{id}', 'edit')->name('edit');
-                Route::put('/edit/{id}', 'update')->name('update');
-                Route::delete('/{id}', 'destroy')->name('destroy');
-        });
+        Route::resource('/member', AdminMembershipController::class);
+        Route::resource('/event', AdminEventController::class);
 
 });
 

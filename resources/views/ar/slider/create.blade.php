@@ -7,7 +7,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('admin.home.appSetting.index') }}" class="">Slider</a>
+        <a href="{{ route('admin.home.app-setting.index') }}" class="">Slider</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{ isset($slider) ? 'Edit Slider ' : 'Create New Slider' }}</a>
     </div>

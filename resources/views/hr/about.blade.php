@@ -3,10 +3,10 @@
 @section('content')
 <section class="inner-banner">
     <div class="container">
-        <h2 class="inner-banner__title">About</h2><!-- /.inner-banner__title -->
+        <h2 class="inner-banner__title">{{ __('about.title') }}</h2><!-- /.inner-banner__title -->
         <ul class="list-unstyled thm-breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li>About</li>
+            <li><a href="/">{{ __('home.menuItems.home') }}</a></li>
+            <li>{{ __('home.menuItems.about.about-us') }}</li>
         </ul><!-- /.list-unstyled -->
     </div><!-- /.container -->
 </section><!-- /.inner-banner -->
@@ -22,10 +22,10 @@
         </div><!-- /.row -->
         <div class="block-title text-center">
             <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
-            <p class="block-title__tag-line">About Potisen</p>
-            <h2 class="block-title__title">Get to Know Potisen</h2><!-- /.block-title__title -->
+            <p class="block-title__tag-line">{{ __('about.about-one.title') }}</p>
+            <h2 class="block-title__title">{{ __('about.about-one.heading') }}</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
-        <p class="about-one__text text-center m-0">There are many variations of passages of available but the majority have suffered alteration in some <br> form, by injected humou or randomised words. Proin ac lobortis arcu, a vestibulum aug ipsum neque, <br> facilisis vel mollis vitae. Quisque aliquam dictum condim.</p><!-- /.about-one__text -->
+        <p class="about-one__text text-center m-0">{{ __('about.about-one.content') }}</p><!-- /.about-one__text -->
     </div><!-- /.container -->
 </section><!-- /.thm-gray-bg about-one -->
 
@@ -104,13 +104,13 @@
 
 <section class="cta-two">
     <div class="container">
-        <p class="cta-two__tag-line">Join the Fight for Freedom</p><!-- /.cta-two__tag-line -->
-        <h3 class="cta-two__title">Help us Bring <br> the Change we Need</h3><!-- /.cta-two__title -->
-        <a href="#" class="thm-btn cta-two__btn">Become a Volunteer</a>
+        <p class="cta-two__tag-line">{{ __('about.cta-two.title') }}</p><!-- /.cta-two__tag-line -->
+        <h3 class="cta-two__title">{{ __('about.cta-two.content') }}</h3><!-- /.cta-two__title -->
+        <a href="{{ route('home.member.create') }}" class="thm-btn cta-two__btn">{{ __('about.cta-two.button') }}</a>
     </div><!-- /.container -->
 </section><!-- /.cta-two -->
 
-<section class="testimonials-one">
+{{-- <section class="testimonials-one">
     <div class="container">
         <div class="testimonials-one__carousel owl-carousel owl-theme">
             <div class="item">
@@ -139,14 +139,14 @@
             </div><!-- /.item -->
         </div><!-- /.testimonials-one__carousel -->
     </div><!-- /.container -->
-</section><!-- /.testimonials-one -->
+</section><!-- /.testimonials-one --> --}}
 
 <section class="team-one">
     <div class="container">
         <div class="block-title text-center">
             <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
-            <p class="block-title__tag-line">Our Party People</p>
-            <h2 class="block-title__title">Meet the Team</h2><!-- /.block-title__title -->
+            <p class="block-title__tag-line">{{ __('about.team.title') }}</p>
+            <h2 class="block-title__title">{{ __('about.team.heading') }}</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
         <div class="row">
             <div class="col-lg-4">
@@ -203,12 +203,12 @@
         </div><!-- /.row -->
     </div><!-- /.container -->
 </section><!-- /.team-one -->
-<section class="cta-one">
+{{-- <section class="cta-one">
     <div class="container">
         <h3 class="cta-one__title">Let’s make a difference! Donate our campaign.</h3>
         <div class="cta-one__button-block">
             <a href="#" class="thm-btn cta-one__btn">Discover More</a>
         </div><!-- /.cta-one__button-block -->
     </div><!-- /.container -->
-</section><!-- /.cta-one -->
+</section><!-- /.cta-one --> --}}
 @endsection

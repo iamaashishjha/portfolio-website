@@ -84,7 +84,7 @@ class AdminCompanyDetailsController extends Controller
 
         Alert::success('Company Detail Created successfully');
 
-        return redirect()->route('admin.home.companyDetails.index');
+        return redirect()->route('admin.home.company-details.index');
     }
 
     /**
@@ -215,7 +215,7 @@ class AdminCompanyDetailsController extends Controller
 
         Alert::success('Company Detail Updated successfully');
 
-        return redirect()->route('admin.home.companyDetails.index');
+        return redirect()->route('admin.home.company-details.index');
     }
 
 }

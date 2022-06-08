@@ -75,7 +75,7 @@
             </a>
             <ul class="">
                 <li>
-                    <a href="index.html" class="side-menu">
+                    <a href="/" class="side-menu">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title"> Side Menu </div>
                     </a>

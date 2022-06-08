@@ -58,7 +58,7 @@
             </ul>
         </li>
         {{-- <li>
-            <a href="index.html" class="menu menu--active">
+            <a href="/" class="menu menu--active">
                 <div class="menu__icon"> <i data-feather="home"></i> </div>
                 <div class="menu__title"> Dashboard </div>
             </a>
@@ -70,7 +70,7 @@
             </a>
             <ul class="">
                 <li>
-                    <a href="index.html" class="menu">
+                    <a href="/" class="menu">
                         <div class="menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="menu__title"> Side Menu </div>
                     </a>

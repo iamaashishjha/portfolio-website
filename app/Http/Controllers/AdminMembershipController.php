@@ -181,7 +181,7 @@ class AdminMembershipController extends Controller
 
         $member->save();
         Alert::toast('New Member Created Successfully', 'success');
-        return redirect()->route('admin.member.membership.index');
+        return redirect()->route('admin.member.index');
     }
 
     /**
@@ -399,7 +399,7 @@ class AdminMembershipController extends Controller
 
         $member->save();
         Alert::toast('Member Updated Successfully', 'success');
-        return redirect()->route('admin.member.membership.index');
+        return redirect()->route('admin.member.index');
     }
 
     /**

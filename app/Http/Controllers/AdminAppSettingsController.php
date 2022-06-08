@@ -38,7 +38,7 @@ class AdminAppSettingsController extends BaseController
             return view('ar.appSetting.create');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.home.appSetting.index');
+            return redirect()->route('admin.home.app-setting.index');
         }
     }
 
@@ -84,10 +84,10 @@ class AdminAppSettingsController extends BaseController
             $appSetting->save();
 
             Alert::success('Header/Footer Created Successfully');
-            return redirect()->route('admin.home.appSetting.index');
+            return redirect()->route('admin.home.app-setting.index');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.home.appSetting.index');
+            return redirect()->route('admin.home.app-setting.index');
         }
     }
 
@@ -147,6 +147,6 @@ class AdminAppSettingsController extends BaseController
 
         $appSetting->save();
         Alert::toast('Header/Footer Updated Successfully', 'success');
-        return redirect()->route('admin.home.appSetting.index');
+        return redirect()->route('admin.home.app-setting.index');
     }
 }

@@ -24,7 +24,7 @@
                     </div><!-- /.blog-one__image -->
                     <div class="blog-one__content">
                         <ul class="list-unstyled blog-one__meta">
-                            <li><a href="#">{{ $post->created_at->format('d M, Y') }}</a></li>
+                            <li><a href="{{ route('home.news.show', $post->id) }}">{{ $post->created_at->format('d M, Y') }}</a></li>
                         </ul><!-- /.list-unstyled -->
                         <h3 class="blog-one__title">
                             <a href="{{ route('home.news.show', $post->id) }}">{{ $post->title }} </a>

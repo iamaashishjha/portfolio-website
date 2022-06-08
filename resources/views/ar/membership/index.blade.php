@@ -6,7 +6,7 @@ All Members | Nagrik Unmukti Party
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.member.membership.index') }}" class="">Members</a>
+    <a href="{{ route('admin.member.index') }}" class="">Members</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Members</a>
 </div>
@@ -25,7 +25,7 @@ All Members
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         <a class="button text-white bg-theme-1 shadow-md mr-2"
-            href="{{ route('admin.member.membership.create') }}">Register New Member</a>
+            href="{{ route('admin.member.create') }}">Register New Member</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
