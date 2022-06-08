@@ -181,10 +181,7 @@ Route::middleware(['auth', 'user', 'verified'])
         });
 });
 
-Route::fallback(function () {
-    // return view('customBlade.errors.404');
-    abort(404);
-});
+Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
 
 Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);
 Route::get('getDistrict/{id}', [App\Http\Controllers\DistrictController::class, 'getDistrict']);

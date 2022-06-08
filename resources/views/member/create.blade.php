@@ -28,7 +28,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
     <link rel="stylesheet" href="/ar/dist/css/custom.css" />
     <link rel="stylesheet" href="/ar/dist/css/nepali-date-picker.min.css">
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css"
         integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -90,7 +90,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END: Content -->
     </div>
     <!-- BEGIN: JS Assets-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+    <script src="/js/jquery-3.6.0.min.js">
+    </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"

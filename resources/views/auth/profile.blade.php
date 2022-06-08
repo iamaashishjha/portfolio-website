@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.ar')
 
 {{-- @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
