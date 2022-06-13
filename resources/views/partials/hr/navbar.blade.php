@@ -6,9 +6,12 @@ $lang = App::getLocale();
     <div class="container">
         <div class="inner-container">
             <div class="topbar-one__left">
-                <a href="mailto:{{ isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com' }}">{{
-                    isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com' }}</a>
-                <a href="tel:{{ isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}">{{
+                <a
+                    href="mailto:{{ isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com' }}">{{
+                    isset($companyDetails->email_address) ? $companyDetails->email_address : 'needhelp@potisen.com'
+                    }}</a>
+                <a
+                    href="tel:{{ isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}">{{
                     isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}</a>
             </div><!-- /.topbar-one__left -->
             <div>
@@ -20,7 +23,7 @@ $lang = App::getLocale();
             </div>
 
             @include('partials.hr.languageSwitch')
-            
+
             <div class="topbar-one__right">
                 <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a>
                 <a href="/member/create"><i class="fa fa-user-o"></i>{{ __('home.header.join') }}</a>
@@ -66,6 +69,18 @@ $lang = App::getLocale();
                             </li>
                             <li><a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a></li>
                             <li><a href="{{ route('home.blogs.index') }}">{{__('home.menuItems.posts.blogs')}}</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="javascript:;">{{ __('home.menuItems.documents') }}</a>
+                        <ul class="sub-menu">
+                            @foreach ($documents as $doc)
+                                <li>
+                                    <a href="{{ $doc->url }}" target="_blank">
+                                        {{ $doc->title }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul><!-- /.sub-menu -->
                     </li>
                     <li>

@@ -37,9 +37,7 @@ class CreateMasterDataTables extends Migration
         });
 
         Schema::create('company_details', function (Blueprint $table) {
-
             $table->id();
-
             $table->string('company_name_en')->nullable();
             $table->string('company_name_lc')->nullable();
             $table->text('company_description')->nullable();
@@ -136,7 +134,6 @@ class CreateMasterDataTables extends Migration
                 ->onDelete('cascade');
         });
 
-
         Schema::create('data', function(Blueprint $table){
             $table->id();
             $table->string('slider_subscribe_email')->nullable();
@@ -146,6 +143,33 @@ class CreateMasterDataTables extends Migration
             $table->string('contact_us_email')->nullable();
             $table->string('contact_us_message')->nullable();
             $table->timestamps();
+        });
+
+        Schema::create('documents', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('doc_image')->nullable();
+            $table->string('doc_file')->nullable();
+            $table->text('url')->nullable();
+            $table->boolean('is_actve')->nullable()->default(true);
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('keywords')->nullable();
+            $table->timestamps();
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
         });
 
         Schema::create('genders', function (Blueprint $table) {

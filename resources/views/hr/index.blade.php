@@ -132,7 +132,7 @@
 						<!-- /.block-title__title -->
 					</div><!-- /.block-title -->
 					<p class="about-three__text">
-						{{ isset($companyDetails->our_vision) ? $companyDetails->our_vision : '' }}
+						{!! isset($companyDetails->our_vision) ? $companyDetails->our_vision : '' !!}
 					</p>
 					<!-- /.list-unstyled about-four__list -->
 				</div><!-- /.about-four__content -->
@@ -167,25 +167,8 @@
 						<p class="block-title__tag-line">{{ __('home.mission.sub-heading') }}</p>
 						<h2 class="block-title__title">{{ __('home.mission.heading') }}</h2><!-- /.block-title__title -->
 					</div><!-- /.block-title -->
-					{{-- <div class="about-three__box-wrap">
-						<div class="about-three__box">
-							<i class="potisen-icon-bid"></i>
-							<h4 class="about-three__box-title">Civil Rights <br> Attorney</h4>
-							<!-- /.about-three__box-title -->
-						</div><!-- /.about-three__box -->
-						<div class="about-three__box">
-							<i class="potisen-icon-work"></i>
-							<h4 class="about-three__box-title">Majored in <br> Political</h4>
-							<!-- /.about-three__box-title -->
-						</div><!-- /.about-three__box -->
-						<div class="about-three__box">
-							<i class="potisen-icon-politics"></i>
-							<h4 class="about-three__box-title">Political <br> Solutions</h4>
-							<!-- /.about-three__box-title -->
-						</div><!-- /.about-three__box -->
-					</div><!-- /.about-three__box-wrap --> --}}
 					<p class="about-three__text">
-						{{ isset($companyDetails->our_mission) ? $companyDetails->our_mission : '' }}
+						{!! isset($companyDetails->our_mission) ? $companyDetails->our_mission : '' !!}
 					</p><!-- /.about-three__text -->
 					{{-- <a href="#" class="thm-btn about-three__btn">Learn More</a> --}}
 				</div><!-- /.about-three__content -->
@@ -233,8 +216,6 @@
 		</div><!-- /.container -->
 	</div><!-- /.donation-contribute -->
 </section><!-- /.cta-two -->
-
-
 
 <section class="campaing-one">
 	<div class="container">

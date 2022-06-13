@@ -100,7 +100,7 @@
                                 placeholder="Enter Meta Title"
                                 value="{{ isset($appSetting) ? $appSetting->meta_title : old('meta_title') }}">
                         </div>
-                        <div class="mt-5Header/Footer">
+                        <div class="mt-5">
                             <h5 class="text-lg ext-theme-9 @error('meta_description') text-theme-6 @enderror font-medium leading-none">
                                 Meta Description
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>

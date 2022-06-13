@@ -125,6 +125,31 @@
             </ul>
         </li>
 
+        {{-- Documents  --}}
+        <li>
+            <a href="javascript:;" class="side-menu {{ request()->is('admin/document') ? 'side-menu--active' : '' }} "
+                id="appSetting_menu">
+                <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i> </div>
+                <div class="side-menu__title"> Documents <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
+            </a>
+            <ul class="collapse">
+                <li>
+                    <a href="{{ route('admin.document.create') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </div>
+                        <div class="side-menu__title"> Create Documents </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.document.index') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i> </div>
+                        <div class="side-menu__title"> All Documents </div>
+                    </a>
+                </li>
+                
+            </ul>
+        </li>
+
         <li class="side-nav__devider my-6"></li>
 
         {{-- User Management --}}

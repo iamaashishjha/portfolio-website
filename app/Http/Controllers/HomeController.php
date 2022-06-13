@@ -10,6 +10,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogsComment;
 use App\Models\BlogTags;
 use App\Models\CompanyDetails;
+use App\Models\Document;
 use App\Models\News;
 use App\Models\NewsCategory;
 use App\Models\NewsComment;
@@ -42,6 +43,7 @@ class HomeController extends Controller
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['slider'] = Slider::first();
+        $this->data['documents'] = Document::all();
         $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
         $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
@@ -114,6 +116,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.about', $this->data);
     }
@@ -122,6 +126,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.contact',  $this->data);
     }
@@ -164,6 +170,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::paginate(10);
         return view('hr.blog.index', $this->data);
@@ -174,8 +182,10 @@ class HomeController extends Controller
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['documents'] = Document::all();
         $this->data['blog'] = BlogPost::find($id);
         $this->data['blogTags'] = BlogTags::where('status', 1)->get();
+
         $this->data['blogCategories'] = BlogCategory::where('status', 1)->get();
         $this->data['latestBlogs'] = BlogPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
         $this->data['comments'] = BlogsComment::where('post_id', $id)->get();
@@ -188,6 +198,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::where('category_id', $id)->paginate(10);
 
@@ -243,6 +255,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::paginate(10);
         return view('hr.news.index', $this->data);
@@ -264,6 +278,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::where('category_id', $id)->paginate(10);
 
@@ -319,6 +335,8 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['events'] = Event::paginate(5);
         return view('hr.event.index', $this->data);
@@ -327,6 +345,8 @@ class HomeController extends Controller
     public function showEvent($id)
     {
         $this->data['appSetting'] = AppSettings::first();
+        $this->data['documents'] = Document::all();
+
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['event'] = Event::find($id);

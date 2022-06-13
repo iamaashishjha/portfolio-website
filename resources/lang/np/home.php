@@ -17,6 +17,8 @@ return [
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
     'menuItems.contact' => 'सम्पर्क',
+    'menuItems.documents' => 'दस्ताबेज',
+
 
     'vision.sub-heading' => 'बारेमा',
     'vision.heading' => 'हाम्रो भिजन',

@@ -17,6 +17,8 @@ return [
     'menuItems.about.about-us' => 'About Us',
     'menuItems.about.our-history' => 'Our History',
     'menuItems.contact' => 'Contact Us',
+    'menuItems.documents' => 'Documents',
+    // 'menuItems.contact' => 'Contact Us',
 
     '' => '',
 
