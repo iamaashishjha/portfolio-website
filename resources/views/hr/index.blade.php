@@ -334,7 +334,7 @@
 							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
-					<p class="about-two__text">{{ isset($companyDetails->home_about_content) ? $companyDetails->home_about_content : '' }}</p>
+					<p class="about-two__text">{!! isset($companyDetails->home_about_content) ? $companyDetails->home_about_content : '' !!}</p>
 					<!-- /.about-two__text -->
 				</div><!-- /.about-two__content -->
 			</div><!-- /.col-lg-6 -->
@@ -348,7 +348,7 @@
 							<div class="inner">
 								<p>
 									
-									{{ isset($companyDetails->home_about_accordion_content_1) ? $companyDetails->home_about_accordion_content_1 : '' }}
+									{!! isset($companyDetails->home_about_accordion_content_1) ? $companyDetails->home_about_accordion_content_1 : '' !!}
 									</p>
 							</div><!-- /.inner -->
 						</div>
@@ -360,8 +360,7 @@
 						<div class="accrodion-content">
 							<div class="inner">
 								<p>
-									{{ isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' }}It has survived not only five centuries but also the leap into electronic type
-
+									{!! isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' !!}
 								</p>
 							</div><!-- /.inner -->
 						</div>
@@ -373,8 +372,7 @@
 						<div class="accrodion-content">
 							<div class="inner">
 								<p>
-									{{ isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' }}It has survived not only five centuries but also the leap into electronic type
-
+									{!! isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' !!}It has survived not only five centuries but also the leap into electronic type
 								</p>
 							</div><!-- /.inner -->
 						</div>

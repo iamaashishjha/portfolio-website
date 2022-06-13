@@ -136,7 +136,7 @@ class AdminAppSettingsController extends BaseController
         }
 
         $appSetting->site_title = $request->site_title;
-        $appSetting->site_title_image = $path;
+        // $appSetting->site_title_image = $path;
 
         $appSetting->meta_description = $request->meta_description;
         $appSetting->meta_title = $request->meta_title;
