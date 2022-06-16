@@ -43,17 +43,18 @@ class HomeController extends Controller
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['slider'] = Slider::first();
-        $this->data['documents'] = Document::all();
-        $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
-        $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
+        $this->data['blogPosts'] = BlogPost::orderBy('created_at', 'DESC')->take(3)->get();
+        // $this->data['events'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(3)->get();
+        $this->data['newsPosts'] = NewsPost::orderBy('created_at', 'DESC')->take(3)->get();
+        $this->data['footerEvents'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
         return view('hr.index', $this->data);
     }
 
     public function indexPageSliderForm(Request $request)
     {
 
-        $validator =Validator::make($request->all(),
+        $validator = Validator::make($request->all(),
             [
                 'email' => 'required|email',
                 'zip' => 'required|integer'
@@ -185,7 +186,6 @@ class HomeController extends Controller
         $this->data['documents'] = Document::all();
         $this->data['blog'] = BlogPost::find($id);
         $this->data['blogTags'] = BlogTags::where('status', 1)->get();
-
         $this->data['blogCategories'] = BlogCategory::where('status', 1)->get();
         $this->data['latestBlogs'] = BlogPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
         $this->data['comments'] = BlogsComment::where('post_id', $id)->get();
@@ -203,7 +203,7 @@ class HomeController extends Controller
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::where('category_id', $id)->paginate(10);
 
-        return view('hr.blogs.index', $this->data);
+        return view('hr.blog.index', $this->data);
     }
 
     // public function listTagsBlogs($id)

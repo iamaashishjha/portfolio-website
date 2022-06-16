@@ -138,7 +138,7 @@
                                     <!-- /.inner-block -->
                                 </div><!-- /.sidebar__post-image -->
                                 <div class="sidebar__post-content">
-                                    <h4 class="sidebar__post-title"><a href="{{ route('home.blogs.categoryShow', $category->id) }}">{{ Str::limit($post->content, 20, '...') }}</a>
+                                    <h4 class="sidebar__post-title"><a href="{{ route('home.blogs.categoryShow', $post->category->id) }}">{{ Str::limit($post->content, 20, '...') }}</a>
                                     </h4>
                                     <!-- /.sidebar__post-title -->
                                 </div><!-- /.sidebar__post-content -->

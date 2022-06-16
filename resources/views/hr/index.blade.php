@@ -271,46 +271,24 @@
 			<h2 class="block-title__title">{{ __('home.event.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
-			@foreach ($events as $event)
+			@foreach ($newsPosts as $post)
 			<div class="col-xl-4">
 				<div class="event-one__single">
 					<div class="event-one__image">
 						<div class="event-one__image-inner">
-							<img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/event/event-1-1.jpg' }}" alt="" style="height:178px;width:144px">
+							<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/event/event-1-1.jpg' }}" alt="" style="height:178px;width:144px">
 						</div><!-- /.event-one__image-inner -->
 					</div><!-- /.event-one__image -->
 					<div class="event-one__content">
-						<p class="event-one__date">{{ $event->created_at->diffForHumans() }}</p>
-						<h3 class="event-one__title"><a href="{{ route('home.events.show', $event->id) }}">{{$event->title}}</a></h3><!-- /.event-one__title -->
+						<p class="event-one__date">{{ $post->created_at->diffForHumans() }}</p>
+						<h3 class="event-one__title"><a href="{{ route('home.news.show', $post->id) }}">{{$post->title}}</a></h3><!-- /.event-one__title -->
 					</div><!-- /.event-one__content -->
 				</div><!-- /.event-one__single -->
 			</div><!-- /.col-lg-6 -->
 			@endforeach
-			
-			
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section><!-- /.event-one -->
-
-{{-- <section class="countdown-one thm-gray-bg countdown-one__home-one">
-	<div class="container">
-		<div class="inner-container">
-			<div class="row align-items-xl-center align-items-lg-center">
-				<div class="col-xl-6">
-					<h3 class="countdown-one__title">Our new campaign starts in:</h3><!-- /.countdown-one__title -->
-				</div><!-- /.col-lg-6 -->
-				<div class="col-xl-6 d-flex justify-content-xl-end justify-content-lg-center justify-content-sm-center">
-					<div class="countdown-one__right">
-						<ul class="countdown-one__list list-unstyled">
-							<!-- content loading via js -->
-						</ul><!-- /.coundown-one__list -->
-					</div><!-- /.countdown-one__right -->
-				</div><!-- /.col-lg-6 -->
-			</div><!-- /.row -->
-		</div><!-- /.inner-container -->
-	</div><!-- /.container -->
-</section><!-- /.countdown-one --> --}}
-
 
 <section class="about-two">
 	<div class="container">
@@ -383,139 +361,6 @@
 	</div><!-- /.container -->
 </section><!-- /.about-two -->
 
-
-{{-- <section class="testimonials-two">
-	<div class="testimonials-two__carousel">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<div class="testimonials-two__single"
-					style="background-image: url(/hr/assets/images/testimonials/testimonials-1-bg.jpg);">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-7">
-								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
-									pricing and customer support. It’s throughly refresing to get such a personal touch.
-								</h3>
-								<p class="testimonials-two__name">Gary Hilk</p><!-- /.testimonials-two__name -->
-							</div><!-- /.col-lg-7 -->
-							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
-								<div class="testimonials-two__btn-wrap">
-									<a href="#" class="testimonials-two__btn">
-										<i class="fa fa-play"></i>
-									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
-											src="/hr/assets/images/resources/video-arrow.png"
-											alt="Awesome Image" /></span>
-								</div><!-- /.testimonials-two__btn-wrap -->
-							</div><!-- /.col-lg-5 -->
-						</div><!-- /.row -->
-					</div><!-- /.container -->
-				</div><!-- /.testimonials-two__single -->
-			</div><!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="testimonials-two__single"
-					style="background-image: url(/hr/assets/images/testimonials/testimonials-2-bg.jpg);">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-7">
-								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
-									pricing and customer support. It’s throughly refresing to get such a personal touch.
-								</h3>
-								<p class="testimonials-two__name">Naida Bowline</p><!-- /.testimonials-two__name -->
-							</div><!-- /.col-lg-7 -->
-							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
-								<div class="testimonials-two__btn-wrap">
-									<a href="#" class="testimonials-two__btn">
-										<i class="fa fa-play"></i>
-									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
-											src="/hr/assets/images/resources/video-arrow.png"
-											alt="Awesome Image" /></span>
-								</div><!-- /.testimonials-two__btn-wrap -->
-							</div><!-- /.col-lg-5 -->
-						</div><!-- /.row -->
-					</div><!-- /.container -->
-				</div><!-- /.testimonials-two__single -->
-			</div><!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="testimonials-two__single"
-					style="background-image: url(/hr/assets/images/testimonials/testimonials-3-bg.jpg);">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-7">
-								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
-									pricing and customer support. It’s throughly refresing to get such a personal touch.
-								</h3>
-								<p class="testimonials-two__name">Caroline Ocheltree</p>
-								<!-- /.testimonials-two__name -->
-							</div><!-- /.col-lg-7 -->
-							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
-								<div class="testimonials-two__btn-wrap">
-									<a href="#" class="testimonials-two__btn">
-										<i class="fa fa-play"></i>
-									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
-											src="/hr/assets/images/resources/video-arrow.png"
-											alt="Awesome Image" /></span>
-								</div><!-- /.testimonials-two__btn-wrap -->
-							</div><!-- /.col-lg-5 -->
-						</div><!-- /.row -->
-					</div><!-- /.container -->
-				</div><!-- /.testimonials-two__single -->
-			</div><!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="testimonials-two__single"
-					style="background-image: url(/hr/assets/images/testimonials/testimonials-4-bg.jpg);">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-lg-7">
-								<i class="potisen-icon-quote testimonials-two__icon"></i>
-								<h3 class="testimonials-two__text">This is due to their excellent service, competitive
-									pricing and customer support. It’s throughly refresing to get such a personal touch.
-								</h3>
-								<p class="testimonials-two__name">Corey Gessner</p><!-- /.testimonials-two__name -->
-							</div><!-- /.col-lg-7 -->
-							<div class="col-lg-5 d-flex justify-content-xl-end justify-content-sm-start">
-								<div class="testimonials-two__btn-wrap">
-									<a href="#" class="testimonials-two__btn">
-										<i class="fa fa-play"></i>
-									</a>
-									<span class="testimonials-two__btn-tag-line">Watch Campaigns <img
-											src="/hr/assets/images/resources/video-arrow.png"
-											alt="Awesome Image" /></span>
-								</div><!-- /.testimonials-two__btn-wrap -->
-							</div><!-- /.col-lg-5 -->
-						</div><!-- /.row -->
-					</div><!-- /.container -->
-				</div><!-- /.testimonials-two__single -->
-			</div><!-- /.swiper-slide -->
-		</div><!-- /.swiper-wrapper -->
-	</div><!-- /.testimonials-two__carousel -->
-	<div class="testimonials-two__bottom thm-gray-bg">
-		<div class="container">
-			<div class="testimonials-two__thumb-carousel">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="/hr/assets/images/testimonials/testimonials-1-thumb.jpg" alt="">
-					</div><!-- /.swiper-slide -->
-					<div class="swiper-slide">
-						<img src="/hr/assets/images/testimonials/testimonials-2-thumb.jpg" alt="">
-					</div><!-- /.swiper-slide -->
-					<div class="swiper-slide">
-						<img src="/hr/assets/images/testimonials/testimonials-3-thumb.jpg" alt="">
-					</div><!-- /.swiper-slide -->
-					<div class="swiper-slide">
-						<img src="/hr/assets/images/testimonials/testimonials-4-thumb.jpg" alt="">
-					</div><!-- /.swiper-slide -->
-				</div><!-- /.swiper-wrapper -->
-			</div><!-- /.testimonials-one__thumb-carousel -->
-		</div><!-- /.container -->
-	</div><!-- /.testimonials-two__bottom -->
-</section><!-- /.testimonials-two --> --}}
-
 <section class="mailchimp-one">
 	<div class="container">
 		<div class="row align-items-center">
@@ -554,12 +399,12 @@
 					</div><!-- /.blog-one__image -->
 					<div class="blog-one__content">
 						<ul class="list-unstyled blog-one__meta">
-							<li><a href="#">22 Oct, 2019</a></li>
+							<li><a href="#">22 Oct, 2019{{ $post->created_at->format('j M, Y') }}</a></li>
 						</ul><!-- /.list-unstyled -->
 						<h3 class="blog-one__title">
-							<a href="blog-details.html">{{ Str::limit($post->title, 15, '...') }} </a>
+							<a href="{{ route('home.blogs.show', $post->id) }}">{{ Str::limit($post->title, 15, '...') }} </a>
 						</h3><!-- /.blog-one__title -->
-						<a href="blog-details.html" class="blog-one__link">Read More</a><!-- /.blog-one__link -->
+						<a href="{{ route('home.blogs.show', $post->id) }}" class="blog-one__link">Read More</a><!-- /.blog-one__link -->
 					</div><!-- /.blog-one__content -->
 				</div><!-- /.blog-one__single -->
 			</div><!-- /.col-lg-4 -->
@@ -568,122 +413,6 @@
 	</div><!-- /.container -->
 </section><!-- /.blog-one -->
 
-{{-- <div class="brand-one thm-gray-bg">
-	<div class="container">
-		<div class="brand-one__carousel owl-carousel owl-theme">
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-			<div class="item">
-				<img src="/hr/assets/images/resources/brand-1-1.png" alt="" />
-			</div><!-- /.item -->
-		</div><!-- /.brand-one__carousel owl-carousel owl-theme -->
-	</div><!-- /.container -->
-</div><!-- /.brand-one thm-gray-bg --> --}}
-
-
-{{-- <section class="social-shares">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-4">
-				<div class="social-shares__facebook thm-base-bg text-center">
-					<i class="fa fa-facebook-square"></i>
-					<p class="social-shares__facebook-name">Facebook</p><!-- /.social-shares__facebook-name -->
-					<h3 class="social-shares__facebook-count">280,366</h3><!-- /.social-shares__facebook-count -->
-					<a href="#" class="social-shares__facebook-link">#potisenfacebook</a>
-				</div><!-- /.social-shares__facebook -->
-			</div><!-- /.col-lg-4 -->
-			<div class="col-lg-8">
-				<div class="social-shares__twitter thm-base-bg-2">
-					<h3 class="social-shares__twitter-title">Latest Tweets</h3><!-- /.social-shares__twitter-title -->
-					<div class="social-shares__twitter-carousel owl-carousel owl-theme">
-						<div class="item">
-							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
-									to against <a href="#"><strong>#politics</strong></a> every government, and what no
-									just government should refuse, or rest on inference. <a
-										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
-								<!-- /.social-shares__twitter-text -->
-								<div class="social-shares__twitter-info">
-									<p class="social-shares__twitter-info-text">
-										<a href="#">@potisentwitterfollow</a>
-										<span>5 minutes ago</span>
-									</p><!-- /.social-shares__twitter-info-text -->
-									<i class="fa fa-twitter"></i>
-								</div><!-- /.social-shares__twitter-info -->
-							</div><!-- /.social-shares__twitter-single -->
-						</div><!-- /.item -->
-						<div class="item">
-							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
-									to against <a href="#"><strong>#politics</strong></a> every government, and what no
-									just government should refuse, or rest on inference. <a
-										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
-								<!-- /.social-shares__twitter-text -->
-								<div class="social-shares__twitter-info">
-									<p class="social-shares__twitter-info-text">
-										<a href="#">@potisentwitterfollow</a>
-										<span>5 minutes ago</span>
-									</p><!-- /.social-shares__twitter-info-text -->
-									<i class="fa fa-twitter"></i>
-								</div><!-- /.social-shares__twitter-info -->
-							</div><!-- /.social-shares__twitter-single -->
-						</div><!-- /.item -->
-						<div class="item">
-							<div class="social-shares__twitter-single">
-								<p class="social-shares__twitter-text">A Bill of Rights is what the people are entitled
-									to against <a href="#"><strong>#politics</strong></a> every government, and what no
-									just government should refuse, or rest on inference. <a
-										href="#">https://t.co/LpyuHZaOMK</a> <a href="#">#ASMSG</a></p>
-								<!-- /.social-shares__twitter-text -->
-								<div class="social-shares__twitter-info">
-									<p class="social-shares__twitter-info-text">
-										<a href="#">@potisentwitterfollow</a>
-										<span>5 minutes ago</span>
-									</p><!-- /.social-shares__twitter-info-text -->
-									<i class="fa fa-twitter"></i>
-								</div><!-- /.social-shares__twitter-info -->
-							</div><!-- /.social-shares__twitter-single -->
-						</div><!-- /.item -->
-					</div><!-- /.social-shares__twitter-carousel -->
-				</div><!-- /.social-shares__twitter -->
-			</div><!-- /.col-lg-8 -->
-		</div><!-- /.row -->
-	</div><!-- /.container -->
-</section><!-- /.social-shares --> --}}
 @endsection
 
 @section('script')

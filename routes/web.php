@@ -82,6 +82,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listBlog')->name('index');
                 Route::get('/{id}', 'showBlog')->name('show');
+                Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
                 Route::post('/{id}', 'storeBlogComments')->name('comment');
         });
 
