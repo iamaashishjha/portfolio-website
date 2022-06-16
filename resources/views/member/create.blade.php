@@ -69,10 +69,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     @include('member.partials.personal')
 
                     {{-- Income / Property --}}
-                    @include('member.partials.property')
+                    {{-- @include('member.partials.property') --}}
 
                     {{-- Political --}}
-                    @include('member.partials.political')
+                    {{-- @include('member.partials.political') --}}
 
                     {{-- Documents --}}
                     @include('member.partials.document')

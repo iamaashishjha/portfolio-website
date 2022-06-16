@@ -5,15 +5,14 @@
 		विवरण |)</h1>
 	<hr class="mt-5 mb-5">
 
-	<div class="grid grid-cols-2 gap-2">
+	<div class="grid grid-cols-12 gap-2">
 		<div class="mt-3">
 			<div class="font-medium flex items-center">
 				Profession
 			</div>
 			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="profession" id="profession"
-					value="{{ isset($member) ? $member->profession : old('profession') }}">
+				<input type="text" class="input w-full border mt-2" placeholder="Write caption" name="profession"
+					id="profession" value="{{ isset($member) ? $member->profession : old('profession') }}">
 			</div>
 		</div>
 		<div class="mt-3">
@@ -21,9 +20,8 @@
 				Source of Income
 			</div>
 			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="source_income" id="source_income"
-					value="{{ isset($member) ? $member->source_income : old('source_income') }}">
+				<input type="text" class="input w-full border mt-2" placeholder="Write caption" name="source_income"
+					id="source_income" value="{{ isset($member) ? $member->source_income : old('source_income') }}">
 			</div>
 		</div>
 	</div>
@@ -36,45 +34,53 @@
 	</h1>
 	<hr class="mt-5 mb-5">
 
-	<div class="grid grid-cols-2 gap-2">
-		<div class="mt-3">
-			<div class="font-medium flex items-center">
-				Property in Cash (नगद सम्पत्ति)
-			</div>
-			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="property_cash" id="property_cash"
-					value="{{ isset($member->property_cash) ? $member->property_cash : old('property_cash') }}">
-			</div>
-		</div>
-		<div class="mt-3">
-			<div class="font-medium flex items-center">
-				Fixed Property (अचल सम्पति)
-			</div>
-			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="property_fixed" id="property_fixed"
-					value="{{ isset($member->property_fixed) ? $member->property_fixed : old('property_fixed') }}">
+	<div class="grid grid-cols-12 gap-2">
+		<div class="col-span-12 lg:col-span-6">
+			<div class="mt-3">
+				<div class="font-medium flex items-center">
+					Property in Cash (नगद सम्पत्ति)
+				</div>
+				<div class="">
+					<input type="text" class="input w-full border mt-2" placeholder="Write caption" name="property_cash"
+						id="property_cash"
+						value="{{ isset($member->property_cash) ? $member->property_cash : old('property_cash') }}">
+				</div>
 			</div>
 		</div>
-		<div class="mt-3">
-			<div class="font-medium flex items-center">
-				Property in Share (सेयर सम्पत्ति)
-			</div>
-			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="property_share" id="property_share"
-					value="{{ isset($member->property_share) ? $member->property_share : old('property_share') }}">
+		<div class="col-span-12 lg:col-span-6">
+			<div class="mt-3">
+				<div class="font-medium flex items-center">
+					Fixed Property (अचल सम्पति)
+				</div>
+				<div class="">
+					<input type="text" class="input w-full border mt-2" placeholder="Write caption"
+						name="property_fixed" id="property_fixed"
+						value="{{ isset($member->property_fixed) ? $member->property_fixed : old('property_fixed') }}">
+				</div>
 			</div>
 		</div>
-		<div class="mt-3">
-			<div class="font-medium flex items-center">
-				Other Property (अन्य सम्पत्ति)
+		<div class="col-span-12 lg:col-span-6">
+			<div class="mt-3">
+				<div class="font-medium flex items-center">
+					Property in Share (सेयर सम्पत्ति)
+				</div>
+				<div class="">
+					<input type="text" class="input w-full border mt-2" placeholder="Write caption"
+						name="property_share" id="property_share"
+						value="{{ isset($member->property_share) ? $member->property_share : old('property_share') }}">
+				</div>
 			</div>
-			<div class="">
-				<input type="text" class="input w-full border mt-2" placeholder="Write caption"
-					name="property_other" id="property_other"
-					value="{{ isset($member->property_other) ? $member->property_other : old('property_other') }}">
+		</div>
+		<div class="col-span-12 lg:col-span-6">
+			<div class="mt-3">
+				<div class="font-medium flex items-center">
+					Other Property (अन्य सम्पत्ति)
+				</div>
+				<div class="">
+					<input type="text" class="input w-full border mt-2" placeholder="Write caption"
+						name="property_other" id="property_other"
+						value="{{ isset($member->property_other) ? $member->property_other : old('property_other') }}">
+				</div>
 			</div>
 		</div>
 	</div>

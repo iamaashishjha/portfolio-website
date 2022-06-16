@@ -1,5 +1,9 @@
 @php
 $lang = App::getLocale();
+$url = request()->route()->uri;
+// dd($url);
+// dd(($url == 'blogs'))
+// dd($url === '/')
 @endphp
 
 <div class="topbar-one">
@@ -25,7 +29,7 @@ $lang = App::getLocale();
             @include('partials.hr.languageSwitch')
 
             <div class="topbar-one__right">
-                <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a>
+                {{-- <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a> --}}
                 <a href="/member/create"><i class="fa fa-user-o"></i>{{ __('home.header.join') }}</a>
             </div><!-- /.topbar-one__right -->
         </div><!-- /.inner-container -->
@@ -50,19 +54,20 @@ $lang = App::getLocale();
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="main-navigation">
                 <ul class=" navigation-box">
-                    <li class="current">
+                    <li class="{{ ($url === '/') ? 'current' : '' }}">
                         <a href="{{ route('home.index') }}">{{ __('home.menuItems.home') }}</a>
                     </li>
-                    <li>
-                        <a href="javascript:;">{{ __('home.menuItems.membership') }}</a>
-                        <ul class="sub-menu">
+                    <li  class="{{ ($url == 'member') ? 'current' : '' }}"> 
+                        {{-- <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership') }}</a> --}}
+                        <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create') }}</a>
+                        {{-- <ul class="sub-menu">
                             <li><a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create')
                                     }}</a></li>
                             <li><a href="#">{{
                                     __('home.menuItems.membership.form') }}</a></li>
-                        </ul><!-- /.sub-menu -->
+                        </ul><!-- /.sub-menu --> --}}
                     </li>
-                    <li>
+                    <li class="{{ (($url === 'blogs') || ($url === 'news') || ($url === 'events')) ? 'current' : '' }}">
                         <a href="javascript:;">{{ __('home.menuItems.posts') }}</a>
                         <ul class="sub-menu">
                             <li><a href="{{ route('home.events.index') }}">{{__('home.menuItems.posts.events')}}</a>
@@ -83,10 +88,10 @@ $lang = App::getLocale();
                             @endforeach
                         </ul><!-- /.sub-menu -->
                     </li>
-                    <li>
+                    <li class="{{ ($url === 'about') ? 'current' : '' }}">
                         <a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a>
                     </li>
-                    <li>
+                    <li class="{{ ($url === 'contact') ? 'current' : '' }}">
                         <a href="{{ route('home.contact') }}">{{ __('home.menuItems.contact') }}</a>
                     </li>
                 </ul>

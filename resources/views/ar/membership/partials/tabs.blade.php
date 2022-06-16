@@ -9,7 +9,7 @@
     <i data-feather="file-text" class="w-4 h-4 mr-2"></i>
     Personal
 </a>
-<a title="Income/Property Details (आय/सम्पत्ति बिबरण)" data-toggle="tab" id="property-button"
+{{-- <a title="Income/Property Details (आय/सम्पत्ति बिबरण)" data-toggle="tab" id="property-button"
     data-target="#property-content" href="javascript:;"
     class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center">
     <i data-feather="align-left" class="w-4 h-4 mr-2"></i>
@@ -20,7 +20,7 @@
     class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center">
     <i data-feather="code" class="w-4 h-4 mr-2"></i>
     Political
-</a>
+</a> --}}
 <a title="Upload Necessary Documents (आबस्यक कागजातहरु Upload गर्नुहोस)" data-toggle="tab" id="documents-button"
     data-target="#documents-content" href="javascript:;"
     class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center">
