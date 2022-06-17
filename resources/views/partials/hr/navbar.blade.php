@@ -49,7 +49,7 @@ $url = request()->route()->uri;
             <div class="logo-box clearfix">
                 <a class="navbar-brand" href="/">
                     <img src="{{ isset($companyDetails->logo) ? $companyDetails->logo: '/hr/assets/images/logo-dark.png' }}"
-                        class="main-logo" height="80" style="max-width: 75px;"
+                        class="main-logo" height="80px" style="max-width: 200px;max-height:70px"
                         alt="{{ isset($companyDetails->company_name_en) ? $companyDetails->company_name_en : '' }}" />
                 </a>
                 <button class="menu-toggler" data-target=".main-navigation">

@@ -233,5 +233,5 @@ Nagrik Unmukti Party' }}
     };
 </script>
 
-{{-- @include('partials.ar.messageScript') --}}
+{{--  --}}
 @endsection

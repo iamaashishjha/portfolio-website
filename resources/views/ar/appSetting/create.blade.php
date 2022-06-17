@@ -140,5 +140,4 @@
         };
     </script>
 
-    {{-- @include('partials.ar.messageScript') --}}
 @endsection

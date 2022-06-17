@@ -94,7 +94,6 @@ All App Settings | Nagrik Unmukti Party
 @endsection
 
 @section('script')
-{{-- @include('partials.ar.messageScript') --}}
 
 <script>
 

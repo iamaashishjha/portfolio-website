@@ -99,7 +99,7 @@ All Blog Categories | Nagrik Unmukti Party
 @endsection
 
 @section('script')
-@include('partials.ar.messageScript')
+
 
 <script>
 

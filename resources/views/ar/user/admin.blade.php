@@ -134,7 +134,7 @@ All Administrative Users | Nagrik Unmukti Party
 @endsection
 
 @section('script')
-@include('partials.ar.messageScript')
+
 
 <script>
 

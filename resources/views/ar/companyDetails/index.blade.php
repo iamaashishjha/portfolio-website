@@ -87,7 +87,7 @@ All Company Details | Nagrik Unmukti Party
 @endsection
 
 @section('script')
-@include('partials.ar.messageScript')
+
 
 <script>
 
