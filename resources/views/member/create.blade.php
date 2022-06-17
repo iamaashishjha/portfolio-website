@@ -67,6 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                     {{-- Personal --}}
                     @include('member.partials.personal')
+                    
 
                     {{-- Income / Property --}}
                     {{-- @include('member.partials.property') --}}

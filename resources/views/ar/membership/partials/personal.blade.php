@@ -65,7 +65,7 @@
 				@enderror
 			</div>
 		</div>
-		<div class="mt-3">
+		{{-- <div class="mt-3">
 			<div
 				class="font-medium  @error('cast') text-theme-6 @enderror  flex items-center">
 				Cast (जाति)
@@ -123,7 +123,7 @@
 					</span>
 				@enderror
 			</div>
-		</div>
+		</div> --}}
 		<div class="mt-3">
 			<div
 				class="font-medium  @error('education_qualification') text-theme-6 @enderror  flex items-center">

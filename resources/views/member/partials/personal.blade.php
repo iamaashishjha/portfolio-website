@@ -61,7 +61,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-span-12 lg:col-span-4">
+		{{-- <div class="col-span-12 lg:col-span-4">
 			<div class="mt-3">
 				<div class="font-medium  @error('cast') text-theme-6 @enderror  flex items-center">
 					Cast (जाति)
@@ -78,8 +78,8 @@
 					@enderror
 				</div>
 			</div>
-		</div>
-		<div class="col-span-12 lg:col-span-4">
+		</div> --}}
+		{{-- <div class="col-span-12 lg:col-span-4">
 			<div class="mt-3">
 				<div class="font-medium  @error('category') text-theme-6 @enderror  flex items-center">
 					वर्ग
@@ -96,8 +96,8 @@
 					@enderror
 				</div>
 			</div>
-		</div>
-		<div class="col-span-12 lg:col-span-4">
+		</div> --}}
+		{{-- <div class="col-span-12 lg:col-span-4">
 			<div class="mt-3">
 				<div class="font-medium  @error('category_source') text-theme-6 @enderror  flex items-center">
 					वर्ग स्रोत
@@ -115,7 +115,7 @@
 					@enderror
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="col-span-12 lg:col-span-4">
 			<div class="mt-3">
 				<div class="font-medium  @error('education_qualification') text-theme-6 @enderror  flex items-center">
