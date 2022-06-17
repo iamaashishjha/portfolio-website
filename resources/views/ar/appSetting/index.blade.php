@@ -13,7 +13,7 @@ All App Settings | Nagrik Unmukti Party
 @endsection
 
 @section('content')
-@include('partials.ar.modelMessage')
+{{-- @include('{{-- @include('partials.ar.modelMessage') --}}
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
         App Settings
@@ -94,7 +94,7 @@ All App Settings | Nagrik Unmukti Party
 @endsection
 
 @section('script')
-@include('partials.ar.messageScript')
+{{-- @include('partials.ar.messageScript') --}}
 
 <script>
 

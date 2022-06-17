@@ -33,7 +33,7 @@
     </div>
 </div>
 {{-- @include('partials.ar.messages') --}}
-@include('partials.ar.modelMessage')
+{{-- @include('{{-- @include('partials.ar.modelMessage') --}}
 
 
 {{-- <div class="pos intro-y grid grid-cols-12 gap-5 mt-5"> --}}
@@ -44,7 +44,7 @@
     @endif
     <!-- BEGIN: Post Content -->
     <div class="intro-y col-span-12 lg:col-span-8">
-        <input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} " placeholder="Title" name="title" id="title" value="{{ isset($post) ? $post->title : old('title') }}" {{ isset($post) ? 'readonly' : '' }}>
+        <input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 " placeholder="Title" name="title" id="title" value="{{ isset($post) ? $post->title : old('title') }}">
         
         <div class="post intro-y overflow-hidden box mt-5">
             <div class="post__tabs nav-tabs flex flex-col sm:flex-row bg-gray-200 text-gray-600" style="align-items: center!important;">

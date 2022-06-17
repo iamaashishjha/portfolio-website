@@ -647,11 +647,12 @@ h6 {
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative; }
+  /* position: relative; */
+ }
 .banner-one__light-color {
   color: #fff; }
 .banner-one__title {
-  font-size: 100px;
+  font-size: 75px;
   font-weight: bold;
   letter-spacing: -.04em;
   color: #fff;

@@ -47,10 +47,6 @@ class AdminSliderController extends BaseController
     public function store(StoreSliderRequest $request)
     {
 
-        // dd($request);
-
-        // dd($request);
-
         $path1 = $request->slider_image_a->store('home/slider', 'public');
         
         if($request->has('slider_image_b')){
@@ -101,7 +97,8 @@ class AdminSliderController extends BaseController
 
         $slider->created_by = Auth::user()->id;
         $slider->save();
-        Alert::toast('Slider Created successfully', 'success');
+        // Alert::toast('Slider Created successfully', 'success');
+        Alert::success('Slider Created successfully');
         return redirect()->route('admin.home.slider.index');
     }
 
@@ -213,21 +210,7 @@ class AdminSliderController extends BaseController
 
         $slider->created_by = Auth::user()->id;
         $slider->save();
-        Alert::toast('Slider Updated successfully', 'success');
+        Alert::success('Slider Updated successfully');
         return redirect()->route('admin.home.slider.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $slider = Slider::find($id);
-        $slider->delete();
-        Alert::toast('Slider Deleted Successfully', 'success');
-        return redirect()->back();
     }
 }

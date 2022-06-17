@@ -35,7 +35,7 @@
 
                 </div>
                 {{-- @include('partials.ar.messages') --}}
-                @include('partials.ar.modelMessage')
+                {{-- @include('partials.ar.modelMessage') --}}
                 <form
                     action="{{ isset($slider) ? route('admin.home.slider.update', $slider->id) : route('admin.home.slider.store') }}"
                     method="post" enctype="multipart/form-data">
@@ -45,24 +45,23 @@
                     @endif
                     <div class="p-5" id="input">
                         <div class="preview">
-                            <div class="grid grid-cols-4 gap-4">
+                            <div class="grid grid-cols-12 gap-2">
                                 {{-- Slider Title --}}
-                                <div class="col-span-3">
+                                <div class="col-span-12">
                                     <div class="mt-3 mb-3">
                                         <h5
                                             class="text-lg ext-theme-9 @error('slider_title') text-theme-6 @enderror font-medium leading-none">
                                             Slider Title
-                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                            
                                         </h5>
                                         <input type="text" id="slider_title" name="slider_title"
-                                            class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('slider_title') border-theme-6 @enderror"
+                                            class=" input w-full border mt-2 @error('slider_title') border-theme-6 @enderror"
                                             placeholder="Enter Name"
-                                            value="{{ isset($slider) ? $slider->slider_title : old('slider_title') }}"
-                                            {{ isset($slider) ? 'readonly' : '' }}>
+                                            value="{{ isset($slider) ? $slider->slider_title : old('slider_title') }}">
                                     </div>
                                 </div>
                                 {{-- Is Active --}}
-                                <div class="col-span-1">
+                                {{-- <div class="col-span-1">
                                     <div class="mt-5 mb-5">
                                         <div class="w-full sm:w-auto flex items-center sm:ml-auto mt-3 sm:mt-0">
                                             <h5 class="text-lg ext-theme-9  font-medium leading-none mr-3">
@@ -71,7 +70,7 @@
                                                 name="is_active" {{ isset($slider) ? $slider->checkStatus() : '' }}>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             {{-- Slider Description --}}
                             <div class="mt-3 mb-3">
@@ -93,7 +92,7 @@
                                     <div class="mt-3">
                                         <h5 class="text-lg ext-theme-9 @error('slider_image_a') text-theme-6 @enderror font-medium leading-none">
                                             Image 1
-                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                            
                                         </h5>
                                         <div
                                             class="border-2 border-dashed rounded-md mt-2 pt-4 @error('slider_image_a') border-theme-6 @enderror">
@@ -122,19 +121,18 @@
                                         <h5
                                             class="text-lg ext-theme-9 @error('heading1') text-theme-6 @enderror font-medium leading-none">
                                             Heading 1
-                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                            
                                         </h5>
                                         <input type="text" id="heading1" name="heading1"
-                                            class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('heading1') border-theme-6 @enderror"
+                                            class="input w-full border mt-2 @error('heading1') border-theme-6 @enderror"
                                             placeholder="Enter Heading 1"
-                                            value="{{ isset($slider) ? $slider->heading1 : old('heading1') }}"
-                                            {{ isset($slider) ? 'readonly' : '' }} required>
+                                            value="{{ isset($slider) ? $slider->heading1 : old('heading1') }}" required>
                                     </div>
                                     {{-- Sub Heading 1 --}}
                                     <div class="mt-3">
                                         <h5 class="text-lg ext-theme-9 @error('subheading1') text-theme-6 @enderror font-medium leading-none">
                                             Sub Heading 1
-                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                            
                                         </h5>
                                         <input type="text" id="subheading1" name="subheading1"
                                             class="input w-full border mt-2 @error('subheading1') border-theme-6 @enderror"
@@ -182,10 +180,10 @@
                                             Heading 2
                                         </h5>
                                         <input type="text" id="heading2" name="heading2"
-                                            class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('heading2') border-theme-6 @enderror"
+                                            class="input w-full border mt-2 @error('heading2') border-theme-6 @enderror"
                                             placeholder="Enter Heading 2"
                                             value="{{ isset($slider) ? $slider->heading2 : old('heading2') }}"
-                                            {{ isset($slider) ? 'readonly' : '' }}>
+                                            >
                                     </div>
                                     {{-- Sub Heading 2 --}}
                                     <div class="mt-3">
@@ -240,10 +238,10 @@
                                             Heading 3
                                         </h5>
                                         <input type="text" id="heading3" name="heading3"
-                                            class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('heading3') border-theme-6 @enderror"
+                                            class="input w-full border mt-2 @error('heading3') border-theme-6 @enderror"
                                             placeholder="Enter Heading 4"
                                             value="{{ isset($slider) ? $slider->heading3 : old('heading3') }}"
-                                            {{ isset($slider) ? 'readonly' : '' }}>
+                                            >
                                     </div>
 
                                     {{-- Sub Heading 3 --}}
@@ -299,10 +297,10 @@
                                             Heading 4
                                         </h5>
                                         <input type="text" id="heading4" name="heading4"
-                                            class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('heading4') border-theme-6 @enderror"
+                                            class="input w-full border mt-2 @error('heading4') border-theme-6 @enderror"
                                             placeholder="Enter Heading 4"
                                             value="{{ isset($slider) ? $slider->heading4 : old('heading4') }}"
-                                            {{ isset($slider) ? 'readonly' : '' }}>
+                                            >
                                     </div>
                                     <div class="mt-3">
                                         <h5
@@ -352,10 +350,10 @@
                                             Heading 5
                                         </h5>
                                         <input type="text" id="heading5" name="heading5"
-                                        class="{{ isset($slider) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('heading5') border-theme-6 @enderror"
+                                        class="input w-full border mt-2 @error('heading5') border-theme-6 @enderror"
                                         placeholder="Enter Heading 5"
                                         value="{{ isset($slider) ? $slider->heading5 : old('heading5') }}"
-                                        {{ isset($slider) ? 'readonly' : '' }}>
+                                        >
                                     </div>
                                     {{-- Sub Heading 5 --}}
                                     <div class="mt-3">

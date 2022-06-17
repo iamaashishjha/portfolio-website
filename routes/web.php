@@ -191,3 +191,6 @@ Route::get('getLocalLevel/{id}', [App\Http\Controllers\LocalLevelController::cla
 Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
 
 Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
+
+
+Route::view('/a', 'welcome');

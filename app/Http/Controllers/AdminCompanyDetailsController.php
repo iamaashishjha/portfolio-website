@@ -194,6 +194,7 @@ class AdminCompanyDetailsController extends Controller
         $cp->about_us = $request->about_us;
         $cp->our_history = $request->our_history;
         $cp->our_vision = $request->our_vision;
+        $cp->our_mission = $request->our_mission;
 
         $cp->home_about_content = $request->home_about_content;
         

@@ -37,7 +37,7 @@
 
                 </div>
                 {{-- @include('partials.ar.messages') --}}
-                @include('partials.ar.modelMessage')
+                {{-- @include('{{-- @include('partials.ar.modelMessage') --}}
                 <form
                     action="{{ isset($appSetting) ? route('admin.home.app-setting.update', $appSetting->id) : route('admin.home.app-setting.store') }}"
                     method="post" enctype="multipart/form-data">

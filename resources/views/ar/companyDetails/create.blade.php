@@ -37,7 +37,7 @@ Unmukti Party' }}
     </div>
 </div>
 {{-- @include('partials.ar.messages') --}}
-@include('partials.ar.modelMessage')
+{{-- @include('partials.ar.modelMessage') --}}
 <form
     action="{{ isset($companyDetail) ? route('admin.home.company-details.update', $companyDetail->id) : route('admin.home.company-details.store') }}"
     method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
@@ -112,7 +112,7 @@ Unmukti Party' }}
                             <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                         </div>
                         <div class="mt-3">
-                            <textarea data-feature="basic" class="summernote"
+                            <textarea data-feature="all" class="summernote"
                                 name="company_description">{{ isset($companyDetail->company_description) ? $companyDetail->company_description : old('company_description') }}</textarea>
                         </div>
                         @error('company_description')
@@ -288,7 +288,7 @@ Unmukti Party' }}
                             <div class="col-span-12 lg:col-span-8">
                                 
                                 <div class="mt-5">
-                                    <textarea data-feature="basic" class="summernote" data-height="250"
+                                    <textarea data-feature="all" class="summernote" data-height="250"
                                         name="our_mission">{{ isset($companyDetail) ? $companyDetail->our_mission : old('our_mission') }}</textarea>
                                 </div>
                             </div>
@@ -331,7 +331,7 @@ Unmukti Party' }}
                             <div class="col-span-12 lg:col-span-8">
                                 
                                 <div class="mt-5">
-                                    <textarea data-feature="basic" class="summernote" data-height="250"
+                                    <textarea data-feature="all" class="summernote" data-height="250"
                                         name="our_vision">{{ isset($companyDetail) ? $companyDetail->our_vision : old('our_vision') }}</textarea>
                                 </div>
                             </div>
@@ -371,10 +371,9 @@ Unmukti Party' }}
                             <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                         </div>
                         <div class="mt-5">
-                            <textarea data-feature="basic" class="summernote" data-height="250"
+                            <textarea data-feature="all" class="summernote" data-height="250"
                                 name="our_history">{{ isset($companyDetail) ? $companyDetail->our_history : old('our_history') }}</textarea>
                         </div>
-
                     </div>
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
                         <div
@@ -383,7 +382,7 @@ Unmukti Party' }}
                             <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                         </div>
                         <div class="mt-5">
-                            <textarea data-feature="basic" class="summernote" data-height="250"
+                            <textarea data-feature="all" class="summernote" data-height="250"
                                 name="about_us">{{ isset($companyDetail) ? $companyDetail->about_us : old('about_us') }}</textarea>
                         </div>
 
@@ -494,7 +493,7 @@ Unmukti Party' }}
                                 <span class="ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                             </div>
                             <div class="mt-3">
-                                <textarea data-feature="basic" class="summernote" name="home_about_content">
+                                <textarea data-feature="all" class="summernote" name="home_about_content">
                                     {{ isset($companyDetail->home_about_content) ? $companyDetail->home_about_content : old('home_about_content')  }}
                                 </textarea>
                             </div>
@@ -528,7 +527,7 @@ Unmukti Party' }}
                                 <span class="ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                             </div>
                             <div class="mt-3">
-                                <textarea data-feature="basic" class="summernote" name="home_about_accordion_content_1">
+                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_1">
                                     {{ isset($companyDetail->home_about_accordion_content_1) ? $companyDetail->home_about_accordion_content_1 : old('home_about_accordion_content_1')  }}
                                 
                                 </textarea>
@@ -563,7 +562,7 @@ Unmukti Party' }}
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                             </div>
                             <div class="mt-3">
-                                <textarea data-feature="basic" class="summernote" name="home_about_accordion_content_2">
+                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_2">
                                     {{ isset($companyDetail->home_about_accordion_content_2) ? $companyDetail->home_about_accordion_content_2 : old('home_about_accordion_content_2')  }}
                                 
                                 </textarea>
@@ -598,7 +597,7 @@ Unmukti Party' }}
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                             </div>
                             <div class="mt-3">
-                                <textarea data-feature="basic" class="summernote" name="home_about_accordion_content_3">
+                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_3">
                                     {{ isset($companyDetail->home_about_accordion_content_3) ? $companyDetail->home_about_accordion_content_3 : old('home_about_accordion_content_3')  }}
                                 
                                 </textarea>

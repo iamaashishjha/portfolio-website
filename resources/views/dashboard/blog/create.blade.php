@@ -31,7 +31,7 @@
     </div>
 </div>
 {{-- @include('partials.ar.messages') --}}
-@include('partials.ar.modelMessage')
+{{-- @include('partials.ar.modelMessage') --}}
 
 
 {{-- <div class="pos intro-y grid grid-cols-12 gap-5 mt-5"> --}}

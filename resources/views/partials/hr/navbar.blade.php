@@ -28,10 +28,15 @@ $url = request()->route()->uri;
 
             @include('partials.hr.languageSwitch')
 
-            <div class="topbar-one__right">
-                {{-- <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a> --}}
-                <a href="/member/create"><i class="fa fa-user-o"></i>{{ __('home.header.join') }}</a>
-            </div><!-- /.topbar-one__right -->
+            {{-- <div class="topbar-one__right">
+                <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a>
+                <div class="header-social">
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-facebook-square"></a>
+                    <a href="#" class="fa fa-pinterest-p"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div><!-- /.header-social -->
+            </div><!-- /.topbar-one__right --> --}}
         </div><!-- /.inner-container -->
     </div><!-- /.container -->
 </div><!-- /.topbar-one -->
@@ -98,12 +103,7 @@ $url = request()->route()->uri;
             </div><!-- /.navbar-collapse -->
 
             <div class="right-side-box">
-                <div class="header-social">
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-facebook-square"></a>
-                    <a href="#" class="fa fa-pinterest-p"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                </div><!-- /.header-social -->
+                <a href="/member/create"><i class="fa fa-user-o"></i> &nbsp;{{ __('home.header.join') }}</a>
             </div><!-- /.right-side-box -->
         </div>
         <!-- /.container -->

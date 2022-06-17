@@ -35,7 +35,7 @@
                 
             </div>
             {{-- @include('partials.ar.messages') --}}
-            @include('partials.ar.modelMessage')
+            {{-- @include('partials.ar.modelMessage') --}}
             <form action="{{ isset($category) ? route('admin.blog.category.update', $category->id) : route('admin.blog.category.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($category))

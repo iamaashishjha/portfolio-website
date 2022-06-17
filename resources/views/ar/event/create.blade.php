@@ -34,7 +34,7 @@
 
             </div>
             {{-- @include('partials.ar.messages') --}}
-            @include('partials.ar.modelMessage')
+            {{-- @include('partials.ar.modelMessage') --}}
             <form action="{{ isset($event) ? route('admin.event.update', $event->id) : route('admin.event.store') }}"
                 method="post" enctype="multipart/form-data">
                 @csrf

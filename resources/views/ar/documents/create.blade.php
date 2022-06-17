@@ -37,7 +37,7 @@ Nagrik Unmukti Party' }}
 
             </div>
             {{-- @include('partials.ar.messages') --}}
-            @include('partials.ar.modelMessage')
+            {{-- @include('partials.ar.modelMessage') --}}
             <form
                 action="{{ isset($document) ? route('admin.document.update', $document->id) : route('admin.document.store') }}"
                 method="post" enctype="multipart/form-data">

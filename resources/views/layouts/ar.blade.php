@@ -46,8 +46,9 @@ $user = Auth::user()->name;
 <!-- END: Head -->
 
 <body class="app">
+    @include('partials.message')
 
-
+    @include('sweetalert::alert')
     @include('partials.ar.mobileMenu')
     <div class="flex">
         @include('partials.ar.sidebar')
@@ -126,6 +127,8 @@ $user = Auth::user()->name;
     </div>
     <!-- BEGIN: JS Assets-->
     <script src="/js/jquery-3.6.0.min.js"></script>
+{{-- <script src="/hr/assets/js/jquery.min.js"></script> --}}
+
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
     <script
         src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
