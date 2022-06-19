@@ -1,9 +1,6 @@
 @php
 $lang = App::getLocale();
 $url = request()->route()->uri;
-// dd($url);
-// dd(($url == 'blogs'))
-// dd($url === '/')
 @endphp
 
 <div class="topbar-one">
@@ -62,6 +59,9 @@ $url = request()->route()->uri;
                     <li class="{{ ($url === '/') ? 'current' : '' }}">
                         <a href="{{ route('home.index') }}">{{ __('home.menuItems.home') }}</a>
                     </li>
+                    <li class="{{ ($url === 'about') ? 'current' : '' }}">
+                        <a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a>
+                    </li>
                     <li  class="{{ ($url == 'member') ? 'current' : '' }}"> 
                         {{-- <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership') }}</a> --}}
                         <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create') }}</a>
@@ -72,17 +72,13 @@ $url = request()->route()->uri;
                                     __('home.menuItems.membership.form') }}</a></li>
                         </ul><!-- /.sub-menu --> --}}
                     </li>
-                    <li class="{{ (($url === 'blogs') || ($url === 'news') || ($url === 'events')) ? 'current' : '' }}">
-                        <a href="javascript:;">{{ __('home.menuItems.posts') }}</a>
-                        <ul class="sub-menu">
-                            <li><a href="{{ route('home.events.index') }}">{{__('home.menuItems.posts.events')}}</a>
-                            </li>
-                            <li><a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a></li>
-                            <li><a href="{{ route('home.blogs.index') }}">{{__('home.menuItems.posts.blogs')}}</a></li>
-                        </ul><!-- /.sub-menu -->
+                    <li class="{{ ($url === 'news') ? 'current' : '' }}">
+                        <a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a>
                     </li>
-                    <li>
+                    
+                    <li class="{{ (($url === 'document') || ($url === 'library')) ? 'current' : '' }}">
                         <a href="javascript:;">{{ __('home.menuItems.documents') }}</a>
+                        @if (count($documents))
                         <ul class="sub-menu">
                             @foreach ($documents as $doc)
                                 <li>
@@ -92,13 +88,25 @@ $url = request()->route()->uri;
                                 </li>
                             @endforeach
                         </ul><!-- /.sub-menu -->
+                        @endif
                     </li>
-                    <li class="{{ ($url === 'about') ? 'current' : '' }}">
-                        <a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a>
+                    <li class="{{ (($url === 'blogs') || ($url === 'events') || ($url === 'library')) ? 'current' : '' }}">
+                        <a href="javascript:;">{{ __('home.menuItems.pages') }}</a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ route('home.events.index') }}">{{__('home.menuItems.posts.events')}}</a>
+                            </li>
+                            <li><a href="{{ route('home.blogs.index') }}">{{__('home.menuItems.posts.blogs')}}</a></li>
+                            <li>
+                                <a href="{{ route('home.library.index') }}">{{__('home.menuItems.library')}}</a>
+                            </li>
+                        </ul><!-- /.sub-menu -->
                     </li>
                     <li class="{{ ($url === 'contact') ? 'current' : '' }}">
                         <a href="{{ route('home.contact') }}">{{ __('home.menuItems.contact') }}</a>
                     </li>
+                    {{-- <li class="{{ ($url === 'contact') ? 'current' : '' }}">
+                        <a href="javascript;:">{{ __('home.menuItems.pages') }}</a>
+                    </li> --}}
                 </ul>
             </div><!-- /.navbar-collapse -->
 

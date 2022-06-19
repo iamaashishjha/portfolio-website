@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
 use App\Models\Data;
-use App\Models\Event;
-use App\Models\AppSettings;
-use App\Models\BlogCategory;
-use App\Models\BlogsComment;
-use App\Models\BlogTags;
-use App\Models\CompanyDetails;
-use App\Models\Document;
 use App\Models\News;
-use App\Models\NewsCategory;
-use App\Models\NewsComment;
+use App\Models\Event;
+use App\Models\Slider;
+use App\Models\Library;
+use App\Models\BlogPost;
+use App\Models\BlogTags;
+use App\Models\Document;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
-use App\Models\Slider;
+use App\Models\AppSettings;
+use App\Models\NewsComment;
+use App\Models\BlogCategory;
+use App\Models\BlogsComment;
+use App\Models\NewsCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Models\CompanyDetails;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -266,6 +267,7 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::find($id);
         $this->data['newsTags'] = NewsTags::where('status', 1)->get();
@@ -351,6 +353,16 @@ class HomeController extends Controller
         $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['event'] = Event::find($id);
         return view('hr.event.show', $this->data);
+    }
+
+    public function listLibrary()
+    {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+        $this->data['libraries'] = Library::paginate(5);
+        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        return view('hr.library.index', $this->data);
     }
 
     public function notFound()

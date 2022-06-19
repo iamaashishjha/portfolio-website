@@ -260,9 +260,15 @@ class CreateMasterDataTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('header_footers');
+        Schema::dropIfExists('app_settings');
+
+        Schema::dropIfExists('company_details');
 
         Schema::dropIfExists('sliders');
+
+        Schema::dropIfExists('data');
+
+        Schema::dropIfExists('documents');
 
         Schema::dropIfExists('genders');
 
@@ -270,8 +276,8 @@ class CreateMasterDataTables extends Migration
 
         Schema::dropIfExists('districts');
 
-        Schema::dropIfExists('local_levels');
-
         Schema::dropIfExists('local_level_types');
+
+        Schema::dropIfExists('local_levels');
     }
 }

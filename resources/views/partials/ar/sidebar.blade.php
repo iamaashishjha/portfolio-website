@@ -1,6 +1,6 @@
 <!-- BEGIN: Side Menu -->
 <nav class="side-nav" id="sidebar">
-    <a href="/admin" class="intro-x flex items-center pl-5 pt-4">
+    <a href="/" class="intro-x flex items-center pl-5 pt-4">
         <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
         <span class="hidden xl:block text-white text-lg ml-3"> Nagrik Unmukti <span class="font-medium">Party</span>
         </span>
@@ -125,25 +125,25 @@
             </ul>
         </li>
 
-        {{-- Documents  --}}
+        {{-- Others  --}}
         <li>
             <a href="javascript:;" class="side-menu {{ request()->is('admin/document') ? 'side-menu--active' : '' }} "
                 id="appSetting_menu">
                 <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i> </div>
-                <div class="side-menu__title"> Documents <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                <div class="side-menu__title"> Others <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                 </div>
             </a>
             <ul class="collapse">
                 <li>
                     <a href="{{ route('admin.document.create') }}" class="side-menu">
                         <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </div>
-                        <div class="side-menu__title"> Create Documents </div>
+                        <div class="side-menu__title"> Documents </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.document.index') }}" class="side-menu">
+                    <a href="{{ route('admin.library.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i> </div>
-                        <div class="side-menu__title"> All Documents </div>
+                        <div class="side-menu__title">  Libraries </div>
                     </a>
                 </li>
                 

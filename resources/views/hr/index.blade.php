@@ -159,13 +159,14 @@
 	</div><!-- /.container -->
 </section><!-- /.campaing-one -->
 
+{{--!! News  --}}
 <section class="event-one thm-gray-bg event-one__home-one">
 	<div class="container">
 		<div class="block-title text-center">
 			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
-			<p class="block-title__tag-line">{{ __('home.event.sub-heading') }}</p>
-			<h2 class="block-title__title">{{ __('home.event.heading') }}</h2><!-- /.block-title__title -->
+			<p class="block-title__tag-line">{{ __('home.news.sub-heading') }}</p>
+			<h2 class="block-title__title">{{ __('home.news.heading') }}</h2><!-- /.block-title__title -->
 		</div><!-- /.block-title -->
 		<div class="row">
 			@foreach ($newsPosts as $post)
@@ -291,12 +292,12 @@
 					<div class="blog-one__image">
 						<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
 							alt="" style="height:290px ;width:370px ;">
-						<a class="blog-one__more-link" href=""><i class="fa fa-link"></i>
+						<a class="blog-one__more-link" href="{{ route('home.blogs.show', $post->id) }}"><i class="fa fa-link"></i>
 							<!-- /.fa fa-link --></a>
 					</div><!-- /.blog-one__image -->
 					<div class="blog-one__content">
 						<ul class="list-unstyled blog-one__meta">
-							<li><a href="#">22 Oct, 2019{{ $post->created_at->format('j M, Y') }}</a></li>
+							<li><a href="#">{{ $post->created_at->format('j M, Y') }}</a></li>
 						</ul><!-- /.list-unstyled -->
 						<h3 class="blog-one__title">
 							<a href="{{ route('home.blogs.show', $post->id) }}">{{ Str::limit($post->title, 15, '...') }} </a>

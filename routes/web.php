@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminCompanyDetailsController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminDocumentController;
+use App\Http\Controllers\AdminLibraryController;
 use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminNewsPostController;
@@ -93,6 +94,13 @@ Route::prefix('/')
                 Route::get('/create', 'create')->name('create');
                 Route::post('/', 'store')->name('store');
         });
+
+        Route::prefix('library')
+            ->name('library.')
+            ->controller(HomeController::class)
+            ->group(function () {
+                Route::get('/', 'listLibrary')->name('index');
+        });
 });
 
 Route::middleware(['auth', 'admin'])
@@ -149,6 +157,7 @@ Route::middleware(['auth', 'admin'])
         Route::resource('/member', AdminMembershipController::class);
         Route::resource('/event', AdminEventController::class);
         Route::resource('/document', AdminDocumentController::class);
+        Route::resource('/library', AdminLibraryController::class);
 
 });
 

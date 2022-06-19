@@ -17,7 +17,9 @@ return [
     'menuItems.about.about-us' => 'About Us',
     'menuItems.about.our-history' => 'Our History',
     'menuItems.contact' => 'Contact Us',
-    'menuItems.documents' => 'Documents',
+    'menuItems.documents' => 'Collection',
+    'menuItems.pages' => 'Pages',
+    'menuItems.library' => 'Library',
     // 'menuItems.contact' => 'Contact Us',
 
     '' => '',
@@ -44,17 +46,32 @@ return [
     'campaign.pre-button' => 'How we can build a better country together!',
     'campaign.button' => 'Donate or Volunteer.',
 
-    'event.sub-heading' => 'Join Campaigns',
-    'event.heading' => 'Upcoming Events',
-
     'about.sub-heading' => 'Join Campaigns',
     'about.heading' => 'We Will Make History Together',
 
     'subscribe-mail.pre-button' => 'Donot miss our monthly updates',
     'subscribe-mail.button' => 'Subscribe',
 
-    'blog.sub-heading' => 'Nagrik Updates',
-    'blog.heading' => 'Latest News',
+    'event.sub-heading' => 'Join Campaigns',
+    'event.heading' => 'Latest News',
+
+    'blog.sub-heading' => 'Your Voice',
+    'blog.heading' => 'Our Blogs',
+
+    'blog.details.heading' => 'Blogs Details',
+    'blog.details.sub-heading' => 'Blogs Details',
+    'blog.details.latest' => 'Latest Posts',
+    'blog.details.category' => 'Categories',
+    'blog.details.tag' => 'Tags',
+
+    'news.sub-heading' => 'Nagrik Updates',
+    'news.heading' => 'Latest News',
+
+    'news.details.heading' => 'News Details',
+    'news.details.sub-heading' => 'News Details',
+    'news.details.latest' => 'Latest Posts',
+    'news.details.category' => 'Categories',
+    'news.details.tag' => 'Tags',
 
     'footer.about' => 'About Us',
     'footer.explore' => 'Explore Us',

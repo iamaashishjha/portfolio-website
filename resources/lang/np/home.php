@@ -17,7 +17,9 @@ return [
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
     'menuItems.contact' => 'सम्पर्क',
-    'menuItems.documents' => 'दस्ताबेज',
+    'menuItems.documents' => 'संग्रह',
+    'menuItems.pages' => 'पगेस',
+    'menuItems.library' => 'पुस्तकालय',
 
 
     'vision.sub-heading' => 'बारेमा',
@@ -26,6 +28,9 @@ return [
     'mission.sub-heading' => 'बारेमा',
     'mission.heading' => 'हाम्रो मिशन',
 
+    'members.title' => 'जनता अभियानमा लागेका छन्',
+
+    
     'members.title' => 'जनता अभियानमा लागेका छन्',
 
     'volunteer.title' => 'हामी संग जुदनुहोस',
@@ -42,17 +47,29 @@ return [
     'campaign.pre-button' => 'संगै मिलेर एउटा राम्रो देश कसरि बनाउने!',
     'campaign.button' => 'दान गर्नुहोस',
 
-    'event.sub-heading' => 'अभियानहरूमा सामेल हुनुहोस्',
-    'event.heading' => 'आगामी घटनाक्रम',
-
     'about.sub-heading' => 'अभियानहरूमा सामेल हुनुहोस्',
     'about.heading' => 'हामी सँगै इतिहास रच्नेछौं',
 
     'subscribe-mail.pre-button' => "हाम्रो मासिक अपडेट नछुटाउनुहोस्",
     'subscribe-mail.button' => 'सदस्यता लिनुहोस्',
 
-    'blog.sub-heading' => 'नागरिक अपडेटहरू',
-    'blog.heading' => 'ताजा खबर',
+    'event.sub-heading' => 'अभियानहरूमा सामेल हुनुहोस्',
+    'event.heading' => 'आगामी घटनाक्रम',
+
+    'blog.sub-heading' => 'तपाइको आवाज',
+    'blog.heading' => 'हाम्रो ब्लग',
+
+    'blog.details.heading' => 'ब्लग विवरणहरू',
+    'blog.details.sub-heading' => 'ब्लग विवरणहरू',
+    'blog.details.latest' => 'नवीनतम पोस्टहरू',
+    'blog.details.category' => 'बर्गहरु',
+    'blog.details.tag' => 'ट्यागहरू',
+
+    'news.details.sub-heading' => 'नागरिक अपडेटहरू',
+    'news.details.heading' => 'ताजा खबर',
+    'news.details.latest' => 'नवीनतम खबर',
+    'news.details.category' => 'बर्गहरु',
+    'news.details.tag' => 'ट्यागहरू',
 
     'footer.about' => 'हाम्रो बारे',
     'footer.explore' => 'हामीलाई अन्वेषण गर्नुहोस्',
