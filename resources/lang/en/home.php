@@ -16,10 +16,12 @@ return [
     'menuItems.about' => 'About',
     'menuItems.about.about-us' => 'About Us',
     'menuItems.about.our-history' => 'Our History',
+    'menuItems.about.donation' => 'Donation',
     'menuItems.contact' => 'Contact Us',
     'menuItems.documents' => 'Collection',
     'menuItems.pages' => 'Pages',
     'menuItems.library' => 'Library',
+    'menuItems.donation' => 'Donation',
     // 'menuItems.contact' => 'Contact Us',
 
     '' => '',
@@ -48,6 +50,8 @@ return [
 
     'about.sub-heading' => 'Join Campaigns',
     'about.heading' => 'We Will Make History Together',
+
+
 
     'subscribe-mail.pre-button' => 'Donot miss our monthly updates',
     'subscribe-mail.button' => 'Subscribe',

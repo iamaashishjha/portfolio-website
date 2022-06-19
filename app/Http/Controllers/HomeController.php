@@ -48,7 +48,7 @@ class HomeController extends Controller
         $this->data['blogPosts'] = BlogPost::orderBy('created_at', 'DESC')->take(3)->get();
         // $this->data['events'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(3)->get();
         $this->data['newsPosts'] = NewsPost::orderBy('created_at', 'DESC')->take(3)->get();
-        $this->data['footerEvents'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
+        $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
         return view('hr.index', $this->data);
     }
 
@@ -120,9 +120,20 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.about', $this->data);
     }
+
+    public function donationPage()
+    {
+        $this->data['appSetting'] = AppSettings::first();
+        $this->data['companyDetails'] = CompanyDetails::first();
+        $this->data['documents'] = Document::all();
+
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        return view('hr.donation', $this->data);
+    }
+
 
     public function contactPage()
     {
@@ -130,7 +141,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.contact',  $this->data);
     }
 
@@ -174,7 +185,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::paginate(10);
         return view('hr.blog.index', $this->data);
     }
@@ -183,7 +194,7 @@ class HomeController extends Controller
     {
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['documents'] = Document::all();
         $this->data['blog'] = BlogPost::find($id);
         $this->data['blogTags'] = BlogTags::where('status', 1)->get();
@@ -201,7 +212,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::where('category_id', $id)->paginate(10);
 
         return view('hr.blog.index', $this->data);
@@ -211,7 +222,7 @@ class HomeController extends Controller
     // {
     //     $this->data['appSetting'] = AppSettings::first();
     //     $this->data['companyDetails'] = CompanyDetails::first();
-    //     $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+    //     $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
     //     $this->data['blogs'] = BlogPost::where('')->paginate(10);
     //     return view('hr.blogs.index', $this->data);
     // }
@@ -258,7 +269,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::paginate(10);
         return view('hr.news.index', $this->data);
     }
@@ -268,7 +279,7 @@ class HomeController extends Controller
         $this->data['appSetting'] = AppSettings::first();
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::find($id);
         $this->data['newsTags'] = NewsTags::where('status', 1)->get();
         $this->data['newsCategories'] = NewsCategory::where('status', 1)->get();
@@ -282,7 +293,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::where('category_id', $id)->paginate(10);
 
         return view('hr.news.index', $this->data);
@@ -292,7 +303,7 @@ class HomeController extends Controller
     // {
     //     $this->data['appSetting'] = AppSettings::first();
     //     $this->data['companyDetails'] = CompanyDetails::first();
-    //     $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+    //     $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
     //     $this->data['news'] = NewsPost::where('')->paginate(10);
     //     return view('hr.news.index', $this->data);
     // }
@@ -339,7 +350,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
 
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['events'] = Event::paginate(5);
         return view('hr.event.index', $this->data);
     }
@@ -350,7 +361,7 @@ class HomeController extends Controller
         $this->data['documents'] = Document::all();
 
         $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['event'] = Event::find($id);
         return view('hr.event.show', $this->data);
     }
@@ -361,7 +372,7 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['documents'] = Document::all();
         $this->data['libraries'] = Library::paginate(5);
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         return view('hr.library.index', $this->data);
     }
 
@@ -372,7 +383,7 @@ class HomeController extends Controller
         // $this->data['slider'] = Slider::first();
         // $this->data['blogPosts'] = BlogPost::skip(0)->take(3)->get();
         // $this->data['events'] = Event::skip(1)->take(3)->orderBy('id', 'ASC')->get();
-        $this->data['footerEvents'] = Event::skip(1)->take(2)->orderBy('id', 'ASC')->get();
+        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         abort(404);
     }
 }

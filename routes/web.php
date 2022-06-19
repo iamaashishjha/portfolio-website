@@ -54,6 +54,7 @@ Route::prefix('/')
         Route::get('', 'index')->name('index');
         Route::get('/contact', 'contactPage')->name('contact');
         Route::get('/about', 'aboutUsPage')->name('about');
+        Route::get('/donation', 'donationPage')->name('donation');
 
         Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
         Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');

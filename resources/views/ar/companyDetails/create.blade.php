@@ -269,6 +269,55 @@ Unmukti Party' }}
                             </span>
                             @enderror
                         </div>
+                        <div>
+                            <div
+                                class="font-medium mt-3 ml-2  @error('facebook_link') text-theme-6 @enderror  flex items-center">
+                                Facebook Link
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <input type="text"
+                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+                                placeholder="नेपाली मा पुरा नाम लेख्नुहोस |" name="facebook_link" id="facebook_link"
+                                value="{{ isset($companyDetail->facebook_link) ? $companyDetail->facebook_link : old('facebook_link') }}">
+                           
+                        </div>
+                        <div>
+                            <div
+                                class="font-medium mt-3  @error('twitter_link') text-theme-6 @enderror flex items-center">
+                                Twitter Link
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <input type="text"
+                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
+                                placeholder="Write Full Name in English" name="twitter_link" id="twitter_link"
+                                value="{{ isset($companyDetail->twitter_link) ? $companyDetail->twitter_link : old('twitter_link') }}">
+                            
+                           
+                        </div>
+                        <div>
+                            <div
+                                class="font-medium mt-3 ml-2  @error('instagram_link') text-theme-6 @enderror  flex items-center">
+                                Instagram
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <input type="text"
+                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+                                placeholder="नेपाली मा पुरा नाम लेख्नुहोस |" name="instagram_link" id="instagram_link"
+                                value="{{ isset($companyDetail->instagram_link) ? $companyDetail->instagram_link : old('instagram_link') }}">
+                            
+                        </div>
+                        <div>
+                            <div
+                                class="font-medium mt-3  @error('google_map') text-theme-6 @enderror flex items-center">
+                                Google Map Embedded link
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <input type="text"
+                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
+                                placeholder="Write Full Name in English" name="google_map" id="google_map"
+                                value="{{ isset($companyDetail->google_map) ? $companyDetail->google_map : old('google_map') }}">
+                            
+                        </div>
                     </div>
                 </div>
 

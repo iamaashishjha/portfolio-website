@@ -51,6 +51,9 @@ class CreateMasterDataTables extends Migration
             $table->string('total_members')->nullable();
 
             $table->text('google_map')->nullable();
+            $table->text('facebook_link')->nullable();
+            $table->text('twitter_link')->nullable();
+            $table->text('instagram_link')->nullable();
 
             $table->string('start_date_ad')->nullable();
             $table->string('start_date_bs')->nullable();

@@ -12,8 +12,10 @@
 
 @section('content')
 
-{{-- Slider  --}}
+@if (isset($slider))
 @include('hr.partials.slider')
+@endif
+{{-- Slider  --}}
 
 
 <section class="about-four">

@@ -56,6 +56,9 @@ class AdminCompanyDetailsController extends Controller
         $cp->mobile_number = $request->mobile_number;
         $cp->email_address = $request->email_address;
         $cp->company_address = $request->company_address;
+        $cp->facebook_link = $request->facebook_link;
+        $cp->twitter_link = $request->twitter_link;
+        $cp->instagram_link = $request->instagram_link;
         $cp->total_members = $request->total_members;
         $cp->google_map = $request->google_map;
         $cp->about_us = $request->about_us;
@@ -188,6 +191,10 @@ class AdminCompanyDetailsController extends Controller
         $cp->email_address = $request->email_address;
 
         $cp->company_address = $request->company_address;
+
+        $cp->facebook_link = $request->facebook_link;
+        $cp->twitter_link = $request->twitter_link;
+        $cp->instagram_link = $request->instagram_link;
         $cp->total_members = $request->total_members;
         $cp->google_map = $request->google_map;
 

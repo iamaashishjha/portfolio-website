@@ -7,7 +7,7 @@ return [
 
     'menuItems.home' => 'गृह',
     'menuItems.membership' => 'सदस्यता',
-    'menuItems.membership.create' => 'दर्ता गर्नुहोस्',
+    'menuItems.membership.create' => 'सदस्यता बन्नुहोस',
     'menuItems.membership.form' => 'फोर्म',
     'menuItems.posts' => 'पत्रहरु',
     'menuItems.posts.events' => 'घंताक्रम',
@@ -16,10 +16,12 @@ return [
     'menuItems.about' => 'हाम्रो बारेमा',
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
+    'menuItems.about.donation' => 'दाङ गर्नु होस्',
     'menuItems.contact' => 'सम्पर्क',
     'menuItems.documents' => 'संग्रह',
     'menuItems.pages' => 'पगेस',
     'menuItems.library' => 'पुस्तकालय',
+    'menuItems.donation' => 'दान',
 
 
     'vision.sub-heading' => 'बारेमा',
@@ -59,6 +61,9 @@ return [
     'blog.sub-heading' => 'तपाइको आवाज',
     'blog.heading' => 'हाम्रो ब्लग',
 
+    'news.sub-heading' => 'खबरहरू',
+    'news.heading' => 'ताजा खबर',
+
     'blog.details.heading' => 'ब्लग विवरणहरू',
     'blog.details.sub-heading' => 'ब्लग विवरणहरू',
     'blog.details.latest' => 'नवीनतम पोस्टहरू',
@@ -67,6 +72,7 @@ return [
 
     'news.details.sub-heading' => 'नागरिक अपडेटहरू',
     'news.details.heading' => 'ताजा खबर',
+
     'news.details.latest' => 'नवीनतम खबर',
     'news.details.category' => 'बर्गहरु',
     'news.details.tag' => 'ट्यागहरू',

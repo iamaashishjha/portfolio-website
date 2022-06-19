@@ -442,7 +442,7 @@ h6 {
 .header-social {
   display: flex;
   align-items: center; }
-  .header-social a {
+  .header-social i {
     border-style: solid;
     border-width: 1px;
     border-color: #e8ebf2;
@@ -453,11 +453,11 @@ h6 {
     font-size: 12px;
     color: #7c859b;
     transition: all .4s ease; }
-    .header-social a:hover {
+    .header-social i:hover {
       color: #fff;
       background-color: #d41e44;
       border-color: #d41e44; }
-    .header-social a + a {
+    .header-social i + i {
       margin-left: 10px; }
 
 .site-header__header-one {

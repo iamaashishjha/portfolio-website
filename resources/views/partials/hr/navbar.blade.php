@@ -22,18 +22,18 @@ $url = request()->route()->uri;
                 <p> {{ toFormattedNepaliDate(\Carbon\Carbon::now()); }} </p>
                 @endif
             </div>
-
             @include('partials.hr.languageSwitch')
+            <div class="topbar-one__right">
+                {{-- <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a> --}}
+                <div class="header-social text-center">
+                    {!! isset($companyDetails->twitter_link) ? '<a href="'. $companyDetails->twitter_link.' "><i class="fa fa-twitter"></i></a>' : '' !!}
+                    {!! isset($companyDetails->facebook_link) ? '<a href="'. $companyDetails->facebook_link.' "><i class="fa fa-facebook-square"></i></a>' : '' !!}
+                    {!! isset($companyDetails->instagram_link) ? '<a href="'. $companyDetails->instagram_link.' "><i class="fa fa-instagram"></i></a>' : '' !!}
 
-            {{-- <div class="topbar-one__right">
-                <a href="#"><i class="fa fa-money"></i> {{ __('home.header.donate') }}</a>
-                <div class="header-social">
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-facebook-square"></a>
-                    <a href="#" class="fa fa-pinterest-p"></a>
-                    <a href="#" class="fa fa-instagram"></a>
                 </div><!-- /.header-social -->
-            </div><!-- /.topbar-one__right --> --}}
+            </div><!-- /.topbar-one__right -->
+
+            
         </div><!-- /.inner-container -->
     </div><!-- /.container -->
 </div><!-- /.topbar-one -->
@@ -98,6 +98,9 @@ $url = request()->route()->uri;
                             <li><a href="{{ route('home.blogs.index') }}">{{__('home.menuItems.posts.blogs')}}</a></li>
                             <li>
                                 <a href="{{ route('home.library.index') }}">{{__('home.menuItems.library')}}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('home.donation') }}">{{__('home.menuItems.donation')}}</a>
                             </li>
                         </ul><!-- /.sub-menu -->
                     </li>
