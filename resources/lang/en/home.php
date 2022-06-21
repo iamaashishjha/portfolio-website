@@ -26,7 +26,7 @@ return [
 
     '' => '',
 
-    'vision.sub-heading' => 'Potisen Politics',
+    'vision.sub-heading' => 'About Us',
     'vision.heading' => 'Our Vision',
 
     'mission.sub-heading' => 'About Potisen',
