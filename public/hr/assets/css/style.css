@@ -271,7 +271,7 @@ width: 25px;
     padding-right: 90px; }
     @media (min-width: 1200px) {
       .header-navigation .main-navigation {
-        max-width: 80%;
+        /* max-width: 100%; */
         display: block !important; } }
 
 .header-navigation ul.navigation-box {
