@@ -24,7 +24,7 @@
 			<div class="col-xl-8 col-lg-12">
 				<div class="about-four__content">
 					<div class="block-title text-left">
-						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image"
+						<img src="/hr/assets/images/01.png" alt="Awesome Image"
 							class="wow rotateIn" data-wow-duration="1500ms">
 						<p class="block-title__tag-line">{{ __('home.vision.sub-heading') }}</p>
 						<h2 class="block-title__title">{{ __('home.vision.heading') }}</h2>
@@ -41,8 +41,8 @@
 						<div class="about-four__image">
 							<img src="{{ isset($companyDetails->vision_image) ? $companyDetails->vision_image : '/hr/assets/images/resources/about-1-1.jpg' }}" class="img-fluid"
 								alt="Awesome Image"  style="height:432px; width:379px;"/>
-							<img src="/hr/assets/images/resources/sign.png" class="about-four__sign"
-								alt="Awesome Image" />
+							{{-- <img src="/hr/assets/images/resources/sign.png" class="about-four__sign"
+								alt="Awesome Image" /> --}}
 						</div><!-- /.about-four__image -->
 					</div><!-- /.col-md-6 -->
 			</div><!-- /.col-lg-8 -->
@@ -61,7 +61,7 @@
 			<div class="col-lg-6">
 				<div class="about-three__content">
 					<div class="block-title text-left">
-						<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image"
+						<img src="/hr/assets/images/01.png" alt="Awesome Image"
 							class="wow rotateIn" data-wow-duration="1500ms">
 						<p class="block-title__tag-line">{{ __('home.mission.sub-heading') }}</p>
 						<h2 class="block-title__title">{{ __('home.mission.heading') }}</h2><!-- /.block-title__title -->
@@ -77,10 +77,10 @@
 </section><!-- /.about-three -->
 <section class="fact-one">
 	<div class="container text-center">
-		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-1" alt="">
+		<img src="/hr/assets/images/01.png" class="fact-one__star-1" alt="">
 		<h3 class="fact-one__title counter">{{ isset($companyDetails->total_members) ? $companyDetails->total_members : '4,68,980' }}</h3>
 		<p class="fact-one__text">{{ __('home.members.title') }}</p>
-		<img src="/hr/assets/images/resources/decor-star-1-1.png" class="fact-one__star-2" alt="">
+		<img src="/hr/assets/images/01.png" class="fact-one__star-2" alt="">
 	</div><!-- /.container -->
 </section><!-- /.fact-one -->
 <section class="cta-two cta-two__home-one">
@@ -119,7 +119,7 @@
 <section class="campaing-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('home.campaign.sub-heading') }}</p>
 			<h2 class="block-title__title">{{ __('home.campaign.heading') }}</h2><!-- /.block-title__title -->
@@ -165,7 +165,7 @@
 <section class="event-one thm-gray-bg event-one__home-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('home.news.sub-heading') }}</p>
 			<h2 class="block-title__title">{{ __('home.news.heading') }}</h2><!-- /.block-title__title -->
@@ -193,7 +193,7 @@
 <section class="about-two">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('home.about.sub-heading') }}</p>
 			<h2 class="block-title__title">{{ __('home.about.heading') }}</h2><!-- /.block-title__title -->
@@ -282,7 +282,7 @@
 <section class="blog-one blog-one__home-one">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('home.blog.sub-heading') }}</p>
 			<h2 class="block-title__title">{{ __('home.blog.heading') }}</h2><!-- /.block-title__title -->

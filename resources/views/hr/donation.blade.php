@@ -13,7 +13,7 @@
 <section class="thm-gray-bg about-one" style="padding-top: 20px;">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('about.donation.heading') }}</p>
 			<h2 class="block-title__title">{{ __('about.donation.heading') }}</h2><!-- /.block-title__title -->

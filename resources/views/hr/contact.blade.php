@@ -56,7 +56,7 @@
 <section class="contact-form-one">
     <div class="container">
         <div class="block-title text-center">
-            <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+            <img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
                 data-wow-duration="1500ms">
             <p class="block-title__tag-line">{{ __('contact.title') }}</p>
             <h2 class="block-title__title">{{ __('contact.message') }}</h2><!-- /.block-title__title -->

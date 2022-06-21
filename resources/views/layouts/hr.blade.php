@@ -39,7 +39,7 @@
 
 <body>
     <div class="preloader">
-        <img src="/hr/assets/images/loader.png" class="preloader__image" alt="">
+        <img src="/hr/assets/images/01.png" class="preloader__image" alt="">
     </div><!-- /.preloader -->
     @include('sweetalert::alert')
 

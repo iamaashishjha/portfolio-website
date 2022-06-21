@@ -21,7 +21,7 @@
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
         <div class="block-title text-center">
-            <img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
+            <img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn" data-wow-duration="1500ms">
             <p class="block-title__tag-line">{{ __('about.about-one.title') }}</p>
             <h2 class="block-title__title">{{ __('about.about-one.heading') }}</h2><!-- /.block-title__title -->
         </div><!-- /.block-title -->
@@ -42,7 +42,7 @@
 <section class="about-two">
 	<div class="container">
 		<div class="block-title text-center">
-			<img src="/hr/assets/images/resources/sec-title-star.png" alt="Awesome Image" class="wow rotateIn"
+			<img src="/hr/assets/images/01.png" alt="Awesome Image" class="wow rotateIn"
 				data-wow-duration="1500ms">
 			<p class="block-title__tag-line">{{ __('home.about.sub-heading') }}</p>
 			<h2 class="block-title__title">{{ __('home.about.heading') }}</h2><!-- /.block-title__title -->
