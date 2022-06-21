@@ -1868,7 +1868,7 @@ width: 25px;
 .donation-contribute__form {
   position: relative; }
 .donation-contribute__btn {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   right: 0;
   background-color: #fff;
