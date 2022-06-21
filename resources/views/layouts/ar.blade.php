@@ -19,6 +19,9 @@ $user = Auth::user()->name;
     <title>
         @yield('title', ($appSetting->site_title) ? $appSetting->site_title : 'Admin Panel' )
     </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/apple-touch-icon.png' }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-16x16.png' }}">
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
     <link rel="stylesheet" href="/ar/dist/css/custom.css" />

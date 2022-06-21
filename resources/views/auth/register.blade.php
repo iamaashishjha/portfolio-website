@@ -5,7 +5,7 @@
         <!-- BEGIN: Register Info -->
         <div class="hidden xl:flex flex-col min-h-screen">
             <a href="" class="-intro-x flex items-center pt-5">
-                <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
+                <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">
                 <span class="text-white text-lg ml-3"> Aashish<span class="font-medium">Jha</span> </span>
             </a>
             <div class="my-auto">

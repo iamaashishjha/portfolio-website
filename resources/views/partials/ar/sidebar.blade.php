@@ -1,7 +1,7 @@
 <!-- BEGIN: Side Menu -->
 <nav class="side-nav" id="sidebar">
     <a href="/" class="intro-x flex items-center pl-5 pt-4">
-        <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="/ar/dist/images/logo.svg">
+        <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">
         <span class="hidden xl:block text-white text-lg ml-3"> Nagrik Unmukti <span class="font-medium">Party</span>
         </span>
     </a>
