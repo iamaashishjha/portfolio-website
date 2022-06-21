@@ -16,10 +16,10 @@ return [
     'menuItems.about' => 'हाम्रो बारेमा',
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
-    'menuItems.about.donation' => 'दाङ गर्नु होस्',
+    'menuItems.about.donation' => 'दान गर्नुहोस्',
     'menuItems.contact' => 'सम्पर्क',
     'menuItems.documents' => 'संग्रह',
-    'menuItems.pages' => 'पगेस',
+    'menuItems.pages' => 'पृष्ठहरू',
     'menuItems.library' => 'पुस्तकालय',
     'menuItems.donation' => 'दान',
 
