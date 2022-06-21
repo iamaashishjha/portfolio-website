@@ -62,16 +62,6 @@ $url = request()->route()->uri;
                     <li class="{{ ($url === 'about') ? 'current' : '' }}">
                         <a href="{{ route('home.about') }}">{{ __('home.menuItems.about.about-us') }}</a>
                     </li>
-                    <li  class="{{ ($url == 'member') ? 'current' : '' }}"> 
-                        {{-- <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership') }}</a> --}}
-                        <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create') }}</a>
-                        {{-- <ul class="sub-menu">
-                            <li><a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create')
-                                    }}</a></li>
-                            <li><a href="#">{{
-                                    __('home.menuItems.membership.form') }}</a></li>
-                        </ul><!-- /.sub-menu --> --}}
-                    </li>
                     <li class="{{ ($url === 'news') ? 'current' : '' }}">
                         <a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a>
                     </li>
