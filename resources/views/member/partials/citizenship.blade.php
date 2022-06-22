@@ -49,6 +49,7 @@
 					<select data-placeholder="लिङ छान्नुहोस् |" class="select2 w-full" name="gender_id" id="gender_id">
 						<option hidden>Gender (लिङ छान्नुहोस् |)</option>
 						@foreach ($genders as $gender)
+						{{-- {{ dd($gender->id) }} --}}
 						<option value="{{ $gender->id }}" @if (isset($member)) @if ($member->gender->id == $gender->id)
 							selected @endif
 							@endif>

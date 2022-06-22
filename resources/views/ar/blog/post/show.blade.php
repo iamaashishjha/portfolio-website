@@ -33,7 +33,7 @@
 		<a href="" class="intro-x w-8 h-8 sm:w-10 sm:h-10 flex flex-none items-center justify-center rounded-full border border-gray-500 text-gray-600 mr-3 tooltip" title="Bookmark"> <i data-feather="bookmark" class="w-3 h-3"></i> </a>
 		<div class="intro-x flex mr-3">
 			<div class="intro-x w-8 h-8 sm:w-10 sm:h-10 image-fit">
-				<img alt="Midone Tailwind HTML Admin Template" class="rounded-full border border-white zoom-in tooltip" src="/ar/dist/images/preview-15.jpg" title="Robert De Niro " >
+				<img alt="{{ $post->description }}" class="rounded-full border border-white zoom-in tooltip" src="/ar/dist/images/preview-15.jpg" title="{{ $post->createdUser->name }} " >
 			</div>
 			
 		</div>
@@ -52,7 +52,7 @@
 	<div class="intro-y flex text-xs sm:text-sm flex-col sm:flex-row items-center mt-5 pt-5 border-t border-gray-200">
 		<div class="flex items-center">
 			<div class="w-12 h-12 flex-none image-fit">
-				<img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="dist/images/profile-3.jpg">
+				<img alt="" class="rounded-full" src="dist/images/profile-3.jpg">
 			</div>
 			<div class="ml-3 mr-auto">
 				<a href="" class="font-medium">{{ $post->createdUser->name }}</a>, Author 
@@ -81,7 +81,7 @@
 		<div class="pt-5">
 			<div class="flex">
 				<div class="w-10 h-10 sm:w-12 sm:h-12 flex-none image-fit">
-					<img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="dist/images/profile-3.jpg">
+					<img alt="" class="rounded-full" src="dist/images/profile-3.jpg">
 				</div>
 				<div class="ml-3 flex-1">
 					<div class="flex items-center"> <a href="" class="font-medium">Robert De Niro</a> <a href="" class="ml-auto text-xs text-gray-600">Reply</a> </div>
@@ -93,7 +93,7 @@
 		<div class="mt-5 pt-5 border-t border-gray-200">
 			<div class="flex">
 				<div class="w-10 h-10 sm:w-12 sm:h-12 flex-none image-fit">
-					<img alt="Midone Tailwind HTML Admin Template" class="rounded-full" src="dist/images/profile-10.jpg">
+					<img alt="" class="rounded-full" src="dist/images/profile-10.jpg">
 				</div>
 				<div class="ml-3 flex-1">
 					<div class="flex items-center"> <a href="" class="font-medium">Christian Bale</a> <a href="" class="ml-auto text-xs text-gray-600">Reply</a> </div>

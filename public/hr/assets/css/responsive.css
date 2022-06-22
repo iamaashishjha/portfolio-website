@@ -319,6 +319,10 @@
         display: none !important;
     }
 
+    .home-membership-menu-link  {
+        display: block !important;
+    }
+
     .header-navigation .container .menu-toggler {
         float: right !important;
     }
