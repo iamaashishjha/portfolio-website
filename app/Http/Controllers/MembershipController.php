@@ -28,6 +28,8 @@ class MembershipController extends Controller
      */
     public function store(StoreMemberRequest $request)
     {
+        // dd($request);
+        // dd($request->gender_id);
         
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
@@ -76,12 +78,12 @@ class MembershipController extends Controller
         }else{
             $panBack = null;
         }
+
         $member = new Membership();
 
         $member->name_en = $request->name_en;
         $member->name_lc = $request->name_lc;
         $member->gender_id = $request->gender_id;
-
         $member->birth_date_ad = $request->birth_date_ad;
         $member->birth_date_bs = $request->birth_date_bs;
         $member->citizen_province_id = $request->citizen_province_id;
@@ -164,7 +166,7 @@ class MembershipController extends Controller
         $member->pan_back = $panBack;
 
         $member->save();
-        Alert::toast('New Member Created Successfully', 'success');
-        return redirect()->route('/');
+        Alert::success('Membership form submitted successfully. We will get back to you soon');
+        return redirect('/');
     }
 }

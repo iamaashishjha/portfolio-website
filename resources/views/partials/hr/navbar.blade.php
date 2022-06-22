@@ -65,7 +65,9 @@ $url = request()->route()->uri;
                     <li class="{{ ($url === 'news') ? 'current' : '' }}">
                         <a href="{{ route('home.news.index') }}">{{__('home.menuItems.posts.news')}}</a>
                     </li>
-                    
+                    <li class="{{ ($url === 'member') ? 'current' : '' }} home-membership-menu-link">
+                        <a href="{{ route('home.member.create') }}">{{ __('home.menuItems.membership.create') }}</a>
+                    </li>
                     <li class="{{ (($url === 'document') || ($url === 'library')) ? 'current' : '' }}">
                         <a href="javascript:;">{{ __('home.menuItems.documents') }}</a>
                         @if (count($documents))

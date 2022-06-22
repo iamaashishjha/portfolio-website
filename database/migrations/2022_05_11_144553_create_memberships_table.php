@@ -110,9 +110,9 @@ class CreateMembershipsTable extends Migration
             $table->string('pan_back')->nullable();
 
             //general
-            $table->boolean('is_verified');
+            $table->boolean('is_verified')->nullable()->default(true);
 
-            $table->boolean('verification_code');
+            $table->bigInteger('verification_code')->nullable()->default(1);
 
             $table->foreignId('created_by')
                 ->nullable()
