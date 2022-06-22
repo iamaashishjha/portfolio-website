@@ -42,7 +42,7 @@
             <div class="intro-y box mt-5">
                 <div class="relative flex items-center p-5">
                     <div class="w-12 h-12 image-fit">
-                        <img alt="Midone Tailwind HTML Admin Template" class="rounded-full"
+                        <img alt="" class="rounded-full"
                             src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64() }}">
                     </div>
                     <div class="ml-4 mr-auto">
@@ -110,7 +110,7 @@
                         <div class="col-span-12 xl:col-span-4">
                             <div class="border border-gray-200 rounded-md p-5">
                                 <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                                    <img class="rounded-md" alt="Midone Tailwind HTML Admin Template"
+                                    <img class="rounded-md" alt=""
                                         src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64() }}"
                                         id="profile_image_display">
                                 </div>

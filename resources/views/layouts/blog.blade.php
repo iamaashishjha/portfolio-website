@@ -6,10 +6,10 @@
     <!--===== Meta Tag =====-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Runaway - Personal Portfolio HTML Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="business, agency, blog, cv, creative, html, one page, personal, portfolio, resume, responsive, bootstrap, photography, designer, developer">
-    <meta name="author" content="root">
+    <meta name="description" content="{{  }}">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
     <!--	Css Links
     ==================================================-->

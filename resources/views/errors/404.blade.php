@@ -36,7 +36,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN: Error Page -->
             <div class="error-page flex flex-col lg:flex-row items-center justify-center h-screen text-center lg:text-left">
                 <div class="-intro-x lg:mr-20">
-                    <img alt="Midone Tailwind HTML Admin Template" class="h-48 lg:h-auto" src="/ar/dist/images/error-illustration.svg">
+                    <img alt="" class="h-48 lg:h-auto" src="/ar/dist/images/error-illustration.svg">
                 </div>
                 <div class="text-white mt-10 lg:mt-0">
                     <div class="intro-x text-6xl font-medium">404</div>
