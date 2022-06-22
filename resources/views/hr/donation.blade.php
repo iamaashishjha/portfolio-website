@@ -3,7 +3,7 @@
 @section('content')
 <section class="inner-banner">
 	<div class="container">
-		<h2 class="inner-banner__title">{{ __('about.title') }}</h2><!-- /.inner-banner__title -->
+		<h2 class="inner-banner__title">{{ __('about.donation.heading') }}</h2><!-- /.inner-banner__title -->
 		<ul class="list-unstyled thm-breadcrumb">
 			<li><a href="/">{{ __('home.menuItems.home') }}</a></li>
 			<li>{{ __('home.menuItems.about.donation') }}</li>
