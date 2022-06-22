@@ -35,7 +35,7 @@ class AppsettingSeeder extends Seeder
     {
         DB::table('provinces')->insert([
             array('id' => 1, 'code' => '1', 'name_en' => 'State 1', 'name_lc' => 'प्रदेश १'),
-            array('id' => 2, 'code' => '2', 'name_en' => 'State 2', 'name_lc' => 'प्रदेश २'),
+            array('id' => 2, 'code' => '2', 'name_en' => 'Madhesh Pradesh', 'name_lc' => 'मधेश प्रदेश'),
             array('id' => 3, 'code' => '3', 'name_en' => 'Bagmati', 'name_lc' => 'बागमती'),
             array('id' => 4, 'code' => '4', 'name_en' => 'Gandaki', 'name_lc' => 'गण्डकी'),
             array('id' => 5, 'code' => '5', 'name_en' => 'Lumbini', 'name_lc' => 'लुम्बिनी'),
@@ -288,7 +288,7 @@ class AppsettingSeeder extends Seeder
             array('id' => 145, 'code' => '20108', 'name_en' => 'Balan-Bihul Rural Municipality', 'name_lc' => 'बलान बिहुल गाउँपालिका', 'district_id' => 15, 'level_type_id' => 1),
             array('id' => 146, 'code' => '20109', 'name_en' => 'BodeBarsain Municipality', 'name_lc' => 'बोदेबरसाईन नगरपालिका', 'district_id' => 15, 'level_type_id' => 2),
             array('id' => 147, 'code' => '20110', 'name_en' => 'Dakneshwori Municipality', 'name_lc' => 'डाक्नेश्वरी नगरपालिका', 'district_id' => 15, 'level_type_id' => 2),
-            array('id' => 148, 'code' => '20111', 'name_en' => 'Belhi Chapena Rural Municipality', 'name_lc' => 'बेल्ही चपेना गाउँपालिका', 'district_id' => 15, 'level_type_id' => 1),
+            array('id' => 148, 'code' => '20111', 'name_en' => 'Rajgadh Rural Municipality', 'name_lc' => 'राजगढ गाउँपालिका', 'district_id' => 15, 'level_type_id' => 1),
             array('id' => 149, 'code' => '20112', 'name_en' => 'Bishnupur Rural Municipality', 'name_lc' => 'बिष्णुपुर गाउँपालिका', 'district_id' => 15, 'level_type_id' => 1),
             array('id' => 150, 'code' => '20113', 'name_en' => 'Rajbiraj Municipality', 'name_lc' => 'राजविराज नगरपालिका', 'district_id' => 15, 'level_type_id' => 2),
             array('id' => 151, 'code' => '20114', 'name_en' => 'Mahadewa Rural Municipality', 'name_lc' => 'महादेवा गाउँपालिका', 'district_id' => 15, 'level_type_id' => 1),
