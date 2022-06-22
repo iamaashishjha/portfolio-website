@@ -10,7 +10,7 @@ return [
     'menuItems.membership.create' => 'सदस्यता बन्नुहोस',
     'menuItems.membership.form' => 'फोर्म',
     'menuItems.posts' => 'पत्रहरु',
-    'menuItems.posts.events' => 'घंताक्रम',
+    'menuItems.posts.events' => 'कार्यक्रम',
     'menuItems.posts.news' => 'समाचार',
     'menuItems.posts.blogs' => 'ब्लग',
     'menuItems.about' => 'हाम्रो बारेमा',
