@@ -35,7 +35,7 @@ public function build()
                 ->view('email.verifyMember')
                 ->with([
                     'memberName' => $this->member->name_en,
-                    'approvedBy' => $this->approveUser->name,
+                    'approvedBy' => $this->member->approveUser->name,
                 ]);
 }
 }
