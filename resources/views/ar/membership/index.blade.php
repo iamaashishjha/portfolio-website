@@ -35,10 +35,9 @@ All Members
             <tr>
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Name</th>
-                <th class="border-b-2 text-center  whitespace-no-wrap">Email</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Phone</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Cast</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Profession</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Veriied</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Verified By</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
         </thead>
@@ -53,11 +52,7 @@ All Members
                                 {{ $member->name_en }}
                             </div>
                         </td>
-                        <td class="border-b text-center">
-                            <div class="font-medium whitespace-no-wrap">
-                                {{ $member->email }}
-                            </div>
-                        </td>
+                        
                         <td class="border-b text-center">
                             <div class="font-medium whitespace-no-wrap">
                                 {{ $member->phone_number }}
@@ -65,22 +60,28 @@ All Members
                         </td>
                         <td class="border-b text-center">
                             <div class="font-medium whitespace-no-wrap">
-                                {{ $member->cast }}
+                                {!!  $member->status  !!}
                             </div>
                         </td>
                         <td class="text-center border-b">
                             <div class="font-medium whitespace-no-wrap">
-                                {{ $member->profession }}
+                                {{ isset($member->approveUser->name) ? $member->approveUser->name : '-' }}
                             </div>
                         </td>
-
                         <td class="border-b w-5">
                             <div class="flex sm:justify-center items-center">
+                                @if ($member->is_verified == true)
+                                <a class="flex items-center text-theme-9 mr-2" href="javascript:;"> <i data-feather="check-circle"
+                                        class="w-4 h-4 mr-1"></i>
+                                    Approved
+                                </a>
+                                @else
                                 <a class="flex items-center text-theme-9 mr-2" href="javascript:;" data-toggle="modal"
                                     data-target="#approve-modal-preview-{{ $member->id }}"> <i data-feather="check-circle"
                                         class="w-4 h-4 mr-1"></i>
                                     Approve
                                 </a>
+                                @endif
                                 <a class="flex items-center mr-3 text-theme-3 mr-2" href="javascript:;" data-toggle="modal"
                                     data-target="#view-modal-preview-{{ $member->id }}">
                                     <i data-feather="eye" class="w-4 h-4 mr-1"></i>

@@ -62,6 +62,18 @@ class Membership extends Model
 
     protected $guarded = ['id'];
 
+    public function getStatusAttribute()
+    {
+        $status = $this->attributes['is_verified'];
+        if ($status == 0) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-6' . '"> <i class="w-4 h-4 mr-2 fa fa-times' . '"></i> </div>';
+        } elseif ($status == 1) {
+            return '<div class=' . '"flex items-center sm:justify-center text-theme-9' . '"> <i class="w-4 h-4 mr-2 fa fa-check' . '"></i> </div>';
+        } else {
+            return 'NULL';
+        }
+    }
+
     public function getDocOwnImageAttribute()
     {
         $image = $this->own_image;
@@ -206,6 +218,11 @@ class Membership extends Model
     public function gender()
     {
         return $this->belongsTo(Gender::class, 'gender_id', 'id');
+    }
+
+    public function approveUser()
+    {
+        return $this->belongsTo(User::class, 'approved_by', 'id');
     }
 
     public function deleteImage()
