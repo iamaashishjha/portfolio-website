@@ -107,9 +107,9 @@ All Members
                                 <div class="text-gray-600 mt-2">Do you really want to Approve this member?</div>
                             </div>
                             <div class="px-5 pb-8 text-center">
-                                <form action="{{ route('admin.member.destroy', $member->id) }}" method="POST">
+                                <form action="{{ route('admin.member.approve', $member->id) }}" method="POST">
                                     @csrf
-                                    @method('DELETE')
+                                    {{-- @method('DELETE') --}}
                                     <button type="button" data-dismiss="modal"
                                         class="button w-24 border text-gray-700 mr-1">Cancel</button>
                                     <button type="submit" class="button w-24 bg-theme-9 text-white">Approve</button>
@@ -117,6 +117,9 @@ All Members
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="modal" id="view-modal-preview-{{ $member->id }}">
                         <div class="modal__content modal__content--xl">
                             <!-- BEGIN: Boxed Accordion -->
@@ -127,7 +130,6 @@ All Members
                                             <div class="accordion">
                                                 {{-- citizenship --}}
                                                 <div class="accordion__pane active border border-gray-200 p-4">
-
                                                     <a href="javascript:;"
                                                         class="text-4xl accordion__pane__toggle font-medium block text-center">
                                                         Citizenship
@@ -143,12 +145,12 @@ All Members
                                                             <p>Citizenship Issued Province :
                                                                 {{ $member->citizenProvince->name }}</p>
                                                             <p>Citizenship Issued District :
-                                                                {{ $member->citizenProvince->name }}</p>
+                                                                {{ $member->citizenDistrict->name }}</p>
                                                         </div>
                                                         <div class="grid grid-cols-3 gap-4">
                                                             <p>Gender : {{ $member->gender->name_en }}</p>
-                                                            <p>DOB (AD) : {{ $member->gender->birth_date_ad }}</p>
-                                                            <p>DOB (BS) : {{ $member->gender->birth_date_bs }}</p>
+                                                            <p>DOB (AD) : {{ $member->birth_date_ad }}</p>
+                                                            <p>DOB (BS) : {{ $member->birth_date_bs }}</p>
                                                             <p>Citizenship Number : {{ $member->citizenship_number }}
                                                             </p>
                                                             <p>Passport Number :
@@ -165,13 +167,13 @@ All Members
                                                         </h1>
                                                         <hr class="mt-2 mb-2">
                                                         <div class="grid grid-cols-2 gap-4">
-                                                            <p>Province (प्रदेश) : {{ $member->name_en }}</p>
-                                                            <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                            <p>Local Level (स्थानइय तह) : {{ $member->name_lc }}</p>
-                                                            <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->name_lc }}
+                                                            <p>Province (प्रदेश) : {{ $member->permProvince->name }}</p>
+                                                            <p>District (जिल्ला) : {{ $member->permDistrict->name }}</p>
+                                                            <p>Local Level (स्थानइय तह) : {{ $member->permLocalLevel->name }}</p>
+                                                            <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->permLocalLevelType->name }}
                                                             </p>
-                                                            <p>Ward Number (वार्ड नम्बर) : {{ $member->name_lc }}</p>
-                                                            <p>Tole (टोल) : {{ $member->name_lc }}</p>
+                                                            <p>Ward Number (वार्ड नम्बर) : {{ $member->perm_ward_number }}</p>
+                                                            <p>Tole (टोल) : {{ $member->perm_tole }}</p>
                                                         </div>
                                                         <<hr class="mt-2 mb-2">
                                                             <h1
@@ -180,13 +182,13 @@ All Members
                                                             </h1>
                                                             <hr class="mt-2 mb-2">
                                                             <div class="grid grid-cols-2 gap-4">
-                                                                <p>Province (प्रदेश) : {{ $member->name_en }}</p>
-                                                                <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                                <p>Local Level (स्थानइय तह) : {{ $member->name_lc }}</p>
-                                                                <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->name_lc
+                                                                <p>Province (प्रदेश) : {{ $member->tempProvince->name }}</p>
+                                                                <p>District (जिल्ला) : {{ $member->tempDistrict->name }}</p>
+                                                                <p>Local Level (स्थानइय तह) : {{ $member->tempLocalLevel->name }}</p>
+                                                                <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->tempLocalLevelType->name
                                                                     }}</p>
-                                                                <p>Ward Number (वार्ड नम्बर) : {{ $member->name_lc }}</p>
-                                                                <p>Tole (टोल) : {{ $member->name_lc }}</p>
+                                                                <p>Ward Number (वार्ड नम्बर) : {{ $member->temp_ward_number }}</p>
+                                                                <p>Tole (टोल) : {{ $member->temp_tole }}</p>
                                                             </div>
                                                     </div>
                                                 </div>
@@ -205,75 +207,16 @@ All Members
                                                         </h5>
                                                         <hr class="mt-2 mb-2">
                                                         <div class="grid grid-cols-2 gap-4">
-                                                            <p>Email : {{ $member->name_en }}</p>
-                                                            <p>Phone Number : {{ $member->name_lc }}</p>
-                                                            <p>Mobile Number : {{ $member->name_lc }}</p>
-                                                            <p>Cast (जाति) : {{ $member->name_lc }}</p>
+                                                            <p>Email : {{ $member->email }}</p>
+                                                            <p>Phone Number : {{ $member->phone_number }}</p>
+                                                            <p>Mobile Number : {{ $member->mobile_number }}</p>
+                                                            {{-- <p>Cast (जाति) : {{ $member->name_lc }}</p>
                                                             <p>वर्ग : {{ $member->name_lc }}</p>
-                                                            <p>वर्ग स्रोत : {{ $member->name_lc }}</p>
+                                                            <p>वर्ग स्रोत : {{ $member->name_lc }}</p> --}}
                                                             <p>Education Qualification (शैक्षिक् योग्यता) : {{
-                                                                $member->name_lc}}</p>
-                                                            <p>Blood Group (रक्त समूह ) : {{ $member->name_lc }}</p>
-                                                            <p>Other Identity (अन्य पहिचान) : {{ $member->name_lc }}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {{-- property --}}
-                                                <div class="accordion__pane border border-gray-200 p-4">
-
-                                                    <a href="javascript:;"
-                                                        class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                        Income / Property
-                                                    </a>
-                                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                        <h5
-                                                            class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                            Income Details (आय विवरण |)
-                                                        </h5>
-                                                        <hr class="mt-2 mb-2">
-                                                        <div class="grid grid-cols-2 gap-4">
-                                                            <p>Profession : {{ $member->name_en }}</p>
-                                                            <p>Source of Income : {{ $member->name_lc }}</p>
-                                                        </div>
-
-
-                                                        <hr class="mt-2 mb-2">
-
-                                                        <h5
-                                                            class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                            Property Details (सम्पति बिबरण |)
-                                                        </h5>
-                                                        <hr class="mt-2 mb-2">
-
-                                                        <div class="grid grid-cols-2 gap-4">
-                                                            <p>Property in Cash (नगद सम्पत्ति) : {{ $member->name_en }}</p>
-                                                            <p>Fixed Property (अचल सम्पति) : {{ $member->name_lc }}</p>
-                                                            <p>Property in Share (सेयर सम्पत्ति) : {{ $member->name_lc }}</p>
-                                                            <p>Other Property (अन्य सम्पत्ति) : {{ $member->name_lc }}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {{-- political --}}
-                                                <div class="accordion__pane border border-gray-200 p-4">
-                                                    <a href="javascript:;"
-                                                        class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                        Political
-                                                    </a>
-                                                    <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                        <h5
-                                                            class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                            Political Details (राजनैतिक विवरण |)
-                                                        </h5>
-                                                        <hr class="mt-2 mb-2">
-                                                        <div class="grid grid-cols-2 gap-4">
-                                                            <p>Haisiyat : {{ $member->name_en }}</p>
-                                                            <p>Committee Name : {{ $member->name_lc }}</p>
-                                                            <p>मासिक लेवी दर : {{ $member->name_lc }}</p>
-                                                            <p>संगठनको सदस्यता प्राप्त मिति(AD) : {{ $member->name_lc }}</p>
-                                                            <p>संगठनको सदस्यता प्राप्त मिति(बि.सं.) : {{ $member->name_lc }}</p>
-                                                            <p>Party Location : {{ $member->name_lc }}</p>
+                                                                $member->education_qualification}}</p>
+                                                            <p>Blood Group (रक्त समूह ) : {{ $member->blood_group }}</p>
+                                                            <p>Other Identity (अन्य पहिचान) : {{ $member->other_identity }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -295,7 +238,12 @@ All Members
                                                             <div class="p-5" id="fade-animation-slider">
                                                                 <div class="preview">
                                                                     <div class="slider mx-6 fade-mode">
-                                                                        @foreach ($member->getDocs() as $file)
+                                                                        @php
+                                                                            $files = $member->getDocs();
+                                                                        @endphp
+                                                                        @foreach ($files as $file)
+                                                                        {{-- {{ dd($file['name'], $file['file']) }} --}}
+                                                                        {{-- {{ $member->getDocs() }} --}}
                                                                         <div class="h-64 px-2">
                                                                             <div
                                                                                 class="h-full image-fit rounded-md overflow-hidden">

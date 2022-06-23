@@ -156,6 +156,7 @@ Route::middleware(['auth', 'admin'])
         });
 
         Route::resource('/member', AdminMembershipController::class);
+        Route::post('/member/{id}', [AdminMembershipController::class, 'approveMember'])->name('member.approve');
         Route::resource('/event', AdminEventController::class);
         Route::resource('/document', AdminDocumentController::class);
         Route::resource('/library', AdminLibraryController::class);

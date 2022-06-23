@@ -463,4 +463,14 @@ class AdminMembershipController extends Controller
         Alert::toast('Member Deleted Successfully', 'success');
         return redirect()->back();
     }
+
+
+    public function approveMember($id)
+    {
+        $member = Membership::find($id);
+        $member->is_verified = true;
+        $member->save();
+        Alert::success('Member Approved');
+        return redirect()->back();
+    }
 }
