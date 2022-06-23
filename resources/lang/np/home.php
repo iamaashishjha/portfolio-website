@@ -3,25 +3,25 @@
 return [
 
     'header.donate' => 'अब दान गर्नुहोस्',
-    'header.join' => 'हामीसँग सामेल हुनुहोस्',
+    'header.join' => 'सदस्यता',
 
     'menuItems.home' => 'गृह',
     'menuItems.membership' => 'सदस्यता',
-    'menuItems.membership.create' => 'सदस्यता बन्नुहोस',
+    'menuItems.membership.create' => 'सदस्यता',
     'menuItems.membership.form' => 'फोर्म',
     'menuItems.posts' => 'पत्रहरु',
-    'menuItems.posts.events' => 'घंताक्रम',
+    'menuItems.posts.events' => 'कार्यक्रम',
     'menuItems.posts.news' => 'समाचार',
     'menuItems.posts.blogs' => 'ब्लग',
     'menuItems.about' => 'हाम्रो बारेमा',
     'menuItems.about.about-us' => 'हाम्रो बारेमा',
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
-    'menuItems.about.donation' => 'दान गर्नुहोस्',
+    'menuItems.about.donation' => 'आर्थिक सहायता',
     'menuItems.contact' => 'सम्पर्क',
     'menuItems.documents' => 'संग्रह',
     'menuItems.pages' => 'पृष्ठहरू',
     'menuItems.library' => 'पुस्तकालय',
-    'menuItems.donation' => 'दान',
+    'menuItems.donation' => 'आर्थिक सहायता',
 
 
     'vision.sub-heading' => 'बारेमा',
