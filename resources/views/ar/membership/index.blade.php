@@ -121,6 +121,7 @@ All Members
 
 
 
+
                     <div class="modal" id="view-modal-preview-{{ $member->id }}">
                         <div class="modal__content modal__content--xl">
                             <!-- BEGIN: Boxed Accordion -->
@@ -130,7 +131,8 @@ All Members
                                         <div class="preview">
                                             <div class="accordion">
                                                 {{-- citizenship --}}
-                                                <div class="accordion__pane active border border-gray-200 p-4">
+                                                {{-- <div class="accordion__pane active border border-gray-200 p-4"> --}}
+
                                                     <a href="javascript:;"
                                                         class="text-4xl accordion__pane__toggle font-medium block text-center">
                                                         Citizenship
@@ -192,10 +194,11 @@ All Members
                                                                 <p>Tole (टोल) : {{ $member->temp_tole }}</p>
                                                             </div>
                                                     </div>
-                                                </div>
+
+                                                {{-- </div> --}}
 
                                                 {{-- personal --}}
-                                                <div class="accordion__pane border border-gray-200 p-4">
+                                                {{-- <div class="accordion__pane border border-gray-200 p-4"> --}}
 
                                                     <a href="javascript:;"
                                                         class="text-4xl accordion__pane__toggle font-medium block text-center">
@@ -220,10 +223,11 @@ All Members
                                                             <p>Other Identity (अन्य पहिचान) : {{ $member->other_identity }}</p>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                {{-- </div> --}}
 
                                                 {{-- documents --}}
-                                                <div class="accordion__pane border border-gray-200 p-4">
+                                                {{-- <div class="accordion__pane border border-gray-200 p-4"> --}}
 
                                                     <a href="javascript:;"
                                                         class="text-4xl accordion__pane__toggle font-medium block text-center">
@@ -258,7 +262,8 @@ All Members
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                {{-- </div> --}}
                                             </div>
                                         </div>
 
@@ -268,6 +273,10 @@ All Members
                             <!-- END: Boxed Accordion -->
                         </div>
                     </div>
+
+
+
+
                     <div class="modal" id="delete-modal-preview-{{ $member->id }}">
                         <div class="modal__content">
                             <div class="p-5 text-center"> <i data-feather="x-circle"
