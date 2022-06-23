@@ -47,6 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END: Head -->
 
 <body class="app">
+    @include('partials.message')
     <div class="flex">
         <!-- BEGIN: Content -->
         <div class="content">
