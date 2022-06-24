@@ -50,9 +50,8 @@
                                 <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="title" name="title"
-                                class="{{ isset($event) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('title') border-theme-6 @enderror"
-                                placeholder="Enter Name" value="{{ isset($event) ? $event->title : old('title') }}" {{
-                                isset($event) ? 'readonly' : '' }}>
+                                class="input w-full border mt-2 @error('title') border-theme-6 @enderror"
+                                placeholder="Enter Name" value="{{ isset($event) ? $event->title : old('title') }}">
 
                         </div>
                         <div class="mt-5">
@@ -73,9 +72,8 @@
                                 <span class=" ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
                             <input type="text" id="venue" name="venue"
-                                class="{{ isset($event) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('venue') border-theme-6 @enderror"
-                                placeholder="Enter Name" value="{{ isset($event) ? $event->venue : old('venue') }}" {{
-                                isset($event) ? 'readonly' : '' }}>
+                                class="input w-full border mt-2 @error('venue') border-theme-6 @enderror"
+                                placeholder="Enter Name" value="{{ isset($event) ? $event->venue : old('venue') }}">
 
                         </div>
                         <div class="mt-5">
@@ -134,31 +132,29 @@
                         <div class="mt-5">
                             <label>Event Slug</label>
                             <input type="text" id="slug" name="slug"
-                                class="input w-full border mt-2 cursor-not-allowed  bg-gray-100"
-                                placeholder="Enter Slug" value="{{ isset($event) ? $event->slug : old('slug') }}"
-                                readonly>
+                                class="input w-full border mt-2"
+                                placeholder="Enter Slug" value="{{ isset($event) ? $event->slug : old('slug') }}">
                         </div>
                         <div class="mt-5">
                             <label>Event Meta Description</label>
                             <input type="text" id="meta_description" name="meta_description"
-                                class="input w-full border mt-2 cursor-not-allowed bg-gray-100"
+                                class="input w-full border mt-2"
                                 placeholder="Enter Meta Description"
-                                value="{{ isset($event) ? $event->meta_description : old('meta_description') }}"
-                                readonly>
+                                value="{{ isset($event) ? $event->meta_description : old('meta_description') }}">
                         </div>
                         <div class="mt-3">
                             <label>Event Keywords</label>
                             <input type="text" id="keywords" name="keywords"
-                                class="input w-full border mt-2 cursor-not-allowed bg-gray-100"
+                                class="input w-full border mt-2"
                                 placeholder="Enter Keywords"
-                                value="{{ isset($event) ? $event->keywords : old('keywords') }}" readonly>
+                                value="{{ isset($event) ? $event->keywords : old('keywords') }}" >
                         </div>
                         <div class="mt-5">
                             <label>Event Meta Title</label>
                             <input type="text" id="meta_title" name="meta_title"
-                                class=" cursor-not-allowed input w-full border mt-2 bg-gray-100"
+                                class=" input w-full border mt-2"
                                 placeholder="Enter Meta Title"
-                                value="{{ isset($event) ? $event->meta_title : old('meta_title') }}" readonly>
+                                value="{{ isset($event) ? $event->meta_title : old('meta_title') }}" >
                         </div>
                         <div class="mt-6 text-center">
                             <button type="submit"

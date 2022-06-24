@@ -48,8 +48,7 @@
                                 Category Title
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
-                            <input type="text" id="title" name="title" class="{{ isset($category) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('title') border-theme-6 @enderror" placeholder="Enter Name" value="{{ isset($category) ? $category->title : old('title') }}" {{ isset($category) ? 'readonly' : '' }}>
-
+                            <input type="text" id="title" name="title" class=" input w-full border mt-2 @error('title') border-theme-6 @enderror" placeholder="Enter Name" value="{{ isset($category) ? $category->title : old('title') }}" >
                         </div>
                         <div class="mt-3">
                             <h5 class="text-lg ext-theme-9 @error('description') text-theme-6 @enderror font-medium leading-none">
@@ -83,19 +82,19 @@
                         </div>
                         <div class="mt-3">
                             <label>Category Slug</label>
-                            <input type="text" id="slug" name="slug" class="input w-full border mt-2 cursor-not-allowed  bg-gray-100" placeholder="Enter Slug" value="{{ isset($category) ? $category->slug : old('slug') }}" readonly>
+                            <input type="text" id="slug" name="slug" class="input w-full border mt-2" placeholder="Enter Slug" value="{{ isset($category) ? $category->slug : old('slug') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Meta Description</label>
-                            <input type="text" id="meta_description" name="meta_description" class="input w-full border mt-2 cursor-not-allowed bg-gray-100" placeholder="Enter Meta Description" value="{{ isset($category) ? $category->meta_description : old('meta_description') }}" readonly>
+                            <input type="text" id="meta_description" name="meta_description" class="input w-full border mt-2  " placeholder="Enter Meta Description" value="{{ isset($category) ? $category->meta_description : old('meta_description') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Keywords</label>
-                            <input type="text" id="keywords" name="keywords" class="input w-full border mt-2 cursor-not-allowed bg-gray-100" placeholder="Enter Keywords" value="{{ isset($category) ? $category->keywords : old('keywords') }}" readonly>
+                            <input type="text" id="keywords" name="keywords" class="input w-full border mt-2" placeholder="Enter Keywords" value="{{ isset($category) ? $category->keywords : old('keywords') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Meta Title</label>
-                            <input type="text" id="meta_title" name="meta_title" class=" cursor-not-allowed input w-full border mt-2 bg-gray-100" placeholder="Enter Meta Title" value="{{ isset($category) ? $category->meta_title : old('meta_title') }}" readonly>
+                            <input type="text" id="meta_title" name="meta_title" class="  input w-full border mt-2 " placeholder="Enter Meta Title" value="{{ isset($category) ? $category->meta_title : old('meta_title') }}">
                         </div>
                         <div class="mt-6 text-center">
                             <button type="submit" class="button w-50 mr-1 mb-2 {{ isset($category) ? 'bg-theme-3 text-white' : 'bg-theme-9 text-white' }}">{{ isset($category) ? 'Update Category' : 'Create New Category' }}</button>

@@ -87,7 +87,7 @@
 						<div class="accrodion-content">
 							<div class="inner">
 								<p>
-									{!! isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' !!}It has survived not only five centuries but also the leap into electronic type
+									{!! isset($companyDetails->home_about_accordion_content_2) ? $companyDetails->home_about_accordion_content_2 : '' !!}
 								</p>
 							</div><!-- /.inner -->
 						</div>
@@ -99,7 +99,7 @@
 						<div class="accrodion-content">
 							<div class="inner">
 								<p>
-									{!! isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' !!}It has survived not only five centuries but also the leap into electronic type
+									{!! isset($companyDetails->home_about_accordion_content_3) ? $companyDetails->home_about_accordion_content_3 : '' !!}
 								</p>
 							</div><!-- /.inner -->
 						</div>
