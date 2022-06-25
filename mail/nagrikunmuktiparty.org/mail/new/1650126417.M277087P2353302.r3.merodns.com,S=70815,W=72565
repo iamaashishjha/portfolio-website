@@ -1,0 +1,1750 @@
+Return-Path: <AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id aWt5D1HuWmKW6CMAaZRYGA
+	(envelope-from <AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com>)
+	for <mail@nagrikunmuktiparty.org>; Sat, 16 Apr 2022 22:11:57 +0545
+Return-path: <AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Sat, 16 Apr 2022 22:11:57 +0545
+Received: from bbm23.send.creativ.email ([205.207.106.23]:22961)
+	by r3.merodns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com>)
+	id 1nffsK-009s2j-RP
+	for mail@nagrikunmuktiparty.org; Sat, 16 Apr 2022 22:11:57 +0545
+Received: from [10.252.0.92] ([10.252.0.92:46284] helo=p2-jbemailsyndicator14.ctct.net)
+	by 10.249.232.29 (envelope-from <AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com>)
+	(ecelerity 4.3.1.999 r(:)) with ESMTP
+	id A3/DF-56401-42EEA526; Sat, 16 Apr 2022 12:26:12 -0400
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=9ZKtaaTpuhnOgySLmbHGQbpCkWiNyfe4oh9CUiDpOEQ=; b=iQxWTWXF6/zVW5P3bkFTDDX41R8q7YW8qPHaoOkZZO612RSnqCeeT4H8HKXkDm7KIgFEft81OzU4resrJOqh3Qs3vubJ7z7alHjf/zQ2z+vYtWEP1fUkXsj4hfV/wMqhUOXV+r3CEC8Co1ta4ebU7BkmyOhYPRfVlrXb8w62jVQ=
+Message-ID: <1135267420333.1134800310784.-1.0.641226JL.3050@scheduler.constantcontact.com>
+Date: Sat, 16 Apr 2022 12:26:12 -0400 (EDT)
+From: Curt from Creative Mail <curt@creativemail.com>
+Reply-To: curt@creativemail.com
+To: mail@nagrikunmuktiparty.org
+Subject: Build your Audience with Creative Mail
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1994825621_802964178.1650126372839"
+List-Unsubscribe: <https://visitor.em.creativ.email/do?p=un&m=001fQbo0nhESBo77rYQLC2AsQ%3D%3D&se=001TAeZDpsMR68%3D&t=001EkZLEx15CcE%3D&llr=aqe6v8abb>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: 56696261-5246-4a76-b7b8-ca50d22ad60d
+X-250ok-CID: 56696261-5246-4a76-b7b8-ca50d22ad60d
+X-Channel-ID: 903b9e68-bc0f-11ec-939d-fa163ea818de
+X-Return-Path-Hint: AVmliYVJGSna3uMpQ0irWDQ==_1134800310784_kDueaLwPEeyTnfoWPqgY3g==@in.constantcontact.com
+X-Roving-Campaignid: 1135267420333
+X-Roving-Id: 1134800310784.-1
+X-Feedback-ID: 903b9e68-bc0f-11ec-939d-fa163ea818de:56696261-5246-4a76-b7b8-ca50d22ad60d:1134800310784:CTCT
+X-CTCT-ID: 903a2b14-bc0f-11ec-939d-fa163ea818de
+X-Spam-Status: No, score=2.5
+X-Spam-Score: 25
+X-Spam-Bar: ++
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  <a style="font-size:12px;color: inherit" target="_blank" href="https://r20.rs6.net/tn.jsp?f=001E3nZhcKAnQfkuxb-sYdo3eudmS7xMKEzBf7fGnhIfpSqRYYyPFAxa_907fFTMuFBsj6hzcqMIdoDnuQWOEeLjog5iE9JHquHAA1zXcxOW
+    [...] 
+ Content analysis details:   (2.5 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: rs6.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  2.2 KAM_STORAGE_GOOGLE     URI: Google Storage API being abused by
+                             spammers
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 KAM_SHORT              Use of a URL Shortener for very short URL
+X-Spam-Flag: NO
+
+------=_Part_1994825621_802964178.1650126372839
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<a style=3D"font-size:12px;color: inherit" target=3D"_blank" href=3D"https:=
+//r20.rs6.net/tn.jsp?f=3D001E3nZhcKAnQfkuxb-sYdo3eudmS7xMKEzBf7fGnhIfpSqRYY=
+yPFAxa_907fFTMuFBsj6hzcqMIdoDnuQWOEeLjog5iE9JHquHAA1zXcxOWtwIalJlgw_4nCiW0E=
+LXsXoqnPfSOQoF47CBSJxckFLBb62gT9hNmnVyxOWpKh5iQgI4pmASUPRDnoaHGsreOTyu2Aw4Y=
+ZSEhB6TE5CNqCDjfnNUGLUdRL_vsBCuBpQXAyTz8VzwdCKks952RgemumHk&c=3DaWXv5lOblyl=
+512AVsNynscQLiR1lIqwVrcpJmvNH8byE8nRjnKHVyg=3D=3D&ch=3DWObzv5OC0C5zRAcFa-f9=
+OndUhTq7O9OTSQS_mfLrbA6DScQoKWrF3A=3D=3D&_tid=3D265f2519-6355-4910-9497-13d=
+4afa84b62" data-function=3D"view_online">View online   Engage your audience=
+ A large, quality audience is key for effective Marketing.   Whether you=E2=
+=80=99re a blogger, influencer or selling through an online store, keeping =
+in touch is important. Build your audience with ease       Simplicity and R=
+epetition   1. Send small, bite-sized messages. Link out to blogs or articl=
+es, but keep your emails short and to the point. 2. Email your audience on =
+a regular frequency. Don't send too many but also don't let hem forget you.=
+ Every 2 weeks or once a month could be just right.   This plugin has truly=
+ helped keep my customers up to date and it=E2=80=99s extremely easy to use=
+! I love it!   - Bryce Goodwin WP Plugin review   Grow your Audience Design=
+ and schedule your next email campaign right now.   Start Marketing - Your =
+Creative Mail support crew Creative Mail by Constant Contact | 10 Corporate=
+ Dr, Burlington, MA 01803 Unsubscribe mail@nagrikunmuktiparty.org
+------=_Part_1994825621_802964178.1650126372839
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<head>
+        <title>
+          
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!--[if !mso]><!-->
+        <style type="text/css">
+@media only screen and (max-width:480px) {
+  @-ms-viewport {
+    width: 320px;
+  }
+
+  @viewport {
+    width: 320px;
+  }
+}
+</style>
+        <!--<![endif]-->
+        <!--[if mso]>
+        <xml>
+        
+          
+          96
+        
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type="text/css">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href="https://fonts.googleapis.com/css?family=Questrial:400,700" rel="stylesheet" type="text/css">
+        
+      <!--<![endif]-->
+
+    
+        
+    <style type="text/css">
+@media only screen and (min-width:480px) {
+  .mj-column-per-100 {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .mj-column-per-70 {
+    width: 70% !important;
+    max-width: 70%;
+  }
+}
+</style>
+    
+  
+        <style type="text/css">
+@media only screen and (max-width:480px) {
+  table.full-width-mobile {
+    width: 100% !important;
+  }
+
+  td.full-width-mobile {
+    width: auto !important;
+  }
+}
+</style>
+        <style type="text/css">
+@media screen and (max-width: 480px) {
+  .show_on_desktop {
+    display: none !important;
+  }
+
+  .mobile-spacing-l-r table tr td {
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+  }
+
+  .text-center table td div {
+    margin: 0 auto;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    text-align: center !important;
+  }
+
+  .text-right table td div {
+    width: 304px;
+    padding: 8px !important;
+    text-align: right !important;
+  }
+
+  .text-left-p-0 table td div {
+    padding: 0px !important;
+    text-align: left !important;
+  }
+
+  .text-left table td div {
+    width: 304px;
+    padding: 8px !important;
+    text-align: left !important;
+  }
+
+  .img-center table td table {
+    margin: 0 auto;
+  }
+
+  .image-right-no-padding table td {
+    padding-right: 0px !important;
+  }
+
+  .image-left-no-padding table td {
+    padding-left: 0px !important;
+  }
+
+  .pl-0 table td {
+    padding-left: 16px !important;
+  }
+
+  .pb-0 {
+    padding-bottom: 0px !important;
+  }
+
+  .pb-2 {
+    padding-bottom: 2px !important;
+  }
+
+  .pb-4 {
+    padding-bottom: 4px !important;
+  }
+
+  .pb-8 {
+    padding-bottom: 8px !important;
+  }
+
+  .pb-16 {
+    padding-bottom: 16px !important;
+  }
+
+  .pr-0 {
+    padding-right: 0px !important;
+  }
+
+  .pr-2 {
+    padding-right: 2px !important;
+  }
+
+  .pr-4 {
+    padding-right: 4px !important;
+  }
+
+  .pr-8 {
+    padding-right: 8px !important;
+  }
+
+  .pr-16 {
+    padding-right: 16px !important;
+  }
+
+  .pr-16 div td {
+    padding-right: 16px !important;
+  }
+
+  .pl-16 div td {
+    padding-left: 16px !important;
+  }
+
+  .pr-16 table td {
+    padding-right: 16px !important;
+  }
+
+  .pl-16 table td {
+    padding-left: 16px !important;
+  }
+
+  .pr-16 table td {
+    padding-left: 16px !important;
+  }
+
+  .pt-16 table td {
+    padding-top: 16px !important;
+  }
+
+  .pr-12 table td {
+    padding-right: 12px !important;
+  }
+
+  .pl-12 table td {
+    padding-left: 12px !important;
+  }
+
+  .pr-12 table td {
+    padding-left: 12px !important;
+  }
+
+  .pt-12 table td {
+    padding-top: 12px !important;
+  }
+
+  .pt-4 table td {
+    padding-top: 4px!important;
+  }
+
+  .pb-4 table td {
+    padding-bottom: 4px!important;
+  }
+
+  .pl-4 table td {
+    padding-left: 4px!important;
+  }
+
+  .pr-4 table td {
+    padding-right: 4px!important;
+  }
+
+  .pt-8 table td {
+    padding-top: 8px !important;
+  }
+
+  .pb-8 table td {
+    padding-bottom: 8px !important;
+  }
+
+  .pl-8 table td {
+    padding-left: 8px !important;
+  }
+
+  .pr-8 table td {
+    padding-right: 8px !important;
+  }
+
+  .p-bottom-8 table td {
+    padding-bottom: 8px!important;
+  }
+
+  .p-bottom-4 table td {
+    padding-bottom: 4px!important;
+  }
+
+  .p-top-8 table td {
+    padding-top: 8px!important;
+  }
+
+  .p-top-4 table td {
+    padding-top: 8px!important;
+  }
+
+  .p-left-0 table:first-child td {
+    padding-left: 0!important;
+  }
+
+  .p-right-0 table:first-child td {
+    padding-right: 0!important;
+  }
+
+  .p-all-0 table tr td {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+  }
+
+  .button-center table {
+    padding: 0!important;
+    margin: 0 auto;
+  }
+
+  .button-center table td table tr td {
+    text-align: center !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .button-left table td table tr td {
+    text-align: left !important;
+    float: left;
+    padding-bottom: 8px;
+  }
+
+  .button-left-pb-none table td table tr td {
+    text-align: left !important;
+    float: left;
+    padding-bottom: 0px;
+  }
+
+  .button-right table td table tr td {
+    text-align: right !important;
+    float: right;
+  }
+
+  .button-full table td table tr td {
+    text-align: center !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    width: 304px !important;
+  }
+
+  .image-center table td table td table {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .image-right-no-padding table td {
+    padding-right: 0px !important;
+  }
+
+  .image-left-no-padding table td {
+    padding-left: 0px !important;
+  }
+
+  .image-right table {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    text-align: right;
+    float: right;
+  }
+
+  .image-left table {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    text-align: left;
+    float: left;
+  }
+
+  .no-border table td {
+    border: none!important;
+  }
+
+  .logo-holder table tr td img {
+    width: 140px !important;
+  }
+
+  .width-0 {
+    width: 0%;
+  }
+
+  .width-10 {
+    width: 10%;
+  }
+
+  .width-15 {
+    width: 15%;
+  }
+
+  .width-20 {
+    width: 20%;
+  }
+}
+</style>
+        
+      <style>@media only screen and (max-width:480px) {
+  .footer-main-width {
+    width: 100% !important;
+  }
+  .footer-mobile-hidden {
+    display: none !important;
+  }
+  .footer-mobile-hidden {
+    display: none !important;
+  }
+  .footer-column {
+    display: block !important;
+  }
+  .footer-mobile-stack {
+    display: block !important;
+  }
+  .footer-mobile-stack-padding {
+    padding-top: 3px;
+  }
+}</style></head>
+      <body style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-color: #e5e5e5;">
+        
+        
+      <div class="body-bg kv-page-content kv-site kv-main main-background" style="background-color:#e5e5e5;">
+        
+      
+      <!--[if mso | IE]>
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="kv-page-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="kv-page" style="Margin:0px auto;max-width:700px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border: solid 0px rgb(0, 0, 0); direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="background:rgb(255, 255, 255);background-color:rgb(255, 255, 255);Margin:0px auto;max-width:700px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 100%;" width="100%" bgcolor="rgb(255, 255, 255)">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 8px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td align="center" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 10px 25px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0px;line-height:1.5;text-align:center;text-decoration:underline;text-transform:none;color:rgb(17, 17, 17);">
+        <a style="font-size:12px;color: inherit" target="_blank" href="https://r20.rs6.net/tn.jsp?f=001E3nZhcKAnQfkuxb-sYdo3eudmS7xMKEzBf7fGnhIfpSqRYYyPFAxa_907fFTMuFBsj6hzcqMIdoDnuQWOEeLjog5iE9JHquHAA1zXcxOWtwIalJlgw_4nCiW0ELXsXoqnPfSOQoF47CBSJxckFLBb62gT9hNmnVyxOWpKh5iQgI4pmASUPRDnoaHGsreOTyu2Aw4YZSEhB6TE5CNqCDjfnNUGLUdRL_vsBCuBpQXAyTz8VzwdCKks952RgemumHk&c=aWXv5lOblyl512AVsNynscQLiR1lIqwVrcpJmvNH8byE8nRjnKHVyg==&ch=WObzv5OC0C5zRAcFa-f9OndUhTq7O9OTSQS_mfLrbA6DScQoKWrF3A==&_tid=265f2519-6355-4910-9497-13d4afa84b62" data-function="view_online">View online</a>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      
+        <v:rect style="width:700px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+        <v:fill src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&methods=resize%2C600%2C5000" type="tile" />
+        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+      <![endif]-->
+          
+      <div class="mobile-spacing-l-r" style="background:url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000) top center / cover repeat;Margin:0px auto;max-width:700px;">
+        <div style="line-height:0;font-size:0;">
+        <table align="center" background="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000) top center / cover repeat; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 8px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="16" style="vertical-align:top;height:16px;">
+      
+    <![endif]-->
+  
+      <div style="height:16px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-editable-text data-prop-description" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:0px;line-height:1.5;text-align:center;text-transform:none;color:rgb(17, 17, 17);">
+        <font class="cstm-fnt" style="font-size: 110.1%;"><font class="cstm-fnt" style="font-size: 181.653%;">
+        Engage your audience</font><br>A large, quality audience is key for effective Marketing.</font>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+        <!--[if mso | IE]>
+        </v:textbox>
+      </v:rect>
+    
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      
+        <v:rect style="width:700px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+        <v:fill src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fb18c9eaa2eaa4c9eb21ac55fea5dc02a&methods=overlay%2C255%2C255%2C255%2C0%25%7Cresize%2C600%2C5000" type="tile" />
+        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+      <![endif]-->
+          
+      <div class="mobile-spacing-l-r" style="background:url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fb18c9eaa2eaa4c9eb21ac55fea5dc02a&amp;methods=overlay%2C255%2C255%2C255%2C0%25%7Cresize%2C600%2C5000) top center / cover repeat;Margin:0px auto;max-width:700px;">
+        <div style="line-height:0;font-size:0;">
+        <table align="center" background="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fb18c9eaa2eaa4c9eb21ac55fea5dc02a&amp;methods=overlay%2C255%2C255%2C255%2C0%25%7Cresize%2C600%2C5000" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fb18c9eaa2eaa4c9eb21ac55fea5dc02a&amp;methods=overlay%2C255%2C255%2C255%2C0%25%7Cresize%2C600%2C5000) top center / cover repeat; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:700px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:700px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0 48px;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="100" style="vertical-align:top;height:100px;">
+      
+    <![endif]-->
+  
+      <div style="height:100px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-editable-text data-prop-description" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; padding-top: 16px; padding-bottom: 16px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:20px;letter-spacing:0px;line-height:1.4;text-align:center;text-transform:none;color:rgb(17, 17, 17);">
+        <font class="cstm-fnt" style="font-size: 120.1%;">
+        Whether you&#8217;re a blogger, influencer or selling through an online store, keeping in touch is important.</font><br><br><b><font class="cstm-fnt" style="font-size: 150.1%;">Build your audience with ease</font></b>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="16" style="vertical-align:top;height:16px;">
+      
+    <![endif]-->
+  
+      <div style="height:16px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="100" style="vertical-align:top;height:100px;">
+      
+    <![endif]-->
+  
+      <div style="height:100px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+        <!--[if mso | IE]>
+        </v:textbox>
+      </v:rect>
+    
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="background:rgb(255, 255, 255);background-color:rgb(255, 255, 255);Margin:0px auto;max-width:700px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 100%;" width="100%" bgcolor="rgb(255, 255, 255)">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 8px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="16" style="vertical-align:top;height:16px;">
+      
+    <![endif]-->
+  
+      <div style="height:16px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-editable-text data-prop-description" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:0px;line-height:1.5;text-align:center;text-transform:none;color:rgb(17, 17, 17);">
+        <font class="cstm-fnt" style="font-size: 110.1%;"><font class="cstm-fnt" style="font-size: 181.653%;"><font class="cstm-fnt" style="font-size: 95.05%;">Simplicity and Repetition</font><br></font><font class="cstm-fnt" style="font-size: 100%;">&nbsp;</font><br><b><font class="cstm-fnt" style="font-size: 109.083%;">1. Send small, bite-sized messages.
+</font></b></font><br>Link out to blogs or articles, but keep your emails short and to the point.<br>
+<br><b><font class="cstm-fnt" style="font-size: 120.1%;">
+2. Email your audience on a regular frequency.
+</font></b><br>Don't send too many but also don't let hem forget you. Every 2 weeks or once a month could be just right.<br>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      
+        <v:rect style="width:700px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+        <v:fill src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&methods=resize%2C600%2C5000" type="tile" />
+        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+      <![endif]-->
+          
+      <div class="mobile-spacing-l-r" style="background:url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000) top center / cover repeat;Margin:0px auto;max-width:700px;">
+        <div style="line-height:0;font-size:0;">
+        <table align="center" background="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F5b9ac1d3d4784e1389b55c46a775117a&amp;methods=resize%2C600%2C5000) top center / cover repeat; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 16px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 20px 0; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+        <!--[if mso | IE]>
+        </v:textbox>
+      </v:rect>
+    
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      
+        <v:rect style="width:700px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+        <v:fill src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fdc4d425bba434a99a7632206a547cff5&methods=resize%2C600%2C5000" type="tile" />
+        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+      <![endif]-->
+          
+      <div class="mobile-spacing-l-r" style="background:url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fdc4d425bba434a99a7632206a547cff5&amp;methods=resize%2C600%2C5000) top center / cover repeat;Margin:0px auto;max-width:700px;">
+        <div style="line-height:0;font-size:0;">
+        <table align="center" background="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fdc4d425bba434a99a7632206a547cff5&amp;methods=resize%2C600%2C5000" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fdc4d425bba434a99a7632206a547cff5&amp;methods=resize%2C600%2C5000) top center / cover repeat; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 48px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-left: 4px solid #000; vertical-align: top; padding: 0px;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="4" style="vertical-align:top;height:4px;">
+      
+    <![endif]-->
+  
+      <div style="height:4px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="left" class="data-editable-text data-prop-title" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; padding-left: 32px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:28px;letter-spacing:0px;line-height:1.1429;text-align:left;text-transform:none;color:rgb(17, 17, 17);">
+        <font class="cstm-fnt" style="font-size: 70.01%;">
+        This plugin has truly helped keep my customers up to date and it&#8217;s extremely easy to use! I love it!
+      </font>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="32" style="vertical-align:top;height:32px;">
+      
+    <![endif]-->
+  
+      <div style="height:32px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0px; padding-left: 34px;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td align="left" class="data-editable-text data-prop-user" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; padding-bottom: 0px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;font-weight:600;letter-spacing:0px;line-height:1.5;text-align:left;text-transform:none;color:rgb(17, 17, 17);">
+        <b class="mj-text-bold">
+        <b class="mj-text-bold">- Bryce Goodwin</b>
+      </b>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="left" class="data-editable-text data-prop-companyName" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 16px; padding: 0px; word-break: break-word; font-family: Questrial,Arial,Helvetica,sans-serif; letter-spacing: 0px; line-height: 1.5; text-transform: none; color: rgb(17, 17, 17);">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:0px;line-height:1.5;text-align:left;text-transform:none;color:rgb(17, 17, 17);">
+        WP Plugin review
+      </div>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+        <!--[if mso | IE]>
+        </v:textbox>
+      </v:rect>
+    
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="background:rgb(255, 255, 255);background-color:rgb(255, 255, 255);Margin:0px auto;max-width:700px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: rgb(255, 255, 255); background-color: rgb(255, 255, 255); width: 100%;" width="100%" bgcolor="rgb(255, 255, 255)">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 24px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:top;width:604px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: top; padding: 0;" valign="top">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="16" style="vertical-align:top;height:16px;">
+      
+    <![endif]-->
+  
+      <div style="height:16px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-editable-text data-prop-description" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; word-break: break-word;">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:0px;line-height:1.5;text-align:center;text-transform:none;color:rgb(17, 17, 17);">
+        <font class="cstm-fnt" style="font-size: 200%;"><b>
+        Grow your Audience</b></font><br><br><font class="cstm-fnt" style="font-size: 120.01%;">Design and schedule your next email campaign right now.</font><br>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="32" style="vertical-align:top;height:32px;">
+      
+    <![endif]-->
+  
+      <div style="height:32px;">
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-prop-button data-editable-button data-editable-link data-property-name-button" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 8px 0px 0px 0px; word-break: break-word;">
+                
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: separate; line-height: 100%;">
+        <tbody><tr>
+          <td align="center" bgcolor="#111111" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border: 2px solid transparent; border-radius: 24px; cursor: auto; padding: 12px 24px; background: #111111;" valign="middle">
+            <a href="https://r20.rs6.net/tn.jsp?f=001E3nZhcKAnQfkuxb-sYdo3eudmS7xMKEzBf7fGnhIfpSqRYYyPFAxa2LVpxgV0uPcul630168vjyUr2IZQsT9fHjBZ27PXsG4aQShXX80Y92netyME5qsEbTVZyh2RPkaBUVm_YD91blXsFkQsdXdYbfyefEjhKL9&c=aWXv5lOblyl512AVsNynscQLiR1lIqwVrcpJmvNH8byE8nRjnKHVyg==&ch=WObzv5OC0C5zRAcFa-f9OndUhTq7O9OTSQS_mfLrbA6DScQoKWrF3A==" style="background:#111111;color:white;font-family:Questrial,Arial,Helvetica,sans-serif;font-size:18px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+              Start Marketing
+            </a>
+          </td>
+        </tr>
+      </tbody></table>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td class="mobile-spacing-l-r-outlook" width="700px">
+          
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:700px;" width="700">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      
+        <v:rect style="width:700px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
+        <v:fill src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F3a7f0cf81e4a462cb0301d8dafdd9f22&methods=resize%2C600%2C5000" type="tile" />
+        <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+      <![endif]-->
+          
+      <div class="mobile-spacing-l-r" style="background:url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F3a7f0cf81e4a462cb0301d8dafdd9f22&amp;methods=resize%2C600%2C5000) top center / cover repeat;Margin:0px auto;max-width:700px;">
+        <div style="line-height:0;font-size:0;">
+        <table align="center" background="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F3a7f0cf81e4a462cb0301d8dafdd9f22&amp;methods=resize%2C600%2C5000" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: url(https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2F3a7f0cf81e4a462cb0301d8dafdd9f22&amp;methods=resize%2C600%2C5000) top center / cover repeat; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 48px 48px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-spacing-l-r-outlook" style="width:604px;" width="604">
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div class="mobile-spacing-l-r" style="Margin:0px auto;max-width:604px;">
+        
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
+          <tbody>
+            <tr>
+              <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; direction: ltr; font-size: 0px; padding: 0px; text-align: center; vertical-align: top;" align="center" valign="top">
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td class="" style="vertical-align:middle;width:422.8px;">
+          <![endif]-->
+            
+      <div class="mj-column-per-70 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+        
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; vertical-align: middle; padding: 0;" valign="middle">
+              
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+        
+            <tbody><tr>
+              <td align="center" class="data-editable-text data-prop-title" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 16px; padding: 0px; word-break: break-word; font-family: Questrial,Arial,Helvetica,sans-serif; letter-spacing: 0px; line-height: 1.5; text-transform: none; color: rgb(17, 17, 17);">
+                
+      <div style="font-family:Questrial,Arial,Helvetica,sans-serif;font-size:16px;letter-spacing:0px;line-height:1.5;text-align:center;text-transform:none;color:rgb(17, 17, 17);">
+        - Your Creative Mail support crew
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td align="center" class="data-resizable data-editable-image data-prop-logo-1 no-image-crop" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-size: 0px; padding: 0px; padding-top: 32px; padding-left: 0px; word-break: break-word;">
+                
+      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; border-spacing: 0px;">
+        <tbody>
+          <tr>
+            <td style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 150px;" width="150">
+              
+      <img height="auto" src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-creativemail-v1-0-8%2F398%2F478398%2F0PmId37E%2Fa03b0ed030df46cfb513ddca6d0f1250&amp;methods=resize%2C600%2C5000" style="line-height: 100%; -ms-interpolation-mode: bicubic; border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%;" width="150">
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </tbody></table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    
+        <!--[if mso | IE]>
+        </v:textbox>
+      </v:rect>
+    
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      
+    
+  <span data-function="metadata"><img src="https://r20.rs6.net/on.jsp?ca=56696261-5246-4a76-b7b8-ca50d22ad60d&a=1134800310784&c=903a2b14-bc0f-11ec-939d-fa163ea818de&ch=903b9e68-bc0f-11ec-939d-fa163ea818de" / alt=""></span><table class="footer-container" width="100%" cellpadding="0" cellspacing="0" border="0" style="background: #ffffff; margin-left: auto; margin-right: auto; table-layout: auto !important" bgcolor="#ffffff">
+  <tr>
+    <td width="100%" align="center" valign="top" style="width: 100%;">
+      <div class="footer-max-main-width" align="center" style="margin-left: auto; margin-right: auto; max-width: 100%;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="footer-layout" align="center" valign="top" style="padding: 16px 0px;">
+              <table class="footer-main-width" style="width: 580px;" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="footer-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 12px; padding: 4px 0px;">
+                    
+                    <span class="footer-column">Creative Mail by Constant Contact<span class="footer-mobile-hidden"> | </span></span><span class="footer-column">10 Corporate Dr<span class="footer-mobile-hidden">, </span></span><span class="footer-column"></span><span class="footer-column"></span><span class="footer-column">Burlington, MA 01803</span><span class="footer-column"></span>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer-row" align="center" valign="top" style="padding: 10px 0px;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td class="footer-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 12px; padding: 4px 0px;">
+                          <a href="https://visitor.em.creativ.email/do?p=un&m=001fQbo0nhESBo77rYQLC2AsQ%3D&ch=903b9e68-bc0f-11ec-939d-fa163ea818de&ca=56696261-5246-4a76-b7b8-ca50d22ad60d" style="color: #5d5d5d">Unsubscribe mail@nagrikunmuktiparty.org</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="footer-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 12px; padding: 4px 0px;">
+                          
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="footer-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 12px; padding: 4px 0px;">
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 12px; padding: 4px 0px;">
+                    
+                    
+                    <table width="240" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td align="center" valign="top" style="padding: 0px 0px 3px 10px;">
+                          <a href="http://www.constantcontact.com/index.jsp?cc=nge&rmc=VF21_ACE&pn=creativemail&nav=56696261-5246-4a76-b7b8-ca50d22ad60d" style="color: #5d5d5d; text-decoration: none">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="footer-cta-text" align="center" valign="top" style="color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size: 9px;">
+                          <a href="http://www.constantcontact.com/index.jsp?cc=nge&rmc=VF21_ACE&pn=creativemail&nav=56696261-5246-4a76-b7b8-ca50d22ad60d" style="color: #5d5d5d; text-decoration: none"></a>
+                        </td>
+                      </tr>
+                    </table>
+                    
+                    
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table></body>
+------=_Part_1994825621_802964178.1650126372839--

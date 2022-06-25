@@ -1,0 +1,56 @@
+[31-May-2022 17:41:29 UTC] PHP Warning:  require(/home/nagriku1/public_html/vendor/composer/../symfony/translation/Resources/functions.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nagriku1/public_html/vendor/composer/../symfony/translation/Resources/functions.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/autoload_real.php(61): composerRequire769dd038bb35494df6acdbf5cb9db3a7()
+#1 /home/nagriku1/public_html/vendor/autoload.php(7): ComposerAutoloaderInit769dd038bb35494df6acdbf5cb9db3a7::getLoader()
+#2 /home/nagriku1/public_html/public/index.php(34): require('/home/nagriku1/...')
+#3 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#4 {main}
+  thrown in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:29 UTC] PHP Warning:  require(/home/nagriku1/public_html/vendor/composer/../symfony/translation/Resources/functions.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nagriku1/public_html/vendor/composer/../symfony/translation/Resources/functions.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/autoload_real.php(61): composerRequire769dd038bb35494df6acdbf5cb9db3a7()
+#1 /home/nagriku1/public_html/vendor/autoload.php(7): ComposerAutoloaderInit769dd038bb35494df6acdbf5cb9db3a7::getLoader()
+#2 /home/nagriku1/public_html/public/index.php(34): require('/home/nagriku1/...')
+#3 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#4 {main}
+  thrown in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:39 UTC] PHP Warning:  require(/home/nagriku1/public_html/vendor/composer/../guzzlehttp/guzzle/src/functions_include.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nagriku1/public_html/vendor/composer/../guzzlehttp/guzzle/src/functions_include.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/autoload_real.php(61): composerRequire769dd038bb35494df6acdbf5cb9db3a7()
+#1 /home/nagriku1/public_html/vendor/autoload.php(7): ComposerAutoloaderInit769dd038bb35494df6acdbf5cb9db3a7::getLoader()
+#2 /home/nagriku1/public_html/public/index.php(34): require('/home/nagriku1/...')
+#3 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#4 {main}
+  thrown in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:43 UTC] PHP Warning:  require(/home/nagriku1/public_html/vendor/composer/../psy/psysh/src/functions.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[31-May-2022 17:41:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nagriku1/public_html/vendor/composer/../psy/psysh/src/functions.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/autoload_real.php(61): composerRequire769dd038bb35494df6acdbf5cb9db3a7()
+#1 /home/nagriku1/public_html/vendor/autoload.php(7): ComposerAutoloaderInit769dd038bb35494df6acdbf5cb9db3a7::getLoader()
+#2 /home/nagriku1/public_html/public/index.php(34): require('/home/nagriku1/...')
+#3 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#4 {main}
+  thrown in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 71
+[23-Jun-2022 17:54:51 UTC] PHP Warning:  require(/home/nagriku1/public_html/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 78
+[23-Jun-2022 17:54:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/nagriku1/public_html/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/autoload_real.php:78
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/autoload_real.php(61): composerRequire769dd038bb35494df6acdbf5cb9db3a7()
+#1 /home/nagriku1/public_html/vendor/autoload.php(7): ComposerAutoloaderInit769dd038bb35494df6acdbf5cb9db3a7::getLoader()
+#2 /home/nagriku1/public_html/public/index.php(34): require('/home/nagriku1/...')
+#3 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#4 {main}
+  thrown in /home/nagriku1/public_html/vendor/composer/autoload_real.php on line 78
+[23-Jun-2022 17:55:04 UTC] PHP Warning:  include(/home/nagriku1/public_html/vendor/composer/../symfony/http-kernel/HttpKernelInterface.php): Failed to open stream: No such file or directory in /home/nagriku1/public_html/vendor/composer/ClassLoader.php on line 571
+[23-Jun-2022 17:55:04 UTC] PHP Warning:  include(): Failed opening '/home/nagriku1/public_html/vendor/composer/../symfony/http-kernel/HttpKernelInterface.php' for inclusion (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/nagriku1/public_html/vendor/composer/ClassLoader.php on line 571
+[23-Jun-2022 17:55:04 UTC] PHP Fatal error:  Uncaught Error: Interface "Symfony\Component\HttpKernel\HttpKernelInterface" not found in /home/nagriku1/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php:29
+Stack trace:
+#0 /home/nagriku1/public_html/vendor/composer/ClassLoader.php(571): include()
+#1 /home/nagriku1/public_html/vendor/composer/ClassLoader.php(428): Composer\Autoload\includeFile()
+#2 /home/nagriku1/public_html/bootstrap/app.php(14): Composer\Autoload\ClassLoader->loadClass()
+#3 /home/nagriku1/public_html/public/index.php(47): require_once('/home/nagriku1/...')
+#4 /home/nagriku1/public_html/server.php(21): require_once('/home/nagriku1/...')
+#5 {main}
+  thrown in /home/nagriku1/public_html/vendor/laravel/framework/src/Illuminate/Foundation/Application.php on line 29

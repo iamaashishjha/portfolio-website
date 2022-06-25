@@ -1,0 +1,526 @@
+Return-Path: <bounces+8429199-6ed0-mail=nagrikunmuktiparty.org@drip.optinmonster.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id qHNtF56IWWIcHhcAaZRYGA
+	(envelope-from <bounces+8429199-6ed0-mail=nagrikunmuktiparty.org@drip.optinmonster.com>)
+	for <mail@nagrikunmuktiparty.org>; Fri, 15 Apr 2022 20:45:46 +0545
+Return-path: <bounces+8429199-6ed0-mail=nagrikunmuktiparty.org@drip.optinmonster.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Fri, 15 Apr 2022 20:45:46 +0545
+Received: from o4.m.dripemail2.com ([167.89.79.110]:13916)
+	by r3.merodns.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <bounces+8429199-6ed0-mail=nagrikunmuktiparty.org@drip.optinmonster.com>)
+	id 1nfI3O-006LxS-MM
+	for mail@nagrikunmuktiparty.org; Fri, 15 Apr 2022 20:45:46 +0545
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=optinmonster.com;
+	h=content-type:from:mime-version:subject:reply-to:to;
+	s=s1; bh=fIIy7g7q618A/CZA4aQXZx28hJF9DVmBMBYkDExxbi0=;
+	b=E5hVp+nFhKPpfZc92AJHs0Qz4XPLxJyOBybxpXQ0q9dgFnOH2j3Q5fHDqcn/0Em07gIM
+	68Tr11igsr3Qpr6K5sYj4gTysUUcXxkcGBZI3+rMTnu00XBtjKm8NS4/wr14wVW3uQtJuP
+	qvybXVvGcMn/N+JlIgrLSoOBzZgm6h1i+r9Lw4moQc0Yy1Q71x/zr2SAeQpp3hZb837047
+	m6Sd0GVh5+lqIq3FdvrUV4dtJumbnXZBP0CHQ6/zVO6YQ+rIWL5YTh3bKMY60bE68MVU2I
+	IjtEmlFZvhpgjxhJX3E7cjUgh2UIqJ0Rj4AzYOWbbL37e4BtDxZxAJHF7x8q8uZg==
+Received: by filterdrecv-57fb89798f-b9zzv with SMTP id filterdrecv-57fb89798f-b9zzv-1-62596E49-AE
+        2022-04-15 13:08:25.60554173 +0000 UTC m=+746683.149357395
+Received: from ODQyOTE5OQ (unknown)
+	by geopod-ismtpd-5-1 (SG) with HTTP
+	id 8wHY4dmhTnK_bg5WIEvyXw
+	Fri, 15 Apr 2022 13:08:25.592 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=8a391f235c8ea3d69f0c53fbee7a5e8af23ca37ffe2bc5d9cf3488f4d54e
+Date: Fri, 15 Apr 2022 15:00:00 +0000 (UTC)
+From: Thomas at OptinMonster <support@optinmonster.com>
+Mime-Version: 1.0
+Message-ID: <8wHY4dmhTnK_bg5WIEvyXw@geopod-ismtpd-5-1>
+Subject: Is OptinMonster Worth It?
+Reply-To: reply-w0u2cv01mv69jfrggcep@in2.getdrip.com
+X-Drip-SendingAccount: 2783580
+X-SG-EID: 
+ =?us-ascii?Q?da8I6PIZkrb6LA9urcgLHVPkjm8kZ86Bp3Zh89x=2FgAYcwHaJvWQz7vs76cGQhX?=
+ =?us-ascii?Q?HFHqdG2bicyB4D5bRvl6iuU43ZZ+4krVJ+PkCpk?=
+ =?us-ascii?Q?3XB5T14J=2FEZYvt5oQhl+wJwDcc3z4ct03yHxFJQ?=
+ =?us-ascii?Q?91Dd+TXs6uO1xlxgkHY3yW5flX0iBqy3zd=2FdiSI?=
+ =?us-ascii?Q?YRgm=2F9Pa=2FWQUU8RWfWz4GLf1yvUXQW3UT4ir1hP?=
+ =?us-ascii?Q?CE2maRBs70CUmV2fxeTFnSxJ2BqBITSrNty7WNt?=
+ =?us-ascii?Q?cjB6guXRoGg4ytDwacF1A=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FIueY507NIPg7Bbtt+Qog?=
+ =?us-ascii?Q?yZaVoN7EWbx3x7Siteghf1T2RzOMZjF2naJoZsp?=
+ =?us-ascii?Q?h81Ovc0j4Nux03isNQmOpbTe0skEObn4tTmzuww?=
+ =?us-ascii?Q?H0CCtUmAaPRovmqIPOMChYhKIbefij5+8=2F+HrEg?=
+ =?us-ascii?Q?fKjWzgG+vi3aT5P0eofS1S3NcNEd13pDQPnRZfF?=
+ =?us-ascii?Q?mj314w8t49lJbI8a5jl2IprW3AdSVw0RaU5rxaQ?=
+ =?us-ascii?Q?SBnHtHpn4YWvgPxN=2FsVzmlzwyWkEunY7eVt+sfs?=
+ =?us-ascii?Q?Esr+OutuRB3OCF1hby2isVwCbuiUVGcdap1rpMF?=
+ =?us-ascii?Q?8C98AO386LJoug41PboZdpbHW8L3wGOIg3ouPjD?=
+ =?us-ascii?Q?RlG94Fmz4d7YrZo3ht3jzH2UImJlaL3vRfZ0BTC?=
+ =?us-ascii?Q?4KFBe2F83HiNrJ4BhzqbakHS1nLE8Fo6QzmSqTR?=
+ =?us-ascii?Q?zOX2s2kAIwekYcrQXZ5unPq3cqaBaMsGuQSy9RB?=
+ =?us-ascii?Q?kH+VXtEaItBR=2Fp0Zelmx5oz=2FIuiNgxWWPofYpBn?=
+ =?us-ascii?Q?Lug54=2Ft+W8DjPv394GCmnY3NyyvmW2xy4X7OrtV?=
+ =?us-ascii?Q?YVfY1R315VF0Eh57ozkotNjvyvSJR77HuNOOig8?=
+ =?us-ascii?Q?4NStND6X9hMYJ64EhNjTX=2FFq1OIIzSk18Moc+dD?=
+ =?us-ascii?Q?4dKO6mSVp6E0Yqg=3D=3D?=
+To: mail@nagrikunmuktiparty.org
+X-Entity-ID: Kb6WOJMilHQ167fTUtdTNQ==
+X-Spam-Status: No, score=0.3
+X-Spam-Score: 3
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hi Nagrik Unmukti, You're not sure if OptinMonster is worth
+    it, are you? That's my fault. I clearly didn't do a good enough job convincing
+    you that it is... so let me try again. 
+ Content analysis details:   (0.3 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: optinmonster.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.5 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+                             lines
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Spam-Flag: NO
+
+--8a391f235c8ea3d69f0c53fbee7a5e8af23ca37ffe2bc5d9cf3488f4d54e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hi Nagrik Unmukti,
+
+You're not sure if OptinMonster is worth it, are you?
+
+That's my fault. I clearly didn't do a good enough job convincing
+you that it is... so let me try again.
+
+Here=E2=80=99s what some of our users have to say:
+
+=E2=80=9CIn only 7 months, we added more than 95,000 names to our email
+list using OptinMonster's Exit Intent technology. We strongly
+recommend it!=E2=80=9D
+
+Michael Stelzner, Founder Social Media Examiner
+
+=E2=80=9CExit-intent popups have doubled my email opt-in rate. When done
+right, you can see an instant 10% lift on driving sales. I highly
+recommend that you use OptinMonster for growing your email list
+and sales.=E2=80=9D
+
+Neil Patel, Founder QuickSprout
+
+"I hate popups, so I was hesitant to try one on my site. But the
+results from OptinMonster exit-intent popup speak for themselves.
+I doubled my subscription rate immediately without annoying my
+users. I haven=E2=80=99t had a single complaint. My only regret is that I
+didn=E2=80=99t start using OptinMonster sooner.=E2=80=9D
+
+Michael Hyatt, New York Times Bestselling Author
+
+Ready to join them? You won't be charged anything today, and
+you'll receive 300 pageview credits and three campaigns for FREE.
+
+Click here to c ( https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiO=
+iJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNjUw=
+MDI4MTA1LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZlcnl=
+faWQiOiJ3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vYXBwLm9wdGlubW9uc3=
+Rlci5jb20vY2hlY2tvdXQtdHJpYWwvP25vY2FjaGU9MSZlZGRfYWN0aW9uPWFkZF90b19jYXJ0J=
+mRvd25sb2FkX2lkPTcwNzU3JmVkZF9vcHRpb25zJTVCcHJpY2VfaWQlNUQ9MTExJmNlbWFpbD1t=
+YWlsJTQwbmFncmlrdW5tdWt0aXBhcnR5Lm9yZyZjcGhvbmU9JTJCOTc3OTgxMzgzMzIwMyZjY29=
+1bnRyeT1OUCZjZm5hbWU9TmFncmlrK1VubXVrdGkmY2xuYW1lPVBhcnR5JndwPTEmX19zPWFraG=
+lpajJpajBoYWc4MjY0ZXVwIn0.-6bN8aOTeCvju0k1VXxc6ePfy06DGV3NsZcPbAMcHSk )laim=
+ your 300 pageview credits (
+https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3M=
+iOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNjUwMDI4MTA1LCJuYmYiOj=
+E2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZlcnlfaWQiOiJ3MHUyY3YwM=
+W12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vYXBwLm9wdGlubW9uc3Rlci5jb20vY2hlY2tv=
+dXQtdHJpYWwvP25vY2FjaGU9MSZlZGRfYWN0aW9uPWFkZF90b19jYXJ0JmRvd25sb2FkX2lkPTc=
+wNzU3JmVkZF9vcHRpb25zJTVCcHJpY2VfaWQlNUQ9MTExJmNlbWFpbD1tYWlsJTQwbmFncmlrdW=
+5tdWt0aXBhcnR5Lm9yZyZjcGhvbmU9JTJCOTc3OTgxMzgzMzIwMyZjY291bnRyeT1OUCZjZm5hb=
+WU9TmFncmlrK1VubXVrdGkmY2xuYW1lPVBhcnR5JndwPTEmX19zPWFraGlpajJpajBoYWc4MjY0=
+ZXVwIn0.-6bN8aOTeCvju0k1VXxc6ePfy06DGV3NsZcPbAMcHSk )
+
+Thomas Griffin
+
+Co-Founder
+
+OptinMonster
+
+P.S. Did you end up purchasing OptinMonster with a different
+email address? No problem, just https://t.dripemail2.com/c/eyJhbGciOiJIUzI1=
+NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIi=
+wiaWF0IjoxNjUwMDI4MTA1LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwI=
+iwiZGVsaXZlcnlfaWQiOiJ3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vd3d3=
+LmdldGRyaXAuY29tL3N1YnNjcmliZXJzL2FraGlpajJpajBoYWc4MjY0ZXVwL3N1YnNjcmlwdGl=
+vbnM_ZD13MHUyY3YwMW12NjlqZnJnZ2NlcCZleGNsdWRlX2NsaWNrPTEmaW50ZW50PXVuc3Vic2=
+NyaWJlJl9fcz1ha2hpaWoyaWowaGFnODI2NGV1cCJ9.rkHwp6seKS5Vsa-pXI5g-ARBUXFExUmj=
+gkG9vWPHKGM to remove this
+email address (mail@nagrikunmuktiparty.org) from our list.
+
+---------------------
+To make sure you keep getting these emails, please add
+support@optinmonster.com to your address book or whitelist us. Want out of
+the loop? <a href=3D"https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdW=
+QiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxN=
+jUwMDI4MTA1LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZl=
+cnlfaWQiOiJ3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vd3d3LmdldGRyaXA=
+uY29tL3N1YnNjcmliZXJzL2FraGlpajJpajBoYWc4MjY0ZXVwL3N1YnNjcmlwdGlvbnM_ZD13MH=
+UyY3YwMW12NjlqZnJnZ2NlcCZleGNsdWRlX2NsaWNrPTEmaW50ZW50PXVuc3Vic2NyaWJlJl9fc=
+z1ha2hpaWoyaWowaGFnODI2NGV1cCJ9.rkHwp6seKS5Vsa-pXI5g-ARBUXFExUmjgkG9vWPHKGM=
+">Unsubscribe</a>.
+
+Our postal address: 7732 Maywood Crest Dr., West Palm Beach, FL 33412
+
+
+--8a391f235c8ea3d69f0c53fbee7a5e8af23ca37ffe2bc5d9cf3488f4d54e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D'font-family: "Helveti=
+ca Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box=
+; font-size: 14px; line-height: 1.5;'>
+<head>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width">
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+
+<style>img {
+max-width: 100%; margin-bottom: 14px;
+}
+body {
+background-color: #ffffff; -ms-text-size-adjust: 100%; -webkit-text-size-ad=
+just: none; width: 100% !important; height: 100%; line-height: 1.6;
+}
+.ExternalClass {
+width: 100%;
+}
+.ExternalClass {
+line-height: 100%;
+}
+img {
+-ms-interpolation-mode: bicubic;
+}
+a:visited {
+color: purple !important;
+}
+a:hover {
+color: #e2911a !important;
+}
+a:active {
+color: #0d3d62 !important;
+}
+.cta-button:hover {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[owa] .cta-button:hover {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[class=3D"cta-button"]:hover {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+.cta-button:visited {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[owa] .cta-button:visited {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[class=3D"cta-button"]:visited {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+.cta-button:active {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[owa] .cta-button:active {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+[class=3D"cta-button"]:active {
+color: #ffffff; background-color: #B67A0D; text-decoration: none; border-co=
+lor: #B67A0D; border: 12px solid #B67A0D;
+}
+</style></head>
+<body style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial=
+, sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.6; ba=
+ckground-color: #ffffff; -ms-text-size-adjust: 100%; -webkit-text-size-adju=
+st: none; width: 100% !important; height: 100%;' bgcolor=3D"#ffffff"><span =
+style=3D'display: none !important; mso-hide: all; visibility: hidden; opaci=
+ty: 0; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-s=
+erif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>These peo=
+ple think so...</span><span style=3D'display: none; max-height: 0px; overfl=
+ow: hidden; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, s=
+ans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C</span>
+
+<!--[if mso 16]>
+    <style type=3D"text/css">
+        a{
+            text-decoration:none !important;
+        }
+    </style>
+<![endif]-->
+
+<table class=3D"body-wrap" style=3D'font-family: "Helvetica Neue", "Helveti=
+ca", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px;=
+ line-height: 1.5; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background=
+-color: #ffffff; width: 100%;' bgcolor=3D"#ffffff">
+  <tr style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial=
+, sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+    <td class=3D"container" style=3D'font-family: "Helvetica Neue", "Helvet=
+ica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px=
+; line-height: 1.5; vertical-align: top; display: block !important; max-wid=
+th: 600px !important; overflow: visible; clear: both !important; margin: 0;=
+' valign=3D"top">
+      <div class=3D"content" style=3D'font-family: "Helvetica Neue", "Helve=
+tica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14p=
+x; line-height: 1.5; max-width: 600px; overflow: visible; display: block; m=
+argin: 0;'>
+        <table class=3D"main" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Aria=
+l, sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;'>
+          <tr style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetic=
+a, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-height:=
+ 1.5;'>
+            <td class=3D"main-content" style=3D"font-family: 'Helvetica Neu=
+e', 'Helvetica', 'Arial', sans-serif; box-sizing: border-box; font-size: 14=
+px; line-height: 1.5; vertical-align: top; color: #222222; padding: 25px;" =
+valign=3D"top">
+              <p dir=3D"ltr" style=3D'font-family: "Helvetica Neue", "Helve=
+tica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14p=
+x; line-height: 1.5; margin-bottom: 14px; font-weight: normal;'>Hi=C2=A0Nag=
+rik Unmukti,<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvet=
+ica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-heigh=
+t: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+You're not sure if OptinMonster is worth it, are you?<br style=3D'font-fami=
+ly: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing=
+: border-box; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+That's my fault. I clearly didn't do a good enough job convincing you that =
+it is... so let me try again.<br style=3D'font-family: "Helvetica Neue", "H=
+elvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size:=
+ 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+Here=E2=80=99s what some of our users have to say:<br style=3D'font-family:=
+ "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: b=
+order-box; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+=E2=80=9CIn only 7 months, we=C2=A0<strong style=3D'font-family: "Helvetica=
+ Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; =
+font-size: 14px; line-height: 1.5; font-weight: bold;'>added more than 95,0=
+00 names to our email list</strong>=C2=A0using OptinMonster's Exit Intent t=
+echnology. We strongly recommend it!=E2=80=9D=C2=A0<br style=3D'font-family=
+: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: =
+border-box; font-size: 14px; line-height: 1.5;'>
+<em style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>Mic=
+hael Stelzner, Founder Social Media Examiner</em><br style=3D'font-family: =
+"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: bo=
+rder-box; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+=E2=80=9CExit-intent popups have=C2=A0<strong style=3D'font-family: "Helvet=
+ica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-bo=
+x; font-size: 14px; line-height: 1.5; font-weight: bold;'>doubled my email =
+opt-in rate</strong>. When done right, you can see an instant 10% lift on d=
+riving sales. I highly recommend that you use OptinMonster for growing your=
+ email list and sales.=E2=80=9D=C2=A0<br style=3D'font-family: "Helvetica N=
+eue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; fo=
+nt-size: 14px; line-height: 1.5;'>
+<em style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>Nei=
+l Patel, Founder QuickSprout</em><br style=3D'font-family: "Helvetica Neue"=
+, "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-s=
+ize: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+"I hate popups, so I was hesitant to try one on my site. But the results fr=
+om OptinMonster exit-intent popup speak for themselves. I=C2=A0<strong styl=
+e=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-ser=
+if; box-sizing: border-box; font-size: 14px; line-height: 1.5; font-weight:=
+ bold;'>doubled my subscription rate immediately without annoying my users<=
+/strong>. I haven=E2=80=99t had a single complaint. My only regret is that =
+I didn=E2=80=99t start using OptinMonster sooner.=E2=80=9D=C2=A0<br style=
+=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-seri=
+f; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+<em style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>Mic=
+hael Hyatt, New York Times Bestselling Author</em></p>
+Ready to join them? You won't be charged anything today, and you'll receive=
+ 300 pageview credits and three campaigns for FREE.<br style=3D'font-family=
+: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: =
+border-box; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+<span style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial=
+, sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'><=
+a href=3D"https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvd=
+XIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNjUwMDI4MTA1=
+LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZlcnlfaWQiOiJ=
+3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vYXBwLm9wdGlubW9uc3Rlci5jb2=
+0vY2hlY2tvdXQtdHJpYWwvP25vY2FjaGU9MSZlZGRfYWN0aW9uPWFkZF90b19jYXJ0JmRvd25sb=
+2FkX2lkPTcwNzU3JmVkZF9vcHRpb25zJTVCcHJpY2VfaWQlNUQ9MTExJmNlbWFpbD1tYWlsJTQw=
+bmFncmlrdW5tdWt0aXBhcnR5Lm9yZyZjcGhvbmU9JTJCOTc3OTgxMzgzMzIwMyZjY291bnRyeT1=
+OUCZjZm5hbWU9TmFncmlrK1VubXVrdGkmY2xuYW1lPVBhcnR5JndwPTEmX19zPWFraGlpajJpaj=
+BoYWc4MjY0ZXVwIn0.-6bN8aOTeCvju0k1VXxc6ePfy06DGV3NsZcPbAMcHSk" style=3D'fon=
+t-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-=
+sizing: border-box; font-size: 14px; line-height: 1.5; color: #4477bd; text=
+-decoration: underline;'>Click here to c</a></span><a href=3D"https://t.dri=
+pemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0=
+aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNjUwMDI4MTA1LCJuYmYiOjE2NTAwMjgxMDU=
+sImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZlcnlfaWQiOiJ3MHUyY3YwMW12NjlqZnJnZ2=
+NlcCIsInVybCI6Imh0dHBzOi8vYXBwLm9wdGlubW9uc3Rlci5jb20vY2hlY2tvdXQtdHJpYWwvP=
+25vY2FjaGU9MSZlZGRfYWN0aW9uPWFkZF90b19jYXJ0JmRvd25sb2FkX2lkPTcwNzU3JmVkZF9v=
+cHRpb25zJTVCcHJpY2VfaWQlNUQ9MTExJmNlbWFpbD1tYWlsJTQwbmFncmlrdW5tdWt0aXBhcnR=
+5Lm9yZyZjcGhvbmU9JTJCOTc3OTgxMzgzMzIwMyZjY291bnRyeT1OUCZjZm5hbWU9TmFncmlrK1=
+VubXVrdGkmY2xuYW1lPVBhcnR5JndwPTEmX19zPWFraGlpajJpajBoYWc4MjY0ZXVwIn0.-6bN8=
+aOTeCvju0k1VXxc6ePfy06DGV3NsZcPbAMcHSk" style=3D'font-family: "Helvetica Ne=
+ue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-box; fon=
+t-size: 14px; line-height: 1.5; color: #4477bd; text-decoration: underline;=
+'><span style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Ari=
+al, sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'=
+>laim your 300 pageview credits</span></a><br style=3D'font-family: "Helvet=
+ica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: border-bo=
+x; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+Thomas Griffin<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helv=
+etica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-hei=
+ght: 1.5;'>
+Co-Founder=C2=A0<br style=3D'font-family: "Helvetica Neue", "Helvetica", He=
+lvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-h=
+eight: 1.5;'>
+OptinMonster<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvet=
+ica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-heigh=
+t: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+P.S. Did you end up purchasing OptinMonster with a different email address?=
+ No problem, just=C2=A0<a href=3D"https://t.dripemail2.com/c/eyJhbGciOiJIUz=
+I1NiJ9.eyJhdWQiOiJkZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5r=
+IiwiaWF0IjoxNjUwMDI4MTA1LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTg=
+wIiwiZGVsaXZlcnlfaWQiOiJ3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vd3=
+d3LmdldGRyaXAuY29tL3N1YnNjcmliZXJzL2FraGlpajJpajBoYWc4MjY0ZXVwL3N1YnNjcmlwd=
+GlvbnM_ZD13MHUyY3YwMW12NjlqZnJnZ2NlcCZleGNsdWRlX2NsaWNrPTEmaW50ZW50PXVuc3Vi=
+c2NyaWJlJl9fcz1ha2hpaWoyaWowaGFnODI2NGV1cCJ9.rkHwp6seKS5Vsa-pXI5g-ARBUXFExU=
+mjgkG9vWPHKGM" style=3D'font-family: "Helvetica Neue", "Helvetica", Helveti=
+ca, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-height=
+: 1.5; color: #4477bd; text-decoration: underline;'>click here</a>=C2=A0to =
+remove this email address (mail@nagrikunmuktiparty.org) from our list.
+            </td>
+          </tr>
+        </table>
+      </div>
+     =20
+      <div class=3D"content" style=3D'font-family: "Helvetica Neue", "Helve=
+tica", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14p=
+x; line-height: 1.5; max-width: 600px; overflow: visible; display: block; m=
+argin: 0;'>
+        <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D'=
+font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; b=
+ox-sizing: border-box; font-size: 14px; line-height: 1.5; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;'>
+          <tr style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetic=
+a, Arial, sans-serif; box-sizing: border-box; font-size: 14px; line-height:=
+ 1.5;'>
+            <td class=3D"footer-content" style=3D"font-family: 'Helvetica N=
+eue', 'Helvetica', 'Arial', sans-serif; box-sizing: border-box; font-size: =
+14px; line-height: 1.5; vertical-align: top; width: 100%; clear: both; colo=
+r: #777; border-top-width: 1px; border-top-color: #d0d0d0; border-top-style=
+: solid; padding: 25px;" valign=3D"top">
+              To make sure you keep getting these emails, please add suppor=
+t@optinmonster.com to your address book or whitelist us. Want out of the lo=
+op? <a href=3D"https://t.dripemail2.com/c/eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJk=
+ZXRvdXIiLCJpc3MiOiJtb25vbGl0aCIsInN1YiI6ImRldG91cl9saW5rIiwiaWF0IjoxNjUwMDI=
+4MTA1LCJuYmYiOjE2NTAwMjgxMDUsImFjY291bnRfaWQiOiIyNzgzNTgwIiwiZGVsaXZlcnlfaW=
+QiOiJ3MHUyY3YwMW12NjlqZnJnZ2NlcCIsInVybCI6Imh0dHBzOi8vd3d3LmdldGRyaXAuY29tL=
+3N1YnNjcmliZXJzL2FraGlpajJpajBoYWc4MjY0ZXVwL3N1YnNjcmlwdGlvbnM_ZD13MHUyY3Yw=
+MW12NjlqZnJnZ2NlcCZleGNsdWRlX2NsaWNrPTEmaW50ZW50PXVuc3Vic2NyaWJlJl9fcz1ha2h=
+paWoyaWowaGFnODI2NGV1cCJ9.rkHwp6seKS5Vsa-pXI5g-ARBUXFExUmjgkG9vWPHKGM" styl=
+e=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-ser=
+if; box-sizing: border-box; font-size: 14px; line-height: 1.5; color: #4477=
+bd; text-decoration: underline;'>Unsubscribe</a>.<br style=3D'font-family: =
+"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; box-sizing: bo=
+rder-box; font-size: 14px; line-height: 1.5;'>
+<br style=3D'font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, =
+sans-serif; box-sizing: border-box; font-size: 14px; line-height: 1.5;'>
+Our postal address: 7732 Maywood Crest Dr., West Palm Beach, FL 33412
+            </td>
+          </tr>
+        </table>
+      </div>
+     =20
+    </td>
+  </tr>
+</table>
+<img src=3D"https://u8429199.ct.sendgrid.net/wf/open?upn=3DuUXPdLcl0pYIasH7=
+TDzRdQdPm6oKtN-2BTMcUKfVkd5R0Z0e5WCgIyd38e-2F299cle2NP-2BJorxD-2BcdYsfmsmZm=
+-2B7-2FZtYQlc052P4npm-2F3oU5onMPG4DkCDOcosPv2MY1exYQkwaAGEYHwRZVpOWRVU5rylh=
+0pkqLnhRK1OrNiAo8dFZznUz3Zx7nnQbn-2ByKvsBEe9IHxPJFG-2B5S3YuNXqqS6mGH7z60MTo=
+MNYVpzNobHHCYLxJkX-2BOPoxRpxt0f427wGk-2FjlhCG7sAcisSiBUh8XAyW4c90eA9Wtfg8fh=
+u-2BNYcrlc3QhadkrEyrjqWenfbYHqXRstDSJIydO7ELNX65vIOmAi-2FTctim9D2CsMkjj9ys8=
+iCs0A7KkozuvozakMit31Vx2u1pD-2FPcvzL4GLdAuSsKeWu61ipj2qNDVgDrZvAxiSkBQjpJzt=
+w7Fj7Om0dXWGGRIq9lRfh7crEb5BK8d-2FxXdSBqmt30Tp2ddSd7FNZaE2eo-2BJJiTZogOup7B=
+BGXciUwNEJ2M6DVyMAYsEqIOb7l0K2pjjLAXk3P8XMjqLshMWt3pFmiQOvUGrgogAR-2BpMFacg=
+01ookZVIK46uqACwRzu-2F0g-2FbM0-2FsAVu1GvgOhl1Xt-2BbCChntzG-2BQ-2FxoZ8NOkd7e=
+UyIgeIpBv57NWtn0np8LIsoLwTDQLwm6YuHBsX4Nzu5ODpTbzu65qnpG0Axgpvw990LZfN237S8=
+boB6cop59UQosGrWkjPtaUvEl1fO6sAPzlST9wvHeviUzeI4gX4-2BVFS6y-2F7j8jh8kVDsfw3=
+NDhDhggHAoNM6SpjpV5CRmS9nL8thg-2B6DKAkDcKRZulYoWz5OXMTIqDgsPmo8NQ-3D-3D" al=
+t=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important=
+;width:1px !important;border-width:0 !important;margin-top:0 !important;mar=
+gin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important;=
+padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !impor=
+tant;padding-left:0 !important;"/></body>
+</html>
+
+--8a391f235c8ea3d69f0c53fbee7a5e8af23ca37ffe2bc5d9cf3488f4d54e--

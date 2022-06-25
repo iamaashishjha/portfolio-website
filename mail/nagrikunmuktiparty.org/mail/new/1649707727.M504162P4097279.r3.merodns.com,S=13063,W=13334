@@ -1,0 +1,271 @@
+Return-Path: <010001801a3d8c8c-5df3008e-3fe9-49d5-9eda-f7cc54ccf185-000000@amazonses.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id ehSbHM+KVGL/hD4AaZRYGA
+	(envelope-from <010001801a3d8c8c-5df3008e-3fe9-49d5-9eda-f7cc54ccf185-000000@amazonses.com>)
+	for <mail@nagrikunmuktiparty.org>; Tue, 12 Apr 2022 01:53:47 +0545
+Return-path: <010001801a3d8c8c-5df3008e-3fe9-49d5-9eda-f7cc54ccf185-000000@amazonses.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Tue, 12 Apr 2022 01:53:47 +0545
+Received: from a8-62.smtp-out.amazonses.com ([54.240.8.62]:60379)
+	by r3.merodns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.94.2)
+	(envelope-from <010001801a3d8c8c-5df3008e-3fe9-49d5-9eda-f7cc54ccf185-000000@amazonses.com>)
+	id 1ne0L8-00HBoT-4s
+	for mail@nagrikunmuktiparty.org; Tue, 12 Apr 2022 01:53:47 +0545
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=bwjnvf7jhh22ull7vln7oadg6qcit4aj; d=cleantalk.org; t=1649707683;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:To:From:Subject:Message-ID:Date;
+	bh=WeJfb+uOpPLBzA/rgr00bgaMr4Zgwab5XBIMK2lxYvI=;
+	b=vFggZlivZGBKA0ZgiMcLuJNTMABy2jxb76JNSJwiXiaY4GwtI9zsQTXoJIIu0XGr
+	JX/w0t+cDIqXjOi8TEfslTax3sjSsaeS0FmLOSuPQzOs8fz8Hkjkqkp2YMbxCcjS7yR
+	sOqGt3987X/nmvhfgRmv54CSk3nOiksHJbURtai0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1649707683;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:To:From:Subject:Message-ID:Date:Feedback-ID;
+	bh=WeJfb+uOpPLBzA/rgr00bgaMr4Zgwab5XBIMK2lxYvI=;
+	b=SU3tZ8VUu19aICC+D/b8ppW+MYR0hK6Z3x+Utrw2SzPIIDQ1tqwUD4PyLZ3xYQF8
+	uAi6r41tmn1kihWQefN7ZQZWScCE3PzfiENaJ2njdq5ky0YnIAwlFIhtt2A1qVY5m7y
+	ImkQykp9nphFUFHzR9uDPgFvprBlRNmsi37VC1+4=
+Content-Type: multipart/related; boundary="----------=_1649707682-5271-0"
+Content-Transfer-Encoding: binary
+MIME-Version: 1.0
+X-Mailer: MIME-tools 5.509 (Entity 5.509)
+To: mail@nagrikunmuktiparty.org
+From: CleanTalk <welcome@cleantalk.org>
+Subject: =?UTF-8?B?Q2xlYW5UYWxrIEFjY2VzcyBLZXkuIA==?=
+Message-ID: <010001801a3d8c8c-5df3008e-3fe9-49d5-9eda-f7cc54ccf185-000000@email.amazonses.com>
+Date: Mon, 11 Apr 2022 20:08:03 +0000
+Feedback-ID: 1.us-east-1.ruyaQoY2FcnMH6g8GTMUUvu6/a33+hY6WPFpuP5dyCU=:AmazonSES
+X-SES-Outgoing: 2022.04.11-54.240.8.62
+X-Spam-Status: No, score=0.1
+X-Spam-Score: 1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  CleanTalk — cloud services for websites Thank you for signing
+    up for CleanTalk! Your CleanTalk access key yvahe6yju8et CleanTalk Dashboard:
+    https://cleantalk.org/my Username: mail@nagrikunmuktiparty.org Password:
+   aJyVU4Yby8ehu2y7 
+ Content analysis details:   (0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: cleantalk.org]
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Spam-Flag: NO
+
+This is a multi-part message in MIME format...
+
+------------=_1649707682-5271-0
+Content-Type: text/html; charset=UTF-8;
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title></title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html charset=3DUTF-8"/>
+<style type=3D"text/css">
+  .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClas=
+s td {line-height: 100%;}
+  .ExternalClass {width: 100%;}
+</style>
+</head>
+<body style=3D"margin: 0; text-align: center; font-family: Verdana, sans-se=
+rif; font-size: 14pt;">
+    <table border=3D"0" align=3D"center" width=3D"100%">
+        <tr align=3D"center">
+            <td style=3D"padding: 0.5em 0 0.5em 0; background: #3090C7; col=
+or: #fff;">
+            <table border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td style=3D"margin: 0; padding:0; text-align:center;">
+                        <h3 style=3D"color: #fff; margin: 0;">
+                            <img src=3D"cid:cleantalk-cloud.png" style=3D"v=
+ertical-align:middle; margin-right:10;" />
+                            <span style=3D"vertical-align:middle;">CleanTal=
+k &mdash; cloud services for websites</span>
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding: 1em;">
+            <table border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td style=3D"font-weight:bold;text-align:center;">
+Thank you for signing up for CleanTalk!=20
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding: 1em;">
+            <table border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td style=3D"font-weight:bold; font-size:12pt; color:#7=
+f7f7f;">
+Your CleanTalk access key <span style=3D"margin-left:1em;font-size:12pt;col=
+or:#22b14c"><b>yvahe6yju8et</b></span>
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding: 1em; background: #eee;">
+            <table border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td style=3D"font-size:12pt;">
+<p>CleanTalk Dashboard: <a href=3D"https://cleantalk.org/my">https://cleant=
+alk.org/my</a><br /> Username: mail@nagrikunmuktiparty.org<br /> Password: =
+aJyVU4Yby8ehu2y7<br /> </p><p>Setup guide:<br /> <a href=3D"https://cleanta=
+lk.org/install?platform=3Dwordpress">https://cleantalk.org/install?platform=
+=3Dwordpress</a> </p>
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding: 1em;">
+            <table border=3D"0" align=3D"center" width=3D"100%">
+                <tr>
+                    <td style=3D"text-align:center;">
+Many thanks from the CleanTalk Team
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding: 1em;">
+            <table border=3D"0" align=3D"center">
+                <tr>
+                    <td style=3D"text-align:center;font-size:12pt;">
+Every day we save you time so you can enjoy something good:<table><tr><td s=
+tyle=3D"text-align:left;padding-right: 30px;">&bull;&nbsp;&nbsp;Have a cup =
+of coffee</td><td style=3D"text-align:left;padding-right: 30px;">&bull;&nbs=
+p;&nbsp;Read the news</td><td style=3D"text-align:left;padding-right: 30px;=
+">&bull;&nbsp;&nbsp;Buy donuts</td></tr></table>
+                    </td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding-top: 2em; padding-bottom: 1em; font-size: =
+12pt; color: #666;">
+                CleanTalk Inc 711 S Carson street, suite 4, Carson city, NV=
+, 89701
+                <br>
+                <span style=3D"font-size: 8pt; color: #666;"><a href=3D"htt=
+ps://cleantalk.org/postman?task_key=3Dd140c8f5f3c95e329b259f090ce4a37b" sty=
+le=3D"color: #666;">Unsubscribe</a> from this notice</span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+------------=_1649707682-5271-0
+Content-Type: image/png; name="cleantalk-cloud-h40.png"
+Content-Disposition: inline; filename="cleantalk-cloud-h40.png"
+Content-Transfer-Encoding: base64
+Content-ID: <cleantalk-cloud.png>
+
+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
+gg==
+
+------------=_1649707682-5271-0--
