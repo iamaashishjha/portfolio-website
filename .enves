@@ -1,6 +1,6 @@
-APP_NAME=NagrikUnmuktiParty
+APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:lQwy2QfyC97Nn0oMznK1OeYfr0RvBIOhXeuqpd1hxmY=
+APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -12,7 +12,7 @@ DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=nagriku1_portfolio
-DB_USERNAME=nagriku1_portfolio
+DB_USERNAME=nagriku1_portolio
 DB_PASSWORD=Dad4ever.556
 
 BROADCAST_DRIVER=log
@@ -28,16 +28,14 @@ REDIS_HOST=127.0.0.1
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 
-#MAIL_MAILER=smtp
-MAIL_DRIVER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=nagrikunmuktiparty@gmail.com
-MAIL_PASSWORD=eprdhssfowyprfoq
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=nagrikunmuktiparty@gmail.com
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
 MAIL_FROM_NAME="${APP_NAME}"
-MAIL_CC=null
 
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=

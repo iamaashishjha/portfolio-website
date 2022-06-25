@@ -1,0 +1,38 @@
+Return-Path: <nagriku1@r3.merodns.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id WEyHGjFwjWJisCsAaZRYGA
+	(envelope-from <nagriku1@r3.merodns.com>)
+	for <mail@nagrikunmuktiparty.org>; Wed, 25 May 2022 05:39:25 +0545
+Return-path: <nagriku1@r3.merodns.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Wed, 25 May 2022 05:39:25 +0545
+Received: from nagriku1 by r3.merodns.com with local (Exim 4.94.2)
+	(envelope-from <nagriku1@r3.merodns.com>)
+	id 1nteM5-00C0qW-7D
+	for mail@nagrikunmuktiparty.org; Wed, 25 May 2022 05:39:25 +0545
+To: mail@nagrikunmuktiparty.org
+Subject: =?UTF-8?B?W+CkqOCkvuCkl+CksOCkv+CklSDgpIngpKjgpY3gpK7gpYHgpJXgpY3gpKQ=?=  =?UTF-8?B?4KS/IOCkquCkvuCksOCljeCkn+ClgF0gWW91ciBzaXRlIGhhcyB1cGRh?=  =?UTF-8?B?dGVkIHRvIFdvcmRQcmVzcyA2LjA=?=
+X-PHP-Script: nagrikunmuktiparty.org/wp-cron.php for 75.119.130.36
+X-PHP-Originating-Script: 1338:PHPMailer.php
+Date: Tue, 24 May 2022 23:54:24 +0000
+From: WordPress <wordpress@nagrikunmuktiparty.org>
+Message-ID: <7mdYkYQ3KH8Qzb9VSOljPomr6VvEtzgFqqJVhacHU@nagrikunmuktiparty.org>
+X-Mailer: PHPMailer 6.6.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Howdy! Your site at https://nagrikunmuktiparty.org has been updated automatically to WordPress 6.0.
+
+No further action is needed on your part. For more on version 6.0, see the About WordPress screen:
+https://nagrikunmuktiparty.org/wp-admin/about.php
+
+If you experience any issues or need support, the volunteers in the WordPress.org support forums may be able to help.
+https://wordpress.org/support/forums/
+
+You also have some plugins or themes with updates available. Update them now:
+https://nagrikunmuktiparty.org/wp-admin/
+
+The WordPress Team
+

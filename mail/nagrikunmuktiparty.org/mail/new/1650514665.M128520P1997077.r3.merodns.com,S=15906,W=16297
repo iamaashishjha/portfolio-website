@@ -1,0 +1,391 @@
+Return-Path: <welcome@cleantalk.org>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id xL/iBunaYGIVeR4AaZRYGA
+	(envelope-from <welcome@cleantalk.org>)
+	for <mail@nagrikunmuktiparty.org>; Thu, 21 Apr 2022 10:02:45 +0545
+Return-path: <welcome@cleantalk.org>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Thu, 21 Apr 2022 10:02:45 +0545
+Received: from netserv3.cleantalk.org ([188.40.14.173]:49900)
+	by r3.merodns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <welcome@cleantalk.org>)
+	id 1nhOGI-008NYd-VV
+	for mail@nagrikunmuktiparty.org; Thu, 21 Apr 2022 10:02:45 +0545
+Received: by netserv3.cleantalk.org (Postfix, from userid 0)
+	id AD30AC0B5A; Thu, 21 Apr 2022 09:17:02 +0500 (+05)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=cleantalk.org;
+	s=mail; t=1650514622;
+	bh=4T63MUhjNgvENJ5gu/41tXuuoCrN/3Cr07qUIYxKDOE=;
+	h=Date:To:From:Subject;
+	b=N+vvNfqrkyWPM4dnMeBHMbtMxc+89A7JJ+f8jxAmvCNGgnNzQkquKBzRF2799scKP
+	 0KUf1phlJGnTnHb5gnhZDn9zWCC2Wf20uFDC9uK2oil6QAT6Gdj/QKYOmhujGLP5DW
+	 KPcQ+OoOnHhAWRo/5Xub29B1ZjjMEsKZp3XiiGJs=
+Content-Transfer-Encoding: binary
+Content-Type: multipart/mixed; boundary="_----------=_16505146222467445"
+MIME-Version: 1.0
+X-Mailer: MIME::Lite 3.030 (F2.85; T2.17; A2.18; B3.15; Q3.13)
+Date: Thu, 21 Apr 2022 09:17:02 +0500
+To: mail@nagrikunmuktiparty.org
+From: CleanTalk <welcome@cleantalk.org>
+Subject: =?UTF-8?B?MSBTcGFtIEF0dGFja3MgV2VyZSBCbG9ja2VkICBmb3IgbmFncmlrdW5tdWt0?=
+  =?UTF-8?B?aXBhcnR5Lm9yZw==?=
+Message-Id: <20220421041702.AD30AC0B5A@netserv3.cleantalk.org>
+X-Spam-Status: No, score=-0.2
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  ## Anti-Spam Report for nagrikunmuktiparty.org (http://nagrikunmuktiparty.org)
+    ## Reporting period Apr 13 2022 - Apr 21 2022 ## Comments ## Spam Legitimate
+    Total 0 (https://cleantalk.org/my/show_requests?int=week&allow=0&type=message&user_token=epuDaLedyge9eme9ebu3uQaWuLu3eseL)
+    0 (https://cleantalk.org/my/show_requests?int=week&allow=1&ty [...] 
+ Content analysis details:   (-0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: cleantalk.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+X-Spam-Flag: NO
+
+This is a multi-part message in MIME format.
+
+--_----------=_16505146222467445
+Content-Transfer-Encoding: binary
+Content-Type: multipart/alternative; boundary="_----------=_16505146222467447"
+MIME-Version: 1.0
+X-Mailer: MIME::Lite 3.030 (F2.85; T2.17; A2.18; B3.15; Q3.13)
+Date: Thu, 21 Apr 2022 09:17:02 +0500
+
+This is a multi-part message in MIME format.
+
+--_----------=_16505146222467447
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8;
+
+## Anti-Spam Report for nagrikunmuktiparty.org (http://nagrikunmuktiparty.o=
+rg) ##=0D
+Reporting period Apr 13 2022 - Apr 21 2022=0D
+=0D
+## Comments ##=0D
+=0D
+Spam	Legitimate	Total=0D
+0 (https://cleantalk.org/my/show_requests?int=3Dweek&allow=3D0&type=3Dmessa=
+ge&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/=
+my/show_requests?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedy=
+ge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/my/show_requests?int=3Dwe=
+ek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)=0D
+=0D
+## Contact enquiries ##=0D
+=0D
+Spam	Legitimate	Total=0D
+1 (https://cleantalk.org/my/show_requests?int=3Dweek&allow=3D0&type=3Dmessa=
+ge&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/=
+my/show_requests?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedy=
+ge9eme9ebu3uQaWuLu3eseL)	1 (https://cleantalk.org/my/show_requests?int=3Dwe=
+ek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)=0D
+=0D
+## Search Terms ##=0D
+=0D
+Spam	Legitimate	Total=0D
+0 (https://cleantalk.org/my/show_requests?int=3Dweek&allow=3D0&type=3Dmessa=
+ge&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/=
+my/show_requests?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedy=
+ge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/my/show_requests?int=3Dwe=
+ek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)=0D
+=0D
+## Spam FireWall ##=0D
+=0D
+Spam	Legitimate	Total=0D
+0 (https://cleantalk.org/my/show_sfw?int=3Dweek&user_token=3DepuDaLedyge9em=
+e9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/my/show_sfw?int=3Dweek&user_to=
+ken=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)	0 (https://cleantalk.org/my/show_sf=
+w?int=3Dweek&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL)=0D
+=0D
+Dashboard (https://cleantalk.org/my?utm_source=3Dnewsletter&utm_medium=3Dwe=
+ekly_report&utm_campaign=3Ddashboard_button&user_token=3DepuDaLedyge9eme9eb=
+u3uQaWuLu3eseL)=0D
+=0D
+Follow us: =C2=A0Facebook (https://www.facebook.com/pages/CleanTalk/1376135=
+232685216) =C2=A0Twitter (https://twitter.com/cleantalk_en) =C2=A0=0D
+=0D
+=C2=A9 CleanTalk (https://cleantalk.org) - applications for websites=0D
+Unsubscribe (https://cleantalk.org/postman?task_key=3Dd140c8f5f3c95e329b259=
+f090ce4a37b) from this report=0D
+=0D
+
+--_----------=_16505146222467447
+Content-Transfer-Encoding: binary
+Content-Type: multipart/related; boundary="_----------=_16505146222467446"
+MIME-Version: 1.0
+X-Mailer: MIME::Lite 3.030 (F2.85; T2.17; A2.18; B3.15; Q3.13)
+Date: Thu, 21 Apr 2022 09:17:02 +0500
+
+This is a multi-part message in MIME format.
+
+--_----------=_16505146222467446
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8;
+
+
+<html>
+<head>
+<title></title>
+</head>
+<body style=3D"margin: 2em 5% 2em 5%; text-align: center; font-family: Verd=
+ana, san-serif;">
+    <table border=3D"0" align=3D"center" width=3D"100%" style=3D"border: 1p=
+x dashed #49C73B;">
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0.5em;">
+            <h2>Anti-Spam Report for <a href=3D"http://nagrikunmuktiparty.o=
+rg">nagrikunmuktiparty.org</a></h2>
+            <span>Reporting period Apr 13 2022 - Apr 21 2022</span>
+            </td>
+        </tr>
+=20=20=20=20=20=20=20=20
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0em;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0em;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                <h2>Comments</h2>
+                <table border=3D"0">
+                    <tr style=3D"background: #eee; font-size: 14pt;" align=
+=3D"center">
+                        <td width=3D"150">
+                           Spam=20
+                        </td>
+                        <td width=3D"150">
+                           Legitimate=20
+                        </td>
+                        <td width=3D"150">
+                           Total=20
+                        </td>
+                    </tr>
+                    <tr style=3D"font-size: 14pt; font-weight: bold;" align=
+=3D"center">
+                        <td style=3D"color: #CC3300;">
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&allow=3D0&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQa=
+WuLu3eseL" style=3D"color: #CC3300;">0</a>=20
+                        </td>
+                        <td style=3D"color: #49C73B;">
+                             <a href=3D"https://cleantalk.org/my/show_reque=
+sts?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQ=
+aWuLu3eseL" style=3D"color: #49C73B;">0</a>=20
+                        </td>
+                        <td>
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL"=
+ style=3D"color: #000000;">0</a>=20
+                        </td>
+                    </tr>
+                </table>
+=20=20=20=20
+
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0em;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                <h2>Contact enquiries</h2>
+                <table border=3D"0">
+                    <tr style=3D"background: #eee; font-size: 14pt;" align=
+=3D"center">
+                        <td width=3D"150">
+                           Spam=20
+                        </td>
+                        <td width=3D"150">
+                           Legitimate=20
+                        </td>
+                        <td width=3D"150">
+                           Total=20
+                        </td>
+                    </tr>
+                    <tr style=3D"font-size: 14pt; font-weight: bold;" align=
+=3D"center">
+                        <td style=3D"color: #CC3300;">
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&allow=3D0&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQa=
+WuLu3eseL" style=3D"color: #CC3300;">1</a>=20
+                        </td>
+                        <td style=3D"color: #49C73B;">
+                             <a href=3D"https://cleantalk.org/my/show_reque=
+sts?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQ=
+aWuLu3eseL" style=3D"color: #49C73B;">0</a>=20
+                        </td>
+                        <td>
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL"=
+ style=3D"color: #000000;">1</a>=20
+                        </td>
+                    </tr>
+                </table>
+=20=20=20=20
+
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0em;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                <h2>Search Terms</h2>
+                <table border=3D"0">
+                    <tr style=3D"background: #eee; font-size: 14pt;" align=
+=3D"center">
+                        <td width=3D"150">
+                           Spam=20
+                        </td>
+                        <td width=3D"150">
+                           Legitimate=20
+                        </td>
+                        <td width=3D"150">
+                           Total=20
+                        </td>
+                    </tr>
+                    <tr style=3D"font-size: 14pt; font-weight: bold;" align=
+=3D"center">
+                        <td style=3D"color: #CC3300;">
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&allow=3D0&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQa=
+WuLu3eseL" style=3D"color: #CC3300;">0</a>=20
+                        </td>
+                        <td style=3D"color: #49C73B;">
+                             <a href=3D"https://cleantalk.org/my/show_reque=
+sts?int=3Dweek&allow=3D1&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQ=
+aWuLu3eseL" style=3D"color: #49C73B;">0</a>=20
+                        </td>
+                        <td>
+                            <a href=3D"https://cleantalk.org/my/show_reques=
+ts?int=3Dweek&type=3Dmessage&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL"=
+ style=3D"color: #000000;">0</a>=20
+                        </td>
+                    </tr>
+                </table>
+=20=20=20=20
+
+            </td>
+        </tr>
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0em;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                <h2>Spam FireWall</h2>
+                <table border=3D"0">
+                    <tr style=3D"background: #eee; font-size: 14pt;" align=
+=3D"center">
+                        <td width=3D"150">
+                           Spam=20
+                        </td>
+                        <td width=3D"150">
+                           Legitimate=20
+                        </td>
+                        <td width=3D"150">
+                           Total=20
+                        </td>
+                    </tr>
+                    <tr style=3D"font-size: 14pt; font-weight: bold;" align=
+=3D"center">
+                        <td style=3D"color: #CC3300;">
+                            <a href=3D"https://cleantalk.org/my/show_sfw?in=
+t=3Dweek&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL" style=3D"color: #CC=
+3300;">0</a>=20
+                        </td>
+                        <td style=3D"color: #49C73B;">
+                             <a href=3D"https://cleantalk.org/my/show_sfw?i=
+nt=3Dweek&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL" style=3D"color: #4=
+9C73B;">0</a>=20
+                        </td>
+                        <td>
+                            <a href=3D"https://cleantalk.org/my/show_sfw?in=
+t=3Dweek&user_token=3DepuDaLedyge9eme9ebu3uQaWuLu3eseL" style=3D"color: #00=
+0000;">0</a>=20
+                        </td>
+                    </tr>
+                </table>
+=20=20=20=20
+
+            </td>
+        </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0.5em;">
+<br />
+<br />
+<a href=3D"https://cleantalk.org/my?utm_source=3Dnewsletter&utm_medium=3Dwe=
+ekly_report&utm_campaign=3Ddashboard_button&user_token=3DepuDaLedyge9eme9eb=
+u3uQaWuLu3eseL" style=3D"font-size: 16pt;
+	text-decoration: none;
+	background: #FF7E47;
+    color: #fff;=20
+    padding: 0.5em 1em 0.5em 1em;
+	white-space: nowrap;
+=09
+    border: 0px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;">Dashboard</a>
+</p>
+<br />
+<br />
+            </td>
+        </tr>
+
+=20=20=20=20=20=20=20=20=20=20=20=20
+        <tr align=3D"center">
+            <td style=3D"padding-top: 0.5em;">
+<br />
+<div style=3D"text-align: center;">
+Follow us: &nbsp;<a href=3D"https://www.facebook.com/pages/CleanTalk/137613=
+5232685216">Facebook</a> &nbsp;<a href=3D"https://twitter.com/cleantalk_en"=
+>Twitter</a> &nbsp;
+</div>
+            </td>
+        </tr>
+
+        <tr align=3D"center">
+            <td style=3D"padding-top: 2em; padding-bottom: 1em; font-size: =
+10pt; color: #666;">
+                &copy; <a href=3D"https://cleantalk.org">CleanTalk</a> - ap=
+plications for websites<br />
+                <span style=3D"font-size: 8pt; color: #666;"><span style=3D=
+"font-size: 8pt; color: #666;"><a href=3D"https://cleantalk.org/postman?tas=
+k_key=3Dd140c8f5f3c95e329b259f090ce4a37b">Unsubscribe</a> from this report<=
+/span><img alt=3D"" src=3D"https://cleantalk.org/tracker?email_key=3Da0061f=
+0f7f8e5e9c4743f231f5e89692" width=3D"1" height=3D"1" border=3D"0" /></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+--_----------=_16505146222467446--
+
+--_----------=_16505146222467447--
+
+--_----------=_16505146222467445--

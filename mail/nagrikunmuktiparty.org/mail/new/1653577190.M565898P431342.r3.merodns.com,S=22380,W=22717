@@ -1,0 +1,337 @@
+Return-Path: <mail=nagrikunmuktiparty.org@bounces.jetpack.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id yp1dHuaVj2LulAYAaZRYGA
+	(envelope-from <mail=nagrikunmuktiparty.org@bounces.jetpack.com>)
+	for <mail@nagrikunmuktiparty.org>; Thu, 26 May 2022 20:44:50 +0545
+Return-path: <mail=nagrikunmuktiparty.org@bounces.jetpack.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Thu, 26 May 2022 20:44:50 +0545
+Received: from smtp-backup-out2.bur.wordpress.com ([192.0.123.45]:13437)
+	by r3.merodns.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <mail=nagrikunmuktiparty.org@bounces.jetpack.com>)
+	id 1nuExm-001o3x-26
+	for mail@nagrikunmuktiparty.org;
+	Thu, 26 May 2022 20:44:50 +0545
+Received: from wordpress.com (unknown [192.0.100.206])
+	by smtp-backup.bur.wordpress.com (Postfix) with ESMTP id 4L8B0S4Y15z2DyGf
+	for <mail@nagrikunmuktiparty.org>; Thu, 26 May 2022 14:59:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=jetpack.com;
+	s=automattic1; t=1653577144;
+	bh=0P8EbaoNE7QVoiOXakopDQ9hpowAL1FGSQNPPA1xzDM=;
+	h=Date:To:From:Subject:From;
+	b=EsP1Tiq2jVijVxwck7QJ3m2VDH4eBKo85EBviro0ooOwUDgNrc/3zRKrmItIUWnQ2
+	 uStQconQfhE1j4K/IznmQG3mRKIfqiugj7V5cGWDbUdZaioGdCybzjh1KQA966JTrw
+	 p0z/88pzVsutvlmlQpdeHooZG/sVgvTq8AvoK1C4r9C9fCWowJxgPTTwugf49vSOdf
+	 nnUddKt0Knrpw7lGOTNSopXJeCoD1eYUegXVmdQ9HkYFmdTIFmqk4uiKMlJoW2Jjpd
+	 xfO5ccjzaGIfOFc5AD/u5PTnIL6AGzdTb5EtAYjLjbWP4eMMds3WIY/7mHtEcMxY8H
+	 egBZdeFUgWOgg==
+Date: Thu, 26 May 2022 14:59:04 +0000
+To: mail@nagrikunmuktiparty.org
+From: Jetpack Support <no-reply@jetpack.com>
+Subject: =?UTF-8?B?4KSo4KS+4KSX4KSw4KS/4KSVIOCkieCkqOCljeCkruClgeCkleCljeCkpOCkvyDgpKrgpL7gpLDgpY3gpJ/gpYAgaXMgYmFjayBvbmxpbmUh?=
+Message-ID: <f95uuQKEmLhWuvq0tWwXACP5qNlbvOULCwbfNmkbY@wordpress.com>
+X-Automattic-Campaign-ID: jetpack:jetmon-site-running
+X-Automattic-Destination: bWFpbEBuYWdyaWt1bm11a3RpcGFydHkub3Jn
+X-Automattic-Tracking: 0:1:IgeGPqpA1HLDetVhzzUc/Q==.PiJ9QFh6TWvSvbp6bgoxNqa1y6fWfZ/Qu1sEO+AtLYdo0M9aj+i/JQgNYPynOZaB7hkRvSWsSXaxF8p8JEzCiA==:522232:0:0
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="b1_f95uuQKEmLhWuvq0tWwXACP5qNlbvOULCwbfNmkbY"
+Content-Transfer-Encoding: 8bit
+X-Spam-Status: No, score=0.3
+X-Spam-Score: 3
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Hi nagrikunmuktiparty, nagrikunmuktiparty.org is now back
+   online! It appeared offline or unresponsive for approximately 1 month, but
+    everything is back to normal now. Jetpack Monitor will keep checking your
+    site, and we'll alert you if we detect any additional issues. 
+ Content analysis details:   (0.3 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: jetpack.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.5 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 KAM_SHORT              Use of a URL Shortener for very short URL
+ -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium trust sender
+X-Spam-Flag: NO
+
+This is a multi-part message in MIME format.
+
+--b1_f95uuQKEmLhWuvq0tWwXACP5qNlbvOULCwbfNmkbY
+Content-Type: text/plain; charset=us-ascii
+
+Hi nagrikunmuktiparty,
+
+nagrikunmuktiparty.org is now back online! It appeared offline or unresponsive for approximately 1 month, but everything is back to normal now.
+
+Jetpack Monitor will keep checking your site, and we'll alert you if we detect any additional issues.
+
+Visit your site: https://nagrikunmuktiparty.org
+
+Working on your site? Jetpack Backup has real-time backups and one-click restores so you can get back online quickly.
+
+------------------------
+
+Why am I receiving this email?
+
+
+
+JetpackPlan
+
+------------------------
+
+
+
+--b1_f95uuQKEmLhWuvq0tWwXACP5qNlbvOULCwbfNmkbY
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html xmlns=3D"http://www.=
+w3.org/1999/xhtml"><head><title>Jetpack</title><meta http-equiv=3D"Content-=
+Type" content=3D"text/html charset=3DUTF-8"><meta http-equiv=3D"Content-Lan=
+guage" content=3D"en-us"><!--[if lt mso 12]>=0A<style type=3D"text/css">=0A=
+=09.outlook-hide-pre-2007 {=0A=09=09height:0 !important;=0A=09=09max-height=
+:0 !important; /* Gmail*/=0A=09=09display:none !important; /* Generic*/=0A=
+=09=09mso-hide:all !important; /* Outlook clients*/=0A=09=09overflow:hidden=
+ !important; /* Generic */=0A=09=09font-size:0 !important; /* Be careful wi=
+th this one, only use if absolutely required */=0A=09}=0A=09h1,h2,h3,h4 {=
+=0A=09=09margin: 0 !important;=0A=09=09padding: 0 !important;=0A=09}=0A=09t=
+able.footer tr td.top {=0A=09=09height: 40px !important;=0A=09}=0A=09p.btn-=
+calltoaction {=0A=09=09margin-top: 0 !important;=0A=09=09margin-bottom: 0 !=
+important;=0A=09}=0A</style>=0A<![endif]--><!--[if (gte mso 9)|(IE)]>=0A<st=
+yle type=3D"text/css">=0A=09body, .body-wrap {=0A=09=09font-size: 1em !impo=
+rtant;=0A=09=09text-align: center !important;=0A=09}=0A=09h1,h2,h3,h4 {=0A=
+=09=09margin: 0 0 1em !important;=0A=09}=0A=09h1 {=0A=09=09margin-top: 0 !i=
+mportant;=0A=09=09margin-bottom: 2em !important;=0A=09=09font-size: 1.5em !=
+important;=0A=09}=0A=09h2 {=0A=09=09font-size: 1.125em !important;=0A=09=09=
+margin-top: 1em !important;=0A=09=09margin-bottom: 1em !important;=0A=09}=
+=0A=09h5 {=0A=09=09font-size: 1em !important;=0A=09}=0A=09h1, h2 {=0A=09=09=
+font-weight: bold !important;=0A=09}=0A=09p, ul, ol {=0A=09=09font-size: 1.=
+125em !important;=0A=09=09margin-bottom: 1em !important;=0A=09}=0A=09.conta=
+iner {=0A=09=09width: 40em !important;=0A=09=09text-align: left !important;=
+=0A=09}=0A=09.content-mc-region {=0A=09=09margin-bottom: 2.5em !important;=
+=0A=09=09text-align: left !important;=0A=09}=0A=09.content-mc-region p,=0A=
+=09.content-mc-region ul,=0A=09.content-mc-region ol {=0A=09=09font-size: 1=
+.125em !important;=0A=09}=0A=09.content-mc-region ol,=0A=09.content-mc-regi=
+on ul {=0A=09=09padding-right: 0;=0A=09=09padding-top: 0;=0A=09}=0A=09.cont=
+ent-mc-region ol {=0A=09=09padding-left: 25px;=0A=09}=0A=09ol, ul {=0A=09=
+=09margin: 0 0 0 1.5em !important;=0A=09=09padding: 0 !important;=0A=09=09l=
+ist-style-position: inside !important;=0A=09}=0A=09li {=0A=09=09padding-lef=
+t: 0=0A=09=09margin-left: 0 !important;=0A=09=09margin-bottom: 0.5em !impor=
+tant;=0A=09}=0A=09p.btn-calltoaction {=0A=09=09margin-top: 2.5em !important=
+;=0A=09=09margin-bottom: 2.5em !important;=0A=09}=0A=09.btn-calltoaction a =
+{=0A=09=09border: solid 0.375em #03AADC !important;=0A=09=09padding: 0 !imp=
+ortant;=0A=09=09color: #FFFFFF !important;=0A=09}=0A=09td.avatar {=0A=09=09=
+padding-top: 1.25em !important;=0A=09=09padding-right: 1.25em !important;=
+=0A=09=09padding-bottom: 1.25em !important;=0A=09}=0A=09td.banner {=0A=09=
+=09padding-bottom: 2.25em !important;=0A=09}=0A=09.app-download {=0A=09=09b=
+order: 0 !important;=0A=09=09background-color: transparent !important;=0A=
+=09}=0A=09.app-download td {=0A=09=09padding: 0 !important;=0A=09}=0A=09.ex=
+tra-cta {=0A=09=09padding: 0 !important;=0A=09}=0A=09table.footer tr td.top=
+ {=0A=09=09padding-top: 1.4em !important;=0A=09}=0A=09table.footer tr td.bo=
+ttom {=0A=09=09padding-bottom: 1.4em !important;=0A=09}=0A=09table.footer t=
+r td.tw,=0A=09table.footer tr td.fb {=0A=09=09padding: 0.875em !important;=
+=0A=09=09padding-top: 0 !important;=0A=09}=0A=09.signature {=0A=09=09margin=
+-bottom: 2.25em !important;=0A=09}=0A=09.signature td.text {=0A=09=09text-a=
+lign: left !important;=0A=09}=0A=09table.footer p a {=0A=09=09color: #00000=
+0 !important;=0A=09}=0A=09.outlook-hide {=0A=09=09max-height:0 !important; =
+/* Gmail*/=0A=09=09display:none !important; /* Generic*/=0A=09=09mso-hide:a=
+ll !important; /* Outlook clients*/=0A=09=09overflow:hidden !important; /* =
+Generic */=0A=09=09font-size:0 !important; /* Be careful with this one, onl=
+y use if absolutely required */=0A=09}=0A</style>=0A<![endif]--><style type=
+=3D"text/css">@media screen and (max-width: 599px) {#table_body{margin: 0px=
+ !important;}.wrapper{width: 100% !important;=0A        min-width: 0 !impor=
+tant;}h1{font-size: 26px !important;=0A        line-height: 30px !important=
+;}p{font-size: 16px !important;=0A        line-height: 24px !important;}}</=
+style></head><body style=3D"-webkit-font-smoothing: antialiased; -webkit-te=
+xt-size-adjust: none; height: 100%; font-size: 1em; margin: 0; padding: 0; =
+background: #f3f6f8; font-family: 'Helvetica Neue', 'Helvetica', Helvetica,=
+ Arial, sans-serif; direction: ltr; width: 100%; clear: both;">=0A=0A<span =
+class=3D"preheader" style=3D"color: #f3f6f8; font-size: 1px; display: none;=
+"></span>=0A=0A<table id=3D"table_body" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"border-collapse: collapse; width: 100%; padding: 0; margin: 1=
+5px 0; background: #f3f6f8; border: 0;"><tbody><tr><td style=3D"border-coll=
+apse: collapse;">=0A=09=09=09<table id=3D"table_wrapper" class=3D"wrapper" =
+width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" bgcolor=
+=3D"#ffffff" role=3D"presentation" style=3D"border-collapse: collapse; back=
+ground: #ffffff; border: 1px solid #E3EAEF; margin: 0 auto; min-width: 600p=
+x; border-radius: 3px; margin-top: 10px;"><tbody><tr><td style=3D"border-co=
+llapse: collapse;">=0A=09=09=09=09=09=09<table width=3D"100%" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-collapse: co=
+llapse;"><tbody><tr><td valign=3D"middle" class=3D"header-left" style=3D"bo=
+rder-collapse: collapse; padding: 12px 0 8px 25px; border-bottom-width: 1px=
+; border-bottom-color: #f3f6f8; border-bottom-style: solid; text-align: lef=
+t; width: 50%;">=0A=09=09=09=09=09=09=09=09=09<img src=3D"https://s0.wp.com=
+/wp-content/mu-plugins/html-emails/themes/jetpack/images/jetpack-logo-horiz=
+ontal-rgb.png" width=3D"91" height=3D"25" alt=3D"Jetpack" style=3D"border: =
+0 none; height: auto; line-height: 100%; outline: none; text-decoration: no=
+ne; display: inline-block;"></td>=0A=09=09=09=09=09=09=09=09<td valign=3D"m=
+iddle" class=3D"header-right" style=3D"border-collapse: collapse; padding: =
+12px 25px 8px 0; border-bottom-width: 1px; border-bottom-color: #f3f6f8; bo=
+rder-bottom-style: solid; text-align: right; width: 50%;">=0A=09=09=09=09=
+=09=09=09=09=09<img src=3D"https://s0.wp.com/wp-content/mu-plugins/html-ema=
+ils/themes/delta/images/logo.png" width=3D"25" height=3D"25" alt=3D"WordPre=
+ss.com" style=3D"border: 0 none; height: auto; line-height: 100%; outline: =
+none; text-decoration: none; display: inline-block;"></td>=0A=09=09=09=09=
+=09=09=09</tr></tbody></table></td>=0A=09=09=09=09</tr><tr class=3D"jetpack=
+-status-alert" style=3D"font-family: Helvetica Neue, Helvetica, sans-serif;=
+"><td class=3D"jetpack-status-alert-header" align=3D"left" style=3D"border-=
+collapse: collapse; background-color: #FFFFFF; padding: 20px 40px 20px 40px=
+;">=0A=09=09=09<h1 style=3D"font-size: 24px; line-height: 30px; color: #232=
+82D; font-weight: normal; margin: 0;">=0A=09=09=09=09Good news!<br>Your sit=
+e is back online.=09=09=09</h1>=0A=09=09</td>=0A=09</tr><tr class=3D"jetpac=
+k-status-alert" style=3D"font-family: Helvetica Neue, Helvetica, sans-serif=
+;"><td class=3D"jetpack-status-alert-body" align=3D"left" style=3D"border-c=
+ollapse: collapse; background-color: #FFFFFF; padding: 4px 40px 4px 40px;">=
+=0A=09=09=09<p style=3D"direction: ltr; font-size: 16px; line-height: 24px;=
+ color: #23282D;">=0A=09=09=09=09<a href=3D"https://nagrikunmuktiparty.org"=
+ style=3D"font-size: 16px; line-height: 24px; color: #23282D;">nagrikunmukt=
+iparty.org</a> is now back online! It appeared offline or unresponsive for =
+approximately 1 month, but everything is back to normal now.=09=09=09</p>=
+=0A=09=09=09<p style=3D"direction: ltr; font-size: 16px; line-height: 24px;=
+ color: #23282D;">=0A=09=09=09Jetpack Monitor will keep checking your site,=
+ and we'll alert you if we detect any additional issues.=09=09=09</p>=0A=09=
+=09</td>=0A=09</tr><tr class=3D"jetpack-status-alert" style=3D"font-family:=
+ Helvetica Neue, Helvetica, sans-serif;"><td class=3D"jetpack-status-alert-=
+cta" style=3D"border-collapse: collapse; background-color: #FFFFFF; padding=
+: 20px 40px 40px 40px;">=0A=09=09=09=0A<table align=3D"center" class=3D"jet=
+pack-button" role=3D"presentation" style=3D"border-collapse: collapse; widt=
+h: 100%;"><tbody><tr><td align=3D"center" style=3D"border-collapse: collaps=
+e; text-align: center;">=0A=09=09=09=09<!--[if mso]>=0A=09=09=09=09<v:round=
+rect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schemas-micro=
+soft-com:office:word" href=3D"https://nagrikunmuktiparty.org" style=3D"heig=
+ht:40px;v-text-anchor:middle;width:200px;" arcsize=3D"10%" strokecolor=3D"#=
+008D1E" fillcolor=3D"#00BE28">=0A=09=09=09=09=09<w:anchorlock/>=0A=09=09=09=
+=09=09<center style=3D"color:#ffffff;font-family:sans-serif;font-size:13px;=
+font-weight:bold;">Visit your site</center>=0A=09=09=09=09</v:roundrect>=0A=
+=09=09=09=09<![endif]-->=0A=09=09=09=09<!--[if !mso]><!-->=0A=09=09=09=09<a=
+ href=3D"https://nagrikunmuktiparty.org" style=3D"-webkit-text-size-adjust:=
+ none; background-color: #069E08; border-radius: 4px; color: #ffffff; displ=
+ay: inline-block; font-family: Helvetica Neue, Helvetica, sans-serif; font-=
+size: 16px; font-weight: 400; line-height: 45px; mso-hide: all; padding: 0p=
+x 35px 0px 35px; text-align: center; text-decoration: none; white-space: no=
+wrap;">=0A=09=09=09=09=09Visit your site=09=09=09=09</a>=0A=09=09=09=09<!--=
+<![endif]-->=0A=09=09=09</td>=0A=09=09</tr></tbody></table></td>=0A=09</tr>=
+<tr class=3D"jetpack-status-alert" style=3D"font-family: Helvetica Neue, He=
+lvetica, sans-serif;"><td class=3D"jetpack-status-alert-body" align=3D"left=
+" style=3D"border-collapse: collapse; background-color: #FFFFFF; padding: 4=
+px 40px 4px 40px;">=0A=09=09=09<p style=3D"direction: ltr; font-size: 16px;=
+ line-height: 24px; color: #23282D;">=0A=09=09=09=09Working on your site? <=
+a href=3D"https://public-api.wordpress.com/bar/?stat=3Dgroovemails-events&a=
+mp;bin=3Dwpcom_email_click&amp;redirect_to=3Dhttps%3A%2F%2Fjetpack.com%2Fup=
+grade%2Fbackup%2F&amp;sr=3D1&amp;signature=3D482a03fc214651e93cea68944881b3=
+ec&amp;user=3D220127393&amp;_e=3DeyJlcnJvciI6bnVsbCwiYmxvZ19pZCI6MjA1MzgyNz=
+U4LCJibG9nX2xhbmciOiJlbiIsInNpdGVfaWRfbGFiZWwiOiJqZXRwYWNrIiwiX3VpIjoyMjAxM=
+jczOTMsImxvY2FsZSI6ImVuIiwiY3VycmVuY3kiOiJVU0QiLCJjb3VudHJ5X2NvZGVfc2lnbnVw=
+IjoiTlAiLCJzaWdudXBfZmxvd19uYW1lIjoiamV0cGFjay1jb25uZWN0IiwiZW1haWxfZG9tYWl=
+uIjoibmFncmlrdW5tdWt0aXBhcnR5Lm9yZyIsImRhdGVfc2VudCI6IjIwMjItMDUtMjYiLCJlbW=
+FpbF9pZCI6ImU5NDAyMWU3ZGE2NTQzZDA1MjhiZjdiZGI0NTZhN2M5IiwiZW1haWxfbmFtZSI6I=
+mpldG1vbi1zaXRlLXJ1bm5pbmciLCJhbmNob3JfdGV4dCI6IkpldHBhY2sgQmFja3VwIiwiX2Ry=
+IjpudWxsLCJfZGwiOiJcL2pldG1vblwvP2RhdGE9e1xcXCJibG9nX2lkXFxcIjoyMDUzODI3NTg=
+sXFxcInN0YXR1c19pZFxcXCI6MSxcXFwibGFzdF9jaGVja1xcXCI6XFxcIjIwMjItMDUtMjZUMT=
+Q6NTk6MDMuNTc5WlxcXCIsXFxcImxhc3Rfc3RhdHVzX2NoYW5nZVxcXCI6XFxcIjIwMjItMDQtM=
+jFUMDI6NDA6MzEuMDAwWlxcXCIsXFxcImNoZWNrc1xcXCI6W3tcXFwidHlwZVxcXCI6MSxcXFwi=
+c3RhdHVzXFxcIjoxLFxcXCJydHRcXFwiOjQ5MCxcXFwiY29kZVxcXCI6MjAwfV0sXFxcInRva2V=
+uXFxcIjpcXFwiYjY5ZWI0Y2E0YjRhZTE5ZThlNGYyZTMxMjlkYTdmZDNcXFwifSIsIl91dCI6In=
+dwY29tOnVzZXJfaWQiLCJfdWwiOiJuYWdyaWt1bm11a3RpcGFydHkiLCJfZW4iOiJ3cGNvbV9lb=
+WFpbF9jbGljayIsIl90cyI6MTY1MzU3NzE0NDM0NCwiYnJvd3Nlcl90eXBlIjoicGhwLWFnZW50=
+IiwiX2F1YSI6IndwY29tLXRyYWNrcy1jbGllbnQtdjAuMyIsImJsb2dfdHoiOjAsInVzZXJfbGF=
+uZyI6ImVuIn0&amp;_z=3Dz" style=3D"font-size: 16px; line-height: 24px; color=
+: #23282D;">Jetpack Backup</a> has real-time backups and one-click restores=
+ so you can get back online quickly.=09=09=09</p>=0A=09=09</td>=0A=09</tr><=
+tr class=3D"jetpack-status-alert" style=3D"font-family: Helvetica Neue, Hel=
+vetica, sans-serif;"><td class=3D"jetpack-status-alert-body" align=3D"left"=
+ style=3D"border-collapse: collapse; background-color: #FFFFFF; padding: 4p=
+x 40px 4px 40px;">=0A=09=09=09<p style=3D"direction: ltr; font-size: 16px; =
+line-height: 24px; color: #23282D;">=0A=09=09=09=09Control and monitor thes=
+e alerts in your <a href=3D"https://public-api.wordpress.com/bar/?stat=3Dgr=
+oovemails-events&amp;bin=3Djetpack_email_click&amp;redirect_to=3Dhttps%3A%2=
+F%2Fwordpress.com%2Fsettings%2Fsecurity%2Fnagrikunmuktiparty.org&amp;sr=3D1=
+&amp;signature=3Dcd96125d5cf63d11963617631757e422&amp;user=3D220127393&amp;=
+_e=3DeyJlcnJvciI6bnVsbCwiYmxvZ19pZCI6MjA1MzgyNzU4LCJibG9nX2xhbmciOiJlbiIsIn=
+NpdGVfaWRfbGFiZWwiOiJqZXRwYWNrIiwiX3VpIjoyMjAxMjczOTMsImxvY2FsZSI6ImVuIiwiY=
+3VycmVuY3kiOiJVU0QiLCJjb3VudHJ5X2NvZGVfc2lnbnVwIjoiTlAiLCJzaWdudXBfZmxvd19u=
+YW1lIjoiamV0cGFjay1jb25uZWN0IiwiZW1haWxfZG9tYWluIjoibmFncmlrdW5tdWt0aXBhcnR=
+5Lm9yZyIsImRhdGVfc2VudCI6IjIwMjItMDUtMjYiLCJlbWFpbF9pZCI6ImU5NDAyMWU3ZGE2NT=
+QzZDA1MjhiZjdiZGI0NTZhN2M5IiwiZW1haWxfbmFtZSI6ImpldG1vbi1zaXRlLXJ1bm5pbmciL=
+CJfZHIiOm51bGwsIl9kbCI6IlwvamV0bW9uXC8/ZGF0YT17XFxcImJsb2dfaWRcXFwiOjIwNTM4=
+Mjc1OCxcXFwic3RhdHVzX2lkXFxcIjoxLFxcXCJsYXN0X2NoZWNrXFxcIjpcXFwiMjAyMi0wNS0=
+yNlQxNDo1OTowMy41NzlaXFxcIixcXFwibGFzdF9zdGF0dXNfY2hhbmdlXFxcIjpcXFwiMjAyMi=
+0wNC0yMVQwMjo0MDozMS4wMDBaXFxcIixcXFwiY2hlY2tzXFxcIjpbe1xcXCJ0eXBlXFxcIjoxL=
+FxcXCJzdGF0dXNcXFwiOjEsXFxcInJ0dFxcXCI6NDkwLFxcXCJjb2RlXFxcIjoyMDB9XSxcXFwi=
+dG9rZW5cXFwiOlxcXCJiNjllYjRjYTRiNGFlMTllOGU0ZjJlMzEyOWRhN2ZkM1xcXCJ9IiwiX3V=
+0Ijoid3Bjb206dXNlcl9pZCIsIl91bCI6Im5hZ3Jpa3VubXVrdGlwYXJ0eSIsIl9lbiI6ImpldH=
+BhY2tfZW1haWxfY2xpY2siLCJfdHMiOjE2NTM1NzcxNDQzMTEsImJyb3dzZXJfdHlwZSI6InBoc=
+C1hZ2VudCIsIl9hdWEiOiJ3cGNvbS10cmFja3MtY2xpZW50LXYwLjMiLCJibG9nX3R6IjowLCJ1=
+c2VyX2xhbmciOiJlbiJ9&amp;_z=3Dz" style=3D"font-size: 16px; line-height: 24p=
+x; color: #23282D;">Jetpack Monitor settings</a>.=09=09=09</p>=0A=09=09</td=
+>=0A=09</tr><tr class=3D"jetpack-onboarding" style=3D"font-family: Helvetic=
+a Neue, Helvetica, sans-serif;"><td class=3D"jetpack-footer-section" align=
+=3D"center" style=3D"border-collapse: collapse; background-color: #EEEEEE; =
+border-bottom: 1px solid #C8C8C8; padding: 40px;">=0A=0A=09=09=0A=09=09<p c=
+lass=3D"jetpack-footer-body-text" style=3D"direction: ltr; color: #444444; =
+font-size: 15px; line-height: 18px;">=0A=09=09=09Automattic, Inc.=0A=09=09=
+=09<br><a href=3D"https://automattic.com/" class=3D"ios-auto-link jetpack-f=
+ooter-link" style=3D"color: #444444; font-size: 15px; line-height: 18px;">6=
+0 29th St. #343, San Francisco, CA 94110, USA</a>=0A=09=09</p>=0A=0A=09=09<=
+p class=3D"jetpack-footer-body-text" style=3D"direction: ltr; color: #44444=
+4; font-size: 15px; line-height: 18px;">=0A=09=09=09Manage your <a class=3D=
+"jetpack-footer-color-link" href=3D"https://public-api.wordpress.com/bar/?s=
+tat=3Dgroovemails-events&amp;bin=3Dwpcom_email_click&amp;redirect_to=3Dhttp=
+s%3A%2F%2Fwordpress.com%2Fme%2Fnotifications&amp;sr=3D1&amp;signature=3Da56=
+9a9b3af675cda70ec130d0f0fefac&amp;user=3D220127393&amp;_e=3DeyJlcnJvciI6bnV=
+sbCwiYmxvZ19pZCI6MjA1MzgyNzU4LCJibG9nX2xhbmciOiJlbiIsInNpdGVfaWRfbGFiZWwiOi=
+JqZXRwYWNrIiwiX3VpIjoyMjAxMjczOTMsImxvY2FsZSI6ImVuIiwiY3VycmVuY3kiOiJVU0QiL=
+CJjb3VudHJ5X2NvZGVfc2lnbnVwIjoiTlAiLCJzaWdudXBfZmxvd19uYW1lIjoiamV0cGFjay1j=
+b25uZWN0IiwiZW1haWxfZG9tYWluIjoibmFncmlrdW5tdWt0aXBhcnR5Lm9yZyIsImRhdGVfc2V=
+udCI6IjIwMjItMDUtMjYiLCJlbWFpbF9pZCI6ImU5NDAyMWU3ZGE2NTQzZDA1MjhiZjdiZGI0NT=
+ZhN2M5IiwiZW1haWxfbmFtZSI6ImpldG1vbi1zaXRlLXJ1bm5pbmciLCJhbmNob3JfdGV4dCI6I=
+mVtYWlsIHByZWZlcmVuY2VzIGF0IFdvcmRQcmVzcy5jb20iLCJfZHIiOm51bGwsIl9kbCI6Ilwv=
+amV0bW9uXC8/ZGF0YT17XFxcImJsb2dfaWRcXFwiOjIwNTM4Mjc1OCxcXFwic3RhdHVzX2lkXFx=
+cIjoxLFxcXCJsYXN0X2NoZWNrXFxcIjpcXFwiMjAyMi0wNS0yNlQxNDo1OTowMy41NzlaXFxcIi=
+xcXFwibGFzdF9zdGF0dXNfY2hhbmdlXFxcIjpcXFwiMjAyMi0wNC0yMVQwMjo0MDozMS4wMDBaX=
+FxcIixcXFwiY2hlY2tzXFxcIjpbe1xcXCJ0eXBlXFxcIjoxLFxcXCJzdGF0dXNcXFwiOjEsXFxc=
+InJ0dFxcXCI6NDkwLFxcXCJjb2RlXFxcIjoyMDB9XSxcXFwidG9rZW5cXFwiOlxcXCJiNjllYjR=
+jYTRiNGFlMTllOGU0ZjJlMzEyOWRhN2ZkM1xcXCJ9IiwiX3V0Ijoid3Bjb206dXNlcl9pZCIsIl=
+91bCI6Im5hZ3Jpa3VubXVrdGlwYXJ0eSIsIl9lbiI6IndwY29tX2VtYWlsX2NsaWNrIiwiX3RzI=
+joxNjUzNTc3MTQ0MzQ1LCJicm93c2VyX3R5cGUiOiJwaHAtYWdlbnQiLCJfYXVhIjoid3Bjb20t=
+dHJhY2tzLWNsaWVudC12MC4zIiwiYmxvZ190eiI6MCwidXNlcl9sYW5nIjoiZW4ifQ=3D&amp;_=
+z=3Dz" style=3D"color: #008710; font-size: 15px; line-height: 18px; text-de=
+coration-line: underline;">email preferences at WordPress.com</a>.=09=09</p=
+>=0A=0A=09</td>=0A</tr></tbody></table></td>=0A</tr></tbody></table><img sr=
+c=3D"https://pixel.wp.com/t.gif?_ui=3D220127393&amp;locale=3Den&amp;currenc=
+y=3DUSD&amp;country_code_signup=3DNP&amp;signup_flow_name=3Djetpack-connect=
+&amp;email_domain=3Dnagrikunmuktiparty.org&amp;blog_id=3D205382758&amp;date=
+_sent=3D2022-05-26&amp;email_id=3De94021e7da6543d0528bf7bdb456a7c9&amp;emai=
+l_name=3Djetmon-site-running&amp;_en=3Dwpcom_email_open&amp;browser_type=3D=
+php-agent&amp;_aua=3Dwpcom-tracks-client-v0.3&amp;_ul=3Dnagrikunmuktiparty&=
+amp;_ut=3Dwpcom%3Auser_id&amp;blog_tz=3D0&amp;blog_lang=3D0&amp;user_lang=
+=3Den&amp;_ts=3D1653577144311" style=3D"border: 0 none; height: auto; line-=
+height: 100%; outline: none; text-decoration: none;"></body></html><html><d=
+iv style=3D"direction: ltr; max-height: 0px; overflow: hidden;">=0AJetpackP=
+lan</div></html>=0A
+
+--b1_f95uuQKEmLhWuvq0tWwXACP5qNlbvOULCwbfNmkbY--
+
