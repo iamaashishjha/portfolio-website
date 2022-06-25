@@ -15,7 +15,7 @@ $url = request()->route()->uri;
                     href="tel:{{ isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}">{{
                     isset($companyDetails->phone_number) ? $companyDetails->phone_number : '666 888 0000' }}</a>
             </div><!-- /.topbar-one__left -->
-            <div>
+    <div style="color: #d41e44;">
                 @if ($lang == 'en')
                 <p>{{ \Carbon\Carbon::now()->format('j F Y, l') }} </p>
                 @elseif($lang == 'np')
