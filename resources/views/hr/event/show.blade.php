@@ -40,7 +40,7 @@
                             <ul class="list-unstyled event-details-box__list">
                                 <li>{{ $event->created_at->format('d M, Y') }}</li>
                                 <li>{{$event->created_at->format('h:i A') }}</li>
-                                <li>New York</li>
+                                <li>{{ $event->venue }}</li>
                             </ul><!-- /.list-unstyled event-details-box__list -->
                         </div><!-- /.event-details-box__single -->
                     </div><!-- /.col-lg-4 -->
