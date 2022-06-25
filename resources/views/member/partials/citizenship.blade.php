@@ -52,7 +52,12 @@
 						{{-- {{ dd($gender->id) }} --}}
 						<option value="{{ $gender->id }}" @if (isset($member)) @if ($member->gender->id == $gender->id)
 							selected @endif
-							@endif>
+							@endif
+							@if ((old("gender_id")))
+									@if (old("gender_id") == $gender->id)
+										selected
+									@endif
+								@endif>
 							{{ $gender->name }}
 						</option>
 						@endforeach
@@ -112,6 +117,11 @@
 							$province->id)
 							selected @endif
 							@endif
+							@if ((old("citizen_province_id")))
+									@if (old("citizen_province_id") == $province->id)
+										selected
+									@endif
+								@endif
 							>{{ $province->name }}</option>
 						@endforeach
 					</select>
@@ -200,15 +210,26 @@
 						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 					</label>
 					<div class="mt-2">
+						{{-- {{ (old('perm_province_id') !== null) ?? dd(old('perm_province_id')) }} --}}
+
 						<select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="perm_province_id"
 							id="perm_province_id" onchange="getDistrict('perm')">
 							<option hidden>प्रदेश छान्नुहोस्</option>
 							@foreach ($provinces as $province)
-							<option value="{{ $province->id }}" @if (isset($member)) @if ($member->permProvince->id ==
-								$province->id)
-								selected @endif
+							<option value="{{ $province->id }}" 
+								@if (isset($member))
+									@if ($member->permProvince->id == $province->id)
+										selected
+									@endif
 								@endif
-								>{{ $province->name }}</option>
+								@if ((old("perm_province_id")))
+									@if (old("perm_province_id") == $province->id)
+										selected
+									@endif
+								@endif
+								>
+								{{ $province->name }}
+							</option>
 							@endforeach
 						</select>
 						@error('perm_province_id')
@@ -258,71 +279,65 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
-
 		</div>
-
 		<div class="grid grid-cols-12 gap-2">
 			<div class="col-span-12 lg:col-span-4">
 				{{-- Local Level Type --}}
-			<div class="mt-3">
-				<div
-					class="font-medium mt-3 ml-2  @error('perm_local_level_type_id') text-theme-6 @enderror  flex items-center">
-					Local Level Type (प्रदेश)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-				</div>
 				<div class="mt-3">
-					<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
-						name="perm_local_level_type_id" id="perm_local_level_type_id" onchange="getDistrict()">
-					</select>
-					@error('perm_local_level_type_id')
+					<div
+						class="font-medium mt-3 ml-2  @error('perm_local_level_type_id') text-theme-6 @enderror  flex items-center">
+						Local Level Type (प्रदेश)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+					</div>
+					<div class="mt-3">
+						<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
+							name="perm_local_level_type_id" id="perm_local_level_type_id" onchange="getDistrict()">
+						</select>
+						@error('perm_local_level_type_id')
+						<span class="text-theme-6 mt-2" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
+				</div>
+			</div>
+			<div class="col-span-12 lg:col-span-4">
+				{{-- Ward Number --}}
+				<div class="mt-3">
+					<div
+						class="font-medium mt-3 ml-2  @error('perm_ward_number') text-theme-6 @enderror  flex items-center">
+						{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
+						Ward Number (वार्ड नम्बर)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+					</div>
+					<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+						placeholder="Write Ward Number (वार्ड नम्बर लेख्नुहोस |)" name="perm_ward_number"
+						id="perm_ward_number"
+						value="{{ isset($member->perm_ward_number) ? $member->perm_ward_number : old('perm_ward_number') }}">
+					@error('perm_ward_number')
 					<span class="text-theme-6 mt-2" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 					@enderror
 				</div>
 			</div>
-			</div>
-			<div class="col-span-12 lg:col-span-4">
-				{{-- Ward Number --}}
-			<div class="mt-3">
-				<div
-					class="font-medium mt-3 ml-2  @error('perm_ward_number') text-theme-6 @enderror  flex items-center">
-					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Ward Number (वार्ड नम्बर)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-				</div>
-				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
-					placeholder="Write Ward Number (वार्ड नम्बर लेख्नुहोस |)" name="perm_ward_number"
-					id="perm_ward_number"
-					value="{{ isset($member->perm_ward_number) ? $member->perm_ward_number : old('perm_ward_number') }}">
-				@error('perm_ward_number')
-				<span class="text-theme-6 mt-2" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
-			</div>
 			<div class="col-span-12 lg:col-span-4">
 				{{-- Tole Name --}}
-			<div class="mt-3">
-				<div class="font-medium mt-3 ml-2  @error('perm_tole') text-theme-6 @enderror  flex items-center">
-					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Tole (टोल)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+				<div class="mt-3">
+					<div class="font-medium mt-3 ml-2  @error('perm_tole') text-theme-6 @enderror  flex items-center">
+						{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
+						Tole (टोल)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+					</div>
+					<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+						placeholder="Write Tole Name" name="perm_tole" id="perm_tole"
+						value="{{ isset($member->perm_tole) ? $member->perm_tole : old('perm_tole') }}">
+					@error('perm_tole')
+					<span class="text-theme-6 mt-2" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
 				</div>
-				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
-					placeholder="Write Tole Name" name="perm_tole" id="perm_tole"
-					value="{{ isset($member->perm_tole) ? $member->perm_tole : old('perm_tole') }}">
-				@error('perm_tole')
-				<span class="text-theme-6 mt-2" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
 			</div>
 
 		</div>
@@ -349,131 +364,131 @@
 		<div class="grid grid-cols-12 gap-2">
 			<div class="col-span-12 lg:col-span-4">
 				{{-- Province --}}
-			<div class="mt-3">
-				<label class="font-medium mt-3 @error('temp_province_id') text-theme-6 @enderror">
-					Province (प्रदेश)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-				</label>
-				<div class="mt-2">
-					<select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="temp_province_id"
-						id="temp_province_id" onchange="getDistrict('temp')">
-						<option hidden>प्रदेश छान्नुहोस्</option>
-						@foreach ($provinces as $province)
-						<option value="{{ $province->id }}" @if (isset($member)) @if ($member->tempProvince->id ==
-							$province->id)
-							selected @endif
-							@endif
-							>{{ $province->name }}</option>
-						@endforeach
-					</select>
-					@error('temp_province_id')
-					<span class="text-theme-6 mt-2" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-					@enderror
+				<div class="mt-3">
+					<label class="font-medium mt-3 @error('temp_province_id') text-theme-6 @enderror">
+						Province (प्रदेश)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+					</label>
+					<div class="mt-2">
+						<select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="temp_province_id"
+							id="temp_province_id" onchange="getDistrict('temp')">
+							<option hidden>प्रदेश छान्नुहोस्</option>
+							@foreach ($provinces as $province)
+							<option value="{{ $province->id }}" @if (isset($member)) @if ($member->tempProvince->id ==
+								$province->id)
+								selected @endif
+								@endif
+								>{{ $province->name }}</option>
+							@endforeach
+						</select>
+						@error('temp_province_id')
+						<span class="text-theme-6 mt-2" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 				</div>
-			</div>
 			</div>
 			<div class="col-span-12 lg:col-span-4">
 				{{-- District --}}
-			<div class="mt-3">
-				<label class="font-medium mt-3 @error('temp_district_id') text-theme-6 @enderror">
-					District (जिल्ला)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-				</label>
-				<div class="mt-2">
-					<select data-placeholder="पहिला नगरिकता प्राप्त प्रदेश छान्नुहोस् |"
-						class="select2 w-full items-center" name="temp_district_id" id="temp_district_id"
-						onchange="getLocalLevel('temp');">
-					</select>
-					@error('temp_district_id')
-					<span class="text-theme-6 mt-2" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-					@enderror
+				<div class="mt-3">
+					<label class="font-medium mt-3 @error('temp_district_id') text-theme-6 @enderror">
+						District (जिल्ला)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+					</label>
+					<div class="mt-2">
+						<select data-placeholder="पहिला नगरिकता प्राप्त प्रदेश छान्नुहोस् |"
+							class="select2 w-full items-center" name="temp_district_id" id="temp_district_id"
+							onchange="getLocalLevel('temp');">
+						</select>
+						@error('temp_district_id')
+						<span class="text-theme-6 mt-2" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 				</div>
-			</div>
 			</div>
 			<div class="col-span-12 lg:col-span-4">
 				{{-- LocalLevel --}}
-			<div class="mt-3">
-				<label class="font-medium mt-3 @error('temp_local_level_id') text-theme-6 @enderror">
-					Local Level (स्थानइय तह)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-				</label>
-				<div class="mt-2">
-					<select data-placeholder="पहिला जिल्ला छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
-						name="temp_local_level_id" id="temp_local_level_id" onchange="getLocalLevelType('temp')">
-					</select>
-					@error('temp_local_level_id')
-					<span class="text-theme-6 mt-2" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-					@enderror
+				<div class="mt-3">
+					<label class="font-medium mt-3 @error('temp_local_level_id') text-theme-6 @enderror">
+						Local Level (स्थानइय तह)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+					</label>
+					<div class="mt-2">
+						<select data-placeholder="पहिला जिल्ला छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
+							name="temp_local_level_id" id="temp_local_level_id" onchange="getLocalLevelType('temp')">
+						</select>
+						@error('temp_local_level_id')
+						<span class="text-theme-6 mt-2" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
 				</div>
 			</div>
-			</div>
-			
+
 		</div>
 
 		<div class="grid grid-cols-12 gap-2">
-			
+
 			<div class="col-span-12 lg:col-span-4">
 				{{-- Local Level Type --}}
-			<div class="mt-3">
-				<div
-					class="font-medium mt-3 ml-2  @error('temp_local_level_type_id') text-theme-6 @enderror  flex items-center">
-					Local Level Type (प्रदेश)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-				</div>
 				<div class="mt-3">
-					<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
-						name="temp_local_level_type_id" id="temp_local_level_type_id">
-					</select>
-					@error('temp_local_level_type_id')
+					<div
+						class="font-medium mt-3 ml-2  @error('temp_local_level_type_id') text-theme-6 @enderror  flex items-center">
+						Local Level Type (प्रदेश)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+					</div>
+					<div class="mt-3">
+						<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
+							name="temp_local_level_type_id" id="temp_local_level_type_id">
+						</select>
+						@error('temp_local_level_type_id')
+						<span class="text-theme-6 mt-2" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+						@enderror
+					</div>
+				</div>
+			</div>
+			<div class="col-span-12 lg:col-span-4">
+				{{-- Ward Number --}}
+				<div class="mt-3">
+					<div
+						class="font-medium mt-3 ml-2  @error('temp_ward_number') text-theme-6 @enderror  flex items-center">
+						{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
+						Ward Number (वार्ड नम्बर)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+					</div>
+					<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+						placeholder="Write Ward Number" name="temp_ward_number" id="temp_ward_number"
+						value="{{ isset($member->temp_ward_number) ? $member->temp_ward_number : old('temp_ward_number') }}">
+					@error('temp_ward_number')
 					<span class="text-theme-6 mt-2" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 					@enderror
 				</div>
 			</div>
-			</div>
-			<div class="col-span-12 lg:col-span-4">
-				{{-- Ward Number --}}
-			<div class="mt-3">
-				<div
-					class="font-medium mt-3 ml-2  @error('temp_ward_number') text-theme-6 @enderror  flex items-center">
-					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Ward Number (वार्ड नम्बर)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-				</div>
-				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
-					placeholder="Write Ward Number" name="temp_ward_number" id="temp_ward_number"
-					value="{{ isset($member->temp_ward_number) ? $member->temp_ward_number : old('temp_ward_number') }}">
-				@error('temp_ward_number')
-				<span class="text-theme-6 mt-2" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
-			</div>
 			<div class="col-span-12 lg:col-span-4">
 				{{-- Tole Name --}}
-			<div class="mt-3">
-				<div class="font-medium mt-3 ml-2  @error('temp_tole') text-theme-6 @enderror  flex items-center">
-					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Tole (टोल)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+				<div class="mt-3">
+					<div class="font-medium mt-3 ml-2  @error('temp_tole') text-theme-6 @enderror  flex items-center">
+						{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
+						Tole (टोल)
+						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+					</div>
+					<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
+						placeholder="Write Tole Name" name="temp_tole" id="temp_tole"
+						value="{{ isset($member->temp_tole) ? $member->temp_tole : old('temp_tole') }}">
+					@error('temp_tole')
+					<span class="text-theme-6 mt-2" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
 				</div>
-				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
-					placeholder="Write Tole Name" name="temp_tole" id="temp_tole"
-					value="{{ isset($member->temp_tole) ? $member->temp_tole : old('temp_tole') }}">
-				@error('temp_tole')
-				<span class="text-theme-6 mt-2" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
 			</div>
 
 		</div>
