@@ -13,13 +13,8 @@ return [
     |
     */
 
-<<<<<<< HEAD
 	'default' => env('MAIL_MAILER', 'smtp'),
-=======
-    'default' => env('MAIL_MAILER', 'smtp'),
-    // 'default' => env('MAIL_MAILER', 'sendmail'),
 
->>>>>>> fe44643d243e269de2c3eaa687f4c24ff235db8a
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
