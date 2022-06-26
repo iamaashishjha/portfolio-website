@@ -1,7 +1,7 @@
 <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 tab-content__pane" id="citizenship-content">
 
 	<h1 class="text-4xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-		Citizenship Based Details (नागरिकता अनुशारको विवरण |)
+		Citizenship Based Details (नागरिकता आधारित विवरण |)
 	</h1>
 	<hr class="mt-5 mb-5">
 
@@ -42,12 +42,12 @@
 		<div class="col-span-12 lg:col-span-4">
 			<div class="mt-3">
 				<label class="font-medium mt-3  @error('gender_id') text-theme-6 @enderror">
-					Gender (लिङ)
+					Gender (लिङ्ग)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</label>
 				<div class="mt-2">
-					<select data-placeholder="लिङ छान्नुहोस् |" class="select2 w-full" name="gender_id" id="gender_id">
-						<option hidden>Gender (लिङ छान्नुहोस् |)</option>
+					<select data-placeholder="लिङ्ग छान्नुहोस् |" class="select2 w-full" name="gender_id" id="gender_id">
+						<option hidden>Gender (लिङ्ग छान्नुहोस् |)</option>
 						@foreach ($genders as $gender)
 						{{-- {{ dd($gender->id) }} --}}
 						<option value="{{ $gender->id }}" @if (isset($member)) @if ($member->gender->id == $gender->id)
@@ -100,13 +100,13 @@
 			{{-- Citizenship Issued Province --}}
 			<div class="mt-3 mr-2">
 				<label class="font-medium mt-3  @error('citizen_province_id') text-theme-6 @enderror">
-					Citizenship Issued Province (नगरिकता प्राप्त प्रदेश)
+					Citizenship Issued Province (नागरिकता प्राप्त प्रदेश)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</label>
 				<div class="mt-2">
 					<select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="citizen_province_id"
 						id="citizen_province_id" onchange="getDistrict('citizen')">
-						<option hidden>--- नगरिकता प्राप्त प्रदेश छान्नुहोस् | ---</option>
+						<option hidden>--- नागरिकता प्राप्त प्रदेश छान्नुहोस् | ---</option>
 						@foreach ($provinces as $province)
 						<option value="{{ $province->id }}" @if (isset($member)) @if ($member->citizenProvince->id ==
 							$province->id)
@@ -127,11 +127,11 @@
 			{{-- Citizenship Issued District --}}
 			<div class="mt-3 mr-2">
 				<label class="font-medium mt-3 @error('citizen_district_id') text-theme-6 @enderror">
-					Citizenship Issued District (नगरिकता प्राप्त जिल्ला)
+					Citizenship Issued District (नागरिकता प्राप्त जिल्ला)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</label>
 				<div class="mt-2">
-					<select data-placeholder="पहिला नगरिकता प्राप्त प्रदेश छान्नुहोस् |"
+					<select data-placeholder="पहिला नागरिकता प्राप्त प्रदेश छान्नुहोस् |"
 						class="select2 w-full items-center" name="citizen_district_id" id="citizen_district_id">
 					</select>
 					@error('citizen_district_id')
@@ -148,11 +148,11 @@
 	<div class="grid grid-cols-12 gap-2 ">
 		<div class="col-span-12 lg:col-span-4">
 			<div class="font-medium mt-3  @error('citizenship_number') text-theme-6 @enderror  flex items-center">
-				Citizenship Number (नगरिकता प्र. प्र. नं.)
+				Citizenship Number (नागरिकता प्र. प्र. नं.)
 				<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
 			</div>
 			<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
-				placeholder="नगरिकता प्र. प्र. नं. लेख्नुहोस |" name="citizenship_number" id="citizenship_number"
+				placeholder="नागरिकता प्र. प्र. नं. लेख्नुहोस |" name="citizenship_number" id="citizenship_number"
 				value="{{ isset($member->citizenship_number) ? $member->citizenship_number : old('citizenship_number') }}">
 			@error('citizenship_number')
 			<span class="text-theme-6 mt-2" role="alert">
@@ -227,7 +227,7 @@
 						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 					</label>
 					<div class="mt-2">
-						<select data-placeholder="पहिला नगरिकता प्राप्त प्रदेश छान्नुहोस् |"
+						<select data-placeholder="पहिला नागरिकता प्राप्त प्रदेश छान्नुहोस् |"
 							class="select2 w-full items-center" name="perm_district_id" id="perm_district_id"
 							onchange="getLocalLevel('perm');">
 						</select>
@@ -243,7 +243,7 @@
 				{{-- LocalLevel --}}
 				<div class="mt-3">
 					<label class="font-medium mt-3 @error('perm_local_level_id') text-theme-6 @enderror">
-						Local Level (स्थानइय तह)
+						Local Level (स्थानीय तह)
 						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 					</label>
 					<div class="mt-2">
@@ -275,7 +275,7 @@
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</div>
 				<div class="mt-3">
-					<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
+					<select data-placeholder="पहिला स्थानीय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
 						name="perm_local_level_type_id" id="perm_local_level_type_id" onchange="getDistrict()">
 					</select>
 					@error('perm_local_level_type_id')
@@ -382,7 +382,7 @@
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</label>
 				<div class="mt-2">
-					<select data-placeholder="पहिला नगरिकता प्राप्त प्रदेश छान्नुहोस् |"
+					<select data-placeholder="पहिला नागरिकता प्राप्त प्रदेश छान्नुहोस् |"
 						class="select2 w-full items-center" name="temp_district_id" id="temp_district_id"
 						onchange="getLocalLevel('temp');">
 					</select>
@@ -398,7 +398,7 @@
 				{{-- LocalLevel --}}
 			<div class="mt-3">
 				<label class="font-medium mt-3 @error('temp_local_level_id') text-theme-6 @enderror">
-					Local Level (स्थानइय तह)
+					Local Level (स्थानीय तह)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</label>
 				<div class="mt-2">
@@ -427,7 +427,7 @@
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
 				</div>
 				<div class="mt-3">
-					<select data-placeholder="पहिला स्थानइय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
+					<select data-placeholder="पहिला स्थानीय तह छान्नुहोस् |" class="select2 w-full ml-2 mt-3"
 						name="temp_local_level_type_id" id="temp_local_level_type_id">
 					</select>
 					@error('temp_local_level_type_id')
