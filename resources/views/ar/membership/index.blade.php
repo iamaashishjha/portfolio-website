@@ -92,7 +92,7 @@ All Members
                                     Delete
                                 </a>
                                 <a class="flex items-center mr-3 text-theme-12 mr-2"
-                                    href="{{ route('admin.membership.edit', $member->id) }}">
+                                    href="{{ route('admin.member.edit', $member->id) }}">
                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i>
                                     Edit
                                 </a>
@@ -107,7 +107,7 @@ All Members
                                 <div class="text-gray-600 mt-2">Do you really want to Approve this member?</div>
                             </div>
                             <div class="px-5 pb-8 text-center">
-                                <form action="{{ route('admin.membership.destroy', $member->id) }}" method="POST">
+                                <form action="{{ route('admin.member.destroy', $member->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" data-dismiss="modal"
