@@ -327,7 +327,7 @@ All Members
                                 <div class="text-gray-600 mt-2">Do you really want to delete this member?</div>
                             </div>
                             <div class="px-5 pb-8 text-center">
-                                <form action="{{ route('admin.membership.destroy', $member->id) }}" method="POST">
+                                <form action="{{ route('admin.member.destroy', $member->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="button" data-dismiss="modal"
