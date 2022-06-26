@@ -52,10 +52,10 @@
                             @endif
 
                             <div class="social-block">
-                                <a class="fa fa-twitter" href="#"></a>
-                                <a class="fa fa-facebook-square" href="#"></a>
-                                <a class="fa fa-instagram" href="#"></a>
-                                <a class="fa fa-pinterest-p" href="#"></a>
+                                <a class="fa fa-twitter" href="https://twitter.com/intent/tweet?text={{ route('home.blogs.show', $blog->id) }}" target="_blank"></a>
+                                <a class="fa fa-facebook-square" href="https://www.facebook.com/sharer/sharer.php?u={{ route('home.blogs.show', $blog->id) }}" target="_blank"></a>
+                                {{-- <a class="fa fa-instagram" href="#"></a> --}}
+                                {{-- <a class="fa fa-pinterest-p" href="#"></a> --}}
                             </div><!-- /.social-block -->
                         </div><!-- /.share-block -->
                     </div><!-- /.blog-one__content -->
@@ -143,7 +143,10 @@
                                     <!-- /.inner-block -->
                                 </div><!-- /.sidebar__post-image -->
                                 <div class="sidebar__post-content">
-                                    <h4 class="sidebar__post-title"><a href="{{ route('home.blogs.categoryShow', $post->category->id) }}">{{ Str::limit($post->content, 20, '...') }}</a>
+                                    <h4 class="sidebar__post-title">
+                                        <a href="{{ route('home.blogs.categoryShow', $post->category->id) }}">
+                                            {!! Str::limit($post->content, 20, '...') !!}
+                                        </a>
                                     </h4>
                                     <!-- /.sidebar__post-title -->
                                 </div><!-- /.sidebar__post-content -->

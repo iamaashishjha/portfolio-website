@@ -1,0 +1,1102 @@
+Return-Path: <bounce-mc.us8_32210466.915837-09e2d6461c@mail202.suw12.mcsv.net>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id iNZ2G6BWYWKZhiMAaZRYGA
+	(envelope-from <bounce-mc.us8_32210466.915837-09e2d6461c@mail202.suw12.mcsv.net>)
+	for <mail@nagrikunmuktiparty.org>; Thu, 21 Apr 2022 18:50:36 +0545
+Return-path: <bounce-mc.us8_32210466.915837-09e2d6461c@mail202.suw12.mcsv.net>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Thu, 21 Apr 2022 18:50:36 +0545
+Received: from mail202.suw12.mcsv.net ([198.2.190.202]:20670)
+	by r3.merodns.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <bounce-mc.us8_32210466.915837-09e2d6461c@mail202.suw12.mcsv.net>)
+	id 1nhWV3-009lpW-SQ
+	for mail@nagrikunmuktiparty.org; Thu, 21 Apr 2022 18:50:36 +0545
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=woocommerce.com;
+	s=k1; t=1650546287; x=1650848687; i=noreply@woocommerce.com;
+	bh=gipiEX/D2BBLkdfeK7WhStVwc5dr7Xt5TfYjfGTPRNQ=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject;
+	b=dbqET9cD5d9yAChJ3RiFN9/Tpe90sYgjekWfwmSrvZBQbmoodt9EKaKq9sFSUYJQp
+	 80fhf2r79zB6Yf5EPEPGKVoC5VNcLCYStJup0/rocEZ6goYxoCyVf5bFZEKTjO0lHe
+	 WfMQ9L924e7v1ml9FnJT9LChqkHxVn+PqkPqr0GA=
+Received: from localhost (localhost [127.0.0.1])
+	by mail202.suw12.mcsv.net (Mailchimp) with ESMTP id 4Kkd6l0g8XzKsbg3P
+	for <mail@nagrikunmuktiparty.org>; Thu, 21 Apr 2022 13:04:47 +0000 (GMT)
+Subject: =?utf-8?Q?Say=20hello=20to=20Storefront?=
+From: =?utf-8?Q?WooCommerce?= <noreply@woocommerce.com>
+Reply-To: =?utf-8?Q?WooCommerce?= <noreply@woocommerce.com>
+To: <mail@nagrikunmuktiparty.org>
+Date: Thu, 21 Apr 2022 13:04:43 +0000
+Message-ID: <2c1434dc56f9506bf3c3ecd21.09e2d6461c.20220421130440.937ad0298c.8bbabf62@mail202.suw12.mcsv.net>
+X-Mailer: Mailchimp Mailer - **CID937ad0298c09e2d6461c**
+X-Campaign: mailchimp2c1434dc56f9506bf3c3ecd21.937ad0298c
+X-campaignid: mailchimp2c1434dc56f9506bf3c3ecd21.937ad0298c
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=2c1434dc56f9506bf3c3ecd21&id=937ad0298c&e=09e2d6461c
+X-MC-User: 2c1434dc56f9506bf3c3ecd21
+Feedback-ID: 32210466:32210466.915837:us8:mc
+List-ID: 2c1434dc56f9506bf3c3ecd21mc list <2c1434dc56f9506bf3c3ecd21.512893.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://woocommerce.us8.list-manage.com/unsubscribe?u=2c1434dc56f9506bf3c3ecd21&id=13860df971&e=09e2d6461c&c=937ad0298c>, <mailto:unsubscribe-mc.us8_2c1434dc56f9506bf3c3ecd21.937ad0298c-09e2d6461c@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_223668812"
+MIME-Version: 1.0
+X-Spam-Status: No, score=0.2
+X-Spam-Score: 2
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  https://www.woocommerce.com/?utm_source=WooCommerce&utm_campaign=937ad0298c-Onboarding_Storefront&utm_medium=email&utm_term=0_13860df971-937ad0298c-277143611&mc_cid=937ad0298c&mc_eid=UNIQID
+    Hey there, 
+ Content analysis details:   (0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: mailchimp.com]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 MIME_QP_LONG_LINE      RAW: Quoted-printable line longer than 76
+                             chars
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+X-Spam-Flag: NO
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_223668812
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://www.woocommerce.com/?utm_source=3DWooCommerce&utm_campaign=3D937ad=
+0298c-Onboarding_Storefront&utm_medium=3Demail&utm_term=3D0_13860df971-937=
+ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DUNIQID
+
+Hey there=2C
+
+It's tempting to choose a theme that is shiny and beautiful=2C but appeara=
+nce isn=E2=80=99t everything =E2=80=94 you need a beautiful theme that=E2=
+=80=99s built for WooCommerce=2C well-maintained=2C fast=2C and flexible.
+
+When it comes to store design=2C we recommend the Storefront theme. Here's=
+ why.
+
+
+
+
+A free theme for WooCommerce
+
+Storefront is a free WooCommerce theme that integrates perfectly with Woo=
+ tools. It's built light=2C so you can keep it clean and simple or load it=
+ with extensions you love.
+
+Storefront + WooCommerce =3D made for each other.
+
+SEE IT NOW (https://woocommerce.com/storefront/?utm_source=3DWooCommerce&u=
+tm_campaign=3D937ad0298c-Onboarding_Storefront&utm_medium=3Demail&utm_term=
+=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DUN=
+IQID)
+Storefront + WooCommerce =3D made for each other
+
+
+Define your style and customize your Storefront without touching code
+
+
+All the tools you'll need to define your style and customize your Storefro=
+nt.
+
+You can customize Storefront without touching code with our Storefront bun=
+dle=2C including 10+ tools for Storefront: Powerpack=2C Pricing Tables=2C=
+ Blog Customizer=2C and much more. Express yourself=2C optimize conversion=
+s=2C and delight customers.
+
+BUY THE BUNDLE (https://woocommerce.com/products/storefront-extensions-bun=
+dle/?utm_source=3DWooCommerce&utm_campaign=3D937ad0298c-Onboarding_Storefr=
+ont&utm_medium=3Demail&utm_term=3D0_13860df971-937ad0298c-277143611&=
+mc_cid=3D937ad0298c&mc_eid=3DUNIQID)
+
+
+
+
+Looking for design inspiration?
+
+The WooCommerce Showcase is full of beautiful stores built by entrepreneur=
+s all around the world.
+
+They are our heroes.
+
+https://woocommerce.com/showcase/two-chimps-coffee/?utm_source=3DWooCommer=
+ce&utm_campaign=3D937ad0298c-Onboarding_Storefront&utm_medium=3Demail&utm_=
+term=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=
+=3DUNIQID
+
+https://woocommerce.com/showcase/bloomscape-plants/?utm_source=3DWooCommer=
+ce&utm_campaign=3D937ad0298c-Onboarding_Storefront&utm_medium=3Demail&utm_=
+term=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=
+=3DUNIQID
+
+https://woocommerce.com/showcase/bobo-and-boo/?utm_source=3DWooCommerce&ut=
+m_campaign=3D937ad0298c-Onboarding_Storefront&utm_medium=3Demail&utm_term=
+=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DUN=
+IQID
+
+
+VIEW SHOWCASE (https://woocommerce.com/showcase/?utm_source=3DWooCommerce&=
+utm_campaign=3D937ad0298c-Onboarding_Storefront&utm_medium=3Demail&utm_ter=
+m=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DU=
+NIQID)
+
+
+
+
+WooCommerce
+
+No longer wish to receive these emails? Manage preferences (https://woocom=
+merce.us8.list-manage.com/profile?u=3D2c1434dc56f9506bf3c3ecd21&id=3D13860=
+df971&e=3D09e2d6461c&c=3D937ad0298c) or Unsubscribe (https://woocommerce.us8=
+=2Elist-manage.com/unsubscribe?u=3D2c1434dc56f9506bf3c3ecd21&id=3D13860df971=
+&e=3D09e2d6461c&c=3D937ad0298c)
+
+
+https://www.woocommerce.com/?utm_source=3DWooCommerce&utm_campaign=3D937ad=
+0298c-Onboarding_Storefront&utm_medium=3Demail&utm_term=3D0_13860df971-937=
+ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DUNIQID https://automa=
+ttic.com/?utm_source=3DWooCommerce&utm_campaign=3D937ad0298c-Onboarding_St=
+orefront&utm_medium=3Demail&utm_term=3D0_13860df971-937ad0298c-277143611&mc_cid=3D937ad0298c&mc_eid=3DUNIQID
+--_----------=_MCPart_223668812
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www=
+=2Ew3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Say hello to Storefront</title>
+    <meta http-equiv=3D"content-type" content=3D"text/html; charset=3Dutf-=
+8">
+    <meta http-equiv=3D"x-ua-compatible" content=3D"IE=3Dedge">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-sca=
+le=3D1.0">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno">
+
+  <style type=3D"text/css">
+=09=09body{
+=09=09=09margin:0 !important;
+=09=09=09padding:0 !important;
+=09=09=09-webkit-text-size-adjust:100% !important;
+=09=09=09-ms-text-size-adjust:100% !important;
+=09=09=09-webkit-font-smoothing:antialiased !important;
+=09=09}
+=09=09img{
+=09=09=09border:0 !important;
+=09=09=09outline:none !important;
+=09=09}
+=09=09p{
+=09=09=09margin:0 !important;
+=09=09=09padding:0 !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09=09mso-table-lspace:0;
+=09=09=09mso-table-rspace:0;
+=09=09}
+=09=09td=2Ca=2Cspan{
+=09=09=09border-collapse:collapse;
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09.ExternalClass *{
+=09=09=09line-height:100%;
+=09=09}
+=09=09.em_defaultlink a{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09}
+=09=09span.MsoHyperlink{
+=09=09=09mso-style-priority:99;
+=09=09=09color:inherit;
+=09=09}
+=09=09span.MsoHyperlinkFollowed{
+=09=09=09mso-style-priority:99;
+=09=09=09color:inherit;
+=09=09}
+=09=09.em_header_text=2C.em_header_text a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:16px;
+=09=09=09line-height:20px;
+=09=09=09color:#424242;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09.em_section2_title=2C.em_section2_title a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:26px;
+=09=09=09line-height:29px;
+=09=09=09color:#ffffff;
+=09=09=09text-decoration:none;
+=09=09=09font-weight:bold;
+=09=09}
+=09=09.em_section2_text=2C.em_section2_text a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:18px;
+=09=09=09line-height:21px;
+=09=09=09color:#ffffff;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09.em_section2_button=2C.em_section2_button a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:16px;
+=09=09=09color:#ffffff;
+=09=09=09text-decoration:none;
+=09=09=09font-weight:500;
+=09=09}
+=09=09.em_button=2C.em_button a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:18px;
+=09=09=09color:#ffffff;
+=09=09=09text-decoration:none;
+=09=09=09font-weight:500;
+=09=09}
+=09=09.em_section3_title=2C.em_section3_title a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:26px;
+=09=09=09line-height:29px;
+=09=09=09color:#4d4d4d;
+=09=09=09text-decoration:none;
+=09=09=09font-weight:bold;
+=09=09}
+=09=09.em_section3_text=2C.em_section3_text a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:18px;
+=09=09=09line-height:21px;
+=09=09=09color:#4d4d4d;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09.em_footer=2C.em_footer a{
+=09=09=09font-family:"Proxima Nova"=2CArial=2Csans-serif;
+=09=09=09font-size:12px;
+=09=09=09line-height:18px;
+=09=09=09color:#ababab;
+=09=09=09text-decoration:none;
+=09=09}
+=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_main_table{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_wrapper{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_hide{
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_full_img{
+=09=09=09width:100% !important;
+=09=09=09height:auto !important;
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_align_cent{
+=09=09=09text-align:center !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_height{
+=09=09=09height:20px !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_padtop{
+=09=09=09padding-top:20px !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_side{
+=09=09=09width:15px !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_pad{
+=09=09=09padding-left:15px !important;
+=09=09=09padding-right:15px !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_w145{
+=09=09=09width:145px !important;
+=09=09}
+
+}=09@media only screen and (min-width:481px) and (max-width:599px){
+=09=09.em_w130{
+=09=09=09width:200px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_main_table{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_wrapper{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_hide{
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_full_img{
+=09=09=09width:100% !important;
+=09=09=09height:auto !important;
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_align_cent{
+=09=09=09text-align:center !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_height{
+=09=09=09height:20px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_padtop{
+=09=09=09padding-top:20px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_side{
+=09=09=09width:15px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_button{
+=09=09=09font-size:14px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_pad{
+=09=09=09padding-left:15px !important;
+=09=09=09padding-right:15px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.em_w130{
+=09=09=09width:130px !important;
+=09=09}
+
+}</style></head>
+  <body style=3D"margin: 0px;padding: 0px;-webkit-text-size-adjust: 100% !=
+important;-ms-text-size-adjust: 100% !important;-webkit-font-smoothing: an=
+tialiased !important;">
+    <!--Full width table start-->
+    <table align=3D"center" width=3D"100%" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D"border-collapse: collapse;mso-table-lspace: 0;=
+mso-table-rspace: 0;">
+      <tr>
+        <td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"b=
+ackground-color: #ffffff;border-collapse: collapse;mso-line-height-rule: e=
+xactly;">
+          <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" class=3D"em_main_table" bgcolor=3D"#ffffff" style=
+=3D"background-color: #ffffff;border-collapse: collapse;mso-table-lspace:=
+ 0;mso-table-rspace: 0;">
+            <tr>
+              <td align=3D"center" valign=3D"top" style=3D"border-collapse=
+: collapse;mso-line-height-rule: exactly;">
+                <table width=3D"100%" align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table=
+-lspace: 0;mso-table-rspace: 0;">
+                  <tr>
+                    <td width=3D"25" class=3D"em_side" style=3D"border-col=
+lapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                    <td align=3D"center" valign=3D"top" style=3D"border-co=
+llapse: collapse;mso-line-height-rule: exactly;">
+                      <table width=3D"100%" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;m=
+so-table-lspace: 0;mso-table-rspace: 0;">
+                        <tr>
+                          <td height=3D"80" class=3D"em_height" style=3D"b=
+order-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                        </tr>
+                        <tr>
+                          <td align=3D"left" valign=3D"top" style=3D"borde=
+r-collapse: collapse;mso-line-height-rule: exactly;"><a href=3D"https://wo=
+ocommerce.us8.list-manage.com/track/click?u=3D2c1434dc56f9506bf3c3ecd21&id=
+=3D3b9b2e397f&e=3D09e2d6461c" target=3D"_blank" style=3D"text-decoration:=
+ none;border-collapse: collapse;mso-line-height-rule: exactly;"><img src=
+=3D"https://gallery.mailchimp.com/2c1434dc56f9506bf3c3ecd21/images/44f6d17=
+4-298e-460c-b3ca-3bc0d8efdeae.jpg" alt=3D"WooCommerce" border=3D"0" style=
+=3D"margin: 0;padding: 0;display: block;font-family: Arial=2C sans-serif;f=
+ont-size: 20px;line-height: 23px;color: #424242;font-weight: bold;max-widt=
+h: 180px;border: 0 !important;outline: none !important;"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height=3D"45" class=3D"em_height" style=3D"bor=
+der-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                      </tr>
+                      <tr>
+                        <td align=3D"left" class=3D"em_header_text" style=
+=3D"border-collapse: collapse;mso-line-height-rule: exactly;font-family: &=
+quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 16px;line-height:=
+ 20px;color: #424242;text-decoration: none;">Hey there=2C<br>
+<br>
+It&#39;s tempting to choose a theme that is shiny and beautiful=2C but app=
+earance isn&rsquo;t everything &mdash; you need a beautiful theme that&rsq=
+uo;s built for WooCommerce=2C well-maintained=2C fast=2C and flexible.<br>
+<br>
+When it comes to store design=2C we recommend the Storefront theme. Here&#=
+39;s why.</td>
+                      </tr>
+                      <tr>
+                        <td height=3D"45" class=3D"em_height" style=3D"bor=
+der-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width=3D"25" class=3D"em_side" style=3D"border-colla=
+pse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align=3D"center" valign=3D"top" bgcolor=3D"#96578a" style=3D"bac=
+kground-color: #96578a;border-collapse: collapse;mso-line-height-rule: exa=
+ctly;">
+        <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacin=
+g=3D"0" border=3D"0" class=3D"em_main_table" bgcolor=3D"#96578a" style=3D"=
+background-color: #96578a;border-collapse: collapse;mso-table-lspace: 0;ms=
+o-table-rspace: 0;">
+          <tr>
+            <td align=3D"center" valign=3D"top" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;">
+              <table width=3D"100%" align=3D"center" cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-l=
+space: 0;mso-table-rspace: 0;">
+                <tr>
+                  <td width=3D"25" class=3D"em_side" style=3D"border-colla=
+pse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  <td align=3D"center" valign=3D"top" style=3D"border-coll=
+apse: collapse;mso-line-height-rule: exactly;">
+                    <table width=3D"100%" align=3D"center" cellpadding=3D"=
+0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-t=
+able-lspace: 0;mso-table-rspace: 0;">
+                      <tr>
+                        <td height=3D"45" class=3D"em_height" style=3D"bor=
+der-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" class=3D"em_section2_title" s=
+tyle=3D"border-collapse: collapse;mso-line-height-rule: exactly;font-famil=
+y: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 26px;line-heig=
+ht: 29px;color: #ffffff;text-decoration: none;font-weight: bold;">A free t=
+heme for WooCommerce</td>
+                      </tr>
+                      <tr>
+                        <td height=3D"20" style=3D"font-size: 1px;line-hei=
+ght: 1px;border-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0<=
+/td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" class=3D"em_section2_text" st=
+yle=3D"border-collapse: collapse;mso-line-height-rule: exactly;font-family=
+: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 18px;line-heigh=
+t: 21px;color: #ffffff;text-decoration: none;">Storefront is a free WooCom=
+merce theme that integrates perfectly with Woo tools. It's built light=2C=
+ so you can keep it clean and simple or load it with extensions you love.<=
+br>
+                          <br><strong>
+                          <i>Storefront</i> + WooCommerce =3D made for eac=
+h other.</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td height=3D"35" class=3D"em_height" style=3D"bor=
+der-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                      </tr>
+                      <tr>
+                        <td align=3D"center" valign=3D"top" style=3D"borde=
+r-collapse: collapse;mso-line-height-rule: exactly;">
+                          <table width=3D"180" align=3D"center" bgcolor=3D=
+"#71b02e" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border=
+-radius: 35px;border-collapse: collapse;mso-table-lspace: 0;mso-table-rspa=
+ce: 0;">
+                            <tbody>
+                              <tr>
+                                <td align=3D"center" valign=3D"middle" hei=
+ght=3D"46" class=3D"em_section2_button" style=3D"border-collapse:collapse;=
+mso-line-height-rule:exactly;font-family:'Proxima Nova'=2C Arial=2C sans-s=
+erif;font-size:16px;color:#ffffff;text-decoration:none;font-weight:500;"><=
+a class=3D"em_button" href=3D"https://woocommerce.us8.list-manage.com/trac=
+k/click?u=3D2c1434dc56f9506bf3c3ecd21&id=3De72bf2f248&e=3D09e2d6461c" sty=
+le=3D"text-decoration:none;color:#ffffff;line-height:46px;display:block;bo=
+rder-collapse:collapse;mso-line-height-rule:exactly;font-family:'Proxima N=
+ova'=2C Arial=2C sans-serif;font-size:16px;font-weight:500;" target=3D"_bl=
+ank"><span style=3D"font-size: 16px;border-collapse: collapse;mso-line-hei=
+ght-rule: exactly;"><strong>SEE IT NOW</strong></span></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;"><img src=3D"https://gal=
+lery.mailchimp.com/2c1434dc56f9506bf3c3ecd21/images/d3fabca7-38b5-4647-849=
+6-ca0ed5abbc29.png" alt=3D"Storefront + WooCommerce =3D made for each othe=
+r" border=3D"0" style=3D"margin: 0;padding: 0;display: block;max-width: 55=
+0px;border: 0 !important;outline: none !important;" class=3D"em_full_img">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                <td width=3D"25" class=3D"em_side" style=3D"border-collaps=
+e: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"backg=
+round-color: #ffffff;border-collapse: collapse;mso-line-height-rule: exact=
+ly;">
+      <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" class=3D"em_main_table" bgcolor=3D"#ffffff" style=3D"b=
+ackground-color: #ffffff;border-collapse: collapse;mso-table-lspace: 0;mso=
+-table-rspace: 0;">
+        <tr>
+          <td align=3D"center" valign=3D"top" style=3D"border-collapse: co=
+llapse;mso-line-height-rule: exactly;">
+            <table width=3D"100%" align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-lsp=
+ace: 0;mso-table-rspace: 0;">
+              <tr>
+                <td height=3D"55" class=3D"em_height" style=3D"border-coll=
+apse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+              </tr>
+              <tr>
+                <td align=3D"center" valign=3D"top" style=3D"border-collap=
+se: collapse;mso-line-height-rule: exactly;">
+                  <table width=3D"100%" align=3D"center" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-tab=
+le-lspace: 0;mso-table-rspace: 0;">
+                    <tr>
+                      <td align=3D"left" valign=3D"top" style=3D"border-co=
+llapse: collapse;mso-line-height-rule: exactly;">
+                        <table width=3D"246" align=3D"left" cellpadding=3D=
+"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper" style=3D"border-co=
+llapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                          <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"b=
+order-collapse: collapse;mso-line-height-rule: exactly;">
+                              <table width=3D"246" align=3D"center" cellpa=
+dding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper" style=3D"b=
+order-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                <tr>
+                                  <td align=3D"center" valign=3D"top" styl=
+e=3D"border-collapse: collapse;mso-line-height-rule: exactly;"><img src=3D=
+"https://gallery.mailchimp.com/2c1434dc56f9506bf3c3ecd21/images/bf9ab703-8=
+2dd-454f-bc4a-675fbc6714be.jpg" alt=3D"Define your style and customize you=
+r Storefront without touching code" border=3D"0" style=3D"margin: 0;paddin=
+g: 0;display: block;max-width: 246px;border: 0 !important;outline: none !i=
+mportant;">
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if gte mso 9]>
+                      </td>
+                      <td valign=3D"top">
+                        <![endif]-->
+                        <table width=3D"354" align=3D"right" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                          <tr>
+                            <td align=3D"center" valign=3D"top" style=3D"b=
+order-collapse: collapse;mso-line-height-rule: exactly;">
+                              <table width=3D"100%" align=3D"center" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: coll=
+apse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                <tr>
+                                  <td width=3D"25" class=3D"em_side" style=
+=3D"border-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                                  <td align=3D"center" valign=3D"top" clas=
+s=3D"em_padtop" style=3D"border-collapse: collapse;mso-line-height-rule: e=
+xactly;">
+                                    <table width=3D"100%" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                      <tr>
+                                        <td align=3D"left" class=3D"em_sec=
+tion3_title" style=3D"border-collapse: collapse;mso-line-height-rule: exac=
+tly;font-family: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size:=
+ 26px;line-height: 29px;color: #4d4d4d;text-decoration: none;font-weight:=
+ bold;">All the tools you'll need to define your style and customize your=
+ Storefront.</td>
+                                      </tr>
+                                      <tr>
+                                        <td height=3D"20" style=3D"font-si=
+ze: 1px;line-height: 1px;border-collapse: collapse;mso-line-height-rule: e=
+xactly;">=C2=A0</td>
+                                      </tr>
+                                      <tr>
+                                        <td align=3D"left" class=3D"em_sec=
+tion3_text" style=3D"border-collapse: collapse;mso-line-height-rule: exact=
+ly;font-family: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 1=
+8px;line-height: 21px;color: #4d4d4d;text-decoration: none;">You can custo=
+mize Storefront without touching code with our Storefront bundle=2C includ=
+ing 10+ tools for Storefront: Powerpack=2C Pricing Tables=2C Blog Customiz=
+er=2C and much more. Express yourself=2C optimize conversions=2C and delig=
+ht customers.</td>
+                                      </tr>
+                                      <tr>
+                                        <td height=3D"25" class=3D"em_heig=
+ht" style=3D"font-size: 1px;line-height: 1px;border-collapse: collapse;mso=
+-line-height-rule: exactly;">=C2=A0</td>
+                                      </tr>
+                                      <tr>
+                                        <td align=3D"left" valign=3D"top"=
+ style=3D"border-collapse: collapse;mso-line-height-rule: exactly;">
+                                          <table width=3D"210" align=3D"le=
+ft" bgcolor=3D"#96578a" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" c=
+lass=3D"em_wrapper" style=3D"max-width: 210px;border-radius: 35px;border-c=
+ollapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                            <tbody>
+                                              <tr>
+                                                <td align=3D"center" valig=
+n=3D"middle" height=3D"46" class=3D"em_button" style=3D"border-collapse:co=
+llapse;mso-line-height-rule:exactly;font-family:'Proxima Nova'=2C Arial=2C=
+ sans-serif;font-size:18px;color:#ffffff;text-decoration:none;font-weight:=
+500;"><a class=3D"em_button" href=3D"https://woocommerce.us8.list-manage.c=
+om/track/click?u=3D2c1434dc56f9506bf3c3ecd21&id=3D6698eda864&e=3D09e2d6461c" style=3D"text-decoration:none;color:#ffffff;line-height:46px;display:b=
+lock;border-collapse:collapse;mso-line-height-rule:exactly;font-family:'Pr=
+oxima Nova'=2C Arial=2C sans-serif;font-size:18px;font-weight:500;" target=
+=3D"_blank"><span style=3D"font-size: 16px;border-collapse: collapse;mso-l=
+ine-height-rule: exactly;"><strong>BUY THE BUNDLE</strong></span></a>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                                <td width=3D"25" class=3D"em_side" style=
+=3D"border-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height=3D"50" class=3D"em_height" style=3D"border-collap=
+se: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td align=3D"center" valign=3D"top" bgcolor=3D"#f7f7f7" style=3D"backgro=
+und-color: #f7f7f7;border-collapse: collapse;mso-line-height-rule: exactly=
+;">
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" class=3D"em_main_table" bgcolor=3D"#f7f7f7" style=3D"back=
+ground-color: #f7f7f7;border-collapse: collapse;mso-table-lspace: 0;mso-ta=
+ble-rspace: 0;">
+      <tr>
+        <td align=3D"center" valign=3D"top" style=3D"border-collapse: coll=
+apse;mso-line-height-rule: exactly;">
+          <table width=3D"100%" align=3D"center" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-lspac=
+e: 0;mso-table-rspace: 0;">
+            <tr>
+              <td width=3D"25" class=3D"em_side" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+              <td align=3D"center" valign=3D"top" style=3D"border-collapse=
+: collapse;mso-line-height-rule: exactly;">
+                <table width=3D"100%" align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table=
+-lspace: 0;mso-table-rspace: 0;">
+                  <tr>
+                    <td height=3D"45" class=3D"em_height" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  </tr>
+                  <tr>
+                    <td align=3D"center" class=3D"em_section3_title" style=
+=3D"border-collapse: collapse;mso-line-height-rule: exactly;font-family: &=
+quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 26px;line-height:=
+ 29px;color: #4d4d4d;text-decoration: none;font-weight: bold;">Looking for=
+ design inspiration?</td>
+                  </tr>
+                  <tr>
+                    <td height=3D"20" style=3D"font-size: 1px;line-height:=
+ 1px;border-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  </tr>
+                  <tr>
+                    <td align=3D"center" class=3D"em_section3_text" style=
+=3D"border-collapse: collapse;mso-line-height-rule: exactly;font-family: &=
+quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size: 18px;line-height:=
+ 21px;color: #4d4d4d;text-decoration: none;"> The WooCommerce Showcase is=
+ full of beautiful stores built by entrepreneurs all around the world.
+                      <br>
+                      <br>
+                      They are our heroes.</td>
+                    </tr>
+                    <tr>
+                      <td height=3D"30" class=3D"em_height" style=3D"borde=
+r-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;">
+                        <table width=3D"100%" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;m=
+so-table-lspace: 0;mso-table-rspace: 0;">
+                          <tr>
+                            <td align=3D"left" valign=3D"top" style=3D"bor=
+der-collapse: collapse;mso-line-height-rule: exactly;">
+                              <table width=3D"363" align=3D"left" cellpadd=
+ing=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper" style=3D"bor=
+der-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                <tr>
+                                  <td align=3D"center" valign=3D"top" styl=
+e=3D"border-collapse: collapse;mso-line-height-rule: exactly;">
+                                    <table width=3D"100%" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                      <tr>
+                                        <td align=3D"left" valign=3D"top"=
+ style=3D"border-collapse: collapse;mso-line-height-rule: exactly;">
+                                          <!-- Showcase: Two Chimps Coffee=
+ -->
+                                          <table width=3D"174" align=3D"le=
+ft" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper"=
+ style=3D"border-collapse: collapse;mso-table-lspace: 0;mso-table-rspace:=
+ 0;">
+                                            <tr>
+                                              <td align=3D"center" valign=
+=3D"top" style=3D"border-collapse: collapse;mso-line-height-rule: exactly;=
+">
+                                                <table width=3D"100%" alig=
+n=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"bor=
+der-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                                  <tr>
+                                                    <td align=3D"center" v=
+align=3D"top" style=3D"border-collapse: collapse;mso-line-height-rule: exa=
+ctly;">
+                                                      <a href=3D"https://w=
+oocommerce.us8.list-manage.com/track/click?u=3D2c1434dc56f9506bf3c3ecd21&i=
+d=3D8e5380261a&e=3D09e2d6461c" target=3D"blank" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;"><img src=3D"https://gallery.mail=
+chimp.com/2c1434dc56f9506bf3c3ecd21/images/2cbd5fa7-a4b1-412c-b709-fc3fa3d=
+52834.jpg" alt=3D"Two Chimps Coffee in the WooCommerce Showcase" border=3D=
+"0" style=3D"margin: 0;padding: 0;display: block;max-width: 174px;border:=
+ 0 !important;outline: none !important;" class=3D"em_full_img"></a>
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                          <!-- // Showcase: Two Chimps Cof=
+fee -->
+                                          <!--[if gte mso 9]>
+                                        </td>
+                                        <td valign=3D"top">
+                                          <![endif]-->
+                                          <table width=3D"174" align=3D"ri=
+ght" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper"=
+ style=3D"border-collapse: collapse;mso-table-lspace: 0;mso-table-rspace:=
+ 0;">
+                                            <tr>
+                                              <td align=3D"center" valign=
+=3D"top" class=3D"em_padtop" style=3D"border-collapse: collapse;mso-line-h=
+eight-rule: exactly;">
+                                                <table width=3D"100%" alig=
+n=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"bor=
+der-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                                  <tr>
+                                                    <td align=3D"center" v=
+align=3D"top" style=3D"border-collapse: collapse;mso-line-height-rule: exa=
+ctly;">
+                                                      <a href=3D"https://w=
+oocommerce.us8.list-manage.com/track/click?u=3D2c1434dc56f9506bf3c3ecd21&i=
+d=3D89d4d1c910&e=3D09e2d6461c" target=3D"blank" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;"><img src=3D"https://gallery.mail=
+chimp.com/2c1434dc56f9506bf3c3ecd21/images/07b0fb21-d37f-4e52-a9f1-b35f22c=
+22565.jpg" alt=3D"Bloomscape in the WooCommerce Showcase" border=3D"0" sty=
+le=3D"margin: 0;padding: 0;display: block;max-width: 174px;border: 0 !impo=
+rtant;outline: none !important;" class=3D"em_full_img"></a>
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                              <!--[if gte mso 9]>
+                            </td>
+                            <td valign=3D"top">
+                              <![endif]-->
+                              <table width=3D"174" align=3D"right" cellpad=
+ding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapper" style=3D"bo=
+rder-collapse: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                <tr>
+                                  <td align=3D"center" valign=3D"top" clas=
+s=3D"em_padtop" style=3D"border-collapse: collapse;mso-line-height-rule: e=
+xactly;">
+                                    <table width=3D"100%" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0;mso-table-rspace: 0;">
+                                      <tr>
+                                        <td align=3D"center" valign=3D"top=
+" style=3D"border-collapse: collapse;mso-line-height-rule: exactly;">
+                                          <a href=3D"https://woocommerce.u=
+s8.list-manage.com/track/click?u=3D2c1434dc56f9506bf3c3ecd21&id=3Df8db43dc=
+bd&e=3D09e2d6461c" target=3D"blank" style=3D"border-collapse: collapse;ms=
+o-line-height-rule: exactly;"><img src=3D"https://gallery.mailchimp.com/2c=
+1434dc56f9506bf3c3ecd21/images/2eb61dc7-5408-4e42-b8be-100baeb2f969.jpg" a=
+lt=3D"bobo&amp;boo in the WooCommerce Showcase" border=3D"0" style=3D"marg=
+in: 0;padding: 0;display: block;max-width: 174px;border: 0 !important;outl=
+ine: none !important;" class=3D"em_full_img"></a>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td height=3D"40" class=3D"em_height" style=3D"borde=
+r-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                    </tr>
+                    <tr>
+                      <td align=3D"center" valign=3D"top" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;">
+                        <table width=3D"210" align=3D"center" bgcolor=3D"#=
+96578a" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"em_wrapp=
+er" style=3D"max-width: 210px;border-radius: 35px;border-collapse: collaps=
+e;mso-table-lspace: 0;mso-table-rspace: 0;">
+                          <tbody>
+                            <tr>
+                              <td align=3D"center" valign=3D"middle" heigh=
+t=3D"46" class=3D"em_button" style=3D"border-collapse:collapse;mso-line-he=
+ight-rule:exactly;font-family:'Proxima Nova'=2C Arial=2C sans-serif;font-s=
+ize:18px;color:#ffffff;text-decoration:none;font-weight:500;"><a class=3D"=
+em_button" href=3D"https://woocommerce.us8.list-manage.com/track/click?u=
+=3D2c1434dc56f9506bf3c3ecd21&id=3D0cc1dcaaa2&e=3D09e2d6461c" style=3D"tex=
+t-decoration:none;color:#ffffff;line-height:46px;display:block;border-coll=
+apse:collapse;mso-line-height-rule:exactly;font-family:'Proxima Nova'=2C A=
+rial=2C sans-serif;font-size:18px;font-weight:500;" target=3D"_blank"><str=
+ong><span style=3D"font-size: 16px;border-collapse: collapse;mso-line-heig=
+ht-rule: exactly;">VIEW SHOWCASE</span></strong></a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height=3D"40" class=3D"em_height" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  </tr>
+                </table>
+              </td>
+              <td width=3D"25" class=3D"em_side" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"backgro=
+und-color: #ffffff;border-collapse: collapse;mso-line-height-rule: exactly=
+;">
+    <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D=
+"0" border=3D"0" class=3D"em_main_table" bgcolor=3D"#ffffff" style=3D"back=
+ground-color: #ffffff;border-collapse: collapse;mso-table-lspace: 0;mso-ta=
+ble-rspace: 0;">
+      <tr>
+        <td align=3D"center" valign=3D"top" style=3D"border-collapse: coll=
+apse;mso-line-height-rule: exactly;">
+          <table width=3D"100%" align=3D"center" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-lspac=
+e: 0;mso-table-rspace: 0;">
+            <tr>
+              <td width=3D"25" class=3D"em_side" style=3D"border-collapse:=
+ collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+              <td align=3D"center" valign=3D"top" style=3D"border-collapse=
+: collapse;mso-line-height-rule: exactly;">
+                <table width=3D"100%" align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table=
+-lspace: 0;mso-table-rspace: 0;">
+                  <tr>
+                    <td height=3D"45" class=3D"em_height" style=3D"border-=
+collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  </tr>
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"border-co=
+llapse: collapse;mso-line-height-rule: exactly;"><img src=3D"https://galle=
+ry.mailchimp.com/2c1434dc56f9506bf3c3ecd21/images/c7552970-7475-4f53-942a-=
+6a65b5445a1d.png" alt=3D"WooCommerce" border=3D"0" style=3D"margin: 0;padd=
+ing: 0;display: block;max-width: 54px;border: 0 !important;outline: none !=
+important;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height=3D"20" style=3D"font-size: 1px;line-height:=
+ 1px;border-collapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                  </tr>
+                  <tr>
+                    <td align=3D"center" class=3D"em_footer" style=3D"bord=
+er-collapse: collapse;mso-line-height-rule: exactly;font-family: &quot;Pro=
+xima Nova&quot;=2CArial=2Csans-serif;font-size: 12px;line-height: 18px;col=
+or: #ababab;text-decoration: none;">No longer wish to receive these emails=
+? <span style=3D"text-decoration: underline;border-collapse: collapse;mso-=
+line-height-rule: exactly;"><a href=3D"https://woocommerce.us8.list-manage=
+=2Ecom/profile?u=3D2c1434dc56f9506bf3c3ecd21&id=3D13860df971&e=3D09e2d6461c&c=
+=3D937ad0298c" target=3D"_blank" style=3D"text-decoration: underline;color=
+: #ababab;white-space: nowrap;border-collapse: collapse;mso-line-height-ru=
+le: exactly;font-family: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;fon=
+t-size: 12px;line-height: 18px;">Manage preferences</a></span> or <span st=
+yle=3D"text-decoration: underline;border-collapse: collapse;mso-line-heigh=
+t-rule: exactly;"><a href=3D"https://woocommerce.us8.list-manage.com/unsub=
+scribe?u=3D2c1434dc56f9506bf3c3ecd21&id=3D13860df971&e=3D09e2d6461c&c=3D937a=
+d0298c" target=3D"_blank" style=3D"text-decoration: underline;color: #abab=
+ab;white-space: nowrap;border-collapse: collapse;mso-line-height-rule: exa=
+ctly;font-family: &quot;Proxima Nova&quot;=2CArial=2Csans-serif;font-size:=
+ 12px;line-height: 18px;">Unsubscribe</a></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td height=3D"55" class=3D"em_height" style=3D"border-co=
+llapse: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+                </tr>
+              </table>
+            </td>
+            <td width=3D"25" class=3D"em_side" style=3D"border-collapse: c=
+ollapse;mso-line-height-rule: exactly;">=C2=A0</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+<tr>
+<td align=3D"center" valign=3D"top" bgcolor=3D"#ffffff" style=3D"backgroun=
+d-color: #ffffff;border-collapse: collapse;mso-line-height-rule: exactly;"=
+>
+  <table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" class=3D"em_main_table" bgcolor=3D"#ffffff" style=3D"backgr=
+ound-color: #ffffff;border-collapse: collapse;mso-table-lspace: 0;mso-tabl=
+e-rspace: 0;">
+    <tr>
+      <td align=3D"center" valign=3D"top" class=3D"em_pad" style=3D"border=
+-collapse: collapse;mso-line-height-rule: exactly;">
+        <table width=3D"100%" align=3D"center" cellpadding=3D"0" cellspaci=
+ng=3D"0" border=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0;mso-table-rspace: 0;">
+          <tr>
+            <td align=3D"left" valign=3D"top" style=3D"font-size: 0px;line=
+-height: 0px;border-collapse: collapse;mso-line-height-rule: exactly;"><a=
+ href=3D"https://woocommerce.us8.list-manage.com/track/click?u=3D2c1434dc5=
+6f9506bf3c3ecd21&id=3D3b9b2e397f&e=3D09e2d6461c" target=3D"_blank" style=
+=3D"text-decoration: none;border-collapse: collapse;mso-line-height-rule:=
+ exactly;"><img src=3D"https://gallery.mailchimp.com/2c1434dc56f9506bf3c3e=
+cd21/images/44f6d174-298e-460c-b3ca-3bc0d8efdeae.jpg" alt=3D"WOOCOMMERCE"=
+ border=3D"0" style=3D"margin: 0;padding: 0;display: block;max-width: 108p=
+x;font-family: Arial=2C sans-serif;font-size: 13px;line-height: 23px;color=
+: #424242;font-weight: bold;border: 0 !important;outline: none !important;=
+"></a>
+          </td>
+          <td align=3D"right" valign=3D"middle" style=3D"font-size: 0px;li=
+ne-height: 0px;border-collapse: collapse;mso-line-height-rule: exactly;"><=
+a href=3D"https://woocommerce.us8.list-manage.com/track/click?u=3D2c1434dc=
+56f9506bf3c3ecd21&id=3D201cd1adfc&e=3D09e2d6461c" target=3D"_blank" style=
+=3D"text-decoration: none;border-collapse: collapse;mso-line-height-rule:=
+ exactly;"><img src=3D"https://gallery.mailchimp.com/2c1434dc56f9506bf3c3e=
+cd21/images/291486d3-5b54-4120-a1e4-0bf648c663db.jpg" alt=3D"automatic" bo=
+rder=3D"0" style=3D"margin: 0;padding: 0;display: block;max-width: 104px;f=
+ont-family: Arial=2C sans-serif;font-size: 13px;line-height: 23px;color: #=
+424242;font-weight: bold;text-transform: uppercase;border: 0 !important;ou=
+tline: none !important;"></a>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td height=3D"20" style=3D"font-size: 1px;line-height: 1px;border-collap=
+se: collapse;mso-line-height-rule: exactly;">=C2=A0</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<!--Full width table End-->
+<!--Increase/decrease the number of (=C2=A0) as per the template width-->
+<div class=3D"em_hide" style=3D"white-space:nowrap;font:20px courier;color=
+:#FFFFFF;">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0</div>
+<img src=3D"https://woocommerce.us8.list-manage.com/track/open.php?u=3D2c1=
+434dc56f9506bf3c3ecd21&id=3D937ad0298c&e=3D09e2d6461c" height=3D"1" width=
+=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_223668812--

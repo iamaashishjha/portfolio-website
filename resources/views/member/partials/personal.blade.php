@@ -181,7 +181,7 @@
 			<div class="mt-3">
 				<div class="font-medium  @error('other_identity') text-theme-6 @enderror  flex items-center">
 					Other Identity (अन्य पहिचान)
-					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+					{{-- <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span> --}}
 				</div>
 				<div class="mt-2">
 					<select data-placeholder="प्रदेश छान्नुहोस् |" class="select2 w-full" name="other_identity"

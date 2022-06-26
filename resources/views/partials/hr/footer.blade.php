@@ -11,8 +11,8 @@
                     <div class="footer-widget">
                         <h3 class="footer-widget__title">{{ __('home.footer.about') }}</h3>
                         <!-- /.footer-widget__title -->
-                        <p class="footer-widget__text">{{ isset($$companyDetails->company_description) ?
-                            $$companyDetails->company_description : 'Nagrik Unmukti Party' }}</p>
+                        <p class="footer-widget__text">{!! isset($companyDetails->company_description) ?
+                            $companyDetails->company_description : 'Nagrik Unmukti Party' !!}</p>
                         <!-- /.footer-widget__text -->
                         <div class="footer-widget__social">
                             {!! isset($companyDetails->twitter_link) ? '<a href="'. $companyDetails->twitter_link.' "><i class="fa fa-twitter"></i></a>' : '' !!}

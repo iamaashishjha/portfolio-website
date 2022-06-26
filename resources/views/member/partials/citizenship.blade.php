@@ -292,11 +292,11 @@
 				<div
 					class="font-medium mt-3 ml-2  @error('perm_ward_number') text-theme-6 @enderror  flex items-center">
 					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Ward Number (वार्ड नम्बर)
+					Ward Number (वडा नम्बर)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
 				</div>
 				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
-					placeholder="Write Ward Number (वार्ड नम्बर लेख्नुहोस |)" name="perm_ward_number"
+					placeholder="Write Ward Number (वडा नम्बर लेख्नुहोस |)" name="perm_ward_number"
 					id="perm_ward_number"
 					value="{{ isset($member->perm_ward_number) ? $member->perm_ward_number : old('perm_ward_number') }}">
 				@error('perm_ward_number')
@@ -444,7 +444,7 @@
 				<div
 					class="font-medium mt-3 ml-2  @error('temp_ward_number') text-theme-6 @enderror  flex items-center">
 					{{-- <i data-feather="chevron-down" class="w-4 h-4 mr-2"></i> --}}
-					Ward Number (वार्ड नम्बर)
+					Ward Number (वडा नम्बर)
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
 				</div>
 				<input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"

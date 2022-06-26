@@ -1,26 +1,26 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Blog Category | Nagrik Unmukti Party --}}
-{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti Party': 'Create New Blog Category | Nagrik Unmukti Party' }}
+{{-- Create New News Category | Nagrik Unmukti Party --}}
+{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti Party': 'Create New News Category | Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.category.index') }}" class="">Blog Category</a>
+    <a href="{{ route('admin.news.category.index') }}" class="">News Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-    <a href="" class="breadcrumb--active">{{ isset($category) ? 'Edit Category ' : 'Create New Blog Category' }}</a>
+    <a href="" class="breadcrumb--active">{{ isset($category) ? 'Edit Category ' : 'Create New News Category' }}</a>
 </div>
 @endsection
 
 @section('content')
 <div class="intro-y flex items-center mt-8 ">
     <h2 class="text-lg font-medium mr-auto">
-        {{ isset($category) ? 'Edit Category ' . '"' . $category->title . '".' : 'Create New Blog Category' }}
+        {{ isset($category) ? 'Edit Category ' . '"' . $category->title . '".' : 'Create New News Category' }}
     </h2>
 
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.category.index') }}">All Blog Categories</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.news.category.index') }}">All News Categories</a>
     </div>
 </div>
 <div class="grid grid-cols-12 gap-6 mt-5">
@@ -36,7 +36,7 @@
             </div>
             {{-- @include('partials.ar.messages') --}}
             {{-- @include('partials.ar.modelMessage') --}}
-            <form action="{{ isset($category) ? route('admin.blog.category.update', $category->id) : route('admin.blog.category.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($category) ? route('admin.news.category.update', $category->id) : route('admin.news.category.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($category))
                 @method('PUT')
@@ -48,7 +48,7 @@
                                 Category Title
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
-                            <input type="text" id="title" name="title" class="{{ isset($category) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} input w-full border mt-2 @error('title') border-theme-6 @enderror" placeholder="Enter Name" value="{{ isset($category) ? $category->title : old('title') }}" {{ isset($category) ? 'readonly' : '' }}>
+                            <input type="text" id="title" name="title" class=" input w-full border mt-2 @error('title') border-theme-6 @enderror" placeholder="Enter Name" value="{{ isset($category) ? $category->title : old('title') }}" >
 
                         </div>
                         <div class="mt-3">
@@ -83,19 +83,19 @@
                         </div>
                         <div class="mt-3">
                             <label>Category Slug</label>
-                            <input type="text" id="slug" name="slug" class="input w-full border mt-2 cursor-not-allowed  bg-gray-100" placeholder="Enter Slug" value="{{ isset($category) ? $category->slug : old('slug') }}" readonly>
+                            <input type="text" id="slug" name="slug" class="input w-full border mt-2 " placeholder="Enter Slug" value="{{ isset($category) ? $category->slug : old('slug') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Meta Description</label>
-                            <input type="text" id="meta_description" name="meta_description" class="input w-full border mt-2 cursor-not-allowed bg-gray-100" placeholder="Enter Meta Description" value="{{ isset($category) ? $category->meta_description : old('meta_description') }}" readonly>
+                            <input type="text" id="meta_description" name="meta_description" class="input w-full border mt-2" placeholder="Enter Meta Description" value="{{ isset($category) ? $category->meta_description : old('meta_description') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Keywords</label>
-                            <input type="text" id="keywords" name="keywords" class="input w-full border mt-2 cursor-not-allowed bg-gray-100" placeholder="Enter Keywords" value="{{ isset($category) ? $category->keywords : old('keywords') }}" readonly>
+                            <input type="text" id="keywords" name="keywords" class="input w-full border mt-2" placeholder="Enter Keywords" value="{{ isset($category) ? $category->keywords : old('keywords') }}">
                         </div>
                         <div class="mt-3">
                             <label>Category Meta Title</label>
-                            <input type="text" id="meta_title" name="meta_title" class=" cursor-not-allowed input w-full border mt-2 bg-gray-100" placeholder="Enter Meta Title" value="{{ isset($category) ? $category->meta_title : old('meta_title') }}" readonly>
+                            <input type="text" id="meta_title" name="meta_title" class="  input w-full border mt-" placeholder="Enter Meta Title" value="{{ isset($category) ? $category->meta_title : old('meta_title') }}">
                         </div>
                         <div class="mt-6 text-center">
                             <button type="submit" class="button w-50 mr-1 mb-2 {{ isset($category) ? 'bg-theme-3 text-white' : 'bg-theme-9 text-white' }}">{{ isset($category) ? 'Update Category' : 'Create New Category' }}</button>

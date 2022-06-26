@@ -119,7 +119,7 @@
                             Slug
                         </div>
                         <div class="mt-5">
-                            <input type="text" class="input w-full border mt-2   cursor-not-allowed  bg-gray-100" placeholder="Write caption" name="slug" id="slug" value="{{ isset($post) ? $post->slug : old('slug') }}" readonly>
+                            <input type="text" class="input w-full border mt-2 " placeholder="Write caption" name="slug" id="slug" value="{{ isset($post) ? $post->slug : old('slug') }}">
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
@@ -128,7 +128,7 @@
                             Meta - Description
                         </div>
                         <div class="mt-5">
-                            <input type="text" class="input w-full border mt-2   cursor-not-allowed  bg-gray-100" placeholder="Write caption" name="meta_description" id="meta_description" value="{{ isset($post) ? $post->meta_description : old('meta_description') }}" readonly>
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption" name="meta_description" id="meta_description" value="{{ isset($post) ? $post->meta_description : old('meta_description') }}">
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
@@ -137,7 +137,7 @@
                             Keywords
                         </div>
                         <div class="mt-5">
-                            <input type="text" class="input w-full border mt-2   cursor-not-allowed  bg-gray-100" placeholder="Write caption" name="keywords" id="keywords" value="{{ isset($post) ? $post->keywords : old('keywords') }}" readonly>
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption" name="keywords" id="keywords" value="{{ isset($post) ? $post->keywords : old('keywords') }}">
                         </div>
                     </div>
 
@@ -147,7 +147,7 @@
                             Meta - Title
                         </div>
                         <div class="mt-5">
-                            <input type="text" class="input w-full border mt-2   cursor-not-allowed  bg-gray-100" placeholder="Write caption" name="meta_title" id="meta_title" value="{{ isset($post) ? $post->meta_title : old('meta_title') }}" readonly>
+                            <input type="text" class="input w-full border mt-2" placeholder="Write caption" name="meta_title" id="meta_title" value="{{ isset($post) ? $post->meta_title : old('meta_title') }}">
 
                         </div>
                     </div>

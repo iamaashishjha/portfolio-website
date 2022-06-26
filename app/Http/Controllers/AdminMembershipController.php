@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveMember;
 use App\Models\Gender;
-use App\Models\LocalLevelType;
-use App\Models\Membership;
 use App\Models\Province;
+use App\Models\Membership;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use App\Models\LocalLevelType;
+use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminMembershipController extends Controller
@@ -461,6 +464,18 @@ class AdminMembershipController extends Controller
 
         $member->delete();
         Alert::toast('Member Deleted Successfully', 'success');
+        return redirect()->back();
+    }
+
+
+    public function approveMember($id)
+    {
+        $member = Membership::find($id);
+        $member->is_verified = true;
+        $member->approved_by = Auth::user()->id;
+        $member->save();
+        Mail::to($member->user)->send(new ApproveMember($member));
+        Alert::success('Member Approved');
         return redirect()->back();
     }
 }

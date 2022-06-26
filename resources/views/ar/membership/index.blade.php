@@ -135,7 +135,7 @@ All Members
                                                     <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
                                                         <h5
                                                             class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                            Citizenship Based Details (नागरिकता अनुशारको विवरण |)
+                                                            Citizenship Based Details (नागरिकता आधारित विवरण |)
                                                         </h5>
                                                         <div class="grid grid-cols-2 gap-4">
                                                             <p>Full Name : {{ $member->name_en }}</p>
@@ -167,10 +167,10 @@ All Members
                                                         <div class="grid grid-cols-2 gap-4">
                                                             <p>Province (प्रदेश) : {{ $member->name_en }}</p>
                                                             <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                            <p>Local Level (स्थानइय तह) : {{ $member->name_lc }}</p>
+                                                            <p>Local Level (स्थानीय तह) : {{ $member->name_lc }}</p>
                                                             <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->name_lc }}
                                                             </p>
-                                                            <p>Ward Number (वार्ड नम्बर) : {{ $member->name_lc }}</p>
+                                                            <p>Ward Number (वडा नम्बर) : {{ $member->name_lc }}</p>
                                                             <p>Tole (टोल) : {{ $member->name_lc }}</p>
                                                         </div>
                                                         <<hr class="mt-2 mb-2">
@@ -182,10 +182,10 @@ All Members
                                                             <div class="grid grid-cols-2 gap-4">
                                                                 <p>Province (प्रदेश) : {{ $member->name_en }}</p>
                                                                 <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                                <p>Local Level (स्थानइय तह) : {{ $member->name_lc }}</p>
+                                                                <p>Local Level (स्थानीय तह) : {{ $member->name_lc }}</p>
                                                                 <p>Local Level Type (स्थानीय तहको प्रकार) : {{ $member->name_lc
                                                                     }}</p>
-                                                                <p>Ward Number (वार्ड नम्बर) : {{ $member->name_lc }}</p>
+                                                                <p>Ward Number (वडा नम्बर) : {{ $member->name_lc }}</p>
                                                                 <p>Tole (टोल) : {{ $member->name_lc }}</p>
                                                             </div>
                                                     </div>
@@ -201,7 +201,7 @@ All Members
                                                     <div class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
                                                         <h5
                                                             class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                            Citizenship Based Details (नागरिकता अनुशारको विवरण |)
+                                                            Citizenship Based Details (नागरिकता आधारित विवरण |)
                                                         </h5>
                                                         <hr class="mt-2 mb-2">
                                                         <div class="grid grid-cols-2 gap-4">

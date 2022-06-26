@@ -23,32 +23,34 @@ class StoreMemberRequest extends FormRequest
      */
     public function rules()
     {
+        
+        // ,except,id
         return [
             'name_en' => 'nullable',
             'name_lc' => 'nullable',
-            'gender_id' => 'nullable',
+            'gender_id' => 'required|integer',
             'birth_date_ad' => 'nullable',
             'birth_date_bs' => 'nullable',
-            'citizen_province_id' => 'nullable',
-            'citizen_district_id' => 'nullable',
-            'citizenship_number' => 'nullable',
-            'passport_number' => 'nullable',
-            'voter_id_number' => 'nullable',
-            'perm_province_id' => 'nullable',
-            'perm_district_id' => 'nullable',
-            'perm_local_level_id' => 'nullable',
-            'perm_local_level_type_id' => 'nullable',
+            'citizen_province_id' => 'integer',
+            'citizen_district_id' => 'integer',
+            'citizenship_number' => 'required|unique:memberships,citizenship_number',
+            'passport_number' => 'integer',
+            'voter_id_number' => 'integer',
+            'perm_province_id' => 'integer',
+            'perm_district_id' => 'integer',
+            'perm_local_level_id' => 'integer',
+            'perm_local_level_type_id' => 'integer',
             'perm_ward_number' => 'nullable',
             'perm_tole' => 'nullable',
-            'temp_province_id' => 'nullable',
-            'temp_district_id' => 'nullable',
-            'temp_local_level_id' => 'nullable',
-            'temp_local_level_type_id' => 'nullable',
+            'temp_province_id' => 'integer',
+            'temp_district_id' => 'integer',
+            'temp_local_level_id' => 'integer',
+            'temp_local_level_type_id' => 'integer',
             'temp_ward_number' => 'nullable',
             'temp_tole' => 'nullable',
-            'email' => 'nullable',
-            'phone_number' => 'nullable',
-            'mobile_number' => 'nullable',
+            'email' => 'email|required|unique:memberships,email',
+            'phone_number' => 'integer|required|unique:memberships,phone_number',
+            'mobile_number' => 'integer|required|unique:memberships,mobile_number',
             'cast' => 'nullable',
             'category' => 'nullable',
             'category_source' => 'nullable',
@@ -84,6 +86,53 @@ class StoreMemberRequest extends FormRequest
             'license_image' => 'nullable',
             'pan_front' => 'nullable',
             'pan_back' => 'nullable',
+        ];
+    }
+    
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            // 'title.required' => 'A title is required',
+            // 'body.required' => 'A message is required',
+            // 'same' => 'The :attribute and :other must match.',
+            // 'size' => 'The :attribute must be exactly :size.',
+            // 'between' => 'The :attribute value :input is not between :min - :max.',
+            // 'in' => 'The :attribute must be one of the following types: :values',
+            'unique' => 'The :attribute must be unique',
+            'required' => 'The :attribute field is required',
+            'max' => 'The :attribute size cannot be greater than :max',
+            'integer' => 'The :attribute must be a number'
+
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            'citizen_province_id' => 'Citizenship Province',
+            'citizen_district_id' => 'Citizenship Disrict',
+            'perm_province_id' => 'Permanent Address Print',
+            'perm_district_id' => 'Permanent Address District',
+            'perm_local_level_id' => 'Permanent Local Level',
+            'perm_local_level_type_id' => 'Permanenet Local Level Type',
+            'temp_province_id' => 'Temporary Province',
+            'temp_district_id' => 'Temporary District',
+            'temp_local_level_id' => 'Temporary Local Level',
+            'temp_local_level_type_id' => 'Temporary Local Level Type',
+            'temp_ward_number' => 'Temporary Ward Number',
+            'temp_tole' => 'Temporary Tole',
+            'phone_number' => 'Phone Number',
+            'mobile_number' => 'Mobile Number',
         ];
     }
 }

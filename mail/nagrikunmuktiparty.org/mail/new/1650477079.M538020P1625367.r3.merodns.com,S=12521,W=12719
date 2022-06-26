@@ -1,0 +1,198 @@
+Return-Path: <invoice-help@woocommerce.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id GNMxHxdIYGIXzRgAaZRYGA
+	(envelope-from <invoice-help@woocommerce.com>)
+	for <mail@nagrikunmuktiparty.org>; Wed, 20 Apr 2022 23:36:19 +0545
+Return-path: <invoice-help@woocommerce.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Wed, 20 Apr 2022 23:36:19 +0545
+Received: from smtp1-0.dfw.wordpress.com ([192.0.80.214]:19803)
+	by r3.merodns.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <invoice-help@woocommerce.com>)
+	id 1nhEU4-006os4-5E
+	for mail@nagrikunmuktiparty.org; Wed, 20 Apr 2022 23:36:19 +0545
+Received: from woocommerce.com (unknown [192.0.82.89])
+	by smtp1.dfw.wordpress.com (Postfix) with ESMTP id 4Kk7W000Fgz3QtKs
+	for <mail@nagrikunmuktiparty.org>; Wed, 20 Apr 2022 17:50:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=woocommerce.com;
+	s=automattic1; t=1650477036;
+	bh=cSqwZZxfFUjJQZPlNuJ2+tJE5BBDAn0DMrQtjeALNWI=;
+	h=Date:To:From:Reply-To:Subject:From;
+	b=JgeYkV2U4d+kRaDCymvJOcU1Y/ePORPxFBWmXqcSCDSPsrEHL6N8FVBm2kK7ER8/Y
+	 Bo2mkxGftc1/BSUQ85qWyJE1rN0YWzrQevb31Pi/s4Zh09+YbnFYrA/P9czn2uJ8YM
+	 5POQjfEakMkO5VkixknZK2/mSJy0R46j/332cMmPFQIk1Dalu5YOgfJQ659vgpXtd9
+	 ixflT7DFx3Osl+w4HVK/HvWScVKirFENvlw/MCiX97rys0wRCe2HnMc/LiPPVlP2oT
+	 AeqJejpdenz1F9mdvwyKqqGCKKolKc1XxE5/7XUEpn5PSTBmeG3+YMQk5yMWiC6dPT
+	 jSuRoiLRUbRrg==
+Date: Wed, 20 Apr 2022 17:50:35 +0000
+To: mail@nagrikunmuktiparty.org
+From: WooCommerce <invoice-help@woocommerce.com>
+Reply-To: WooCommerce <invoice-help@woocommerce.com>
+Subject: Your WooCommerce account has been created!
+Message-ID: <SlaHvFBwYIeZ53bj2usR0JVFS31AePiu0Rpy1Ilf0@woocommerce.com>
+X-Automattic-Tracking: 1:1:hnsvD8oIHh0hiwMzWEC1Xg==.VQ0icwvH8YPAT7Ua2Z7zoJ34ioqEPs7m64esBCiu6/JssBML3sSZQ7xksIzBK1A3:1:0:0
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+X-Spam-Status: No, score=-0.1
+X-Spam-Score: 0
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  WooCommerce Hi nagrikunmuktiparty, Thanks for creating an
+   account on WooCommerce. Your username is nagrikunmuktiparty. You can access
+    your account area to view orders, change your password, and more at: https://woocommerce.com/my-accou
+    [...] 
+ Content analysis details:   (-0.1 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: woocommerce.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 T_REMOTE_IMAGE         Message contains an external image
+X-Spam-Flag: NO
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WooCommerce</title>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+		<div id="wrapper" dir="ltr" style="background-color: #f5f5f5; margin: 0; padding: 70px 0 70px 0; width: 100%; -webkit-text-size-adjust: none;">
+			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"><tr>
+<td align="center" valign="top">
+
+						<!-- Header logo -->
+						<div id="template_header_image">
+							<a href="https://woocommerce.com" target="blank" style="color: #42a2ce; font-weight: normal; text-decoration: underline;">
+							<img src="https://woocommerce.com/wp-content/themes/woo/woocommerce/emails/img/logo-woocommerce.png" width="250" height="50" border="0" alt="WooCommerce" title="WooCommerce" style="border: none; display: inline; font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: none; text-decoration: none; text-transform: capitalize; margin: 0 auto 1.5em;"></a>
+						</div>
+						<!-- // Header logo -->
+
+						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container" style="background-color: #fdfdfd; border: 1px solid #dcdcdc; box-shadow: 0 1px 4px rgba(0,0,0,0.1); border-radius: 3px;">
+<tr>
+<td align="center" valign="top">
+
+								<!-- Body -->
+								<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_body"><tr>
+<td valign="top" id="body_content" style="background-color: #fdfdfd;">
+
+											<!-- Content -->
+											<table border="0" cellpadding="20" cellspacing="0" width="100%"><tr>
+<td valign="top" style="padding: 0;">
+
+													<div id="body_content_inner" style="color: #636363; font-family: 'Proxima Nova', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 150%; text-align: left; padding: 2em 2em 0;">
+
+<p style="margin: 0 0 16px; padding: 0 24px; color: #333;">Hi nagrikunmuktiparty,</p>
+<p style="margin: 0 0 16px; padding: 0 24px; color: #333;">Thanks for creating an account on WooCommerce. Your username is <strong>nagrikunmuktiparty</strong>. You can access your account area to view orders, change your password, and more at: <a href="https://woocommerce.com/my-account/" rel="nofollow" style="color: #674399; font-weight: bold; text-decoration: none;">https://woocommerce.com/my-account/</a></p>
+
+<p style="margin: 0 0 16px; padding: 0 24px; color: #333;">We look forward to seeing you soon.</p>
+															</div>
+														</td>
+													</tr></table>
+<!-- // Content -->
+</td>
+										</tr></table>
+<!-- // Body -->
+</td>
+							</tr>
+<tr>
+<td align="center" valign="top">
+
+									<!-- Footer -->
+									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer"><tr>
+<td valign="top" style="padding: 0; -webkit-border-radius: 6px;">
+
+												<table border="0" cellpadding="10" cellspacing="0" width="100%"><tr>
+<td valign="top" style="padding: 0; -webkit-border-radius: 6px;">
+
+															<table border="0" cellspacing="0" width="600" id="social_media" style="border: 0; color: #8ec7e2; font-family: Arial; font-size: 12px; line-height: 125%; text-align: center; padding: 24px;"><tr>
+<td valign="top" style="padding: 0; -webkit-border-radius: 6px;">
+
+																		<!-- Twitter -->
+																		<table border="0" cellpadding="0" cellspacing="0" width="100%" style="xborder-collapse: collapse; border-top: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc;"><tbody><tr>
+<td align="left" valign="middle" style="padding: 0; -webkit-border-radius: 6px; padding-top: 11px; padding-right: 12px; padding-bottom: 10px; padding-left: 12px;">
+
+																						<table align="left" border="0" cellpadding="0" cellspacing="0" width="" style="border-collapse: collapse;"><tbody><tr>
+<td align="center" valign="middle" width="18" style="padding: 0; -webkit-border-radius: 6px;">
+																										<a href="https://www.twitter.com/woocommerce" style="color: #42a2ce; font-weight: normal; text-decoration: underline;">
+																											<img src="https://woocommerce.com/wp-content/themes/woo/woocommerce/emails/img/icon-email-footer-twitter@2x.png" alt="Twitter icon." width="18" height="18" border="0" style="font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: none; text-decoration: none; text-transform: capitalize; display: block; border: 0; padding: 9px 8px 8px;"></a>
+																									</td>
+																								</tr></tbody></table>
+</td>
+																				</tr></tbody></table>
+<!-- // Twitter -->
+</td>
+																	<td width="23" valign="top" style="padding: 0; -webkit-border-radius: 6px;">
+
+																		<!-- Facebook -->
+																		<table border="0" cellpadding="0" cellspacing="0" width="100%" style="xborder-collapse: collapse; border-top: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; border-left: none;"><tbody><tr>
+<td align="left" valign="middle" style="padding: 0; -webkit-border-radius: 6px; padding-top: 11px; padding-right: 12px; padding-bottom: 10px; padding-left: 12px;">
+
+																						<table align="left" border="0" cellpadding="0" cellspacing="0" width="" style="border-collapse: collapse;"><tbody><tr>
+<td align="center" valign="middle" width="18" style="padding: 0; -webkit-border-radius: 6px;">
+																										<a href="https://www.facebook.com/woocommerce" style="color: #42a2ce; font-weight: normal; text-decoration: underline;">
+																											<img src="https://woocommerce.com/wp-content/themes/woo/woocommerce/emails/img/icon-email-footer-facebook@2x.png" alt="Facebook icon." width="18" height="18" border="0" style="font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: none; text-decoration: none; text-transform: capitalize; display: block; border: 0; padding: 9px 8px 8px;"></a>
+																									</td>
+																								</tr></tbody></table>
+</td>
+																				</tr></tbody></table>
+<!-- // Facebook -->
+</td>
+																	<td width="23" valign="top" style="padding: 0; -webkit-border-radius: 6px;">
+
+																		<!-- Instagram -->
+																		<table border="0" cellpadding="0" cellspacing="0" width="100%" style="xborder-collapse: collapse; border-top: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; border-left: none;"><tbody><tr>
+<td align="left" valign="middle" style="padding: 0; -webkit-border-radius: 6px; padding-top: 11px; padding-right: 12px; padding-bottom: 10px; padding-left: 12px;">
+
+																						<table align="left" border="0" cellpadding="0" cellspacing="0" width="" style="border-collapse: collapse;"><tbody><tr>
+<td align="center" valign="middle" width="18" style="padding: 0; -webkit-border-radius: 6px;">
+																										<a href="https://www.instagram.com/woocommerce" style="color: #42a2ce; font-weight: normal; text-decoration: underline;">
+																											<img src="https://woocommerce.com/wp-content/themes/woo/woocommerce/emails/img/icon-email-footer-instagram@2x.png" alt="Instagram icon." width="18" height="18" border="0" style="font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: none; text-decoration: none; text-transform: capitalize; display: block; border: 0; padding: 9px 8px 8px;"></a>
+																									</td>
+																								</tr></tbody></table>
+</td>
+																				</tr></tbody></table>
+<!-- // Instagram -->
+</td>
+																	<td width="391" style="padding: 0; -webkit-border-radius: 6px;"></td>
+<!-- Spacer between social icons and logo -->
+																	<td width="93" valign="middle" align="right" style="padding: 0; -webkit-border-radius: 6px; width: 93px; padding-bottom: 20px;">
+																		<a href="https://woocommerce.com?utm_source=signup&amp;utm_medium=email&amp;utm_campaign=Triggered%20-%20accountcreated" title="WooCommerce" style="color: #42a2ce; font-weight: normal; text-decoration: underline;">
+																			<img src="https://woocommerce.com/wp-content/themes/woo/woocommerce/emails/img/logo-woocommerce.png" width="93" height="23" border="0" alt="WooCommerce" title="WooCommerce" style="border: none; display: inline; font-size: 14px; font-weight: bold; height: auto; line-height: 100%; outline: none; text-decoration: none; text-transform: capitalize;"></a>
+																	</td>
+																</tr></table>
+</td>
+													</tr></table>
+</td>
+										</tr></table>
+<!-- // Footer -->
+</td>
+							</tr>
+</table>
+</td>
+				</tr></table>
+</div>
+
+	</body>
+</html>
+

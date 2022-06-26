@@ -1,3 +1,10 @@
+
+@php
+use App\Models\AppSettings;
+$appSetting = AppSettings::first();
+// dd($appSetting->image);
+@endphp
+
 @extends('layouts.auth')
 @section('content')
 <div class="container sm:px-10">

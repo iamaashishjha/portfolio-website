@@ -1,0 +1,283 @@
+Return-Path: <mail=nagrikunmuktiparty.org@b.wordpress.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id gO9hH80vYGK8tRcAaZRYGA
+	(envelope-from <mail=nagrikunmuktiparty.org@b.wordpress.com>)
+	for <mail@nagrikunmuktiparty.org>; Wed, 20 Apr 2022 21:52:41 +0545
+Return-path: <mail=nagrikunmuktiparty.org@b.wordpress.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Wed, 20 Apr 2022 21:52:41 +0545
+Received: from smtp1-3.bur.wordpress.com ([192.0.123.34]:8885)
+	by r3.merodns.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <mail=nagrikunmuktiparty.org@b.wordpress.com>)
+	id 1nhCrm-006WFD-2L
+	for mail@nagrikunmuktiparty.org; Wed, 20 Apr 2022 21:52:41 +0545
+Received: from wordpress.com (unknown [192.0.99.18])
+	by smtp1.bur.wordpress.com (Postfix) with ESMTP id 4Kk5CP3qtpzvRfh
+	for <mail@nagrikunmuktiparty.org>; Wed, 20 Apr 2022 16:06:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=wordpress.com;
+	s=automattic1; t=1650470817;
+	bh=v9L6WOHckE0mVreCh8m8Gp4toyTFD5I7cfjRfNdUKeI=;
+	h=Date:To:From:Subject:From;
+	b=P1Ay9kNEhgYsH77/5mQBo9R3fYPlBBiXT70un9/TtC580YmHbSzCTdN82OhOEIMmu
+	 lg7I5PUPfEkd8aKxP2OuR8uuyYw0jh2fgdYMaa45vFkmKBXiWKQZ/uFJoM6bbotkvL
+	 3WM2wC1bnG2IONDR8FaIY7gpSCmx5SRvnnoI0cJkEAXc4AJyE8bL9GlOVS92Xy1Xj9
+	 vuHW3qUd+EoauxWXzZ1QL/ygQUXnDy2tAWyix2ectf13EMF1HHQ6KXAAo2V/FpHjJR
+	 TzFqlZ0QcwsGrv2X2PXlQi4TEQhHKw01pVHN+FWRKxeT0aktsj+qg1V7qvA6Wi7Jsm
+	 AY1Ye1UEHOl3A==
+Date: Wed, 20 Apr 2022 16:06:57 +0000
+To: mail@nagrikunmuktiparty.org
+From: "WordPress.com" <donotreply@wordpress.com>
+Subject: Reminder: Activate nagrikunmuktiparty
+Message-ID: <O1JiYnv44LTl5Bdbw6xCEA6GwdfkHRhlPxlwR3CtY@wordpress.com>
+X-Automattic-BID: guides-1819026256-0
+X-Automattic-Campaign-ID: delta:activation
+X-Automattic-Destination: bWFpbEBuYWdyaWt1bm11a3RpcGFydHkub3Jn
+X-Automattic-Tracking: 0:1:RsGiPvYdvG30ja2i63Wysg==.QJ5nUAse7fZB97gfDEs7zRJMH8VQV5G0p5ibw8e2Ay4qtvabbCdW7Z4rboXqjfpVym8YMNPSKASNw2SqwUD1Mw==:29428530:0:0
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Spam-Status: No, score=-7.0
+X-Spam-Score: -69
+X-Spam-Bar: -------
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  WordPress.com Howdy nagrikunmuktiparty, Thank you for signing
+    up with WordPress.com. Click the button below to activate your account. Welcome
+    to WordPress.com. Please click the button below to confirm your email address
+    and activate your account. 
+ Content analysis details:   (-7.0 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: wp.com]
+ -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
+                             white-list
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.5 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+  0.0 KAM_SHORT              Use of a URL Shortener for very short URL
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+X-Spam-Flag: NO
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html xmlns=3D"http://www.=
+w3.org/1999/xhtml"><head><!-- If you delete this tag, the sky will fall on =
+your head --><meta name=3D"viewport" content=3D"width=3Ddevice-width"><meta=
+ http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><title>=
+WordPress.com</title><!--[if lt mso 12]>=0A      <style type=3D"text/css">=
+=0A.outlook-hide-pre-2007 {=0A  height:0 !important;=0A  max-height:0 !impo=
+rtant; /* Gmail*/=0A  display:none !important; /* Generic*/=0A  mso-hide:al=
+l !important; /* Outlook clients*/=0A  overflow:hidden !important; /* Gener=
+ic */=0A  font-size:0 !important; /* Be careful with this one, only use if =
+absolutely required */=0A}=0Ah1,h2,h3,h4 {=0A  margin: 0 !important;=0A  pa=
+dding: 0 !important;=0A}=0Atable.footer tr td.top {=0A  height: 40px !impor=
+tant;=0A}=0Ap.btn-calltoaction {=0A  margin-top: 0 !important;=0A  margin-b=
+ottom: 0 !important;=0A}=0A</style>=0A    <![endif]--><!--[if (gte mso 9)|(=
+IE)]>=0A      <style type=3D"text/css">=0Abody, .body-wrap {=0A  font-size:=
+ 1em !important;=0A  text-align: center !important;=0A}=0Ah1,h2,h3,h4 {=0A =
+ margin: 0 0 1em !important;=0A}=0Ah1 {=0A  margin-top: 0 !important;=0A  m=
+argin-bottom: 2em !important;=0A  font-size: 1.5em !important;=0A}=0Ah2 {=
+=0A  font-size: 1.125em !important;=0A  margin-top: 1em !important;=0A  mar=
+gin-bottom: 1em !important;=0A}=0Ah5 {=0A  font-size: 1em !important;=0A}=
+=0Ah1, h2 {=0A  font-weight: bold !important;=0A}=0Ap, ul, ol {=0A  font-si=
+ze: 1.125em !important;=0A  margin-bottom: 1em !important;=0A}=0A.container=
+ {=0A  width: 40em !important;=0A  text-align: left !important;=0A}=0A.cont=
+ent-mc-region {=0A  margin-bottom: 2.5em !important;=0A }=0A.content-mc-reg=
+ion p,=0A.content-mc-region ul,=0A.content-mc-region ol {=0A  font-size: 1.=
+125em !important;=0A}=0A.content-mc-region ol,=0A.content-mc-region ul {=0A=
+  padding-right: 0;=0A  padding-top: 0;=0A}=0A.content-mc-region ol {=0A  p=
+adding-left: 25px;=0A}=0Aol, ul {=0A  margin: 0 0 0 1.5em !important;=0A  p=
+adding: 0 !important;=0A  list-style-position: inside !important;=0A}=0Ali =
+{=0A  padding-left: 0=0A  margin-left: 0 !important;=0A  margin-bottom: 0.5=
+em !important;=0A}=0Ap.btn-calltoaction {=0A  margin-top: 2.5em !important;=
+=0A  margin-bottom: 2.5em !important;=0A}=0A.btn-calltoaction a {=0A  borde=
+r: solid 0.375em #03AADC !important;=0A  padding: 0 !important;=0A}=0Atd.av=
+atar {=0A  padding-top: 1.25em !important;=0A  padding-right: 1.25em !impor=
+tant;=0A  padding-bottom: 1.25em !important;=0A}=0Atd.banner {=0A  padding-=
+bottom: 2.25em !important;=0A}=0A.app-download {=0A  border: 0 !important;=
+=0A  background-color: transparent !important;=0A}=0A.app-download td {=0A =
+ padding: 0 !important;=0A}=0A.extra-cta {=0A  padding: 0 !important;=0A}=
+=0Atable.footer tr td.top {=0A  padding-top: 1.4em !important;=0A}=0Atable.=
+footer tr td.bottom {=0A  padding-bottom: 1.4em !important;=0A}=0Atable.foo=
+ter tr td.tw,=0Atable.footer tr td.fb {=0A  padding: 0.875em !important;=0A=
+  padding-top: 0 !important;=0A}=0A.signature {=0A  margin-bottom: 2.25em !=
+important;=0A}=0A.signature td.text {=0A  text-align: left !important;=0A}=
+=0Atable.footer p a {=0A  color: #000000 !important;=0A}=0A.outlook-hide {=
+=0A  max-height:0 !important; /* Gmail*/=0A  display:none !important; /* Ge=
+neric*/=0A  mso-hide:all !important; /* Outlook clients*/=0A  overflow:hidd=
+en !important; /* Generic */=0A  font-size:0 !important; /* Be careful with=
+ this one, only use if absolutely required */=0A}=0A</style>=0A    <![endif=
+]--></head><body bgcolor=3D"#FFFFFF" style=3D'direction: ltr; margin: 0; pa=
+dding: 0; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: no=
+ne; height: 100%; font-size: 1em; font-family: "HelveticaNeue-Light", "Helv=
+etica Neue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetic=
+a, Arial, sans-serif; width: 100%; clear: both;'>=0A    <div class=3D"prehe=
+ader" style=3D"direction: ltr; font-size: 1px; color: #f3f6f8; line-height:=
+ 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">=0A  =
+    Howdy nagrikunmuktiparty, Thank you for signing up with WordPress.com. =
+Click the button below to activate your account.    </div>=0A    <table cla=
+ss=3D"body-wrap" cellspacing=3D"0" cellpadding=3D"0" style=3D'border-collap=
+se: collapse; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -=
+webkit-text-size-adjust: none; height: 100%; font-size: 1em; font-family: "=
+HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helvetica =
+Neue", "Segoe UI", Helvetica, Arial, sans-serif; width: 100%; clear: both;'=
+><tr><td style=3D'border-collapse: collapse; font-family: "HelveticaNeue-Li=
+ght", "Helvetica Neue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI=
+", Helvetica, Arial, sans-serif;'>=0A=0A          <table class=3D"container=
+" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-collapse: collapse; d=
+isplay: block; max-width: 600px; margin: 0 auto; clear: both;"><tr><td styl=
+e=3D'border-collapse: collapse; font-family: "HelveticaNeue-Light", "Helvet=
+ica Neue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica,=
+ Arial, sans-serif;'>=0A                <div class=3D"content" style=3D"dir=
+ection: ltr; max-width: 600px; margin: 0 auto; display: block;">=0A=0A     =
+             <!-- Header -->=0A                  <table cellspacing=3D"0" c=
+ellpadding=3D"0" class=3D"logo-wrap" style=3D"border-collapse: collapse; wi=
+dth: 100%;"><tr><td class=3D"center" style=3D'border-collapse: collapse; fo=
+nt-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light",=
+ "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; text-align: ce=
+nter; padding: 2.25em;'>=0A                        <img alt=3D"WordPress.co=
+m" class=3D"logo" src=3D"https://s0.wp.com/wp-content/mu-plugins/html-email=
+s/themes/delta/images/logo.png" width=3D"50" height=3D"50" style=3D"border:=
+ 0 none; height: auto; line-height: 100%; outline: none; text-decoration: n=
+one;"></td>=0A                    </tr></table><!-- /header --><!-- Body --=
+><div class=3D"content-mc-region" style=3D"direction: ltr; padding: 0 20px;=
+">=0A                                        <p style=3D'direction: ltr; fo=
+nt-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light",=
+ "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; col=
+or: #000000; font-weight: normal; line-height: 1.5; font-size: 18px; paddin=
+g-bottom: 16px;'></p>=0A                    <p style=3D'direction: ltr; fon=
+t-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", =
+"Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; colo=
+r: #000000; font-weight: normal; line-height: 1.5; font-size: 18px; padding=
+-bottom: 16px;'>Welcome to WordPress.com. Please click the button below to =
+confirm your email address and activate your account.</p>=0A               =
+     <p class=3D"outlook-hide-pre-2007" style=3D'direction: ltr; font-famil=
+y: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helvet=
+ica Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; color: #000=
+000; font-weight: normal; line-height: 1.5; font-size: 18px; padding-bottom=
+: 16px;'></p>=0A                    <p class=3D"btn-calltoaction" style=3D'=
+direction: ltr; font-family: "HelveticaNeue-Light", "Helvetica Neue Light",=
+ "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-ser=
+if; margin: 0; color: #000000; font-weight: normal; line-height: 1.5; font-=
+size: 18px; padding: 24px 0; text-align: center; padding-bottom: 16px;'>=0A=
+                      <a href=3D"https://public-api.wordpress.com/bar/?stat=
+=3Dgroovemails-events&amp;bin=3Dwpcom_email_click&amp;redirect_to=3Dhttps%3=
+A%2F%2Fsignup.wordpress.com%2Factivate%2Fb463f423594483bb&amp;sr=3D1&amp;si=
+gnature=3Dae6bae4adc2887669316544d108888f0&amp;user=3D220127393&amp;_e=3Dey=
+JlcnJvciI6bnVsbCwiYmxvZ19pZCI6Mjk0Mjg1MzAsImJsb2dfbGFuZyI6ImVuIiwic2l0ZV9pZ=
+F9sYWJlbCI6IndwY29tIiwiX3VpIjoyMjAxMjczOTMsImNhbXBhaWduIjoibnV4X2VtYWlsX3Zl=
+cmlmaWNhdGlvbl9yZW1pbmRlciIsImVtYWlsX25hbWUiOiJkZWx0YV9hY3RpdmF0aW9uX2ZvbGx=
+vd3VwIiwic3RlcCI6MCwidGVtcGxhdGUiOiJhY3RpdmF0aW9uIiwiYXBwb2ludG1lbnRfaWQiOi=
+IxODE5MDI2MjU2Iiwib3JpZ2luIjoiZ3VpZGVzIiwibG9jYWxlIjoiZW4iLCJjdXJyZW5jeSI6I=
+lVTRCIsImNvdW50cnlfY29kZV9zaWdudXAiOiJOUCIsInNpZ251cF9mbG93X25hbWUiOiJqZXRw=
+YWNrLWNvbm5lY3QiLCJlbWFpbF9kb21haW4iOiJuYWdyaWt1bm11a3RpcGFydHkub3JnIiwiZGF=
+0ZV9zZW50IjoiMjAyMi0wNC0yMCIsImVtYWlsX2lkIjoiMzViN2IwODdiZDhmZmI1ZDhhMDNkNT=
+RhZmMzYjU2OWUiLCJhbmNob3JfdGV4dCI6IkNvbmZpcm0gTm93IiwiX2RyIjpudWxsLCJfZGwiO=
+iJcLyIsIl91dCI6IndwY29tOnVzZXJfaWQiLCJfdWwiOiJuYWdyaWt1bm11a3RpcGFydHkiLCJf=
+ZW4iOiJ3cGNvbV9lbWFpbF9jbGljayIsIl90cyI6MTY1MDQ3MDgxNzI1MiwiYnJvd3Nlcl90eXB=
+lIjoicGhwLWFnZW50IiwiX2F1YSI6IndwY29tLXRyYWNrcy1jbGllbnQtdjAuMyIsImJsb2dfdH=
+oiOiIwIiwidXNlcl9sYW5nIjoiZW4ifQ=3D&amp;_z=3Dz" style=3D'font-family: "Helv=
+eticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helvetica Neue=
+", "Segoe UI", Helvetica, Arial, sans-serif; background-color: #03AADC; bor=
+der: solid 1px #0287BE; border-radius: 4px; border-bottom-width: 2px; paddi=
+ng: 10px 30px; font-size: 1.0em; min-width: 180px; font-weight: 600; displa=
+y: inline-block; text-decoration: none; color: #FFFFFF;'>Confirm Now</a>=0A=
+                    </p>=0A                    <p class=3D"outlook-hide-pre=
+-2007" style=3D'direction: ltr; font-family: "HelveticaNeue-Light", "Helvet=
+ica Neue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica,=
+ Arial, sans-serif; margin: 0; color: #000000; font-weight: normal; line-he=
+ight: 1.5; font-size: 18px; padding-bottom: 16px;'></p>=0A                 =
+   <p class=3D"outlook-hide-pre-2007" style=3D'direction: ltr; font-family:=
+ "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helvetic=
+a Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; color: #00000=
+0; font-weight: normal; line-height: 1.5; font-size: 18px; padding-bottom: =
+16px;'></p>=0A                    <p style=3D'direction: ltr; font-family: =
+"HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helvetica=
+ Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; color: #000000=
+; font-weight: normal; line-height: 1.5; font-size: 18px; padding-bottom: 1=
+6px;'>Helpful reminder: At any time, log into your account with your userna=
+me, <strong style=3D'font-family: "HelveticaNeue-Light", "Helvetica Neue Li=
+ght", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, san=
+s-serif;'>nagrikunmuktiparty</strong>, or your <strong style=3D'font-family=
+: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helveti=
+ca Neue", "Segoe UI", Helvetica, Arial, sans-serif;'>email address</strong>=
+.</p>=0A                    <p class=3D"outlook-hide-pre-2007" style=3D'dir=
+ection: ltr; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "S=
+egoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;=
+ margin: 0; color: #000000; font-weight: normal; line-height: 1.5; font-siz=
+e: 18px; padding-bottom: 16px;'></p>=0A                    <p style=3D'dire=
+ction: ltr; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Se=
+goe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; =
+margin: 0; color: #000000; font-weight: normal; line-height: 1.5; font-size=
+: 18px; padding-bottom: 16px;'></p>=0A=0A                    =0A           =
+       </div>=0A=0A                  <!-- footer -->=0A                  <t=
+able class=3D"footer" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-c=
+ollapse: collapse; background-color: #F4F4F4; border-top: solid 1px #E6E6E6=
+; width: 100%;"><tr><td align=3D"center" colspan=3D"2" class=3D"top" style=
+=3D'border-collapse: collapse; font-family: "HelveticaNeue-Light", "Helveti=
+ca Neue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, =
+Arial, sans-serif; padding: 0 20px; padding-top: 1.4em;'></td>=0A          =
+          </tr><tr><td align=3D"right" class=3D"tw" style=3D'border-collaps=
+e: collapse; font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "S=
+egoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;=
+ text-align: right; padding: 0 20px; padding-bottom: 1.4em;'>=0A           =
+             <a href=3D"https://twitter.com/wordpressdotcom" style=3D'font-=
+family: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "H=
+elvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; color: #2BA6CB;'>=
+=0A                          <img alt=3D"@wordpressdotcom" width=3D"40" hei=
+ght=3D"40" src=3D"https://s0.wp.com/wp-content/mu-plugins/html-emails/theme=
+s/delta/images/twitter.png" style=3D"height: auto; line-height: 100%; outli=
+ne: none; text-decoration: none; border: 0 none;"></a>=0A                  =
+    </td>=0A                      <td align=3D"left" class=3D"fb" style=3D'=
+border-collapse: collapse; font-family: "HelveticaNeue-Light", "Helvetica N=
+eue Light", "Segoe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Aria=
+l, sans-serif; text-align: left; padding: 0 20px; padding-bottom: 1.4em;'>=
+=0A                        <a href=3D"https://www.facebook.com/WordPresscom=
+" style=3D'font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Seg=
+oe UI Light", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; c=
+olor: #2BA6CB;'>=0A                          <img alt=3D"WordPresscom" widt=
+h=3D"40" height=3D"40" src=3D"https://s0.wp.com/wp-content/mu-plugins/html-=
+emails/themes/delta/images/facebook.png" style=3D"height: auto; line-height=
+: 100%; outline: none; text-decoration: none; border: 0 none;"></a>=0A     =
+                 </td>=0A                    </tr><tr><td align=3D"center" =
+colspan=3D"2" class=3D"bottom" style=3D'border-collapse: collapse; font-fam=
+ily: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Helv=
+etica Neue", "Segoe UI", Helvetica, Arial, sans-serif; padding: 0 20px; pad=
+ding-bottom: 1.4em;'>=0A                        <p style=3D'direction: ltr;=
+ font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Ligh=
+t", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif; margin: 0; =
+color: #000000; font-weight: normal; line-height: 1.5; padding-bottom: 16px=
+; font-size: 14px;'>From your pals at WordPress.com<br>60 29th St. #343, Sa=
+n Francisco, CA, 94110</p>=0A                      </td>=0A                =
+    </tr></table><!-- /footer --></div>  <!-- /content -->=0A=0A           =
+   </td>=0A            </tr></table><!-- /container --></td>=0A      </tr><=
+/table><!-- /body-wrap --><img src=3D"https://pixel.wp.com/t.gif?_ui=3D2201=
+27393&amp;campaign=3Dnux_email_verification_reminder&amp;email_name=3Ddelta=
+_activation_followup&amp;step=3D0&amp;template=3Dactivation&amp;appointment=
+_id=3D1819026256&amp;origin=3Dguides&amp;locale=3Den&amp;currency=3DUSD&amp=
+;country_code_signup=3DNP&amp;signup_flow_name=3Djetpack-connect&amp;email_=
+domain=3Dnagrikunmuktiparty.org&amp;blog_id=3D29428530&amp;date_sent=3D2022=
+-04-20&amp;email_id=3D35b7b087bd8ffb5d8a03d54afc3b569e&amp;_en=3Dwpcom_emai=
+l_open&amp;browser_type=3Dphp-agent&amp;_aua=3Dwpcom-tracks-client-v0.3&amp=
+;_ul=3Dnagrikunmuktiparty&amp;_ut=3Dwpcom%3Auser_id&amp;blog_tz=3D0&amp;blo=
+g_lang=3Den&amp;user_lang=3Den&amp;_ts=3D1650470817226" style=3D"border: 0 =
+none; height: auto; line-height: 100%; outline: none; text-decoration: none=
+;"></body></html>=0A

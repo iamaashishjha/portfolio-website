@@ -529,7 +529,8 @@ width: 25px;
   .topbar-one__left a, .topbar-one__right a {
     display: flex;
     align-items: center;
-    color: #7c859b;
+    /* color: #7c859b; */
+    color: #d41e44;
     font-size: 14px;
     transition: all .4s ease; }
     .topbar-one__left a i, .topbar-one__right a i {

@@ -1,0 +1,124 @@
+Return-Path: <nagriku1@r3.merodns.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id QM77NqyAhGLFTDoAaZRYGA
+	(envelope-from <nagriku1@r3.merodns.com>)
+	for <mail@nagrikunmuktiparty.org>; Wed, 18 May 2022 10:59:20 +0545
+Return-path: <nagriku1@r3.merodns.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Wed, 18 May 2022 10:59:20 +0545
+Received: from nagriku1 by r3.merodns.com with local (Exim 4.94.2)
+	(envelope-from <nagriku1@r3.merodns.com>)
+	id 1nrC0q-00G1zO-Q2
+	for mail@nagrikunmuktiparty.org; Wed, 18 May 2022 10:59:20 +0545
+To: mail@nagrikunmuktiparty.org
+Subject: Message via contact
+X-PHP-Script: nagrikunmuktiparty.org/wp-admin/admin-ajax.php for 43.245.85.171
+X-PHP-Originating-Script: 1338:PHPMailer.php
+Date: Wed, 18 May 2022 05:14:20 +0000
+From: SAADAA <wordpress@nagrikunmuktiparty.org>
+Reply-To: ASASAAS@HHSDSHD.CJLKJMCL
+Message-ID: <AbQQMg7bC84cjQAne9quHmnFlGYtIAdwPZdMp0ryE@nagrikunmuktiparty.org>
+X-Mailer: PHPMailer 6.5.3 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html>
+	<head>
+		<style>
+			@media screen and (max-width: 500px) {
+				#wrap {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body style="margin:0;padding:0;background:#efefef;">
+		<table align="center" cellpadding="0" cellspacing="0" width="500" id="wrap">
+			<tr>
+				<td height="60"></td>
+			</tr>
+			<!-- Content -->
+			<tr>
+				<td>
+					<table style="padding:0 25px;" cellspacing="0" cellspacing="0" style="border:1px solid #e3e5e5" bgcolor="#fff" width="100%">
+						<tr>
+							<td height="60"></td>
+						</tr>
+						<tr>
+							<td style="text-align:center;">
+								<img src="https://nagrikunmuktiparty.org/wp-content/plugins/wp-maintenance-mode/assets/images/icon-48.png" />
+							</td>
+						</tr>
+						<tr>
+							<td height="40"></td>
+						</tr>
+						<tr>
+							<td style="color:#747e7e;font-family:Lato, Helvetica, Arial, sans-serif;text-align:center;font-size:18px;font-weight:normal;">
+								You have been contacted via नागरिक उन्मुक्ति पार्टी.							</td>
+						</tr>
+						<tr>
+							<td height="30"></td>
+						</tr>
+						<tr>
+							<td width="100%">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tbody>
+										
+										<tr>
+											<td height="30"></td>
+											<td height="30"></td>
+										</tr>
+										<tr>
+											<td width="20%" style="border-bottom:1px solid #e3e5e5;padding:0 0 30px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;font-weight:bold;">
+												Name:											</td>
+											<td width="80%" style="border-bottom:1px solid #e3e5e5;padding:0 0 30px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;">
+												SAADAA											</td>                                            
+										</tr>
+										<tr>
+											<td height="30"></td>
+											<td height="30"></td>
+										</tr>
+										<tr>
+											<td width="20%" style="border-bottom:1px solid #e3e5e5;padding:0 0 30px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;font-weight:bold;">
+												Email:											</td>
+											<td width="80%" style="border-bottom:1px solid #e3e5e5;padding:0 0 30px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;">
+												ASASAAS@HHSDSHD.CJLKJMCL											</td>
+										</tr>
+
+										
+										<tr>
+											<td height="30"></td>
+											<td height="30"></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="padding:0 0 30px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;font-weight:bold;">
+												Content:											</td>
+										</tr> 
+										<tr>
+											<td colspan="2" style="padding:0 0 20px 20px;text-align:left;font-size:14px;font-family:Lato, Helvetica, Arial, sans-serif;color:#747e7e;">
+												ASAsAS											</td>
+										</tr> 
+
+										
+																			</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td height="60"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="60"></td>
+			</tr>
+			<!-- End Content -->
+		</table>
+	</body>
+</html>
+

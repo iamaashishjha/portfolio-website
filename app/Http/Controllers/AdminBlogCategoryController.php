@@ -9,8 +9,8 @@ use App\Models\BlogCategory;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
-// use RealRashid\SweetAlert\Facades\Alert;
-use Prologue\Alerts\Facades\Alert;
+use RealRashid\SweetAlert\Facades\Alert;
+// use Prologue\Alerts\Facades\Alert;
 
 // use Alert
 
@@ -72,7 +72,6 @@ class AdminBlogCategoryController extends BaseController
         $category->save();
 
         Alert::toast('Category Created Successfully', 'success');
-        // alert()->success('Success Message', 'Category Created Successfully');
         return redirect()->route('admin.blog.category.index');
     }
 
@@ -111,7 +110,7 @@ class AdminBlogCategoryController extends BaseController
     {
         $category = BlogCategory::find($id);
 
-        // $category->title = $request->title;
+        $category->title = $request->title;
         $category->description = $request->description;
 
         if ($request->has('category_image') && ($request->category_image != '')) {
@@ -140,11 +139,8 @@ class AdminBlogCategoryController extends BaseController
         $category->updated_at = now();
 
         $category->save();
-        // Alert::toast('Category Updated Successfully', 'success');
-        Alert::success('Category Updated Successfully')->flash();
+        Alert::success('Category Updated Successfully');
         return redirect()->route('admin.blog.category.index');
-
-        // return redirect()->route('category.index')->with('message','Data added Successfully');
     }
 
     /**
@@ -157,18 +153,17 @@ class AdminBlogCategoryController extends BaseController
     {
         $category = BlogCategory::find($id);
         $imagePath = $category->image;
-        if ($category->posts->count() < 0) {
+        // if ($category->posts->count() === 0) {
             if (File::exists($imagePath)) {
                 unlink($imagePath);
                 $category->deleteImage();
             }
-
             $category->delete();
-            Alert::toast('Category Deleted Successfully', 'success');
+            Alert::success('Category Deleted Successfully');
             return redirect()->back();
-        } else {
-            Alert::toast('Category has Posts. Delete them first.', 'error');
-            return redirect()->back();
-        }
+        // } else {
+            // Alert::toast('Category has Posts. Delete them first.', 'error');
+            // return redirect()->back();
+        // }
     }
 }

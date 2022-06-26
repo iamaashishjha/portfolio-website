@@ -212,7 +212,7 @@ class AdminCompanyDetailsController extends Controller
         $cp->home_about_accordion_content_1 = $request->home_about_accordion_content_1;
 
         $cp->home_about_accordion_content_2 = $request->home_about_accordion_content_2;
-        $cp->home_about_accordion_title_3 = $request->home_about_accordion_title_3;
+        $cp->home_about_accordion_content_3 = $request->home_about_accordion_content_3;
 
         $cp->updated_by = Auth::user()->id;
 

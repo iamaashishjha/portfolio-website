@@ -1,0 +1,246 @@
+Return-Path: <mail=nagrikunmuktiparty.org@b.wordpress.com>
+Delivered-To: mail@nagrikunmuktiparty.org
+Received: from r3.merodns.com
+	by r3.merodns.com with LMTP
+	id ABJyCcZGWGLDyAoAaZRYGA
+	(envelope-from <mail=nagrikunmuktiparty.org@b.wordpress.com>)
+	for <mail@nagrikunmuktiparty.org>; Thu, 14 Apr 2022 21:52:34 +0545
+Return-path: <mail=nagrikunmuktiparty.org@b.wordpress.com>
+Envelope-to: mail@nagrikunmuktiparty.org
+Delivery-date: Thu, 14 Apr 2022 21:52:34 +0545
+Received: from smtp3-1.bur.wordpress.com ([192.0.123.40]:30453)
+	by r3.merodns.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <mail=nagrikunmuktiparty.org@b.wordpress.com>)
+	id 1newcT-002xkN-MY
+	for mail@nagrikunmuktiparty.org; Thu, 14 Apr 2022 21:52:34 +0545
+Received: from wordpress.com (unknown [192.0.86.128])
+	by smtp3.bur.wordpress.com (Postfix) with ESMTP id 4KfPV31RB3znVlh
+	for <mail@nagrikunmuktiparty.org>; Thu, 14 Apr 2022 16:06:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=jetpack.com;
+	s=automattic1; t=1649952411;
+	bh=PmdTI+/2zeGsvBnuAvHOgxWOFuRAdfWQLsFNaXPq4uU=;
+	h=Date:To:From:Subject:From;
+	b=csKv3AEUchFFvQj5LZKkYvwQBVA6v1GPCPEObXwpHIgIizw17NrbPIKdSMemNQSUi
+	 Qp496x1dJ4S2leYEEoIXCgGR9E4hTBfnW9QisyuTigWg6hH+TbQkrqzsEWKJ0NtRPe
+	 40GrXWCbB8YIge4gYRBVQqTIQar3s27BE9CySIzLxRkPyiHAdHRNAkUsDlyw9b+/Ev
+	 BFtx2RD8ZLpVGOQMBoFNjDZD1vzroyEfuXTnm2qecldoQLJFqFn8lrnAbwCE7aEcnI
+	 It0pVsOtUtlrD1ycvu/Z77/1l9OzXeXlui1smtGZf5YMSlWdYCeeNG7bMj9sq/C+Md
+	 45xL5MyKLQgBQ==
+Date: Thu, 14 Apr 2022 16:06:51 +0000
+To: mail@nagrikunmuktiparty.org
+From: Jetpack <do-not-reply@jetpack.com>
+Subject: Activate nagrikunmuktiparty
+Message-ID: <llUW8QS4OnDNuKmiVRLwjSalPZ9qkvsFHaSdgfsir54@wordpress.com>
+X-Automattic-Campaign-ID: osmatic:activation-jetpack
+X-Automattic-Destination: bWFpbEBuYWdyaWt1bm11a3RpcGFydHkub3Jn
+X-Automattic-Tracking: 0:1:2YtTQZk8rO1ETZDo35SZZQ==.W/EalKi8i+0P/1PiQec3T3CKboSosqQtWA1kTvD0CwUjVsXtQDVHn7TR0PfRoArY:5836086:0:220127393
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="b1_llUW8QS4OnDNuKmiVRLwjSalPZ9qkvsFHaSdgfsir54"
+Content-Transfer-Encoding: 8bit
+X-Spam-Status: No, score=-6.9
+X-Spam-Score: -68
+X-Spam-Bar: ------
+X-Ham-Report: Spam detection software, running on the system "r3.merodns.com",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  Activate your account Welcome to Jetpack and WordPress.com.
+    Please use the link below to confirm your email address and activate your
+    account. https://signup.wordpress.com/activate/b463f423594483bb 
+ Content analysis details:   (-6.9 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: wp.com]
+ -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
+                             white-list
+  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+                             mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.5 KAM_REALLYHUGEIMGSRC   RAW: Spam with image tags with ridiculously
+                              huge http urls
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.0 T_SCC_BODY_TEXT_LINE   No description available.
+  0.0 KAM_SHORT              Use of a URL Shortener for very short URL
+X-Spam-Flag: NO
+
+This is a multi-part message in MIME format.
+
+--b1_llUW8QS4OnDNuKmiVRLwjSalPZ9qkvsFHaSdgfsir54
+Content-Type: text/plain; charset=us-ascii
+
+Activate your account
+
+Welcome to Jetpack and WordPress.com. Please use the link below to confirm your email address and activate your account.
+
+https://signup.wordpress.com/activate/b463f423594483bb
+
+--------------------
+
+Helpful reminder: At any time, log into your account with your username, nagrikunmuktiparty, or your email address.
+
+--------------------
+
+Automattic, Inc., 60 29th Street #343, San Francisco, CA 94110
+
+
+--b1_llUW8QS4OnDNuKmiVRLwjSalPZ9qkvsFHaSdgfsir54
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">=0A<html xmlns:v=3D"urn:schem=
+as-microsoft-com:vml"><head><title>WordPress.com</title><meta http-equiv=3D=
+"Content-Type" content=3D"text/html; charset=3Dutf-8"><meta http-equiv=3D"C=
+ontent-Language" content=3D"en-us"><meta name=3D"viewport" content=3D"width=
+=3Ddevice-width, initial-scale=3D1"><style type=3D"text/css">@media screen =
+and (max-width: 480px) {.header{padding: 10px !important;}.content-section{=
+padding: 20px !important;}}@media screen and (max-width: 599px) {#table_bod=
+y{margin: 0px !important;}.wrapper{width: 100% !important;=0A=09=09=09=09mi=
+n-width: 0 !important;}h2{font-size: 27px !important;=0A=09=09=09=09line-he=
+ight: 32px !important;}h3{font-size: 22px !important;=0A=09=09=09=09line-he=
+ight: 28px !important;}p{line-height: 1.5 !important;}.button-container a{f=
+ont-size: 18px !important;=0A=09=09=09=09min-width: 55% !important;}img.ful=
+l-width{width: 40% !important;}}</style></head><body bgcolor=3D"#f3f6f8" st=
+yle=3D"direction: ltr; margin: 0; padding: 0; background: #f3f6f8;">=0A=09<=
+!-- Preheader text -->=0A=09<div class=3D"preheader" style=3D"direction: lt=
+r; display: none; font-size: 1px; color: #333333; line-height: 1px; max-hei=
+ght: 0px; max-width: 0px; opacity: 0; overflow: hidden;">=0A=09=09=09</div>=
+=0A=09<!-- End Preheader -->=0A=0A=09<table id=3D"table_body" width=3D"100%=
+" cellpadding=3D"10" cellspacing=3D"0" border=3D"0" bgcolor=3D"#f3f6f8" sty=
+le=3D"margin: 30px 0; padding: 0; background: #f3f6f8;"><tr><td>=0A=09=09=
+=09=09<table id=3D"table_wrapper" class=3D"wrapper" width=3D"600" align=3D"=
+center" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" style=3D"ba=
+ckground: #ffffff; border: 1px solid #E3EAEF; margin: 0 auto; min-width: 57=
+0px;"><tr><td>=0A=0A<!-- Start email body -->=0A<table cellpadding=3D"0" ce=
+llspacing=3D"0"><tr><td>=0A=09=09<table width=3D"100%" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"padding: 35px 0 0 0; text-align: center;"><tr><td =
+valign=3D"top" align=3D"center" class=3D"header">=0A=09=09=09=09=09<img src=
+=3D"https://s0.wordpress.com/i/emails/marketing/osmatic/jetpack/logo-color.=
+png" width=3D"180" class=3D"full-width" alt=3D"Jetpack"></td>=0A=09=09=09</=
+tr></table></td>=0A</tr><tr><td class=3D"content-section" style=3D"font: 16=
+px/26px 'Noto Sans', 'Helvetica Neue', sans-serif; padding: 35px 60px 50px;=
+ color: #5D5659;">=0A=0A=09=09=09<h3 class=3D"content-heading" style=3D"fon=
+t-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font=
+-size: 24px; font-weight: 200; line-height: 40px; text-align: center; margi=
+n: 0 0 25px 0; padding: 0 20px; color: #5D5659;">=0A=09=09=09=09Activate yo=
+ur account=09=09=09</h3>=0A=0A=09=09=09<p class=3D"content-text" style=3D"d=
+irection: ltr; font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial=
+, sans-serif; font-size: 16px; line-height: 26px; margin-bottom: 25px;">=0A=
+=09=09=09=09Welcome to Jetpack and WordPress.com. Please click the button b=
+elow to confirm your email address and activate your account.=09=09=09</p>=
+=0A=0A=09=09=09<p class=3D"content-text" style=3D"direction: ltr; font-fami=
+ly: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:=
+ 16px; line-height: 26px; margin-bottom: 25px;">=0A=09=09=09=09<!-- Start B=
+utton -->=0A</p>=0A<table align=3D"center" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tr><td align=3D"center" class=3D"button-container" style=
+=3D"border-radius: 5px; background-color: #00BE28;">=0A=09=09=09<a href=3D"=
+https://public-api.wordpress.com/bar/?stat=3Dgroovemails-events&amp;bin=3Dw=
+pcom_email_click&amp;redirect_to=3Dhttps%3A%2F%2Fsignup.wordpress.com%2Fact=
+ivate%2Fb463f423594483bb&amp;sr=3D1&amp;signature=3Dae6bae4adc2887669316544=
+d108888f0&amp;user=3D220127393&amp;_e=3DeyJlcnJvciI6bnVsbCwiYmxvZ19pZCI6NTg=
+zNjA4NiwiYmxvZ19sYW5nIjoiZW4iLCJzaXRlX2lkX2xhYmVsIjoid3Bjb20iLCJfdWkiOjIyMD=
+EyNzM5MywibG9jYWxlIjoiZW4iLCJjdXJyZW5jeSI6IlVTRCIsImNvdW50cnlfY29kZV9zaWdud=
+XAiOiJOUCIsInNpZ251cF9mbG93X25hbWUiOiJqZXRwYWNrLWNvbm5lY3QiLCJlbWFpbF9kb21h=
+aW4iOiJuYWdyaWt1bm11a3RpcGFydHkub3JnIiwiZGF0ZV9zZW50IjoiMjAyMi0wNC0xNCIsImV=
+tYWlsX2lkIjoiMGY4MmNiMzg1ZWVjMzIxZDkwYzUxMDdiYTZjOGJkZGMiLCJlbWFpbF9uYW1lIj=
+oiZGVsdGFfYWN0aXZhdGlvbl9qZXRwYWNrIiwibGlua19kZXNjIjoiY3RhLWJ1dHRvbiIsImFuY=
+2hvcl90ZXh0IjoiQ29uZmlybSBub3ciLCJfZHIiOm51bGwsIl9kbCI6IlwvcmVzdFwvdjEuMVwv=
+dXNlcnNcL25ldz9odHRwX2VudmVsb3BlPTEiLCJfbGciOiJlbi1VUyIsIl91dCI6IndwY29tOnV=
+zZXJfaWQiLCJfdWwiOiJuYWdyaWt1bm11a3RpcGFydHkiLCJfZW4iOiJ3cGNvbV9lbWFpbF9jbG=
+ljayIsIl90cyI6MTY0OTk1MjQxMTAzNCwiYnJvd3Nlcl90eXBlIjoicGhwLWFnZW50IiwiX2F1Y=
+SI6IndwY29tLXRyYWNrcy1jbGllbnQtdjAuMyIsImJsb2dfdHoiOiIwIiwidXNlcl9sYW5nIjoi=
+ZW4ifQ=3D&amp;_z=3Dz" data-tracks-not-unsub=3D"1" style=3D"font-size: 18px;=
+ font-family: 'Helvetica Neue', sans-serif; color: #ffffff; font-weight: bo=
+ld; text-decoration: none; border-radius: 5px; padding: 12px 18px; border: =
+1px solid #00BE28; display: inline-block;">=0A=09=09=09=09Confirm now=09=09=
+=09</a>=0A=09=09</td>=0A=09</tr></table><!-- End Button --><br><p class=3D"=
+content-text" style=3D"direction: ltr; font-family: 'Noto Sans', 'Helvetica=
+ Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 26px; m=
+argin-bottom: 25px;">=0A=09=09=09=09</p>=0A<div style=3D"direction: ltr; ba=
+ckground: #f3f6f8; padding: 20px;">=0A=09=09=09=09=09Helpful reminder: At a=
+ny time, log into your account with your username, <strong>nagrikunmuktipar=
+ty</strong>, or your <strong>email address</strong>.=09=09=09=09</div>=0A=
+=09=09=09=0A=0A=09=09</td>=0A=09</tr></table><!-- End email body --></td>=
+=0A=09=09=09=09</tr></table></td>=0A=09</tr><tr><td>=0A=09=09=09<table clas=
+s=3D"wrapper footer-container" width=3D"570" align=3D"center" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"margin: 0 auto;"><tr><td align=3D"center"=
+ style=3D"font: 14px/20px sans-serif;">=0A=09=09=09=09=09=09=09<table width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td align=3D"center" style=3D"font: 14px/20px sans-serif; line-height:=
+ 20px; padding: 20px;">=0A=09=09=09<h3 style=3D"margin-top: 20px;">Get Jetp=
+ack on the go</h3>=0A=09=09=09<p style=3D"direction: ltr;">View site activi=
+ty, moderate comments, get advanced stats,<br>and restore your site from an=
+ywhere.</p>=0A=09=09</td>=0A=09</tr><tr><td align=3D"center" style=3D"font:=
+ 14px/20px sans-serif;">=0A=09=09=09<span style=3D"display: inline-block; m=
+argin: 30px 50px -20px;"><a href=3D"https://itunes.apple.com/app/apple-stor=
+e/id335703880" style=3D"color: #00AADC; text-decoration: underline;"><img s=
+rc=3D"https://s0.wp.com/wp-content/lib/billingdaddy/email/images/app-store.=
+png" style=3D"height: 50px;"></a></span><span style=3D"display: inline-bloc=
+k; margin: 30px 50px -20px;"><a href=3D"https://play.google.com/store/apps/=
+details?id=3Dorg.wordpress.android" style=3D"color: #00AADC; text-decoratio=
+n: underline;"><img src=3D"https://s0.wp.com/wp-content/lib/billingdaddy/em=
+ail/images/play-store.png" style=3D"height: 50px;"></a></span>=0A=09=09</td=
+>=0A=09</tr></table></td>=0A=09=09=09=09=09</tr><tr><td align=3D"center" st=
+yle=3D"font: 14px/20px sans-serif;">=0A=09=09=09=09=09=09=09<h2 style=3D"fo=
+nt-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; fon=
+t-size: 22px; font-weight: 500; line-height: 30px; text-align: center; marg=
+in: 0 0 25px 0; padding: 0 20px; color: #5D5659; margin-top: 50px;">Follow =
+us</h2>=0A=09=09=09=09=09=09</td>=0A=09=09=09=09=09</tr><tr><td align=3D"ce=
+nter" style=3D"font: 14px/20px sans-serif;">=0A=09=09=09=09=09=09=09<a href=
+=3D"https://www.facebook.com/jetpackme" style=3D"color: #00AADC; text-decor=
+ation: underline;"><img src=3D"https://s0.wp.com/wp-content/lib/billingdadd=
+y/email/images/facebook.png" style=3D"width: 40px; margin: 10px;"></a>=0A=
+=09=09=09=09=09=09=09<a href=3D"https://twitter.com/jetpack" style=3D"color=
+: #00AADC; text-decoration: underline;"><img src=3D"https://s0.wp.com/wp-co=
+ntent/lib/billingdaddy/email/images/twitter.png" style=3D"width: 40px; marg=
+in: 10px;"></a>=0A=09=09=09=09=09=09=09<a href=3D"https://www.linkedin.com/=
+company/jetpack-for-wordpress/" style=3D"color: #00AADC; text-decoration: u=
+nderline;"><img src=3D"https://s0.wp.com/wp-content/lib/billingdaddy/email/=
+images/linkedin.png" style=3D"width: 40px; margin: 10px;"></a>=0A=09=09=09=
+=09=09=09</td>=0A=09=09=09=09=09</tr><tr><td align=3D"center" style=3D"font=
+: 14px/20px sans-serif; padding: 20px 20px 10px 10px;">=0A=09=09=09=09=09=
+=09<a href=3D"https://public-api.wordpress.com/bar/?stat=3Dgroovemails-even=
+ts&amp;bin=3Dwpcom_email_click&amp;redirect_to=3Dhttps%3A%2F%2Fjetpack.com%=
+2F&amp;sr=3D1&amp;signature=3D866b5efe7b0eb7ca1dd3a9af1e4023dd&amp;user=3D2=
+20127393&amp;_e=3DeyJlcnJvciI6bnVsbCwiYmxvZ19pZCI6NTgzNjA4NiwiYmxvZ19sYW5nI=
+joiZW4iLCJzaXRlX2lkX2xhYmVsIjoid3Bjb20iLCJfdWkiOjIyMDEyNzM5MywibG9jYWxlIjoi=
+ZW4iLCJjdXJyZW5jeSI6IlVTRCIsImNvdW50cnlfY29kZV9zaWdudXAiOiJOUCIsInNpZ251cF9=
+mbG93X25hbWUiOiJqZXRwYWNrLWNvbm5lY3QiLCJlbWFpbF9kb21haW4iOiJuYWdyaWt1bm11a3=
+RpcGFydHkub3JnIiwiZGF0ZV9zZW50IjoiMjAyMi0wNC0xNCIsImVtYWlsX2lkIjoiMGY4MmNiM=
+zg1ZWVjMzIxZDkwYzUxMDdiYTZjOGJkZGMiLCJlbWFpbF9uYW1lIjoiZGVsdGFfYWN0aXZhdGlv=
+bl9qZXRwYWNrIiwibGlua19kZXNjIjoiY3RhLWJ1dHRvbiIsImFuY2hvcl90ZXh0IjoiIiwiX2R=
+yIjpudWxsLCJfZGwiOiJcL3Jlc3RcL3YxLjFcL3VzZXJzXC9uZXc/aHR0cF9lbnZlbG9wZT0xIi=
+wiX2xnIjoiZW4tVVMiLCJfdXQiOiJ3cGNvbTp1c2VyX2lkIiwiX3VsIjoibmFncmlrdW5tdWt0a=
+XBhcnR5IiwiX2VuIjoid3Bjb21fZW1haWxfY2xpY2siLCJfdHMiOjE2NDk5NTI0MTEwMzQsImJy=
+b3dzZXJfdHlwZSI6InBocC1hZ2VudCIsIl9hdWEiOiJ3cGNvbS10cmFja3MtY2xpZW50LXYwLjM=
+iLCJibG9nX3R6IjoiMCIsInVzZXJfbGFuZyI6ImVuIn0&amp;_z=3Dz" style=3D"color: #0=
+0AADC; text-decoration: underline;">=0A=09=09=09=09=09=09=09<img src=3D"htt=
+ps://s0.wp.com/wp-content/lib/billingdaddy/email/images/jetpack-horizontal-=
+grayscale.png" style=3D"width: 175px; margin: 20px;"></a>=0A=09=09=09=09=09=
+</td>=0A=09=09=09=09</tr><tr><td align=3D"center" style=3D"font: 14px/20px =
+sans-serif; color: #5D5659; padding: 20px 5px 10px;">=0A=09=09=09=09=09=09A=
+utomattic Inc. | 60 29th St. #343, San Francisco, CA 94110=09=09=09=09=09</=
+td>=0A=09=09=09=09</tr></table></td>=0A=09</tr></table><img src=3D"https://=
+pixel.wp.com/t.gif?_ui=3D220127393&amp;locale=3Den&amp;currency=3DUSD&amp;c=
+ountry_code_signup=3DNP&amp;signup_flow_name=3Djetpack-connect&amp;email_do=
+main=3Dnagrikunmuktiparty.org&amp;blog_id=3D5836086&amp;date_sent=3D2022-04=
+-14&amp;email_id=3D0f82cb385eec321d90c5107ba6c8bddc&amp;email_name=3Ddelta_=
+activation_jetpack&amp;_en=3Dwpcom_email_open&amp;browser_type=3Dphp-agent&=
+amp;_aua=3Dwpcom-tracks-client-v0.3&amp;_ul=3Dnagrikunmuktiparty&amp;_ut=3D=
+wpcom%3Auser_id&amp;blog_tz=3D0&amp;blog_lang=3Den&amp;user_lang=3Den&amp;_=
+ts=3D1649952410997"></body></html>=0A
+
+--b1_llUW8QS4OnDNuKmiVRLwjSalPZ9qkvsFHaSdgfsir54--
+
