@@ -97,7 +97,7 @@
 		<div class="container">
 			<div class="inner-container thm-base-bg-2">
 				<div class="row d-flex justify-content-center">
-					<a href="{{ route('home.donation') }}" class="thm-btn donation-contribute__btn">Donate</a>
+					<a href="{{ route('home.donation') }}" class="thm-btn donation-contribute__btn">आर्थिक सहयोग  गर्नुहोस </a>
 				</div><!-- /.row -->
 			</div><!-- /.inner-container -->
 		</div><!-- /.container -->

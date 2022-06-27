@@ -37,7 +37,7 @@
 			{{-- Citizenship Front --}}
 			<div class="mt-3">
 				<div class="font-medium flex items-center">
-					Upload Citizenshio's Front Image
+					Upload Citizenship's Front Image
 					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
 
 				</div>

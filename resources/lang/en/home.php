@@ -29,7 +29,7 @@ return [
     'vision.sub-heading' => 'About Us',
     'vision.heading' => 'Our Vision',
 
-    'mission.sub-heading' => 'About Potisen',
+    'mission.sub-heading' => 'About Nagrik Unmukti',
     'mission.heading' => 'Our Mission',
 
     'members.title' => 'People have joined the campaigns',
