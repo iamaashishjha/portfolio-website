@@ -10,7 +10,7 @@
         </ul><!-- /.list-unstyled -->
     </div><!-- /.container -->
 </section><!-- /.inner-banner -->
-<section class="thm-gray-bg about-one">
+{{-- <section class="thm-gray-bg about-one">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 wow fadeInUp" data-wow-duration="1500ms">
@@ -27,7 +27,7 @@
         </div><!-- /.block-title -->
         <p class="about-one__text text-center m-0">{{ __('about.about-one.content') }}</p><!-- /.about-one__text -->
     </div><!-- /.container -->
-</section><!-- /.thm-gray-bg about-one -->
+</section><!-- /.thm-gray-bg about-one --> --}}
 
 
 

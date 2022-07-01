@@ -148,7 +148,7 @@
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 		</div><!-- /.row -->
-		<p class="campaing-one__more-text text-center">{{ __('home.campaign.pre-button') }}<a href="donation.html">{{
+		<p class="campaing-one__more-text text-center">{{ __('home.campaign.pre-button') }}<a href="{{ route('home.member.create') }}" class="ml-2">{{
 				__('home.campaign.button') }}</a></p><!-- /.campaing-one__more-text -->
 	</div><!-- /.container -->
 </section><!-- /.campaing-one -->
