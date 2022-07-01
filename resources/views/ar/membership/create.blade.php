@@ -47,13 +47,13 @@
 
                     @include('ar.membership.partials.citizenship')
 
-                    @include('ar.membership.partials.personal')
+                    {{-- @include('ar.membership.partials.personal') --}}
 
                     {{-- @include('ar.membership.partials.property')
 
                     @include('ar.membership.partials.political') --}}
 
-                    @include('ar.membership.partials.document')
+                    {{-- @include('ar.membership.partials.document') --}}
 
                 </div>
 

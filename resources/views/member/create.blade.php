@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     @include('member.partials.citizenship')
 
                     {{-- Personal --}}
-                    @include('member.partials.personal')
+                    {{-- @include('member.partials.personal') --}}
                     
 
                     {{-- Income / Property --}}
@@ -77,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     {{-- @include('member.partials.political') --}}
 
                     {{-- Documents --}}
-                    @include('member.partials.document')
+                    {{-- @include('member.partials.document') --}}
 
                 </div>
                 <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5" id="btnDiv"
