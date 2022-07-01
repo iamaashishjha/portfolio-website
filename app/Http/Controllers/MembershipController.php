@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMemberRequest;
 use App\Models\Gender;
-use App\Models\LocalLevelType;
-use App\Models\Membership;
 use App\Models\Province;
+use App\Models\Membership;
+use App\Models\AppSettings;
 use Illuminate\Http\Request;
+use App\Models\LocalLevelType;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreMemberRequest;
 
 class MembershipController extends Controller
 {
@@ -17,6 +18,7 @@ class MembershipController extends Controller
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
+        $this->data['appSetting'] = AppSettings::first();
         return view('member.create', $this->data);
     }
 

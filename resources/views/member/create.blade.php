@@ -16,9 +16,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
+        content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : ''  }}">
     <meta name="keywords"
-        content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
+        content="{{ isset($appSetting->keywords) ? $appSetting->keywords : '' }}">
     <meta name="author" content="LEFT4CODE">
 
     <title>

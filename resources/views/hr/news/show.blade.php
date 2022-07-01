@@ -22,7 +22,7 @@
             <div class="col-lg-8">
                 <div class="blog-one__single">
                     <div class="blog-one__image">
-                        <img src="{{ $news->image }}" alt="{{ $news->title }}">
+                        <img src="{{ $news->image }}" alt="{{ $news->title }}" property="og:image">
                     </div><!-- /.blog-one__image -->
                     <div class="blog-one__content">
                         <ul class="list-unstyled blog-one__meta">
