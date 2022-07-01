@@ -1,5 +1,9 @@
 @extends('layouts.hr')
 
+@section('meta')
+    <meta property="og:title" content="{{ $news->meta_title }}">
+    <meta property="og:image" content="{{ $news->image }}">
+@endsection
 @section('title')
     {{ $news->meta_title }}
 @endsection
@@ -22,7 +26,7 @@
             <div class="col-lg-8">
                 <div class="blog-one__single">
                     <div class="blog-one__image">
-                        <img src="{{ $news->image }}" alt="{{ $news->title }}" property="og:image">
+                        <img src="{{ $news->image }}" alt="{{ $news->title }}">
                     </div><!-- /.blog-one__image -->
                     <div class="blog-one__content">
                         <ul class="list-unstyled blog-one__meta">
