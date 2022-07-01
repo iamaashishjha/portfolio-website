@@ -2,13 +2,15 @@
 
 @section('meta')
     <meta property="og:title" content="{{ $news->meta_title }}">
-    <meta property="og:image" content="{{ $news->image }}">
+    <meta property="og:image" content="{{ asset($news->image) }}">
+    <meta name="title" content="{{ $news->meta_title }}">
 @endsection
 @section('title')
     {{ $news->meta_title }}
 @endsection
 
 @section('content')
+{{-- {{ dd(asset($news->image)) }} --}}
 <section class="inner-banner">
     <div class="container">
         <h2 class="inner-banner__title">{{ __('home.news.details.sub-heading') }}</h2><!-- /.inner-banner__title -->
