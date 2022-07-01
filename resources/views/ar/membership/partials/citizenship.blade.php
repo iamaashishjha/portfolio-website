@@ -332,67 +332,72 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-12 gap-2">
-			<div class="col-span-12 lg:col-span-4">
-				<div class="mt-3">
-					<div class="font-medium  @error('email') text-theme-6 @enderror  flex items-center">
-						Email
-						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-					</div>
-					<div class="">
-						<input type="text" class="input w-full border mt-2  @error('email') border-theme-6 @enderror"
-							placeholder="Write Email Address (Email लेख्नुहोस |)" name="email" id="email"
-							value="{{ isset($member) ? $member->email : old('email') }}">
-						@error('email')
-						<span class="text-theme-6 mt-2" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-						@enderror
-					</div>
+		
+	</div>
+	<hr class="mt-5 mb-5">
+	<h1 class="text-4xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Personal Details
+		(व्यक्तिगत बिबरण|) </h1>
+	<hr class="mt-5 mb-5">
+	<div class="grid grid-cols-12 gap-2">
+		<div class="col-span-12 lg:col-span-4">
+			<div class="mt-3">
+				<div class="font-medium  @error('email') text-theme-6 @enderror  flex items-center">
+					Email
+					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+				</div>
+				<div class="">
+					<input type="text" class="input w-full border mt-2  @error('email') border-theme-6 @enderror"
+						placeholder="Write Email Address (Email लेख्नुहोस |)" name="email" id="email"
+						value="{{ isset($member) ? $member->email : old('email') }}">
+					@error('email')
+					<span class="text-theme-6 mt-2" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
 				</div>
 			</div>
-			<div class="col-span-12 lg:col-span-4">
-				<div class="mt-3">
-					<div class="font-medium  @error('phone_number') text-theme-6 @enderror  flex items-center">
-						Phone Number
-						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-					</div>
-					<div class="">
-						<input type="text"
-							class="input w-full border mt-2  @error('phone_number') border-theme-6 @enderror"
-							placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="phone_number" id="phone_number"
-							value="{{ isset($member) ? $member->phone_number : old('phone_number') }}">
-						@error('phone_number')
-						<span class="text-theme-6 mt-2" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-						@enderror
-					</div>
-				</div>
-			</div>
-			<div class="col-span-12 lg:col-span-4">
-				<div class="mt-3">
-					<div class="font-medium  @error('mobile_number') text-theme-6 @enderror  flex items-center">
-						Mobile Number
-						<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-					</div>
-					<div class="">
-						<input type="text"
-							class="input w-full border mt-2  @error('mobile_number') border-theme-6 @enderror"
-							placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="mobile_number" id="mobile_number"
-							value="{{ isset($member) ? $member->mobile_number : old('mobile_number') }}">
-						@error('mobile_number')
-						<span class="text-theme-6 mt-2" role="alert">
-							<strong>{{ $message }}</strong>
-						</span>
-						@enderror
-					</div>
-				</div>
-			</div>
-
-
-
 		</div>
+		<div class="col-span-12 lg:col-span-4">
+			<div class="mt-3">
+				<div class="font-medium  @error('phone_number') text-theme-6 @enderror  flex items-center">
+					Phone Number
+					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+				</div>
+				<div class="">
+					<input type="text"
+						class="input w-full border mt-2  @error('phone_number') border-theme-6 @enderror"
+						placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="phone_number" id="phone_number"
+						value="{{ isset($member) ? $member->phone_number : old('phone_number') }}">
+					@error('phone_number')
+					<span class="text-theme-6 mt-2" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
+				</div>
+			</div>
+		</div>
+		<div class="col-span-12 lg:col-span-4">
+			<div class="mt-3">
+				<div class="font-medium  @error('mobile_number') text-theme-6 @enderror  flex items-center">
+					Mobile Number
+					<span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+				</div>
+				<div class="">
+					<input type="text"
+						class="input w-full border mt-2  @error('mobile_number') border-theme-6 @enderror"
+						placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="mobile_number" id="mobile_number"
+						value="{{ isset($member) ? $member->mobile_number : old('mobile_number') }}">
+					@error('mobile_number')
+					<span class="text-theme-6 mt-2" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
+				</div>
+			</div>
+		</div>
+
+
+
 	</div>
 
 	{{-- Temporary Address --}}

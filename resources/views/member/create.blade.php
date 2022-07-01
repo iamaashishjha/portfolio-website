@@ -46,22 +46,22 @@ License: You must have a valid license purchased only from themeforest(the above
 </head>
 <!-- END: Head -->
 
-<body class="app">
+<body class="app" style="background-color:#d41e44;" >
     @include('partials.message')
     <div class="flex">
         <!-- BEGIN: Content -->
         <div class="content">
             <div class="flex items-center mt-8">
                 <h2 class="intro-y text-lg font-medium mr-auto">
-                    नया सदस्यताता को लागि Online फोरम भर्नुहोस् |
+                    नयाँ सदस्यता को लागि Online फारम भर्नुहोस् |
                 </h2>
             </div>
             <form action="{{ route('home.member.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- BEGIN: Wizard Layout -->
-                <div class="intro-y box py-10 sm:py-20 mt-5">
+                <div class="intro-y box pb-10 sm:py-20 mt-5">
                     
-                    @include('member.partials.tabs')
+                    {{-- @include('member.partials.tabs') --}}
 
                     {{-- Citizenship --}}
                     @include('member.partials.citizenship')

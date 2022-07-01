@@ -1,4 +1,4 @@
-<div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 tab-content__pane" id="citizenship-content">
+<div class="px-5 sm:px-20 pt-10 border-t border-gray-200 tab-content__pane" id="citizenship-content">
 
 	<h1 class="text-4xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
 		Citizenship Based Details (नागरिकता आधारित विवरण |)
@@ -324,6 +324,10 @@
 		</div>
 	</div>
 
+	<hr class="mt-5 mb-5">
+	<h1 class="text-4xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Personal Details
+		(व्यक्तिगत बिबरण|) </h1>
+	<hr class="mt-5 mb-5">
 
 	<div class="grid grid-cols-12 gap-2">
 		<div class="col-span-12 lg:col-span-4">
