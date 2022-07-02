@@ -168,7 +168,7 @@
 					<div class="event-one__image">
 						<div class="event-one__image-inner">
 							<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/event/event-1-1.jpg' }}"
-								alt="" style="height:178px;width:144px">
+								alt="" style="height:178px;width:144px" id="newspost-index-image">
 						</div><!-- /.event-one__image-inner -->
 					</div><!-- /.event-one__image -->
 					<div class="event-one__content">

@@ -18,7 +18,7 @@ return [
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
     'menuItems.about.donation' => 'आर्थिक सहायता',
     'menuItems.contact' => 'सम्पर्क',
-    'menuItems.documents' => 'संग्रह',
+    'menuItems.documents' => 'दस्ताबेज',
     'menuItems.pages' => 'पृष्ठहरू',
     'menuItems.library' => 'पुस्तकालय',
     'menuItems.donation' => 'आर्थिक सहायता',
