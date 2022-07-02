@@ -20,10 +20,10 @@ All Blog Tags | Nagrik Unmukti Party
 
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Blog Tags
+        News Tags
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.tag.create') }}">Create New Tag</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.tag.create') }}">Create New Tag</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -65,7 +65,7 @@ All Blog Tags | Nagrik Unmukti Party
                 </td>
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center mr-3" href="{{ route('admin.blog.tag.edit', $tag->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                        <a class="flex items-center mr-3" href="{{ route('admin.news.tag.edit', $tag->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                         <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $tag->id }}"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete </a>
                     </div>
                 </td>
@@ -77,7 +77,7 @@ All Blog Tags | Nagrik Unmukti Party
                         <div class="text-gray-600 mt-2">Do you really want to delete these records? This process cannot be undone.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.blog.tag.destroy', $tag->id) }}" method="post">
+                        <form action="{{ route('admin.news.tag.destroy', $tag->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
