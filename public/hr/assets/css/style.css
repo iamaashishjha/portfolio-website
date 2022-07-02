@@ -3321,21 +3321,21 @@ width: 25px;
 
       @media (max-width: 480px) {
         #about-image-1 {
-            height:200px !important;
+            height: 250px !important;
             width:100% !important;
         }
       }
 
       @media (max-width: 480px) {
         #about-image-2 {
-            height:200px !important;
+            height:250px !important;
             width:100% !important;
         }
       }
 
       @media (max-width: 480px) {
         #about-image-3 {
-            height:200px !important;
+            height:250px !important;
             width:100% !important;
         }
       }
