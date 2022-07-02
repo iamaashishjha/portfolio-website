@@ -197,15 +197,15 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-1"  />
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-2"  />
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-3"  />
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
 					<p class="about-two__text">{!! isset($companyDetails->home_about_content) ?
