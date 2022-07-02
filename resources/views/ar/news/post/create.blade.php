@@ -1,17 +1,17 @@
 @extends('layouts.ar')
 
 @section('title')
-{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Nagrik Unmukti Party' : 'Create New Blog Post | Nagrik Unmukti Party' }}
+{{ isset($post) ? 'Edit News Post ' . '"' . $post->title . '". | Nagrik Unmukti Party' : 'Create New News Post | Nagrik Unmukti Party' }}
 
 
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.post.index') }}" class="">Blog Post</a>
+    <a href="{{ route('admin.news.post.index') }}" class="">News Post</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">
-        {{ isset($post) ? 'Edit New Blog Post ' . '"' . $post->title . '".' : 'Create New Blog Post' }}
+        {{ isset($post) ? 'Edit New News Post ' . '"' . $post->title . '".' : 'Create New News Post' }}
     </a>
 </div>
 {{-- {{ dd($post) }} --}}
@@ -20,15 +20,15 @@
 @section('content')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        {{ isset($post) ? 'Edit New Blog Post' : 'Create New Blog Post' }}
+        {{ isset($post) ? 'Edit New News Post' : 'Create New News Post' }}
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         <button type="button" class="button box text-gray-700 mr-2 flex items-center ml-auto sm:ml-0">
             <i class="w-4 h-4 mr-2" data-feather="eye"></i>
             Preview
         </button>
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">All Blog Posts</a>
-        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.blog.post.trashed') }}">Trashed Blog Posts</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.news.post.index') }}">All News Posts</a>
+        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.news.post.trashed') }}">Trashed News Posts</a>
 
     </div>
 </div>

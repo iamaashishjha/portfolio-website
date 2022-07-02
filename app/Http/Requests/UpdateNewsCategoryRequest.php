@@ -28,10 +28,10 @@ class UpdateNewsCategoryRequest extends FormRequest
     {
 
         return [
-            'title' => 'required|unique:blog_categories,title',
+            // 'title' => 'required|unique:blog_categories,title',
             'description' => 'required|max:250',
             'category_image' => 'required|max:20000',
-            'slug' => 'required|unique:blog_categories,slug',
+            // 'slug' => 'required|unique:blog_categories,slug',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',

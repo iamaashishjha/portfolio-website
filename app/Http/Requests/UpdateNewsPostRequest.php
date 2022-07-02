@@ -28,7 +28,7 @@ class UpdateNewsPostRequest extends FormRequest
             'title' => 'required',
             'description' => 'required|max:250',
             'content' => 'required',
-            'post_image' => 'required|max:20000',
+            'post_image' => 'max:20000',
             'alt_text' => 'required',
             'slug' => 'required',
             'meta_description' => 'required',

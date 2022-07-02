@@ -253,8 +253,7 @@
 							<div class="inner">
 								<p>
 									{!! isset($companyDetails->home_about_accordion_content_3) ?
-									$companyDetails->home_about_accordion_content_3 : '' !!}It has survived not only
-									five centuries but also the leap into electronic type
+									$companyDetails->home_about_accordion_content_3 : '' !!}
 								</p>
 							</div><!-- /.inner -->
 						</div>

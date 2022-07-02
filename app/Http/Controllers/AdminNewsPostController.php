@@ -102,7 +102,7 @@ class AdminNewsPostController extends BaseController
         $post->keywords = $request->keywords;
         $post->created_by = Auth::user()->id;
         $post->save();
-        $post->blogTags()->attach($request->tags);
+        $post->newsTags()->attach($request->tags);
         Alert::toast('Post Created Successfully', 'success');
         return redirect()->route('admin.news.post.index');
     }
