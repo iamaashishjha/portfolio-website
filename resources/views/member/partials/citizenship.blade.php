@@ -356,7 +356,7 @@
 				</div>
 				<div class="">
 					<input type="text" class="input w-full border mt-2  @error('phone_number') border-theme-6 @enderror"
-						placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="phone_number" id="phone_number"
+						placeholder="Write Phone Number (फोन न. लेखनुहोस् | )" name="phone_number" id="phone_number"
 						value="{{ isset($member) ? $member->phone_number : old('phone_number') }}">
 					@error('phone_number')
 					<span class="text-theme-6 mt-2" role="alert">
@@ -375,7 +375,7 @@
 				<div class="">
 					<input type="text"
 						class="input w-full border mt-2  @error('mobile_number') border-theme-6 @enderror"
-						placeholder="Write Full Name (पुरा नाम लेख्नुहोस |)" name="mobile_number" id="mobile_number"
+						placeholder="Write Mobile Number (मोबाइल न. लेख्नुहोस |)" name="mobile_number" id="mobile_number"
 						value="{{ isset($member) ? $member->mobile_number : old('mobile_number') }}">
 					@error('mobile_number')
 					<span class="text-theme-6 mt-2" role="alert">

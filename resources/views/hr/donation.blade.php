@@ -25,7 +25,7 @@
 					बैंक लिमिटेड ।)</h4>
 				<h4><span class="font-weight-bold"> Account Holder Name (खाता बालाको नाम) : </span>Nagrik Unmukti Party
 					(नागरिक उन्मुक्ति पार्टी )</h4>
-				<h4><span class="font-weight-bold"> Account Number (खाता न .) : </span>00100501228473 (००१००५०१२२८४७६)
+				<h4><span class="font-weight-bold"> Account Number (खाता न .) : </span>00100501228476 (००१००५०१२२८४७६)
 				</h4>
 				<h4><span class="font-weight-bold"> Branch (शाखा) : </span>New Baneshwar, Kathmandu Nepal (नयाँ
 					बानेश्वर, काठमाडौं, नेपाल)</h4>
