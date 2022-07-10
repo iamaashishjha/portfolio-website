@@ -72,7 +72,7 @@ class LoginController extends Controller
        $userUpdate->email = $request->email;
        $userUpdate->password = $request->password;
        $userUpdate->save();
-       Alert::success('User Detail Changed Successfully').
+       Alert::success('User Detail Changed Successfully');
        return redirect()->back();
     }
 }
