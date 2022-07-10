@@ -28,7 +28,7 @@ class StoreMemberRequest extends FormRequest
         return [
             'name_en' => 'nullable',
             'name_lc' => 'nullable',
-            'gender_id' => 'required',
+            'gender_id' => 'required|integer',
             'birth_date_ad' => 'nullable',
             'birth_date_bs' => 'nullable',
             'citizen_province_id' => '',
