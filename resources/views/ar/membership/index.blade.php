@@ -107,9 +107,9 @@ All Members
                                 <div class="text-gray-600 mt-2">Do you really want to Approve this member?</div>
                             </div>
                             <div class="px-5 pb-8 text-center">
-                                <form action="{{ route('admin.member.destroy', $member->id) }}" method="POST">
+                                <form action="{{ route('admin.member.approve', $member->id) }}" method="POST">
                                     @csrf
-                                    @method('DELETE')
+                                    {{-- @method('DELETE') --}}
                                     <button type="button" data-dismiss="modal"
                                         class="button w-24 border text-gray-700 mr-1">Cancel</button>
                                     <button type="submit" class="button w-24 bg-theme-9 text-white">Approve</button>
