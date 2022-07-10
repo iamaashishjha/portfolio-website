@@ -176,9 +176,10 @@
                 <div class="p-5">
                     <form action="{{ route('password.update') }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div>
                             <label>Email Address</label>
-                            <input type="text" class="input w-full border  bg-gray-100 cursor-not-allowed  mt-2" name="email" value="{{ $user->email }}" disabled >
+                            <input type="text" class="input w-full border  mt-2" name="email" value="{{ $user->email }}"  >
                         </div>
                         <div class="mt-3">
                             <label>New Password</label>
