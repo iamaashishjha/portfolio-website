@@ -176,7 +176,7 @@
                 <div class="p-5">
                     <form action="{{ route('password.update') }}" method="POST">
                         @csrf
-                        @method('PUT')
+                        {{-- @method('PUT') --}}
                         <div>
                             <label>Email Address</label>
                             <input type="text" class="input w-full border  mt-2" name="email" value="{{ $user->email }}"  >
