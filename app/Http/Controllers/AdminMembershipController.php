@@ -471,11 +471,18 @@ class AdminMembershipController extends Controller
     public function approveMember($id)
     {
         $member = Membership::find($id);
-        $member->is_verified = true;
+        if ($member->is_verified) {
+            Alert::error('Member Already Approved');
+            return redirect()->back();
+        } else {
+            $member->is_verified = true;
         $member->approved_by = Auth::user()->id;
         $member->save();
         Mail::to($member->user)->send(new ApproveMember($member));
         Alert::success('Member Approved');
         return redirect()->back();
+        }
+        
+        
     }
 }
