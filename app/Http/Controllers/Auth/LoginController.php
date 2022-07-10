@@ -62,19 +62,18 @@ class LoginController extends Controller
     {
 
         $this->middleware('guest')->except('logout');
-
     }
 
-    public function emailPasswordUpdate(Request $request)
-    {
-        # code...
-        dd($request);
-       $user = Auth::user();
-       $userUpdate = User::find($user);
-       $userUpdate->email = $request->email;
-       $userUpdate->password = $request->password;
-       $userUpdate->save();
-       Alert::success('User Detail Changed Successfully');
-       return redirect()->back();
-    }
+    // public function emailPasswordUpdate(Request $request)
+    // {
+    //     # code...
+    //     dd($request);
+    //     $user = Auth::user();
+    //     $userUpdate = User::find($user);
+    //     $userUpdate->email = $request->email;
+    //     $userUpdate->password = $request->password;
+    //     $userUpdate->save();
+    //     Alert::success('User Detail Changed Successfully');
+    //     return redirect()->back();
+    // }
 }

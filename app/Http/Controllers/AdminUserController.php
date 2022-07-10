@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
 use App\Models\User;
-use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
+use GrahamCampbell\ResultType\Success;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminUserController extends BaseController
 {
@@ -109,9 +112,44 @@ class AdminUserController extends BaseController
         return redirect()->back();
     }
 
-    public function changePassword($id)
+    public function changePasswordform($id)
     {
         $user = User::find($id);
         return view('auth.profile')->with('user', $user);
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+
+        // dd($request);
+        $validator = Validator::make($request->all(),
+            [
+                'email' => 'required|email',
+                'password' => 'required|confirmed',
+                // 'contact_us_message' => 'required',
+            ],
+            [
+                'email' => 'Email',
+                'password' => 'Password',
+            ],
+            // [
+            //     'required' => 'The :attribute field is required.',
+            //     'string' => 'The :attribute field must be string.',
+            //     'email' => 'The :attribute field must be email.',
+            //     // 'email' => 'The :attribute field must be email.',
+            // ]
+        );
+
+        if (!is_array($validator) && $validator->fails()) {;
+            $message = $validator->errors();
+            Alert::error($message);
+            return redirect()->back();
+        }
+        $user = User::find($id);
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        Alert::success('Credentials changed successfully');
+        return redirect()->back();
     }
 }

@@ -174,7 +174,7 @@
                     </h2>
                 </div>
                 <div class="p-5">
-                    <form action="{{ route('password.update') }}" method="POST">
+                    <form action="{{ route('admin.user.changePassword', Auth::user()->id) }}" method="POST">
                         @csrf
                         {{-- @method('PUT') --}}
                         <div>

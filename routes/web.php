@@ -45,7 +45,7 @@ Route::post('/locale', function () {
     return redirect()->back();
 });
 
-Auth::routes(['verify' => false, 'register' => false]);
+Auth::routes(['verify' => false, 'register' => false, 'password.update' => 'false']);
 
 Route::prefix('/')
     ->name('home.')
@@ -124,7 +124,8 @@ Route::middleware(['auth', 'admin'])
                 Route::delete('/{user_id}', 'deleteUser')->name('delete');
                 Route::get('/profile/{id}', 'profile')->name('profile');
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
-                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
+                Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');
+                Route::post('/changepassword/{id}', 'changePassword')->name('changePassword');
         });
 
         Route::prefix('/blog')
@@ -207,4 +208,4 @@ Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
 // Route::view('/a', 'welcome');
 
 
-Route::post('/password/update', [App\Http\Controllers\Auth\LoginController::class, 'emailPasswordUpdate'])->name('password.update');
+Route::post('/password/change', [App\Http\Controllers\Auth\LoginController::class, 'emailPasswordUpdate'])->name('password.change');
