@@ -207,4 +207,4 @@ Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
 // Route::view('/a', 'welcome');
 
 
-Route::post('/password/update', [App\Http\Controllers\LoginController::class, 'emailPasswordUpdate'])->name('password.update');
+Route::post('/password/update', [App\Http\Controllers\Auth\LoginController::class, 'emailPasswordUpdate'])->name('password.update');
