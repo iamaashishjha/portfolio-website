@@ -1,5 +1,9 @@
 @extends('layouts.hr')
-
+@section('meta')
+    <meta property="og:title" content="{{ $blog->meta_title }}">
+    <meta property="og:image" content="{{ asset($blog->image) }}">
+    <meta name="title" content="{{ $blog->meta_title }}">
+@endsection
 @section('title')
     {{ $blog->meta_title }}
 @endsection

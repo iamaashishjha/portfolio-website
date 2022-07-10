@@ -18,7 +18,7 @@ return [
     'menuItems.about.our-history' => 'हाम्रो इतिहास',
     'menuItems.about.donation' => 'आर्थिक सहायता',
     'menuItems.contact' => 'सम्पर्क',
-    'menuItems.documents' => 'संग्रह',
+    'menuItems.documents' => 'दस्ताबेज',
     'menuItems.pages' => 'पृष्ठहरू',
     'menuItems.library' => 'पुस्तकालय',
     'menuItems.donation' => 'आर्थिक सहायता',
@@ -47,7 +47,7 @@ return [
     'campaign.fourth' => 'अर्थतन्त्र',
     'campaign.fifth' => 'शिक्षा',
     'campaign.pre-button' => 'संगै मिलेर एउटा राम्रो देश कसरि बनाउने!',
-    'campaign.button' => 'आर्थिक सहयोग  गर्नुहोस ',
+    'campaign.button' => 'सदस्य बन्नुहोस्',
 
     'about.sub-heading' => 'अभियानहरूमा सामेल हुनुहोस्',
     'about.heading' => 'हामी सँगै इतिहास रच्नेछौं',

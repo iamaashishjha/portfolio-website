@@ -1,19 +1,19 @@
 @extends('layouts.ar')
 
 @section('title')
-Trashed Blog Posts | Nagrik Unmukti Party
+Trashed News Posts | Nagrik Unmukti Party
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.post.index') }}" class="">Blogs</a>
+    <a href="{{ route('admin.news.post.index') }}" class="">Blogs</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">Trashed Posts</a>
 </div>
 @endsection
 
 @section('title')
-Trashed Blog Posts
+Trashed News Posts
 @endsection
 
 @section('content')
@@ -25,8 +25,8 @@ Trashed Blog Posts
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         {{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Product</button> --}}
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.post.create') }}">Create New Blog Post</a>
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">All Blog Posts</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.post.create') }}">Create New News Post</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.news.post.index') }}">All News Posts</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -91,7 +91,7 @@ Trashed Blog Posts
             <div class="text-gray-600 mt-2">Do you really want to delete these records? This process cannot be undone.</div>
         </div>
         <div class="px-5 pb-8 text-center">
-            <form action="{{ route('admin.blog.post.destroy', $post->id) }}" method="post">
+            <form action="{{ route('admin.news.post.destroy', $post->id) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
@@ -108,7 +108,7 @@ Trashed Blog Posts
             <div class="text-gray-600 mt-2">Do you really want to restore this post?</div>
         </div>
         <div class="px-5 pb-8 text-center">
-            <form action="{{ route('admin.blog.post.restore', $post->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.news.post.restore', $post->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>

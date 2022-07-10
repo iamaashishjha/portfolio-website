@@ -1,10 +1,16 @@
 @extends('layouts.hr')
 
+@section('meta')
+    <meta property="og:title" content="{{ $news->meta_title }}">
+    <meta property="og:image" content="{{ asset($news->image) }}">
+    <meta name="title" content="{{ $news->meta_title }}">
+@endsection
 @section('title')
     {{ $news->meta_title }}
 @endsection
 
 @section('content')
+{{-- {{ dd(asset($news->image)) }} --}}
 <section class="inner-banner">
     <div class="container">
         <h2 class="inner-banner__title">{{ __('home.news.details.sub-heading') }}</h2><!-- /.inner-banner__title -->
@@ -132,7 +138,7 @@
                                     <!-- /.inner-block -->
                                 </div><!-- /.sidebar__post-image -->
                                 <div class="sidebar__post-content">
-                                    <h4 class="sidebar__post-title"><a href="#">{{ Str::limit($post->content, 20, '...') }}</a>
+                                    <h4 class="sidebar__post-title"><a href="#">{!! Str::limit($post->content, 20, '...') !!}</a>
                                     </h4>
                                     <!-- /.sidebar__post-title -->
                                 </div><!-- /.sidebar__post-content -->

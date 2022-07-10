@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 @section('title')
-{{-- Create New Blog Tag | Nagrik Unmukti Party --}}
-{{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'". | Nagrik Unmukti Party' : 'Create New Blog Tag | Nagrik Unmukti Party' }}
+{{-- Create New News Tag | Nagrik Unmukti Party --}}
+{{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'". | Nagrik Unmukti Party' : 'Create New News Tag | Nagrik Unmukti Party' }}
 
 
 
@@ -9,9 +9,9 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.blog.tag.index') }}" class="">Blogs</a>
+    <a href="{{ route('admin.news.tag.index') }}" class="">News</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-    <a href="" class="breadcrumb--active">{{ isset($tag) ? 'Edit Tag ' : 'Create New Blog Tag' }}</a>
+    <a href="" class="breadcrumb--active">{{ isset($tag) ? 'Edit Tag ' : 'Create New News Tag' }}</a>
 </div>
 @endsection
 
@@ -22,7 +22,7 @@
 
 <div class="intro-y flex items-center mt-8 ">
     <h2 class="text-lg font-medium mr-auto">
-        {{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'".' : 'Create New Blog Tag' }}
+        {{ isset($tag) ? 'Edit Tag '.'"'.$tag->title.'".' : 'Create New News Tag' }}
     </h2>
 </div>
 <div class="grid grid-cols-12 gap-6 mt-5">
@@ -35,7 +35,7 @@
                 </h2>
             </div>
             {{-- @include('partials.ar.messages') --}}
-            <form action="{{ isset($tag) ? route('admin.blog.tag.update', $tag->id) : route('admin.blog.tag.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ isset($tag) ? route('admin.news.tag.update', $tag->id) : route('admin.news.tag.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if (isset($tag))
                 @method('PUT')

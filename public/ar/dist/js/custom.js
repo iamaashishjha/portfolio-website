@@ -14,12 +14,12 @@ $(document).ready(function () {
     copyMetaData();
     dataTable();
 
-    $("#btnDiv").hide();
+    $("#btnDiv").show();
 
-    $("#documents-button").click(function (e) {
-        e.preventDefault();
-        $("#btnDiv").show();
-    });
+    // $("#documents-button").click(function (e) {
+    //     e.preventDefault();
+    //     $("#btnDiv").show();
+    // });
 });
 
 function copyMetaData() {

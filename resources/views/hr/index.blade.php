@@ -148,7 +148,7 @@
 				</div><!-- /.campaing-one__single -->
 			</div><!-- /.column-5 -->
 		</div><!-- /.row -->
-		<p class="campaing-one__more-text text-center">{{ __('home.campaign.pre-button') }}<a href="donation.html">{{
+		<p class="campaing-one__more-text text-center">{{ __('home.campaign.pre-button') }}<a href="{{ route('home.member.create') }}" class="ml-2">{{
 				__('home.campaign.button') }}</a></p><!-- /.campaing-one__more-text -->
 	</div><!-- /.container -->
 </section><!-- /.campaing-one -->
@@ -168,7 +168,7 @@
 					<div class="event-one__image">
 						<div class="event-one__image-inner">
 							<img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/event/event-1-1.jpg' }}"
-								alt="" style="height:178px;width:144px">
+								alt="" style="height:178px;width:144px" id="newspost-index-image">
 						</div><!-- /.event-one__image-inner -->
 					</div><!-- /.event-one__image -->
 					<div class="event-one__content">
@@ -197,15 +197,15 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-1"  />
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-2"  />
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
 							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}"
-								alt="" class="img-fluid" style="height:165px;width:170px" />
+								alt="" class="img-fluid" style="height:165px;width:170px" id="about-image-3"  />
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
 					<p class="about-two__text">{!! isset($companyDetails->home_about_content) ?
@@ -253,8 +253,7 @@
 							<div class="inner">
 								<p>
 									{!! isset($companyDetails->home_about_accordion_content_3) ?
-									$companyDetails->home_about_accordion_content_3 : '' !!}It has survived not only
-									five centuries but also the leap into electronic type
+									$companyDetails->home_about_accordion_content_3 : '' !!}
 								</p>
 							</div><!-- /.inner -->
 						</div>

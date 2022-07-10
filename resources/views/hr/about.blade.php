@@ -10,7 +10,7 @@
         </ul><!-- /.list-unstyled -->
     </div><!-- /.container -->
 </section><!-- /.inner-banner -->
-<section class="thm-gray-bg about-one">
+{{-- <section class="thm-gray-bg about-one">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 wow fadeInUp" data-wow-duration="1500ms">
@@ -27,7 +27,7 @@
         </div><!-- /.block-title -->
         <p class="about-one__text text-center m-0">{{ __('about.about-one.content') }}</p><!-- /.about-one__text -->
     </div><!-- /.container -->
-</section><!-- /.thm-gray-bg about-one -->
+</section><!-- /.thm-gray-bg about-one --> --}}
 
 
 
@@ -52,13 +52,13 @@
 				<div class="about-two__content">
 					<div class="row">
 						<div class="col-sm-4">
-							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
+							<img src="{{ isset($companyDetails->about_image_1) ? $companyDetails->about_image_1 : '/hr/assets/images/resources/history-1-1.jpg' }}" alt="" class="img-fluid" id="about-image-1"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
-							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}" alt="" class="img-fluid" style="height:165px;width:170px"/>
+							<img src="{{ isset($companyDetails->about_image_2) ? $companyDetails->about_image_2 : '/hr/assets/images/resources/history-1-2.jpg' }}" alt="" class="img-fluid" id="about-image-2"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 						<div class="col-sm-4">
-							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}" alt="" class="img-fluid"  style="height:165px;width:170px"/>
+							<img src="{{ isset($companyDetails->about_image_3) ? $companyDetails->about_image_3 : '/hr/assets/images/resources/history-1-3.jpg' }}" alt="" class="img-fluid"  id="about-image-3"  style="height:165px;width:170px"/>
 						</div><!-- /.col-sm-4 -->
 					</div><!-- /.row -->
 					<p class="about-two__text">{!! isset($companyDetails->home_about_content) ? $companyDetails->home_about_content : '' !!}</p>

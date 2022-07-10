@@ -102,7 +102,7 @@
     <div class="site-footer__bottom">
         <div class="container">
             <div class="inner-container text-center">
-                <p class="site-footer__copy">&copy; copyright 2022 by <a href="#">{{ __('home.footer.copyright') }}</a>
+                <p class="site-footer__copy">&copy; Copyright 2022 by <a href="/">{{ __('home.footer.copyright') }}</a>
                 </p>
                 <!-- /.site-footer__copy -->
             </div><!-- /.inner-container -->

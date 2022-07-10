@@ -24,10 +24,10 @@ class UpdateNewsTagsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:blog_categories,title',
+            // 'title' => 'required|unique:blog_categories,title',
             'description' => 'required|max:250',
             'tag_image' => 'required|max:20000',
-            'slug' => 'required|unique:blog_categories,title',
+            // 'slug' => 'required|unique:blog_categories,title',
             'meta_description' => 'required',
             'keywords' => 'required',
             'meta_title' => 'required',

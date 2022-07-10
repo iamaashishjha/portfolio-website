@@ -16,9 +16,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
+        content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : ''  }}">
     <meta name="keywords"
-        content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
+        content="{{ isset($appSetting->keywords) ? $appSetting->keywords : '' }}">
     <meta name="author" content="LEFT4CODE">
 
     <title>
@@ -46,28 +46,28 @@ License: You must have a valid license purchased only from themeforest(the above
 </head>
 <!-- END: Head -->
 
-<body class="app">
+<body class="app" style="background-color:#d41e44;" >
     @include('partials.message')
     <div class="flex">
         <!-- BEGIN: Content -->
         <div class="content">
             <div class="flex items-center mt-8">
                 <h2 class="intro-y text-lg font-medium mr-auto">
-                    नया सदस्यताता को लागि Online फोरम भर्नुहोस् |
+                    नयाँ सदस्यता को लागि Online फारम भर्नुहोस् |
                 </h2>
             </div>
             <form action="{{ route('home.member.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <!-- BEGIN: Wizard Layout -->
-                <div class="intro-y box py-10 sm:py-20 mt-5">
+                <div class="intro-y box pb-10 sm:py-20 mt-5">
                     
-                    @include('member.partials.tabs')
+                    {{-- @include('member.partials.tabs') --}}
 
                     {{-- Citizenship --}}
                     @include('member.partials.citizenship')
 
                     {{-- Personal --}}
-                    @include('member.partials.personal')
+                    {{-- @include('member.partials.personal') --}}
                     
 
                     {{-- Income / Property --}}
@@ -77,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     {{-- @include('member.partials.political') --}}
 
                     {{-- Documents --}}
-                    @include('member.partials.document')
+                    {{-- @include('member.partials.document') --}}
 
                 </div>
                 <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5" id="btnDiv"

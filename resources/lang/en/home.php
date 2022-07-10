@@ -46,7 +46,7 @@ return [
     'campaign.fourth' => 'Economy',
     'campaign.fifth' => 'Education',
     'campaign.pre-button' => 'How we can build a better country together!',
-    'campaign.button' => 'Donate or Volunteer.',
+    'campaign.button' => 'Become Member',
 
     'about.sub-heading' => 'Join Campaigns',
     'about.heading' => 'We Will Make History Together',
