@@ -204,4 +204,7 @@ Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeControll
 Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
 
 
-Route::view('/a', 'welcome');
+// Route::view('/a', 'welcome');
+
+
+Route::post('/password/update', [App\Http\Controllers\LoginController::class, 'emailPasswordUpdate'])->name('password.update');

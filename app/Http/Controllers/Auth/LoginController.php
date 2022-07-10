@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class LoginController extends Controller
 {
@@ -59,5 +62,17 @@ class LoginController extends Controller
 
         $this->middleware('guest')->except('logout');
 
+    }
+
+    public function emailPasswordUpdate(Request $request)
+    {
+        # code...
+       $user = Auth::user();
+       $userUpdate = User::find($user);
+       $userUpdate->email = $request->email;
+       $userUpdate->password = $request->password;
+       $userUpdate->save();
+       Alert::success('User Detail Changed Successfully').
+       return redirect()->back();
     }
 }
