@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
 class LoginController extends Controller
@@ -67,6 +68,7 @@ class LoginController extends Controller
     public function emailPasswordUpdate(Request $request)
     {
         # code...
+        dd($request);
        $user = Auth::user();
        $userUpdate = User::find($user);
        $userUpdate->email = $request->email;
