@@ -218,6 +218,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="{{ route('admin.user.create') }}" class="side-menu">
+                                    <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
+                                    <div class="side-menu__title"> Create User </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('admin.user.registered') }}" class="side-menu">
                                     <div class="side-menu__icon"> <i class="fa fa-male" aria-hidden="true"></i>
                                     </div>

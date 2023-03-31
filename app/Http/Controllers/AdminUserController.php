@@ -40,6 +40,9 @@ class AdminUserController extends BaseController
         // $user->image_path = $path;
         // $user->rank_id = $request->rank_id;
         $user->save();
+        if($request->role){
+            $user->assignRoleCustom($request->role, $user->id);
+        }
         return redirect()->route('admin.user.registered')->with('successMessage', 'User Created Successfully');
     }
 
@@ -71,6 +74,10 @@ class AdminUserController extends BaseController
         // $user->image_path = $path;
         // $user->rank_id = $request->rank_id;
         $user->save();
+        if($request->role){
+            $user->assignRoleCustom($request->role, $user->id);
+        }
+        $user->assignRoleCustom($request->role, $user->id);
         return redirect()->route('admin.user.registered')->with('successMessage', 'User Updated Successfully');
     }
 

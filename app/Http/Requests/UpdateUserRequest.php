@@ -30,6 +30,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|string|email|min:5|max:255|unique:users,email'.$id_check,
             'password' => 'string|min:5|max:255|confirmed',
             'image_path' => 'nullable',
+            'role' => 'nullable',
         ];
     }
 
