@@ -45,7 +45,7 @@ Route::post('/locale', function () {
     return redirect()->back();
 });
 
-Auth::routes(['verify' => false, 'register' => false, 'password.update' => 'false']);
+Auth::routes(['verify' => true, 'register' => false, 'password.update' => true]);
 
 Route::prefix('/')
     ->name('home.')
@@ -66,7 +66,7 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/', 'listEvent')->name('index');
                 Route::get('/{id}', 'showEvent')->name('show');
-        });
+            });
 
         Route::prefix('news')
             ->name('news.')
@@ -76,7 +76,7 @@ Route::prefix('/')
                 Route::get('/{id}', 'showNews')->name('show');
                 Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
                 Route::post('/{id}', 'storeNewsComments')->name('comment');
-        });
+            });
 
         Route::prefix('blogs')
             ->name('blogs.')
@@ -86,7 +86,7 @@ Route::prefix('/')
                 Route::get('/{id}', 'showBlog')->name('show');
                 Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
                 Route::post('/{id}', 'storeBlogComments')->name('comment');
-        });
+            });
 
         Route::prefix('member')
             ->name('member.')
@@ -94,15 +94,15 @@ Route::prefix('/')
             ->group(function () {
                 Route::get('/create', 'create')->name('create');
                 Route::post('/', 'store')->name('store');
-        });
+            });
 
         Route::prefix('library')
             ->name('library.')
             ->controller(HomeController::class)
             ->group(function () {
                 Route::get('/', 'listLibrary')->name('index');
-        });
-});
+            });
+    });
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -117,6 +117,10 @@ Route::middleware(['auth', 'admin'])
             ->name('user.')
             ->controller(AdminUserController::class)
             ->group(function () {
+                Route::get('/create', 'create')->name('create');
+                Route::post('/', 'store')->name('store');
+                Route::get('/edit/{id}', 'edit')->name('edit');
+                Route::post('/{id}', 'update')->name('update');
                 Route::get('/registered-users', 'registeredUsers')->name('registered');
                 Route::put('/registered-user/{user_id}', 'makeAdmin')->name('make');
                 Route::get('/admin-users', 'adminUsers')->name('admin');
@@ -126,7 +130,14 @@ Route::middleware(['auth', 'admin'])
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
                 Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');
                 Route::post('/changepassword/{id}', 'changePassword')->name('changePassword');
-        });
+            });
+
+        Route::resource('/roles', App\Http\Controllers\Admin\RoleController::class, ['names' => 'role']);
+        Route::get('/permissions', [App\Http\Controllers\Admin\PermissionsController::class, 'index'])->name('permission.index');
+        Route::get('/permissions/generate', [App\Http\Controllers\Admin\PermissionsController::class, 'generatePermissions'])->name('permission.generate');
+        // Route::get('/user/profile',[App\Http\Controllers\Admin\UserController::class, 'myProfileView'])->name('profile');
+        // Route::post('/users/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRoleToUser'])->name('user.assignrole');
+        // Route::get('/users/permissions', [App\Http\Controllers\Admin\UserController::class, 'userPermissions'])->name('user.permissions');
 
         Route::prefix('/blog')
             ->name('blog.')
@@ -136,7 +147,7 @@ Route::middleware(['auth', 'admin'])
                 Route::resource('/post', AdminBlogPostController::class);
                 Route::get('/post/trash', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
                 Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
-        });
+            });
 
         Route::prefix('/news')
             ->name('news.')
@@ -146,23 +157,22 @@ Route::middleware(['auth', 'admin'])
                 Route::resource('/post', AdminNewsPostController::class);
                 Route::get('/post/trash', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
                 Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
-        });
+            });
 
         Route::prefix('/home')
             ->name('home.')
             ->group(function () {
                 Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
                 Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
-                Route::resource('/slider', AdminSliderController::class)->except('destroy'); 
-        });
+                Route::resource('/slider', AdminSliderController::class)->except('destroy');
+            });
 
         Route::resource('/member', AdminMembershipController::class);
         Route::post('/member/{id}', [AdminMembershipController::class, 'approveMember'])->name('member.approve');
         Route::resource('/event', AdminEventController::class);
         Route::resource('/document', AdminDocumentController::class);
         Route::resource('/library', AdminLibraryController::class);
-
-});
+    });
 
 Route::middleware(['auth', 'user', 'verified'])
     ->prefix('dashboard')
@@ -176,7 +186,7 @@ Route::middleware(['auth', 'user', 'verified'])
                 Route::get('profile/{user_id}', 'profile')->name('view');
                 Route::put('profile/{user_id}', 'profileUpdate')->name('update');
                 Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
-        });
+            });
 
         Route::prefix('/blog')
             ->name('post.')
@@ -192,9 +202,9 @@ Route::middleware(['auth', 'user', 'verified'])
                         Route::delete('/{id}', 'destroy')->name('destroy');
                         Route::get('/trash', 'trashed')->name('trashed');
                         Route::put('/restore/{id}', 'restore')->name('restore');
-                });
-        });
-});
+                    });
+            });
+    });
 
 
 Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);

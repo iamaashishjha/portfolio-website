@@ -2,31 +2,88 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 use GrahamCampbell\ResultType\Success;
+use App\Http\Requests\StoreUserRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\UpdateUserRequest;
 
 class AdminUserController extends BaseController
 {
+    public $data;
+
+    public function create()
+    {
+        $this->data['roles'] = Role::all();
+        return view('ar.user.form', $this->data);
+    }
+
+    public function store(StoreUserRequest $request)
+    {
+        // if($request->file('image_path')){
+        //     $path = $request->file('image_path')->store('users/', 'public');
+        // }else{
+        //     $path = null;
+        // }
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        // $user->image_path = $path;
+        // $user->rank_id = $request->rank_id;
+        $user->save();
+        return redirect()->route('admin.user.registered')->with('successMessage', 'User Created Successfully');
+    }
+
+
+    public function edit($id)
+    {
+        $this->data['user'] = User::find($id);
+        $this->data['roles'] = Role::all();
+        return view('ar.user.form', $this->data);
+    }
+
+    public function update(UpdateUserRequest $request, $id)
+    {
+        // if($request->file('image_path')){
+        //     $path = $request->file('image_path')->store('users/', 'public');
+        // }else{
+        //     $path = null;
+        // }
+        $user = User::find($id);
+
+        if ($request->password == null) {
+            $password = Hash::make($request->password);
+        }else{
+            $password = $user->password;
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $password;
+        // $user->image_path = $path;
+        // $user->rank_id = $request->rank_id;
+        $user->save();
+        return redirect()->route('admin.user.registered')->with('successMessage', 'User Updated Successfully');
+    }
+
     public function registeredUsers()
     {
-        $users = User::where('role', 0)->get();
-        return view('ar.user.registered')
-            ->with('users', $users);
+        $this->data['users'] = User::where('role', 0)->get();
+        return view('ar.user.registered', $this->data);
     }
 
     public function adminUsers()
     {
-        $users = User::where('role', 1)->get();
-        return view('ar.user.admin')
-            ->with('users', $users);
+        $this->data['users'] = User::where('role', 1)->get();
+        return view('ar.user.admin', $this->data);
     }
 
     public function makeAdmin($id)
@@ -83,20 +140,17 @@ class AdminUserController extends BaseController
 
     public function profile($id)
     {
-        $user = User::find($id);
-        return view('auth.profile')->with('user', $user);
+        // $this->data['authUser'] = User::find(Auth::id());
+        $this->data['user'] = User::find($id);
+        return view('auth.profile', $this->data);
     }
 
     public function profileUpdate(Request $request, $id)
     {
         $user = User::find($id);
-
         $user->phone_number = $request->phone_number;
-
         $user->address = $request->address;
-
         $user->designation = $request->designation;
-
         if ($request->has('profile_image') && ($request->profile_image != '')) {
             $imagePath = $user->image;
             if (File::exists($imagePath)) {
@@ -106,7 +160,6 @@ class AdminUserController extends BaseController
             $path = $request->profile_image->store('users', 'public');
             $user->profile_image = $path;
         }
-
         $user->save();
         Alert::toast('Profile Updated Successfully', 'success');
         return redirect()->back();
@@ -114,30 +167,24 @@ class AdminUserController extends BaseController
 
     public function changePasswordform($id)
     {
-        $user = User::find($id);
-        return view('auth.profile')->with('user', $user);
+        $this->data['user'] = User::find($id);
+
+        return view('auth.profile', $this->data);
+        // return view('auth.profile', $this->data)->withFragment('changePasswordContent');
+
     }
 
     public function changePassword(Request $request, $id)
     {
-
-        // dd($request);
         $validator = Validator::make($request->all(),
             [
                 'email' => 'required|email',
                 'password' => 'required|confirmed',
-                // 'contact_us_message' => 'required',
             ],
             [
                 'email' => 'Email',
                 'password' => 'Password',
-            ],
-            // [
-            //     'required' => 'The :attribute field is required.',
-            //     'string' => 'The :attribute field must be string.',
-            //     'email' => 'The :attribute field must be email.',
-            //     // 'email' => 'The :attribute field must be email.',
-            // ]
+            ]
         );
 
         if (!is_array($validator) && $validator->fails()) {;

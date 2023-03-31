@@ -2,19 +2,21 @@
 
 namespace App\Models;
 
+use Laravolt\Avatar\Avatar;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManager;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Laravolt\Avatar\Avatar;
-use Intervention\Image\ImageManager;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class User extends Authenticatable  implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -30,7 +32,7 @@ class User extends Authenticatable  implements MustVerifyEmail
         'address',
         'designation',
         'role',
-        
+
     ];
 
     /**
@@ -115,4 +117,19 @@ class User extends Authenticatable  implements MustVerifyEmail
             return false;
         }
     }
+
+        //assign role to user
+        public function assignRoleCustom($role_name, $model_id){
+            $roleModel = Role::where('name', $role_name)->first();
+            if(!$roleModel){
+                return "role doesnot exists";
+            }else{
+                DB::table('model_has_roles')->insert([
+                    'role_id' => $roleModel->id,
+                    'model_type' => 'App\Models\User',
+                    'model_id' => $model_id,
+                ]);
+            }
+
+        }
 }

@@ -152,10 +152,10 @@
                     </a>
                 </li>
                 @php
-                $user = Auth::user();
+                $authUser = Auth::user();
                 @endphp
                 <li>
-                    <a href="{{ route('admin.user.profile', $user->id) }}" class="menu">
+                    <a href="{{ route('admin.user.profile', $authUser->id) }}" class="menu">
 
                         <div class="menu__icon"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> </div>
                         <div class="menu__title"> About Me </div>
@@ -184,7 +184,7 @@
                         <div class="menu__title"> All Members </div>
                     </a>
                 </li>
-                
+
             </ul>
         </li>
 
@@ -217,9 +217,9 @@
                 </li>
             </ul>
         </li>
-        
+
         <li class="menu__devider my-6"></li>
-        
+
     </ul>
 </div>
 <!-- END: Mobile Menu -->

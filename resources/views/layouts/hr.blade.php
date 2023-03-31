@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : '' }}">
     <meta name="keywords" content="{{ isset($appSetting->keywords) ? $appSetting->keywords : '' }}">
-    
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('meta')
     <title>
@@ -79,6 +79,8 @@
     <script src="/hr/assets/js/theme.js"></script>
 
     @yield('script')
+
+    @stack('script')
 </body>
 
 </html>

@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CompanyDetails;
-use Illuminate\Support\Facades\File;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\CompanyDetails;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminCompanyDetailsController extends Controller
 {
+    public $data;
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +19,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function index()
     {
+        $this->data['authUser'] = User::find(Auth::id());
         $this->data['companyDetails'] = CompanyDetails::all();
         $this->data['totalData'] = count(CompanyDetails::all());
         return view('ar.companyDetails.index', $this->data);
@@ -204,7 +207,7 @@ class AdminCompanyDetailsController extends Controller
         $cp->our_mission = $request->our_mission;
 
         $cp->home_about_content = $request->home_about_content;
-        
+
         $cp->home_about_accordion_title_1 = $request->home_about_accordion_title_1;
         $cp->home_about_accordion_title_2 = $request->home_about_accordion_title_2;
 

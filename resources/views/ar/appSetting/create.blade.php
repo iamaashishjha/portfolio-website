@@ -15,6 +15,9 @@
 @endsection
 
 @section('content')
+    @php
+        $authUser = \App\Models\User::find(Auth::id());
+    @endphp
     <div class="intro-y flex items-center mt-8 ">
         <h2 class="text-lg font-medium mr-auto">
             {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '".' : 'Create New App Setting' }}
@@ -48,7 +51,8 @@
                     <div class="p-5" id="input">
                         <div class="preview">
                             <div>
-                                <h5 class="text-lg ext-theme-9 @error('name') text-theme-6 @enderror font-medium leading-none">
+                                <h5
+                                    class="text-lg ext-theme-9 @error('name') text-theme-6 @enderror font-medium leading-none">
                                     Site Title
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </h5>
@@ -59,11 +63,12 @@
                                     value="{{ isset($appSetting) ? $appSetting->site_title : old('site_title') }}">
 
                             </div>
-                            
+
                             <div class="grid grid-cols-4 gap-2">
                                 <div class="col-span-4">
                                     <div class="mt-5">
-                                        <h5 class="text-lg ext-theme-9 @error('site_title_image') text-theme-6 @enderror font-medium leading-none">
+                                        <h5
+                                            class="text-lg ext-theme-9 @error('site_title_image') text-theme-6 @enderror font-medium leading-none">
                                             Site Title Image
                                             <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                         </h5>
@@ -92,7 +97,8 @@
                         </div>
 
                         <div class="mt-5">
-                            <h5 class="text-lg ext-theme-9 @error('meta_title') text-theme-6 @enderror font-medium leading-none">
+                            <h5
+                                class="text-lg ext-theme-9 @error('meta_title') text-theme-6 @enderror font-medium leading-none">
                                 Meta Title
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
@@ -101,7 +107,8 @@
                                 value="{{ isset($appSetting) ? $appSetting->meta_title : old('meta_title') }}">
                         </div>
                         <div class="mt-5">
-                            <h5 class="text-lg ext-theme-9 @error('meta_description') text-theme-6 @enderror font-medium leading-none">
+                            <h5
+                                class="text-lg ext-theme-9 @error('meta_description') text-theme-6 @enderror font-medium leading-none">
                                 Meta Description
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
@@ -110,11 +117,13 @@
                                 value="{{ isset($appSetting) ? $appSetting->meta_description : old('meta_description') }}">
                         </div>
                         <div class="mt-5">
-                            <h5 class="text-lg ext-theme-9 @error('keywords') text-theme-6 @enderror font-medium leading-none">
+                            <h5
+                                class="text-lg ext-theme-9 @error('keywords') text-theme-6 @enderror font-medium leading-none">
                                 Keywords
                                 <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                             </h5>
-                            <input type="text" name="keywords" class="input w-full border mt-2" placeholder="Enter Keywords"
+                            <input type="text" name="keywords" class="input w-full border mt-2"
+                                placeholder="Enter Keywords"
                                 value="{{ isset($appSetting) ? $appSetting->keywords : old('keywords') }}">
                         </div>
                         <div class="mt-6 text-center">
@@ -139,5 +148,4 @@
             image.src = URL.createObjectURL(event.target.files[0]);
         };
     </script>
-
 @endsection

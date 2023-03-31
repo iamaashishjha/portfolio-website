@@ -18,6 +18,7 @@
         "pratiksh/nepalidate": "^1.4",
         "prologue/alerts": "*",
         "realrashid/sweet-alert": "^5.0",
+        "spatie/laravel-permission": "^5.10",
         "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {
@@ -38,7 +39,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [

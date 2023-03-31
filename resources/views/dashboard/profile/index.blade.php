@@ -17,7 +17,7 @@
 @section('content')
 <div class="intro-y flex items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Update Your Profile 
+        Update Your Profile
     </h2>
 </div>
 <div class="grid grid-cols-12 gap-6">
@@ -26,11 +26,11 @@
         <div class="intro-y box mt-5">
             <div class="relative flex items-center p-5">
                 <div class="w-12 h-12 image-fit">
-                    <img alt="" class="rounded-full" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}">
+                    <img alt="" class="rounded-full" src="{{ isset($authUser->image) ? $authUser->image : Avatar::create($authUser->name)->toBase64(); }}">
                 </div>
                 <div class="ml-4 mr-auto">
-                    <div class="font-medium text-base">{{ $user->name }}</div>
-                    <div class="text-gray-600">{{ ($user->designation) ? $user->designation : '' }}</div>
+                    <div class="font-medium text-base">{{ $authUser->name }}</div>
+                    <div class="text-gray-600">{{ ($authUser->designation) ? $authUser->designation : '' }}</div>
                 </div>
                 {{-- <div class="dropdown relative">
                     <a class="dropdown-toggle w-5 h-5 block" href="javascript:;"> <i data-feather="more-horizontal" class="w-5 h-5 text-gray-700"></i> </a>
@@ -89,9 +89,9 @@
                     <div class="col-span-12 xl:col-span-4">
                         <div class="border border-gray-200 rounded-md p-5">
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
-                                <img class="rounded-md" alt="" src="{{ isset($user->image) ? $user->image : Avatar::create($user->name)->toBase64(); }}" id="profile_image_display">
+                                <img class="rounded-md" alt="" src="{{ isset($authUser->image) ? $authUser->image : Avatar::create($authUser->name)->toBase64(); }}" id="profile_image_display">
                             </div>
-                            <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('user.profile.update', $authUser->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="w-40 mx-auto cursor-pointer relative mt-5">
@@ -103,23 +103,23 @@
                     <div class="col-span-12 xl:col-span-8">
                         <div>
                             <label>Full Name</label>
-                            <input type="text" class="input w-full border bg-gray-100 cursor-not-allowed mt-2" placeholder="Enter Full Name" value="{{ $user->name }}" disabled>
+                            <input type="text" class="input w-full border bg-gray-100 cursor-not-allowed mt-2" placeholder="Enter Full Name" value="{{ $authUser->name }}" disabled>
                         </div>
                         <div class="mt-3">
                             <label>Email</label>
-                            <input type="text" class="input w-full border bg-gray-100 cursor-not-allowed mt-2" placeholder="Enter Email" value="{{ $user->email }}" disabled>
+                            <input type="text" class="input w-full border bg-gray-100 cursor-not-allowed mt-2" placeholder="Enter Email" value="{{ $authUser->email }}" disabled>
                         </div>
                         <div class="mt-3">
                             <label>Phone Number</label>
-                            <input type="text" name="phone_number" class="input w-full border mt-2" placeholder="Enter Phone Number" value="{{ ($user->phone_number ? $user->phone_number : '') }}">
+                            <input type="text" name="phone_number" class="input w-full border mt-2" placeholder="Enter Phone Number" value="{{ ($authUser->phone_number ? $authUser->phone_number : '') }}">
                         </div>
                         <div class="mt-3">
                             <label>Designation</label>
-                            <input type="text" name="designation" class="input w-full border mt-2" placeholder="Enter Current Designation" value="{{ ($user->designation ? $user->designation : '') }}">
+                            <input type="text" name="designation" class="input w-full border mt-2" placeholder="Enter Current Designation" value="{{ ($authUser->designation ? $authUser->designation : '') }}">
                         </div>
                         <div class="mt-3">
                             <label>Address</label>
-                            <textarea name="address" class="input w-full border mt-2" placeholder="Adress">{{ ($user->address) ? $user->address : '' }}</textarea>
+                            <textarea name="address" class="input w-full border mt-2" placeholder="Adress">{{ ($authUser->address) ? $authUser->address : '' }}</textarea>
                         </div>
                         <button type="submit" class="button w-20 bg-theme-1 text-white mt-3">Save</button>
                         </form>

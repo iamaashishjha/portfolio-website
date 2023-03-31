@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
+use App\Models\Permission;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Artisan;
 
 class UserTableSeeder extends Seeder
 {
@@ -17,7 +20,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $user = User::create([
             'name' => 'Nagrik Unmukti Party',
             'email' => 'admin@admin.com',
             'password' => Hash::make('Admin@1234'),
@@ -25,5 +28,12 @@ class UserTableSeeder extends Seeder
             'role' => 1
         ]);
         User::factory()->count(10)->create();
+
+        Artisan::Call('generate:permissions');
+        $permissions = Permission::all();
+        $super_admin_role = Role::find(1);
+        $super_admin_role->givePermissionTo($permissions);
+        $user->assignRoleCustom("superadmin", $user->id);
+
     }
 }
