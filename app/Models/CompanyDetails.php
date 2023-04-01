@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class CompanyDetails extends Model
+class CompanyDetails extends BaseModel
 {
     use HasFactory;
 
@@ -15,23 +16,23 @@ class CompanyDetails extends Model
     protected $gaurded = ['id'];
 
     // protected $fillable = [
-        
+
     //     'company_name_en', 'company_name_lc','company_description', 'logo_image',
 
     //     'phone_number', 'mobile_number', 'email_address', 'company_address',
 
-    //     'total_members', 'google_map', 'start_date_ad', 'start_date_bs', 
+    //     'total_members', 'google_map', 'start_date_ad', 'start_date_bs',
 
     //     'about_us', 'our_history', 'our_vision', 'our_mission',
 
     //     'our_vision_image', 'our_mission_image',
 
     //     'home_about_content', 'home_about_image_1', 'home_about_image_2', 'home_about_image_3',
-        
+
     //     'home_about_accordion_title_1', 'home_about_accordion_title_2', 'home_about_accordion_title_3',
-        
+
     //     'home_about_accordion_content_1', 'home_about_accordion_content_2', 'home_about_accordion_content_3',
-        
+
     //     'created_by', 'updated_by'
     // ];
 

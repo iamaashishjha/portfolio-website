@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class AppSettings extends Model
+class AppSettings extends BaseModel
 {
     use HasFactory;
 

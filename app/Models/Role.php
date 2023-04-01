@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Contracts\Role as RoleContract;
@@ -13,7 +14,7 @@ use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\RefreshesPermissionCache;
 
-class Role extends Model implements RoleContract
+class Role extends BaseModel implements RoleContract
 {
     use HasPermissions;
     use RefreshesPermissionCache;

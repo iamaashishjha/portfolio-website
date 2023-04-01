@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class Membership extends Model
+class Membership extends BaseModel
 {
     use HasFactory;
-    
+
 
     use HasFactory;
 
@@ -26,7 +27,7 @@ class Membership extends Model
 
     //     'perm_province_id', 'perm_district_id', 'perm_local_level_id',
     //     'perm_local_level_type_id', 'perm_ward_number', 'perm_tole',
-        
+
     //     'temp_province_id', 'temp_district_id', 'temp_local_level_id',
     //     'temp_local_level_type_id', 'temp_ward_number', 'temp_tole',
 
@@ -34,7 +35,7 @@ class Membership extends Model
     //     'email', 'phone_number', 'mobile_number',
     //     'cast', 'category', 'category_source',
     //     'education_qualification', 'blood_group', 'other_identity',
-        
+
     //     'father_name', 'mother_name', 'grand_father_name',
     //     'grand_mother_name',
 

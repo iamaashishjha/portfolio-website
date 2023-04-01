@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BlogsComment extends Model
+class BlogsComment extends BaseModel
 {
     use HasFactory;
 
