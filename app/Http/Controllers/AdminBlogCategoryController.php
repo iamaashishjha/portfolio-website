@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\AuthTrait;
+use App\Models\BlogCategory;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreBlogCategoryRequest;
 use App\Http\Requests\UpdateBlogCategoryRequest;
-use App\Models\BlogCategory;
-
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 // use Prologue\Alerts\Facades\Alert;
 
 // use Alert
@@ -18,7 +19,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminBlogCategoryController extends BaseController
 {
-
+use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +27,7 @@ class AdminBlogCategoryController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'list');
         $categories = BlogCategory::where('is_deleted', 0)
             ->get();
         return view('ar.blog.category.index')
@@ -39,6 +41,7 @@ class AdminBlogCategoryController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'create');
         return view('ar.blog.category.create');
     }
 
@@ -50,6 +53,7 @@ class AdminBlogCategoryController extends BaseController
      */
     public function store(StoreBlogCategoryRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'create');
         $path = $request->category_image->store('blogs/blog-category', 'public');
         $category = new BlogCategory();
         $category->title = $request->title;
@@ -94,6 +98,8 @@ class AdminBlogCategoryController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'update');
+
         $category = BlogCategory::find($id);
         return view('ar.blog.category.create')
             ->with('category', $category);
@@ -108,6 +114,7 @@ class AdminBlogCategoryController extends BaseController
      */
     public function update(UpdateBlogCategoryRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'update');
         $category = BlogCategory::find($id);
 
         $category->title = $request->title;
@@ -151,6 +158,8 @@ class AdminBlogCategoryController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogCategory', 'delete');
+
         $category = BlogCategory::find($id);
         $imagePath = $category->image;
         // if ($category->posts->count() === 0) {

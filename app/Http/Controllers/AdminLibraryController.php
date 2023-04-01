@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Library;
+use App\Traits\AuthTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -11,6 +12,8 @@ use App\Http\Requests\UpdateLibraryRequest;
 
 class AdminLibraryController extends Controller
 {
+    use AuthTrait;
+    public $data;
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +21,7 @@ class AdminLibraryController extends Controller
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\Library', 'list');
         $this->data['libraries'] = Library::all();
         return view('ar.library.index', $this->data);
     }
@@ -29,6 +33,7 @@ class AdminLibraryController extends Controller
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\Library', 'create');
         return view('ar.library.create');
     }
 
@@ -40,6 +45,7 @@ class AdminLibraryController extends Controller
      */
     public function store(StoreLibraryRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\Library', 'create');
         $library = new Library();
 
         $image = $request->image->store('home/library', 'public');
@@ -79,6 +85,7 @@ class AdminLibraryController extends Controller
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\Library', 'update');
         $this->data['library'] = Library::find($id);
         return view('ar.library.create', $this->data);
     }
@@ -92,6 +99,7 @@ class AdminLibraryController extends Controller
      */
     public function update(UpdateLibraryRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\Library', 'update');
         $library = Library::find($id);
 
         if ($request->has('image') && ($request->image != '')) {
@@ -124,7 +132,6 @@ class AdminLibraryController extends Controller
         $library->save();
         Alert::success('Library Updated Successfully');
         return redirect()->route('admin.library.index');
-
     }
 
     /**
@@ -135,6 +142,7 @@ class AdminLibraryController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\Library', 'delete');
         $library = Library::find($id);
         $imagePath = $library->image;
         if (File::exists($imagePath)) {

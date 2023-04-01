@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\AuthTrait;
+use App\Models\NewsCategory;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreNewsCategoryRequest;
 use App\Http\Requests\UpdateNewsCategoryRequest;
-use App\Models\NewsCategory;
-
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 // use Prologue\Alerts\Facades\Alert;
 
 class AdminNewsCategoryController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +23,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'list');
         $categories = NewsCategory::where('is_deleted', 0)
             ->get();
         return view('ar.news.category.index')
@@ -34,6 +37,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'create');
         return view('ar.news.category.create');
     }
 
@@ -45,6 +49,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function store(StoreNewsCategoryRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'create');
         $path = $request->category_image->store('news/news-category', 'public');
         $category = new NewsCategory();
         $category->title = $request->title;
@@ -90,6 +95,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'update');
         $category = NewsCategory::find($id);
         return view('ar.news.category.create')
             ->with('category', $category);
@@ -104,6 +110,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function update(UpdateNewsCategoryRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'update');
         $category = NewsCategory::find($id);
 
         $category->title = $request->title;
@@ -150,6 +157,7 @@ class AdminNewsCategoryController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsCategory', 'delete');
         $category = NewsCategory::find($id);
         $imagePath = $category->image;
         // if ($category->posts->count() = 0) {

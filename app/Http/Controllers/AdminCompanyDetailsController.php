@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Traits\AuthTrait;
 use Illuminate\Http\Request;
 use App\Models\CompanyDetails;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminCompanyDetailsController extends Controller
 {
+    use AuthTrait;
     public $data;
     /**
      * Display a listing of the resource.
@@ -19,6 +21,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\CompanyDetails', 'list');
         $this->data['authUser'] = User::find(Auth::id());
         $this->data['companyDetails'] = CompanyDetails::all();
         $this->data['totalData'] = count(CompanyDetails::all());
@@ -32,6 +35,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\CompanyDetails', 'create');
         return view('ar.companyDetails.create');
     }
 
@@ -43,6 +47,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->checkCRUDPermission('App\Models\CompanyDetails', 'create');
         $logo_image = $request->logo_image->store('home/comapany-details', 'public');
         $home_about_image_1 = $request->home_about_image_1->store('home/comapany-details', 'public');
         $home_about_image_2 = $request->home_about_image_2->store('home/comapany-details', 'public');
@@ -109,6 +114,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
         $this->data['companyDetail'] = CompanyDetails::find($id);
         return view('ar.companyDetails.create', $this->data);
     }
@@ -122,6 +128,7 @@ class AdminCompanyDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
         $cp = CompanyDetails::find($id);
 
         if ($request->has('logo_image') && ($request->logo_image != '')) {

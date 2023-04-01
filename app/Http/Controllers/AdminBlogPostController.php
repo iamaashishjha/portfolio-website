@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreBlogPostRequest;
-use App\Http\Requests\UpdateBlogPostRequest;
-use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
-use Illuminate\Support\Facades\File;
+use App\Traits\AuthTrait;
+use App\Models\BlogCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreBlogPostRequest;
+use App\Http\Requests\UpdateBlogPostRequest;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminBlogPostController extends BaseController
 {
+    use AuthTrait;
 
     /**
      * Display a listing of the resource.
@@ -23,6 +25,8 @@ class AdminBlogPostController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\BlogPost', 'list');
+
         $categories = BlogCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -48,6 +52,7 @@ class AdminBlogPostController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\BlogPost', 'create');
         $categories = BlogCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -69,6 +74,7 @@ class AdminBlogPostController extends BaseController
      */
     public function store(StoreBlogPostRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\BlogPost', 'create');
         //
         $post = new BlogPost();
 
@@ -130,6 +136,7 @@ class AdminBlogPostController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogPost', 'update');
         $categories = BlogCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -155,9 +162,8 @@ class AdminBlogPostController extends BaseController
      */
     public function update(UpdateBlogPostRequest $request, $id)
     {
-        //
+        $this->checkCRUDPermission('App\Models\BlogPost', 'update');
         $post = BlogPost::find($id);
-
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -218,10 +224,10 @@ class AdminBlogPostController extends BaseController
      */
     public function destroy($id)
     {
-        //
+        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
         $post = BlogPost::withTrashed()
             ->where('id', $id)->first();
-        $imagePath = $post->image;    
+        $imagePath = $post->image;
         if ($post->trashed()) {
             if (File::exists($imagePath)) {
                 unlink($imagePath);
@@ -242,7 +248,7 @@ class AdminBlogPostController extends BaseController
 
     public function trashed()
     {
-        # code...
+        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
         $posts = BlogPost::onlyTrashed()->where('is_deleted', 0)->get();
         return view('ar.blog.post.trash')
             ->with('posts', $posts);
@@ -250,10 +256,10 @@ class AdminBlogPostController extends BaseController
 
     public function restore($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
         $post = BlogPost::onlyTrashed()
             ->where('id', $id)
             ->first();
-
         $post->restore();
         Alert::toast('Post Restored Successfully', 'success');
         return redirect()->back();

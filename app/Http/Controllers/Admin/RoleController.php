@@ -53,9 +53,6 @@ class RoleController extends BaseController
         $this->checkCRUDPermission('App\Models\Role', 'create');
         $role = Role::create(['name' => $request->name]);
         $permissions = Permission::findMany(array_keys($request->permissions));
-        // foreach ($permissions as $permission) {
-        //     $role->givePermissionTo($permission);
-        // }
         $role->syncPermissions($permissions);
         return redirect()->back()->with('success', 'Role created successfully');
     }
@@ -71,10 +68,9 @@ class RoleController extends BaseController
     {
         $this->checkCRUDPermission('App\Models\Role', 'update');
         $role = Role::find($id);
-        $role->update(['name', $request->name]);
-        // $role->name = $request->name;
-        // $role->save();
-        $permissions = Permission::findMany(array_keys($request->permissions));
+        $permissionIds = array_keys($request->permissions);
+        $permissions = Permission::findMany($permissionIds);
+        $role->update(['name' => $request->name]);
         $role->syncPermissions($permissions);
         return redirect()->back()->with('success', 'Role Updated successfully');
     }

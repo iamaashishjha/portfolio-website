@@ -20,6 +20,7 @@ class AdminDashboardController extends BaseController
 
     public function index()
     {
+        // $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
         $this->data['userCount'] = count(User::all());
         $this->data['memberCount'] = count(Membership::all());
         $this->data['eventsCount'] = count(Event::all());

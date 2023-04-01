@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ApproveMember;
 use App\Models\Gender;
 use App\Models\Province;
+use App\Traits\AuthTrait;
 use App\Models\Membership;
+use App\Mail\ApproveMember;
 use Illuminate\Http\Request;
 use App\Models\LocalLevelType;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminMembershipController extends Controller
 {
+    use AuthTrait;
+    public $data;
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +26,7 @@ class AdminMembershipController extends Controller
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\Membership', 'list');
         $this->data['members'] = Membership::all();
         return view('ar.membership.index', $this->data);
     }
@@ -34,6 +38,7 @@ class AdminMembershipController extends Controller
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\Membership', 'create');
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
@@ -48,6 +53,7 @@ class AdminMembershipController extends Controller
      */
     public function store(Request $request)
     {
+        $this->checkCRUDPermission('App\Models\Membership', 'create');
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
         }else{
@@ -206,6 +212,7 @@ class AdminMembershipController extends Controller
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\Membership', 'update');
         $this->data['member'] = Membership::find($id);
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
@@ -221,7 +228,8 @@ class AdminMembershipController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {        
+    {
+        $this->checkCRUDPermission('App\Models\Membership', 'update');
 
         $member = Membership::find($id);
 
@@ -413,6 +421,7 @@ class AdminMembershipController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\Membership', 'delete');
         $member = Membership::find($id);
         $ownImagePath = $member->own_image;
         if (File::exists($ownImagePath)) {
@@ -482,7 +491,7 @@ class AdminMembershipController extends Controller
         Alert::success('Member Approved');
         return redirect()->back();
         }
-        
-        
+
+
     }
 }

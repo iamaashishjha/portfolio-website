@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Traits\AuthTrait;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreDocumentsRequest;
@@ -11,6 +12,7 @@ use App\Http\Controllers\Admin\BaseController;
 
 class AdminDocumentController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +20,7 @@ class AdminDocumentController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\Document', 'list');
         $this->data['documents'] = Document::all();
         return view('ar.documents.index', $this->data);
     }
@@ -29,6 +32,7 @@ class AdminDocumentController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\Document', 'create');
         return view('ar.documents.create');
     }
 
@@ -40,6 +44,7 @@ class AdminDocumentController extends BaseController
      */
     public function store(StoreDocumentsRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\Document', 'create');
         $doc = new Document();
 
         $image = $request->image->store('home/documents', 'public');
@@ -79,6 +84,7 @@ class AdminDocumentController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\Document', 'update');
         $this->data['document'] = Document::find($id);
         return view('ar.documents.create', $this->data);
     }
@@ -92,6 +98,7 @@ class AdminDocumentController extends BaseController
      */
     public function update(UpdateDocumentsRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\Document', 'update');
         $doc = Document::find($id);
 
         if ($request->has('image') && ($request->image != '')) {
@@ -135,6 +142,7 @@ class AdminDocumentController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\Document', 'delete');
         $doc = Document::find($id);
         $imagePath = $doc->image;
         if (File::exists($imagePath)) {

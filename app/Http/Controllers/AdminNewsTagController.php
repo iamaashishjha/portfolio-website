@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreNewsTagsRequest;
 use App\Models\NewsTags;
+use App\Traits\AuthTrait;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreNewsTagsRequest;
 use App\Http\Requests\UpdateBlogTagsRequest;
 use App\Http\Requests\UpdateNewsTagsRequest;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminNewsTagController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +22,7 @@ class AdminNewsTagController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'list');
         $tags = NewsTags::where('is_deleted', 0)->get();
         return view('ar.news.tag.index')
             ->with('tags', $tags);
@@ -32,6 +35,7 @@ class AdminNewsTagController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'create');
         return view('ar.news.tag.create');
     }
 
@@ -43,6 +47,7 @@ class AdminNewsTagController extends BaseController
      */
     public function store(StoreNewsTagsRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'create');
         $path = $request->tag_image->store('news/news-tag', 'public');
         $tag = new NewsTags();
         $tag->title = $request->title;
@@ -87,6 +92,7 @@ class AdminNewsTagController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'update');
         $tag = NewsTags::find($id);
         return view('ar.news.tag.create')
             ->with('tag', $tag);
@@ -101,6 +107,7 @@ class AdminNewsTagController extends BaseController
      */
     public function update(UpdateNewsTagsRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'update');
         $tag = NewsTags::find($id);
 
         $tag->title = $request->title;
@@ -143,6 +150,7 @@ class AdminNewsTagController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsTags', 'delete');
         $tag = NewsTags::find($id);
         $imagePath = $tag->image;
         if (File::exists($imagePath)) {
@@ -151,7 +159,7 @@ class AdminNewsTagController extends BaseController
         }
         $tag->delete();
 
-        
+
         // $category->is_deleted = 1;
         // $category->deleted_by = Auth::user()->id;
         Alert::toast('Tag Deleted Successfully', 'success');

@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreBlogTagsRequest;
-use App\Http\Requests\UpdateBlogTagsRequest;
 use App\Models\BlogTags;
+use App\Traits\AuthTrait;
+use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert;
 // use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 // use RealRashid\SweetAlert\Facades\Alert;
 
-use Illuminate\Support\Facades\File;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
-use UxWeb\SweetAlert\SweetAlert;
+use App\Http\Requests\StoreBlogTagsRequest;
+use App\Http\Requests\UpdateBlogTagsRequest;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminBlogTagController extends BaseController
 {
+    use AuthTrait;
 
 
     /**
@@ -27,6 +29,7 @@ class AdminBlogTagController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'list');
         $tags = BlogTags::where('is_deleted', 0)->get();
         return view('ar.blog.tag.index')
             ->with('tags', $tags);
@@ -39,6 +42,7 @@ class AdminBlogTagController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'create');
         return view('ar.blog.tag.create');
     }
 
@@ -50,6 +54,7 @@ class AdminBlogTagController extends BaseController
      */
     public function store(StoreBlogTagsRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'create');
         $path = $request->tag_image->store('blogs/blog-tag', 'public');
         $tag = new BlogTags();
         $tag->title = $request->title;
@@ -94,6 +99,7 @@ class AdminBlogTagController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'update');
         $tag = BlogTags::find($id);
         return view('ar.blog.tag.create')
             ->with('tag', $tag);
@@ -108,11 +114,10 @@ class AdminBlogTagController extends BaseController
      */
     public function update(UpdateBlogTagsRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'update');
         $tag = BlogTags::find($id);
-
         $tag->title = $request->title;
         $tag->description = $request->description;
-
         if ($request->has('tag_image') && ($request->tag_image != '')) {
             $imagePath = $tag->image;
             if (File::exists($imagePath)) {
@@ -150,6 +155,7 @@ class AdminBlogTagController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\BlogTags', 'delete');
         $tag = BlogTags::find($id);
         $imagePath = $tag->image;
         if (File::exists($imagePath)) {
@@ -157,10 +163,6 @@ class AdminBlogTagController extends BaseController
             $tag->deleteImage();
         }
         $tag->delete();
-
-        
-        // $category->is_deleted = 1;
-        // $category->deleted_by = Auth::user()->id;
         Alert::toast('Tag Deleted Successfully', 'success');
         return redirect()->back();
     }

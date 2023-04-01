@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreSliderRequest;
-use App\Http\Requests\UpdateSliderRequest;
 use App\Models\Slider;
+use App\Traits\AuthTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreSliderRequest;
+use App\Http\Requests\UpdateSliderRequest;
+use App\Http\Controllers\Admin\BaseController;
 
 
 class AdminSliderController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +23,7 @@ class AdminSliderController extends BaseController
      */
     public function index()
     {
-        //
+        $this->checkCRUDPermission('App\Models\Slider', 'list');
         $this->data['sliders'] = Slider::all();
         $this->data['totalData'] = count(Slider::all());
         return view('ar.slider.index', $this->data);
@@ -34,7 +36,7 @@ class AdminSliderController extends BaseController
      */
     public function create()
     {
-        //
+        $this->checkCRUDPermission('App\Models\Slider', 'create');
         return view('ar.slider.create');
     }
 
@@ -46,9 +48,10 @@ class AdminSliderController extends BaseController
      */
     public function store(StoreSliderRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\Slider', 'create');
 
         $path1 = $request->slider_image_a->store('home/slider', 'public');
-        
+
         if($request->has('slider_image_b')){
             $path2 = $request->slider_image_b->store('home/slider', 'public');
         }else{
@@ -121,6 +124,7 @@ class AdminSliderController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\Slider', 'update');
         $this->data['slider'] = Slider::find($id);
         return view('ar.slider.create', $this->data);
     }
@@ -134,6 +138,7 @@ class AdminSliderController extends BaseController
      */
     public function update(UpdateSliderRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\Slider', 'update');
 
         $slider = Slider::find($id);
 

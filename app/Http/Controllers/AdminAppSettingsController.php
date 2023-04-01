@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreAppSettingRequest;
-use App\Http\Requests\UpdateAppSettingRequest;
+use App\Traits\AuthTrait;
 use App\Models\AppSettings;
-
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreAppSettingRequest;
+use App\Http\Controllers\Admin\BaseController;
+use App\Http\Requests\UpdateAppSettingRequest;
 
 class AdminAppSettingsController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +22,7 @@ class AdminAppSettingsController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\AppSettings', 'list');
         $this->data['appSettings'] = AppSettings::all();
         $this->data['totalData'] = count(AppSettings::all());
         return view('ar.appSetting.index', $this->data);
@@ -32,6 +35,7 @@ class AdminAppSettingsController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\AppSettings', 'create');
         $totalData = count(AppSettings::all());
 
         if ($totalData < 1) {
@@ -50,25 +54,12 @@ class AdminAppSettingsController extends BaseController
      */
     public function store(StoreAppSettingRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\AppSettings', 'create');
 
         // dd($request, request()->all(), $request->site_title_image, request()->site_title_image, );
         $totalData = count(AppSettings::all());
 
         if ($totalData <= 1) {
-            // $path = $request->logo_image->store('home/header-footer', 'public');
-
-
-            // $appSetting->name = $request->name;
-            // $appSetting->company_description = $request->company_description;
-            // $appSetting->logo = $path;
-
-            // $appSetting->telephone = $request->telephone;
-            // $appSetting->phone1 = $request->phone1;
-            // $appSetting->phone2 = $request->phone2;
-            // $appSetting->email = $request->email;
-            // $appSetting->address = $request->address;
-            // $appSetting->start_date = $request->start_date;
-
             $path = $request->site_title_image->store('home/app-setting', 'public');
             $appSetting = new AppSettings();
 
@@ -110,6 +101,7 @@ class AdminAppSettingsController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\AppSettings', 'update');
         $this->data['appSetting'] = AppSettings::find($id);
         return view('ar.appSetting.create', $this->data);
     }
@@ -123,8 +115,8 @@ class AdminAppSettingsController extends BaseController
      */
     public function update(UpdateAppSettingRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\AppSettings', 'update');
         $appSetting = AppSettings::find($id);
-
         if ($request->has('site_title_image') && ($request->site_title_image != '')) {
             $imagePath = $appSetting->image;
             if (File::exists($imagePath)) {

@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreEventRequest;
-use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
-use Illuminate\Support\Facades\File;
+use App\Traits\AuthTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\StoreEventRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\UpdateEventRequest;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminEventController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +21,7 @@ class AdminEventController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\Event', 'list');
         $events = Event::where('is_deleted', 0)
             ->get();
         return view('ar.event.index')
@@ -32,6 +35,7 @@ class AdminEventController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\Event', 'create');
         return view('ar.event.create');
     }
 
@@ -43,6 +47,7 @@ class AdminEventController extends BaseController
      */
     public function store(StoreEventRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\Event', 'create');
         $path = $request->event_image->store('events', 'public');
 
         $event = new Event();
@@ -92,6 +97,7 @@ class AdminEventController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\Event', 'update');
         $event = Event::find($id);
         return view('ar.event.create')
             ->with('event', $event);
@@ -106,6 +112,7 @@ class AdminEventController extends BaseController
      */
     public function update(UpdateEventRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\Event', 'update');
         $event = Event::find($id);
 
         // $event->title = $request->title;
@@ -156,6 +163,7 @@ class AdminEventController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\Event', 'delete');
         $event = Event::find($id);
         $imagePath = $event->image;
             if (File::exists($imagePath)) {
@@ -166,6 +174,6 @@ class AdminEventController extends BaseController
             $event->delete();
             Alert::toast('Even Deleted Successfully', 'success');
             return redirect()->back();
-        
+
     }
 }

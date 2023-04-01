@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\BaseController;
-use App\Http\Requests\StoreNewsPostRequest;
-use App\Http\Requests\UpdateNewsPostRequest;
-use App\Models\NewsTags;
-use App\Models\NewsCategory;
 use App\Models\NewsPost;
-use Illuminate\Support\Facades\File;
+use App\Models\NewsTags;
+use App\Traits\AuthTrait;
+use App\Models\NewsCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreNewsPostRequest;
+use App\Http\Requests\UpdateNewsPostRequest;
+use App\Http\Controllers\Admin\BaseController;
 
 class AdminNewsPostController extends BaseController
 {
+    use AuthTrait;
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +24,7 @@ class AdminNewsPostController extends BaseController
      */
     public function index()
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'list');
         $categories = NewsCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -47,6 +50,7 @@ class AdminNewsPostController extends BaseController
      */
     public function create()
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'create');
         $categories = NewsCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -68,6 +72,7 @@ class AdminNewsPostController extends BaseController
      */
     public function store(StoreNewsPostRequest $request)
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'create');
         //
         $post = new NewsPost();
 
@@ -126,6 +131,7 @@ class AdminNewsPostController extends BaseController
      */
     public function edit($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'update');
         $categories = NewsCategory::where('is_deleted', 0)
             ->where('status', 1)
             ->get();
@@ -151,6 +157,7 @@ class AdminNewsPostController extends BaseController
      */
     public function update(UpdateNewsPostRequest $request, $id)
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'update');
         //
         $post = NewsPost::find($id);
 
@@ -214,10 +221,11 @@ class AdminNewsPostController extends BaseController
      */
     public function destroy($id)
     {
+        $this->checkCRUDPermission('App\Models\NewsPost', 'delete');
         //
         $post = NewsPost::withTrashed()
             ->where('id', $id)->first();
-        $imagePath = $post->image;    
+        $imagePath = $post->image;
         if ($post->trashed()) {
             if (File::exists($imagePath)) {
                 unlink($imagePath);
