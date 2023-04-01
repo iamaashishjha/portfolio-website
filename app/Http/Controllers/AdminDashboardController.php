@@ -12,15 +12,15 @@ use App\Models\NewsCategory;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
 use App\Models\User;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminDashboardController extends BaseController
+class AdminDashboardController extends BaseCrudController
 {
 
     public function index()
     {
-        // $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
         $this->data['userCount'] = count(User::all());
         $this->data['memberCount'] = count(Membership::all());
         $this->data['eventsCount'] = count(Event::all());

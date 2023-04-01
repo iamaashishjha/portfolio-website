@@ -15,13 +15,19 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\UpdateUserRequest;
+use App\Traits\Base\BaseCrudController;
 
-class AdminUserController extends BaseController
+class AdminUserController extends BaseCrudController
 {
-    public $data;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = User::class;
+    }
 
     public function create()
     {
+        $this->checkPermission('create');
         $this->data['roles'] = Role::all();
         return view('ar.user.form', $this->data);
     }
@@ -33,7 +39,7 @@ class AdminUserController extends BaseController
         // }else{
         //     $path = null;
         // }
-        $user = new User();
+        $user = new $this->model();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -49,7 +55,7 @@ class AdminUserController extends BaseController
 
     public function edit($id)
     {
-        $this->data['user'] = User::find($id);
+        $this->data['user'] = $this->model::find($id);
         $this->data['roles'] = Role::all();
         return view('ar.user.form', $this->data);
     }
@@ -61,7 +67,7 @@ class AdminUserController extends BaseController
         // }else{
         //     $path = null;
         // }
-        $user = User::find($id);
+        $user = $this->model::find($id);
 
         if ($request->password == null) {
             $password = Hash::make($request->password);
@@ -83,19 +89,19 @@ class AdminUserController extends BaseController
 
     public function registeredUsers()
     {
-        $this->data['users'] = User::where('role', 0)->get();
+        $this->data['users'] = $this->model::where('role', 0)->get();
         return view('ar.user.registered', $this->data);
     }
 
     public function adminUsers()
     {
-        $this->data['users'] = User::where('role', 1)->get();
+        $this->data['users'] = $this->model::where('role', 1)->get();
         return view('ar.user.admin', $this->data);
     }
 
     public function makeAdmin($id)
     {
-        $user = User::find($id);
+        $user = $this->model::find($id);
         $user->role = 1;
         $user->save();
         Alert::toast('User has been made admin', 'success');
@@ -104,7 +110,7 @@ class AdminUserController extends BaseController
 
     public function removeAdmin($id)
     {
-        $user = User::find($id);
+        $user = $this->model::find($id);
         if ($user->id === 1) {
             Alert::error('User cannot be removed from Admin');
             return redirect()->back();
@@ -121,7 +127,7 @@ class AdminUserController extends BaseController
 
     public function deleteUser($id)
     {
-        $user = User::find($id);
+        $user = $this->model::find($id);
 
         if ($user->id === 1) {
             Alert::toast('User cannot be Deleted.', 'error');
@@ -148,13 +154,13 @@ class AdminUserController extends BaseController
     public function profile($id)
     {
         // $this->data['authUser'] = User::find(Auth::id());
-        $this->data['user'] = User::find($id);
+        $this->data['user'] = $this->model::find($id);
         return view('auth.profile', $this->data);
     }
 
     public function profileUpdate(Request $request, $id)
     {
-        $user = User::find($id);
+        $user = $this->model::find($id);
         $user->phone_number = $request->phone_number;
         $user->address = $request->address;
         $user->designation = $request->designation;
@@ -174,7 +180,7 @@ class AdminUserController extends BaseController
 
     public function changePasswordform($id)
     {
-        $this->data['user'] = User::find($id);
+        $this->data['user'] = $this->model::find($id);
 
         return view('auth.profile', $this->data);
         // return view('auth.profile', $this->data)->withFragment('changePasswordContent');
@@ -199,7 +205,7 @@ class AdminUserController extends BaseController
             Alert::error($message);
             return redirect()->back();
         }
-        $user = User::find($id);
+        $user = $this->model::find($id);
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();

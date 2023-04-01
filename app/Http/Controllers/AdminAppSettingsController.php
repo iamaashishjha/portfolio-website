@@ -2,19 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\AuthTrait;
 use App\Models\AppSettings;
+use App\Traits\CheckPermission;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreAppSettingRequest;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\UpdateAppSettingRequest;
+use App\Traits\Base\BaseCrudController;
 
-class AdminAppSettingsController extends BaseController
+class AdminAppSettingsController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = AppSettings::class;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +28,9 @@ class AdminAppSettingsController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\AppSettings', 'list');
-        $this->data['appSettings'] = AppSettings::all();
-        $this->data['totalData'] = count(AppSettings::all());
+        $this->checkPermission('list');
+        $this->data['appSettings'] = $this->model::all();
+        $this->data['totalData'] = count($this->model::all());
         return view('ar.appSetting.index', $this->data);
     }
 
@@ -35,11 +41,11 @@ class AdminAppSettingsController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\AppSettings', 'create');
-        $totalData = count(AppSettings::all());
-
+        $this->checkPermission('create');
+        $totalData = count($this->model::all());
+        // $totalData = $this->model->count();
         if ($totalData < 1) {
-            return view('ar.appSetting.create');
+            return view('ar.appSetting.form');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
             return redirect()->route('admin.home.app-setting.index');
@@ -54,43 +60,24 @@ class AdminAppSettingsController extends BaseController
      */
     public function store(StoreAppSettingRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\AppSettings', 'create');
-
-        // dd($request, request()->all(), $request->site_title_image, request()->site_title_image, );
-        $totalData = count(AppSettings::all());
-
+        $this->checkPermission('create');
+        $totalData = count($this->model::all());
         if ($totalData <= 1) {
             $path = $request->site_title_image->store('home/app-setting', 'public');
-            $appSetting = new AppSettings();
-
+            $appSetting = new $this->model();
             $appSetting->site_title = $request->site_title;
             $appSetting->site_title_image = $path;
-
             $appSetting->meta_description = $request->meta_description;
             $appSetting->meta_title = $request->meta_title;
             $appSetting->keywords = $request->keywords;
-
             $appSetting->created_by = Auth::user()->id;
-
             $appSetting->save();
-
             Alert::success('Header/Footer Created Successfully');
             return redirect()->route('admin.home.app-setting.index');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
             return redirect()->route('admin.home.app-setting.index');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -101,9 +88,9 @@ class AdminAppSettingsController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\AppSettings', 'update');
-        $this->data['appSetting'] = AppSettings::find($id);
-        return view('ar.appSetting.create', $this->data);
+        $this->checkPermission('update');
+        $this->data['appSetting'] = $this->model::find($id);
+        return view('ar.appSetting.form', $this->data);
     }
 
     /**
@@ -115,8 +102,8 @@ class AdminAppSettingsController extends BaseController
      */
     public function update(UpdateAppSettingRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\AppSettings', 'update');
-        $appSetting = AppSettings::find($id);
+        $this->checkPermission('update');
+        $appSetting = $this->model::find($id);
         if ($request->has('site_title_image') && ($request->site_title_image != '')) {
             $imagePath = $appSetting->image;
             if (File::exists($imagePath)) {
@@ -128,8 +115,6 @@ class AdminAppSettingsController extends BaseController
         }
 
         $appSetting->site_title = $request->site_title;
-        // $appSetting->site_title_image = $path;
-
         $appSetting->meta_description = $request->meta_description;
         $appSetting->meta_title = $request->meta_title;
         $appSetting->keywords = $request->keywords;

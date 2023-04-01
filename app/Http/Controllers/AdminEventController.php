@@ -10,10 +10,15 @@ use App\Http\Requests\StoreEventRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateEventRequest;
 use App\Http\Controllers\Admin\BaseController;
+use App\Traits\Base\BaseCrudController;
 
-class AdminEventController extends BaseController
+class AdminEventController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Event::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +27,8 @@ class AdminEventController extends BaseController
     public function index()
     {
         $this->checkCRUDPermission('App\Models\Event', 'list');
-        $events = Event::where('is_deleted', 0)
-            ->get();
-        return view('ar.event.index')
-            ->with('events', $events);
+        $this->data['events'] = $this->model::notDeleted()->get();
+        return view('ar.event.index', $this->data);
     }
 
     /**
@@ -35,8 +38,8 @@ class AdminEventController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\Event', 'create');
-        return view('ar.event.create');
+        $this->checkPermission('create');
+        return view('ar.event.form');
     }
 
     /**
@@ -47,10 +50,9 @@ class AdminEventController extends BaseController
      */
     public function store(StoreEventRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\Event', 'create');
+        $this->checkPermission('create');
         $path = $request->event_image->store('events', 'public');
-
-        $event = new Event();
+        $event = new $this->model();
         $event->title = $request->title;
         $event->description = $request->description;
         $event->venue = $request->venue;
@@ -97,10 +99,9 @@ class AdminEventController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\Event', 'update');
-        $event = Event::find($id);
-        return view('ar.event.create')
-            ->with('event', $event);
+        $this->checkPermission('update');
+        $this->data['event'] = $this->model::find($id);
+        return view('ar.event.form', $this->data);
     }
 
     /**
@@ -112,8 +113,8 @@ class AdminEventController extends BaseController
      */
     public function update(UpdateEventRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\Event', 'update');
-        $event = Event::find($id);
+        $this->checkPermission('update');
+        $event = $this->model::find($id);
 
         // $event->title = $request->title;
         $event->description = $request->description;
@@ -163,8 +164,8 @@ class AdminEventController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\Event', 'delete');
-        $event = Event::find($id);
+        $this->checkPermission('delete');
+        $event = $this->model::find($id);
         $imagePath = $event->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);

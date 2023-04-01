@@ -7,38 +7,34 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Models\User;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 
-class UserDashboardController extends BaseController
+class UserDashboardController extends BaseCrudController
 {
     public function index()
     {
-        $user = Auth::user()->id;
-        $users = User::all();
-        $userCount = $users->count();
-        $categories = BlogCategory::where('status', 1)->get();
-        $catCount = $categories->count();
-        $tags = BlogTags::where('status', 1)->get();
-        $tagCount = $tags->count();
-        $post = BlogPost::where('status', 1)->where('created_by', $user)->get();
-        $posts = BlogPost::where('status', 1)->get();
-        $postsCount = $posts->count();
-        $postCount = $post->count();
-        return view('dashboard.index')
-        ->with('userCount', $userCount)
-        ->with('catCount', $catCount)
-        ->with('tagCount', $tagCount)
-        ->with('postCount', $postCount)
-        ->with('postsCount', $postsCount);
+        $userId = Auth::id();
+        $this->data['users'] = User::all();
+        $this->data['userCount'] = $this->data['users']->count();
+        $this->data['categories'] = BlogCategory::active()->get();
+        $this->data['catCount'] = $this->data['categories']->count();
+        $this->data['tags'] = BlogTags::active()->get();
+        $this->data['tagCount'] = $this->data['tags']->count();
+        $this->data['post'] = BlogPost::active()->where('created_by', $userId)->get();
+        $this->data['posts'] = BlogPost::active()->get();
+        $this->data['postsCount'] = $this->data['posts']->count();
+        $this->data['postCount'] =  $this->data['post']->count();
+        return view('dashboard.index', $this->data);
     }
 
     public function profile($id)
     {
-        $user = User::find($id);
-        return view('dashboard.profile.index')->with('user', $user);
+        $this->data['user'] = User::find($id);
+        return view('dashboard.profile.index', $this->data);
     }
 
     public function profileUpdate(Request $request, $id)
@@ -64,7 +60,7 @@ class UserDashboardController extends BaseController
 
     public function changePassword($id)
     {
-        $user = User::find($id);
-        return view('auth.profile')->with('user', $user);
+        $this->data['user'] = User::find($id);
+        return view('auth.profile', $this->data);
     }
 }

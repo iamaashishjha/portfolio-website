@@ -12,8 +12,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminCompanyDetailsController extends Controller
 {
-    use AuthTrait;
     public $data;
+
+    protected $model;
+    public function __construct()
+    {
+        $this->model = CompanyDetails::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,10 +26,10 @@ class AdminCompanyDetailsController extends Controller
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\CompanyDetails', 'list');
+        $this->checkPermission('list');
         $this->data['authUser'] = User::find(Auth::id());
-        $this->data['companyDetails'] = CompanyDetails::all();
-        $this->data['totalData'] = count(CompanyDetails::all());
+        $this->data['companyDetails'] = $this->model::all();
+        $this->data['totalData'] = count($this->model::all());
         return view('ar.companyDetails.index', $this->data);
     }
 
@@ -35,8 +40,8 @@ class AdminCompanyDetailsController extends Controller
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\CompanyDetails', 'create');
-        return view('ar.companyDetails.create');
+        $this->checkPermission('create');
+        return view('ar.companyDetails.form');
     }
 
     /**
@@ -114,9 +119,9 @@ class AdminCompanyDetailsController extends Controller
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
-        $this->data['companyDetail'] = CompanyDetails::find($id);
-        return view('ar.companyDetails.create', $this->data);
+        $this->checkPermission('update');
+        $this->data['companyDetail'] = $this->model::find($id);
+        return view('ar.companyDetails.form', $this->data);
     }
 
     /**
@@ -128,8 +133,8 @@ class AdminCompanyDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\CompanyDetails', 'update');
-        $cp = CompanyDetails::find($id);
+        $this->checkPermission('update');
+        $cp = $this->model::find($id);
 
         if ($request->has('logo_image') && ($request->logo_image != '')) {
             $imagePath = $cp->logo;

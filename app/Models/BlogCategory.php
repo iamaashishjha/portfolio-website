@@ -2,16 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\Base\BaseModel;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
-use Intervention\Image\ImageManagerStatic as Image;
 
-class BlogCategory extends Model
+class BlogCategory extends BaseModel
 {
-    use HasFactory;
-
     protected $table = 'blog_categories';
 
     protected $fillable = [
@@ -22,6 +17,12 @@ class BlogCategory extends Model
     ];
 
     protected $guarded = ['id'];
+
+
+    // public function scopeActive($query)
+    // {
+    //     return $query->where('status', TRUE);
+    // }
 
 
     /**
@@ -68,11 +69,6 @@ class BlogCategory extends Model
     {
         # code...
         return $this->hasMany(BlogPost::class, 'category_id', 'id');
-    }
-
-    public function deleteImage()
-    {
-        Storage::delete($this->image);
     }
 
     public function user()

@@ -9,10 +9,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreDocumentsRequest;
 use App\Http\Requests\UpdateDocumentsRequest;
 use App\Http\Controllers\Admin\BaseController;
+use App\Traits\Base\BaseCrudController;
 
-class AdminDocumentController extends BaseController
+class AdminDocumentController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Document::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +25,8 @@ class AdminDocumentController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\Document', 'list');
-        $this->data['documents'] = Document::all();
+        $this->checkPermission('list');
+        $this->data['documents'] = $this->model::all();
         return view('ar.documents.index', $this->data);
     }
 
@@ -32,8 +37,8 @@ class AdminDocumentController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\Document', 'create');
-        return view('ar.documents.create');
+        $this->checkPermission('create');
+        return view('ar.documents.form');
     }
 
     /**
@@ -84,9 +89,9 @@ class AdminDocumentController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\Document', 'update');
-        $this->data['document'] = Document::find($id);
-        return view('ar.documents.create', $this->data);
+        $this->checkPermission('update');
+        $this->data['document'] = $this->model::find($id);
+        return view('ar.documents.form', $this->data);
     }
 
     /**
@@ -98,8 +103,8 @@ class AdminDocumentController extends BaseController
      */
     public function update(UpdateDocumentsRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\Document', 'update');
-        $doc = Document::find($id);
+        $this->checkPermission('update');
+        $doc = $this->model::find($id);
 
         if ($request->has('image') && ($request->image != '')) {
             $imagePath = $doc->image;
@@ -142,7 +147,7 @@ class AdminDocumentController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\Document', 'delete');
+        $this->checkPermission('delete');
         $doc = Document::find($id);
         $imagePath = $doc->image;
         if (File::exists($imagePath)) {

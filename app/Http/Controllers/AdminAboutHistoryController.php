@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutHistory;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
+use App\Traits\CheckPermission;
 
-class AdminAboutHistoryController extends Controller
+class AdminAboutHistoryController extends BaseCrudController
 {
+    protected $model;
+    public function __construct()
+    {
+        $this->model = AboutHistory::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,6 +21,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function index()
     {
+        $this->checkPermission('list');
         //
     }
 
@@ -23,6 +32,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function create()
     {
+        $this->checkPermission('create');
         //
     }
 
@@ -34,6 +44,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->checkPermission('create');
         //
     }
 
@@ -56,6 +67,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function edit($id)
     {
+        $this->checkPermission('update');
         //
     }
 
@@ -68,6 +80,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->checkPermission('update');
         //
     }
 
@@ -79,6 +92,7 @@ class AdminAboutHistoryController extends Controller
      */
     public function destroy($id)
     {
+        $this->checkPermission('delete');
         //
     }
 }

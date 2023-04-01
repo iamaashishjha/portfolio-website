@@ -1,19 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Traits\Base;
 
-use App\Models\User;
 use App\Models\AppSettings;
-use Illuminate\Http\Request;
-use App\Traits\CheckPermission;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\checkPermission;
 
-class BaseController extends Controller
+class BaseCrudController extends Controller
 {
-    use CheckPermission;
-
-
+    use checkPermission;
     public $data;
 
      /**
@@ -23,7 +18,6 @@ class BaseController extends Controller
     {
         $this->middleware(['auth', 'admin']);
         $this->data['appSetting'] = AppSettings::first();
-        // $this->data['authUser'] = User::find(Auth::id());
     }
 
 

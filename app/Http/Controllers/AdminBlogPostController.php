@@ -4,19 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogPost;
 use App\Models\BlogTags;
-use App\Traits\AuthTrait;
 use App\Models\BlogCategory;
+use App\Traits\CheckPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\UpdateBlogPostRequest;
-use App\Http\Controllers\Admin\BaseController;
 
-class AdminBlogPostController extends BaseController
+class AdminBlogPostController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = BlogPost::class;
+        $this->data['categories'] = BlogCategory::notDeleted()->active()->get();
+        $this->data['tags'] = BlogTags::notDeleted()->active()->get();
+        $this->data['posts'] = $this->model::notDeleted()->get();
+    }
 
     /**
      * Display a listing of the resource.
@@ -25,24 +32,8 @@ class AdminBlogPostController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'list');
-
-        $categories = BlogCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = BlogTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $posts = BlogPost::where('is_deleted', 0)
-            // ->where('status', 1)
-            ->get();
-
-        return view('ar.blog.post.index')
-            // ->with('tags', $tags)
-            ->with('categories', $categories)
-            ->with('posts', $posts);
+        $this->checkPermission('list');
+        return view('ar.blog.post.index',$this->data);
     }
 
     /**
@@ -52,18 +43,8 @@ class AdminBlogPostController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'create');
-        $categories = BlogCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = BlogTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        return view('ar.blog.post.create')
-            ->with('tags', $tags)
-            ->with('categories', $categories);
+        $this->checkPermission('create');
+        return view('ar.blog.post.form',$this->data);
     }
 
     /**
@@ -74,9 +55,8 @@ class AdminBlogPostController extends BaseController
      */
     public function store(StoreBlogPostRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'create');
-        //
-        $post = new BlogPost();
+        $this->checkPermission('create');
+        $post = new $this->model();
 
         $path = $request->post_image->store('blogs/blog-post', 'public');
         $post->title = $request->title;
@@ -122,9 +102,8 @@ class AdminBlogPostController extends BaseController
      */
     public function show($id)
     {
-        $this->data['post'] = BlogPost::find($id);
+        $this->data['post'] = $this->model::find($id);
         $this->data['post']->viewIncrement();
-
         return view('ar.blog.post.show', $this->data);
     }
 
@@ -136,21 +115,9 @@ class AdminBlogPostController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'update');
-        $categories = BlogCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = BlogTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $post = BlogPost::find($id);
-
-        return view('ar.blog.post.create')
-            ->with('tags', $tags)
-            ->with('categories', $categories)
-            ->with('post', $post);
+        $this->checkPermission('update');
+        $this->data['post'] = $this->model::find($id);
+        return view('ar.blog.post.form',$this->data);
     }
 
     /**
@@ -162,8 +129,8 @@ class AdminBlogPostController extends BaseController
      */
     public function update(UpdateBlogPostRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'update');
-        $post = BlogPost::find($id);
+        $this->checkPermission('update');
+        $post = $this->model::find($id);
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -224,9 +191,8 @@ class AdminBlogPostController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
-        $post = BlogPost::withTrashed()
-            ->where('id', $id)->first();
+        $this->checkPermission('delete');
+        $post = $this->model::withTrashed()->where('id', $id)->first();
         $imagePath = $post->image;
         if ($post->trashed()) {
             if (File::exists($imagePath)) {
@@ -248,16 +214,15 @@ class AdminBlogPostController extends BaseController
 
     public function trashed()
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
-        $posts = BlogPost::onlyTrashed()->where('is_deleted', 0)->get();
-        return view('ar.blog.post.trash')
-            ->with('posts', $posts);
+        $this->checkPermission('delete');
+        $this->data['posts'] = $this->model::onlyTrashed()->deleted()->get();
+        return view('ar.blog.post.trash',$this->data);
     }
 
     public function restore($id)
     {
-        $this->checkCRUDPermission('App\Models\BlogPost', 'delete');
-        $post = BlogPost::onlyTrashed()
+        $this->checkPermission('delete');
+        $post = $this->model::onlyTrashed()
             ->where('id', $id)
             ->first();
         $post->restore();

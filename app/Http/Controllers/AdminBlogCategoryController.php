@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Traits\AuthTrait;
 use App\Models\BlogCategory;
+use App\Traits\CheckPermission;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreBlogCategoryRequest;
 use App\Http\Requests\UpdateBlogCategoryRequest;
-// use Prologue\Alerts\Facades\Alert;
+use App\Traits\Base\BaseCrudController;
 
-// use Alert
-
-
-
-class AdminBlogCategoryController extends BaseController
+class AdminBlogCategoryController extends BaseCrudController
 {
-use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = BlogCategory::class;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,11 +28,9 @@ use AuthTrait;
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'list');
-        $categories = BlogCategory::where('is_deleted', 0)
-            ->get();
-        return view('ar.blog.category.index')
-            ->with('categories', $categories);
+        $this->checkPermission('list');
+        $this->data['categories'] = $this->model::notDeleted()->get();
+        return view('ar.blog.category.index',$this->data);
     }
 
     /**
@@ -41,8 +40,8 @@ use AuthTrait;
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'create');
-        return view('ar.blog.category.create');
+        $this->checkPermission('create');
+        return view('ar.blog.category.form');
     }
 
     /**
@@ -53,9 +52,9 @@ use AuthTrait;
      */
     public function store(StoreBlogCategoryRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'create');
+        $this->checkPermission('create');
         $path = $request->category_image->store('blogs/blog-category', 'public');
-        $category = new BlogCategory();
+        $category = new $this->model();
         $category->title = $request->title;
         $category->description = $request->description;
         $category->category_image = $path;
@@ -98,10 +97,9 @@ use AuthTrait;
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'update');
-
-        $category = BlogCategory::find($id);
-        return view('ar.blog.category.create')
+        $this->checkPermission('update');
+        $category = $this->model::find($id);
+        return view('ar.blog.category.form')
             ->with('category', $category);
     }
 
@@ -114,9 +112,8 @@ use AuthTrait;
      */
     public function update(UpdateBlogCategoryRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'update');
-        $category = BlogCategory::find($id);
-
+        $this->checkPermission('update');
+        $category = $this->model::find($id);
         $category->title = $request->title;
         $category->description = $request->description;
 
@@ -158,21 +155,20 @@ use AuthTrait;
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\BlogCategory', 'delete');
-
-        $category = BlogCategory::find($id);
+        $this->checkPermission('delete');
+        $category = $this->model::find($id);
         $imagePath = $category->image;
         // if ($category->posts->count() === 0) {
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $category->deleteImage();
-            }
-            $category->delete();
-            Alert::success('Category Deleted Successfully');
-            return redirect()->back();
+        if (File::exists($imagePath)) {
+            unlink($imagePath);
+            $category->deleteImage();
+        }
+        $category->delete();
+        Alert::success('Category Deleted Successfully');
+        return redirect()->back();
         // } else {
-            // Alert::toast('Category has Posts. Delete them first.', 'error');
-            // return redirect()->back();
+        // Alert::toast('Category has Posts. Delete them first.', 'error');
+        // return redirect()->back();
         // }
     }
 }

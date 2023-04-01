@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Province;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class ProvinceController extends Controller
+class ProvinceController extends BaseCrudController
 {
     public function index()
     {
@@ -17,6 +18,6 @@ class ProvinceController extends Controller
     {
         $provinces = Province::all();
         return response()->json($provinces);
-        
+
     }
 }

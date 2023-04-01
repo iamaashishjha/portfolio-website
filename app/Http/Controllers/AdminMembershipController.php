@@ -13,12 +13,16 @@ use App\Models\LocalLevelType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
+use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminMembershipController extends Controller
+class AdminMembershipController extends BaseCrudController
 {
-    use AuthTrait;
-    public $data;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Membership::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +30,8 @@ class AdminMembershipController extends Controller
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'list');
-        $this->data['members'] = Membership::all();
+        $this->checkPermission('list');
+        $this->data['members'] = $this->model::all();
         return view('ar.membership.index', $this->data);
     }
 
@@ -38,11 +42,11 @@ class AdminMembershipController extends Controller
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'create');
+        $this->checkPermission('create');
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
-        return view('ar.membership.create', $this->data);
+        return view('ar.membership.form', $this->data);
     }
 
     /**
@@ -53,7 +57,7 @@ class AdminMembershipController extends Controller
      */
     public function store(Request $request)
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'create');
+        $this->checkPermission('create');
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
         }else{
@@ -101,7 +105,7 @@ class AdminMembershipController extends Controller
         }else{
             $panBack = null;
         }
-        $member = new Membership();
+        $member = new $this->model();
 
         $member->name_en = $request->name_en;
         $member->name_lc = $request->name_lc;
@@ -212,8 +216,8 @@ class AdminMembershipController extends Controller
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'update');
-        $this->data['member'] = Membership::find($id);
+        $this->checkPermission('update');
+        $this->data['member'] = $this->model::find($id);
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
@@ -229,9 +233,9 @@ class AdminMembershipController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'update');
+        $this->checkPermission('update');
 
-        $member = Membership::find($id);
+        $member = $this->model::find($id);
 
         $member->name_en = $request->name_en;
         $member->name_lc = $request->name_lc;
@@ -421,8 +425,8 @@ class AdminMembershipController extends Controller
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\Membership', 'delete');
-        $member = Membership::find($id);
+        $this->checkPermission('delete');
+        $member = $this->model::find($id);
         $ownImagePath = $member->own_image;
         if (File::exists($ownImagePath)) {
             unlink($ownImagePath);
@@ -479,7 +483,7 @@ class AdminMembershipController extends Controller
 
     public function approveMember($id)
     {
-        $member = Membership::find($id);
+        $member = $this->model::find($id);
         if ($member->is_verified) {
             Alert::error('Member Already Approved');
             return redirect()->back();
@@ -487,7 +491,7 @@ class AdminMembershipController extends Controller
             $member->is_verified = true;
         $member->approved_by = Auth::user()->id;
         $member->save();
-        Mail::to($member->user)->send(new ApproveMember($member));
+        // Mail::to($member->user)->send(new ApproveMember($member));
         Alert::success('Member Approved');
         return redirect()->back();
         }

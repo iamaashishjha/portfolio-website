@@ -11,11 +11,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
 use App\Http\Controllers\Admin\BaseController;
+use App\Traits\Base\BaseCrudController;
 
-
-class AdminSliderController extends BaseController
+class AdminSliderController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Slider::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +27,9 @@ class AdminSliderController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\Slider', 'list');
-        $this->data['sliders'] = Slider::all();
-        $this->data['totalData'] = count(Slider::all());
+        $this->checkPermission('list');
+        $this->data['sliders'] = $this->model::all();
+        $this->data['totalData'] = count($this->model::all());
         return view('ar.slider.index', $this->data);
     }
 
@@ -36,8 +40,8 @@ class AdminSliderController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\Slider', 'create');
-        return view('ar.slider.create');
+        $this->checkPermission('create');
+        return view('ar.slider.form');
     }
 
     /**
@@ -48,7 +52,7 @@ class AdminSliderController extends BaseController
      */
     public function store(StoreSliderRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\Slider', 'create');
+        $this->checkPermission('create');
 
         $path1 = $request->slider_image_a->store('home/slider', 'public');
 
@@ -73,7 +77,7 @@ class AdminSliderController extends BaseController
             $path5 = NULL;
         }
 
-        $slider = new Slider();
+        $slider = new $this->model();
         $slider->slider_title = $request->slider_title;
         $slider->slider_description = $request->slider_description;
         $slider->image_a = $path1;
@@ -124,9 +128,9 @@ class AdminSliderController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\Slider', 'update');
-        $this->data['slider'] = Slider::find($id);
-        return view('ar.slider.create', $this->data);
+        $this->checkPermission('update');
+        $this->data['slider'] = $this->model::find($id);
+        return view('ar.slider.form', $this->data);
     }
 
     /**
@@ -138,9 +142,9 @@ class AdminSliderController extends BaseController
      */
     public function update(UpdateSliderRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\Slider', 'update');
+        $this->checkPermission('update');
 
-        $slider = Slider::find($id);
+        $slider = $this->model::find($id);
 
         if ($request->has('slider_image_a') && ($request->slider_image_a != '')) {
             $image_Path1 = $slider->image_a;

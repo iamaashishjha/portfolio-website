@@ -6,17 +6,28 @@ use App\Models\NewsPost;
 use App\Models\NewsTags;
 use App\Traits\AuthTrait;
 use App\Models\NewsCategory;
+use App\Traits\CheckPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreNewsPostRequest;
 use App\Http\Requests\UpdateNewsPostRequest;
 use App\Http\Controllers\Admin\BaseController;
 
-class AdminNewsPostController extends BaseController
+class AdminNewsPostController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = NewsPost::class;
+        $this->data['categories'] = NewsCategory::notDeleted()->active()->get();
+        $this->data['tags'] = NewsTags::notDeleted()->active()->get();
+        $this->data['posts'] = $this->model::notDeleted()->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,23 +35,8 @@ class AdminNewsPostController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'list');
-        $categories = NewsCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = NewsTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $posts = NewsPost::where('is_deleted', 0)
-            // ->where('status', 1)
-            ->get();
-
-        return view('ar.news.post.index')
-            ->with('tags', $tags)
-            ->with('categories', $categories)
-            ->with('posts', $posts);
+        $this->checkPermission('list');
+        return view('ar.news.post.index', $this->data);
     }
 
     /**
@@ -50,18 +46,8 @@ class AdminNewsPostController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'create');
-        $categories = NewsCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = NewsTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        return view('ar.news.post.create')
-            ->with('tags', $tags)
-            ->with('categories', $categories);
+        $this->checkPermission('create');
+        return view('ar.news.post.form', $this->data);
     }
 
     /**
@@ -72,9 +58,8 @@ class AdminNewsPostController extends BaseController
      */
     public function store(StoreNewsPostRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'create');
-        //
-        $post = new NewsPost();
+        $this->checkPermission('create');
+        $post = new $this->model();
 
         $path = $request->post_image->store('news/news-post', 'public');
         $post->title = $request->title;
@@ -131,21 +116,9 @@ class AdminNewsPostController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'update');
-        $categories = NewsCategory::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $tags = NewsTags::where('is_deleted', 0)
-            ->where('status', 1)
-            ->get();
-
-        $post = NewsPost::find($id);
-
-        return view('ar.news.post.create')
-            ->with('tags', $tags)
-            ->with('categories', $categories)
-            ->with('post', $post);
+        $this->checkPermission('update');
+        $this->data['post'] = $this->model::find($id);
+        return view('ar.news.post.form', $this->data);
     }
 
     /**
@@ -157,9 +130,9 @@ class AdminNewsPostController extends BaseController
      */
     public function update(UpdateNewsPostRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'update');
+        $this->checkPermission('update');
         //
-        $post = NewsPost::find($id);
+        $post = $this->model::find($id);
 
         $post->title = $request->title;
         $post->description = $request->description;
@@ -221,9 +194,9 @@ class AdminNewsPostController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsPost', 'delete');
+        $this->checkPermission('delete');
         //
-        $post = NewsPost::withTrashed()
+        $post = $this->model::withTrashed()
             ->where('id', $id)->first();
         $imagePath = $post->image;
         if ($post->trashed()) {
@@ -247,14 +220,14 @@ class AdminNewsPostController extends BaseController
     public function trashed()
     {
         # code...
-        $posts = NewsPost::onlyTrashed()->where('is_deleted', 0)->get();
+        $posts = $this->model::onlyTrashed()->get();
         return view('ar.news.post.trash')
             ->with('posts', $posts);
     }
 
     public function restore($id)
     {
-        $post = NewsPost::onlyTrashed()
+        $post = $this->model::onlyTrashed()
             ->where('id', $id)
             ->first();
 

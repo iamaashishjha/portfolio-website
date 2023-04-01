@@ -11,10 +11,15 @@ use App\Http\Requests\StoreNewsTagsRequest;
 use App\Http\Requests\UpdateBlogTagsRequest;
 use App\Http\Requests\UpdateNewsTagsRequest;
 use App\Http\Controllers\Admin\BaseController;
+use App\Traits\Base\BaseCrudController;
 
-class AdminNewsTagController extends BaseController
+class AdminNewsTagController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = NewsTags::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,10 +27,9 @@ class AdminNewsTagController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'list');
-        $tags = NewsTags::where('is_deleted', 0)->get();
-        return view('ar.news.tag.index')
-            ->with('tags', $tags);
+        $this->checkPermission('list');
+        $this->data['tags'] = $this->model::notDeleted()->get();
+        return view('ar.news.tag.index', $this->data);
     }
 
     /**
@@ -35,8 +39,8 @@ class AdminNewsTagController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'create');
-        return view('ar.news.tag.create');
+        $this->checkPermission('create');
+        return view('ar.news.tag.form', $this->data);
     }
 
     /**
@@ -47,9 +51,9 @@ class AdminNewsTagController extends BaseController
      */
     public function store(StoreNewsTagsRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'create');
+        $this->checkPermission('create');
         $path = $request->tag_image->store('news/news-tag', 'public');
-        $tag = new NewsTags();
+        $tag = new $this->model();
         $tag->title = $request->title;
         $tag->description = $request->description;
         $tag->tag_image = $path;
@@ -92,10 +96,9 @@ class AdminNewsTagController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'update');
-        $tag = NewsTags::find($id);
-        return view('ar.news.tag.create')
-            ->with('tag', $tag);
+        $this->checkPermission('update');
+        $this->data['tag'] = $this->model::find($id);
+        return view('ar.news.tag.form', $this->data);
     }
 
     /**
@@ -107,8 +110,8 @@ class AdminNewsTagController extends BaseController
      */
     public function update(UpdateNewsTagsRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'update');
-        $tag = NewsTags::find($id);
+        $this->checkPermission('update');
+        $tag = $this->model::find($id);
 
         $tag->title = $request->title;
         $tag->description = $request->description;
@@ -150,8 +153,8 @@ class AdminNewsTagController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsTags', 'delete');
-        $tag = NewsTags::find($id);
+        $this->checkPermission('delete');
+        $tag = $this->model::find($id);
         $imagePath = $tag->image;
         if (File::exists($imagePath)) {
             unlink($imagePath);

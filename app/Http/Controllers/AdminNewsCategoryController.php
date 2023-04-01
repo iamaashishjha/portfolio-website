@@ -7,15 +7,20 @@ use App\Models\NewsCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
+use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreNewsCategoryRequest;
 use App\Http\Requests\UpdateNewsCategoryRequest;
 // use Prologue\Alerts\Facades\Alert;
 
-class AdminNewsCategoryController extends BaseController
+class AdminNewsCategoryController extends BaseCrudController
 {
-    use AuthTrait;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = NewsCategory::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,11 +28,9 @@ class AdminNewsCategoryController extends BaseController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'list');
-        $categories = NewsCategory::where('is_deleted', 0)
-            ->get();
-        return view('ar.news.category.index')
-            ->with('categories', $categories);
+        $this->checkPermission('list');
+        $this->data['categories'] = $this->model::notDeleted()->get();
+        return view('ar.news.category.index', $this->data);
     }
 
     /**
@@ -37,8 +40,8 @@ class AdminNewsCategoryController extends BaseController
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'create');
-        return view('ar.news.category.create');
+        $this->checkPermission('create');
+        return view('ar.news.category.form');
     }
 
     /**
@@ -49,9 +52,9 @@ class AdminNewsCategoryController extends BaseController
      */
     public function store(StoreNewsCategoryRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'create');
+        $this->checkPermission('create');
         $path = $request->category_image->store('news/news-category', 'public');
-        $category = new NewsCategory();
+        $category = new $this->model();
         $category->title = $request->title;
         $category->description = $request->description;
         $category->category_image = $path;
@@ -95,10 +98,9 @@ class AdminNewsCategoryController extends BaseController
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'update');
-        $category = NewsCategory::find($id);
-        return view('ar.news.category.create')
-            ->with('category', $category);
+        $this->checkPermission('update');
+        $this->data['category'] = $this->model::find($id);
+        return view('ar.news.category.form', $this->data);
     }
 
     /**
@@ -110,8 +112,8 @@ class AdminNewsCategoryController extends BaseController
      */
     public function update(UpdateNewsCategoryRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'update');
-        $category = NewsCategory::find($id);
+        $this->checkPermission('update');
+        $category = $this->model::find($id);
 
         $category->title = $request->title;
         $category->description = $request->description;
@@ -157,8 +159,8 @@ class AdminNewsCategoryController extends BaseController
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\NewsCategory', 'delete');
-        $category = NewsCategory::find($id);
+        $this->checkPermission('delete');
+        $category = $this->model::find($id);
         $imagePath = $category->image;
         // if ($category->posts->count() = 0) {
             if (File::exists($imagePath)) {

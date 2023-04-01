@@ -22,9 +22,22 @@ trait AuthTrait
         return "";
     }
 
+
     public function checkCRUDPermission($modelName, $method)
     {
         $reflection = new ReflectionClass($modelName);
+        $user = User::find(Auth::id());
+        $permission = $user->hasPermissionTo($method . ' ' . Str::lower($reflection->getShortName()));
+        if ($permission) {
+            return;
+        } else {
+            abort(403);
+        }
+    }
+
+    public function checkPermission($method)
+    {
+        $reflection = new ReflectionClass($this->model);
         $user = User::find(Auth::id());
         $permission = $user->hasPermissionTo($method . ' ' . Str::lower($reflection->getShortName()));
         if ($permission) {

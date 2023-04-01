@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
+
+    public $data;
     /**
      * Create a new controller instance.
      *

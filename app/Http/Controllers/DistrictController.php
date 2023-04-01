@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class DistrictController extends Controller
+class DistrictController extends BaseCrudController
 {
     public function index()
     {

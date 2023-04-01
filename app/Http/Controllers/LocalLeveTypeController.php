@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\LocalLevel;
 use App\Models\LocalLevelType;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class LocalLeveTypeController extends Controller
+class LocalLeveTypeController extends BaseCrudController
 {
     //
     public function getLocalLevelType($id)

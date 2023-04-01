@@ -2,21 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\Base\BaseModel;
 use Intervention\Image\ImageManager;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class BlogPost extends Model
+class BlogPost extends BaseModel
 {
-    use HasFactory;
-
     use SoftDeletes;
-
     protected $table = 'blog_posts';
-
     protected $fillable = [
         'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
         'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views',
@@ -116,10 +113,6 @@ class BlogPost extends Model
         return $this->HasMany(BlogsComment::class, 'post_id', 'id');
     }
 
-    public function deleteImage()
-    {
-        Storage::delete($this->image);
-    }
 
     public function viewIncrement()
     {

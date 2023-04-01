@@ -13,6 +13,7 @@ use App\Http\Requests\StoreMemberRequest;
 
 class MembershipController extends Controller
 {
+    public $data;
     public function create()
     {
         $this->data['provinces'] = Province::all();
@@ -32,7 +33,7 @@ class MembershipController extends Controller
     {
         // dd($request);
         // dd($request->gender_id);
-        
+
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
         }else{

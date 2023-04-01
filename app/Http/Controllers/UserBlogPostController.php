@@ -12,13 +12,14 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Notifications\PostCreated;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserBlogPostController extends BaseController
+class UserBlogPostController extends BaseCrudController
 {
     /**
      * Display a listing of the resource.
@@ -113,7 +114,7 @@ class UserBlogPostController extends BaseController
         return redirect()->route('user.post.index');
 
         // $userSchema = Auth::user();
-  
+
         // $post = [
         //     'name' => $post->title,
         //     'body' => $post->description = $request->description,
@@ -121,7 +122,7 @@ class UserBlogPostController extends BaseController
         //     'offerText' => 'Check out the offer',
         //     'offerUrl' => url('/'),
         // ];
-  
+
         // Notification::send($userSchema, new PostCreated($post));
         // $userSchema->notify(new PostCreated($post));
     }
@@ -234,7 +235,7 @@ class UserBlogPostController extends BaseController
     {
         $post = BlogPost::withTrashed()
             ->where('id', $id)->first();
-        $imagePath = $post->image;    
+        $imagePath = $post->image;
         if ($post->trashed()) {
             if (File::exists($imagePath)) {
                 unlink($imagePath);

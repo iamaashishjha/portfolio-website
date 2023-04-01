@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreLibraryRequest;
 use App\Http\Requests\UpdateLibraryRequest;
+use App\Traits\Base\BaseCrudController;
 
-class AdminLibraryController extends Controller
+class AdminLibraryController extends BaseCrudController
 {
-    use AuthTrait;
-    public $data;
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Library::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +25,8 @@ class AdminLibraryController extends Controller
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\Library', 'list');
-        $this->data['libraries'] = Library::all();
+        $this->checkPermission('list');
+        $this->data['libraries'] = $this->model::all();
         return view('ar.library.index', $this->data);
     }
 
@@ -33,8 +37,8 @@ class AdminLibraryController extends Controller
      */
     public function create()
     {
-        $this->checkCRUDPermission('App\Models\Library', 'create');
-        return view('ar.library.create');
+        $this->checkPermission('create');
+        return view('ar.library.form');
     }
 
     /**
@@ -45,9 +49,8 @@ class AdminLibraryController extends Controller
      */
     public function store(StoreLibraryRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\Library', 'create');
-        $library = new Library();
-
+        $this->checkPermission('create');
+        $library = new $this->model();
         $image = $request->image->store('home/library', 'public');
         $file = $request->file->store('home/library', 'public');
 
@@ -85,8 +88,8 @@ class AdminLibraryController extends Controller
      */
     public function edit($id)
     {
-        $this->checkCRUDPermission('App\Models\Library', 'update');
-        $this->data['library'] = Library::find($id);
+        $this->checkPermission('update');
+        $this->data['library'] = $this->model::find($id);
         return view('ar.library.create', $this->data);
     }
 
@@ -99,8 +102,8 @@ class AdminLibraryController extends Controller
      */
     public function update(UpdateLibraryRequest $request, $id)
     {
-        $this->checkCRUDPermission('App\Models\Library', 'update');
-        $library = Library::find($id);
+        $this->checkPermission('update');
+        $library = $this->model::find($id);
 
         if ($request->has('image') && ($request->image != '')) {
             $imagePath = $library->image;
@@ -142,8 +145,8 @@ class AdminLibraryController extends Controller
      */
     public function destroy($id)
     {
-        $this->checkCRUDPermission('App\Models\Library', 'delete');
-        $library = Library::find($id);
+        $this->checkPermission('delete');
+        $library = $this->model::find($id);
         $imagePath = $library->image;
         if (File::exists($imagePath)) {
             unlink($imagePath);

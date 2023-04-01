@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class BlogTags extends Model
+class BlogTags extends BaseModel
 {
-    use HasFactory;
 
     protected $table = 'blog_tags';
 
@@ -59,10 +59,5 @@ class BlogTags extends Model
     {
         # code...
         return $this->belongsTo(User::class);
-    }
-
-    public function deleteImage()
-    {
-        Storage::delete($this->image);
     }
 }
