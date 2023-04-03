@@ -26,7 +26,7 @@ class AdminEventController extends BaseCrudController
      */
     public function index()
     {
-        $this->checkCRUDPermission('App\Models\Event', 'list');
+        $this->checkPermission('list');
         $this->data['events'] = $this->model::notDeleted()->get();
         return view('ar.event.index', $this->data);
     }

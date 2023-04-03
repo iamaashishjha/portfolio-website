@@ -6,7 +6,7 @@ use App\Models\NewsPost;
 use App\Models\NewsTags;
 use App\Traits\AuthTrait;
 use App\Models\NewsCategory;
-use App\Traits\CheckPermission;
+use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Traits\Base\BaseCrudController;

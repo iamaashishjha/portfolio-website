@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Models\BlogCategory;
-use App\Traits\CheckPermission;
+use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Traits\Base\BaseCrudController;

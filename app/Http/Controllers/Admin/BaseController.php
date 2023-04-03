@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\AppSettings;
 use Illuminate\Http\Request;
-use App\Traits\CheckPermission;
+use App\Traits\checkPermission;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class BaseController extends Controller
 {
-    use CheckPermission;
+    use checkPermission;
 
 
     public $data;

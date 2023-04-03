@@ -92,9 +92,4 @@ class Slider extends BaseModel
     {
         return $this->belongsTo(User::class);
     }
-
-    public function deleteImage($value)
-    {
-        Storage::delete($this->image_ . $value);
-    }
 }

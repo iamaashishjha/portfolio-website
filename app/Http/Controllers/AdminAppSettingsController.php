@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AppSettings;
-use App\Traits\CheckPermission;
+use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\File;
