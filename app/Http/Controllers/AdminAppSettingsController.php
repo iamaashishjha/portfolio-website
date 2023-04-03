@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\AppSettings;
-use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreAppSettingRequest;
-use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\UpdateAppSettingRequest;
 use App\Traits\Base\BaseCrudController;
 

@@ -10,7 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreNewsTagsRequest;
 use App\Http\Requests\UpdateBlogTagsRequest;
 use App\Http\Requests\UpdateNewsTagsRequest;
-use App\Http\Controllers\Admin\BaseController;
+
 use App\Traits\Base\BaseCrudController;
 
 class AdminNewsTagController extends BaseCrudController

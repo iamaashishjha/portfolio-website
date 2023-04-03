@@ -3,12 +3,12 @@
 namespace App\Traits\Base;
 
 use App\Models\AppSettings;
+use App\Traits\CheckPermission;
 use App\Http\Controllers\Controller;
-use App\Traits\checkPermission;
 
 class BaseCrudController extends Controller
 {
-    use checkPermission;
+    use CheckPermission;
     public $data;
 
      /**

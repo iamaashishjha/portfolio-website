@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\AboutHistory;
 use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
-use App\Traits\checkPermission;
 
 class AdminAboutHistoryController extends BaseCrudController
 {

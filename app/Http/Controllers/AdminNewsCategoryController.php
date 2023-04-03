@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\File;
 
 use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Controllers\Admin\BaseController;
 use App\Http\Requests\StoreNewsCategoryRequest;
 use App\Http\Requests\UpdateNewsCategoryRequest;
 // use Prologue\Alerts\Facades\Alert;

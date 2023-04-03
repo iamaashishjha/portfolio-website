@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\AuthTrait;
 use App\Models\BlogCategory;
-use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\File;

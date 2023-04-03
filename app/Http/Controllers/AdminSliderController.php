@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
-use App\Http\Controllers\Admin\BaseController;
+
 use App\Traits\Base\BaseCrudController;
 
 class AdminSliderController extends BaseCrudController

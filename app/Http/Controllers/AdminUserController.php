@@ -13,7 +13,7 @@ use GrahamCampbell\ResultType\Success;
 use App\Http\Requests\StoreUserRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Admin\BaseController;
+
 use App\Http\Requests\UpdateUserRequest;
 use App\Traits\Base\BaseCrudController;
 
