@@ -25,6 +25,12 @@ class AdminUserController extends BaseCrudController
         $this->model = User::class;
     }
 
+    public function index()
+    {
+        $this->data['users'] = $this->model::all();
+        return view('ar.user.index', $this->data);
+    }
+
     public function create()
     {
         $this->checkPermission('create');
@@ -98,6 +104,9 @@ class AdminUserController extends BaseCrudController
         $this->data['users'] = $this->model::where('role', 1)->get();
         return view('ar.user.admin', $this->data);
     }
+
+
+
 
     public function makeAdmin($id)
     {

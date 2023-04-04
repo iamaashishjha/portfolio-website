@@ -206,6 +206,12 @@
                         </div>
                     </a>
                     <ul class="collapse">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.user.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Users </div>
+                            </a>
+                        </li>
                             <li class="nav-item">
                                 <a href="{{ route('admin.role.index') }}" class="side-menu">
                                     <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
@@ -218,35 +224,6 @@
                                     <div class="side-menu__title"> Permissions </div>
                                 </a>
                             </li>
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('admin.user.create') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title"> Create User </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.registered') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-male" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="side-menu__title"> Registered Users </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.admin') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-user-secret"
-                                            aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title"> Admin Users </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.profile', $authUser->id) }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-user-circle-o"
-                                            aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title">
-                                        About Me
-                                    </div>
-                                </a>
-                            </li> --}}
                     </ul>
                 </li>
             @endif

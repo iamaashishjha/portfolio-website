@@ -118,6 +118,7 @@ Route::middleware(['auth', 'admin'])
             ->controller(AdminUserController::class)
             ->group(function () {
                 Route::get('/create', 'create')->name('create');
+                Route::get('/', 'index')->name('index');
                 Route::post('/', 'store')->name('store');
                 Route::get('/edit/{id}', 'edit')->name('edit');
                 Route::post('/{id}', 'update')->name('update');
