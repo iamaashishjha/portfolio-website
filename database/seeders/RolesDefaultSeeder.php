@@ -2,8 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
+use App\Models\User;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 class RolesDefaultSeeder extends Seeder
 {
@@ -16,9 +20,10 @@ class RolesDefaultSeeder extends Seeder
     {
         $this->cleanTables();
         $this->roles();
-        $this->permission();
-        $this->role_has_permission();
-        $this->model_has_roles();
+        $this->assignRoleToSuperAdmin();
+        // $this->permission();
+        // $this->role_has_permission();
+        // $this->model_has_roles();
     }
 
     public function cleanTables()
@@ -39,6 +44,16 @@ class RolesDefaultSeeder extends Seeder
             array('id' => '4', 'name' => 'districtadmin', 'guard_name' => 'web', 'created_at' => '2023-03-31 16:09:09', 'updated_at' => '2023-03-31 16:09:09')
         );
         DB::table('roles')->insert($roles);
+    }
+
+    public function assignRoleToSuperAdmin()
+    {
+        Artisan::Call('generate:permissions');
+        $user = User::find(1);
+        $permissions = Permission::all();
+        $super_admin_role = Role::find(1);
+        $super_admin_role->givePermissionTo($permissions);
+        $user->assignRoleCustom("superadmin", $user->id);
     }
 
 
