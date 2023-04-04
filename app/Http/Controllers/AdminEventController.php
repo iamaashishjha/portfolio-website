@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreEventRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateEventRequest;
-use App\Http\Controllers\Admin\BaseController;
 use App\Traits\Base\BaseCrudController;
 
 class AdminEventController extends BaseCrudController

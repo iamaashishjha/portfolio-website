@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\User\BaseController;
+
 use App\Http\Middleware\User;
 use App\Http\Requests\StoreBlogPostRequest;
 use App\Http\Requests\StoreUserBlogPostRequest;

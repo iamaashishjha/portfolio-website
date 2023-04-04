@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreDocumentsRequest;
 use App\Http\Requests\UpdateDocumentsRequest;
-use App\Http\Controllers\Admin\BaseController;
 use App\Traits\Base\BaseCrudController;
 
 class AdminDocumentController extends BaseCrudController

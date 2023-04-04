@@ -7,7 +7,7 @@ use ReflectionClass;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
-trait checkPermission
+trait CheckPermission
 {
     public function checkPermission($method)
     {

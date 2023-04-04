@@ -6,7 +6,6 @@ use App\Models\NewsPost;
 use App\Models\NewsTags;
 use App\Traits\AuthTrait;
 use App\Models\NewsCategory;
-use App\Traits\checkPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Traits\Base\BaseCrudController;
@@ -14,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreNewsPostRequest;
 use App\Http\Requests\UpdateNewsPostRequest;
-use App\Http\Controllers\Admin\BaseController;
 
 class AdminNewsPostController extends BaseCrudController
 {
