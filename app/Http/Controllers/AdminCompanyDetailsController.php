@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\CompanyDetails;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminCompanyDetailsController extends Controller
+class AdminCompanyDetailsController extends BaseCrudController
 {
     public $data;
 
