@@ -40,17 +40,16 @@ class AdminUserController extends BaseCrudController
 
     public function store(StoreUserRequest $request)
     {
-        // if($request->file('image_path')){
-        //     $path = $request->file('image_path')->store('users/', 'public');
-        // }else{
-        //     $path = null;
-        // }
+        if($request->file('image_path')){
+            $path = $request->file('image_path')->store('users/', 'public');
+        }else{
+            $path = null;
+        }
         $user = new $this->model();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        // $user->image_path = $path;
-        // $user->rank_id = $request->rank_id;
+        $user->image_path = $path;
         $user->save();
         if($request->role){
             $user->assignRoleCustom($request->role, $user->id);
