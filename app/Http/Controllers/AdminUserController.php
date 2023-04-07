@@ -52,7 +52,8 @@ class AdminUserController extends BaseCrudController
         $user->profile_image = $path;
         $user->save();
         if($request->role){
-            $user->assignRoleCustom($request->role, $user->id);
+            $role = Role::find($request->role);
+            $user->assignRole($role);
         }
         return redirect()->route('admin.user.registered')->with('successMessage', 'User Created Successfully');
     }
