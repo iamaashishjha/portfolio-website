@@ -49,7 +49,7 @@ class AdminUserController extends BaseCrudController
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->image_path = $path;
+        $user->profile_image = $path;
         $user->save();
         if($request->role){
             $user->assignRoleCustom($request->role, $user->id);
