@@ -6,8 +6,9 @@ use App\Models\Province;
 use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class ProvinceController extends BaseCrudController
+class ProvinceController extends Controller
 {
+    public $data;
     public function index()
     {
         $this->data['provinces'] = Province::all();

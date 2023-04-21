@@ -6,8 +6,9 @@ use App\Models\LocalLevel;
 use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class LocalLevelController extends BaseCrudController
+class LocalLevelController extends Controller
 {
+    public $data;
     public function index()
     {
         $this->data['localLevels'] = LocalLevel::all();

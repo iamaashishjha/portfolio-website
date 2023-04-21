@@ -6,8 +6,9 @@ use App\Models\District;
 use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class DistrictController extends BaseCrudController
+class DistrictController extends Controller
 {
+    public $data;
     public function index()
     {
         $this->data['districts'] = District::all();
