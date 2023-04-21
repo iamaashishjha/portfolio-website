@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Administrative Users | Nagrik Unmukti Party
+All Administrative Users | {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

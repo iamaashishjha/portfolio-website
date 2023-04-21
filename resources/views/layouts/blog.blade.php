@@ -26,7 +26,7 @@
 
     <!--	Title
     ==================================================-->
-    <title>@yield('title', 'Blog | Nagrik Unmukti Party')</title>
+    <title>@yield('title', 'Blog | '.__('base.title'))</title>
 
 </head>
 

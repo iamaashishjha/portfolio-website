@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\AdminBlogCategoryController;
-use App\Http\Controllers\AdminBlogPostController;
-use App\Http\Controllers\AdminBlogTagController;
-use App\Http\Controllers\AdminCompanyDetailsController;
-use App\Http\Controllers\AdminEventController;
-use App\Http\Controllers\AdminAppSettingsController;
-use App\Http\Controllers\AdminDocumentController;
-use App\Http\Controllers\AdminLibraryController;
-use App\Http\Controllers\AdminMembershipController;
-use App\Http\Controllers\AdminNewsCategoryController;
-use App\Http\Controllers\AdminNewsPostController;
-use App\Http\Controllers\AdminNewsTagController;
-use App\Http\Controllers\AdminSliderController;
-use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MembershipController;
-use App\Http\Controllers\UserBlogPostController;
-use App\Http\Controllers\UserDashboardController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminEventController;
+use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminLibraryController;
+use App\Http\Controllers\AdminNewsTagController;
+use App\Http\Controllers\UserBlogPostController;
+use App\Http\Controllers\AdminBlogPostController;
+use App\Http\Controllers\AdminDocumentController;
+use App\Http\Controllers\AdminNewsPostController;
+use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\AdminMembershipController;
+use App\Http\Controllers\AdminAppSettingsController;
+use App\Http\Controllers\AdminBlogCategoryController;
+use App\Http\Controllers\AdminNewsCategoryController;
+use App\Http\Controllers\AdminCompanyDetailsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::view('/a', 'ar.blog.post.show');
 
 Route::post('/locale', function () {
-    if ((app('request')->input('locale'))) {
-        session(['my_locale' => 'en']);
-    } else {
+    $langVal = request()->locale;
+    if (($langVal)) {
         session(['my_locale' => 'np']);
+    } else {
+        session(['my_locale' => 'en']);
     }
     return redirect()->back();
 });
@@ -205,7 +207,7 @@ Route::middleware(['auth', 'user', 'verified'])
                         Route::put('/restore/{id}', 'restore')->name('restore');
                     });
             });
-});
+    });
 
 
 Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);

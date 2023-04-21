@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Company Details | Nagrik Unmukti Party
+All Company Details || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

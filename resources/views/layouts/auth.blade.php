@@ -13,9 +13,9 @@ $appSetting = AppSettings::first();
         rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : 'Nagrik Unmukti Party' }}">
-    <meta name="keywords" content="{{ isset($appSetting->keywords) ? $appSetting->keywords : 'Nagrik Unmukti Party' }}">
-    <meta name="author" content="{{ isset($appSetting->title) ? $appSetting->title : 'Nagrik Unmukti Party' }}">
+        content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : __('base.title')  }}">
+    <meta name="keywords" content="{{ isset($appSetting->keywords) ? $appSetting->keywords : __('base.title')  }}">
+    <meta name="author" content="{{ isset($appSetting->title) ? $appSetting->title : __('base.title')  }}">
     <title>@yield('title', 'Login')</title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />

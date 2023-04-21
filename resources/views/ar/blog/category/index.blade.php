@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Blog Categories | Nagrik Unmukti Party
+All Blog Categories || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

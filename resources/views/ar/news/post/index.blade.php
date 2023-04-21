@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All News Posts | Nagrik Unmukti Party
+All News Posts || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @yield('meta')
     <title>
-        @yield('title', isset($appSetting->site_title) ? $appSetting->site_title : 'Nagrik Unmukti Party' )
+        @yield('title', isset($appSetting->site_title) ? $appSetting->site_title : __('base.title')  )
     </title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/apple-touch-icon.png' }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">

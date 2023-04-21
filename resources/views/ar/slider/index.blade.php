@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Sliders | Nagrik Unmukti Party
+All Sliders | {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

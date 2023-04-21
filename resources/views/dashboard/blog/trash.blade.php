@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Trashed Blog Posts | Nagrik Unmukti Party
+Trashed Blog Posts || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

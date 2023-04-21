@@ -2,7 +2,7 @@
 
 @section('title')
 
-All Blog Tags | Nagrik Unmukti Party
+All Blog Tags | {{ __('base.title') }}
 
 @endsection
 

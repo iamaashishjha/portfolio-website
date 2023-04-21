@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All App Settings | Nagrik Unmukti Party
+All App Settings || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

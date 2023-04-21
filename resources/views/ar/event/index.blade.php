@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Events | Nagrik Unmukti Party
+All Events || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')

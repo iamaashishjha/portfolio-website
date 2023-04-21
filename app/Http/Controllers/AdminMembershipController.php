@@ -491,7 +491,7 @@ class AdminMembershipController extends BaseCrudController
             $member->is_verified = true;
         $member->approved_by = Auth::user()->id;
         $member->save();
-        // Mail::to($member->user)->send(new ApproveMember($member));
+        Mail::to($member->user)->send(new ApproveMember($member));
         Alert::success('Member Approved');
         return redirect()->back();
         }

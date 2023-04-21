@@ -1,0 +1,19 @@
+.header .nav-section .container {
+    background-image: url("/customHome/assets/img/topbarjpg.jpg");
+}
+
+.top-ban-img {
+    background-image: url("/customHome/assets/img/topbarjpg.jpg");
+}
+
+a.read-more:after {
+    background: url("/customHome/assets/img/three-dots.png") no-repeat center
+}
+
+.services {
+    background: url("/customHome/assets/img/thumbs.jpg")
+}
+
+.footer .container {
+    background-image: url("/customHome/assets/img/bottombarjpg.jpg");
+}

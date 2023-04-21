@@ -51,7 +51,7 @@ class HomeController extends Controller
         // $this->data['events'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(3)->get();
         $this->data['newsPosts'] = NewsPost::orderBy('created_at', 'DESC')->take(3)->get();
         $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
-        return view('hr.index', $this->data);
+        return view('customHome.index', $this->data);
     }
 
     public function indexPageSliderForm(Request $request)

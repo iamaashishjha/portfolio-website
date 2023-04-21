@@ -1,7 +1,7 @@
 @extends('layouts.ar')
 
 @section('title')
-All Documents | Nagrik Unmukti Party
+All Documents || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')
