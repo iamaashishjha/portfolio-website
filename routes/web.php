@@ -205,7 +205,7 @@ Route::middleware(['auth', 'user', 'verified'])
                         Route::put('/restore/{id}', 'restore')->name('restore');
                     });
             });
-    });
+});
 
 
 Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);

@@ -7,7 +7,7 @@ use App\Models\LocalLevelType;
 use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class LocalLeveTypeController extends BaseCrudController
+class LocalLeveTypeController extends Controller
 {
     //
     public function getLocalLevelType($id)
