@@ -123,20 +123,17 @@ Route::middleware(['auth'])
             '/',
             [AdminDashboardController::class, 'index']
         )->name('index');
+        Route::resource('/user', AdminUserController::class, ['names' => 'user']);
         Route::prefix('/user')
             ->name('user.')
             ->controller(AdminUserController::class)
             ->group(function () {
-                Route::get('/create', 'create')->name('create');
-                Route::get('/', 'index')->name('index');
-                Route::post('/', 'store')->name('store');
-                Route::get('/edit/{id}', 'edit')->name('edit');
-                Route::post('/{id}', 'update')->name('update');
-                Route::get('/registered-users', 'registeredUsers')->name('registered');
-                Route::put('/registered-user/{user_id}', 'makeAdmin')->name('make');
-                Route::get('/admin-users', 'adminUsers')->name('admin');
-                Route::put('/admin-user/{user_id}', 'removeAdmin')->name('remove');
-                Route::delete('/{user_id}', 'deleteUser')->name('delete');
+                // Route::get('/create', 'create')->name('create');
+                // Route::get('/', 'index')->name('index');
+                // Route::post('/', 'store')->name('store');
+                // Route::get('/edit/{id}', 'edit')->name('edit');
+                // Route::post('/{id}', 'update')->name('update');
+                // Route::delete('/{user_id}', 'destroy')->name('delete');
                 Route::get('/profile/{id}', 'profile')->name('profile');
                 Route::put('/profile/{id}', 'profileUpdate')->name('update');
                 Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');

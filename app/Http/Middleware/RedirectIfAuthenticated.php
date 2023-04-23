@@ -47,14 +47,15 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                $role = Auth::user()->role;
-                if ($role == 0) {
-                    return redirect(RouteServiceProvider::DASHBOARD);
-                } elseif ($role == 1) {
-                    return redirect(RouteServiceProvider::ADMIN);
-                } else {
-                    return redirect(RouteServiceProvider::HOME);
-                }
+                // $role = Auth::user()->role;
+                // if ($role == 0) {
+                //     return redirect(RouteServiceProvider::DASHBOARD);
+                // } elseif ($role == 1) {
+                //     return redirect(RouteServiceProvider::ADMIN);
+                // } else {
+                //     return redirect(RouteServiceProvider::HOME);
+                // }
+                return redirect(RouteServiceProvider::ADMIN);
             }
         }
         return $next($request);

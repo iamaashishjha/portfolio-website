@@ -84,20 +84,22 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->blogPost()->count();
     }
 
-    public function getAdminAttribute()
+    public function newsPost()
     {
-        $status = $this->attributes['role'];
-        return $status;
+        return $this->hasMany(BlogPost::class, 'created_by', 'id');
+    }
+
+    public function newsCount()
+    {
+        return $this->newsPost()->count();
     }
 
     public function getImageAttribute()
     {
         $image = $this->profile_image;
         if ($image != NULL) {
-            # code...
-        return '/storage/' . $image;
-
-        }else{
+            return '/storage/' . $image;
+        } else {
             return null;
         }
     }
@@ -107,29 +109,28 @@ class User extends Authenticatable  implements MustVerifyEmail
         Storage::delete($this->image);
     }
 
-    public function isAdmin()
+    //assign role to user
+    public function assignRoleCustom($role_name, $model_id)
     {
-        $role = $this->role;
-        if ($role == 1) {
-            return true;
-        }
-        else{
-            return false;
+        $roleModel = Role::where('name', $role_name)->first();
+        if (!$roleModel) {
+            return "role doesnot exists";
+        } else {
+            DB::table('model_has_roles')->insert([
+                'role_id' => $roleModel->id,
+                'model_type' => 'App\Models\User',
+                'model_id' => $model_id,
+            ]);
         }
     }
 
-        //assign role to user
-        public function assignRoleCustom($role_name, $model_id){
-            $roleModel = Role::where('name', $role_name)->first();
-            if(!$roleModel){
-                return "role doesnot exists";
-            }else{
-                DB::table('model_has_roles')->insert([
-                    'role_id' => $roleModel->id,
-                    'model_type' => 'App\Models\User',
-                    'model_id' => $model_id,
-                ]);
-            }
 
+    public function getRoleName()
+    {
+        if ($role = $this->roles()->first()) {
+            return $role->name;
         }
+
+        return 'N/A';
+    }
 }

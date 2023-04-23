@@ -37,8 +37,9 @@ All Members
                 <th class="border-b-2 text-center whitespace-no-wrap">Name</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Email</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Phone</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Cast</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Profession</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Province</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">District</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Local Level</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
         </thead>
@@ -65,15 +66,19 @@ All Members
                         </td>
                         <td class="border-b text-center">
                             <div class="font-medium whitespace-no-wrap">
-                                {{ $member->cast }}
+                                {{ $member->permProvince->name }}
                             </div>
                         </td>
                         <td class="text-center border-b">
                             <div class="font-medium whitespace-no-wrap">
-                                {{ $member->profession }}
+                                {{ $member->permDistrict->name }}
                             </div>
                         </td>
-
+                        <td class="text-center border-b">
+                            <div class="font-medium whitespace-no-wrap">
+                                {{ $member->permLocalLevel->name }}
+                            </div>
+                        </td>
                         <td class="border-b w-5">
                             <div class="flex sm:justify-center items-center">
                                 <a class="flex items-center text-theme-9 mr-2" href="javascript:;" data-toggle="modal"

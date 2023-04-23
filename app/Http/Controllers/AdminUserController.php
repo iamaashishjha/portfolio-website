@@ -55,7 +55,7 @@ class AdminUserController extends BaseCrudController
             $role = Role::find($request->role);
             $user->assignRole($role);
         }
-        return redirect()->route('admin.user.registered')->with('successMessage', 'User Created Successfully');
+        return redirect()->route('admin.user.index')->with('successMessage', 'User Created Successfully');
     }
 
 
@@ -83,14 +83,12 @@ class AdminUserController extends BaseCrudController
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $password;
-        // $user->image_path = $path;
-        // $user->rank_id = $request->rank_id;
         $user->save();
         if($request->role){
             $user->assignRoleCustom($request->role, $user->id);
         }
         $user->assignRoleCustom($request->role, $user->id);
-        return redirect()->route('admin.user.registered')->with('successMessage', 'User Updated Successfully');
+        return redirect()->route('admin.user.index')->with('successMessage', 'User Updated Successfully');
     }
 
     public function registeredUsers()
@@ -105,36 +103,33 @@ class AdminUserController extends BaseCrudController
         return view('ar.user.admin', $this->data);
     }
 
+    // public function makeAdmin($id)
+    // {
+    //     $user = $this->model::find($id);
+    //     $user->role = 1;
+    //     $user->save();
+    //     Alert::toast('User has been made admin', 'success');
+    //     return redirect()->back();
+    // }
 
+    // public function removeAdmin($id)
+    // {
+    //     $user = $this->model::find($id);
+    //     if ($user->id === 1) {
+    //         Alert::error('User cannot be removed from Admin');
+    //         return redirect()->back();
+    //     } elseif(($user->catCount() > 0) || ($user->tagCount() > 0) ){
+    //         Alert::error('User cannot be removed from Admin. User has Created Categories/Tags. Delete them before removing user from admin.');
+    //         return redirect()->back();
+    //     }else {
+    //         $user->role = 0;
+    //         $user->save();
+    //         Alert::toast('User removed from admin', 'success');
+    //         return redirect()->back();
+    //     }
+    // }
 
-
-    public function makeAdmin($id)
-    {
-        $user = $this->model::find($id);
-        $user->role = 1;
-        $user->save();
-        Alert::toast('User has been made admin', 'success');
-        return redirect()->back();
-    }
-
-    public function removeAdmin($id)
-    {
-        $user = $this->model::find($id);
-        if ($user->id === 1) {
-            Alert::error('User cannot be removed from Admin');
-            return redirect()->back();
-        } elseif(($user->catCount() > 0) || ($user->tagCount() > 0) ){
-            Alert::error('User cannot be removed from Admin. User has Created Categories/Tags. Delete them before removing user from admin.');
-            return redirect()->back();
-        }else {
-            $user->role = 0;
-            $user->save();
-            Alert::toast('User removed from admin', 'success');
-            return redirect()->back();
-        }
-    }
-
-    public function deleteUser($id)
+    public function destroy($id)
     {
         $user = $this->model::find($id);
 

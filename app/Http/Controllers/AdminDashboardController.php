@@ -20,6 +20,7 @@ class AdminDashboardController extends BaseCrudController
 
     public function index()
     {
+        // dd('ok');
         $this->data['userCount'] = count(User::all());
         $this->data['memberCount'] = count(Membership::all());
         $this->data['eventsCount'] = count(Event::all());

@@ -16,10 +16,10 @@ All Administrative Users | {{ __('base.title') }}
 {{-- @include('partials.ar.modelMessage') --}}
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        Administrative Users
+        All Users
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.user.registered') }}">Registered Users</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.user.create') }}">Create New Users</a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
@@ -31,10 +31,10 @@ All Administrative Users | {{ __('base.title') }}
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Email</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Posts</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Categories</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Tags</th>
-                {{-- <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th> --}}
+                <th class="border-b-2 text-center whitespace-no-wrap">Role</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">News</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -58,12 +58,12 @@ All Administrative Users | {{ __('base.title') }}
                 </td>
                 <td class="text-center border-b">
                     <span class="px-4 py-3 rounded-full bg-theme-1 text-white mr-1">
-                        {{ $user->catCount() }}
+                        {{ $user->getRoleName() }}
                     </span>
                 </td>
                 <td class="text-center border-b">
                     <span class="px-4 py-3 rounded-full bg-theme-9 text-white mr-1">
-                        {{ $user->tagCount() }}
+                        {{ $user->newsCount() }}
                     </span>
                 </td>
                 <td class="text-center border-b">
@@ -71,36 +71,16 @@ All Administrative Users | {{ __('base.title') }}
                         {{ $user->postCount() }}
                     </span>
                 </td>
-
-                {{-- <td class="border-b w-5">
+                <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center text-theme-6 mr-3" href="javascript:;" data-toggle="modal" data-target="#remove-modal-preview-{{ $user->id }}">
-                            <i data-feather="user-minus" class="w-4 h-4 mr-1"></i>
-                            Remove
-                        </a>
                         <a class="flex items-center" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview-{{ $user->id }}">
                             <i data-feather="trash-2" class="w-4 h-4 mr-1"></i>
                             Delete
                         </a>
                     </div>
-                </td> --}}
+                </td>
             </tr>
-            {{-- <div class="modal" id="remove-modal-preview-{{ $user->id }}">
-                <div class="modal__content">
-                    <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                        <div class="text-3xl mt-5">Are you sure?</div>
-                        <div class="text-gray-600 mt-2">Do you really want to remove user from Admin? User will be demoted to registered user only.</div>
-                    </div>
-                    <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.remove', $user->id) }}" method="post">
-                            @csrf
-                            @method('PUT')
-                            <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
-                            <button type="submit" class="button w-24 bg-theme-6 text-white">Remove</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
             <div class="modal" id="delete-modal-preview-{{ $user->id }}">
                 <div class="modal__content">
                     <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
@@ -108,7 +88,7 @@ All Administrative Users | {{ __('base.title') }}
                         <div class="text-gray-600 mt-2">Do you really want to delete user? This process cannot be undone.</div>
                     </div>
                     <div class="px-5 pb-8 text-center">
-                        <form action="{{ route('admin.user.delete', $user->id) }}" method="post">
+                        <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 mr-1">Cancel</button>
@@ -116,7 +96,7 @@ All Administrative Users | {{ __('base.title') }}
                         </form>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             @endforeach
             @else
             <td class="text-center border-b" colspan="8">

@@ -32,13 +32,15 @@
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table class="table table-report table-report--bordered display datatable w-full" id="dataTable">
+        <table class="table table-report table-report--bordered display w-full" id="dataTable">
             <thead>
                 <tr>
                     <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Name</th>
-                    <th class="border-b-2 text-center  whitespace-no-wrap">Email</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Phone</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Province</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">District</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Local Level</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                 </tr>
             </thead>
@@ -55,12 +57,22 @@
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->email }}
+                                    {{ $member->phone_number }}
                                 </div>
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->phone_number }}
+                                    {{ $member->permProvince->name }}
+                                </div>
+                            </td>
+                            <td class="text-center border-b">
+                                <div class="font-medium whitespace-no-wrap">
+                                    {{ $member->permDistrict->name }}
+                                </div>
+                            </td>
+                            <td class="text-center border-b">
+                                <div class="font-medium whitespace-no-wrap">
+                                    {{ $member->permLocalLevel->name }}
                                 </div>
                             </td>
                             <td class="border-b w-5">
@@ -318,7 +330,7 @@
                         </div>
                     @endforeach
                 @else
-                    <td class="text-center border-b" colspan="5">
+                    <td class="text-center border-b" colspan="7">
                         No Posts Available
                     </td>
                 @endif

@@ -16,10 +16,12 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([
-            ['id' => 1, 'name' => 'superadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
-            ['id' => 2, 'name' => 'centraladmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
-            ['id' => 3, 'name' => 'provinceadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
-            ['id' => 4, 'name' => 'districtadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 1, 'name' => 'Superadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 2, 'name' => 'Centraladmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 3, 'name' => 'Provinceadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 4, 'name' => 'Districtadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 5, 'name' => 'Palikaadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
+            ['id' => 6, 'name' => 'Memberadmin', 'guard_name' => 'web', 'created_at' => Carbon::now()->toDateTimeString(), 'updated_at' => Carbon::now()->toDateTimeString()],
         ]);
     }
 }

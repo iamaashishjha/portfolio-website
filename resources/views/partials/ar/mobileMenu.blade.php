@@ -139,13 +139,13 @@
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.user.registered') }}" class="menu">
+                    <a href="{{ route('admin.user.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-male" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Registered Users </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.user.admin') }}" class="menu">
+                    <a href="{{ route('admin.user.index') }}" class="menu">
 
                         <div class="menu__icon"> <i class="fa fa-user-secret" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Admin Users </div>

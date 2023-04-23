@@ -153,7 +153,7 @@
 	</div>
 
 	{{-- Id Number --}}
-	<div class="grid grid-cols-3 gap-2">
+	<div class="grid grid-cols-12 gap-2">
 		<div class="col-span-12 lg:col-span-4">
 			<div class="font-medium mt-3  @error('citizenship_number') text-theme-6 @enderror  flex items-center">
 				Citizenship Number (नागरिकता प्र. प्र. नं.)

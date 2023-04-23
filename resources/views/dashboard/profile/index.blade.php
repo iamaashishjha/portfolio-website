@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('title')
-@can('isAdmin') Update Profile | Admin Dashboard @elsecan('isUser') Update Profile | Dashboard @endcan
+Update Profile | Admin Dashboard
 @endsection
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="@can('isAdmin') /admin @elsecan('isUser') /dashboard @endcan" class="breadcrumb--active">
-		@can('isAdmin') Admin Dashboard @elsecan('isUser') Dashboard @endcan
+    <a href="/admin" class="breadcrumb--active">
+		Admin Dashboard
     </a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">Update Your Profile</a>

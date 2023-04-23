@@ -31,11 +31,12 @@ class ApproveMember extends Mailable
  */
 public function build()
 {
-    return $this->from('example@example.com')
-                ->view('email.verifyMember')
+    return $this->view('email.verifyMember')
                 ->with([
                     'memberName' => $this->member->name_en,
                     'approvedBy' => $this->member->approveUser->name,
+                    'email' => $this->member->email,
+                    'password' => 'Nagrik-' . $this->member->citizenship_number,
                 ]);
 }
 }

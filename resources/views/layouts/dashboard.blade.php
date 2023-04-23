@@ -1,31 +1,16 @@
 <!DOCTYPE html>
-<!--
-Template Name: Midone - HTML Admin Dashboard Template
-Author: Left4code
-Website: http://www.left4code.com/
-Contact: muhammadrizki@left4code.com
-Purchase: https://themeforest.net/user/left4code/portfolio
-Renew Support: https://themeforest.net/user/left4code/portfolio
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 <!-- BEGIN: Head -->
 <head>
     <meta charset="utf-8">
     <link href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}" rel="shortcut icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="LEFT4CODE">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
     <title>
-        @can('isAdmin')
         @yield('title', 'Admin Dashboard')
-        @elsecan('isUser')
-        @yield('title', 'Dashboard')
-        @else
-        @yield('title', 'Home')
-        @endcan
     </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />
@@ -44,18 +29,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- END: Head -->
 <body class="app">
 
-    @can('isAdmin')
     @include('partials.ar.mobileMenu')
-    @elsecan('isUser')
-    @include('partials.ur.mobileMenu')
-    @endcan
 
     <div class="flex">
-        @can('isAdmin')
         @include('partials.ar.sidebar')
-        @elsecan('isUser')
-        @include('partials.ur.sidebar')
-        @endcan
 
         {{-- @include('partials.ar.sidebar') --}}
         <div class="content">
@@ -74,19 +51,10 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- END: Search -->
                 @php
                 $user = Auth::user();
-$url = \Request::route()->getName();
                 @endphp
 
 @php
 @endphp
-
-{{-- {{ dd($url) }} --}}
-{{-- @if ($url == 'admin.user.changePassword')
-@endif --}}
-
-{{-- @if ()
-
-@endif --}}
                 <!-- BEGIN: Account Menu -->
                 <div class="intro-x dropdown w-8 h-8 relative">
                     <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in">
@@ -99,7 +67,7 @@ $url = \Request::route()->getName();
                                 <div class="text-xs text-theme-41">{{ ($user->designation) ? $user->designation : '' }}</div>
                             </div>
                             <div class="p-2">
-                                <a href="@can('isAdmin') {{ route('admin.user.profile', $user->id)  }} @elsecan('isUser') {{ route('user.profile.view', $user->id)  }}  @endcan" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
+                                <a href="{{ route('admin.user.profile', $user->id)  }}" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                                     <i data-feather="user" class="w-4 h-4 mr-2"></i>
                                     Profile
                                 </a>

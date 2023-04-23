@@ -17,6 +17,7 @@ class UserDashboardController extends BaseCrudController
 {
     public function index()
     {
+        dd('ok');
         $userId = Auth::id();
         $this->data['users'] = User::all();
         $this->data['userCount'] = $this->data['users']->count();

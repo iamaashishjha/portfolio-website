@@ -228,51 +228,6 @@
                 </li>
             @endif
 
-            {{-- User Management --}}
-            @if ($authUser->hasAnyPermission(['create user', 'list user', 'update user', 'delete user']))
-                <li class="nav-item">
-                    <a href="javascript:;" class="side-menu ">
-                        <div class="side-menu__icon">
-                            <i class="fa fa-user-o" aria-hidden="true"></i>
-                        </div>
-                        <div class="side-menu__title">
-                            User
-                            <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                        </div>
-                    </a>
-                    <ul class="collapse">
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.create') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title"> Create User </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.registered') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-male" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="side-menu__title"> Registered Users </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.admin') }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-user-secret"
-                                            aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title"> Admin Users </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('admin.user.profile', $authUser->id) }}" class="side-menu">
-                                    <div class="side-menu__icon"> <i class="fa fa-user-circle-o"
-                                            aria-hidden="true"></i> </div>
-                                    <div class="side-menu__title">
-                                        About Me
-                                    </div>
-                                </a>
-                            </li>
-                    </ul>
-                </li>
-            @endif
 
             {{-- Members Management --}}
             @if ($authUser->hasAnyPermission(['create membership', 'list membership']))
@@ -374,18 +329,11 @@
             let $currentPageLink = $navLinks.filter(function() {
                 return $(this).attr('href') === full_url;
             });
-            // console.log($currentPageLink, $navLinks, ($currentPageLink.length > 0), full_url);
-            console.log($navLinks);
-            console.log(($currentPageLink.length > 0));
-            console.log(full_url);
-            // debugger;
-            // console.log($currentPageLink, $navLinks, ($currentPageLink.length > 0));
             if (!$currentPageLink.length > 0) {
                 $currentPageLink = $navLinks.filter(function() {
-                    debugger;
                     if ($(this).attr('href').startsWith(full_url)) {
-                        console.log($(this).attr('href'),);
-                        console.log(full_url);
+                        console.log('This Href : '+$(this).attr('href'),);
+                        console.log('Full URL : '+full_url);
                         return true;
                     }
                     if (full_url.startsWith($(this).attr('href'))) {
@@ -394,7 +342,7 @@
                     return false;
                 });
             }
-            $currentPageLink.parents('a').addClass('side-menu--active');
+            $currentPageLink.closest('a').addClass('side-menu--active side-menu--open');
             $currentPageLink.each(function() {
                 $(this).addClass('side-menu--active');
             });

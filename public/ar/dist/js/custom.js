@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // debugger;
     var jqOld = jQuery.noConflict();
     jqOld(function() {
         jqOld(".nepalidatepicker").nepaliDatePicker();
@@ -13,8 +14,9 @@ $(document).ready(function() {
     sameAddress();
     copyMetaData();
     // dataTable();
+    // debugger;
     convertToDataTable();
-
+    // sidebarAddActive();
     $("#btnDiv").show();
 
     // $("#documents-button").click(function (e) {
@@ -387,10 +389,6 @@ function sameAddress() {
 // DataTables Read Record (WIP)
 function convertToDataTable(params = "dataTable") {
     const tableId = "#" + params;
-    if ($.fn.DataTable.isDataTable(tableId)) {
-        // DataTable already initialized on this table
-        return;
-    }
     $(tableId).DataTable({
         responsive: true,
         lengthChange: false,
@@ -458,10 +456,10 @@ function convertToDataTable(params = "dataTable") {
                         });
                 })
                 .draw();
-            table
-                .buttons()
-                .container()
-                .appendTo("#dataTables_wrapper .col-md-6:eq(0)");
+            // table
+            //     .buttons()
+            //     .container()
+            //     .appendTo("#dataTables_wrapper .col-md-6:eq(0)");
             $(".dataTable th:first-child").addClass("no-sort-icon");
             $(".dt-buttons").appendTo($("#dataTables_button_stack"));
             $(".dt-buttons")

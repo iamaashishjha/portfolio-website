@@ -2,15 +2,25 @@
 
 namespace App\Traits;
 
-trait FileTrait{
+use Illuminate\Support\Facades\Storage;
 
-    public function scopeActive($query)
+trait FileTrait
+{
+    public function uploadFileToDisk($request, $requestName, $destinationPath, $oldPath = null)
     {
-        return $query->where('status', TRUE);
-    }
-
-    public function scopeNotDeleted($query)
-    {
-        return $query->where('is_deleted', FALSE);
+        $fileName = null;
+        if(isset($oldFilePath)) {
+            $fileName = $oldFilePath;
+        }
+        if ($request->has($requestName)) {
+            $fileName = $request->{$requestName}->store($destinationPath, 'public');
+            if($oldPath){
+                $oldFilePath = $destinationPath.'/'.$oldPath;
+                if (Storage::exists($oldFilePath)) {
+                    Storage::delete($oldFilePath);
+                }
+            }
+        }
+        return $fileName;
     }
 }

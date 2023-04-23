@@ -32,15 +32,15 @@ All Registered Members | Nagrik Unmukti Party
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table class="table table-report table-report--bordered display datatable w-full" id="dataTable">
+        <table class="table table-report table-report--bordered display w-full"  id="dataTable">
             <thead>
                 <tr>
                     <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Name</th>
-                    <th class="border-b-2 text-center  whitespace-no-wrap">Email</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Phone</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">Cast</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">Profession</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Province</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">District</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Local Level</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                 </tr>
             </thead>
@@ -57,22 +57,22 @@ All Registered Members | Nagrik Unmukti Party
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->email }}
-                                </div>
-                            </td>
-                            <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">
                                     {{ $member->phone_number }}
                                 </div>
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->cast }}
+                                    {{ $member->permProvince->name }}
                                 </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->profession }}
+                                    {{ $member->permDistrict->name }}
+                                </div>
+                            </td>
+                            <td class="text-center border-b">
+                                <div class="font-medium whitespace-no-wrap">
+                                    {{ $member->permLocalLevel->name }}
                                 </div>
                             </td>
 

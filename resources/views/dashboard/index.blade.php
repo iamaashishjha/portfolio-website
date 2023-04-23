@@ -3,8 +3,8 @@
 @section('breadcum')
 
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="@can('isAdmin') /admin @elsecan('isUser') /dashboard @endcan" class="breadcrumb--active">
-        @can('isAdmin') Admin Dashboard @elsecan('isUser') Dashboard @endcan
+    <a href="/admin" class="breadcrumb--active">
+        Admin Dashboard
     </a>
 </div>
 
@@ -20,11 +20,6 @@
                 <h2 class="text-lg font-medium truncate mr-5">
                     General OverView
                 </h2>
-                {{-- <a href="@can('isAdmin') /admin @elsecan('isUser') /dashboard @endcan"
-                    class="ml-auto flex text-theme-1">
-                    <i data-feather="refresh-ccw" class="w-4 h-4 mr-3"></i>
-                    Reload Data
-                </a> --}}
             </div>
             <div class="grid grid-cols-12 gap-6 mt-5">
                 <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
@@ -155,8 +150,7 @@
                         </div>
                     </div>
                 </div>
-                @can('isUser')
-                <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                {{-- <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                     <div class="report-box zoom-in">
                         <div class="box p-5">
                             <div class="flex">
@@ -171,8 +165,7 @@
                             <div class="text-base text-gray-600 mt-1">My Blog Posts</div>
                         </div>
                     </div>
-                </div>
-                @endcan
+                </div> --}}
             </div>
         </div>
         <!-- END: General Report -->

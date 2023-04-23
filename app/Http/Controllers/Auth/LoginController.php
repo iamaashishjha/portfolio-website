@@ -32,7 +32,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::ADMIN;
 
 
 
@@ -41,17 +41,17 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo()
-    {
-        $role = Auth::user()->admin;
-        if ($role == 0) {
-            return RouteServiceProvider::DASHBOARD;
-        } elseif ($role == 1) {
-            return RouteServiceProvider::ADMIN;
-        } else {
-            return RouteServiceProvider::HOME;
-        }
-    }
+    // protected function redirectTo()
+    // {
+    //     $role = Auth::user();
+    //     if ($role == 0) {
+    //         return RouteServiceProvider::DASHBOARD;
+    //     } elseif ($role == 1) {
+    //         return RouteServiceProvider::ADMIN;
+    //     } else {
+    //         return RouteServiceProvider::HOME;
+    //     }
+    // }
 
     /**
      * Create a new controller instance.
