@@ -30,9 +30,24 @@ class AdminMembershipController extends BaseCrudController
      */
     public function index()
     {
+        // $this->checkPermission('list');
+        // $this->data['members'] = $this->model::registeredUser()->get();
+        // $this->data['members'] = $this->model::approvedUser()->get();
+        // return view('ar.membership.registered-members', $this->data);
+    }
+
+    public function getRegisteredMembers()
+    {
         $this->checkPermission('list');
-        $this->data['members'] = $this->model::all();
-        return view('ar.membership.index', $this->data);
+        $this->data['members'] = $this->model::registeredMember()->get();
+        return view('ar.membership.registered-members', $this->data);
+    }
+
+    public function getApprovedMembers()
+    {
+        $this->checkPermission('list');
+        $this->data['members'] = $this->model::approvedMember()->get();
+        return view('ar.membership.approved-members', $this->data);
     }
 
     /**
@@ -60,49 +75,49 @@ class AdminMembershipController extends BaseCrudController
         $this->checkPermission('create');
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
-        }else{
+        } else {
             $ownImage = null;
         }
         if ($request->has('sign_image')) {
             $signImage = $request->sign_image->store('member/profile', 'public');
-        }else{
+        } else {
             $signImage = null;
         }
         if ($request->has('citizenship_front')) {
             $citizenshipFront = $request->citizenship_front->store('member/citizenship', 'public');
-        }else{
+        } else {
             $citizenshipFront = null;
         }
 
         if ($request->has('citizenship_back')) {
             $citizenshipBack = $request->citizenship_back->store('member/citizenship', 'public');
-        }else{
+        } else {
             $citizenshipBack = null;
         }
         if ($request->has('passport_front')) {
             $passportFront = $request->passport_front->store('member/passport', 'public');
-        }else{
+        } else {
             $passportFront = null;
         }
         if ($request->has('passport_back')) {
             $passportBack = $request->passport_back->store('member/passport', 'public');
-        }else{
+        } else {
             $passportBack = null;
         }
 
         if ($request->has('license_image')) {
             $licenseImage = $request->license_image->store('member/license', 'public');
-        }else{
+        } else {
             $licenseImage = null;
         }
         if ($request->has('pan_front')) {
             $panFront = $request->pan_front->store('member/pan', 'public');
-        }else{
+        } else {
             $panFront = null;
         }
         if ($request->has('pan_back')) {
             $panBack = $request->pan_back->store('member/pan', 'public');
-        }else{
+        } else {
             $panBack = null;
         }
         $member = new $this->model();
@@ -318,7 +333,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $ownImage = $request->own_image->store('member/profile', 'public');
             $member->own_image = $ownImage;
-        }else{
+        } else {
             $member->own_image = null;
         }
         if ($request->has('sign_image') && ($request->sign_image != '')) {
@@ -329,7 +344,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $signImage = $request->sign_image->store('member/profile', 'public');
             $member->sign_image = $signImage;
-        }else{
+        } else {
             $member->sign_image = null;
         }
         if ($request->has('citizenship_front') && ($request->citizenship_front != '')) {
@@ -340,7 +355,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $citizenshipFront = $request->citizenship_front->store('member/citizenship', 'public');
             $member->citizenship_front = $citizenshipFront;
-        }else{
+        } else {
             $member->citizenship_front = null;
         }
 
@@ -352,7 +367,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $citizenshipBack = $request->citizenship_back->store('member/citizenship', 'public');
             $member->citizenship_back = $citizenshipBack;
-        }else{
+        } else {
             $member->citizenship_back = null;
         }
         if ($request->has('passport_front') && ($request->passport_front != '')) {
@@ -363,7 +378,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $passportFront = $request->passport_front->store('member/passport', 'public');
             $member->passport_front = $passportFront;
-        }else{
+        } else {
             $member->passport_front = null;
         }
         if ($request->has('passport_back') && ($request->passport_back != '')) {
@@ -374,7 +389,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $passportBack = $request->passport_back->store('member/passport', 'public');
             $member->passport_back = $passportBack;
-        }else{
+        } else {
             $member->passport_back = null;
         }
 
@@ -386,7 +401,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $licenseImage = $request->license_image->store('member/license', 'public');
             $member->license_image = $licenseImage;
-        }else{
+        } else {
             $member->license_image = null;
         }
         if ($request->has('pan_front') && ($request->pan_front != '')) {
@@ -397,7 +412,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $panFront = $request->pan_front->store('member/pan', 'public');
             $member->pan_front = $panFront;
-        }else{
+        } else {
             $member->pan_front = null;
         }
         if ($request->has('pan_back') && ($request->pan_back != '')) {
@@ -408,7 +423,7 @@ class AdminMembershipController extends BaseCrudController
             }
             $panBack = $request->pan_back->store('member/pan', 'public');
             $member->pan_back = $panBack;
-        }else{
+        } else {
             $member->pan_back = null;
         }
 
@@ -489,13 +504,12 @@ class AdminMembershipController extends BaseCrudController
             return redirect()->back();
         } else {
             $member->is_verified = true;
-        $member->approved_by = Auth::user()->id;
-        $member->save();
-        Mail::to($member->user)->send(new ApproveMember($member));
-        Alert::success('Member Approved');
-        return redirect()->back();
+            $member->approved_by = Auth::user()->id;
+            $member->save();
+            $memberEmail = $member->email;
+            Mail::to($member->user)->send(new ApproveMember($member));
+            Alert::success('Member Approved');
+            return redirect()->back();
         }
-
-
     }
 }

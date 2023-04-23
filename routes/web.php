@@ -4,8 +4,13 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\AdminEventController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LocalLevelController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminBlogTagController;
@@ -15,9 +20,12 @@ use App\Http\Controllers\UserBlogPostController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDocumentController;
 use App\Http\Controllers\AdminNewsPostController;
+use App\Http\Controllers\LocalLeveTypeController;
 use App\Http\Controllers\UserDashboardController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminAppSettingsController;
+use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminCompanyDetailsController;
@@ -113,7 +121,7 @@ Route::middleware(['auth'])
 
         Route::get(
             '/',
-            [App\Http\Controllers\AdminDashboardController::class, 'index']
+            [AdminDashboardController::class, 'index']
         )->name('index');
         Route::prefix('/user')
             ->name('user.')
@@ -135,9 +143,9 @@ Route::middleware(['auth'])
                 Route::post('/changepassword/{id}', 'changePassword')->name('changePassword');
             });
 
-        Route::resource('/roles', App\Http\Controllers\Admin\RoleController::class, ['names' => 'role']);
-        Route::get('/permissions', [App\Http\Controllers\Admin\PermissionsController::class, 'index'])->name('permission.index');
-        Route::get('/permissions/generate', [App\Http\Controllers\Admin\PermissionsController::class, 'generatePermissions'])->name('permission.generate');
+        Route::resource('/roles', RoleController::class, ['names' => 'role']);
+        Route::get('/permissions', [PermissionsController::class, 'index'])->name('permission.index');
+        Route::get('/permissions/generate', [PermissionsController::class, 'generatePermissions'])->name('permission.generate');
         // Route::get('/user/profile',[App\Http\Controllers\Admin\UserController::class, 'myProfileView'])->name('profile');
         // Route::post('/users/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRoleToUser'])->name('user.assignrole');
         // Route::get('/users/permissions', [App\Http\Controllers\Admin\UserController::class, 'userPermissions'])->name('user.permissions');
@@ -170,7 +178,10 @@ Route::middleware(['auth'])
                 Route::resource('/slider', AdminSliderController::class)->except('destroy');
             });
 
-        Route::resource('/member', AdminMembershipController::class);
+        // Route::resource('/member', AdminMembershipController::class);
+        Route::resource('/member', AdminMembershipController::class)->except('index');
+        Route::get('/member', [AdminMembershipController::class, 'getRegisteredMembers'])->name('member.index');
+        Route::get('/approved-members', [AdminMembershipController::class, 'getApprovedMembers'])->name('member.getApprovedMembers');
         Route::post('/member/{id}', [AdminMembershipController::class, 'approveMember'])->name('member.approve');
         Route::resource('/event', AdminEventController::class);
         Route::resource('/document', AdminDocumentController::class);
@@ -181,7 +192,7 @@ Route::middleware(['auth', 'user', 'verified'])
     ->prefix('dashboard')
     ->name('user.')
     ->group(function () {
-        Route::get('/', [App\Http\Controllers\UserDashboardController::class, 'index'])->name('index');
+        Route::get('/', [UserDashboardController::class, 'index'])->name('index');
         Route::prefix('/')
             ->name('profile.')
             ->controller(UserDashboardController::class)
@@ -210,15 +221,11 @@ Route::middleware(['auth', 'user', 'verified'])
     });
 
 
-Route::get('getProvince/', [App\Http\Controllers\ProvinceController::class, 'getProvince']);
-Route::get('getDistrict/{id}', [App\Http\Controllers\DistrictController::class, 'getDistrict']);
-Route::get('getLocalLevel/{id}', [App\Http\Controllers\LocalLevelController::class, 'getLocalLevel']);
-Route::get('getLocalLevelType/{id}', [App\Http\Controllers\LocalLeveTypeController::class, 'getLocalLevelType']);
+Route::get('getProvince/', [ProvinceController::class, 'getProvince']);
+Route::get('getDistrict/{id}', [DistrictController::class, 'getDistrict']);
+Route::get('getLocalLevel/{id}', [LocalLevelController::class, 'getLocalLevel']);
+Route::get('getLocalLevelType/{id}', [LocalLeveTypeController::class, 'getLocalLevelType']);
 
-Route::fallback([App\Http\Controllers\HomeController::class, 'notFound']);
+Route::fallback([HomeController::class, 'notFound']);
 
-
-// Route::view('/a', 'welcome');
-
-
-Route::post('/password/change', [App\Http\Controllers\Auth\LoginController::class, 'emailPasswordUpdate'])->name('password.change');
+Route::post('/password/change', [LoginController::class, 'emailPasswordUpdate'])->name('password.change');

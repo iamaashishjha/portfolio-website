@@ -15,7 +15,6 @@ class BaseModel extends Model
         return $query->where('status', TRUE);
     }
 
-
     public function scopeDeleted($query)
     {
         return $query->where('is_deleted', TRUE);

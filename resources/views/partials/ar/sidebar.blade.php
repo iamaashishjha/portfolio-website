@@ -284,7 +284,7 @@
                         </div>
                     </a>
                     <ul class="collapse">
-                        @if ($authUser->can('create membership'))
+                        {{-- @if ($authUser->can('create membership')) --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.member.create') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -292,16 +292,26 @@
                                 <div class="side-menu__title"> Register New Member </div>
                             </a>
                         </li>
-                        @endif
-                        @if ($authUser->can('list membership'))
+                        {{-- @endif --}}
+                        {{-- @if ($authUser->can('list membership')) --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.member.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> All Members </div>
+                                <div class="side-menu__title"> Registered Members </div>
                             </a>
                         </li>
-                        @endif
+                        {{-- @endif --}}
+                        {{-- @if ($authUser->can('list membership')) --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.member.getApprovedMembers') }}" class="side-menu">
+                                <div class="side-menu__icon"> 
+                                    <i class="fa fa-server" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Approved Members </div>
+                            </a>
+                        </li>
+                        {{-- @endif --}}
                     </ul>
                 </li>
             @endif

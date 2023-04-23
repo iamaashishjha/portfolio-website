@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var jqOld = jQuery.noConflict();
-    jqOld(function () {
+    jqOld(function() {
         jqOld(".nepalidatepicker").nepaliDatePicker();
     });
     // $('.nepalidatepicker').nepaliDatePicker();
@@ -12,7 +12,8 @@ $(document).ready(function () {
     getLocalLevelType();
     sameAddress();
     copyMetaData();
-    dataTable();
+    // dataTable();
+    convertToDataTable();
 
     $("#btnDiv").show();
 
@@ -23,24 +24,24 @@ $(document).ready(function () {
 });
 
 function copyMetaData() {
-    $("#description").keyup(function () {
+    $("#description").keyup(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, " ");
         $("#meta_description").val(Text);
     });
-    $("#title").keyup(function () {
+    $("#title").keyup(function() {
         var Text = $(this).val();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, " ");
         $("#meta_title").val(Text + " || Nagrik Unmukti Party");
     });
-    $("#title").keyup(function () {
+    $("#title").keyup(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, "-");
         $("#slug").val(Text);
     });
-    $("#description").keyup(function () {
+    $("#description").keyup(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, ",");
@@ -59,7 +60,7 @@ function createMemberPageLoad() {
     $(this).addClass("bg-theme-9 text-white");
     $(this).removeClass("bg-gray-200");
 
-    $("#personal-button").click(function () {
+    $("#personal-button").click(function() {
         $("#personal-content").show();
         $("#citizenship-content").hide();
         $("#property-content").hide();
@@ -69,7 +70,7 @@ function createMemberPageLoad() {
         $("#btnDiv").hide();
     });
 
-    $("#citizenship-button").click(function () {
+    $("#citizenship-button").click(function() {
         $("#personal-content").hide();
         $("#citizenship-content").show();
         $("#property-content").hide();
@@ -79,7 +80,7 @@ function createMemberPageLoad() {
         $("#btnDiv").hide();
     });
 
-    $("#property-button").click(function () {
+    $("#property-button").click(function() {
         $("#personal-content").hide();
         $("#citizenship-content").hide();
         $("#property-content").show();
@@ -89,7 +90,7 @@ function createMemberPageLoad() {
         $("#btnDiv").hide();
     });
 
-    $("#old-membership-button").click(function () {
+    $("#old-membership-button").click(function() {
         $("#personal-content").hide();
         $("#citizenship-content").hide();
         $("#property-content").hide();
@@ -99,7 +100,7 @@ function createMemberPageLoad() {
         $("#btnDiv").hide();
     });
 
-    $("#documents-button").click(function () {
+    $("#documents-button").click(function() {
         $("#personal-content").hide();
         $("#citizenship-content").hide();
         $("#property-content").hide();
@@ -109,7 +110,7 @@ function createMemberPageLoad() {
         $("#btnDiv").show();
     });
 
-    $("#remarks-button").click(function () {
+    $("#remarks-button").click(function() {
         $("#personal-content").hide();
         $("#citizenship-content").hide();
         $("#property-content").hide();
@@ -127,24 +128,24 @@ function getProvince(value) {
             _token: "{{ csrf_token() }}",
         },
         dataType: "json",
-        success: function (data) {
+        success: function(data) {
             if (data) {
                 $('select[name="' + value + '_province_id"]').empty();
                 $('select[name="' + value + '_province_id"]').append(
                     "<option hidden> प्रदेश छान्नुहोस् |</option>"
                 );
-                $.each(data, function (key, province) {
+                $.each(data, function(key, province) {
                     $('select[name="' + value + '_province_id"]').append(
                         '<option value="' +
-                            province.id +
-                            '">' +
-                            province.code +
-                            " - " +
-                            province.name_en +
-                            " (" +
-                            province.name_lc +
-                            ")" +
-                            "</option>"
+                        province.id +
+                        '">' +
+                        province.code +
+                        " - " +
+                        province.name_en +
+                        " (" +
+                        province.name_lc +
+                        ")" +
+                        "</option>"
                     );
                 });
             } else {
@@ -166,24 +167,24 @@ function getDistrict(value) {
                 _token: "{{ csrf_token() }}",
             },
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 if (data) {
                     $('select[name="' + value + '_district_id"]').empty();
                     $('select[name="' + value + '_district_id"]').append(
                         "<option hidden> जिल्ला छान्नुहोस् |</option>"
                     );
-                    $.each(data, function (key, district) {
+                    $.each(data, function(key, district) {
                         $('select[name="' + value + '_district_id"]').append(
                             '<option value="' +
-                                district.id +
-                                '">' +
-                                district.code +
-                                " - " +
-                                district.name_en +
-                                " (" +
-                                district.name_lc +
-                                ")" +
-                                "</option>"
+                            district.id +
+                            '">' +
+                            district.code +
+                            " - " +
+                            district.name_en +
+                            " (" +
+                            district.name_lc +
+                            ")" +
+                            "</option>"
                         );
                     });
                 } else {
@@ -210,7 +211,7 @@ function getLocalLevelType(value) {
                 _token: "{{ csrf_token() }}",
             },
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 if (data) {
                     $(
                         'select[name="' + value + '_local_level_type_id"]'
@@ -219,15 +220,15 @@ function getLocalLevelType(value) {
                         'select[name="' + value + '_local_level_type_id"]'
                     ).append(
                         '<option value="' +
-                            data.id +
-                            '" selected>' +
-                            data.code +
-                            " - " +
-                            data.name_en +
-                            " (" +
-                            data.name_lc +
-                            ")" +
-                            "</option>"
+                        data.id +
+                        '" selected>' +
+                        data.code +
+                        " - " +
+                        data.name_en +
+                        " (" +
+                        data.name_lc +
+                        ")" +
+                        "</option>"
                     );
                 } else {
                     $(
@@ -251,24 +252,24 @@ function getLocalLevel(value) {
                 _token: "{{ csrf_token() }}",
             },
             dataType: "json",
-            success: function (data) {
+            success: function(data) {
                 if (data) {
                     $('select[name="' + value + '_local_level_id"]').empty();
                     $('select[name="' + value + '_local_level_id"]').append(
                         "<option hidden>---  स्थानइय तह छान्नुहोस् |  ---</option>"
                     );
-                    $.each(data, function (key, localLevel) {
+                    $.each(data, function(key, localLevel) {
                         $('select[name="' + value + '_local_level_id"]').append(
                             '<option value="' +
-                                localLevel.id +
-                                '">' +
-                                localLevel.code +
-                                " - " +
-                                localLevel.name_en +
-                                " (" +
-                                localLevel.name_lc +
-                                ")" +
-                                "</option>"
+                            localLevel.id +
+                            '">' +
+                            localLevel.code +
+                            " - " +
+                            localLevel.name_en +
+                            " (" +
+                            localLevel.name_lc +
+                            ")" +
+                            "</option>"
                         );
                     });
                 } else {
@@ -312,34 +313,34 @@ function sameAddress() {
         $('select[name="temp_province_id"]').empty();
         $('select[name="temp_province_id"]').append(
             '<option value="' +
-                selectedProvinceValue +
-                '">' +
-                selecteProvinceText +
-                "</option>"
+            selectedProvinceValue +
+            '">' +
+            selecteProvinceText +
+            "</option>"
         );
         $('select[name="temp_district_id"]').empty();
         $('select[name="temp_district_id"]').append(
             '<option value="' +
-                selectedDistrictValue +
-                '">' +
-                selecteDistrictText +
-                "</option>"
+            selectedDistrictValue +
+            '">' +
+            selecteDistrictText +
+            "</option>"
         );
         $('select[name="temp_local_level_id"]').empty();
         $('select[name="temp_local_level_id"]').append(
             '<option value="' +
-                selectedLocalLevelValue +
-                '">' +
-                selecteLocalLevelText +
-                "</option>"
+            selectedLocalLevelValue +
+            '">' +
+            selecteLocalLevelText +
+            "</option>"
         );
         $('select[name="temp_local_level_type_id"]').empty();
         $('select[name="temp_local_level_type_id"]').append(
             '<option value="' +
-                selectedLocalLevelTypeValue +
-                '">' +
-                selecteLocalLevelTypeText +
-                "</option>"
+            selectedLocalLevelTypeValue +
+            '">' +
+            selecteLocalLevelTypeText +
+            "</option>"
         );
         $("#temp_ward_number").val(selectedWardNumberValue);
         $("#temp_tole").val(selectedToleValue);
@@ -356,29 +357,118 @@ function sameAddress() {
     }
 }
 
-function dataTable() {
-    var t = $("#datatable").DataTable({
+
+//     var t = $("#datatable").DataTable({
+//         responsive: true,
+//         destroy: true,
+//         paging: true,
+//         columnDefs: [{
+//             searchable: false,
+//             orderable: false,
+//             targets: 0,
+//         }, ],
+//         order: [
+//             [1, "asc"]
+//         ],
+//     });
+
+//     t.on("order.dt search.dt", function() {
+//         t.column(0, {
+//                 search: "applied",
+//                 order: "applied",
+//             })
+//             .nodes()
+//             .each(function(cell, i) {
+//                 cell.innerHTML = i + 1;
+//             });
+//     }).draw();
+// }
+
+// DataTables Read Record (WIP)
+function convertToDataTable(params = "dataTable") {
+    const tableId = "#" + params;
+    if ($.fn.DataTable.isDataTable(tableId)) {
+        // DataTable already initialized on this table
+        return;
+    }
+    $(tableId).DataTable({
         responsive: true,
-        destroy: true,
-        paging: true,
-        columnDefs: [
+        lengthChange: false,
+        autoWidth: false,
+        searching: true,
+        ordering: false,
+        columnDefs: [{
+            searchable: true,
+            orderable: false,
+            sortable: false,
+        }, ],
+        buttons: [{
+                extend: "colvis",
+                text: '<i class="fas fa-eye"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+                autoClose: true,
+            },
             {
-                searchable: false,
-                orderable: false,
-                targets: 0,
+                extend: "copy",
+                text: '<i class="fas fa-copy"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+                autoClose: true,
+            },
+            {
+                extend: "csv",
+                text: '<i class="fas fa-file-csv"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+                autoClose: true,
+            },
+            {
+                extend: "excel",
+                text: '<i class="fas fa-file-excel"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+            },
+            {
+                extend: "pdf",
+                text: '<i class="fas fa-file-pdf"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+            },
+            {
+                extend: "print",
+                text: '<i class="fas fa-print"></i>',
+                className: "btn btn-sm btn-grey",
+                columns: ":gt(0)",
+                autoClose: true,
             },
         ],
-        order: [[1, "asc"]],
+        initComplete: function(settings, json) {
+            let table = $(tableId).DataTable();
+            table
+                .on("order.dt search.dt", function() {
+                    table
+                        .column(0, {
+                            search: "applied",
+                            order: "applied",
+                        })
+                        .nodes()
+                        .each(function(cell, i) {
+                            cell.innerHTML = i + 1;
+                        });
+                })
+                .draw();
+            table
+                .buttons()
+                .container()
+                .appendTo("#dataTables_wrapper .col-md-6:eq(0)");
+            $(".dataTable th:first-child").addClass("no-sort-icon");
+            $(".dt-buttons").appendTo($("#dataTables_button_stack"));
+            $(".dt-buttons")
+                .addClass("d-xs-block")
+                .addClass("d-sm-inline-block")
+                .addClass("d-md-inline-block")
+                .addClass("d-lg-inline-block");
+        },
     });
-
-    t.on("order.dt search.dt", function () {
-        t.column(0, {
-            search: "applied",
-            order: "applied",
-        })
-            .nodes()
-            .each(function (cell, i) {
-                cell.innerHTML = i + 1;
-            });
-    }).draw();
 }

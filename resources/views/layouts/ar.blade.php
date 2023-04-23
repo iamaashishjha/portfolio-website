@@ -125,8 +125,6 @@ $authUser = Auth::user()->name;
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
     --}}
     <script src="/ar/dist/js/app.js"></script>
-    {{-- <script src="sweetalert2.all.min.js"></script> --}}
-    {{-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
