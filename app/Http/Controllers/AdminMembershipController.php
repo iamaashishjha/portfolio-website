@@ -359,14 +359,14 @@ class AdminMembershipController extends BaseCrudController
                 $member->is_verified = true;
                 $member->verified_by = Auth::id();
                 $member->save();
-                $userEmailArr = [
-                    'name' => $member->name_en,
-                    'email' => $member->email,
-                    'email_verified_at' => now(),
-                    'password' => Hash::make('Nagrik-' . $member->citizenship_number),
-                    'remember_token' => Str::random(10),
-                ];
-                User::create($userEmailArr);
+                // $userEmailArr = [
+                //     'name' => $member->name_en,
+                //     'email' => $member->email,
+                //     'email_verified_at' => now(),
+                //     'password' => Hash::make('Nagrik-' . $member->citizenship_number),
+                //     'remember_token' => Str::random(10),
+                // ];
+                // User::create($userEmailArr);
                 $user = User::latest()->first();
                 $role = Role::find(6);
                 $user->assignRole($role);
