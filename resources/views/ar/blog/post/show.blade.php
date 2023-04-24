@@ -14,7 +14,6 @@
         {{ isset($post) ? 'Edit New Blog Post ' . '"' . $post->title . '".' : 'Create New Blog Post' }}
     </a>
 </div>
-{{-- {{ dd($post) }} --}}
 @endsection
 
 @section('content')
@@ -46,7 +45,7 @@
 	</div>
 	<div class="intro-y text-justify leading-relaxed">
 		<p class="mb-5">
-			{{ $post->content }}
+			{!! $post->content !!}
 		</p>
 	</div>
 	<div class="intro-y flex text-xs sm:text-sm flex-col sm:flex-row items-center mt-5 pt-5 border-t border-gray-200">

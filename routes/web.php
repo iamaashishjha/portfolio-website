@@ -153,7 +153,7 @@ Route::middleware(['auth'])
                 Route::resource('/category', AdminBlogCategoryController::class);
                 Route::resource('/tag', AdminBlogTagController::class);
                 Route::resource('/post', AdminBlogPostController::class);
-                Route::get('/post/trash', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
+                Route::get('/trashed-posts', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
                 Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
             });
 
@@ -163,7 +163,7 @@ Route::middleware(['auth'])
                 Route::resource('/category', AdminNewsCategoryController::class);
                 Route::resource('/tag', AdminNewsTagController::class);
                 Route::resource('/post', AdminNewsPostController::class);
-                Route::get('/post/trash', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
+                Route::get('/trashed-posts', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
                 Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
             });
 

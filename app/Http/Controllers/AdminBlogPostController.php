@@ -102,7 +102,9 @@ class AdminBlogPostController extends BaseCrudController
     public function show($id)
     {
         $this->data['post'] = $this->model::find($id);
-        $this->data['post']->viewIncrement();
+        if($this->data['post']){
+            $this->data['post']->viewIncrement();
+        }
         return view('ar.blog.post.show', $this->data);
     }
 
