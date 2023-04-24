@@ -9,22 +9,6 @@ class BlogCategory extends BaseModel
 {
     protected $table = 'blog_categories';
 
-    protected $fillable = [
-        'title', 'description', 'category_image',
-        'slug', 'meta_description', 'meta_title', 'keywords',
-        'status', 'is_deleted', 'created_by', 'updated_by',
-        'deleted_by',
-    ];
-
-    protected $guarded = ['id'];
-
-
-    // public function scopeActive($query)
-    // {
-    //     return $query->where('status', TRUE);
-    // }
-
-
     /**
      * Get the route key for the model.
      *

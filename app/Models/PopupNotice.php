@@ -3,26 +3,16 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Event extends BaseModel
+class PopupNotice extends BaseModel
 {
-    protected $table = 'events';
-
-    public function checkStatus()
-    {
-        $status = $this->attributes['status'];
-        if ($status == 0) {
-            return '';
-        } else {
-            return 'checked';
-        }
-    }
-
-
+    protected $table = 'popup_notices';
     public function getStatusAttribute()
     {
-        $status = $this->attributes['status'];
+        $status = $this->attributes['is_active'];
         if ($status == 0) {
             return '<div class=' . '"flex items-center sm:justify-center text-theme-6' . '"> <i data-feather=' . '"check-square' . '" class="w-4 h-4 mr-2' . '"></i> Inactive </div>';
         } elseif ($status == 1) {
@@ -34,16 +24,15 @@ class Event extends BaseModel
 
     public function getImageAttribute()
     {
-        return '/storage/' . $this->event_image;
+        if (isset($this->file)) {
+            return '/storage/' . $this->file;
+        }else{
+            return null;
+        }
     }
 
-    public function deleteImage()
+    public function deleteFile()
     {
-        Storage::delete($this->image);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+        Storage::delete($this->file);
     }
 }

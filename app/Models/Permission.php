@@ -14,7 +14,7 @@ use Spatie\Permission\PermissionRegistrar;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Traits\RefreshesPermissionCache;
 
-class Permission extends BaseModel implements PermissionContract
+class Permission extends Model implements PermissionContract
 {
     use HasRoles;
     use RefreshesPermissionCache;

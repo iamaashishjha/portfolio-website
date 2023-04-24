@@ -25,7 +25,7 @@ class CreateOtherTable extends Migration
             $table->text('meta_description')->nullable();
             $table->string('keywords')->nullable();
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')
@@ -33,6 +33,11 @@ class CreateOtherTable extends Migration
                 ->onDelete('cascade');
 
             $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+                $table->foreignId('deleted_by')
                 ->nullable()
                 ->constrained('users')
                 ->onUpdate('cascade')

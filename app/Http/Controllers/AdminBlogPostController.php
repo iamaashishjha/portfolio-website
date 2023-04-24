@@ -19,9 +19,9 @@ class AdminBlogPostController extends BaseCrudController
     public function __construct()
     {
         $this->model = BlogPost::class;
-        $this->data['categories'] = BlogCategory::notDeleted()->active()->get();
-        $this->data['tags'] = BlogTags::notDeleted()->active()->get();
-        $this->data['posts'] = $this->model::notDeleted()->get();
+        $this->data['categories'] = BlogCategory::get();
+        $this->data['tags'] = BlogTags::get();
+        $this->data['posts'] = $this->model::get();
     }
 
     /**

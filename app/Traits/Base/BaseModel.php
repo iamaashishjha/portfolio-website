@@ -2,15 +2,55 @@
 
 namespace App\Traits\Base;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BaseModel extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    // protected $primaryKey = 'id';
+    // public $timestamps = true;
+    protected $guarded = ['id'];
+
+    protected static function boot()
+    {
+        $user = Auth::user();
+        parent::boot();
+        static::creating(function ($model) use ($user) {
+            $columns = Schema::getColumnListing($model->getTable());
+            if (in_array('created_by', $columns)) {
+                $model->created_by =  !is_null($user) ? $user->id : 1;
+            }
+        });
+
+        static::updating(function ($model) use ($user) {
+            $columns = Schema::getColumnListing($model->getTable());
+            if (in_array('updated_by', $columns)) {
+                $model->updated_by =  !is_null($user) ? $user->id : 1;
+            }
+        });
+
+        static::deleting(function ($model) use ($user) {
+            $columns = Schema::getColumnListing($model->getTable());
+            // dd($user, $columns, in_array('deleted_by', $columns));
+            if (in_array('deleted_by', $columns)) {
+                $model->deleted_by =  $user->id;
+            }
+        });
+    }
 
     public function scopeActive($query)
+    {
+        return $query->where('is_active', TRUE);
+    }
+
+    public function scopeIsActive($query)
     {
         return $query->where('status', TRUE);
     }
@@ -30,4 +70,19 @@ class BaseModel extends Model
         Storage::delete($this->image);
     }
 
+
+    public function createByEntity()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function updatedByEntity()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id');
+    }
+
+    public function deletedByEntity()
+    {
+        return $this->belongsTo(User::class, 'deleted_by', 'id');
+    }
 }

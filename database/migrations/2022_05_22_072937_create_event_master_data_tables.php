@@ -29,7 +29,7 @@ class CreateEventMasterDataTables extends Migration
             $table->boolean('status')->default(0)->nullable();
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')

@@ -25,7 +25,7 @@ class CreateBlogMasterDataTables extends Migration
             $table->boolean('status')->default(0)->nullable();
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')
@@ -55,7 +55,7 @@ class CreateBlogMasterDataTables extends Migration
             $table->boolean('status')->default(0)->nullable();
             $table->boolean('is_deleted')->default(0);
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')
@@ -138,7 +138,7 @@ class CreateBlogMasterDataTables extends Migration
             $table->string('email');
             $table->text('message');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->foreignId('post_id')
                 ->constrained('blog_posts')
                 ->onUpdate('cascade')

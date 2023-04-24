@@ -85,13 +85,13 @@ $authUser = Auth::user()->name;
                                     Profile
                                 </a>
                             </div>
-                            <div>
+                            {{-- <div>
                                 <a href="{{ route('user.profile.changePassword', $authUser->id) }}"
                                     class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                                     <i data-feather="lock" class="w-4 h-4 mr-2"></i>
                                     Reset Password
                                 </a>
-                            </div>
+                            </div> --}}
                             <div class="p-2 border-t border-theme-40">
                                 <a class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"
                                     href="{{ route('logout') }}"

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminPopupNotice;
+use App\Http\Controllers\AdminBulkMessages;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\AdminUserController;
@@ -25,6 +27,7 @@ use App\Http\Controllers\UserDashboardController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminMembershipController;
 use App\Http\Controllers\AdminAppSettingsController;
+use App\Http\Controllers\AdminPopupNoticeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminNewsCategoryController;
@@ -183,41 +186,10 @@ Route::middleware(['auth'])
         Route::resource('/event', AdminEventController::class);
         Route::resource('/document', AdminDocumentController::class);
         Route::resource('/library', AdminLibraryController::class);
+
+        Route::resource('/popup-notice', AdminPopupNoticeController::class, ['names' => 'popup-notice']);
+        Route::resource('/bulk-messages', AdminBulkMessages::class);
     });
-
-Route::middleware(['auth', 'user', 'verified'])
-    ->prefix('dashboard')
-    ->name('user.')
-    ->group(function () {
-        Route::get('/', [UserDashboardController::class, 'index'])->name('index');
-        Route::prefix('/')
-            ->name('profile.')
-            ->controller(UserDashboardController::class)
-            ->group(function () {
-                Route::get('profile/{user_id}', 'profile')->name('view');
-                Route::put('profile/{user_id}', 'profileUpdate')->name('update');
-                Route::get('/changepassword/{id}', 'changePassword')->name('changePassword');
-            });
-
-        Route::prefix('/blog')
-            ->name('post.')
-            ->controller(UserBlogPostController::class)
-            ->group(function () {
-                Route::prefix('/post')
-                    ->group(function () {
-                        Route::get('/create', 'create')->name('create');
-                        Route::post('/', 'store')->name('store');
-                        Route::get('/', 'index')->name('index');
-                        Route::get('/edit/{id}', 'edit')->name('edit');
-                        Route::put('/edit/{id}', 'update')->name('update');
-                        Route::delete('/{id}', 'destroy')->name('destroy');
-                        Route::get('/trash', 'trashed')->name('trashed');
-                        Route::put('/restore/{id}', 'restore')->name('restore');
-                    });
-            });
-    });
-
-
 Route::get('getProvince/', [ProvinceController::class, 'getProvince']);
 Route::get('getDistrict/{id}', [DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}', [LocalLevelController::class, 'getLocalLevel']);
