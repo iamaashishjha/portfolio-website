@@ -35,8 +35,6 @@ public function build()
                 ->with([
                     'memberName' => $this->member->name_en,
                     'approvedBy' => $this->member->approveUser->name,
-                    'email' => $this->member->email,
-                    'password' => 'Nagrik-' . $this->member->citizenship_number,
                 ]);
 }
 }

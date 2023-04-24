@@ -12,19 +12,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class NewsPost extends BaseModel
 {
-    use HasFactory;
-
-    use SoftDeletes;
 
     protected $table = 'news_posts';
-
-    protected $fillable = [
-        'title', 'description', 'content', 'alt_text', 'post_image', 'post_date', 'category_id',
-        'status', 'featured', 'slug', 'meta_description', 'meta_title', 'user_id', 'keywords', 'views',
-        'created_by', 'updated_by', 'deleted_by'
-    ];
-
-    protected $guarded = ['id'];
 
     public function checkStatus()
     {

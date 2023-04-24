@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Types;
 use App\Models\PopupNotice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\File;
 
 
 class AdminPopupNoticeController extends BaseCrudController
@@ -36,7 +37,8 @@ class AdminPopupNoticeController extends BaseCrudController
     public function create()
     {
         $this->checkPermission('create');
-        return view('ar.popup-notice.form');
+        $this->data['types'] = Types::whereIn('id', [3,4])->get();
+        return view('ar.popup-notice.form', $this->data);
     }
 
     /**

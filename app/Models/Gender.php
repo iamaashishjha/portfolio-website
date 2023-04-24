@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gender extends BaseModel
 {
-    use HasFactory;
 
     protected $table = 'genders';
 

@@ -51,17 +51,12 @@
                                 <div class="font-medium whitespace-no-wrap">{{ $notice->title }}</div>
                             </td>
                             <td class="text-center border-b">
-                                {{-- <div class="flex sm:justify-center">
-                                    <div class="intro-x w-10 h-10 image-fit">
-                                        <img alt="{{ $notice->title }}" class="rounded-full" src="{{ $notice->image }}">
-                                    </div>
-                                </div> --}}
-                                <a class="flex items-center text-theme-12" href="javascript:;" data-toggle="modal"
+                                <a class="flex items-center text-theme-15" href="javascript:;" data-toggle="modal"
                                     data-target="#notice-content-{{ $notice->id }}"> <i data-feather="eye"
                                         class="w-4 h-4 mr-1"></i> View Content </a>
                             </td>
                             <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">{{ $notice->createByEntity->name }}</div>
+                                <div class="font-medium whitespace-no-wrap">{{ $notice->createdByEntity->name }}</div>
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">{{ $notice->created_at->format('d-M-Y') }}</div>

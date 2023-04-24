@@ -53,11 +53,6 @@
     <div class="card">
         <h1>Congratulations! {{ $memberName }}</h1>
         <p>your membership form has been approved by {{ $approvedBy }}.</p>
-        <p>Your login details are:</p>
-        <ul>
-            <li><strong>Email:</strong> {{ $email }}</li>
-            <li><strong>Password:</strong> {{ $password }}</li>
-        </ul>
     </div>
 </body>
 

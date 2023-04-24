@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Http\Request;
 
-class AdminBulkMessages extends Controller
+class AdminLeadershipController extends BaseCrudController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class AdminBulkMessages extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

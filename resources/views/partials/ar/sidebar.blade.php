@@ -10,307 +10,106 @@
     <ul class="nav-sidebar">
         <li class="nav-item">
             <a href="{{ route('admin.index') }}" class="side-menu ">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa fa-home" aria-hidden="true"></i> </div>
                 <div class="side-menu__title"> Dashboard </div>
             </a>
         </li>
 
-        {{-- News --}}
-        @if (
-            $authUser->hasAnyPermission([
-                'create newspost',
-                'list newspost',
-                'delete newspost',
-                'list newscategory',
-                'list newstags',
-            ]))
+        @if ($authUser->hasAnyPermission(['list user', 'list role', 'list permission']))
             <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-newspaper-o" aria-hidden="true"></i></div>
-                    <div class="side-menu__title"> News <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul class="collapse">
-                    @if ($authUser->can('create newspost'))
-                        <li>
-                            <a href="{{ route('admin.news.post.create') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Create New Post </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list newspost'))
-                        <li>
-                            <a href="{{ route('admin.news.post.index') }}" class="side-menu">
-
-                                <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> All Posts </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('delete newspost'))
-                        <li>
-                            <a href="{{ route('admin.news.post.trashed') }}" class="side-menu">
-
-                                <div class="side-menu__icon"> <i class="fa fa-list-alt" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Trashed Posts </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list newscategory'))
-                        <li>
-                            <a href="{{ route('admin.news.category.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-th-list" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> News Categories </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list newstags'))
-                        <li>
-                            <a href="{{ route('admin.news.tag.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-tags" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> News Tags </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        {{-- Blogs --}}
-        @if (
-            $authUser->hasAnyPermission([
-                'create blogpost',
-                'list blogpost',
-                'delete blogpost',
-                'list blogcategory',
-                'list blogtags',
-            ]))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-podcast" aria-hidden="true"></i></div>
-                    <div class="side-menu__title"> Blogs <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul class="collapse">
-                    @if ($authUser->can('create blogpost'))
-                        <li>
-                            <a href="{{ route('admin.blog.post.create') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Create New Post </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list blogpost'))
-                        <li>
-                            <a href="{{ route('admin.blog.post.index') }}" class="side-menu">
-
-                                <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> All Posts </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('delete blogpost'))
-                        <li>
-                            <a href="{{ route('admin.blog.post.trashed') }}" class="side-menu">
-
-                                <div class="side-menu__icon"> <i class="fa fa-list-alt" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Trashed Posts </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list blogcategory'))
-                        <li>
-                            <a href="{{ route('admin.blog.category.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-th-list" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Blog Categories </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list blogtags'))
-                        <li>
-                            <a href="{{ route('admin.blog.tag.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-tags" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Blog Tags </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        {{-- Events --}}
-        @if ($authUser->hasAnyPermission(['create event', 'list event']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-calendar" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Events <i data-feather="chevron-down"
-                            class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul class="collapse">
-                    @if ($authUser->can('create event'))
-                        <li>
-                            <a href="{{ route('admin.event.create') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Create New Event </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list event'))
-                        <li>
-                            <a href="{{ route('admin.event.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> All Events </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        {{-- Others  --}}
-        @if ($authUser->hasAnyPermission(['list document', 'list library']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Others <i data-feather="chevron-down"
-                            class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul class="collapse">
-                    @if ($authUser->can('list document'))
-                        <li>
-                            <a href="{{ route('admin.document.create') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Documents </div>
-                            </a>
-                        </li>
-                    @endif
-                    @if ($authUser->can('list library'))
-                        <li>
-                            <a href="{{ route('admin.library.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-list" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Libraries </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        {{-- Authentication --}}
-        @if ($authUser->hasAnyPermission(['create user', 'list user', 'update user', 'delete user']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="side-menu__title">
-                        Authentication
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__title"> CMS
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
                 </a>
-                <ul class="collapse">
-                    <li class="nav-item">
-                        <a href="{{ route('admin.user.index') }}" class="side-menu">
-                            <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
-                            <div class="side-menu__title"> Users </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.role.index') }}" class="side-menu">
-                            <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
-                            <div class="side-menu__title"> Roles </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.permission.index') }}" class="side-menu">
-                            <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
-                            <div class="side-menu__title"> Permissions </div>
-                        </a>
-                    </li>
+                <ul>
+                    {{--  News  --}}
+                    @if ($authUser->hasAnyPermission(['list newspost']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.news.post.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> News </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{--  Blogs  --}}
+                    @if ($authUser->hasAnyPermission(['list blogpost']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.blog.post.index') }}" class="side-menu ">
+                                <div class="side-menu__icon"> <i class="fa fa-rss" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Blogs
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Events --}}
+                    @if ($authUser->hasAnyPermission(['list event']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.event.index') }}" class="side-menu ">
+                                <div class="side-menu__icon"> <i class="fa fa-calendar" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Events
+                                </div>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </li>
         @endif
 
-
-        {{-- Members Management --}}
-        @if ($authUser->hasAnyPermission(['create membership', 'list membership']))
+        {{-- Membership --}}
+        @if ($authUser->hasAnyPermission(['list membership']))
             <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-users" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Members <i data-feather="chevron-down"
-                            class="side-menu__sub-icon"></i>
+                <a href="{{ route('admin.member.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
                     </div>
+                    <div class="side-menu__title"> Members </div>
                 </a>
-                <ul class="collapse">
-                    {{-- @if ($authUser->can('create membership')) --}}
-                    <li class="nav-item">
-                        <a href="{{ route('admin.member.create') }}" class="side-menu">
-                            <div class="side-menu__icon"> <i class="fa fa-user-plus" aria-hidden="true"></i>
-                            </div>
-                            <div class="side-menu__title"> Register New Member </div>
-                        </a>
-                    </li>
-                    {{-- @endif --}}
-                    {{-- @if ($authUser->can('list membership')) --}}
-                    <li class="nav-item">
-                        <a href="{{ route('admin.member.index') }}" class="side-menu">
-                            <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
-                            </div>
-                            <div class="side-menu__title"> Registered Members </div>
-                        </a>
-                    </li>
-                    {{-- @endif --}}
-                    {{-- @if ($authUser->can('list membership')) --}}
-                    <li class="nav-item">
-                        <a href="{{ route('admin.member.getApprovedMembers') }}" class="side-menu">
-                            <div class="side-menu__icon">
-                                <i class="fa fa-server" aria-hidden="true"></i>
-                            </div>
-                            <div class="side-menu__title"> Approved Members </div>
-                        </a>
-                    </li>
-                    {{-- @endif --}}
-                </ul>
             </li>
         @endif
 
-        @if ($authUser->hasAnyPermission(['list appsettings', 'list companydetails', 'list slider']))
-            {{-- App Settings --}}
+
+        @if (
+            $authUser->hasAnyPermission([
+                'list bulkmessage',
+                'list popupnotice',
+                'list slider',
+                'list document',
+                'list library',
+                'list appsettings',
+                'list companydetails',
+            ]))
             <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-cog" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Settings <i data-feather="chevron-down"
-                            class="side-menu__sub-icon"></i>
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__title"> Administration
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
                 </a>
-                <ul class="collapse">
-                    @if ($authUser->can('list appsettings'))
+                <ul>
+                    {{-- Bulk Messages --}}
+                    @if ($authUser->hasAnyPermission(['list bulkmessage']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.home.app-setting.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <a href="{{ route('admin.bulk-message.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-comments" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> App Settings </div>
+                                <div class="side-menu__title"> Bulk Messages </div>
                             </a>
                         </li>
                     @endif
-                    @if ($authUser->can('list companydetails'))
+                    {{-- Pop Up Notice --}}
+                    @if ($authUser->hasAnyPermission(['list popupnotice']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.home.company-details.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-building" aria-hidden="true"></i>
+                            <a href="{{ route('admin.popup-notice.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-bullhorn" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> Company Details </div>
+                                <div class="side-menu__title"> Pop up Notices </div>
                             </a>
                         </li>
                     @endif
-                    @if ($authUser->can('list slider'))
+                    {{-- Sliders --}}
+                    @if ($authUser->hasAnyPermission(['list slider']))
                         <li class="nav-item">
                             <a href="{{ route('admin.home.slider.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-sliders" aria-hidden="true"></i>
@@ -319,41 +118,94 @@
                             </a>
                         </li>
                     @endif
-                </ul>
-            </li>
-        @endif
-
-        @if ($authUser->hasAnyPermission(['list popupnotice', 'list bulkmessage']))
-            {{-- Notices and Messages --}}
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu ">
-                    <div class="side-menu__icon"> <i class="fa fa-cog" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Notice and Messages <i data-feather="chevron-down"
-                            class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul class="collapse">
-                    @if ($authUser->can('list popupnotice'))
+                    {{-- Documents --}}
+                    @if ($authUser->hasAnyPermission(['list document']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.popup-notice.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <a href="{{ route('admin.document.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> Pop up Notices </div>
+                                <div class="side-menu__title"> Documents
+                                </div>
                             </a>
                         </li>
                     @endif
-                    @if ($authUser->can('list bulkmessage'))
+                    {{-- Library --}}
+                    @if ($authUser->hasAnyPermission(['list library']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.library.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-book" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Libraries
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Company Details --}}
+                    @if ($authUser->hasAnyPermission(['list companydetails']))
                         <li class="nav-item">
                             <a href="{{ route('admin.home.company-details.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-building" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> Bulk Messages </div>
+                                <div class="side-menu__title"> Company Details </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- App setting --}}
+                    @if ($authUser->hasAnyPermission(['list appsettings']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.home.app-setting.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> App Setting </div>
                             </a>
                         </li>
                     @endif
                 </ul>
             </li>
         @endif
+
+
+        @if ($authUser->hasAnyPermission(['list user', 'list role', 'list permission']))
+            <li class="nav-item">
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__title"> Authentication
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                    </div>
+                </a>
+                <ul>
+                    {{-- Users --}}
+                    @if ($authUser->hasAnyPermission(['list user']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.user.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Users </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    {{-- Roles --}}
+                    @if ($authUser->hasAnyPermission(['list role']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.role.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Roles </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    {{-- Permissions --}}
+                    @if ($authUser->hasAnyPermission(['list permission']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.permission.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-lock" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Permissions </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
     </ul>
 </nav>
 <!-- END: Side Menu -->
@@ -383,9 +235,10 @@
                     return false;
                 });
             }
-            $currentPageLink.closest('a').addClass('side-menu--active side-menu--open');
+            $currentPageLink.closest('ul').addClass('side-menu__sub-open menu__sub-open');
+            $currentPageLink.closest('ul').siblings('a').addClass('side-menu--active menu--active');
             $currentPageLink.each(function() {
-                $(this).addClass('side-menu--active');
+                $(this).addClass('side-menu--active menu--active');
             });
         }
     </script>

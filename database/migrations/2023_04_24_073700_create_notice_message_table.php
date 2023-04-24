@@ -17,11 +17,12 @@ class CreateNoticeMessageTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->integer('type')->nullable();
-            $table->text('content')->nullable();
+            $table->longText('content')->nullable();
             $table->text('file')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignId('type_id')->nullable()->constrained('types')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')
@@ -41,12 +42,13 @@ class CreateNoticeMessageTable extends Migration
 
         Schema::create('bulk_messages', function (Blueprint $table) {
             $table->id();
-            $table->text('content')->nullable();
+            $table->string('title')->nullable();
+            $table->longText('content')->nullable();
             $table->text('file')->nullable();
-            $table->json('email')->nullable();
-            $table->json('phone_number')->nullable();
-            $table->boolean('is_active')->nullable();
+            $table->json('medium')->nullable();
+            $table->json('members')->nullable();
             $table->dateTime('sent_at')->default(now());
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
             $table->foreignId('created_by')

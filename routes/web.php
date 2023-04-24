@@ -30,8 +30,10 @@ use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminPopupNoticeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\AdminBlogCategoryController;
+use App\Http\Controllers\AdminBulkMessagesController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminCompanyDetailsController;
+use App\Http\Controllers\AdminLeadershipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -188,13 +190,15 @@ Route::middleware(['auth'])
         Route::resource('/library', AdminLibraryController::class);
 
         Route::resource('/popup-notice', AdminPopupNoticeController::class, ['names' => 'popup-notice']);
-        Route::resource('/bulk-messages', AdminBulkMessages::class);
+        Route::resource('/bulk-messages', AdminBulkMessagesController::class, ['names' => 'bulk-message']);
+        Route::resource('/leadership', AdminLeadershipController::class, ['names' => 'leadership']);
     });
+
+
 Route::get('getProvince/', [ProvinceController::class, 'getProvince']);
 Route::get('getDistrict/{id}', [DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}', [LocalLevelController::class, 'getLocalLevel']);
 Route::get('getLocalLevelType/{id}', [LocalLeveTypeController::class, 'getLocalLevelType']);
 
 Route::fallback([HomeController::class, 'notFound']);
-
 Route::post('/password/change', [LoginController::class, 'emailPasswordUpdate'])->name('password.change');

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -38,10 +39,13 @@ class BaseModel extends Model
 
         static::deleting(function ($model) use ($user) {
             $columns = Schema::getColumnListing($model->getTable());
-            // dd($user, $columns, in_array('deleted_by', $columns));
             if (in_array('deleted_by', $columns)) {
                 $model->deleted_by =  $user->id;
             }
+        });
+
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->orderBy('id', 'desc');
         });
     }
 
@@ -71,7 +75,7 @@ class BaseModel extends Model
     }
 
 
-    public function createByEntity()
+    public function createdByEntity()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
     }

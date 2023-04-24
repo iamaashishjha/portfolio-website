@@ -15,13 +15,6 @@ class NewsCategory extends BaseModel
 
     protected $table = 'news_categories';
 
-    protected $fillable = [
-        'title', 'description', 'category_image',
-        'slug', 'meta_description', 'meta_title', 'keywords',
-        'status', 'is_deleted', 'created_by', 'updated_by',
-        'deleted_by'
-    ];
-
     // protected $guarded = ['id'];
 
 

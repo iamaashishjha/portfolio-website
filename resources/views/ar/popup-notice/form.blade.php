@@ -81,10 +81,9 @@
                                     <select data-search="true"
                                         class="tail-select w-full  input w-full border mt-2 @error('type') border-theme-6 @enderror"
                                         name="type" id="noticeType">
-                                        <option value="1" {{ old('type') == 1 ? 'selected' : '' }}>Text
-                                        </option>
-                                        <option value="2" {{ old('type') == 1 ? 'selected' : '' }}>File
-                                        </option>
+                                        @foreach ($types as $type)
+                                            <option value="{{$type->id}}">{{$type->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -169,11 +168,14 @@
         $('#noticeType').change(function(e) {
             e.preventDefault();
             let selectedFileType = $(this).val();
-            if (selectedFileType == 1) {
+            if (selectedFileType == 3) {
                 $('#noticeFile').hide();
                 $('#noticeContent').show();
-            } else {
+            } else if(selectedFileType == 4) {
                 $('#noticeFile').show();
+                $('#noticeContent').hide();
+            }else{
+                $('#noticeFile').hide();
                 $('#noticeContent').hide();
             }
         });

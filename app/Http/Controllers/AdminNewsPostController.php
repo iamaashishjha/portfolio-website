@@ -21,9 +21,9 @@ class AdminNewsPostController extends BaseCrudController
     public function __construct()
     {
         $this->model = NewsPost::class;
-        $this->data['categories'] = NewsCategory::notDeleted()->active()->get();
-        $this->data['tags'] = NewsTags::notDeleted()->active()->get();
-        $this->data['posts'] = $this->model::notDeleted()->get();
+        $this->data['categories'] = NewsCategory::get();
+        $this->data['tags'] = NewsTags::get();
+        $this->data['posts'] = $this->model::get();
     }
 
     /**

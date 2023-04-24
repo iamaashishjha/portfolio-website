@@ -14,6 +14,6 @@ class BulkMessageSeeder extends Seeder
      */
     public function run()
     {
-        // BulkMessage::factory()->count(10)->create();
+        BulkMessage::factory()->count(10)->create();
     }
 }

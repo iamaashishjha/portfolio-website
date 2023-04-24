@@ -15,7 +15,7 @@ class PopupNoticeFactory extends Factory
     {
         return [
             'title' => (string)$this->faker->sentence($nbWords = 1, $variableNbWords = true, true),
-            'type' => rand(1,2),
+            'type' => rand(3,4),
             'content' => (string)$this->faker->paragraphs(5, true),
             'created_by' => 1
         ];

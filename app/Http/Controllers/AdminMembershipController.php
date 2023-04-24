@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Jobs\SendMembershipApprovalMailJob;
 
 class AdminMembershipController extends BaseCrudController
 {
@@ -359,18 +360,7 @@ class AdminMembershipController extends BaseCrudController
                 $member->is_verified = true;
                 $member->verified_by = Auth::id();
                 $member->save();
-                // $userEmailArr = [
-                //     'name' => $member->name_en,
-                //     'email' => $member->email,
-                //     'email_verified_at' => now(),
-                //     'password' => Hash::make('Nagrik-' . $member->citizenship_number),
-                //     'remember_token' => Str::random(10),
-                // ];
-                // User::create($userEmailArr);
-                $user = User::latest()->first();
-                $role = Role::find(6);
-                $user->assignRole($role);
-                Mail::to($user)->send(new ApproveMember($member));
+                dispatch(new SendMembershipApprovalMailJob($member, $member->email));
                 DB::commit();
                 Alert::success('Member Approved');
                 return redirect()->back();

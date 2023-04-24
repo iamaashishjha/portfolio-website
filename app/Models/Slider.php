@@ -12,19 +12,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class Slider extends BaseModel
 {
-    use HasFactory;
-
     protected $table = 'sliders';
-
-    protected $fillable = [
-        'slider_title', 'slider_description',
-        'image_a', 'heading1', 'subheading1',
-        'image_b', 'heading2', 'subheading2',
-        'image_c', 'heading3', 'subheading3',
-        'image_d', 'heading4', 'subheading4',
-        'image_e', 'heading5', 'subheading5',
-        'created_by', 'is_active'
-    ];
 
     public function checkStatus()
     {
