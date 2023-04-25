@@ -15,14 +15,6 @@ class NewsTags extends BaseModel
 
     protected $table = 'news_tags';
 
-    protected $fillable = [
-        'title', 'description', 'tag_image',
-        'slug', 'meta_description', 'meta_title', 'keywords',
-        'status', 'is_deleted', 'created_by', 'updated_by', 'deleted_by'
-    ];
-
-    protected $guarded = ['id'];
-
 
     public function checkStatus()
     {

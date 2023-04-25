@@ -8,13 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LocalLevelType extends BaseModel
 {
-    use HasFactory;
-
-    // protected $guarded = ['id'];
-    protected $fillable = [
-        'code','name_en','name_lc',
-        'local_level_count',
-    ];
 
     public function getNameAttribute()
     {

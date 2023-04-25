@@ -7,7 +7,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('admin.home.app-setting.index') }}" class="">App Setting</a>
+        <a href="{{ route('admin.app-setting.index') }}" class="">App Setting</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href=""
             class="breadcrumb--active">{{ isset($appSetting) ? 'Edit App Setting ' : 'Create New App Setting' }}</a>
@@ -23,7 +23,7 @@
             {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '".' : 'Create New App Setting' }}
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.home.app-setting.index') }}">All
+            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.app-setting.index') }}">All
                 App Setting</a>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 {{-- @include('partials.ar.messages') --}}
                 {{-- @include('{{-- @include('partials.ar.modelMessage') --}}
                 <form
-                    action="{{ isset($appSetting) ? route('admin.home.app-setting.update', $appSetting->id) : route('admin.home.app-setting.store') }}"
+                    action="{{ isset($appSetting) ? route('admin.app-setting.update', $appSetting->id) : route('admin.app-setting.store') }}"
                     method="post" enctype="multipart/form-data">
                     @csrf
                     @if (isset($appSetting))

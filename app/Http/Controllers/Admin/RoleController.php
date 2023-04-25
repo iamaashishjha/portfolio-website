@@ -10,10 +10,11 @@ use App\Models\AppSettings;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Support\Facades\Auth;
 
 
-class RoleController extends BaseController
+class RoleController extends BaseCrudController
 {
     use AuthTrait;
     // public $data;

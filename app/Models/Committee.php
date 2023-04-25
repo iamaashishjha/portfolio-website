@@ -3,19 +3,22 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Leadership extends BaseModel
+class Committee extends BaseModel
 {
-    protected $table = 'team_members';
+    protected $table = 'commitees';
+    protected $attributes = [
+        'type_id' => Types::COMMITTEE,
+    ];
 
     protected static function boot()
     {
         parent::boot();
         static::addGlobalScope(function (Builder $builder) {
-            $builder->where('type_id', Types::LEADERSHIP)->orderBy('id', 'desc');
+            $builder->where('type_id', Types::COMMITTEE)->orderBy('id', 'desc');
         });
     }
+
+
 }

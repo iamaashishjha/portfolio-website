@@ -106,7 +106,7 @@ class AdminSliderController extends BaseCrudController
         $slider->save();
         // Alert::toast('Slider Created successfully', 'success');
         Alert::success('Slider Created successfully');
-        return redirect()->route('admin.home.slider.index');
+        return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -220,6 +220,6 @@ class AdminSliderController extends BaseCrudController
         $slider->created_by = Auth::user()->id;
         $slider->save();
         Alert::success('Slider Updated successfully');
-        return redirect()->route('admin.home.slider.index');
+        return redirect()->route('admin.slider.index');
     }
 }

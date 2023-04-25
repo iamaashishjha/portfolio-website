@@ -8,13 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LocalLevel extends BaseModel
 {
-    use HasFactory;
-
-    // protected $guarded = ['id'];
-    protected $fillable = [
-        'district_id','code','name_en','name_lc',
-        'level_type_id','wards_count',
-    ];
 
     public function getNameAttribute()
     {
@@ -25,11 +18,6 @@ class LocalLevel extends BaseModel
     {
         return $this->belongsTo(LocalLevelType::class, 'level_type_id', 'id');
     }
-
-    // public function provision()
-    // {
-    //     return $this->belongsTo(Provision::class, 'provision_id', 'id');
-    // }
 
     public function district()
     {

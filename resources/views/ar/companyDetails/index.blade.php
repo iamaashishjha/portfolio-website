@@ -6,7 +6,7 @@ All Company Details || {{ __('base.title') }}
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.home.company-details.index') }}" class="">Company Details</a>
+    <a href="{{ route('admin.company-details.index') }}" class="">Company Details</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Company Details</a>
 </div>
@@ -20,7 +20,7 @@ All Company Details || {{ __('base.title') }}
     </h2>
     @if ($totalData < 1) <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
         <a class="button text-white bg-theme-1 shadow-md mr-2"
-            href="{{ route('admin.home.company-details.create') }}">Create Company Details</a>
+            href="{{ route('admin.company-details.create') }}">Create Company Details</a>
 
 </div>
 @endif
@@ -66,7 +66,7 @@ All Company Details || {{ __('base.title') }}
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3 text-theme-9"
-                            href="{{ route('admin.home.company-details.edit', $companyDetail->id) }}"> <i
+                            href="{{ route('admin.company-details.edit', $companyDetail->id) }}"> <i
                                 data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                     </div>
                 </td>

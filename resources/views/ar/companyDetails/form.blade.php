@@ -10,7 +10,7 @@ Unmukti Party' }}
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.home.company-details.index') }}" class="">Company Details</a>
+    <a href="{{ route('admin.company-details.index') }}" class="">Company Details</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">
         {{ isset($companyDetail) ? 'Edit New Blog Post ' . '"' . $companyDetail->title . '".' : 'Create New Blog Post'
@@ -30,7 +30,7 @@ Unmukti Party' }}
             <i class="w-4 h-4 mr-2" data-feather="eye"></i>
             Preview
         </button> --}}
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.home.company-details.index') }}">
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.company-details.index') }}">
             All Company Details
         </a>
 
@@ -39,7 +39,7 @@ Unmukti Party' }}
 {{-- @include('partials.ar.messages') --}}
 {{-- @include('partials.ar.modelMessage') --}}
 <form
-    action="{{ isset($companyDetail) ? route('admin.home.company-details.update', $companyDetail->id) : route('admin.home.company-details.store') }}"
+    action="{{ isset($companyDetail) ? route('admin.company-details.update', $companyDetail->id) : route('admin.company-details.store') }}"
     method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
     @csrf
     @if (isset($companyDetail))

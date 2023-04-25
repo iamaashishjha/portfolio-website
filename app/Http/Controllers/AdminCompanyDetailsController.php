@@ -98,7 +98,7 @@ class AdminCompanyDetailsController extends BaseCrudController
 
         Alert::success('Company Detail Created successfully');
 
-        return redirect()->route('admin.home.company-details.index');
+        return redirect()->route('admin.company-details.index');
     }
 
     /**
@@ -236,7 +236,7 @@ class AdminCompanyDetailsController extends BaseCrudController
 
         Alert::success('Company Detail Updated successfully');
 
-        return redirect()->route('admin.home.company-details.index');
+        return redirect()->route('admin.company-details.index');
     }
 
 }

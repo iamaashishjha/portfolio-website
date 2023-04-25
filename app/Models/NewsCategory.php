@@ -3,19 +3,12 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class NewsCategory extends BaseModel
 {
-    use HasFactory;
 
     protected $table = 'news_categories';
-
-    // protected $guarded = ['id'];
 
 
     /**
@@ -62,11 +55,6 @@ class NewsCategory extends BaseModel
     {
         # code...
         return $this->hasMany(BlogPost::class, 'category_id', 'id');
-    }
-
-    public function deleteImage()
-    {
-        Storage::delete($this->image);
     }
 
     public function user()

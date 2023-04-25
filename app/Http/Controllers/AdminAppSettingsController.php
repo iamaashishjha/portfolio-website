@@ -46,7 +46,7 @@ class AdminAppSettingsController extends BaseCrudController
             return view('ar.appSetting.form');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.home.app-setting.index');
+            return redirect()->route('admin.app-setting.index');
         }
     }
 
@@ -71,10 +71,10 @@ class AdminAppSettingsController extends BaseCrudController
             $appSetting->created_by = Auth::user()->id;
             $appSetting->save();
             Alert::success('Header/Footer Created Successfully');
-            return redirect()->route('admin.home.app-setting.index');
+            return redirect()->route('admin.app-setting.index');
         } else {
             Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.home.app-setting.index');
+            return redirect()->route('admin.app-setting.index');
         }
     }
 
@@ -122,6 +122,6 @@ class AdminAppSettingsController extends BaseCrudController
 
         $appSetting->save();
         Alert::toast('Header/Footer Updated Successfully', 'success');
-        return redirect()->route('admin.home.app-setting.index');
+        return redirect()->route('admin.app-setting.index');
     }
 }

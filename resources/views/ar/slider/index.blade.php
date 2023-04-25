@@ -6,7 +6,7 @@ All Sliders | {{ __('base.title') }}
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.home.slider.index') }}" class="">Slider</a>
+    <a href="{{ route('admin.slider.index') }}" class="">Slider</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All Sliders</a>
 </div>
@@ -20,7 +20,7 @@ All Sliders | {{ __('base.title') }}
     </h2>
     @if ($totalData < 1)    
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.home.slider.create') }}">Create New Slider</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.slider.create') }}">Create New Slider</a>
     </div>
     @endif
 </div>
@@ -89,7 +89,7 @@ All Sliders | {{ __('base.title') }}
                         </td>
                         <td class="border-b w-5">
                             <div class="flex sm:justify-center items-center">
-                                <a class="flex items-center mr-3 text-theme-20" href="{{ route('admin.home.slider.edit', $slider->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
+                                <a class="flex items-center mr-3 text-theme-20" href="{{ route('admin.slider.edit', $slider->id) }}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                             </div>
                         </td>
                     </tr>

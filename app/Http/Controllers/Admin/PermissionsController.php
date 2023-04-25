@@ -7,11 +7,12 @@ use App\Models\Permission;
 use App\Models\AppSettings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Traits\Base\BaseCrudController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
 
 
-class PermissionsController extends BaseController
+class PermissionsController extends BaseCrudController
 {
     public $data;
 

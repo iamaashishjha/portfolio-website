@@ -88,7 +88,7 @@
                                         <div>
                                             <label class="font-extrabold">Select Post</label>
                                             <div class="mt-2">
-                                                <select data-search="true" class="tail-select w-full" name="role">
+                                                <select data-search="true" class="select2 w-full" name="role">
                                                     @foreach ($roles as $role)
                                                         <option value="{{ $role->id }}" {{  old('role') == $role->id ? "selected" : "" }}>{{ $role->name }}</option>
                                                     @endforeach

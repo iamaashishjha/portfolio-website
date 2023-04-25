@@ -9,11 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Library extends BaseModel
 {
-    use HasFactory;
-
     protected $table = 'libraries';
-
-    protected $gaurded = ['id'];
 
     public function getImageAttribute()
     {

@@ -8,14 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsComment extends BaseModel
 {
-    use HasFactory;
 
     protected $table = 'news_comments';
-
-    protected $fillable = [
-        'name', 'email', 'message', 'post_id',
-        'created_at'
-    ];
 
     public function newsPost()
     {

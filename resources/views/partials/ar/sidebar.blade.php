@@ -111,7 +111,7 @@
                     {{-- Sliders --}}
                     @if ($authUser->hasAnyPermission(['list slider']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.home.slider.index') }}" class="side-menu">
+                            <a href="{{ route('admin.slider.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-sliders" aria-hidden="true"></i>
                                 </div>
                                 <div class="side-menu__title"> Slider </div>
@@ -142,7 +142,7 @@
                     {{-- Company Details --}}
                     @if ($authUser->hasAnyPermission(['list companydetails']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.home.company-details.index') }}" class="side-menu">
+                            <a href="{{ route('admin.company-details.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-building" aria-hidden="true"></i>
                                 </div>
                                 <div class="side-menu__title"> Company Details </div>
@@ -152,7 +152,7 @@
                     {{-- App setting --}}
                     @if ($authUser->hasAnyPermission(['list appsettings']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.home.app-setting.index') }}" class="side-menu">
+                            <a href="{{ route('admin.app-setting.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i>
                                 </div>
                                 <div class="side-menu__title"> App Setting </div>
@@ -205,6 +205,35 @@
                 </ul>
             </li>
         @endif
+
+        {{-- Youtube Video --}}
+        @if ($authUser->hasAnyPermission(['list youtubevideo']))
+            <li class="nav-item">
+                <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                    <div class="side-menu__title"> Youtube Video </div>
+                </a>
+            </li>
+        @endif
+
+        @if ($authUser->hasAnyPermission(['list history']))
+            <li class="nav-item">
+                <a href="{{ route('admin.history.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                    <div class="side-menu__title"> History </div>
+                </a>
+            </li>
+        @endif
+
+        @if ($authUser->hasAnyPermission(['list teammember']))
+        <li class="nav-item">
+            <a href="{{ route('admin.team-member.index') }}" class="side-menu">
+                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                <div class="side-menu__title"> Team Member </div>
+            </a>
+        </li>
+    @endif
+
 
     </ul>
 </nav>

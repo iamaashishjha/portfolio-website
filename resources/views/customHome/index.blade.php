@@ -179,7 +179,7 @@
             </div>
             <div class="row gy-4">
                 <div class="col-md-6">
-                    <iframe width="100%" height="360" title="YouTube video
+                    {{-- <iframe width="100%" height="360" title="YouTube video
                         player"
                         src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcommunistpartynepal%2Fvideos%2F927596615224753%2F&amp;show_text=false&amp;width=476&amp;t=0"
                         frameborder="0"
@@ -187,17 +187,19 @@
                         clipboard-write;
                         encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
-                    </iframe>
+                    </iframe> --}}
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/WWJ5Py8Pt-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6">
-                    <iframe width="100%" height="360" title="YouTube video
+                    {{-- <iframe width="100%" height="360" title="YouTube video
                         player"
                         src="https://www.youtube.com/embed/MvAInKuafh8" frameborder="0"
                         allow="accelerometer; autoplay;
                         clipboard-write;
                         encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
-                    </iframe>
+                    </iframe> --}}
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/ChdaOos_0eY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

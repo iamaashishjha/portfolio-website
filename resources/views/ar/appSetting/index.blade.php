@@ -6,7 +6,7 @@ All App Settings || {{ __('base.title') }}
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.home.app-setting.index') }}" class="">App Settings</a>
+    <a href="{{ route('admin.app-setting.index') }}" class="">App Settings</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">All App Settings</a>
 </div>
@@ -21,7 +21,7 @@ All App Settings || {{ __('base.title') }}
     @if ($totalData < 1 )
         
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.home.app-setting.create') }}">Create
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.app-setting.create') }}">Create
             New App Settings</a>
     </div>
     @endif
@@ -68,7 +68,7 @@ All App Settings || {{ __('base.title') }}
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
                         <a class="flex items-center mr-3 text-theme-9"
-                            href="{{ route('admin.home.app-setting.edit', $appSetting->id) }}"> <i
+                            href="{{ route('admin.app-setting.edit', $appSetting->id) }}"> <i
                                 data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                         {{-- <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
                             data-target="#delete-modal-preview-{{ $appSetting->id }}"> <i data-feather="trash-2"

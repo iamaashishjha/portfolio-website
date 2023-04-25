@@ -33,7 +33,11 @@ use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBulkMessagesController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminCompanyDetailsController;
+use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\AdminLeadershipController;
+use App\Http\Controllers\AdminTeamMemberController;
+use App\Http\Controllers\AdminYoutubeVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,143 +66,104 @@ Route::post('/locale', function () {
 
 Auth::routes(['verify' => true, 'register' => false, 'password.update' => true]);
 
-Route::prefix('/')
-    ->name('home.')
-    ->controller(HomeController::class)
-    ->group(function () {
-        Route::get('', 'index')->name('index');
-        Route::get('/contact', 'contactPage')->name('contact');
-        Route::get('/about', 'aboutUsPage')->name('about');
-        Route::get('/donation', 'donationPage')->name('donation');
+Route::name('home.')->controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/contact', 'contactPage')->name('contact');
+    Route::get('/about', 'aboutUsPage')->name('about');
+    Route::get('/donation', 'donationPage')->name('donation');
 
-        Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
-        Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');
-        Route::post('/ContactUsForm', 'storeContactData')->name('contactForm');
+    Route::post('/sliderForm', 'indexPageSliderForm')->name('sliderForm');
+    Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');
+    Route::post('/ContactUsForm', 'storeContactData')->name('contactForm');
 
-        Route::prefix('events')
-            ->name('events.')
-            ->controller(HomeController::class)
-            ->group(function () {
-                Route::get('/', 'listEvent')->name('index');
-                Route::get('/{id}', 'showEvent')->name('show');
-            });
-
-        Route::prefix('news')
-            ->name('news.')
-            ->controller(HomeController::class)
-            ->group(function () {
-                Route::get('/', 'listNews')->name('index');
-                Route::get('/{id}', 'showNews')->name('show');
-                Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
-                Route::post('/{id}', 'storeNewsComments')->name('comment');
-            });
-
-        Route::prefix('blogs')
-            ->name('blogs.')
-            ->controller(HomeController::class)
-            ->group(function () {
-                Route::get('/', 'listBlog')->name('index');
-                Route::get('/{id}', 'showBlog')->name('show');
-                Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
-                Route::post('/{id}', 'storeBlogComments')->name('comment');
-            });
-
-        Route::prefix('member')
-            ->name('member.')
-            ->controller(MembershipController::class)
-            ->group(function () {
-                Route::get('/create', 'create')->name('create');
-                Route::post('/', 'store')->name('store');
-            });
-
-        Route::prefix('library')
-            ->name('library.')
-            ->controller(HomeController::class)
-            ->group(function () {
-                Route::get('/', 'listLibrary')->name('index');
-            });
+    Route::prefix('/events')->name('events.')->group(function () {
+        Route::get('/', 'listEvent')->name('index');
+        Route::get('/{id}', 'showEvent')->name('show');
     });
 
-Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-
-        Route::get(
-            '/',
-            [AdminDashboardController::class, 'index']
-        )->name('index');
-        Route::resource('/user', AdminUserController::class, ['names' => 'user']);
-        Route::prefix('/user')
-            ->name('user.')
-            ->controller(AdminUserController::class)
-            ->group(function () {
-                // Route::get('/create', 'create')->name('create');
-                // Route::get('/', 'index')->name('index');
-                // Route::post('/', 'store')->name('store');
-                // Route::get('/edit/{id}', 'edit')->name('edit');
-                // Route::post('/{id}', 'update')->name('update');
-                // Route::delete('/{user_id}', 'destroy')->name('delete');
-                Route::get('/profile/{id}', 'profile')->name('profile');
-                Route::put('/profile/{id}', 'profileUpdate')->name('update');
-                Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');
-                Route::post('/changepassword/{id}', 'changePassword')->name('changePassword');
-            });
-
-        Route::resource('/roles', RoleController::class, ['names' => 'role']);
-        Route::get('/permissions', [PermissionsController::class, 'index'])->name('permission.index');
-        Route::get('/permissions/generate', [PermissionsController::class, 'generatePermissions'])->name('permission.generate');
-        // Route::get('/user/profile',[App\Http\Controllers\Admin\UserController::class, 'myProfileView'])->name('profile');
-        // Route::post('/users/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRoleToUser'])->name('user.assignrole');
-        // Route::get('/users/permissions', [App\Http\Controllers\Admin\UserController::class, 'userPermissions'])->name('user.permissions');
-
-        Route::prefix('/blog')
-            ->name('blog.')
-            ->group(function () {
-                Route::resource('/category', AdminBlogCategoryController::class);
-                Route::resource('/tag', AdminBlogTagController::class);
-                Route::resource('/post', AdminBlogPostController::class);
-                Route::get('/trashed-posts', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
-                Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
-            });
-
-        Route::prefix('/news')
-            ->name('news.')
-            ->group(function () {
-                Route::resource('/category', AdminNewsCategoryController::class);
-                Route::resource('/tag', AdminNewsTagController::class);
-                Route::resource('/post', AdminNewsPostController::class);
-                Route::get('/trashed-posts', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
-                Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
-            });
-
-        Route::prefix('/home')
-            ->name('home.')
-            ->group(function () {
-                Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
-                Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
-                Route::resource('/slider', AdminSliderController::class)->except('destroy');
-            });
-
-        // Route::resource('/member', AdminMembershipController::class);
-        Route::resource('/member', AdminMembershipController::class)->except('index');
-        Route::get('/member', [AdminMembershipController::class, 'getRegisteredMembers'])->name('member.index');
-        Route::get('/approved-members', [AdminMembershipController::class, 'getApprovedMembers'])->name('member.getApprovedMembers');
-        Route::post('/member/{id}', [AdminMembershipController::class, 'approveMember'])->name('member.approve');
-        Route::resource('/event', AdminEventController::class);
-        Route::resource('/document', AdminDocumentController::class);
-        Route::resource('/library', AdminLibraryController::class);
-
-        Route::resource('/popup-notice', AdminPopupNoticeController::class, ['names' => 'popup-notice']);
-        Route::resource('/bulk-messages', AdminBulkMessagesController::class, ['names' => 'bulk-message']);
-        Route::resource('/leadership', AdminLeadershipController::class, ['names' => 'leadership']);
+    Route::prefix('/news')->name('news.')->group(function () {
+        Route::get('/', 'listNews')->name('index');
+        Route::get('/{id}', 'showNews')->name('show');
+        Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
+        Route::post('/{id}', 'storeNewsComments')->name('comment');
     });
 
+    Route::prefix('/blogs')->name('blogs.')->group(function () {
+        Route::get('/', 'listBlog')->name('index');
+        Route::get('/{id}', 'showBlog')->name('show');
+        Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
+        Route::post('/{id}', 'storeBlogComments')->name('comment');
+    });
+
+    Route::prefix('/library')->name('library.')->group(function () {
+        Route::get('/', 'listLibrary')->name('index');
+    });
+});
+
+Route::prefix('/member')->name('home.member.')->controller(MembershipController::class)->group(function () {
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+});
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
+    Route::resource('/user', AdminUserController::class);
+    Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
+        Route::get('/profile/{id}', 'profile')->name('profile');
+        Route::put('/profile/{id}', 'profileUpdate')->name('update');
+        Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');
+        Route::post('/changepassword/{id}', 'changePassword')->name('changePassword');
+    });
+
+    Route::resource('/roles', RoleController::class, ['names' => 'role']);
+    Route::get('/permissions', [PermissionsController::class, 'index'])->name('permission.index');
+    Route::get('/permissions/generate', [PermissionsController::class, 'generatePermissions'])->name('permission.generate');
+    // Route::get('/user/profile',[App\Http\Controllers\Admin\UserController::class, 'myProfileView'])->name('profile');
+    // Route::post('/users/assign-role', [App\Http\Controllers\Admin\UserController::class, 'assignRoleToUser'])->name('user.assignrole');
+    // Route::get('/users/permissions', [App\Http\Controllers\Admin\UserController::class, 'userPermissions'])->name('user.permissions');
+
+    Route::prefix('/blog')->name('blog.')->group(function () {
+        Route::resource('/category', AdminBlogCategoryController::class);
+        Route::resource('/tag', AdminBlogTagController::class);
+        Route::resource('/post', AdminBlogPostController::class);
+        Route::get('/trashed-posts', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
+        Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
+    });
+
+    Route::prefix('/news')->name('news.')->group(function () {
+        Route::resource('/category', AdminNewsCategoryController::class);
+        Route::resource('/tag', AdminNewsTagController::class);
+        Route::resource('/post', AdminNewsPostController::class);
+        Route::get('/trashed-posts', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
+        Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
+    });
+
+    Route::resource('/member', AdminMembershipController::class)->except('index');
+    Route::prefix('/member')->name('member.')->controller(AdminMembershipController::class)->group(function () {
+        Route::get('/member', 'getRegisteredMembers')->name('index');
+        Route::get('/approved-members', 'getApprovedMembers')->name('getApprovedMembers');
+        Route::post('/member/{id}', 'approveMember')->name('approve');
+    });
+
+    Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
+    Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
+    Route::resource('/slider', AdminSliderController::class)->except('destroy');
+    Route::resource('/event', AdminEventController::class);
+    Route::resource('/document', AdminDocumentController::class);
+    Route::resource('/library', AdminLibraryController::class);
+    Route::resource('/popup-notice', AdminPopupNoticeController::class);
+    Route::resource('/bulk-message', AdminBulkMessagesController::class);
+    Route::resource('/leadership', AdminLeadershipController::class);
+    Route::resource('/youtube-video', AdminYoutubeVideoController::class);
+    Route::resource('/gallery', AdminGalleryController::class);
+    Route::resource('/history', AdminHistoryController::class);
+    Route::resource('/team-member', AdminTeamMemberController::class);
+});
 
 Route::get('getProvince/', [ProvinceController::class, 'getProvince']);
 Route::get('getDistrict/{id}', [DistrictController::class, 'getDistrict']);
 Route::get('getLocalLevel/{id}', [LocalLevelController::class, 'getLocalLevel']);
 Route::get('getLocalLevelType/{id}', [LocalLeveTypeController::class, 'getLocalLevelType']);
-
-Route::fallback([HomeController::class, 'notFound']);
 Route::post('/password/change', [LoginController::class, 'emailPasswordUpdate'])->name('password.change');
+Route::fallback([HomeController::class, 'notFound']);
+// This should be the end of file and last line for this file

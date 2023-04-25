@@ -198,19 +198,19 @@
             </a>
             <ul class="collapse">
                 <li>
-                    <a href="{{ route('admin.home.app-setting.index') }}" class="menu">
+                    <a href="{{ route('admin.app-setting.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i> </div>
                         <div class="menu__title"> App Setting </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.home.company-details.index') }}" class="menu">
+                    <a href="{{ route('admin.company-details.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-building" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Company Details </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.home.slider.index') }}" class="menu">
+                    <a href="{{ route('admin.slider.index') }}" class="menu">
                         <div class="menu__icon"> <i class="fa fa-sliders" aria-hidden="true"></i> </div>
                         <div class="menu__title"> Slider </div>
                     </a>

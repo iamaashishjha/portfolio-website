@@ -7,7 +7,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('admin.home.app-setting.index') }}" class="">Slider</a>
+        <a href="{{ route('admin.app-setting.index') }}" class="">Slider</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">{{ isset($slider) ? 'Edit Slider ' : 'Create New Slider' }}</a>
     </div>
@@ -19,7 +19,7 @@
             {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '".' : 'Create New Slider' }}
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.home.slider.index') }}">All
+            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.slider.index') }}">All
                 Sliders</a>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 {{-- @include('partials.ar.messages') --}}
                 {{-- @include('partials.ar.modelMessage') --}}
                 <form
-                    action="{{ isset($slider) ? route('admin.home.slider.update', $slider->id) : route('admin.home.slider.store') }}"
+                    action="{{ isset($slider) ? route('admin.slider.update', $slider->id) : route('admin.slider.store') }}"
                     method="post" enctype="multipart/form-data">
                     @csrf
                     @if (isset($slider))

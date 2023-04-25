@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
-use GrahamCampbell\ResultType\Success;
 use App\Http\Requests\StoreUserRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -27,6 +26,7 @@ class AdminUserController extends BaseCrudController
 
     public function index()
     {
+        $this->checkPermission('list');
         $this->data['users'] = $this->model::all();
         return view('ar.user.index', $this->data);
     }
@@ -40,6 +40,7 @@ class AdminUserController extends BaseCrudController
 
     public function store(StoreUserRequest $request)
     {
+        $this->checkPermission('create');
         if($request->file('image_path')){
             $path = $request->file('image_path')->store('users/', 'public');
         }else{
@@ -61,6 +62,7 @@ class AdminUserController extends BaseCrudController
 
     public function edit($id)
     {
+        $this->checkPermission('update');
         $this->data['user'] = $this->model::find($id);
         $this->data['roles'] = Role::all();
         return view('ar.user.form', $this->data);
@@ -68,6 +70,7 @@ class AdminUserController extends BaseCrudController
 
     public function update(UpdateUserRequest $request, $id)
     {
+        $this->checkPermission('update');
         // if($request->file('image_path')){
         //     $path = $request->file('image_path')->store('users/', 'public');
         // }else{
@@ -131,6 +134,7 @@ class AdminUserController extends BaseCrudController
 
     public function destroy($id)
     {
+        $this->checkPermission('delete');
         $user = $this->model::find($id);
 
         if ($user->id === 1) {

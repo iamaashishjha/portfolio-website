@@ -12,7 +12,7 @@ class LocalLevelController extends Controller
     public function index()
     {
         $this->data['localLevels'] = LocalLevel::all();
-        return view('ar.appSetting.localLevel', $this->data);
+        return view('ar.master-data.localLevel', $this->data);
     }
 
     public function getLocalLevel($id)

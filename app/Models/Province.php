@@ -8,14 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Province extends BaseModel
 {
-    use HasFactory;
 
     protected $table = 'provinces';
-
-    protected $guarded = ['id'];
-    protected $fillable = [
-        'code','name_en','name_lc',
-    ];
 
     public function getNameAttribute()
     {

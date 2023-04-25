@@ -5,7 +5,7 @@
     {{ isset($popupNotice)
         ? 'Edit Popup Notice ' . '"' . $popupNotice->title . '". | Nagrik Unmukti Party'
         : 'Create New Popup Notice |
-                                Nagrik Unmukti Party' }}
+                                        Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')
@@ -78,13 +78,16 @@
                                         Select Type
                                         <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                     </h5>
-                                    <select data-search="true"
-                                        class="tail-select w-full  input w-full border mt-2 @error('type') border-theme-6 @enderror"
-                                        name="type" id="noticeType">
-                                        @foreach ($types as $type)
-                                            <option value="{{$type->id}}">{{$type->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <div class="mt-2">
+
+                                        <select data-search="true"
+                                            class="select2 input w-full border @error('type') border-theme-6 @enderror"
+                                            name="type" id="noticeType">
+                                            @foreach ($types as $type)
+                                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +112,7 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-12 gap-2" id="noticeFile">
-                        <div class="col-span-6">
+                        <div class="col-span-12">
                             <div class="preview p-5">
                                 <h5
                                     class="text-lg ext-theme-9 @error('file') text-theme-6 @enderror font-medium leading-none">
@@ -162,30 +165,36 @@
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('file');
-            image.src = URL.createObjectURL(event.target.files[0]);
+            let file = event.target.files[0];
+            if (!file.type.startsWith('image/')) {
+                file = '{{ "/ar/dist/image/file.png" }}';
+            }
+            console.log(file);
+            debugger;
+            image.src = URL.createObjectURL(file);
         };
 
         $('#noticeType').change(function(e) {
             e.preventDefault();
             let selectedFileType = $(this).val();
-            if (selectedFileType == 3) {
-                $('#noticeFile').hide();
-                $('#noticeContent').show();
-            } else if(selectedFileType == 4) {
+            if (selectedFileType == 4) {
                 $('#noticeFile').show();
                 $('#noticeContent').hide();
-            }else{
+            } else if (selectedFileType == 3) {
+                $('#noticeFile').hide();
+                $('#noticeContent').show();
+            } else {
                 $('#noticeFile').hide();
                 $('#noticeContent').hide();
             }
         });
     </script>
 
-    @if(!isset($popupNotice))
+    @if (!isset($popupNotice))
         <script>
             $(document).ready(function() {
-                $('#noticeFile').hide();
-                $('#noticeContent').show();
+                $('#noticeFile').show();
+                $('#noticeContent').hide();
             });
         </script>
     @endif

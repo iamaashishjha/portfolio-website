@@ -12,7 +12,7 @@ class DistrictController extends Controller
     public function index()
     {
         $this->data['districts'] = District::all();
-        return view('ar.appSetting.district', $this->data);
+        return view('ar.master-data.district', $this->data);
     }
 
     public function getDistrict($id)
