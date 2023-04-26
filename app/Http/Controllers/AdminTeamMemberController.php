@@ -10,9 +10,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminTeamMemberController extends BaseCrudController
 {
     protected $model;
-    public function __construct(TeamMember $model)
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = TeamMember::class;
     }
     /**
      * Display a listing of the resource.
@@ -23,6 +23,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('list');
         $this->data['members'] = $this->model::all();
+        $this->data['totalData'] = count($this->model::all());
         return view('ar.team-member.index', $this->data);
     }
 
@@ -48,6 +49,7 @@ class AdminTeamMemberController extends BaseCrudController
         $this->checkPermission('create');
         $dataArr = $request->only(['name', 'email', 'phone_number', 'post', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
         $member = new $this->model();
+        // $slider = new $this->model();
         $member->create($dataArr);
         Alert::success('Member Created successfully');
         return redirect()->route('admin.team-member.index');

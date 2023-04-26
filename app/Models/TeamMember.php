@@ -16,7 +16,7 @@ class TeamMember extends BaseModel
 
     protected static function boot()
     {
-        // parent::boot();
+        parent::boot();
         // static::addGlobalScope(function (Builder $builder) {
         //     $builder->where('type_id', Types::HISTORY)->orderBy('id', 'desc');
         // });

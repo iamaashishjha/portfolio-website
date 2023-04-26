@@ -6,27 +6,48 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" /> --}}
 @endsection
 
+@section('breadcum')
+    <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
+        <a href="/admin" class="">Dashboard</a>
+        <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+        <a href="" class="breadcrumb--active">Team Members</a>
+    </div>
+@endsection
+
 @section('content')
+    @php
+        $authUser = \App\Models\User::find(Auth::id());
+    @endphp
     <!-- END: Top Bar -->
-    <h2 class="intro-y text-lg font-medium mt-10">
+    {{-- <h2 class="intro-y text-lg font-medium mt-10">
         @if (isset($member))
             Edit "{{ $member->name }}" details
         @else
             Create Team Member
         @endif
-    </h2>
+    </h2> --}}
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            @if (isset($member))
+                Edit "{{ $member->name }}" details
+            @else
+                Create Team Member
+            @endif
+        </h2>
+        @if ($authUser->hasPermissionTo('list teammember'))
+            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+                <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.team-member.index') }}">
+                    <i class="fa fa-list mr-2" aria-hidden="true"></i>
+                    All Team Members
+                </a>
+            </div>
+        @endif
+    </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="#">
-                <i class="fa fa-list" aria-hidden="true"></i>
-                All Team Members
-            </a>
-        </div>
         <div class="col-span-12">
             <form
                 action="{{ isset($member) ? route('admin.team-member.update', $member->id) : route('admin.team-member.store') }}"
                 method="post" enctype="multipart/form-data">
-                {{-- <form action="#" method="post" enctype="multipart/form-data"> --}}
                 @csrf
                 @isset($member)
                     @method('PUT')
@@ -103,10 +124,10 @@
                                 <div class="preview">
                                     <div>
                                         <label class="font-extrabold">Tenure Start Date</label>
-                                        <input type="text" class="input w-full border mt-2"
-                                            placeholder="Enter facebook link" name="tenure_start_date_en"
-                                            value="{{ isset($member->tenure_start_date_en) ? $member->tenure_start_date_en : old('tenure_start_date_en') }}" required
-                                            autocomplete="tenure_start_date_en" autofocus>
+                                        <input class="datepicker input w-full border mt-2" placeholder="Select in AD"
+                                            data-single="1"name="tenure_start_date_en"
+                                            value="{{ isset($member->tenure_start_date_en) ? $member->tenure_start_date_en : old('tenure_start_date_en') }}"
+                                            required autocomplete="tenure_start_date_en" autofocus>
                                     </div>
                                 </div>
                                 <!-- END: Input -->
@@ -116,10 +137,10 @@
                                 <div class="preview">
                                     <div>
                                         <label class="font-extrabold">Tenure Start Date (NP)</label>
-                                        <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
-                                            name="tenure_start_date_np"
-                                            value="{{ isset($member->tenure_end_date_en) ? $member->tenure_end_date_en : old('tenure_end_date_en') }}" required
-                                            autocomplete="tenure_end_date_en" autofocus>
+                                        <input class="nepalidatepicker input w-full border mt-2" placeholder="Select in BS"
+                                            data-single="1" name="tenure_start_date_np"
+                                            value="{{ isset($member->tenure_end_date_en) ? $member->tenure_end_date_en : old('tenure_end_date_en') }}"
+                                            required autocomplete="tenure_end_date_en" autofocus>
                                     </div>
                                 </div>
                                 <!-- END: Input -->
@@ -128,11 +149,13 @@
                                 <!-- BEGIN: Input -->
                                 <div class="preview">
                                     <div>
-                                        <label class="font-extrabold">Tenure End Date</label>
-                                        <input type="text" class="input w-full border mt-2"
-                                            placeholder="Enter facebook link" name="tenure_end_date_en"
-                                            value="{{ isset($member->tenure_end_date_en) ? $member->tenure_end_date_en : old('tenure_end_date_en') }}" required
-                                            autocomplete="tenure_end_date_en" autofocus>
+                                        <label class="font-extrabold">Tenure End Date
+                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                        </label>
+                                        <input class="datepicker input w-full border mt-2" placeholder="Select Date in AD"
+                                            data-single="1"name="tenure_end_date_en"
+                                            value="{{ isset($member->tenure_end_date_en) ? $member->tenure_end_date_en : old('tenure_end_date_en') }}"
+                                            required autocomplete="tenure_end_date_en">
                                     </div>
                                 </div>
                                 <!-- END: Input -->
@@ -143,43 +166,44 @@
                                 <div class="preview">
                                     <div>
                                         <label class="font-extrabold">Tenure End Date (NP)</label>
-                                        <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
-                                            name="tenure_end_date_np"
-                                            value="{{ isset($member->tenure_end_date_np) ? $member->tenure_end_date_np : old('tenure_end_date_np') }}" required
-                                            autocomplete="tenure_end_date_np" autofocus>
+                                        <input type="text" class="nepalidatepicker input w-full border mt-2"
+                                            placeholder="Enter Date in BS" data-single="1" name="tenure_end_date_np"
+                                            value="{{ isset($member->tenure_end_date_np) ? $member->tenure_end_date_np : old('tenure_end_date_np') }}"
+                                            required autocomplete="tenure_end_date_np" autofocus>
                                     </div>
                                 </div>
                                 <!-- END: Input -->
                             </div>
                         </div>
-
                     </div>
-
                     {{-- Social Media  --}}
                     <div class="intro-x col-span-12 lg:col-span-12 p-5">
                         <div class="grid grid-cols-12 gap-2">
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="preview">
                                     <label class="font-extrabold">Facebook Link</label>
-                                    <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
-                                        name="name" value="{{ isset($member->name) ? $member->name : old('name') }}"
-                                        required autocomplete="name" autofocus>
+                                    <input type="url" class="input w-full border mt-2"
+                                        placeholder="Enter Facebook Link" name="facebook_link"
+                                        value="{{ isset($member->facebook_link) ? $member->facebook_link : old('facebook_link') }}"
+                                        required autocomplete="facebook_link" autofocus>
                                 </div>
                             </div>
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="preview">
                                     <label class="font-extrabold">Twitter Link</label>
-                                    <input type="email" class="input w-full border mt-2"
-                                        placeholder="Enter Member Email" name="email" required autocomplete="email"
-                                        value="{{ isset($member->email) ? $member->email : old('email') }}">
+                                    <input type="url" class="input w-full border mt-2"
+                                        placeholder="Enter Twitter Email" name="twitter_link" required
+                                        autocomplete="twitter_link"
+                                        value="{{ isset($member->twitter_link) ? $member->twitter_link : old('twitter_link') }}">
                                 </div>
                             </div>
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="preview">
                                     <label class="font-extrabold">Instagram Link</label>
-                                    <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
-                                        name="name" value="{{ isset($member->name) ? $member->name : old('name') }}"
-                                        required autocomplete="name" autofocus>
+                                    <input type="url" class="input w-full border mt-2"
+                                        placeholder="Enter Instagram Link" name="instagram_link"
+                                        value="{{ isset($member->instagram_link) ? $member->instagram_link : old('instagram_link') }}"
+                                        required autocomplete="instagram_link" autofocus>
                                 </div>
                             </div>
                         </div>
@@ -213,8 +237,8 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('imagetoChange');
