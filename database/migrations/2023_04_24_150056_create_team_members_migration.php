@@ -16,7 +16,6 @@ class CreateTeamMembersMigration extends Migration
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('post')->nullable();
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('image')->nullable();
@@ -48,6 +47,11 @@ class CreateTeamMembersMigration extends Migration
                 ->onDelete('cascade');
 
             $table->foreignId('type_id')
+                ->nullable()
+                ->constrained('types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('post_id')
                 ->nullable()
                 ->constrained('types')
                 ->onUpdate('cascade')

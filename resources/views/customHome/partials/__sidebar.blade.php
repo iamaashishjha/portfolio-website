@@ -40,49 +40,19 @@
         </div>
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">नेतृत्व
-                <i class="fas fa-chevron-down"></i>
+                @if (count($committees))
+                    <i class="fas fa-chevron-down"></i>
+                @endif
             </button>
-            <div class="dropdown-container">
-                <a href="javascript:;">
-                    केन्द्रीय सचिवालय
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय कार्यालय
-                </a>
-                <a href="javascript:;">
-                    स्थायी कमिटी
-                </a>
-                <a href="javascript:;">
-                    पोलिटव्युरो
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय कमिटी
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय अनुशासन आयोग
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय लेखा आयोग
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय निर्वाचन आयोग
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय सल्लाहकार परिषद्
-                </a>
-                <a href="javascript:;">
-                    केन्द्रीय विभागहरु
-                </a>
-                <a href="javascript:;">
-                    प्रदेश कमिटी नेतृत्व
-                </a>
-                <a href="javascript:;">
-                    जिल्ला कमिटी नेतृत्व
-                </a>
-                <a href="javascript:;">
-                    महाधिवशन प्रतिनिधि परिषद्
-                </a>
-            </div>
+            @if (count($committees))
+                <div class="dropdown-container">
+                    @foreach ($committees as $committee)
+                        <a href="{{ route('home.committee.show', $committee->id) }}">
+                            {{ $committee->title }}
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">इतिहास

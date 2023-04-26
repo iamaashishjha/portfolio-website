@@ -20,9 +20,9 @@
             <div class="col-sm-5 ">
                 <h1 class="text-title">
                     <a href="/">
-                        @isset($appSetting->image)
-                            <img src="{{ $appSetting->image }}"
-                                alt="{{ isset($appSetting->site_title) ? $appSetting->site_title : __('base.title') }}"
+                        @isset($companyDetails->logo)
+                            <img src="{{ $companyDetails->logo }}"
+                                alt="{{ isset($companyDetails->logo) ? $companyDetails->logo : __('base.title') }}"
                                 class="img-fluid">
                         @endisset
                         <span class="ms-2">

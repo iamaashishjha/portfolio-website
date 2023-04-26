@@ -18,7 +18,8 @@
                                     <span>फोन नं. </span>
                                 </h3>
                                 <p class="icon-box-description">
-                                    (+९७७) १ ५९०८११४, </p>
+                                    {{ $companyDetails->phone_number }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -32,7 +33,8 @@
                                     <span>इमेल </span>
                                 </h3>
                                 <p class="icon-box-description">
-                                    publicitydept@cpnuml.org </p>
+                                    {{ $companyDetails->email_address }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +48,8 @@
                                     <span>केन्द्रीय कार्यालय </span>
                                 </h3>
                                 <p class="icon-box-description">
-                                    च्यासल, ललितपुर, नेपाल </p>
+                                    {{ $companyDetails->company_address }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -55,8 +58,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.306140201682!2d85.33355071443368!3d27.67693143343619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19ea21a6d6ab%3A0x80e8f05b78ab7507!2sCPN%20UML%20Party%20Head%20Office%20-%20Tulsi%20Lal%20Smriti%20Bhawan!5e0!3m2!1sen!2snp!4v1672847097013!5m2!1sen!2snp"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {!! $companyDetails->google_map !!}
             </div>
         </div>
     </div>

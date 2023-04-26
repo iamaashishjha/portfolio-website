@@ -87,10 +87,16 @@
                             </div>
                             <div class="col-span-12 md:col-span-6">
                                 <div class="preview mt-2">
-                                    <label class="font-extrabold">Designation</label>
-                                    <input type="text" class="input w-full border mt-2"
-                                        placeholder="Enter Member Designation" name="post" required
-                                        value="{{ old('post') }}">
+                                    <label class="font-extrabold">Select Post</label>
+                                    <div class="mt-2">
+                                        <select data-search="true" class="select2 w-full" name="post_id">
+                                            @foreach ($posts as $post)
+                                                <option value="{{ $post->id }}"
+                                                    {{ old('post_id') == $post->id ? 'selected' : '' }}>{{ $post->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>

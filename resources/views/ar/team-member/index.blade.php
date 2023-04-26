@@ -6,7 +6,7 @@
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="/admin" class="">Users</a>
+        <a href="/admin" class="">Dashboard</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
         <a href="" class="breadcrumb--active">All Team Members</a>
     </div>
@@ -28,6 +28,39 @@
                 </a>
             </div>
         @endif
+    </div>
+    <div class="grid grid-cols-12 gap-2">
+        <div class="col-span-12 md:col-span-6">
+            <div class="preview mt-2">
+                <label class="font-extrabold">Select Designation</label>
+                <div class="mt-2">
+                    <select data-search="true" class="select2 w-full" name="post_id">
+                        <option value=""></option>
+                        @foreach ($posts as $post)
+                            <option value="{{ $post->id }}">{{ $post->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 md:col-span-6">
+            <div class="preview mt-2">
+                <label class="font-extrabold">Select Email</label>
+                <div class="mt-2">
+                    <select data-search="true" class="select2 w-full" name="email">
+                        <option value=""></option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                        <option value="-3">-3</option>
+                        <option value="-4">-4</option>
+                        <option value="-5">-5</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
@@ -65,13 +98,13 @@
                                 {{ $member->email }}
                             </td>
                             <td class="text-center border-b">
-                                    {{ $member->post }}
+                                {{ $member->postsEntity->name }}
                             </td>
                             <td class="text-center border-b">
-                                    {{ $member->tenure_start_date_np }}
+                                {{ $member->tenure_start_date_np }}
                             </td>
                             <td class="text-center border-b">
-                                    {{ $member->tenure_end_date_np }}
+                                {{ $member->tenure_end_date_np }}
                             </td>
                             <td class="border-b w-5">
                                 <div class="flex sm:justify-center items-center">
@@ -121,4 +154,58 @@
     </div>
     <!-- END: Datatable -->
 
+@endsection
+
+@section('script')
+    <script>
+        (function($) {
+
+            var dataTable;
+
+            var select2Init = function() {
+                // $('select').select2({
+                //   dropdownAutoWidth : true,
+                //   allowClear: true,
+                //   placeholder: "Select a grade",
+                // });
+            };
+
+            var dataTableInit = function() {
+                dataTable = $('#dataTable').DataTable({
+                    "columnDefs": [{
+                        "targets": 5,
+                        "type": 'num',
+                    }, {
+                        "targets": 3,
+                        "type": 'num',
+                    }],
+                });
+            };
+
+            var dtSearchInit = function() {
+
+                $('#post_id').change(function() {
+                    dtSearchAction($(this), 5)
+                });
+
+            };
+
+            dtSearchAction = function(selector, columnId) {
+                var fv = selector.val();
+                if ((fv == '') || (fv == null)) {
+                    dataTable.api().column(columnId).search('', true, false).draw();
+                } else {
+                    dataTable.api().column(columnId).search(fv, true, false).draw();
+                }
+            };
+
+
+            $(document).ready(function() {
+                select2Init();
+                dataTableInit();
+                dtSearchInit();
+            });
+
+        })(jQuery);
+    </script>
 @endsection

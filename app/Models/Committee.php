@@ -12,6 +12,15 @@ class Committee extends BaseModel
         'type_id' => Types::COMMITTEE,
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'members' => 'array',
+    ];
+
     protected static function boot()
     {
         parent::boot();

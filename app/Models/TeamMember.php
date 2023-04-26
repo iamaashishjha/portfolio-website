@@ -34,4 +34,9 @@ class TeamMember extends BaseModel
         $destinationPath = 'Team-Members';
         $this->attributes['image'] = $value->store($destinationPath, 'public');
     }
+
+    public function postsEntity()
+    {
+        return $this->belongsTo(Types::class, 'post_id', 'id');
+    }
 }

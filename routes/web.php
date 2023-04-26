@@ -31,6 +31,7 @@ use App\Http\Controllers\AdminPopupNoticeController;
 use App\Http\Controllers\Admin\PermissionsController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBulkMessagesController;
+use App\Http\Controllers\AdminCommitteeController;
 use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminCompanyDetailsController;
 use App\Http\Controllers\AdminGalleryController;
@@ -98,6 +99,15 @@ Route::name('home.')->controller(HomeController::class)->group(function () {
     Route::prefix('/library')->name('library.')->group(function () {
         Route::get('/', 'listLibrary')->name('index');
     });
+
+    Route::prefix('/videos')->name('video.')->group(function () {
+        Route::get('/', 'listVideos')->name('index');
+    });
+
+    Route::prefix('/committee')->name('committee.')->group(function () {
+        Route::get('/', 'listCommittee')->name('index');
+        Route::get('/{id}', 'showCommittee')->name('show');
+    });
 });
 
 Route::prefix('/member')->name('home.member.')->controller(MembershipController::class)->group(function () {
@@ -158,6 +168,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/gallery', AdminGalleryController::class);
     Route::resource('/history', AdminHistoryController::class);
     Route::resource('/team-member', AdminTeamMemberController::class);
+    Route::resource('/committee', AdminCommitteeController::class);
 });
 
 Route::get('getProvince/', [ProvinceController::class, 'getProvince']);

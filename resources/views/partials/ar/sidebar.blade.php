@@ -206,15 +206,29 @@
             </li>
         @endif
 
-        {{-- Youtube Video --}}
         @if ($authUser->hasAnyPermission(['list youtubevideo']))
             <li class="nav-item">
-                <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
-                    <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
-                    <div class="side-menu__title"> Youtube Video </div>
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__title"> Gallery
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                    </div>
                 </a>
+                <ul>
+                    {{-- Youtube Video --}}
+                    @if ($authUser->hasAnyPermission(['list youtubevideo']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Youtube Video </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
             </li>
         @endif
+
+
 
         @if ($authUser->hasAnyPermission(['list history']))
             <li class="nav-item">
@@ -226,13 +240,22 @@
         @endif
 
         @if ($authUser->hasAnyPermission(['list teammember']))
-        <li class="nav-item">
-            <a href="{{ route('admin.team-member.index') }}" class="side-menu">
-                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
-                <div class="side-menu__title"> Team Member </div>
-            </a>
-        </li>
-    @endif
+            <li class="nav-item">
+                <a href="{{ route('admin.team-member.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                    <div class="side-menu__title"> Team Member </div>
+                </a>
+            </li>
+        @endif
+
+        @if ($authUser->hasAnyPermission(['list committee']))
+            <li class="nav-item">
+                <a href="{{ route('admin.committee.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                    <div class="side-menu__title"> Committee </div>
+                </a>
+            </li>
+        @endif
 
 
     </ul>

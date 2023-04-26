@@ -71,6 +71,11 @@ class CompanyDetails extends BaseModel
         }
     }
 
+    public function setGoogleMapAttribute($value)
+    {
+        $this->attributes['google_map'] = str_replace('width="560"', 'width="100%"', $value);
+    }
+
     public function createdUser()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');

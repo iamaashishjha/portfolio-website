@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Types;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use App\Traits\Base\BaseCrudController;
@@ -23,6 +24,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('list');
         $this->data['members'] = $this->model::all();
+        $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
         $this->data['totalData'] = count($this->model::all());
         return view('ar.team-member.index', $this->data);
     }
@@ -35,7 +37,8 @@ class AdminTeamMemberController extends BaseCrudController
     public function create()
     {
         $this->checkPermission('create');
-        return view('ar.team-member.form');
+        $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
+        return view('ar.team-member.form', $this->data);
     }
 
     /**
@@ -47,7 +50,7 @@ class AdminTeamMemberController extends BaseCrudController
     public function store(Request $request)
     {
         $this->checkPermission('create');
-        $dataArr = $request->only(['name', 'email', 'phone_number', 'post', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
+        $dataArr = $request->only(['name', 'email', 'phone_number', 'post_id', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
         $member = new $this->model();
         // $slider = new $this->model();
         $member->create($dataArr);
@@ -65,6 +68,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('update');
         $this->data['member'] = $this->model::find($id);
+        $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
         return view('ar.team-member.form', $this->data);
     }
 
@@ -79,7 +83,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('update');
         $member = $this->model::find($id);
-        $dataArr = $request->only(['name', 'email', 'phone_number', 'post', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
+        $dataArr = $request->only(['name', 'email', 'phone_number', 'post_id', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
         $member->update($dataArr);
         Alert::success('Member Updated successfully');
         return redirect()->route('admin.team-member.index');
