@@ -45,7 +45,7 @@ class AdminHistoryController extends BaseCrudController
     public function store(Request $request)
     {
         $this->data['history'] = new $this->model();
-        $dataArr = $request->only('title', 'description', 'content', 'image');
+        $dataArr = $request->only('title', 'description', 'content', 'image', 'file');
         $this->data['history']->create($dataArr);
         Alert::success('History Created successfully');
         return redirect()->route('admin.history.index');
@@ -84,7 +84,7 @@ class AdminHistoryController extends BaseCrudController
     public function update(Request $request, $id)
     {
         $this->data['history'] = $this->model::find($id);
-        $dataArr = $request->only('title', 'description', 'content', 'image');
+        $dataArr = $request->only('title', 'description', 'content', 'image', 'file');
         $this->data['history']->update($dataArr);
         Alert::success('History Updated successfully');
         return redirect()->route('admin.history.index');

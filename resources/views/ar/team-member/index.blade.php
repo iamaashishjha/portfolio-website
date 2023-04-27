@@ -29,12 +29,12 @@
             </div>
         @endif
     </div>
-    <div class="grid grid-cols-12 gap-2">
+    {{-- <div class="grid grid-cols-12 gap-2">
         <div class="col-span-12 md:col-span-6">
             <div class="preview mt-2">
                 <label class="font-extrabold">Select Designation</label>
                 <div class="mt-2">
-                    <select data-search="true" class="select2 w-full" name="post_id">
+                    <select data-search="true" class="select2 w-full" name="post_id" id="post_id">
                         <option value=""></option>
                         @foreach ($posts as $post)
                             <option value="{{ $post->id }}">{{ $post->name }}</option>
@@ -47,21 +47,11 @@
             <div class="preview mt-2">
                 <label class="font-extrabold">Select Email</label>
                 <div class="mt-2">
-                    <select data-search="true" class="select2 w-full" name="email">
-                        <option value=""></option>
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="-1">-1</option>
-                        <option value="-2">-2</option>
-                        <option value="-3">-3</option>
-                        <option value="-4">-4</option>
-                        <option value="-5">-5</option>
-                    </select>
+                    <input type="text" name="email" id="email">
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
         <table class="table table-report table-report--bordered display w-full" id="dataTable">
@@ -72,6 +62,7 @@
                     <th class="border-b-2 text-center  whitespace-no-wrap">Name</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Email</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Designation</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Display Order</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Tenure Start</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Tenure End</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
@@ -99,6 +90,9 @@
                             </td>
                             <td class="text-center border-b">
                                 {{ $member->postsEntity->name }}
+                            </td>
+                            <td class="text-center border-b">
+                                {{ $member->display_order }}
                             </td>
                             <td class="text-center border-b">
                                 {{ $member->tenure_start_date_np }}
@@ -157,55 +151,54 @@
 @endsection
 
 @section('script')
+    <!-- Script -->
     <script>
-        (function($) {
+        // $(document).ready(function() {
+        //     var dataTable = $('#dataTable').DataTable({
+        //         'processing': true,
+        //         'serverSide': true,
+        //         'serverMethod': 'post',
+        //         //'searching': false, // Remove default Search Control
+        //         'ajax': {
+        //             'url': '{{ route('admin.team-member.filter') }}',
+        //             'data': function(data) {
+        //                 // Read values
+        //                 var post_id = $('#post_id').val();
+        //                 var email = $('#email').val();
 
-            var dataTable;
+        //                 // Append to data
+        //                 data.post_id = gender;
+        //                 data.email = name;
+        //             }
+        //         },
+        //         'columns': [{
+        //                 data: 'emp_name'
+        //             },
+        //             {
+        //                 data: 'email'
+        //             },
+        //             {
+        //                 data: 'gender'
+        //             },
+        //             {
+        //                 data: 'salary'
+        //             },
+        //             {
+        //                 data: 'city'
+        //             },
+        //         ]
+        //     });
 
-            var select2Init = function() {
-                // $('select').select2({
-                //   dropdownAutoWidth : true,
-                //   allowClear: true,
-                //   placeholder: "Select a grade",
-                // });
-            };
+        //     debugger;
+        //     $('#post_id').change(function() {
+        //         dataTable.draw();
+        //         debugger;
+        //     });
+        //     $('#email').change(function() {
+        //         dataTable.draw();
+        //         debugger;
 
-            var dataTableInit = function() {
-                dataTable = $('#dataTable').DataTable({
-                    "columnDefs": [{
-                        "targets": 5,
-                        "type": 'num',
-                    }, {
-                        "targets": 3,
-                        "type": 'num',
-                    }],
-                });
-            };
-
-            var dtSearchInit = function() {
-
-                $('#post_id').change(function() {
-                    dtSearchAction($(this), 5)
-                });
-
-            };
-
-            dtSearchAction = function(selector, columnId) {
-                var fv = selector.val();
-                if ((fv == '') || (fv == null)) {
-                    dataTable.api().column(columnId).search('', true, false).draw();
-                } else {
-                    dataTable.api().column(columnId).search(fv, true, false).draw();
-                }
-            };
-
-
-            $(document).ready(function() {
-                select2Init();
-                dataTableInit();
-                dtSearchInit();
-            });
-
-        })(jQuery);
+        //     });
+        // });
     </script>
 @endsection

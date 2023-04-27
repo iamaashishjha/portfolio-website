@@ -23,10 +23,6 @@ class AdminCommitteeController extends BaseCrudController
     public function index()
     {
         $this->data['committees'] =  $this->model::all();
-        // foreach ($this->data['committees'] as $committee) {
-        //     $members = TeamMember::findMany($committee->members);
-        //     $committee->members = $members;       
-        // }
         return view('ar.commitee.index', $this->data);
     }
 
@@ -54,7 +50,7 @@ class AdminCommitteeController extends BaseCrudController
         $modelInstance = new $this->model();
         $modelInstance->title = $request->title;
         $modelInstance->description = $request->description;
-        $modelInstance->members = $members;
+        // $modelInstance->members = $members;
         $modelInstance->save();
         Alert::success('Committee Created Successfully');
         return redirect()->route('admin.committee.index');

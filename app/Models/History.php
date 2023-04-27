@@ -34,4 +34,17 @@ class History extends BaseModel
         $destinationPath = 'History';
         $this->attributes['image'] = $value->store($destinationPath, 'public');
     }
+
+        // Define the getter method for the image attribute
+        public function getFileAttribute($value)
+        {
+            return '/storage/' . $value;
+        }
+    
+        // Define the setter method for the image attribute
+        public function setFileAttribute($value)
+        {
+            $destinationPath = 'History';
+            $this->attributes['file'] = $value->store($destinationPath, 'public');
+        }
 }

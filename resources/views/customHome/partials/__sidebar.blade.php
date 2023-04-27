@@ -12,8 +12,6 @@
             <a href="{{ route('home.news.index') }}" class="dropdown-btn">{{ __('home.menuItems.posts.news') }}
             </a>
         </div>
-
-
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">{{ __('home.menuItems.pages') }}
                 <i class="fas fa-chevron-down"></i>
@@ -59,12 +57,11 @@
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="javascript:;">
-                    नागरिक उन्मुक्ति पार्टीको स्थापना
+                @foreach ($histories as $history)
+                <a href="{{route('home.history.show', $history->id)}}">
+                    {{$history->title}}
                 </a>
-                <a href="javascript:;">
-                    पहिलो महाधिवेशन
-                </a>
+                @endforeach
             </div>
         </div>
         <div class="dropdown nav-link-menu">
@@ -79,7 +76,6 @@
                     <a href="javascript:;" class="ms-3">
                         २०१५
                     </a>
-
                 </div>
                 <a href="javascript:;">
                     राष्ट्रिय सभा
@@ -158,9 +154,7 @@
                 </div>
             @endif
         </div>
-
         <a href="javascript:;" class="nav-link-menu">जनसंगठन</a>
-
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">वक्तव्य
                 <i class="fas fa-chevron-down"></i>
@@ -187,11 +181,7 @@
             </div>
         </div>
         <a href="javascript:;" class="nav-link-menu">चुनाव विजेताहरू</a>
-
-
         <a href="javascript:;" class="nav-link-menu">विदेश नीति</a>
-
-
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">मिसन ग्रासरुट
                 <i class="fas fa-chevron-down"></i>

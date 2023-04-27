@@ -42,9 +42,20 @@ class BaseModel extends Model
             }
         });
 
-        static::addGlobalScope(function (Builder $builder) {
-            $builder->orderBy('id', 'desc');
-        });
+            // static::addGlobalScope(function (Builder $builder) {
+            //     $builder->orderBy('display_order', 'ASC');
+            // });
+
+        // static::addGlobalScope(function (Builder $builder) use ($this $model) {
+        //     $columns = Schema::getColumnListing($model->getTable());
+        //     if (in_array('display_order', $columns)) {
+        //         $builder->orderBy('display_order', 'DESC');
+        //     }elseif(in_array('created_at', $columns)){
+        //         $builder->orderBy('created_at', 'DESC');
+        //     }else{
+        //         $builder->orderBy('id', 'desc');
+        //     }
+        // });
     }
 
     public function getStatusAttribute()

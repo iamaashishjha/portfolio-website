@@ -18,14 +18,20 @@
 @endsection
 
 @section('content')
+@php
+$authUser = \App\Models\User::find(Auth::id());
+// dd($committees);
+@endphp
     <div class="intro-y flex items-center mt-8 ">
         <h2 class="text-lg font-medium mr-auto">
             {{ isset($committee) ? 'Edit Committee ' . '"' . $committee->title . '".' : 'Create New Committee' }}
         </h2>
+        @if ($authUser->hasPermissionTo('create committee'))
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.committee.index') }}">All
                 Committee</a>
         </div>
+        @endif
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 lg:col-span-12">

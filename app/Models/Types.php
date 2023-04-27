@@ -21,10 +21,9 @@ class Types extends BaseModel
     const COMMITTEE = 6;
 
 
-
     const HISTORY = 21;
     const GOVERMENT = 22;
-    const PARLIAMENTMEMBER = 23;
+    const PARLIAMENT = 23;
 
 
     // Committee Types

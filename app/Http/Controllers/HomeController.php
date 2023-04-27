@@ -20,23 +20,14 @@ use App\Models\Committee;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use App\Models\CompanyDetails;
+use App\Models\History;
 use App\Models\YoutubeVideo;
+use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
-class HomeController extends Controller
+class HomeController extends BaseHomeController
 {
-
-    public $data;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -45,26 +36,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['slider'] = Slider::first();
-        $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
-        $this->data['blogPosts'] = BlogPost::orderBy('created_at', 'DESC')->take(3)->get();
-        // $this->data['events'] = Event::orderBy('created_at', 'DESC')->skip(1)->take(3)->get();
-        $this->data['newsPosts'] = NewsPost::orderBy('created_at', 'DESC')->take(3)->get();
-        $this->data['latestNewsPost'] = NewsPost::orderBy('created_at', 'DESC')->first();
-        $this->data['exceptLatestNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(6)->get();
-        $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
-        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
-        $this->data['committees'] = Committee::orderBy('created_at', 'DESC')->get();
-        $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
         return view('customHome.index', $this->data);
     }
 
     public function indexPageSliderForm(Request $request)
     {
 
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'email' => 'required|email',
                 'zip' => 'required|integer'
@@ -97,7 +76,8 @@ class HomeController extends Controller
     public function indexPageSubscribeUsForm(Request $request)
     {
 
-        $validator =Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'email' => 'required|email',
             ],
@@ -125,38 +105,24 @@ class HomeController extends Controller
 
     public function aboutUsPage()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        return view('hr.about', $this->data);
+        return view('customHome.about', $this->data);
     }
 
     public function donationPage()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        return view('hr.donation', $this->data);
+        return view('customHome.donation', $this->data);
     }
 
 
     public function contactPage()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        return view('hr.contact',  $this->data);
+        return view('customHome.contact',  $this->data);
     }
 
     public function storeContactData(Request $request)
     {
-        $validator =Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'contact_us_name' => 'required|string',
                 'contact_us_email' => 'required|email',
@@ -190,21 +156,12 @@ class HomeController extends Controller
 
     public function listBlog()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::paginate(10);
-        return view('hr.blog.index', $this->data);
+        return view('customHome.blog.index', $this->data);
     }
 
     public function showBlog($id)
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        $this->data['documents'] = Document::all();
         $this->data['blog'] = BlogPost::find($id);
         $this->data['blogTags'] = BlogTags::where('status', 1)->get();
         $this->data['blogCategories'] = BlogCategory::where('status', 1)->get();
@@ -213,8 +170,9 @@ class HomeController extends Controller
 
         $this->data['blog']->viewIncrement();
 
-        return view('hr.blog.show', $this->data);
+        return view('customHome.blog.show', $this->data);
     }
+
     public function listCategoryBlogs($id)
     {
         $this->data['appSetting'] = AppSettings::first();
@@ -224,7 +182,7 @@ class HomeController extends Controller
         $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['blogs'] = BlogPost::where('category_id', $id)->paginate(10);
 
-        return view('hr.blog.index', $this->data);
+        return view('customHome.blog.index', $this->data);
     }
 
     // public function listTagsBlogs($id)
@@ -233,12 +191,13 @@ class HomeController extends Controller
     //     $this->data['companyDetails'] = CompanyDetails::first();
     //     $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
     //     $this->data['blogs'] = BlogPost::where('')->paginate(10);
-    //     return view('hr.blogs.index', $this->data);
+    //     return view('customHome.blogs.index', $this->data);
     // }
 
     public function storeBlogComments(Request $request, $id)
     {
-        $validator =Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'name' => 'required|string',
                 'email' => 'required',
@@ -274,38 +233,25 @@ class HomeController extends Controller
 
     public function listNews()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::paginate(10);
-        return view('hr.news.index', $this->data);
+        return view('customHome.news.index', $this->data);
     }
 
     public function showNews($id)
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::find($id);
         $this->data['newsTags'] = NewsTags::where('status', 1)->get();
         $this->data['newsCategories'] = NewsCategory::where('status', 1)->get();
-        $this->data['latestNews'] = NewsPost::orderBy('id', 'DESC')->skip(0)->take(2)->get();
-        return view('hr.news.show', $this->data);
+        $this->data['latestNews'] = NewsPost::orderBy('id', 'DESC')->skip(0)->take(5)->get();
+        return view('customHome.news.show', $this->data);
     }
 
     public function listCategoryNews($id)
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
         $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['news'] = NewsPost::where('category_id', $id)->paginate(10);
 
-        return view('hr.news.index', $this->data);
+        return view('customHome.news.index', $this->data);
     }
 
     // public function listTagsNews($id)
@@ -314,12 +260,13 @@ class HomeController extends Controller
     //     $this->data['companyDetails'] = CompanyDetails::first();
     //     $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
     //     $this->data['news'] = NewsPost::where('')->paginate(10);
-    //     return view('hr.news.index', $this->data);
+    //     return view('customHome.news.index', $this->data);
     // }
 
     public function storeNewsComments(Request $request, $id)
     {
-        $validator =Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'name' => 'required|string',
                 'email' => 'required',
@@ -353,15 +300,23 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function listHistory()
+    {
+        $this->data['histories'] = History::orderBy('created_at', 'DESC')->paginate(10);
+        return view('customHome.history.index', $this->data);
+    }
+
+    public function showHistory($id)
+    {
+        $this->data['history'] = History::find($id);
+        return view('customHome.history.show', $this->data);
+    }
+
     public function listEvent()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
         $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['events'] = Event::paginate(5);
-        return view('hr.event.index', $this->data);
+        return view('customHome.event.index', $this->data);
     }
 
     public function showEvent($id)
@@ -372,58 +327,33 @@ class HomeController extends Controller
         $this->data['companyDetails'] = CompanyDetails::first();
         $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['event'] = Event::find($id);
-        return view('hr.event.show', $this->data);
+        return view('customHome.event.show', $this->data);
     }
 
     public function listVideos()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-        $this->data['committees'] = Committee::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
         return view('customHome.video.index', $this->data);
     }
 
     public function listCommittee()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        $this->data['committees'] = Committee::all();
         return view('customHome.committee.index', $this->data);
     }
 
     public function showCommittee($id)
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['documents'] = Document::all();
-
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         $this->data['committee'] = Committee::find($id);
         return view('customHome.committee.show', $this->data);
     }
 
     public function listLibrary()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['documents'] = Document::all();
         $this->data['libraries'] = Library::paginate(5);
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
-        return view('hr.library.index', $this->data);
+        return view('customHome.library.index', $this->data);
     }
 
     public function notFound()
     {
-        $this->data['appSetting'] = AppSettings::first();
-        $this->data['companyDetails'] = CompanyDetails::first();
-        $this->data['footerNews'] = NewsPost::skip(1)->take(2)->orderBy('id', 'ASC')->get();
         abort(404);
     }
 }

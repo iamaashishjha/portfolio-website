@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -17,9 +16,9 @@ class TeamMember extends BaseModel
     protected static function boot()
     {
         parent::boot();
-        // static::addGlobalScope(function (Builder $builder) {
-        //     $builder->where('type_id', Types::HISTORY)->orderBy('id', 'desc');
-        // });
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->orderBy('display_order', 'ASC');
+        });
     }
 
     // Define the getter method for the image attribute
@@ -38,5 +37,10 @@ class TeamMember extends BaseModel
     public function postsEntity()
     {
         return $this->belongsTo(Types::class, 'post_id', 'id');
+    }
+
+    public function committeeEntity()
+    {
+        return $this->belongsTo(Committee::class, 'type_id', 'id');
     }
 }

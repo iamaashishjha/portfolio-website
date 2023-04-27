@@ -30,6 +30,7 @@ class CreateTeamMembersMigration extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('display_order')->default(0);
             $table->foreignId('created_by')
                 ->nullable()
                 ->constrained('users')
@@ -45,7 +46,6 @@ class CreateTeamMembersMigration extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
             $table->foreignId('type_id')
                 ->nullable()
                 ->constrained('types')
@@ -61,7 +61,6 @@ class CreateTeamMembersMigration extends Migration
         Schema::create('commitees', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->json('members')->nullable();
             $table->longText('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -94,6 +93,7 @@ class CreateTeamMembersMigration extends Migration
             $table->string('title')->nullable();
             $table->text('content')->nullable();
             $table->string('image')->nullable();
+            $table->string('file')->nullable();
             $table->longText('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
@@ -116,6 +116,50 @@ class CreateTeamMembersMigration extends Migration
             $table->foreignId('type_id')
                 ->nullable()
                 ->constrained('types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
+        Schema::table('team_members', function (Blueprint $table) {
+            $table->foreignId('committee_id')
+                ->nullable()
+                ->constrained('commitees')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('thoughts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('description')->nullable();
+            $table->text('content')->nullable();
+            $table->string('alt_text')->nullable();
+            $table->string('post_image')->nullable();
+            $table->string('post_date')->nullable();
+            $table->boolean('status')->default(0);
+            $table->boolean('featured')->default(0);
+            $table->string('slug')->nullable();
+            $table->bigInteger('views')->default(0);
+            $table->string('meta_description')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('keywords')->nullable();
+            $table->boolean('is_deleted')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

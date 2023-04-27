@@ -6,7 +6,6 @@ use App\Models\Gender;
 use App\Models\Province;
 use App\Models\Membership;
 use App\Models\AppSettings;
-use Illuminate\Http\Request;
 use App\Models\LocalLevelType;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
@@ -31,8 +30,6 @@ class MembershipController extends Controller
      */
     public function store(StoreMemberRequest $request)
     {
-        // dd($request);
-        // dd($request->gender_id);
 
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
@@ -171,5 +168,13 @@ class MembershipController extends Controller
         $member->save();
         Alert::success('Membership form submitted successfully. We will get back to you soon');
         return redirect('/');
+    }
+
+    public function getApprovedMembers()
+    {
+        $dataArr = [
+            'memebers' => Membership::approvedMember()->get(),
+        ];
+        return view('customHome.member.approved-member', $dataArr);
     }
 }

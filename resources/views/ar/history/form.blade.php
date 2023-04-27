@@ -48,6 +48,14 @@
                         <!-- END: Input -->
                         <!-- BEGIN: Input -->
                         <div class="pt-5 px-5 preview" id="input">
+                            <label class="font-extrabold">File</label>
+                            <input type="file" class="input w-full border mt-2" placeholder="Enter File" name="file"
+                                required autocomplete="file"
+                                value="{{ isset($history->file) ? $history->file : old('file') }}">
+                        </div>
+                        <!-- END: Input -->
+                        <!-- BEGIN: Input -->
+                        <div class="pt-5 px-5 preview" id="input">
                             <label class="font-extrabold">Description</label>
                             <textarea id="message" rows="6" class="input w-full border mt-2" name="description"
                                 placeholder="Write description here...">

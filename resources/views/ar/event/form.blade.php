@@ -19,7 +19,10 @@
         {{ isset($event) ? 'Edit Event ' . '"' . $event->title . '".' : 'Create New Event' }}
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.event.index') }}">All Events</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.event.index') }}">
+            <i class="fa fa-list mx-2" aria-hidden="true"></i>
+            All Events
+        </a>
     </div>
 </div>
 <div class="grid grid-cols-12 gap-6 mt-5">

@@ -2,10 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Http\Controllers\MembershipController;
-use App\Models\BlogCategory;
-use App\Models\BulkMessage;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,7 +28,6 @@ class DatabaseSeeder extends Seeder
             MasterSeeder::class,
             PopupNoticeSeeder::class,
             BulkMessageSeeder::class,
-            MembershipSeeder::class,
         ]);
     }
 }

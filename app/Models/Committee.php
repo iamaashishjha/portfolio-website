@@ -29,5 +29,8 @@ class Committee extends BaseModel
         });
     }
 
-
+    public function teamMembersEntity()
+    {
+        return $this->hasMany(TeamMember::class, 'committee_id', 'id');
+    }
 }

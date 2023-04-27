@@ -275,7 +275,6 @@
     </section> --}}
 
     {{-- Contact Section  --}}
-    @include('customHome.partials.__contact')
 @endsection
 
 

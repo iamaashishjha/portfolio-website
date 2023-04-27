@@ -21,7 +21,7 @@
         <h2 class="text-lg font-medium mr-auto">
             All Committee
         </h2>
-        @if ($authUser->hasPermissionTo('create teammember'))
+        @if ($authUser->hasPermissionTo('create committee'))
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
                 <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.committee.create') }}">
                     Create Committee
@@ -100,51 +100,9 @@
                         </div>
                         <div class="modal" id="notice-content-{{ $committee->id }}">
                             <div class="modal__content modal__content--lg p-10">
-                                {{-- <div class="p-5 text-center"> --}}
                                 <div class="p-5 text-center">
                                     {!! $committee->description !!}
                                 </div>
-                                @php
-                                    $members = \App\Models\TeamMember::findMany($committee->members);
-                                @endphp
-                                <div class="grid grid-cols-12 gap-2">
-                                    @foreach ($members as $member)
-                                        <div class="col-span-12 md:col-span-6 lg:col-span-4">
-                                            <div class="box">
-                                                <div class="flex items-start px-5 pt-5">
-                                                    <div class="w-full flex flex-col lg:flex-row items-center">
-                                                        <div class="w-16 h-16 image-fit">
-                                                            <img alt="{{$member->name}}"
-                                                                class="rounded-md"
-                                                                src="{{ isset($memeber->image) ? $member->image : Avatar::create($member->name)->toBase64() }}">
-                                                        </div>
-                                                        <div class="lg:ml-4 text-center lg:text-left mt-3 lg:mt-0">
-                                                            <a href="" class="font-medium">{{ $member->name }}</a>
-                                                            <div class="text-gray-600 text-xs">
-                                                                {{ $member->postsEntity->name }}</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="text-center lg:text-left p-5">
-                                                    @isset($member->description)
-                                                        {!! $member->description !!}
-                                                    @endisset
-                                                    <div
-                                                        class="flex items-center justify-center lg:justify-start text-gray-600 mt-5">
-                                                        <i data-feather="mail" class="w-3 h-3 mr-2"></i>
-                                                        {{ $member->email }}
-                                                    </div>
-                                                    <div
-                                                        class="flex items-center justify-center lg:justify-start text-gray-600 mt-1">
-                                                        <i data-feather="phone" class="w-3 h-3 mr-2"></i>
-                                                        {{ $member->phone_number }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                {{-- </div> --}}
                             </div>
                         </div>
                     @endforeach

@@ -13,7 +13,27 @@
     @isset($appSetting->image)
         <link href="{{ $appSetting->image }}" rel="shortcut icon">
     @endisset
+    <style>
+        .header .nav-section .container {
+            background-image: url("../assets/img/topbarjpg.jpg");
+        }
 
+        .top-ban-img {
+            background-image: url("../assets/img/topbarjpg.jpg");
+        }
+
+        a.read-more:after {
+            background: url("../assets/img/three-dots.png") no-repeat center
+        }
+
+        .services {
+            background: url("../assets/img/thumbs.jpg")
+        }
+
+        .footer .container {
+            background-image: url("../assets/img/bottombarjpg.jpg");
+        }
+    </style>
     @include('customHome.partials.__head')
 
     @yield('head')
@@ -33,6 +53,7 @@
     @yield('content')
 
     {{-- Footer Section included inside partial --}}
+    @include('customHome.partials.__contact')
     @include('customHome.partials.__footer')
 
     {{-- All the scripts refrencing in this partial  --}}

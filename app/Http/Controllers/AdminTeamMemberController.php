@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Committee;
 use App\Models\Types;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
@@ -29,6 +30,22 @@ class AdminTeamMemberController extends BaseCrudController
         return view('ar.team-member.index', $this->data);
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function filterSearch(Request $request)
+    {
+        $postId = $request->post_id;
+        $this->checkPermission('list');
+        $this->data['members'] = $this->model::where('post_id', $postId)->get();
+        $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
+        $this->data['totalData'] = count($this->model::all());
+        return response()->json($this->data['members']);
+        // return view('ar.team-member.index', $this->data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +55,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('create');
         $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
+        $this->data['committees'] = Committee::all();
         return view('ar.team-member.form', $this->data);
     }
 
@@ -50,9 +68,14 @@ class AdminTeamMemberController extends BaseCrudController
     public function store(Request $request)
     {
         $this->checkPermission('create');
-        $dataArr = $request->only(['name', 'email', 'phone_number', 'post_id', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
+        $dataArr = $request->only([
+            'name', 'email', 'phone_number', 'post_id', 'image',
+            'facebook_link', 'twitter_link', 'instagram_link',
+            'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np', 'tenure_end_date_en',
+            'committee_id',
+            'display_order'
+        ]);
         $member = new $this->model();
-        // $slider = new $this->model();
         $member->create($dataArr);
         Alert::success('Member Created successfully');
         return redirect()->route('admin.team-member.index');
@@ -69,6 +92,7 @@ class AdminTeamMemberController extends BaseCrudController
         $this->checkPermission('update');
         $this->data['member'] = $this->model::find($id);
         $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
+        $this->data['committees'] = Committee::all();
         return view('ar.team-member.form', $this->data);
     }
 
@@ -83,7 +107,13 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('update');
         $member = $this->model::find($id);
-        $dataArr = $request->only(['name', 'email', 'phone_number', 'post_id', 'image', 'facebook_link', 'twitter_link', 'instagram_link', 'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np','tenure_end_date_en']);
+        $dataArr = $request->only([
+            'name', 'email', 'phone_number', 'post_id', 'image',
+            'facebook_link', 'twitter_link', 'instagram_link',
+            'tenure_start_date_np', 'tenure_start_date_en', 'tenure_end_date_np', 'tenure_end_date_en',
+            'committee_id',
+            'display_order'
+        ]);
         $member->update($dataArr);
         Alert::success('Member Updated successfully');
         return redirect()->route('admin.team-member.index');

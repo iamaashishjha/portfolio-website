@@ -27,8 +27,10 @@
             {{-- <button class="button text-white bg-theme-1 shadow-md mr-2">Add New Product</button> --}}
             <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.post.create') }}">Create New
                 Blog Post</a>
-            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">All Blog
+            <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">All Blog
                 Posts</a>
+                <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.category.index') }}">Blog Category</a>
+                <a class="button text-white bg-theme-12 shadow-md mr-2" href="{{ route('admin.blog.tag.index') }}">Blog Tag</a>
         </div>
     </div>
     <!-- BEGIN: Datatable -->

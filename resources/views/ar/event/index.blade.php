@@ -23,14 +23,17 @@
         </h2>
         @if ($authUser->can('create event'))
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.event.create') }}">Create New
-                    Event</a>
+                <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.event.create') }}">
+                    <i class="fa fa-plus mx-2" aria-hidden="true"></i>
+                    Create New
+                    Event
+                </a>
             </div>
         @endif
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table class="table table-report table-report--bordered display datatable w-full" id="datatable">
+        <table class="table table-report table-report--bordered display w-full" id="dataTable">
             <thead>
                 <tr>
                     <th class="border-b-2 text-center  whitespace-no-wrap">#</th>

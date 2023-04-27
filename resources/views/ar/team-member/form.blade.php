@@ -59,16 +59,16 @@
                 </div>
                 <div class="grid grid-cols-12 gap-2 mt-5 box intro-y">
                     <div class="intro-y col-span-12 lg:col-span-8 p-5">
-                        <div class="grid cols-12 gap-2">
-                            <div class="col-span-12 lg:col-span-12">
+                        <div class="grid grid-cols-12 gap-2">
+                            <div class="col-span-12 md:col-span-6">
                                 <div class="preview mt-2">
                                     <label class="font-extrabold">Name</label>
                                     <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
                                         name="name" value="{{ isset($member->name) ? $member->name : old('name') }}"
-                                        required autocomplete="name" autofocus>
+                                        required autocomplete="name">
                                 </div>
                             </div>
-                            <div class="col-span-12 lg:col-span-12">
+                            <div class="col-span-12 md:col-span-6">
                                 <div class="preview mt-2">
                                     <label class="font-extrabold">Email</label>
                                     <input type="email" class="input w-full border mt-2" placeholder="Enter Member Email"
@@ -87,16 +87,40 @@
                             </div>
                             <div class="col-span-12 md:col-span-6">
                                 <div class="preview mt-2">
-                                    <label class="font-extrabold">Select Post</label>
+                                    <label class="font-extrabold">Select Committee</label>
                                     <div class="mt-2">
-                                        <select data-search="true" class="select2 w-full" name="post_id">
-                                            @foreach ($posts as $post)
-                                                <option value="{{ $post->id }}"
-                                                    {{ old('post_id') == $post->id ? 'selected' : '' }}>{{ $post->name }}
+                                        <select data-search="true" class="select2 w-full border mt-2" name="committee_id">
+                                            @foreach ($committees as $committee)
+                                                <option value="{{ $committee->id }}"
+                                                    {{ old('committee_id') == $committee->id ? 'selected' : '' }}>
+                                                    {{ $committee->title }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-span-12 md:col-span-6">
+                                <div class="preview mt-2">
+                                    <label class="font-extrabold">Select Post</label>
+                                    <div class="mt-2">
+                                        <select data-search="true" class="select2 w-full border mt-2" name="post_id">
+                                            @foreach ($posts as $post)
+                                                <option value="{{ $post->id }}"
+                                                    {{ old('post_id') == $post->id ? 'selected' : '' }}>
+                                                    {{ $post->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-12 md:col-span-6">
+                                <div class="preview mt-2">
+                                    <label class="font-extrabold">Display Order</label>
+                                    <input type="number" class="input w-full border mt-2" placeholder="Enter Display Order"
+                                        name="display_order" required autocomplete="display_order"
+                                        value="{{ isset($member->display_order) ? $member->display_order : old('display_order') }}">
                                 </div>
                             </div>
                         </div>
@@ -123,7 +147,7 @@
 
 
                     {{-- Tenure  --}}
-                    <div class="intro-x col-span-12 lg:col-span-12 p-5">
+                    <div class="intro-x col-span-12 lg:col-span-12 px-5">
                         <div class="grid grid-cols-12 gap-2">
                             <div class="col-span-12 lg:col-span-3">
                                 <!-- BEGIN: Input -->
@@ -143,8 +167,8 @@
                                 <div class="preview">
                                     <div>
                                         <label class="font-extrabold">Tenure Start Date (NP)</label>
-                                        <input class="nepalidatepicker input w-full border mt-2" placeholder="Select in BS"
-                                            data-single="1" name="tenure_start_date_np"
+                                        <input class="nepalidatepicker input w-full border mt-2"
+                                            placeholder="Select in BS" data-single="1" name="tenure_start_date_np"
                                             value="{{ isset($member->tenure_end_date_en) ? $member->tenure_end_date_en : old('tenure_end_date_en') }}"
                                             required autocomplete="tenure_end_date_en" autofocus>
                                     </div>
@@ -156,7 +180,8 @@
                                 <div class="preview">
                                     <div>
                                         <label class="font-extrabold">Tenure End Date
-                                            <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                            <span
+                                                class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                         </label>
                                         <input class="datepicker input w-full border mt-2" placeholder="Select Date in AD"
                                             data-single="1"name="tenure_end_date_en"
@@ -183,7 +208,7 @@
                         </div>
                     </div>
                     {{-- Social Media  --}}
-                    <div class="intro-x col-span-12 lg:col-span-12 p-5">
+                    <div class="intro-x col-span-12 lg:col-span-12 px-5">
                         <div class="grid grid-cols-12 gap-2">
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="preview">
