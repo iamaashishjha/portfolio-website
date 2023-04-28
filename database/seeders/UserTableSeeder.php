@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('Admin@1234'),
             'email_verified_at' => now(),
         ]);
-        User::factory()->count(10)->create();
+        // User::factory()->count(10)->create();
 
         Artisan::Call('generate:permissions');
         $permissions = Permission::all();

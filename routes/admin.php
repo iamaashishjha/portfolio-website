@@ -102,16 +102,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/goverment', AdminGovermentController::class);
     Route::resource('/parliament', AdminParliamentController::class);
 
-
-
-
-
-
     Route::resource('/team-member', AdminTeamMemberController::class);
     Route::prefix('/team-member')->name('team-member.')->controller(AdminMembershipController::class)->group(function () {
         Route::post('/filter-serach', 'filterSearch')->name('filter');
     });
     Route::resource('/committee', AdminCommitteeController::class);
+    Route::resource('/leadership', AdminLeadershipController::class);
 });
 
 // This should be the end of file and last line for this file

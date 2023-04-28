@@ -2,7 +2,7 @@
     <div class="padding-sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="{{ route('home.about') }}" class="nav-link-menu">
-            {{ isset($appSetting->site_title) ? $appSetting->site_title : 'Nagrik Unmukti Party' }}
+            {{ isset($appSetting->site_title) ? $appSetting->site_title : (__('base.title')) }}
         </a>
         <div class="dropdown nav-link-menu">
             <a href="{{ route('home.about') }}" class="dropdown-btn">{{ __('home.menuItems.about.about-us') }}

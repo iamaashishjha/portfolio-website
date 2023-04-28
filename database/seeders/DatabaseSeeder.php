@@ -17,17 +17,18 @@ class DatabaseSeeder extends Seeder
             TypesSeeder::class,
             RoleTableSeeder::class,
             UserTableSeeder::class,
-            BlogCategorySeeder::class,
-            BlogPostSeeder::class,
-            BlogTagsSeeder::class,
-            AppsettingSeeder::class,
-            NewsCategorySeeder::class,
-            NewsPostSeeder::class,
-            NewsTagsSeeder::class,
-            EventSeeder::class,
             MasterSeeder::class,
-            PopupNoticeSeeder::class,
-            BulkMessageSeeder::class,
+            AppsettingSeeder::class,
+
+            // BlogCategorySeeder::class,
+            // BlogPostSeeder::class,
+            // BlogTagsSeeder::class,
+            // NewsCategorySeeder::class,
+            // NewsPostSeeder::class,
+            // NewsTagsSeeder::class,
+            // EventSeeder::class,
+            // PopupNoticeSeeder::class,
+            // BulkMessageSeeder::class,
         ]);
     }
 }

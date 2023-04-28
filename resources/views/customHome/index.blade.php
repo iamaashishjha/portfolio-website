@@ -54,7 +54,7 @@
     </section>
 
 
-    @if (count($latestNewsPost) && count($exceptLatestNews))
+    @if (isset($latestNewsPost) && count($exceptLatestNews))
         <section class="section-gap">
             <div class="container">
                 <div class="main-title d-flex justify-content-between">

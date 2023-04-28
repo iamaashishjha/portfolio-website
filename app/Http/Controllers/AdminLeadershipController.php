@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Traits\Base\BaseCrudController;
+use App\Models\Leadership;
+use App\Models\TeamMember;
 use Illuminate\Http\Request;
+use App\Traits\Base\BaseCrudController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminLeadershipController extends BaseCrudController
 {
+    protected $model;
+    public function __construct()
+    {
+        $this->model = Leadership::class;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function index()
     {
-        
+        $this->data['leaderships'] =  $this->model::all();
+        return view('ar.leadership.index', $this->data);
     }
 
     /**
@@ -24,7 +33,8 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function create()
     {
-        //
+        $this->data['members'] = TeamMember::all();
+        return view('ar.leadership.form', $this->data);
     }
 
     /**
@@ -35,7 +45,15 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function store(Request $request)
     {
-        //
+        $this->checkPermission('create');
+        $members = $request->members;
+        $modelInstance = new $this->model();
+        $modelInstance->title = $request->title;
+        $modelInstance->description = $request->description;
+        // $modelInstance->members = $members;
+        $modelInstance->save();
+        Alert::success('Leadership Created Successfully');
+        return redirect()->route('admin.leadership.index');
     }
 
     /**
@@ -57,7 +75,9 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function edit($id)
     {
-        //
+        $this->data['members'] = TeamMember::all();
+        $this->data['leadership'] =  $this->model::find($id);
+        return view('ar.leadership.form', $this->data);
     }
 
     /**
@@ -69,7 +89,15 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->checkPermission('create');
+        $members = $request->members;
+        $modelInstance = $this->model::find($id);
+        $modelInstance->title = $request->title;
+        $modelInstance->description = $request->description;
+        $modelInstance->members = $members;
+        $modelInstance->save();
+        Alert::success('Leadership Updated Successfully');
+        return redirect()->route('admin.leadership.index');
     }
 
     /**
@@ -80,6 +108,9 @@ class AdminLeadershipController extends BaseCrudController
      */
     public function destroy($id)
     {
-        //
+        $modelInstance = $this->model::find($id);
+        $modelInstance->delete();
+        Alert::success('Leadership Deleted Successfully');
+        return redirect()->route('admin.leadership.index');
     }
 }

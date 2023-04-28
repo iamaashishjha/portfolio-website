@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Leadership extends BaseModel
 {
-    protected $table = 'team_members';
+    protected $table = 'commitees';
+    protected $attributes = [
+        'type_id' => Types::LEADERSHIP,
+    ];
 
     protected static function boot()
     {
@@ -17,5 +20,10 @@ class Leadership extends BaseModel
         static::addGlobalScope(function (Builder $builder) {
             $builder->where('type_id', Types::LEADERSHIP)->orderBy('id', 'desc');
         });
+    }
+
+    public function teamMembersEntity()
+    {
+        return $this->hasMany(TeamMember::class, 'committee_id', 'id');
     }
 }

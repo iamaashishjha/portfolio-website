@@ -278,11 +278,11 @@
             </li>
         @endif
 
-        @if ($authUser->hasAnyPermission(['list committee']))
+        @if ($authUser->hasAnyPermission(['list leadership', 'list teammember']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="command"></i> </div>
-                    <div class="side-menu__title"> Committee
+                    <div class="side-menu__title"> Leadership
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
                 </a>
@@ -297,11 +297,11 @@
                         </li>
                     @endif
                     {{-- Committee --}}
-                    @if ($authUser->hasAnyPermission(['list committee']))
+                    @if ($authUser->hasAnyPermission(['list leadership']))
                         <li class="nav-item">
                             <a href="{{ route('admin.committee.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Committee </div>
+                                <div class="side-menu__title"> Leadership </div>
                             </a>
                         </li>
                     @endif

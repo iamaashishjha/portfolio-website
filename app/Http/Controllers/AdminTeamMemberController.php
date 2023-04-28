@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Committee;
+use App\Models\Leadership;
 use App\Models\Types;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
@@ -55,7 +56,7 @@ class AdminTeamMemberController extends BaseCrudController
     {
         $this->checkPermission('create');
         $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
-        $this->data['committees'] = Committee::all();
+        $this->data['committees'] = Leadership::all();
         return view('ar.team-member.form', $this->data);
     }
 
@@ -92,7 +93,7 @@ class AdminTeamMemberController extends BaseCrudController
         $this->checkPermission('update');
         $this->data['member'] = $this->model::find($id);
         $this->data['posts'] = Types::whereIn('id', [41, 42, 43, 44, 45, 46])->get();
-        $this->data['committees'] = Committee::all();
+        $this->data['committees'] = Leadership::all();
         return view('ar.team-member.form', $this->data);
     }
 
