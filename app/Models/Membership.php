@@ -9,6 +9,12 @@ class Membership extends BaseModel
 {
     protected $table = 'memberships';
 
+
+    public function getNameAttribute()
+    {
+        return $this->code.' - '.($this->name_en).' ('.$this->name_lc.') ';
+    }
+
     public function scopeRegisteredMember($query)
     {
         return $query->where('is_verified', FALSE)->orWhereNull('is_verified');

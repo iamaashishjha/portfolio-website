@@ -33,11 +33,21 @@
             </a>
         </div>
         <div class="dropdown nav-link-menu">
-            <a href="{{ route('home.member.create') }}" class="dropdown-btn">{{ __('home.header.join') }}
+                <button class="dropdown-btn">{{ __('home.menuItems.membership') }}
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-container">
+                    <a href="{{ route('home.member.create') }}">
+                        {{ __('home.menuItems.membership.create') }}
+                    </a>
+                    <a href="{{ route('home.member.approved') }}">
+                        {{ __('home.menuItems.membership.approved-members') }}
+                    </a>
+                </div>
             </a>
         </div>
         <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">नेतृत्व
+            <button class="dropdown-btn">  {{ __('home.menuItems.leadership') }}
                 @if (count($committees))
                     <i class="fas fa-chevron-down"></i>
                 @endif
@@ -53,89 +63,39 @@
             @endif
         </div>
         <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">इतिहास
+            <button class="dropdown-btn">{{ __('home.menuItems.history') }}
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-container">
                 @foreach ($histories as $history)
-                <a href="{{route('home.history.show', $history->id)}}">
-                    {{$history->title}}
-                </a>
+                    <a href="{{ route('home.history.show', $history->id) }}">
+                        {{ $history->title }}
+                    </a>
                 @endforeach
             </div>
         </div>
         <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">संसद
+            <button class="dropdown-btn">{{ __('home.menuItems.parliament') }}
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="javascript:;">
-                    प्रतिनिधि सभा
-                </a>
-                <div>
-                    <a href="javascript:;" class="ms-3">
-                        २०१५
+                @foreach ($parliaments as $parliament)
+                    <a href="{{ route('home.parliament.show', $parliament->id) }}">
+                        {{ $parliament->title }}
                     </a>
-                </div>
-                <a href="javascript:;">
-                    राष्ट्रिय सभा
-                </a>
+                @endforeach
             </div>
         </div>
         <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">सरकार
+            <button class="dropdown-btn">{{ __('home.menuItems.goverment') }}
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="javascript:;">
-                    नागरिक उन्मुक्ति पार्टी सम्मिलित सरकारहरु
-                </a>
-            </div>
-        </div>
-        <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">प्रदेश सरकार/सभा
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="#">
-                    प्रदेश सरकारहरु
-                </a>
-                <div>
-                    <a href="javascript:;" class="ms-3">
-                        प्रदेश १
+                @foreach ($goverments as $goverment)
+                    <a href="{{ route('home.goverment.show', $goverment->id) }}">
+                        {{ $goverment->title }}
                     </a>
-                    <a href="javascript:;" class="ms-3">
-                        बागमती प्रदेश
-                    </a>
-                    <a href="javascript:;" class="ms-3">
-                        गण्डकी प्रदेश
-                    </a>
-                    <a href="javascript:;" class="ms-3">
-                        लुम्बिनी प्रदेश
-                    </a>
-                    <a href="javascript:;" class="ms-3">
-                        कर्णाली प्रदेश
-                    </a>
-                    <a href="javascript:;" class="ms-3">
-                        सुदूरपश्चिम प्रदेश
-                    </a>
-                    <a href="javascript:;" class="ms-3">
-                        मधेश प्रदेश
-                    </a>
-                </div>
-                <a href="javascript:;">
-                    प्रदेशसभा
-                </a>
-            </div>
-        </div>
-        <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">स्थानीय तह
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="javascript:;" class="ms-3">
-                    २०७४
-                </a>
+                @endforeach
             </div>
         </div>
         <div class="dropdown nav-link-menu">
@@ -154,32 +114,22 @@
                 </div>
             @endif
         </div>
+        
         <a href="javascript:;" class="nav-link-menu">जनसंगठन</a>
+
         <div class="dropdown nav-link-menu">
-            <button class="dropdown-btn">वक्तव्य
+            <button class="dropdown-btn">{{ __('home.menuItems.thoughts') }}
                 <i class="fas fa-chevron-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="javascript:;">
-                    प्रथम विधान महाधिवेशनबाट पारित समसामयिक प्रस्तावहरु
-                </a>
-                <a href="javascript:;">
-                    दशौँ राष्ट्रिय महाधिवेशनबाट पारित समसामयिक प्रस्ताव
-                </a>
-                <a href="javascript:;">
-                    नयाँ वर्ष सन् २०२२ को शुभकामना
-                </a>
-                <a href="javascript:;">
-                    परराष्ट्र मामिला विभागको वत्तव्य
-                </a>
-                <a href="javascript:;">
-                    जानकारी तथा अनुरोध
-                </a>
-                <a href="javascript:;">
-                    नेकपा (एमाले) को दृष्टिकोण
-                </a>
+                @foreach ($goverments as $goverment)
+                    <a href="{{ route('home.goverment.show', $goverment->id) }}">
+                        {{ $goverment->title }}
+                    </a>
+                @endforeach
             </div>
         </div>
+
         <a href="javascript:;" class="nav-link-menu">चुनाव विजेताहरू</a>
         <a href="javascript:;" class="nav-link-menu">विदेश नीति</a>
         <div class="dropdown nav-link-menu">

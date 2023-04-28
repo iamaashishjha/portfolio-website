@@ -18,4 +18,28 @@ class HomeContentPageController extends BaseHomeController
         $this->data['history'] = History::find($id);
         return view('customHome.history.show', $this->data);
     }
+
+    public function listParliament()
+    {
+        $this->data['parliaments'] = History::orderBy('created_at', 'DESC')->paginate(10);
+        return view('customHome.history.index', $this->data);
+    }
+
+    public function showParliament($id)
+    {
+        $this->data['parliament'] = History::find($id);
+        return view('customHome.history.show', $this->data);
+    }
+
+    public function listGoverment()
+    {
+        $this->data['goverments'] = History::orderBy('created_at', 'DESC')->paginate(10);
+        return view('customHome.history.index', $this->data);
+    }
+
+    public function showGoverment($id)
+    {
+        $this->data['goverment'] = History::find($id);
+        return view('customHome.history.show', $this->data);
+    }
 }

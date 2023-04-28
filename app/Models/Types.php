@@ -19,6 +19,7 @@ class Types extends BaseModel
 
     const LEADERSHIP = 5;
     const COMMITTEE = 6;
+    const ELECTIONWINNERS = 7;
 
 
     const HISTORY = 21;
@@ -32,6 +33,7 @@ class Types extends BaseModel
     const LOCALLEVELCOMMITTEE = 33;
     const PROVINCECOMMITTEE = 34;
 
+    
     // Committee Member Type
     const COMMITTEEPRESEIDENT = 41;
     const COMMITTEEVICEPRESEIDENT = 42;

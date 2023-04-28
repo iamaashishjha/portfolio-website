@@ -54,171 +54,122 @@
     </section>
 
 
-
-    <section class="section-gap">
-        <div class="container">
-            <div class="main-title d-flex justify-content-between">
-                <h2 class="section-title">
-                    समाचार
-                </h2>
-                <div class="">
-                    <a href="{{ route('home.news.index') }}" class="read-more float-end">
-                        थप पढ्नुहोस्</a>
+    @if (count($latestNewsPost) && count($exceptLatestNews))
+        <section class="section-gap">
+            <div class="container">
+                <div class="main-title d-flex justify-content-between">
+                    <h2 class="section-title">
+                        {{ __('home.menuItems.posts.news') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.news.index') }}" class="read-more float-end">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row gy-4">
-                <div class="col-md-5">
-                    <a href="{{ route('home.news.show', $latestNewsPost->id) }}">
-                        <div class="card-banner">
-                            <img src="{{ $latestNewsPost->image }}" alt="{{ $latestNewsPost->title }}" class="img-fluid">
-                            <h1 class="card-title mt-3">
-                                {{ $latestNewsPost->title }}
-                            </h1>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-7">
-                    <div class="row gy-2">
-                        @foreach ($exceptLatestNews as $news)
-                            <div class="col-md-6 col-6">
-                                <div class="card-wrap-small">
-                                    <div class="card-image">
-                                        <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-fluid">
-                                    </div>
-                                    <div class="ms-2 my-auto">
-                                        <h1 class="card-title">
-                                            <a href="{{ route('home.news.show', $news->id) }}">
-                                                {{ $news->title }}
-                                            </a>
-                                        </h1>
+                <div class="row gy-4">
+                    <div class="col-md-5">
+                        <a href="{{ route('home.news.show', $latestNewsPost->id) }}">
+                            <div class="card-banner">
+                                <img src="{{ $latestNewsPost->image }}" alt="{{ $latestNewsPost->title }}"
+                                    class="img-fluid">
+                                <h1 class="card-title mt-3">
+                                    {{ $latestNewsPost->title }}
+                                </h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row gy-2">
+                            @foreach ($exceptLatestNews as $news)
+                                <div class="col-md-6 col-6">
+                                    <div class="card-wrap-small">
+                                        <div class="card-image">
+                                            <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-fluid">
+                                        </div>
+                                        <div class="ms-2 my-auto">
+                                            <h1 class="card-title">
+                                                <a href="{{ route('home.news.show', $news->id) }}">
+                                                    {{ $news->title }}
+                                                </a>
+                                            </h1>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 
-    <section class="videos section-gap bg-dark">
-        <div class="container">
-            <div class="main-title border-bottom-white d-flex
+
+    @if (count($youtubeVideos))
+        <section class="videos section-gap bg-dark">
+            <div class="container">
+                <div class="main-title border-bottom-white d-flex
                 justify-content-between">
-                <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
-                    style="cursor:
+                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
+                        style="cursor:
                     pointer">
-                    भिडियो
-                </h2>
-                <div class="">
-                    <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
-                        थप पढ्नुहोस्
-                    </a>
+                        {{ __('home.menuItems.video') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($youtubeVideos as $video)
+                        <div class="col-md-6">
+                            {!! $video->iframe !!}
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="row gy-4">
-                @foreach ($youtubeVideos as $video)
-                    <div class="col-md-6">
-                        {!! $video->iframe !!}
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
 
-    <section class="news bichar section-gap">
-        <div class="container">
-            <div class="main-title d-flex justify-content-between">
-                <h2 class="section-title text-left">
-                    विचार
-                </h2>
-                <div class="">
-                    <a href="bichars.html" class="read-more float-end">
-                        थप पढ्नुहोस्</a>
+    @if (count($thoughts))
+        <section class="news bichar section-gap">
+            <div class="container">
+                <div class="main-title d-flex justify-content-between">
+                    <h2 class="section-title text-left">
+                        {{ __('home.menuItems.thoughts') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.thoughts.index') }}" class="read-more float-end">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($thoughts as $post)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card-wrap">
+                                <a href="{{ route('home.thoughts.show', $post->id) }}">
+                                    <div class="card-img">
+                                        <img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
+                                            alt="{{ $post->title }}" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h1 class="card-title mb-2">
+                                            {{ $post->title }}
+                                        </h1>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            <div class="row gy-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card-wrap">
-                        <a href="bichars/19.html">
-                            <div class="card-img">
-                                <img src="../fileswarehouse.com/cpn-uml/bichars/epaGOpxbbZeoSidhBEAM9SMEi5vhQVL2vMMFOIBJe353.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=SDDK3YIDD6U0DLO3AEYN%2F20230421%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230421T144030Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=4e50f6787dc56386afc0160145a6b42a01013ae234f0daaf04db23cdcdf60a4d"
-                                    alt="cpnuml" class="img-fluid">
-                            </div>
-                            <div class="card-content">
-                                <h1 class="card-title mb-2">
-                                    ‘दश वर्षभित्रै हामी देशलाई विकसित बनाउँछौं’
-                                </h1>
-                                <p class="card-text">
-                                    सम्माननीय सभामुख महोदय,१. सार्वभौम मताधिकार प्रयोग गरी आफ्ना प्रतिनिधिको निर्वाचन
-                                    गर्न पाउने जनाधिका...
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card-wrap">
-                        <a href="bichars/18.html">
-                            <div class="card-img">
-                                <img src="../fileswarehouse.com/cpn-uml/bichars/eCfvVXlH0X8RHJR4HgajrHkSGGgFpvvhCPUjGec8f812.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=SDDK3YIDD6U0DLO3AEYN%2F20230421%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230421T144030Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=6bfb32c8aab184e84d4dbb2c43c656b68bc7f9c27a33445e8acfda2c9afc44e3"
-                                    alt="cpnuml" class="img-fluid">
-                            </div>
-                            <div class="card-content">
-                                <h1 class="card-title mb-2">
-                                    ‘अर्थतन्त्र जोगाउन पनि अहिलेको जनादेश जोगाउनु उपयु...
-                                </h1>
-                                <p class="card-text">
-                                    नेकपा (एमाले) का उपमहासचिव विष्णु रिमालसँग लोकान्तरका लागि सुशील पन्त र रमेश
-                                    सापकोटाले गर्नुभएको कुर...
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card-wrap">
-                        <a href="bichars/17.html">
-                            <div class="card-img">
-                                <img src="../fileswarehouse.com/cpn-uml/bichars/whUKCyAiFjYxYWcDFgsaO1c8aXCl0qlYXXsezpJva352.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=SDDK3YIDD6U0DLO3AEYN%2F20230421%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230421T144030Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=91da435a03153f8cc686b9396d133a3bf17db44508ec2bf540f7abecde235b24"
-                                    alt="cpnuml" class="img-fluid">
-                            </div>
-                            <div class="card-content">
-                                <h1 class="card-title mb-2">
-                                    सरकारको न्यूनतम साझा कार्यक्रम
-                                </h1>
-                                <p class="card-text">
-                                    प्रस्तावना प्रतिनिधि सभा तथा प्रदेश सभाको निर्वाचन, २०७९ मा अभिव्यक्त सार्वभौमसत्ता
-                                    सम्पन्न नेपाली ज...
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="card-wrap">
-                        <a href="bichars/16.html">
-                            <div class="card-img">
-                                <img src="../fileswarehouse.com/cpn-uml/bichars/xLLSsvFXjn9kENphGMA1MEVO7rsAzztoiiT0LlH96046.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=SDDK3YIDD6U0DLO3AEYN%2F20230421%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230421T144030Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=b67c78d1700e19ddbd9dcd3c9a19182ed68f1d0b5468fe03dc62553beaa6b9bc"
-                                    alt="cpnuml" class="img-fluid">
-                            </div>
-                            <div class="card-content">
-                                <h1 class="card-title mb-2">
-                                    देशका लागि सँगै काम गरौं ! केपी शर्मा ओली, अध्यक्ष
-                                </h1>
-                                <p class="card-text">
-                                    माननीयसभाध्यक्षज्यू,संविधान जारी भएपछि दोस्रो आमनिर्वाचनबाट निर्वाचित प्रतिनिधि
-                                    सभाको पहिलो बैठकमा ह...
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
 
     {{-- <section class="section-gap">
         <div class="container">

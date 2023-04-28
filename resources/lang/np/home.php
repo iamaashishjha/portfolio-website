@@ -9,6 +9,13 @@ return [
     'menuItems.membership' => 'सदस्यता',
     'menuItems.membership.create' => 'सदस्यता',
     'menuItems.membership.form' => 'फोर्म',
+
+    'menuItems.membership.approved-members' => 'क्रियाशील सदस्य',
+
+    'menuItems.video' => 'भिडियो',
+    'menuItems.read_more' => 'थप पढ्नुहोस्',
+
+    'menuItems.thoughts' => 'वक्तव्य',
     'menuItems.posts' => 'पत्रहरु',
     'menuItems.posts.events' => 'कार्यक्रम',
     'menuItems.posts.news' => 'समाचार',
@@ -23,6 +30,20 @@ return [
     'menuItems.library' => 'पुस्तकालय',
     'menuItems.donation' => 'आर्थिक सहायता',
 
+    'menuItems.history' => 'इतिहास',
+    'menuItems.parliament' => 'संसद',
+    'menuItems.goverment' => 'सरकार',
+
+
+    'menuItems.committee' => 'समिति',
+    'menuItems.leadership' => 'नेतृत्व',
+
+
+
+
+
+
+
 
     'vision.sub-heading' => 'बारेमा',
     'vision.heading' => 'हाम्रो भिजन',
@@ -31,7 +52,6 @@ return [
     'mission.heading' => 'हाम्रो मिशन',
 
     'members.title' => 'जनता अभियानमा लागेका छन्',
-
     
     'members.title' => 'जनता अभियानमा लागेका छन्',
 

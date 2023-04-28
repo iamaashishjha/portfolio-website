@@ -241,7 +241,7 @@
         @if ($authUser->hasAnyPermission(['list history']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="package"></i> </div>
                     <div class="side-menu__title"> Content Pages
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
@@ -281,7 +281,7 @@
         @if ($authUser->hasAnyPermission(['list committee']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="command"></i> </div>
                     <div class="side-menu__title"> Committee
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>

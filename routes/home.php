@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeCommitteeMemberController;
 use App\Http\Controllers\HomeContentPageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeMediaController;
 use App\Http\Controllers\MembershipController;
 
 /*
@@ -27,24 +28,24 @@ Route::name('home.')->controller(HomeController::class)->group(function () {
     Route::post('/subscribeUsForm', 'indexPageSubscribeUsForm')->name('SubscribeUsForm');
     Route::post('/ContactUsForm', 'storeContactData')->name('contactForm');
 
-    Route::prefix('/events')->name('events.')->group(function () {
-        Route::get('/', 'listEvent')->name('index');
-        Route::get('/{id}', 'showEvent')->name('show');
-    });
+    // Route::prefix('/events')->name('events.')->group(function () {
+    //     Route::get('/', 'listEvent')->name('index');
+    //     Route::get('/{id}', 'showEvent')->name('show');
+    // });
 
-    Route::prefix('/news')->name('news.')->group(function () {
-        Route::get('/', 'listNews')->name('index');
-        Route::get('/{id}', 'showNews')->name('show');
-        Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
-        Route::post('/{id}', 'storeNewsComments')->name('comment');
-    });
+    // Route::prefix('/news')->name('news.')->group(function () {
+    //     Route::get('/', 'listNews')->name('index');
+    //     Route::get('/{id}', 'showNews')->name('show');
+    //     Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
+    //     Route::post('/{id}', 'storeNewsComments')->name('comment');
+    // });
 
-    Route::prefix('/blogs')->name('blogs.')->group(function () {
-        Route::get('/', 'listBlog')->name('index');
-        Route::get('/{id}', 'showBlog')->name('show');
-        Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
-        Route::post('/{id}', 'storeBlogComments')->name('comment');
-    });
+    // Route::prefix('/blogs')->name('blogs.')->group(function () {
+    //     Route::get('/', 'listBlog')->name('index');
+    //     Route::get('/{id}', 'showBlog')->name('show');
+    //     Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
+    //     Route::post('/{id}', 'storeBlogComments')->name('comment');
+    // });
 
     Route::prefix('/library')->name('library.')->group(function () {
         Route::get('/', 'listLibrary')->name('index');
@@ -63,16 +64,60 @@ Route::name('home.')->controller(HomeController::class)->group(function () {
 Route::prefix('/member')->name('home.member.')->controller(MembershipController::class)->group(function () {
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
+    Route::get('/approved-members', 'getApprovedMembers')->name('approved');
 });
 
-Route::prefix('/history')->name('home.history.')->controller(HomeContentPageController::class)->group(function () {
-    Route::get('/', 'listHistory')->name('index');
-    Route::get('/{id}', 'showHistory')->name('show');
+Route::controller(HomeContentPageController::class)->group(function () {
+    Route::prefix('/history')->name('home.history.')->group(function () {
+        Route::get('/', 'listHistory')->name('index');
+        Route::get('/{id}', 'showHistory')->name('show');
+    });
+
+    Route::prefix('/parliament')->name('home.parliament.')->group(function () {
+        Route::get('/', 'listParliament')->name('index');
+        Route::get('/{id}', 'showParliament')->name('show');
+    });
+
+    Route::prefix('/goverment')->name('home.goverment.')->group(function () {
+        Route::get('/', 'listGoverment')->name('index');
+        Route::get('/{id}', 'showGoverment')->name('show');
+    });
 });
+
 
 Route::prefix('/committee')->name('home.committee.')->controller(HomeCommitteeMemberController::class)->group(function () {
     Route::get('/', 'listCommittee')->name('index');
     Route::get('/{id}', 'showCommittee')->name('show');
+});
+
+
+
+Route::name('home.')->controller(HomeMediaController::class)->group(function () {
+     Route::prefix('/events')->name('events.')->group(function () {
+        Route::get('/', 'listEvent')->name('index');
+        Route::get('/{id}', 'showEvent')->name('show');
+    });
+
+    Route::prefix('/news')->name('news.')->group(function () {
+        Route::get('/', 'listNews')->name('index');
+        Route::get('/{id}', 'showNews')->name('show');
+        Route::get('/category/{id}', 'listCategoryNews')->name('categoryShow');
+        Route::post('/{id}', 'storeNewsComments')->name('comment');
+    });
+
+    Route::prefix('/blogs')->name('blogs.')->group(function () {
+        Route::get('/', 'listBlog')->name('index');
+        Route::get('/{id}', 'showBlog')->name('show');
+        Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
+        Route::post('/{id}', 'storeBlogComments')->name('comment');
+    });
+
+    Route::prefix('/thoughts')->name('thoughts.')->group(function () {
+        Route::get('/', 'listBlog')->name('index');
+        Route::get('/{id}', 'showBlog')->name('show');
+        Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
+        Route::post('/{id}', 'storeBlogComments')->name('comment');
+    });
 });
 
 // This should be the end of file and last line for this file
