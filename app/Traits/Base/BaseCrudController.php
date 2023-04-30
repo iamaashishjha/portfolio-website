@@ -18,7 +18,6 @@ class BaseCrudController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth']);
         $this->data['appSetting'] = AppSettings::first();
     }
 }

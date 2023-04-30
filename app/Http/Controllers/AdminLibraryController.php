@@ -90,7 +90,7 @@ class AdminLibraryController extends BaseCrudController
     {
         $this->checkPermission('update');
         $this->data['library'] = $this->model::find($id);
-        return view('ar.library.create', $this->data);
+        return view('ar.library.form', $this->data);
     }
 
     /**

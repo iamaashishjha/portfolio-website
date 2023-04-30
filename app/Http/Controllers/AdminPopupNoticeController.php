@@ -71,6 +71,7 @@ class AdminPopupNoticeController extends BaseCrudController
     {
         $this->checkPermission('update');
         $this->data['popupNotice'] = $this->model::find($id);
+        $this->data['types'] = Types::whereIn('id', [3,4])->get();
         return view('ar.popup-notice.form', $this->data);
     }
 

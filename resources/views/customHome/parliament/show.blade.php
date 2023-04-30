@@ -8,10 +8,10 @@
                     <div class="card-wrap-section">
                         <div class="card-content">
                             <h1 class="news-title mb-2">
-                                {{ $parliaments->title }}
+                                {{ $parliament->title }}
                             </h1>
                             <div class="news-content mt-1 pt-3">
-                                {{ $parliaments->content }}
+                                {!!  $parliament->content  !!}
                             </div>
                         </div>
                     </div>

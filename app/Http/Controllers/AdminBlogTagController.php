@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogTags;
+use App\Models\AppSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Traits\Base\BaseCrudController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreBlogTagsRequest;
 use App\Http\Requests\UpdateBlogTagsRequest;
-use App\Traits\Base\BaseCrudController;
 
 class AdminBlogTagController extends BaseCrudController
 {
@@ -17,6 +18,9 @@ class AdminBlogTagController extends BaseCrudController
     public function __construct()
     {
         $this->model = BlogTags::class;
+        $this->data['appSetting'] = AppSettings::first();
+
+
     }
 
     /**
@@ -39,7 +43,7 @@ class AdminBlogTagController extends BaseCrudController
     public function create()
     {
         $this->checkPermission('create');
-        return view('ar.blog.tag.create');
+        return view('ar.blog.tag.form');
     }
 
     /**
@@ -97,7 +101,7 @@ class AdminBlogTagController extends BaseCrudController
     {
         $this->checkPermission('update');
         $tag = BlogTags::find($id);
-        return view('ar.blog.tag.create')
+        return view('ar.blog.tag.form')
             ->with('tag', $tag);
     }
 

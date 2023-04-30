@@ -13,37 +13,29 @@ $(document).ready(function() {
     getLocalLevelType();
     sameAddress();
     copyMetaData();
-    // dataTable();
-    // debugger;
     convertToDataTable();
-    // sidebarAddActive();
     $("#btnDiv").show();
-
-    // $("#documents-button").click(function (e) {
-    //     e.preventDefault();
-    //     $("#btnDiv").show();
-    // });
 });
 
 function copyMetaData() {
-    $("#description").keyup(function() {
+    $("#description").blur(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, " ");
         $("#meta_description").val(Text);
     });
-    $("#title").keyup(function() {
+    $("#title").blur(function() {
         var Text = $(this).val();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, " ");
         $("#meta_title").val(Text + " || Nagrik Unmukti Party");
     });
-    $("#title").keyup(function() {
+    $("#title").blur(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, "-");
         $("#slug").val(Text);
     });
-    $("#description").keyup(function() {
+    $("#description").blur(function() {
         var Text = $(this).val();
         Text = Text.toLowerCase();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, ",");

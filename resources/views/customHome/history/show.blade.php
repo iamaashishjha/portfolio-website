@@ -11,7 +11,7 @@
                                 {{ $history->title }}
                             </h1>
                             <div class="news-content mt-1 pt-3">
-                                {{ $history->content }}
+                                {!! $history->content !!}
                             </div>
                         </div>
                     </div>

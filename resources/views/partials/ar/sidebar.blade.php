@@ -15,7 +15,7 @@
             </a>
         </li>
 
-        @if ($authUser->hasAnyPermission(['list user', 'list role', 'list permission']))
+        @if ($authUser->hasAnyPermission(['list newspost', 'list blogpost', 'list thought', 'list event','list document', 'list library']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
@@ -44,12 +44,22 @@
                             </a>
                         </li>
                     @endif
-                    {{-- Events --}}
+                    {{-- Thoughts --}}
                     @if ($authUser->hasAnyPermission(['list thought']))
                         <li class="nav-item">
                             <a href="{{ route('admin.thought.index') }}" class="side-menu ">
-                                <div class="side-menu__icon"> <i class="fa fa-calendar" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Thoughts
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Sayings --}}
+                    @if ($authUser->hasAnyPermission(['list saying']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.saying.index') }}" class="side-menu ">
+                                <div class="side-menu__icon"> <i class="fa fa-quote-left" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Sayings
                                 </div>
                             </a>
                         </li>
@@ -60,6 +70,27 @@
                             <a href="{{ route('admin.event.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-calendar" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Events
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Documents --}}
+                    @if ($authUser->hasAnyPermission(['list document']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.document.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Documents
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Library --}}
+                    @if ($authUser->hasAnyPermission(['list library']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.library.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-book" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Libraries
                                 </div>
                             </a>
                         </li>
@@ -85,14 +116,12 @@
                 'list bulkmessage',
                 'list popupnotice',
                 'list slider',
-                'list document',
-                'list library',
                 'list appsettings',
                 'list companydetails',
             ]))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
                     <div class="side-menu__title"> Administration
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
@@ -128,27 +157,7 @@
                             </a>
                         </li>
                     @endif
-                    {{-- Documents --}}
-                    @if ($authUser->hasAnyPermission(['list document']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.document.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Documents
-                                </div>
-                            </a>
-                        </li>
-                    @endif
-                    {{-- Library --}}
-                    @if ($authUser->hasAnyPermission(['list library']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.library.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-book" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Libraries
-                                </div>
-                            </a>
-                        </li>
-                    @endif
+
                     {{-- Company Details --}}
                     @if ($authUser->hasAnyPermission(['list companydetails']))
                         <li class="nav-item">
@@ -159,6 +168,7 @@
                             </a>
                         </li>
                     @endif
+
                     {{-- App setting --}}
                     @if ($authUser->hasAnyPermission(['list appsettings']))
                         <li class="nav-item">
@@ -177,7 +187,7 @@
         @if ($authUser->hasAnyPermission(['list user', 'list role', 'list permission']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="key"></i> </div>
                     <div class="side-menu__title"> Authentication
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
@@ -219,7 +229,7 @@
         @if ($authUser->hasAnyPermission(['list youtubevideo']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
+                    <div class="side-menu__icon"> <i data-feather="image"></i> </div>
                     <div class="side-menu__title"> Gallery
                         <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
@@ -229,7 +239,7 @@
                     @if ($authUser->hasAnyPermission(['list youtubevideo']))
                         <li class="nav-item">
                             <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-youtube-play" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Youtube Video </div>
                             </a>
                         </li>
@@ -251,7 +261,7 @@
                     @if ($authUser->hasAnyPermission(['list history']))
                         <li class="nav-item">
                             <a href="{{ route('admin.history.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-history" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> History </div>
                             </a>
                         </li>
@@ -260,7 +270,7 @@
                     @if ($authUser->hasAnyPermission(['list parliament']))
                         <li class="nav-item">
                             <a href="{{ route('admin.parliament.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-balance-scale" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Parliament </div>
                             </a>
                         </li>
@@ -269,7 +279,7 @@
                     @if ($authUser->hasAnyPermission(['list goverment']))
                         <li class="nav-item">
                             <a href="{{ route('admin.goverment.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Goverment </div>
                             </a>
                         </li>
@@ -291,7 +301,7 @@
                     @if ($authUser->hasAnyPermission(['list teammember']))
                         <li class="nav-item">
                             <a href="{{ route('admin.team-member.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-users" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Team Member </div>
                             </a>
                         </li>
@@ -300,7 +310,7 @@
                     @if ($authUser->hasAnyPermission(['list leadership']))
                         <li class="nav-item">
                             <a href="{{ route('admin.committee.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="side-menu__icon"> <i class="fa fa-leanpub" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Leadership </div>
                             </a>
                         </li>

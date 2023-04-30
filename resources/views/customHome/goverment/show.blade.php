@@ -11,7 +11,7 @@
                                 {{ $goverment->title }}
                             </h1>
                             <div class="news-content mt-1 pt-3">
-                                {{ $goverment->content }}
+                                {!!  $goverment->content  !!}
                             </div>
                         </div>
                     </div>

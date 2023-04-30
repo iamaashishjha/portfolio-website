@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use App\Models\Library;
+use App\Models\YoutubeVideo;
 use Illuminate\Http\Request;
 use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -138,6 +139,7 @@ class HomeController extends BaseHomeController
 
     public function listVideos()
     {
+        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
         return view('customHome.video.index', $this->data);
     }
 

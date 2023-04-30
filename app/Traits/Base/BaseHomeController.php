@@ -49,7 +49,7 @@ class BaseHomeController extends Controller
         $this->data['parliaments'] = Parliament::orderBy('created_at', 'DESC')->get();
         $this->data['goverments'] = Goverment::orderBy('created_at', 'DESC')->get();
         
-        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
+        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->take(4)->get();
         $this->data['committees'] = Committee::orderBy('created_at', 'DESC')->get();
 
         $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();

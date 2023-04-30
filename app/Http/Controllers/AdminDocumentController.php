@@ -48,12 +48,13 @@ class AdminDocumentController extends BaseCrudController
      */
     public function store(StoreDocumentsRequest $request)
     {
-        $this->checkCRUDPermission('App\Models\Document', 'create');
+        $this->checkPermission('create');
+        $destinationPath = 'home/documents';
+        $image = $this->uploadFileToDisk($request, 'image', $destinationPath);
+        $file = $this->uploadFileToDisk($request, 'file', $destinationPath);
         $doc = new Document();
-
-        $image = $request->image->store('home/documents', 'public');
-        $file = $request->file->store('home/documents', 'public');
-
+        $doc->doc_image = $image;
+        $doc->doc_file = $file;
         $doc->title = $request->title;
         $doc->description = $request->description;
         $doc->doc_image = $image;
@@ -62,10 +63,8 @@ class AdminDocumentController extends BaseCrudController
         $doc->meta_title = $request->meta_title;
         $doc->meta_description = $request->meta_description;
         $doc->keywords = $request->title;
-        // $doc->is_active = true;
-
         $doc->save();
-        Alert::success('Document Updated Successfully');
+        Alert::success('Document Created Successfully');
         return redirect()->route('admin.document.index');
     }
 
@@ -104,38 +103,21 @@ class AdminDocumentController extends BaseCrudController
     {
         $this->checkPermission('update');
         $doc = $this->model::find($id);
+        $destinationPath = 'home/documents';
 
-        if ($request->has('image') && ($request->image != '')) {
-            $imagePath = $doc->image;
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $doc->deleteImage();
-            }
-            $image = $request->image->store('home/documents', 'public');
-            $doc->doc_image = $image;
-        }
-
-        if ($request->has('file') && ($request->file != '')) {
-            $imagePath = $doc->file;
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $doc->deleteImage();
-            }
-            $file = $request->file->store('home/documents', 'public');
-            $doc->doc_file = $file;
-        }
-
+        $image = $this->uploadFileToDisk($request, 'image', $destinationPath, $doc->image);
+        $file = $this->uploadFileToDisk($request, 'file', $destinationPath, $doc->file);
+        $doc->doc_image = $image;
+        $doc->doc_file = $file;
         $doc->title = $request->title;
         $doc->description = $request->description;
         $doc->url = $request->url;
         $doc->meta_title = $request->meta_title;
         $doc->meta_description = $request->meta_description;
         $doc->keywords = $request->title;
-
         $doc->save();
         Alert::success('Document Updated Successfully');
         return redirect()->route('admin.document.index');
-
     }
 
     /**

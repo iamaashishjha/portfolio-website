@@ -163,6 +163,42 @@ class CreateTeamMembersMigration extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        Schema::create('sayings', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('description')->nullable();
+            $table->text('content')->nullable();
+            $table->string('alt_text')->nullable();
+            $table->string('post_image')->nullable();
+            $table->string('post_date')->nullable();
+            $table->boolean('status')->default(0);
+            $table->boolean('featured')->default(0);
+            $table->string('slug')->nullable();
+            $table->bigInteger('views')->default(0);
+            $table->string('meta_description')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('keywords')->nullable();
+            $table->boolean('is_deleted')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -174,5 +210,7 @@ class CreateTeamMembersMigration extends Migration
     {
         Schema::dropIfExists('team_members');
         Schema::dropIfExists('content_pages');
+        Schema::dropIfExists('thoughts');
+        Schema::dropIfExists('sayings');
     }
 }

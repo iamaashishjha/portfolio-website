@@ -1,14 +1,14 @@
 @extends('layouts.ar')
 @section('title')
-    {{-- Create New News Tag | Nagrik Unmukti Party --}}
-    {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '". | Nagrik Unmukti Party' : 'Create New News Tag | Nagrik Unmukti Party' }}
+    {{-- Create New Blog Tag | Nagrik Unmukti Party --}}
+    {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '". | Nagrik Unmukti Party' : 'Create New Blog Tag | Nagrik Unmukti Party' }}
 @endsection
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('admin.news.tag.index') }}" class="">News</a>
+        <a href="{{ route('admin.blog.tag.index') }}" class="">Blogs</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">{{ isset($tag) ? 'Edit Tag ' : 'Create New News Tag' }}</a>
+        <a href="" class="breadcrumb--active">{{ isset($tag) ? 'Edit Tag ' : 'Create New Blog Tag' }}</a>
     </div>
 @endsection
 
@@ -19,14 +19,14 @@
 
     <div class="intro-y flex items-center mt-8 ">
         <h2 class="text-lg font-medium mr-auto">
-            {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '".' : 'Create New News Tag' }}
+            {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '".' : 'Create New Blog Tag' }}
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.tag.index') }}">
+            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.tag.index') }}">
             <i class="fa fa-list mx-2"></i>    
                 All Tags
             </a>
-        </div>
+        </div>  
     </div>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 lg:col-span-12">
@@ -37,9 +37,10 @@
                     <h2 class="font-medium text-base mr-auto">
                         Enter Tag Details
                     </h2>
+                   
                 </div>
                 {{-- @include('partials.ar.messages') --}}
-                <form action="{{ isset($tag) ? route('admin.news.tag.update', $tag->id) : route('admin.news.tag.store') }}"
+                <form action="{{ isset($tag) ? route('admin.blog.tag.update', $tag->id) : route('admin.blog.tag.store') }}"
                     method="post" enctype="multipart/form-data" class="grid grid-cols-12 gap-2">
                     @csrf
                     @if (isset($tag))
@@ -91,8 +92,9 @@
                                 <div class="p-5 preview">
                                     <label>Tag Slug</label>
                                     <input type="text" id="slug" name="slug"
-                                        class="input w-full border mt-2 cursor-not-allowed  bg-gray-100" placeholder="Enter Slug"
-                                        value="{{ isset($tag) ? $tag->slug : old('slug') }}" readonly>
+                                        class="input w-full border mt-2 cursor-not-allowed  bg-gray-100"
+                                        placeholder="Enter Slug" value="{{ isset($tag) ? $tag->slug : old('slug') }}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-span-12 md:col-span-6">
@@ -101,14 +103,16 @@
                                     <input type="text" id="meta_description" name="meta_description"
                                         class="input w-full border mt-2 cursor-not-allowed bg-gray-100"
                                         placeholder="Enter Meta Description"
-                                        value="{{ isset($tag) ? $tag->meta_description : old('meta_description') }}" readonly>
+                                        value="{{ isset($tag) ? $tag->meta_description : old('meta_description') }}"
+                                        readonly>
                                 </div>
                             </div>
                             <div class="col-span-12 md:col-span-6">
                                 <div class="p-5 preview">
                                     <label>Tag Keywords</label>
                                     <input type="text" id="keywords" name="keywords"
-                                        class="input w-full border mt-2 cursor-not-allowed bg-gray-100" placeholder="Enter Keywords"
+                                        class="input w-full border mt-2 cursor-not-allowed bg-gray-100"
+                                        placeholder="Enter Keywords"
                                         value="{{ isset($tag) ? $tag->keywords : old('keywords') }}" readonly>
                                 </div>
                             </div>
@@ -140,8 +144,8 @@
                                     </div>
                                 </div>
                                 <div class="px-4 pb-4 flex items-center cursor-pointer relative">
-                                    <i data-feather="image" class="w-4 h-4 mr-2"></i> <span
-                                        class="text-theme-1 mr-1">Upload a file</span> or drag and drop
+                                    <i data-feather="image" class="w-4 h-4 mr-2"></i> <span class="text-theme-1 mr-1">Upload
+                                        a file</span> or drag and drop
                                     <input type="file" name="tag_image"
                                         class="w-full h-full top-0 left-0 absolute opacity-0" onchange="loadFile(event)"
                                         value="{{ old('tag_image') }}">

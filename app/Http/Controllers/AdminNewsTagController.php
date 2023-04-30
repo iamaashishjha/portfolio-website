@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\NewsTags;
 use App\Traits\AuthTrait;
+use App\Models\AppSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\StoreNewsTagsRequest;
-use App\Http\Requests\UpdateBlogTagsRequest;
-use App\Http\Requests\UpdateNewsTagsRequest;
-
 use App\Traits\Base\BaseCrudController;
+use RealRashid\SweetAlert\Facades\Alert;
+
+use App\Http\Requests\StoreNewsTagsRequest;
+use App\Http\Requests\UpdateNewsTagsRequest;
 
 class AdminNewsTagController extends BaseCrudController
 {
@@ -19,6 +19,7 @@ class AdminNewsTagController extends BaseCrudController
     public function __construct()
     {
         $this->model = NewsTags::class;
+        $this->data['appSetting'] = AppSettings::first();
     }
     /**
      * Display a listing of the resource.
@@ -28,7 +29,8 @@ class AdminNewsTagController extends BaseCrudController
     public function index()
     {
         $this->checkPermission('list');
-        $this->data['tags'] = $this->model::notDeleted()->get();
+
+        $this->data['tags'] = $this->model::get();
         return view('ar.news.tag.index', $this->data);
     }
 

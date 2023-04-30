@@ -1,108 +1,116 @@
 @extends('layouts.ar')
 
 @section('title')
-    All Blog Tags || {{ __('base.title') }}
+    All Thoughts || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="" class="">Application</a>
+        <a href="{{ route('admin.thought.index') }}" class="">Thoughts</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">Dashboard</a>
+        <a href="" class="breadcrumb--active">All Thoughts</a>
     </div>
 @endsection
 
+@section('title')
+    All Thoughts
+@endsection
 
 @section('content')
-    {{-- @include('partials.ar.modelMessage') --}}
-
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Blog Tags
+            All Thoughts
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.thought.create') }}">
+                <i class="fa fa-plus mx-2" aria-hidden="true"></i>
+                Create New
+                Thought
+            </a>
+            <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.thought.trashed') }}">
+                <i class="fa fa-trash mx-2" aria-hidden="true"></i>
+                Trashed
+                Thoughts
+            </a>
 
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.blog.tag.create') }}"> <i
-                    class="fa fa-plus mx-2"></i> Create New Tag</a>
         </div>
     </div>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table class="table table-report table-report--bordered display  w-full" id="dataTable">
+        <table class="table table-report table-report--bordered display w-full" id="dataTable">
             <thead>
                 <tr>
                     <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
-                    <th class="border-b-2 text-center  whitespace-no-wrap">Tag Name</th>
+                    <th class="border-b-2 text-center  whitespace-no-wrap">Title</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">Created At</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
-                @if ($tags->count() > 0)
-                    @foreach ($tags as $tag)
+                @if ($posts->count() > 0)
+                    @foreach ($posts as $post)
                         <tr>
                             <td class="border-b text-center">
                             </td>
                             <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">{{ $tag->title }}</div>
+                                <div class="font-medium whitespace-no-wrap">
+                                    {{ Str::limit($post->title, 20, ' (...)') }}
+                                </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="flex sm:justify-center">
                                     <div class="intro-x w-10 h-10 image-fit">
-                                        <img alt="{{ $tag->description }}" class="rounded-full" src="{{ $tag->image }}">
+                                        <img alt="{{ $post->description }}" class="rounded-full" src="{{ $post->image }}">
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center border-b">{{ isset($tag->posts) ? $tag->posts->count() : '0' }}</td>
                             <td class="w-40 border-b">
-                                {!! $tag->status !!}
-                            </td>
-                            <td class="w-40 border-b">
-                                <div class="flex items-center sm:justify-center text-theme-1"> <i data-feather="calendar"
-                                        class="w-4 h-4 mr-2"></i> {{ $tag->created_at->format('h:i A Y-m-d') }} </div>
+                                {!! $post->status !!}
                             </td>
                             <td class="border-b w-5">
                                 <div class="flex sm:justify-center items-center">
-                                    <a class="flex items-center mr-3" href="{{ route('admin.blog.tag.edit', $tag->id) }}">
+                                    <a class="flex items-center mr-3" href="{{ route('admin.thought.edit', $post->id) }}">
                                         <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                     <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
-                                        data-target="#delete-modal-preview-{{ $tag->id }}"> <i data-feather="trash-2"
-                                            class="w-4 h-4 mr-1"></i> Delete </a>
+                                        data-target="#delete-modal-preview-{{ $post->id }}"> <i data-feather="trash-2"
+                                            class="w-4 h-4 mr-1"></i> Trash </a>
                                 </div>
                             </td>
                         </tr>
-                        <div class="modal" id="delete-modal-preview-{{ $tag->id }}">
+                        <div class="modal" id="delete-modal-preview-{{ $post->id }}">
                             <div class="modal__content">
                                 <div class="p-5 text-center"> <i data-feather="x-circle"
                                         class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                                     <div class="text-3xl mt-5">Are you sure?</div>
-                                    <div class="text-gray-600 mt-2">Do you really want to delete these records? This process
-                                        cannot be undone.</div>
+                                    <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
                                 </div>
                                 <div class="px-5 pb-8 text-center">
-                                    <form action="{{ route('admin.blog.tag.destroy', $tag->id) }}" method="post">
+                                    <form action="{{ route('admin.thought.destroy', $post->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" data-dismiss="modal"
                                             class="button w-24 border text-gray-700 mr-1">Cancel</button>
-                                        <button type="submit" class="button w-24 bg-theme-6 text-white">Delete</button>
+                                        <button type="submit" class="button w-24 bg-theme-6 text-white">Trash</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @else
-                    <td class="text-center border-b" colspan="7">
-                        No Tags Available
+                    <td class="text-center border-b" colspan="6">
+                        No Posts Available
                     </td>
                 @endif
+
+
+
             </tbody>
         </table>
     </div>
     <!-- END: Datatable -->
+
+
 @endsection
 
 @section('script')

@@ -21,7 +21,9 @@ All Documents || {{ __('base.title') }}
     {{-- @if ($totalData < 1 ) --}}
         
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.document.create') }}">Create
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.document.create') }}">
+            <i class="fa fa-plus mx-2" aria-hidden="true"></i>
+            Create
             New Documents</a>
     </div>
     {{-- @endif --}}

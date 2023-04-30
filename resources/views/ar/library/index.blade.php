@@ -21,7 +21,9 @@ All Libraries || {{ __('base.title') }}
     {{-- @if ($totalData < 1 ) --}}
         
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.library.create') }}">Create
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.library.create') }}">
+            <i class="fa fa-plus mx-2"></i>
+            Create
             New Libraries</a>
     </div>
     {{-- @endif --}}
@@ -29,17 +31,13 @@ All Libraries || {{ __('base.title') }}
 </div>
 <!-- BEGIN: Datatable -->
 <div class="intro-y datatable-wrapper box p-5 mt-5">
-    <table class="table table-report table-report--bordered display datatable w-full" id="datatable">
+    <table class="table table-report table-report--bordered display w-full" id="dataTable">
         <thead>
             <tr>
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Library Title</th>
-                {{-- <th class="border-b-2 text-center whitespace-no-wrap">Description</th> --}}
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">File</th>
-                {{-- <th class="border-b-2 text-center whitespace-no-wrap">Meta Title</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Meta Description</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Keywords</th> --}}
                 <th class="border-b-2 text-center whitespace-no-wrap">Action</th>
             </tr>
         </thead>

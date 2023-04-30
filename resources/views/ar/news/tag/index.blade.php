@@ -2,7 +2,7 @@
 
 @section('title')
 
-All Blog Tags | {{ __('base.title') }}
+All News Tags | {{ __('base.title') }}
 
 @endsection
 
@@ -23,18 +23,21 @@ All Blog Tags | {{ __('base.title') }}
         News Tags
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.tag.create') }}">Create New Tag</a>
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.tag.create') }}">
+        <i class="fa fa-plus mx-2"></i>    
+            Create New Tag
+        </a>
     </div>
 </div>
 <!-- BEGIN: Datatable -->
 <div class="intro-y datatable-wrapper box p-5 mt-5">
-    <table class="table table-report table-report--bordered display datatable w-full" id="datatable">
+    <table class="table table-report table-report--bordered display w-full" id="dataTable">
         <thead>
             <tr>
                 <th class="border-b-2 text-center  whitespace-no-wrap">#</th>
                 <th class="border-b-2 text-center  whitespace-no-wrap">Tag Name</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Image</th>
-                <th class="border-b-2 text-center whitespace-no-wrap">Blogs</th>
+                <th class="border-b-2 text-center whitespace-no-wrap">News</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Status</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">Created At</th>
                 <th class="border-b-2 text-center whitespace-no-wrap">ACTIONS</th>
@@ -61,7 +64,7 @@ All Blog Tags | {{ __('base.title') }}
                     {!! $tag->status !!}
                 </td>
                 <td class="w-40 border-b">
-                    <div class="flex items-center sm:justify-center text-theme-1"> <i data-feather="calendar" class="w-4 h-4 mr-2"></i> {{ $tag->created_at->format('H:i:s A Y-m-d') }} </div>
+                    <div class="flex items-center sm:justify-center text-theme-1"> <i data-feather="calendar" class="w-4 h-4 mr-2"></i> {{ $tag->created_at->format('h:i A Y-m-d') }} </div>
                 </td>
                 <td class="border-b w-5">
                     <div class="flex sm:justify-center items-center">
