@@ -5334,95 +5334,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    InfiniteLoading: (vue_infinite_loading__WEBPACK_IMPORTED_MODULE_0___default())
-  },
-  props: ['placeholder', 'lang', 'image'],
-  data: function data() {
-    return {
-      keywords: '',
-      url: "https://system.cpnuml.org/api/v1/search-member",
-      member: [],
-      page: 2,
-      totalPage: null,
-      isLoading: false,
-      membership_no: null,
-      displayText: 'Type and enter To search'
-    };
-  },
-  mounted: function mounted() {// console.log(this.placeholder)
-  },
-  methods: {
-    getSearchData: function getSearchData() {
-      var _this = this;
-
-      this.displayText = 'Please Wait...';
-      this.member = [];
-      axios.get("".concat(this.url, "?query=").concat(this.keywords)).then(function (res) {
-        _this.member = res.data.data;
-
-        if (res.data.data.length === 0) {
-          _this.displayText = 'कुनैपनी डाटा भेटिएन ';
-        }
-
-        _this.totalPage = res.data.meta.last_page;
-      });
-    },
-    close: function close() {
-      this.keywords = '';
-      this.membership_no = '';
-    },
-    handleLoadMore: function handleLoadMore($state) {
-      var _this2 = this;
-
-      // console.log(this.page);
-      if (this.page > this.totalPage) {
-        $state.complete();
-      } else {
-        axios.get("".concat(this.url, "?membership_no=").concat(this.membership_no, "&query=").concat(this.keywords, "&page=").concat(this.page)).then(function (res) {
-          $.each(res.data.data, function (key, value) {
-            _this2.member.push(value);
-          });
-          $state.loaded();
-        });
-        this.page = this.page + 1;
-      }
-    },
-    openProfile: function openProfile(m) {
-      // if(this.lang === 'en')
-      // {
-      //     window.open(m.link_en);
-      // }
-      // else {
-      //     window.open(m.link_np);
-      // }
-      // window.open(m.link);
-      window.location.href = m.link;
-    }
-  },
-  watch: {// keywords(newVal) {
-    //     if (newVal.length > 0) {
-    //         this.displayText = 'Searching..';
-    //     } else {
-    //         this.member = []
-    //     }
-    // }
-    // }, 50),
-    // membership_no: _.debounce(function (newVal) {
-    //     if (newVal.length > 0) {
-    //         axios.get(`${this.url}?membership_no=${newVal}&query=${this.keywords}`).then(res => {
-    //             this.member = res.data.data;
-    //             if (res.data.data.length === 0) {
-    //                 this.displayText = 'कुनैपनी डाटा भेटिएन ';
-    //             }
-    //             this.totalPage = res.data.meta.last_page
-    //         })
-    //     } else {
-    //         this.member = []
-    //     }
-    // }, 50)
-  }
 });
 
 /***/ }),
@@ -5494,95 +5405,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {// InfiniteLoading,
-  },
-  props: ['placeholder', 'lang', 'image'],
-  data: function data() {
-    return {
-      keywords: '',
-      url: "https://system.cpnuml.org/api/v1/search-member",
-      member: [],
-      page: 2,
-      totalPage: null,
-      isLoading: false,
-      membership_no: null,
-      displayText: 'Type and enter To search'
-    };
-  },
-  mounted: function mounted() {// console.log(this.placeholder)
-  },
-  methods: {
-    getSearchData: function getSearchData() {
-      var _this = this;
-
-      this.displayText = 'Please Wait...';
-      this.member = [];
-      axios.get("".concat(this.url, "?query=").concat(this.keywords)).then(function (res) {
-        _this.member = res.data.data;
-
-        if (res.data.data.length === 0) {
-          _this.displayText = 'कुनैपनी डाटा भेटिएन ';
-        }
-
-        _this.totalPage = res.data.meta.last_page;
-      });
-    },
-    close: function close() {
-      this.keywords = '';
-      this.membership_no = '';
-    },
-    handleLoadMore: function handleLoadMore($state) {
-      var _this2 = this;
-
-      // console.log(this.page);
-      if (this.page > this.totalPage) {
-        $state.complete();
-      } else {
-        axios.get("".concat(this.url, "?membership_no=").concat(this.membership_no, "&query=").concat(this.keywords, "&page=").concat(this.page)).then(function (res) {
-          $.each(res.data.data, function (key, value) {
-            _this2.member.push(value);
-          });
-          $state.loaded();
-        });
-        this.page = this.page + 1;
-      }
-    },
-    openProfile: function openProfile(m) {
-      // if(this.lang === 'en')
-      // {
-      //     window.open(m.link_en);
-      // }
-      // else {
-      //     window.open(m.link_np);
-      // }
-      // window.open(m.link);
-      window.location.href = m.link;
-    }
-  },
-  watch: {// keywords(newVal) {
-    //     if (newVal.length > 0) {
-    //         this.displayText = 'Searching..';
-    //     } else {
-    //         this.member = []
-    //     }
-    // }
-    // }, 50),
-    // membership_no: _.debounce(function (newVal) {
-    //     if (newVal.length > 0) {
-    //         axios.get(`${this.url}?membership_no=${newVal}&query=${this.keywords}`).then(res => {
-    //             this.member = res.data.data;
-    //             if (res.data.data.length === 0) {
-    //                 this.displayText = 'कुनैपनी डाटा भेटिएन ';
-    //             }
-    //             this.totalPage = res.data.meta.last_page
-    //         })
-    //     } else {
-    //         this.member = []
-    //     }
-    // }, 50)
-  }
-});
 
 /***/ }),
 
@@ -5605,39 +5427,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 // import Flipbook from 'flipbook-vue/vue2'
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "VueFlipBook",
-  // components: { Flipbook }
-  data: function data() {
-    return {
-      htmlElement: 'div',
-      setting: {},
-      images: []
-    };
-  },
-  methods: {
-    getImagesLinks: function getImagesLinks() {
-      axios.get('https://system.cpnuml.org/api/v1/ebook-images').then(function (res) {
-        // this.images =
-        var pageFlip = new page_flip__WEBPACK_IMPORTED_MODULE_0__.PageFlip(document.getElementById('book'), {
-          width: 500,
-          // required parameter - base page width
-          height: 700,
-          // required parameter - base page height
-          showCover: true,
-          autoSize: true,
-          swipeDistance: 30
-        });
-        pageFlip.loadFromImages(res.data.images);
-      });
-    }
-  },
-  created: function created() {
-    this.getImagesLinks();
-  },
-  mounted: function mounted() {}
-});
 
 /***/ }),
 
@@ -29075,7 +28864,7 @@ var render = function () {
                       staticStyle: { width: "57px" },
                       attrs: {
                         src: m.photo ? m.photo : _vm.image,
-                        alt: "cpnuml",
+                        alt: "nagrikunmuktiparty",
                       },
                     }),
                     _vm._v(
@@ -29283,7 +29072,7 @@ var render = function () {
                       staticStyle: { width: "57px" },
                       attrs: {
                         src: m.photo ? m.photo : _vm.image,
-                        alt: "cpnuml",
+                        alt: "nagrikunmuktiparty",
                       },
                     }),
                     _vm._v(

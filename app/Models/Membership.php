@@ -12,17 +12,17 @@ class Membership extends BaseModel
 
     public function getNameAttribute()
     {
-        return $this->code.' - '.($this->name_en).' ('.$this->name_lc.') ';
+        return $this->name_en.' ('.$this->name_lc.') ';
     }
 
     public function scopeRegisteredMember($query)
     {
-        return $query->where('is_verified', FALSE)->orWhereNull('is_verified');
+        return $query->where('is_verified', false)->orWhereNull('is_verified');
     }
 
     public function scopeApprovedMember($query)
     {
-        return $query->where('is_verified', TRUE);
+        return $query->where('is_verified', true);
     }
 
     public function getStatusAttribute()

@@ -10,13 +10,14 @@ return [
 
     'menuItems.home' => 'Home',
     'menuItems.membership' => 'Membership',
-    'menuItems.membership.create' => 'Register',
+    'menuItems.membership.create' => 'Register Form',
     'menuItems.membership.form' => 'Form',
 
     'menuItems.membership.approved-members' => 'Approved Members',
 
     'menuItems.posts' => 'Posts',
     'menuItems.thoughts' => 'Thought',
+    'menuItems.saying' => 'Statement',
     'menuItems.posts.events' => 'Events',
     'menuItems.posts.news' => 'News',
     'menuItems.posts.blogs' => 'Blogs',
@@ -97,5 +98,16 @@ return [
     'footer.events' => 'Latest Events',
     'footer.contact' => 'Contact',
     'footer.copyright' => 'Nagrik Unmukti Party',
+
+
+
+    's_no' => 'S. No.',
+    'email' => 'Email',
+    'phone' => 'Phone',
+    'address' => 'Address',
+    'province' => 'Province',
+    'district' => 'District',
+    'muncipality' => 'Muncipality',
+    'name' => 'Name',
 
 ];

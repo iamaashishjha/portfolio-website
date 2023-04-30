@@ -15,7 +15,7 @@
                             <a href="{{ route('home.events.show', $event->id) }}">
                                 <div class="card-img">
                                     <img src="{{ isset($event->image) ? $event->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
-                                        alt="cpnuml" class="img-fluid">
+                                        alt="nagrikunmuktiparty" class="img-fluid">
                                 </div>
                                 <div class="card-content">
                                     <h1 class="card-title mb-2">

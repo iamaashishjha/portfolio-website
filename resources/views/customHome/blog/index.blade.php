@@ -15,7 +15,7 @@
                             <a href="{{ route('home.blogs.show', $post->id) }}">
                                 <div class="card-img">
                                     <img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
-                                        alt="cpnuml" class="img-fluid">
+                                        alt="nagrikunmuktiparty" class="img-fluid">
                                 </div>
                                 <div class="card-content">
                                     <h1 class="card-title mb-2">

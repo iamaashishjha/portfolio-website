@@ -126,4 +126,9 @@ class CompanyDetails extends BaseModel
     {
         Storage::delete($this->our_vision_image);
     }
+
+    public function getNameAttribute()
+    {
+        return $this->company_name_en.' ('.$this->company_name_lc.') ';
+    }
 }

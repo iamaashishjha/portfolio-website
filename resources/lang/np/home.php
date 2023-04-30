@@ -3,11 +3,11 @@
 return [
 
     'header.donate' => 'अब दान गर्नुहोस्',
-    'header.join' => 'सदस्यता',
+    'header.join' => 'जन्सनगठन',
 
     'menuItems.home' => 'गृह',
-    'menuItems.membership' => 'सदस्यता',
-    'menuItems.membership.create' => 'सदस्यता',
+    'menuItems.membership' => 'जन्सनगठन',
+    'menuItems.membership.create' => 'सदस्यता फारम',
     'menuItems.membership.form' => 'फोर्म',
 
     'menuItems.membership.approved-members' => 'क्रियाशील सदस्य',
@@ -15,7 +15,8 @@ return [
     'menuItems.video' => 'भिडियो',
     'menuItems.read_more' => 'थप पढ्नुहोस्',
 
-    'menuItems.thoughts' => 'वक्तव्य',
+    'menuItems.thoughts' => 'विचार',
+    'menuItems.saying' => 'वक्तव्य',
     'menuItems.posts' => 'पत्रहरु',
     'menuItems.posts.events' => 'कार्यक्रम',
     'menuItems.posts.news' => 'समाचार',
@@ -102,4 +103,14 @@ return [
     'footer.events' => 'पछिल्लो घटनाक्रम',
     'footer.contact' => 'सम्पर्क गर्नुहोस्',
     'footer.Copyright' => 'नागरिक उन्मुक्ति पार्टी',
+
+
+    's_no' => 'क्र. सं.',
+    'email' => 'इमेल',
+    'phone' => 'फोन',
+    'address' => 'ठेगाना',
+    'province' => 'प्रदेश ',
+    'district' => 'जिल्ला',
+    'muncipality' => 'नगरपालिका',
+    'name' => 'नाम',
 ];

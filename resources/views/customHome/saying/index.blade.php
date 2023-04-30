@@ -5,26 +5,23 @@
         <div class="container">
             <div class="main-title">
                 <h2 class="section-title">
-                    {{ __('home.menuItems.posts.news') }}
+                    {{ __('home.menuItems.posts.saying') }}
                 </h2>
             </div>
             <div class="row g-4">
-                @foreach ($news as $post)
+                @foreach ($sayings as $post)
                     <div class="col-md-6 col-lg-3">
                         <div class="card-wrap">
-                            <a href="{{ route('home.news.show', $post->id) }}">
+                            <a href="{{ route('home.sayings.show', $post->id) }}">
                                 <div class="card-img">
                                     <img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
-                                        alt="nagrikunmuktiparty" class="img-fluid">
+                                        alt="{{$post->title}}" class="img-fluid">
                                 </div>
                                 <div class="card-content">
                                     <h1 class="card-title mb-2">
-                                        {{ $post->title }} 
+                                        {{ $post->title }}
                                     </h1>
-                                    {{-- <p class="card-text">
-                                        दाङ । नेकपा (एमाले) का महासचिव एवं दाङ निर्वाचन क्षेत्र नं. २ का प्रतिनिधिसभा सदस्य
-                                        उम्मेदवार शंकर प...
-                                    </p> --}}
+                                    
                                 </div>
                             </a>
                         </div>
@@ -32,7 +29,7 @@
                 @endforeach
             </div>
             {{-- pagination links  --}}
-            {{ $news->links('customHome.partials.__pagination') }}
+            {{ $sayings->links('customHome.partials.__pagination') }}
         </div>
     </section>
 @endsection

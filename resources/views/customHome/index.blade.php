@@ -150,62 +150,6 @@
             </div>
         </section>
     @endif
-
-
-    {{-- <section class="section-gap">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-7">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <iframe
-                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcommunistpartynepal&amp;tabs=timeline&amp;width=340&amp;height=500&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId"
-                                width="350" height="400" style="border:none;overflow:hidden" scrolling="no"
-                                frameborder="0" allowfullscreen="true"
-                                allow="autoplay;
-                                    clipboard-write; encrypted-media;
-                                    picture-in-picture; web-share"></iframe>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <a class="twitter-timeline" data-height="400"
-                                href="https://twitter.com/umlcpn?ref_src=twsrc%5Etfw">Tweets
-                                by umlcpn</a>
-                            <script async src="../platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6">
-                    <div class="main-title text-center">
-                        <h2 class="section-title-publication
-                                text-center">
-                            पार्टी प्रकाशनहरु (पुस – चैत २०७८)
-                        </h2>
-                    </div>
-                    <div class="card-banner">
-                        <a
-                            href="https://system.cpnuml.org/parse-image/954?hash=$2y$10$lSbv1k1IQ2/spE8lHTIPiO71yDjDK1tj8ABbgPErpVYoIVFAyeCfm">
-                            <img src="../fileswarehouse.com/cpn-uml/website/s7w0aqJ96BKmCCu7wKJ2PXO1qgXwYeNLFbSX7IEj0c07.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=SDDK3YIDD6U0DLO3AEYN%2F20230421%2Fus-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230421T144030Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=6576e2af4d71837bd00248151b64eefb5e7b59e0450391107359f0f678648193"
-                                alt="" class="img-fluid">
-                        </a>
-                        <div class="row mt-3">
-                            <div class="col-md-8 my-auto col-12">
-                                <h1 class="card-title">
-                                    &quot;नेपाल कम्युनिष्ट पार्टी (एमाले) को केन्द्रिय कमिटिको राजनीतिक पत्रिका&quot;
-                                </h1>
-                            </div>
-                            <div class="col-md-4 col-12">
-                                <a href="publications.html"
-                                    class="btn
-                                        theme-btn"><span>थप
-                                        हेर्नुहोस्</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
     {{-- Contact Section  --}}
 @endsection
 

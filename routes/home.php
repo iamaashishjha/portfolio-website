@@ -118,6 +118,12 @@ Route::name('home.')->controller(HomeMediaController::class)->group(function () 
         Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
         Route::post('/{id}', 'storeBlogComments')->name('comment');
     });
+
+    Route::prefix('/saying')->name('saying.')->group(function () {
+        Route::get('/', 'listBlog')->name('index');
+        Route::get('/{id}', 'showBlog')->name('show');
+        Route::post('/{id}', 'storeBlogComments')->name('comment');
+    });
 });
 
 // This should be the end of file and last line for this file

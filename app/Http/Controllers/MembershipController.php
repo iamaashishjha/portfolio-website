@@ -9,8 +9,9 @@ use App\Models\AppSettings;
 use App\Models\LocalLevelType;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
+use App\Traits\Base\BaseHomeController;
 
-class MembershipController extends Controller
+class MembershipController extends BaseHomeController
 {
     public $data;
     public function create()
@@ -173,8 +174,9 @@ class MembershipController extends Controller
     public function getApprovedMembers()
     {
         $dataArr = [
-            'memebers' => Membership::approvedMember()->get(),
+            'members' => Membership::approvedMember()->get(),
         ];
-        return view('customHome.member.approved-member', $dataArr);
+        $this->data['members'] = Membership::approvedMember()->get();
+        return view('customHome.member.approved-member', $this->data);
     }
 }

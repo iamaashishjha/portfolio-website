@@ -21,11 +21,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>नेकपा (एमाले) केन्द्रीय प्रचार तथा प्रकाशन विभागद्वारा सञ्चालित । प्रमुख - पृथ्वीसुब्बा गुरुङ |
-                    उपप्रमुख - विष्णु रिजाल</p>
+                <p>{{__('base.title')}} केन्द्रीय प्रचार तथा प्रकाशन विभागद्वारा सञ्चालित । आशिष झा | जिबछ यादव</p>
                 <div class="divider"></div>
-                <p class="mb-4">च्यासल, ललितपुर, नेपाल, फोन: +९७७ १ ५९०८११४, ५९०८२१४, ५९०८३१४, पो. ब.नं: ५४७१,
-                    इमेल: partyhq@cpnuml.org, umlpublicitydept@cpnuml.org
+                <p class="mb-4">{{__('home.address')}}:{{$companyDetails->company_address}}, {{__("home.phone")}}: {{$companyDetails->phone_number}}, {{$companyDetails->mobile_number}}
+                    {{__('home.email')}}: {{$companyDetails->email}}
                 </p>
             </div>
         </div>

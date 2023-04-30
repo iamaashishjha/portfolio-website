@@ -163,7 +163,7 @@ class CreateMembershipsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
-            $table->dateTime('approved_at')->default(now());
+            $table->dateTime('approved_at')->nullable();
             $table->softDeletes();
         });
 

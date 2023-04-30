@@ -8,7 +8,7 @@
                     <div class="card-wrap-section">
                         <div class="card-content">
                             <h1 class="news-title mb-2">
-                                About CPN-UML
+                                {{__('home.menuItems.about.about-us')}}
                             </h1>
                             {!! $companyDetails->company_description !!}
                         </div>

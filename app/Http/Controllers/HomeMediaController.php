@@ -15,12 +15,13 @@ use App\Models\BlogsComment;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
 use App\Models\CompanyDetails;
+use App\Models\Saying;
 use App\Models\Thought;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
-class HomeMediaController extends BaseCrudController
+class HomeMediaController extends BaseHomeController
 {
     public function listBlog()
     {
@@ -197,5 +198,17 @@ class HomeMediaController extends BaseCrudController
     {
         $this->data['thoughts'] = Thought::find($id);
         return view('customHome.thought.show', $this->data);
+    }
+
+    public function listSaying()
+    {
+        $this->data['thoughts'] = Saying::paginate(15);
+        return view('customHome.saying.index', $this->data);
+    }
+
+    public function showSaying($id)
+    {
+        $this->data['thoughts'] = Saying::find($id);
+        return view('customHome.saying.show', $this->data);
     }
 }
