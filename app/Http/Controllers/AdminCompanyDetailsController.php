@@ -55,9 +55,7 @@ class AdminCompanyDetailsController extends BaseCrudController
     {
         $this->checkCRUDPermission('App\Models\CompanyDetails', 'create');
         $logo_image = $request->logo_image->store('home/comapany-details', 'public');
-        $home_about_image_1 = $request->home_about_image_1->store('home/comapany-details', 'public');
-        $home_about_image_2 = $request->home_about_image_2->store('home/comapany-details', 'public');
-        $home_about_image_3 = $request->home_about_image_3->store('home/comapany-details', 'public');
+        $president_image = $request->president_image->store('home/comapany-details', 'public');
         $our_mission_image = $request->our_mission_image->store('home/comapany-details', 'public');
         $our_vision_image = $request->our_vision_image->store('home/comapany-details', 'public');
 
@@ -79,20 +77,11 @@ class AdminCompanyDetailsController extends BaseCrudController
         $cp->our_history = $request->our_history;
         $cp->our_vision = $request->our_vision;
         $cp->home_about_content = $request->home_about_content;
-        $cp->home_about_image_1 = $home_about_image_1;
-        $cp->home_about_image_2 = $home_about_image_2;
-        $cp->home_about_image_3 = $home_about_image_3;
-        $cp->home_about_accordion_title_1 = $request->home_about_accordion_title_1;
-        $cp->home_about_accordion_title_2 = $request->home_about_accordion_title_2;
-        $cp->home_about_accordion_title_3 = $request->home_about_accordion_title_3;
-        $cp->home_about_accordion_content_1 = $request->home_about_accordion_content_1;
-        $cp->home_about_accordion_content_2 = $request->home_about_accordion_content_2;
-        $cp->home_about_accordion_title_3 = $request->home_about_accordion_title_3;
-
+        $cp->president_image = $president_image;
+        $cp->message_from_president = $request->message_from_president;
+        $cp->president_name = $request->president_name;
         $cp->our_misson_image = $our_mission_image;
         $cp->our_vision_image = $our_vision_image;
-
-
         $cp->created_by = Auth::user()->id;
         $cp->save();
 
@@ -136,6 +125,9 @@ class AdminCompanyDetailsController extends BaseCrudController
     {
         $this->checkPermission('update');
         $cp = $this->model::find($id);
+        $destinationPath = 'home/comapany-details';
+
+        $president_image = $this->uploadFileToDisk($request, 'president_image', $destinationPath, $cp->president_image);
 
         if ($request->has('logo_image') && ($request->logo_image != '')) {
             $imagePath = $cp->logo;
@@ -143,38 +135,18 @@ class AdminCompanyDetailsController extends BaseCrudController
                 unlink($imagePath);
                 $cp->deleteLogoImage();
             }
-            $logo = $request->logo_image->store('home/comapany-details', 'public');
+            $logo = $request->logo_image->store($destinationPath, 'public');
             $cp->logo_image = $logo;
         }
 
-        if ($request->has('home_about_image_1') && ($request->home_about_image_1 != '')) {
-            $imagePath = $cp->about_image_1;
+        if ($request->has('president_image') && ($request->president_image != '')) {
+            $imagePath = $cp->president_image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
                 $cp->deleteAboutImage1();
             }
-            $path = $request->home_about_image_1->store('home/comapany-details', 'public');
-            $cp->home_about_image_1 = $path;
-        }
-
-        if ($request->has('home_about_image_2') && ($request->home_about_image_2 != '')) {
-            $imagePath = $cp->about_image_2;
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $cp->deleteAboutImage2();
-            }
-            $path = $request->home_about_image_2->store('home/comapany-details', 'public');
-            $cp->home_about_image_2 = $path;
-        }
-
-        if ($request->has('home_about_image_3') && ($request->home_about_image_3 != '')) {
-            $imagePath = $cp->about_image_3;
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $cp->deleteAboutImage3();
-            }
-            $path = $request->home_about_image_3->store('home/comapany-details', 'public');
-            $cp->home_about_image_3 = $path;
+            $path = $request->president_image->store($destinationPath, 'public');
+            $cp->president_image = $path;
         }
 
         if ($request->has('our_mission_image') && ($request->our_mission_image != '')) {
@@ -183,7 +155,7 @@ class AdminCompanyDetailsController extends BaseCrudController
                 unlink($imagePath);
                 $cp->deleteOurMissionImage();
             }
-            $path = $request->our_mission_image->store('home/comapany-details', 'public');
+            $path = $request->our_mission_image->store($destinationPath, 'public');
             $cp->our_mission_image = $path;
         }
 
@@ -193,7 +165,7 @@ class AdminCompanyDetailsController extends BaseCrudController
                 unlink($imagePath);
                 $cp->deleteOurVisionImage();
             }
-            $path = $request->our_vision_image->store('home/comapany-details', 'public');
+            $path = $request->our_vision_image->store($destinationPath, 'public');
             $cp->our_vision_image = $path;
         }
 
@@ -220,15 +192,10 @@ class AdminCompanyDetailsController extends BaseCrudController
         $cp->our_mission = $request->our_mission;
 
         $cp->home_about_content = $request->home_about_content;
-
-        $cp->home_about_accordion_title_1 = $request->home_about_accordion_title_1;
-        $cp->home_about_accordion_title_2 = $request->home_about_accordion_title_2;
-
-        $cp->home_about_accordion_title_3 = $request->home_about_accordion_title_3;
-        $cp->home_about_accordion_content_1 = $request->home_about_accordion_content_1;
-
-        $cp->home_about_accordion_content_2 = $request->home_about_accordion_content_2;
-        $cp->home_about_accordion_content_3 = $request->home_about_accordion_content_3;
+        $cp->president_image = $request->president_image;
+        $cp->message_from_president = $request->message_from_president;
+        $cp->president_name = $request->president_name;
+        $cp->president_image = $president_image;
 
         $cp->updated_by = Auth::user()->id;
 
@@ -238,5 +205,4 @@ class AdminCompanyDetailsController extends BaseCrudController
 
         return redirect()->route('admin.company-details.index');
     }
-
 }

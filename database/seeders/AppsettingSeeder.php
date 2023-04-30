@@ -39,15 +39,9 @@ class AppsettingSeeder extends Seeder
             'our_vision' => 'admin@admin.com',
             'our_mission' => 'Nagrik Unmukti Party',
             'home_about_content' => 'https://picsum.photos/200/300',
-            'home_about_image_1' => 'admin@admin.com',
-            'home_about_image_2' => 'admin@admin.com',
-            'home_about_image_3' => 'admin@admin.com',
-            'home_about_accordion_title_1' => 'Nagrik Unmukti Party',
-            'home_about_accordion_title_2' => 'https://picsum.photos/200/300',
-            'home_about_accordion_title_3' => 'admin@admin.com',
-            'home_about_accordion_content_1' => 'admin@admin.com',
-            'home_about_accordion_content_2' => 'admin@admin.com',
-            'home_about_accordion_content_3' => 'admin@admin.com',
+            'president_image' => null,
+            'message_from_president' => 'admin@admin.com',
+            'president_name' => 'Ranjeeta Shrestha Chaudhary',
             'created_by' => 1,
         ]);
     }

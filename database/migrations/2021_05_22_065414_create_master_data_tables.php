@@ -66,23 +66,26 @@ class CreateMasterDataTables extends Migration
             $table->text('our_history')->nullable();
             $table->text('our_mission')->nullable();
             $table->text('our_vision')->nullable();
-            
+
             $table->string('our_mission_image')->nullable();
             $table->string('our_vision_image')->nullable();
 
             $table->text('home_about_content')->nullable();
 
-            $table->string('home_about_image_1')->nullable();
-            $table->string('home_about_image_2')->nullable();
-            $table->string('home_about_image_3')->nullable();
+            $table->string('president_name')->nullable();
+            $table->string('president_image')->nullable();
+            $table->text('message_from_president')->nullable();
+            // $table->string('home_about_image_1')->nullable();
+            // $table->string('home_about_image_2')->nullable();
+            // $table->string('home_about_image_3')->nullable();
 
-            $table->text('home_about_accordion_title_1')->nullable();
-            $table->text('home_about_accordion_title_2')->nullable();
-            $table->text('home_about_accordion_title_3')->nullable();
+            // $table->text('home_about_accordion_title_1')->nullable();
+            // $table->text('home_about_accordion_title_2')->nullable();
+            // $table->text('home_about_accordion_title_3')->nullable();
 
-            $table->text('home_about_accordion_content_1')->nullable();
-            $table->text('home_about_accordion_content_2')->nullable();
-            $table->text('home_about_accordion_content_3')->nullable();
+            // $table->text('home_about_accordion_content_1')->nullable();
+            // $table->text('home_about_accordion_content_2')->nullable();
+            // $table->text('home_about_accordion_content_3')->nullable();
 
             $table->boolean('is_active')->nullable();
             $table->timestamps();
@@ -102,7 +105,6 @@ class CreateMasterDataTables extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
         });
 
         Schema::create('sliders', function (Blueprint $table) {
@@ -144,7 +146,7 @@ class CreateMasterDataTables extends Migration
                 ->onDelete('cascade');
         });
 
-        Schema::create('data', function(Blueprint $table){
+        Schema::create('data', function (Blueprint $table) {
             $table->id();
             $table->string('slider_subscribe_email')->nullable();
             $table->string('slider_subscribe_zip')->nullable();
@@ -201,12 +203,11 @@ class CreateMasterDataTables extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
         });
 
         Schema::create('genders', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('code');
 
             $table->string('name_en');
@@ -233,14 +234,14 @@ class CreateMasterDataTables extends Migration
 
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->string('code',20);
-            $table->string('name_en',200)->nullable();
-            $table->string('name_lc',200);
+            $table->string('code', 20);
+            $table->string('name_en', 200)->nullable();
+            $table->string('name_lc', 200);
 
-            $table->unique('code','uq_provinces_code');
-            $table->unique('name_lc','uq_provinces_name_lc');
-            $table->unique('name_en','uq_provinces_name_en');
-            
+            $table->unique('code', 'uq_provinces_code');
+            $table->unique('name_lc', 'uq_provinces_name_lc');
+            $table->unique('name_en', 'uq_provinces_name_en');
+
             $table->boolean('is_active')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -277,25 +278,24 @@ class CreateMasterDataTables extends Migration
                 ->constrained('provinces')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-                $table->boolean('is_active')->nullable();
-                $table->timestamps();
-                $table->softDeletes();
-                $table->foreignId('created_by')
-                    ->nullable()
-                    ->constrained('users')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-                $table->foreignId('updated_by')
-                    ->nullable()
-                    ->constrained('users')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-                $table->foreignId('deleted_by')
-                    ->nullable()
-                    ->constrained('users')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-
+            $table->boolean('is_active')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
 
         Schema::create('local_level_types', function (Blueprint $table) {
@@ -326,12 +326,12 @@ class CreateMasterDataTables extends Migration
 
         Schema::create('local_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('code',20);
-            $table->string('name_en',200)->nullable();
-            $table->string('name_lc',200);
+            $table->string('code', 20);
+            $table->string('name_en', 200)->nullable();
+            $table->string('name_lc', 200);
             $table->integer('ward_count')->nullable();
 
-            $table->unique('code','uq_local_levels_type_code');
+            $table->unique('code', 'uq_local_levels_type_code');
 
             $table->boolean('is_active')->nullable();
             $table->timestamps();
@@ -353,17 +353,16 @@ class CreateMasterDataTables extends Migration
                 ->onDelete('cascade');
 
             $table->foreignId('district_id')
-            ->nullable()
-            ->constrained('districts')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+                ->nullable()
+                ->constrained('districts')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
 
             $table->foreignId('level_type_id')
-            ->nullable()
-            ->constrained('local_level_types')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-
+                ->nullable()
+                ->constrained('local_level_types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
 
         Schema::create('types', function (Blueprint $table) {
@@ -388,7 +387,6 @@ class CreateMasterDataTables extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
         });
     }
 

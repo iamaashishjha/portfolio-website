@@ -16,7 +16,7 @@ class CompanyDetails extends BaseModel
         $image = $this->logo_image;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
@@ -26,7 +26,7 @@ class CompanyDetails extends BaseModel
         $image = $this->home_about_image_1;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
@@ -36,7 +36,7 @@ class CompanyDetails extends BaseModel
         $image = $this->home_about_image_2;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
@@ -46,7 +46,7 @@ class CompanyDetails extends BaseModel
         $image = $this->home_about_image_3;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
@@ -56,7 +56,7 @@ class CompanyDetails extends BaseModel
         $image = $this->our_mission_image;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
@@ -66,15 +66,41 @@ class CompanyDetails extends BaseModel
         $image = $this->our_vision_image;
         if ($image != NULL) {
             return '/storage/' . $image;
-        }else{
+        } else {
             return null;
         }
     }
+
+    public function getPresidentPicAttribute()
+    {
+        $image = $this->president_image;
+        if ($image != NULL) {
+            return '/storage/' . $image;
+        } else {
+            return null;
+        }
+    }
+
 
     public function setGoogleMapAttribute($value)
     {
         $this->attributes['google_map'] = str_replace('width="560"', 'width="100%"', $value);
     }
+
+    // // Define the getter method for the image attribute
+    // public function getPresidentImageAttribute($value)
+    // {
+    //     return '/storage/' . $value;
+    // }
+
+    // // Define the setter method for the image attribute
+    // public function setPresidentImageAttribute($value)
+    // {
+    //     $destinationPath = 'home/comapany-details';
+    //     if ($value) {
+    //         $this->attributes['president_image'] = $value->store($destinationPath, 'public');
+    //     }
+    // }
 
     public function createdUser()
     {
@@ -89,21 +115,6 @@ class CompanyDetails extends BaseModel
     public function deleteLogoImage()
     {
         Storage::delete($this->logo_image);
-    }
-
-    public function deleteAboutImage1()
-    {
-        Storage::delete($this->home_about_image_1);
-    }
-
-    public function deleteAboutImage2()
-    {
-        Storage::delete($this->home_about_image_2);
-    }
-
-    public function deleteAboutImage3()
-    {
-        Storage::delete($this->home_about_image_3);
     }
 
     public function deleteOurMissionImage()

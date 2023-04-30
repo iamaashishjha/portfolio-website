@@ -440,99 +440,71 @@ Unmukti Party' }}
 
                 <div class="tab-content__pane p-5 active" id="about">
                     <div class="grid grid-cols-12 gap-5">
+                        <div class=" col-span-12 lg:col-span-12">
+                            <div
+                                class="font-medium mt-3  @error('president_name') text-theme-6 @enderror flex items-center">
+                                President's Name
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <input type="text"
+                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
+                                placeholder="Write President's Name" name="president_name" id="president_name"
+                                value="{{ isset($companyDetail->president_name) ? $companyDetail->president_name : old('president_name') }}">
+                            @error('president_name')
+                            <span class="text-theme-6 mt-2" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                         <div class="col-span-12 lg:col-span-4">
                             <div class="border border-gray-200 rounded-md p-5 mt-5">
                                 <div class="mt-5">
                                     <div
-                                        class="ext-theme-9 @error('home_about_image_1') text-theme-6 @enderror font-medium leading-none">
-                                        About Image 01
+                                        class="ext-theme-9 @error('president_image') text-theme-6 @enderror font-medium leading-none">
+                                        President's image
                                         <span class="ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                     </div>
                                     <div
-                                        class="border-2 border-dashed rounded-md mt-2 pt-4 @error('home_about_image_1') border-theme-6 @enderror">
+                                        class="border-2 border-dashed rounded-md mt-2 pt-4 @error('president_image') border-theme-6 @enderror">
                                         <div class="flex flex-wrap px-4">
                                             <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
                                                 <img class="rounded-md"
                                                     alt="{{ isset($companyDetail) ? $companyDetail->company_description : '' }}"
-                                                    src="{{ isset($companyDetail) ? $companyDetail->about_image_1 : '/ar/dist/images/preview-6.jpg' }}"
-                                                    id="home_about_image_1">
+                                                    src="{{ isset($companyDetail) ? $companyDetail->president_image : '/ar/dist/images/preview-6.jpg' }}"
+                                                    id="president_image">
                                             </div>
                                         </div>
                                         <div class="px-4 pb-4 flex items-center cursor-pointer relative">
                                             <i data-feather="image" class="w-4 h-4 mr-2"></i> <span
                                                 class="text-theme-1 mr-1">Upload
                                                 a file</span> or drag and drop
-                                            <input type="file" name="home_about_image_1"
+                                            <input type="file" name="president_image"
                                                 class="w-full h-full top-0 left-0 absolute opacity-0"
-                                                onchange="loadFile2(event)" value="{{ old('home_about_image_1') }}">
+                                                onchange="loadFile7(event)" value="{{ old('president_image') }}">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 lg:col-span-4">
-                            <div class="border border-gray-200 rounded-md p-5 mt-5">
-
-                                <div class="mt-5">
-                                    <div
-                                        class="ext-theme-9 @error('home_about_image_2') text-theme-6 @enderror font-medium leading-none">
-                                        About Image 02
-                                        <span class="ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-                                    </div>
-                                    <div
-                                        class="border-2 border-dashed rounded-md mt-2 pt-4 @error('home_about_image_2') border-theme-6 @enderror">
-                                        <div class="flex flex-wrap px-4">
-                                            <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                                <img class="rounded-md"
-                                                    alt="{{ isset($companyDetail) ? $companyDetail->company_description : '' }}"
-                                                    src="{{ isset($companyDetail) ? $companyDetail->about_image_2 : '/ar/dist/images/preview-6.jpg' }}"
-                                                    id="home_about_image_2">
-                                            </div>
-                                        </div>
-                                        <div class="px-4 pb-4 flex items-center cursor-pointer relative">
-                                            <i data-feather="image" class="w-4 h-4 mr-2"></i> <span
-                                                class="text-theme-1 mr-1">Upload
-                                                a file</span> or drag and drop
-                                            <input type="file" name="home_about_image_2"
-                                                class="w-full h-full top-0 left-0 absolute opacity-0"
-                                                onchange="loadFile3(event)" value="{{ old('home_about_image_2') }}">
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-span-12 lg:col-span-8">
+                            <div
+                                class="font-medium mt-3  @error('message_from_president') text-theme-6 @enderror flex items-center">
+                                President's Message
+                                <span class="ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                             </div>
-                        </div>
-                        <div class="col-span-12 lg:col-span-4">
-                            <div class="border border-gray-200 rounded-md p-5 mt-5">
-
-                                <div class="mt-5">
-                                    <div
-                                        class="ext-theme-9 @error('home_about_image_3') text-theme-6 @enderror font-medium leading-none">
-                                        About Image 03
-                                        <span class="ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-                                    </div>
-                                    <div
-                                        class="border-2 border-dashed rounded-md mt-2 pt-4 @error('home_about_image_3') border-theme-6 @enderror">
-                                        <div class="flex flex-wrap px-4">
-                                            <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in">
-                                                <img class="rounded-md"
-                                                    alt="{{ isset($companyDetail) ? $companyDetail->company_description : '' }}"
-                                                    src="{{ isset($companyDetail) ? $companyDetail->about_image_3 : '/ar/dist/images/preview-6.jpg' }}"
-                                                    id="home_about_image_3">
-                                            </div>
-                                        </div>
-                                        <div class="px-4 pb-4 flex items-center cursor-pointer relative">
-                                            <i data-feather="image" class="w-4 h-4 mr-2"></i> <span
-                                                class="text-theme-1 mr-1">Upload
-                                                a file</span> or drag and drop
-                                            <input type="file" name="home_about_image_3"
-                                                class="w-full h-full top-0 left-0 absolute opacity-0"
-                                                onchange="loadFile4(event)" value="{{ old('home_about_image_3') }}">
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="mt-3">
+                                <textarea data-feature="all" class="summernote" name="message_from_president">
+                                    {{ isset($companyDetail->message_from_president) ? $companyDetail->message_from_president : old('message_from_president')  }}
+                                
+                                </textarea>
                             </div>
+                            @error('message_from_president')
+                            <span class="text-theme-6 mt-2" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
+                        
                     </div>
                     <div class="grid grid-cols-1 gap-1">
                         <div class="border border-gray-200 rounded-md p-5 mt-5">
@@ -547,111 +519,6 @@ Unmukti Party' }}
                                 </textarea>
                             </div>
                             @error('home_about_content')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 gap-1">
-                        <div class="border border-gray-200 rounded-md p-5 mt-5">
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_title_1') text-theme-6 @enderror flex items-center">
-                                Title Home about for accordion 1
-                                <span class="ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <input type="text"
-                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
-                                placeholder="Write Full Name in English" name="home_about_accordion_title_1"
-                                id="home_about_accordion_title_1"
-                                value="{{ isset($companyDetail->home_about_accordion_title_1) ? $companyDetail->home_about_accordion_title_1 : old('home_about_accordion_title_1') }}">
-                            @error('home_about_accordion_title_1')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_content_1') text-theme-6 @enderror flex items-center">
-                                Content Home about for accordion 1
-                                <span class="ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <div class="mt-3">
-                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_1">
-                                    {{ isset($companyDetail->home_about_accordion_content_1) ? $companyDetail->home_about_accordion_content_1 : old('home_about_accordion_content_1')  }}
-                                
-                                </textarea>
-                            </div>
-                            @error('home_about_accordion_content_1')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 gap-1">
-                        <div class="border border-gray-200 rounded-md p-5 mt-5">
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_title_2') text-theme-6 @enderror flex items-center">
-                                Title Home about for accordion 2
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <input type="text"
-                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
-                                placeholder="Write Full Name in English" name="home_about_accordion_title_2"
-                                id="home_about_accordion_title_2"
-                                value="{{ isset($companyDetail->home_about_accordion_title_2) ? $companyDetail->home_about_accordion_title_2 : old('home_about_accordion_title_2') }}">
-                            @error('home_about_accordion_title_2')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_content_2') text-theme-6 @enderror flex items-center">
-                                Content Home about for accordion 2
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <div class="mt-3">
-                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_2">
-                                    {{ isset($companyDetail->home_about_accordion_content_2) ? $companyDetail->home_about_accordion_content_2 : old('home_about_accordion_content_2')  }}
-                                
-                                </textarea>
-                            </div>
-                            @error('home_about_accordion_content_2')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 gap-1">
-                        <div class="border border-gray-200 rounded-md p-5 mt-5">
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_title_3') text-theme-6 @enderror flex items-center">
-                                Title Home about for accordion 3
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <input type="text"
-                                class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
-                                placeholder="Write Full Name in English" name="home_about_accordion_title_3"
-                                id="home_about_accordion_title_3"
-                                value="{{ isset($companyDetail->home_about_accordion_title_3) ? $companyDetail->home_about_accordion_title_3 : old('home_about_accordion_title_3') }}">
-                            @error('home_about_accordion_title_3')
-                            <span class="text-theme-6 mt-2" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                            <div
-                                class="font-medium mt-3  @error('home_about_accordion_content_3') text-theme-6 @enderror flex items-center">
-                                Content Home about for accordion 3
-                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                            </div>
-                            <div class="mt-3">
-                                <textarea data-feature="all" class="summernote" name="home_about_accordion_content_3">
-                                    {{ isset($companyDetail->home_about_accordion_content_3) ? $companyDetail->home_about_accordion_content_3 : old('home_about_accordion_content_3')  }}
-                                
-                                </textarea>
-                            </div>
-                            @error('home_about_accordion_content_3')
                             <span class="text-theme-6 mt-2" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -722,6 +589,10 @@ Unmukti Party' }}
     };
     var loadFile6 = function(event) {
         var image = document.getElementById('our_vision_image');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    var loadFile7 = function(event) {
+        var image = document.getElementById('president_image');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
     

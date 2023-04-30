@@ -16,37 +16,18 @@
                 <div class="col-md-12 col-lg-5">
                     <a href="#">
                         <div class="img-section">
-                            <img src="" alt="cpnuml">
+                            <img src="{{isset($companyDetails->president_pic) ? $companyDetails->president_pic : '/ar/dist/images/profile-11.jpg'}}" alt="{{$companyDetails->president_name}}">
                             <div class="text-center">
-                                <h1 class="text-title mt-3">केपी शर्मा ओली
+                                <h1 class="text-title mt-3">{{$companyDetails->president_name}}
                                 </h1>
-                                <span class="text-title-small">अध्यक्ष</span>
+                                <span class="text-title-small">{{__('home.president')}}</span>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-12 col-lg-7">
                     <div class="content-section">
-                        <h3 class="mb-5">
-                            मिसन ग्रासरूटमा सक्रियतासाथ जुटौं
-                        </h3>
-                        <p>
-                        <p>अहिले हाम्रो पार्टीले विशेष अभियान&ndash; मिसन ग्रासरुट (पार्टी सुदृढीकरण तथा विस्तार अभियान)
-                            सञ्चालन गरिरहेको छ । गत फागुन ५ गतेबाट औपचारिक रूपमा सुरु भएको यो अभियान, पार्टी सुदृढीकरण
-                            तथा विस्तार अभियान हो । यो अभियान ७५३
-                            वटै पालिकामा केन्द्रित छ र वडा तहसम्म नै विभिन्न क्रियाकलापहरू सञ्चालन भइरहेका छन् ।&nbsp;
-                            <br />यो अभियानमा स्थायी कमिटीका सदस्यहरूलाई अनुगमनको जिम्मेवारी दिइएको छ । भूगोल, विभाग र
-                            फाँटहरूको जिम्मेवारीमा रहेका पोलिटव्यूरो तथा केन्द्रीय कमिटीका सदस्यहरू अभियानमा केन्द्रीय
-                            प...
-                        </p>
-                        <div class="mt-3">
-                            <a href="president-message.html" class="btn
-                                    theme-btn">
-                                <span>
-                                    थप पढ्नुहोस्
-                                </span>
-                            </a>
-                        </div>
+                        {!! $companyDetails->message_from_president !!}
                     </div>
                 </div>
             </div>

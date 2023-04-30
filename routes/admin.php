@@ -26,6 +26,7 @@ use App\Http\Controllers\AdminGovermentController;
 use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\AdminLeadershipController;
 use App\Http\Controllers\AdminParliamentController;
+use App\Http\Controllers\AdminSayingController;
 use App\Http\Controllers\AdminTeamMemberController;
 use App\Http\Controllers\AdminThoughtController;
 use App\Http\Controllers\AdminYoutubeVideoController;
@@ -76,6 +77,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::resource('/thought', AdminThoughtController::class);
     Route::prefix('/thought')->name('thought.')->controller(AdminThoughtController::class)->group(function () {
+        Route::get('/trashed-posts', 'trashed')->name('trashed');
+        Route::put('/post/restore/{id}',  'restore')->name('restore');
+    });
+
+    Route::resource('/saying', AdminSayingController::class);
+    Route::prefix('/saying')->name('saying.')->controller(AdminSayingController::class)->group(function () {
         Route::get('/trashed-posts', 'trashed')->name('trashed');
         Route::put('/post/restore/{id}',  'restore')->name('restore');
     });

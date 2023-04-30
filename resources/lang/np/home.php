@@ -42,7 +42,7 @@ return [
 
 
 
-
+    'president' => 'अध्यक्ष',
 
 
     'vision.sub-heading' => 'बारेमा',

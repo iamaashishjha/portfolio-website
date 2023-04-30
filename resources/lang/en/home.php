@@ -39,6 +39,8 @@ return [
 
     '' => '',
 
+    'president' => 'President',
+
     'vision.sub-heading' => 'About Us',
     'vision.heading' => 'Our Vision',
 
