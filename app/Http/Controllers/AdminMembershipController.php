@@ -148,7 +148,7 @@ class AdminMembershipController extends BaseCrudController
             'pan_front' => $panFront,
             'pan_back' => $panBack,
             'created_by' => Auth::id(),
-            'is_verified' => true,
+            'is_verified' => false,
             'verified_at' => now(),
             'approved_by' => Auth::id(),
         ];

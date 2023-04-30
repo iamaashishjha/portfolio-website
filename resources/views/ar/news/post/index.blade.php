@@ -135,5 +135,5 @@
 @endsection
 
 @section('script')
-    <script></script>
+{{-- <script src="/ar/dist/js/custom.js"></script> --}}
 @endsection

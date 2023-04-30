@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>{{__('base.title')}} केन्द्रीय प्रचार तथा प्रकाशन विभागद्वारा सञ्चालित । आशिष झा | जिबछ यादव</p>
+                <p>{{__('base.title')}} केन्द्रीय सूचना प्रविधि प्रमुख द्वारा सञ्चालित । आशिष झा | जिबछ यादव</p>
                 <div class="divider"></div>
                 <p class="mb-4">{{__('home.address')}}:{{$companyDetails->company_address}}, {{__("home.phone")}}: {{$companyDetails->phone_number}}, {{$companyDetails->mobile_number}}
                     {{__('home.email')}}: {{$companyDetails->email}}

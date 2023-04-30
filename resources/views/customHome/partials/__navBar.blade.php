@@ -11,6 +11,7 @@
     }
     
     // dd($lang, $lanImage,($lang == 'en'));
+    
 @endphp
 
 
@@ -39,22 +40,41 @@
                         @isset($companyDetails->email_address)
                             <li>
                                 <a href="mailto:{{ $companyDetails->email_address }}" target="_blank" class="icon">
-                                    <i class="fas fa-envelope"></i>
+                                    <i class="far fa-envelope-open"></i>
+                                </a>
+                            </li>
+                        @endisset
+                        
+                        <li>
+                            <a href="tel:{{ $companyDetails->phone_number }}" target="_blank" class="icon">
+                                <i class="fas fa-phone-volume"></i>
+                            </a>
+                        </li>
+                        @isset($companyDetails->facebook_link)
+                            <li>
+                                <a href="{{ $companyDetails->facebook_link }}" target="_blank" class="icon">
+                                    {{-- <i class="far fa-facebook"></i> --}}
+                                    <i class="fab fa-facebook-square"></i>
+                                </a>
+                            </li>
+                        @endisset
+                        @isset($companyDetails->twitter_link)
+                            <li>
+                                <a href="{{ $companyDetails->twitter_link }}" target="_blank" class="icon">
+                                    {{-- <i class="far fa-twitter"></i> --}}
+                                    <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                         @endisset
                         <li>
-                            <a href="tel:{{ $companyDetails->phone_number }}" target="_blank" class="icon">
-                                <i class="fas fa-phone"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/locale') }}" onclick="event.preventDefault();document.getElementById('language-form').submit();" class="icon" id="languageBtn">
+                            <a href="{{ url('/locale') }}"
+                                onclick="event.preventDefault();document.getElementById('language-form').submit();"
+                                class="icon" id="languageBtn">
                                 <img src="{{ $lanImage }}" alt="" class="flag">
                             </a>
                             <form action="{{ url('/locale') }}" method="post" id="language-form" class="d-none">
                                 @csrf
-                                <input type="hidden" name="locale" value="{{$langVal}}">
+                                <input type="hidden" name="locale" value="{{ $langVal }}">
                             </form>
                         </li>
                         <li class="span">

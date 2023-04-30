@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Saying;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -15,7 +16,7 @@ class AdminSayingController extends BaseCrudController
 
     public function __construct()
     {
-        $this->model = Thought::class;
+        $this->model = Saying::class;
         $this->data['posts'] = $this->model::get();
     }
 
@@ -53,7 +54,7 @@ class AdminSayingController extends BaseCrudController
         $this->checkPermission('create');
         $post = new $this->model();
 
-        $path = $request->post_image->store('thoughts', 'public');
+        $path = $request->post_image->store('sayings', 'public');
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;

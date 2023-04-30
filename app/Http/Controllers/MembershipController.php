@@ -173,9 +173,6 @@ class MembershipController extends BaseHomeController
 
     public function getApprovedMembers()
     {
-        $dataArr = [
-            'members' => Membership::approvedMember()->get(),
-        ];
         $this->data['members'] = Membership::approvedMember()->get();
         return view('customHome.member.approved-member', $this->data);
     }

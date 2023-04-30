@@ -92,9 +92,15 @@
                 @if (count($documents))
                     <div class="dropdown-container">
                         @foreach ($documents as $doc)
-                            <a href="{{ $doc->url }}" target="_blank">
-                                {{ $doc->title }}
-                            </a>
+                            @if (isset($doc->file))
+                                <a href="{{ $doc->file }}" target="_blank">
+                                    {{ $doc->title }}
+                                </a>
+                            @else
+                                <a href="{{ $doc->url }}" target="_blank">
+                                    {{ $doc->title }}
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                 @endif
@@ -103,7 +109,7 @@
 
         {{-- Saying  / Statements --}}
         @if (count($sayings))
-            <a href="{{ route('home.sayings.index') }}" class="nav-link-menu">{{ __('home.menuItems.saying') }}</a>
+            <a href="{{ route('home.saying.index') }}" class="nav-link-menu">{{ __('home.menuItems.saying') }}</a>
         @endif
 
         {{-- Library --}}
@@ -151,7 +157,7 @@
                         </a>
                         <div class="ms-3">
                             @foreach ($histories as $history)
-                                <a href="{{ route('home.history.show', $history->id) }}" >
+                                <a href="{{ route('home.history.show', $history->id) }}">
                                     {{ $history->title }}
                                 </a>
                             @endforeach

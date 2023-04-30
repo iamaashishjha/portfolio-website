@@ -35,10 +35,10 @@ class BaseModel extends Model
             }
         });
 
-        static::deleting(function ($model) use ($user) {
+        static::deleting(function ($model){
             $columns = Schema::getColumnListing($model->getTable());
             if (in_array('deleted_by', $columns)) {
-                $model->deleted_by =  $user->id;
+                $model->deleted_by =  Auth::id();
             }
         });
 

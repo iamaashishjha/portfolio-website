@@ -59,7 +59,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.saying.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-quote-left" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Sayings
+                                <div class="side-menu__title"> Statements
                                 </div>
                             </a>
                         </li>

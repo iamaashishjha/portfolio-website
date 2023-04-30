@@ -29,7 +29,7 @@ class StoreDocumentsRequest extends FormRequest
             'description' => 'required',
             'image' => 'required',
             'file' => 'required',
-            'url' => 'required',
+            'url' => 'nullable',
             'meta_title' => 'required',
             'meta_description' => 'required',
             'keywords' => 'required',

@@ -8,7 +8,7 @@
 
 @section('breadcum')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-    <a href="{{ route('admin.thought.index') }}" class="">Thought</a>
+    <a href="{{ route('admin.saying.index') }}" class="">Thought</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">
         {{ isset($post) ? 'Edit New Thought ' . '"' . $post->title . '".' : 'Create New Thought' }}
@@ -27,14 +27,14 @@
             <i class="w-4 h-4 mr-2" data-feather="eye"></i>
             Preview
         </button>
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.thought.index') }}">All Thoughts</a>
-        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.thought.trashed') }}">Trashed Thoughts</a>
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.saying.index') }}">All Thoughts</a>
+        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.saying.trashed') }}">Trashed Thoughts</a>
 
     </div>
 </div>
 
 {{-- <div class="pos intro-y grid grid-cols-12 gap-5 mt-5"> --}}
-<form action="{{ isset($post) ? route('admin.thought.update', $post->id) : route('admin.thought.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
+<form action="{{ isset($post) ? route('admin.saying.update', $post->id) : route('admin.saying.store') }}" method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5">
     @csrf
     @if (isset($post))
         @method('PUT')

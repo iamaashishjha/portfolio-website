@@ -216,7 +216,7 @@ class AdminBlogPostController extends BaseCrudController
     public function trashed()
     {
         $this->checkPermission('delete');
-        $this->data['posts'] = $this->model::onlyTrashed()->deleted()->get();
+        $this->data['posts'] = $this->model::onlyTrashed()->get();
         return view('ar.blog.post.trash',$this->data);
     }
 

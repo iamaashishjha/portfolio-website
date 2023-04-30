@@ -97,7 +97,7 @@
                             <input type="url" id="url" name="url"
                                 class=" input w-full border mt-2 @error('url') border-theme-6 @enderror"
                                 placeholder="Enter Document Description"
-                                value="{{ isset($document) ? $document->url : old('url') }}" required>
+                                value="{{ isset($document) ? $document->url : old('url') }}">
                             @error('url')
                                 <span class="text-theme-6 mt-2" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -1,38 +1,32 @@
 @extends('layouts.ar')
 
 @section('title')
-    All Thoughts || {{ __('base.title') }}
+    All Statements || {{ __('base.title') }}
 @endsection
 
 @section('breadcum')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="{{ route('admin.thought.index') }}" class="">Thoughts</a>
+        <a href="{{ route('admin.saying.index') }}" class="">Sayings</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">All Thoughts</a>
+        <a href="" class="breadcrumb--active">All Statements</a>
     </div>
 @endsection
 
 @section('title')
-    All Thoughts
+    All Statements
 @endsection
 
 @section('content')
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            All Thoughts
+            All Statements
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.thought.create') }}">
+            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.saying.create') }}">
                 <i class="fa fa-plus mx-2" aria-hidden="true"></i>
                 Create New
-                Thought
+                Statement
             </a>
-            <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.thought.trashed') }}">
-                <i class="fa fa-trash mx-2" aria-hidden="true"></i>
-                Trashed
-                Thoughts
-            </a>
-
         </div>
     </div>
     <!-- BEGIN: Datatable -->
@@ -70,7 +64,7 @@
                             </td>
                             <td class="border-b w-5">
                                 <div class="flex sm:justify-center items-center">
-                                    <a class="flex items-center mr-3" href="{{ route('admin.thought.edit', $post->id) }}">
+                                    <a class="flex items-center mr-3" href="{{ route('admin.saying.edit', $post->id) }}">
                                         <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                     <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
                                         data-target="#delete-modal-preview-{{ $post->id }}"> <i data-feather="trash-2"
@@ -86,7 +80,7 @@
                                     <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
                                 </div>
                                 <div class="px-5 pb-8 text-center">
-                                    <form action="{{ route('admin.thought.destroy', $post->id) }}" method="post">
+                                    <form action="{{ route('admin.saying.destroy', $post->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" data-dismiss="modal"
