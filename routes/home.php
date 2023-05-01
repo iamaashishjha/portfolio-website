@@ -64,6 +64,10 @@ Route::name('home.')->group(function () {
             Route::get('/', 'listGoverment')->name('index');
             Route::get('/{id}', 'showGoverment')->name('show');
         });
+
+        Route::prefix('/mass-organization')->name('mass-organization.')->group(function () {
+            Route::get('/', 'showMassOrganization')->name('index');
+        });
     });
 
     Route::controller(CommitteeController::class)->group(function () {

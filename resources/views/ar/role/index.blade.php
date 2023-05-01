@@ -91,16 +91,28 @@
                                 </div>
                                 <!-- END: Edit Modal -->
                                 @if ($authUser->hasPermissionTo('delete role'))
-                                    <a class="flex items-center text-theme-6" href="javascript:;"
-                                        onclick="deleteRecord('#delete_form-{{ $role->id }}');">
-                                        <i data-feather="trash-2" class="w-4 h-4 mr-1"></i>
-                                        Delete
-                                    </a>
-                                    <form id="delete_form-{{ $role->id }}"
-                                        action="{{ route('admin.role.destroy', $role->id) }}" method="POST" class="d-none">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
+                                <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
+                                data-target="#delete-modal-preview-{{ $role->id }}"> <i data-feather="trash-2"
+                                    class="w-4 h-4 mr-1"></i> Delete </a>
+                                    <div class="modal" id="delete-modal-preview-{{ $role->id }}">
+                                        <div class="modal__content">
+                                            <div class="p-5 text-center"> <i data-feather="x-circle"
+                                                    class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                                                <div class="text-3xl mt-5">Are you sure?</div>
+                                                <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
+                                            </div>
+                                            <div class="px-5 pb-8 text-center">
+                                                <form action="{{ route('admin.role.destroy', $role->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" data-dismiss="modal"
+                                                        class="button w-24 border text-gray-700 mr-1">Cancel</button>
+                                                    <button type="submit" class="button w-24 bg-theme-6 text-white">Trash</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 @endif
                             </div>
                         </td>

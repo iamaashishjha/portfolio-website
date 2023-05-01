@@ -3,24 +3,26 @@
 namespace App\Traits\Base;
 
 use App\Models\Event;
+use App\Models\Saying;
 use App\Models\Slider;
 use App\Models\History;
+use App\Models\Library;
+use App\Models\Thought;
 use App\Models\BlogPost;
 use App\Models\Document;
+use App\Models\Donation;
 use App\Models\NewsPost;
 use App\Models\Committee;
-use App\Models\AppSettings;
-use App\Models\YoutubeVideo;
-use App\Models\CompanyDetails;
-use App\Http\Controllers\Controller;
 use App\Models\Goverment;
 use App\Models\Leadership;
-use App\Models\Library;
 use App\Models\Membership;
 use App\Models\Parliament;
+use App\Models\AppSettings;
 use App\Models\PopupNotice;
-use App\Models\Saying;
-use App\Models\Thought;
+use App\Models\YoutubeVideo;
+use App\Models\CompanyDetails;
+use App\Models\MassOrganization;
+use App\Http\Controllers\Controller;
 
 class BaseHomeController extends Controller
 {
@@ -61,6 +63,8 @@ class BaseHomeController extends Controller
         // $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
 
         $this->data['notices'] = PopupNotice::active()->orderBy('created_at', 'DESC')->get();
+        $this->data['massOrganization'] =  MassOrganization::first();
+        $this->data['donation'] =  Donation::first();
 
 
     }

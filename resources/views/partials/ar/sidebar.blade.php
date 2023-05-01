@@ -128,7 +128,7 @@
                             </a>
                         </li>
                     @endif
-                    {{-- History  --}}
+                    {{-- Parliament  --}}
                     @if ($authUser->hasAnyPermission(['list parliament']))
                         <li class="nav-item">
                             <a href="{{ route('admin.parliament.index') }}" class="side-menu">
@@ -138,7 +138,7 @@
                             </a>
                         </li>
                     @endif
-                    {{-- History  --}}
+                    {{-- Goverment  --}}
                     @if ($authUser->hasAnyPermission(['list goverment']))
                         <li class="nav-item">
                             <a href="{{ route('admin.goverment.index') }}" class="side-menu">
@@ -148,6 +148,19 @@
                             </a>
                         </li>
                     @endif
+
+                    {{-- Mass Organization  --}}
+                    @if ($authUser->hasAnyPermission(['list massorganization']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.mass-organization.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Mass Organization </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    
                 </ul>
             </li>
         @endif
@@ -273,6 +286,17 @@
                     </div>
                 </a>
                 <ul>
+
+                    {{-- Donation  --}}
+                    @if ($authUser->hasAnyPermission(['list donation']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.donation.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Donation </div>
+                            </a>
+                        </li>
+                    @endif
 
                     {{-- Sliders --}}
                     @if ($authUser->hasAnyPermission(['list slider']))

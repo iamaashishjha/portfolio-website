@@ -129,6 +129,7 @@ $authUser = Auth::user()->name;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
     <script src="/ar/dist/js/custom.js"></script>
+    
     @yield('script')
     @stack('script')
 

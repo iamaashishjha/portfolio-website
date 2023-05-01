@@ -6,6 +6,7 @@ use App\Models\History;
 use App\Models\Goverment;
 use App\Models\Parliament;
 use Illuminate\Http\Request;
+use App\Models\MassOrganization;
 use App\Http\Controllers\Controller;
 use App\Traits\Base\BaseHomeController;
 
@@ -45,5 +46,11 @@ class ContentPageController extends BaseHomeController
     {
         $this->data['goverment'] = Goverment::find($id);
         return view('customHome.goverment.show', $this->data);
+    }
+
+    public function showMassOrganization()
+    {
+        $this->data['massOrganization'] = MassOrganization::first();
+        return view('customHome.mass-organization.show', $this->data);
     }
 }

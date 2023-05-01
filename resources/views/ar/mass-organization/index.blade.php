@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    All Histories || Admin
+    All Mass Organizations || Admin
 @endsection
 
 @push('breadcrumb')
-    All Histories
+    All Mass Organizations
 @endpush
 
 @section('content')
@@ -15,13 +15,16 @@
 
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            All Histories
+            All Mass Organizations
         </h2>
-        @if ($authUser->hasPermissionTo('create history'))
-            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a href="{{route('admin.history.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add New History</a>
-            </div>
-        @endif
+        @if ($totalData < 1)    
+
+            @if ($authUser->hasPermissionTo('create massorganization'))
+                <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+                    <a href="{{route('admin.mass-organization.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add New Mass Organization</a>
+                </div>
+            @endif
+            @endif
     </div>
     <div class="intro-y datatable-wrapper box p-5 mt-5">
         <table class="table table-report table-report--bordered display w-full" id="dataTable">
@@ -29,7 +32,6 @@
                 <tr>
                     <th class="whitespace-no-wrap">#</th>
                     <th class="whitespace-no-wrap">Title</th>
-                    <th class="text-center whitespace-no-wrap">Image</th>
                     <th class="text-center whitespace-no-wrap">Status</th>
                     <th class="text-center whitespace-no-wrap">Entry Date</th>
                     <th class="text-center whitespace-no-wrap">Entry By</th>
@@ -37,51 +39,51 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($histories as $history)
+                @forelse ($massOrganizations as $massOrganization)
                     <tr class="intro-x">
                         <td></td>
                         <td>
-                            <a href="" class="font-medium whitespace-no-wrap">{{ $history->title }}</a>
+                            <a href="" class="font-medium whitespace-no-wrap">{{ $massOrganization->title }}</a>
                         </td>
                         <td class="w-40 border-b">
                             <div class="flex sm:justify-center">
                                 <div class="intro-x w-10 h-10 image-fit">
-                                    <img alt="{{ $history->title }}" class="rounded-full"
-                                        src="{{ isset($history->image) ? $history->image : Avatar::create($history->title)->toBase64() }}">
+                                    <img alt="{{ $massOrganization->title }}" class="rounded-full"
+                                        src="{{ isset($massOrganization->image) ? $massOrganization->image : Avatar::create($massOrganization->title)->toBase64() }}">
                                 </div>
                             </div>
                         </td>
                         <td class="">
-                            {!! $history->status !!}
+                            {!! $massOrganization->status !!}
                         </td>
                         <td>
-                            {{ $history->created_at->toDateString() }}
+                            {{ $massOrganization->created_at->toDateString() }}
                             <div class="text-gray-600 text-xs whitespace-no-wrap">
                             </div>
                         </td>
                         <td>
                             <div class="text-gray-600 text-xs whitespace-no-wrap">
-                                {{ $history->createdByEntity->name }}
+                                {{ $massOrganization->createdByEntity->name }}
                             </div>
                         </td>
                         <td class="table-report__action w-56">
                             <div class="flex">
                                 <a class="flex items-center mr-3 text-theme-3" href="javascript:;" data-toggle="modal"
-                                    data-target="#view-modal-{{ $history->id }}">
+                                    data-target="#view-modal-{{ $massOrganization->id }}">
                                     <i data-feather="eye" class="w-4 h-4 mr-1"></i>
                                     View
                                 </a>
-                                @if ($authUser->hasPermissionTo('update history'))
-                                    <a class="flex items-center mr-3" href="{{route('admin.history.edit', $history->id)}}">
+                                @if ($authUser->hasPermissionTo('update massorganization'))
+                                    <a class="flex items-center mr-3" href="{{route('admin.mass-organization.edit', $massOrganization->id)}}">
                                         <i data-feather="check-square" class="w-4 h-4 mr-1"></i>
                                         Edit
                                     </a>
                                 @endif
-                                @if ($authUser->hasPermissionTo('delete history'))
+                                @if ($authUser->hasPermissionTo('delete massorganization'))
                                 <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
-                                data-target="#delete-modal-preview-{{ $history->id }}"> <i data-feather="trash-2"
+                                data-target="#delete-modal-preview-{{ $massOrganization->id }}"> <i data-feather="trash-2"
                                     class="w-4 h-4 mr-1"></i> Delete </a>
-                                    <div class="modal" id="delete-modal-preview-{{ $history->id }}">
+                                    <div class="modal" id="delete-modal-preview-{{ $massOrganization->id }}">
                                         <div class="modal__content">
                                             <div class="p-5 text-center"> <i data-feather="x-circle"
                                                     class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
@@ -89,7 +91,7 @@
                                                 <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
                                             </div>
                                             <div class="px-5 pb-8 text-center">
-                                                <form action="{{ route('admin.history.destroy', $history->id) }}" method="post">
+                                                <form action="{{ route('admin.mass-organization.destroy', $massOrganization->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="button" data-dismiss="modal"
@@ -102,12 +104,12 @@
                                     
                                 @endif
                                 <!-- BEGIN: View Modal -->
-                                <div class="modal" id="view-modal-{{ $history->id }}">
+                                <div class="modal" id="view-modal-{{ $massOrganization->id }}">
                                     <div class="modal__content">
                                         <div class="p-5">
                                             <div class="mx-6">
                                                 <div class="h-full image-fit rounded-md overflow-hidden">
-                                                    {!! $history->content !!}
+                                                    {!! $massOrganization->content !!}
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +120,7 @@
                     </tr>
                 @empty
                     <tr class="text-center">
-                        <td colspan="6">No History Found</td>
+                        <td colspan="6">No Mass Organization Found</td>
                     </tr>
                 @endforelse
             </tbody>
