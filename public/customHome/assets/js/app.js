@@ -5334,9 +5334,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-});
 
-/***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/V2/Search.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************************************************!*\
