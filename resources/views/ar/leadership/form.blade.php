@@ -75,27 +75,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-12 gap-2" id="messageFile">
-                        <div class="col-span-12">
-                            <div class="p-5 preview">
-                                <h5
-                                    class="text-lg ext-theme-9 @error('members[]') text-theme-6 @enderror font-medium leading-none">
-                                    Select Members
-                                    <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
-                                </h5>
-                                <div class="mt-2">
-                                    <select data-placeholder="Select Members" class="select2 w-full" multiple
-                                        name="members[]">
-                                        @foreach ($members as $member)
-                                            <option value="{{ $member->id }}"
-                                                {{ isset($leadership) ? (in_array($member->id, $leadership->members) ? 'selected' : '') : '' }}>
-                                                {{ $member->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="grid grid-cols-12 gap-2" id="messageContent">
                         <div class="col-span-12">
                             <div class="preview p-5">

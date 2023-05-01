@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home\DocController;
 use App\Http\Controllers\HomeCommitteeMemberController;
 use App\Http\Controllers\HomeContentPageController;
 use Illuminate\Support\Facades\Route;
@@ -47,13 +48,12 @@ Route::name('home.')->controller(HomeController::class)->group(function () {
     //     Route::post('/{id}', 'storeBlogComments')->name('comment');
     // });
 
-    Route::prefix('/library')->name('library.')->group(function () {
-        Route::get('/', 'listLibrary')->name('index');
-    });
+   
 
     Route::prefix('/videos')->name('video.')->group(function () {
         Route::get('/', 'listVideos')->name('index');
     });
+
 
     Route::prefix('/committee')->name('committee.')->group(function () {
         Route::get('/', 'listCommittee')->name('index');
@@ -65,6 +65,17 @@ Route::prefix('/member')->name('home.member.')->controller(MembershipController:
     Route::get('/create', 'create')->name('create');
     Route::post('/', 'store')->name('store');
     Route::get('/approved-members', 'getApprovedMembers')->name('approved');
+});
+
+Route::name('home.')->controller(DocController::class)->group(function () {
+    Route::prefix('/library')->name('library.')->group(function () {
+        Route::get('/', 'listLibrary')->name('index');
+        Route::get('/{id}', 'showLibrary')->name('show');
+    });
+
+    Route::prefix('/document')->name('document.')->group(function () {
+        Route::get('/{id}', 'showDocument')->name('show');
+    });
 });
 
 Route::controller(HomeContentPageController::class)->group(function () {
@@ -85,15 +96,21 @@ Route::controller(HomeContentPageController::class)->group(function () {
 });
 
 
-Route::prefix('/committee')->name('home.committee.')->controller(HomeCommitteeMemberController::class)->group(function () {
-    Route::get('/', 'listCommittee')->name('index');
-    Route::get('/{id}', 'showCommittee')->name('show');
+Route::name('home.')->controller(HomeCommitteeMemberController::class)->group(function () {
+    Route::name('committee.')->prefix('committee')->group(function () {
+        Route::get('/', 'listCommittee')->name('index');
+        Route::get('//{id}', 'showCommittee')->name('show');
+    });
+    Route::name('leadership.')->prefix('leadership')->group(function () {
+        Route::get('/', 'listLeadership')->name('index');
+        Route::get('//{id}', 'showLeadership')->name('show');
+    });
 });
 
 
 
 Route::name('home.')->controller(HomeMediaController::class)->group(function () {
-     Route::prefix('/events')->name('events.')->group(function () {
+    Route::prefix('/events')->name('events.')->group(function () {
         Route::get('/', 'listEvent')->name('index');
         Route::get('/{id}', 'showEvent')->name('show');
     });

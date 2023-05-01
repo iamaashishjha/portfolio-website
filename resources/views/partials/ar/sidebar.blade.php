@@ -309,7 +309,7 @@
                     {{-- Committee --}}
                     @if ($authUser->hasAnyPermission(['list leadership']))
                         <li class="nav-item">
-                            <a href="{{ route('admin.committee.index') }}" class="side-menu">
+                            <a href="{{ route('admin.leadership.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-leanpub" aria-hidden="true"></i> </div>
                                 <div class="side-menu__title"> Leadership </div>
                             </a>

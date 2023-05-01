@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
+use App\Models\Document;
 use App\Models\Library;
 use App\Models\YoutubeVideo;
 use Illuminate\Http\Request;
@@ -142,12 +143,7 @@ class HomeController extends BaseHomeController
         $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
         return view('customHome.video.index', $this->data);
     }
-
-    public function listLibrary()
-    {
-        $this->data['libraries'] = Library::paginate(5);
-        return view('customHome.library.index', $this->data);
-    }
+    
 
     public function notFound()
     {
