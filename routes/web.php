@@ -27,12 +27,7 @@ require __DIR__ . '/home.php';
 
 require __DIR__ . '/admin.php';
 
-Route::get('getProvince/', [ProvinceController::class, 'getProvince']);
-Route::get('getDistrict/{id}', [DistrictController::class, 'getDistrict']);
-Route::get('getLocalLevel/{id}', [LocalLevelController::class, 'getLocalLevel']);
-Route::get('getLocalLevelType/{id}', [LocalLeveTypeController::class, 'getLocalLevelType']);
-Route::post('/password/change', [LoginController::class, 'emailPasswordUpdate'])->name('password.change');
-
+require __DIR__ . '/depenedent.php';
 
 Route::fallback([HomeController::class, 'notFound']);
 // This should be the end of file and last line for this file

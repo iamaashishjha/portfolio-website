@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Media;
 
 use App\Models\Saying;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminSayingController extends BaseCrudController
+class SayingController extends BaseAdminController
 {
 
     protected $model;

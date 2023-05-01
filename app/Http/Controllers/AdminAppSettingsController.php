@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreAppSettingRequest;
 use App\Http\Requests\UpdateAppSettingRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminAppSettingsController extends BaseCrudController
+class AdminAppSettingsController extends BaseAdminController
 {
     protected $model;
     public function __construct()

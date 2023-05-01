@@ -11,9 +11,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreSliderRequest;
 use App\Http\Requests\UpdateSliderRequest;
 
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminSliderController extends BaseCrudController
+class AdminSliderController extends BaseAdminController
 {
     protected $model;
     public function __construct()

@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Jobs\SendMembershipApprovalMailJob;
 
-class AdminMembershipController extends BaseCrudController
+class AdminMembershipController extends BaseAdminController
 {
     use FileTrait;
     protected $model;

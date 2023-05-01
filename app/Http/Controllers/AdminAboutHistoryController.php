@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutHistory;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 
-class AdminAboutHistoryController extends BaseCrudController
+class AdminAboutHistoryController extends BaseAdminController
 {
     protected $model;
     public function __construct()

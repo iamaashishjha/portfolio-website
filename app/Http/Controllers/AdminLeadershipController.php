@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Leadership;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminLeadershipController extends BaseCrudController
+class AdminLeadershipController extends BaseAdminController
 {
     protected $model;
     public function __construct()

@@ -6,11 +6,11 @@ use App\Models\Types;
 use App\Models\PopupNotice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
-class AdminPopupNoticeController extends BaseCrudController
+class AdminPopupNoticeController extends BaseAdminController
 {
     protected $model;
     public function __construct()

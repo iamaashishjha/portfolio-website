@@ -14,9 +14,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests\UpdateUserRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminUserController extends BaseCrudController
+class AdminUserController extends BaseAdminController
 {
     protected $model;
     public function __construct()

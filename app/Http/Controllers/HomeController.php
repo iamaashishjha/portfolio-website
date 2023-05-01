@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
-use App\Models\Document;
-use App\Models\Library;
-use App\Models\YoutubeVideo;
 use Illuminate\Http\Request;
 use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,7 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends BaseHomeController
 {
-
     /**
      * Show the application dashboard.
      *
@@ -138,13 +134,7 @@ class HomeController extends BaseHomeController
         return redirect()->back();
     }
 
-    public function listVideos()
-    {
-        $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->get();
-        return view('customHome.video.index', $this->data);
-    }
     
-
     public function notFound()
     {
         abort(404);

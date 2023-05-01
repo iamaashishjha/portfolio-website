@@ -7,13 +7,13 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Models\User;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
 
-class UserDashboardController extends BaseCrudController
+class UserDashboardController extends BaseAdminController
 {
     public function index()
     {

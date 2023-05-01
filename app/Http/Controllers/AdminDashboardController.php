@@ -11,11 +11,11 @@ use App\Models\NewsCategory;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
 use App\Models\User;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminDashboardController extends BaseCrudController
+class AdminDashboardController extends BaseAdminController
 {
 
     public function index()

@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Home;
 
-use App\Models\Goverment;
 use App\Models\History;
+use App\Models\Goverment;
 use App\Models\Parliament;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Traits\Base\BaseHomeController;
 
-class HomeContentPageController extends BaseHomeController
+class ContentPageController extends BaseHomeController
 {
     public function listHistory()
     {

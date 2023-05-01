@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Media;
 
 use App\Traits\AuthTrait;
 use App\Models\NewsCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreNewsCategoryRequest;
 use App\Http\Requests\UpdateNewsCategoryRequest;
 // use Prologue\Alerts\Facades\Alert;
 
-class AdminNewsCategoryController extends BaseCrudController
+class NewsCategoryController extends BaseAdminController
 {
     protected $model;
     public function __construct()

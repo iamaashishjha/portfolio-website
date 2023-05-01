@@ -1,26 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Media;
 
-use App\Models\NewsTags;
-use App\Traits\AuthTrait;
+use App\Models\BlogTags;
 use App\Models\AppSettings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreBlogTagsRequest;
+use App\Http\Requests\UpdateBlogTagsRequest;
 
-use App\Http\Requests\StoreNewsTagsRequest;
-use App\Http\Requests\UpdateNewsTagsRequest;
-
-class AdminNewsTagController extends BaseCrudController
+class BlogTagController extends BaseAdminController
 {
     protected $model;
+
     public function __construct()
     {
-        $this->model = NewsTags::class;
+        $this->model = BlogTags::class;
         $this->data['appSetting'] = AppSettings::first();
+
+
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,9 +31,8 @@ class AdminNewsTagController extends BaseCrudController
     public function index()
     {
         $this->checkPermission('list');
-
-        $this->data['tags'] = $this->model::get();
-        return view('ar.news.tag.index', $this->data);
+        $this->data['tags'] = BlogTags::notDeleted()->get();
+        return view('ar.blog.tag.index',$this->data);
     }
 
     /**
@@ -42,7 +43,7 @@ class AdminNewsTagController extends BaseCrudController
     public function create()
     {
         $this->checkPermission('create');
-        return view('ar.news.tag.form', $this->data);
+        return view('ar.blog.tag.form');
     }
 
     /**
@@ -51,11 +52,11 @@ class AdminNewsTagController extends BaseCrudController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewsTagsRequest $request)
+    public function store(StoreBlogTagsRequest $request)
     {
         $this->checkPermission('create');
-        $path = $request->tag_image->store('news/news-tag', 'public');
-        $tag = new $this->model();
+        $path = $request->tag_image->store('blogs/blog-tag', 'public');
+        $tag = new BlogTags();
         $tag->title = $request->title;
         $tag->description = $request->description;
         $tag->tag_image = $path;
@@ -76,7 +77,7 @@ class AdminNewsTagController extends BaseCrudController
         $tag->save();
 
         Alert::toast('Tag Created Successfully', 'success');
-        return redirect()->route('admin.news.tag.index');
+        return redirect()->route('admin.blog.tag.index');
     }
 
     /**
@@ -99,8 +100,9 @@ class AdminNewsTagController extends BaseCrudController
     public function edit($id)
     {
         $this->checkPermission('update');
-        $this->data['tag'] = $this->model::find($id);
-        return view('ar.news.tag.form', $this->data);
+        $tag = BlogTags::find($id);
+        return view('ar.blog.tag.form')
+            ->with('tag', $tag);
     }
 
     /**
@@ -110,21 +112,19 @@ class AdminNewsTagController extends BaseCrudController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNewsTagsRequest $request, $id)
+    public function update(UpdateBlogTagsRequest $request, $id)
     {
         $this->checkPermission('update');
-        $tag = $this->model::find($id);
-
+        $tag = BlogTags::find($id);
         $tag->title = $request->title;
         $tag->description = $request->description;
-
         if ($request->has('tag_image') && ($request->tag_image != '')) {
             $imagePath = $tag->image;
             if (File::exists($imagePath)) {
                 unlink($imagePath);
                 $tag->deleteImage();
             }
-            $path = $request->tag_image->store('news/news-tag', 'public');
+            $path = $request->tag_image->store('blogs/blog-tag', 'public');
             $tag->tag_image = $path;
         }
 
@@ -144,7 +144,7 @@ class AdminNewsTagController extends BaseCrudController
 
         $tag->save();
         Alert::toast('Tag Updated Successfully', 'success');
-        return redirect()->route('admin.news.tag.index');
+        return redirect()->route('admin.blog.tag.index');
     }
 
     /**
@@ -156,17 +156,13 @@ class AdminNewsTagController extends BaseCrudController
     public function destroy($id)
     {
         $this->checkPermission('delete');
-        $tag = $this->model::find($id);
+        $tag = BlogTags::find($id);
         $imagePath = $tag->image;
         if (File::exists($imagePath)) {
             unlink($imagePath);
             $tag->deleteImage();
         }
         $tag->delete();
-
-
-        // $category->is_deleted = 1;
-        // $category->deleted_by = Auth::user()->id;
         Alert::toast('Tag Deleted Successfully', 'success');
         return redirect()->back();
     }

@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreLibraryRequest;
 use App\Http\Requests\UpdateLibraryRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminLibraryController extends BaseCrudController
+class AdminLibraryController extends BaseAdminController
 {
     protected $model;
     public function __construct()

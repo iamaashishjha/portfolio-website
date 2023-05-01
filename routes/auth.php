@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,4 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes(['verify' => true, 'register' => false, 'password.update' => true]);
+Route::post('/password/change', [LoginController::class, 'emailPasswordUpdate'])->name('password.change');

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gender;
-use App\Traits\Base\BaseCrudController;
-use Illuminate\Http\Request;
+use App\Traits\Base\BaseAdminController;
 
-class GenderController extends BaseCrudController
+class GenderController extends BaseAdminController
 {
     public function index()
     {

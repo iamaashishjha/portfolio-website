@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreDocumentsRequest;
 use App\Http\Requests\UpdateDocumentsRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminDocumentController extends BaseCrudController
+class AdminDocumentController extends BaseAdminController
 {
     protected $model;
     public function __construct()

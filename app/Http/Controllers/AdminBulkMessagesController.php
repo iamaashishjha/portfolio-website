@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 use App\Mail\BulkMessageMail;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminBulkMessagesController extends BaseCrudController
+class AdminBulkMessagesController extends BaseAdminController
 {
     protected $model;
     public function __construct()

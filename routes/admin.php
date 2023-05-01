@@ -2,34 +2,42 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\AdminEventController;
+use App\Http\Controllers\AdminSayingController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminBlogTagController;
+use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\AdminLibraryController;
 use App\Http\Controllers\AdminNewsTagController;
+use App\Http\Controllers\AdminThoughtController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDocumentController;
 use App\Http\Controllers\AdminNewsPostController;
+use App\Http\Controllers\AdminCommitteeController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminGovermentController;
+use App\Http\Controllers\AdminLeadershipController;
 use App\Http\Controllers\AdminMembershipController;
+use App\Http\Controllers\AdminParliamentController;
+use App\Http\Controllers\AdminTeamMemberController;
 use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminPopupNoticeController;
-use App\Http\Controllers\Admin\PermissionsController;
+use App\Http\Controllers\Auth\PermissionsController;
 use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBulkMessagesController;
-use App\Http\Controllers\AdminCommitteeController;
 use App\Http\Controllers\AdminNewsCategoryController;
-use App\Http\Controllers\AdminCompanyDetailsController;
-use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\AdminGovermentController;
-use App\Http\Controllers\AdminHistoryController;
-use App\Http\Controllers\AdminLeadershipController;
-use App\Http\Controllers\AdminParliamentController;
-use App\Http\Controllers\AdminSayingController;
-use App\Http\Controllers\AdminTeamMemberController;
-use App\Http\Controllers\AdminThoughtController;
 use App\Http\Controllers\AdminYoutubeVideoController;
+use App\Http\Controllers\Admin\Media\SayingController;
+use App\Http\Controllers\Admin\Media\BlogTagController;
+use App\Http\Controllers\Admin\Media\NewsTagController;
+use App\Http\Controllers\Admin\Media\ThoughtController;
+use App\Http\Controllers\AdminCompanyDetailsController;
+use App\Http\Controllers\Admin\Media\BlogPostController;
+use App\Http\Controllers\Admin\Media\NewsPostController;
+use App\Http\Controllers\Admin\Media\BlogCategoryController;
+use App\Http\Controllers\Admin\Media\NewsCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,32 +68,38 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route::get('/users/permissions', [App\Http\Controllers\Admin\UserController::class, 'userPermissions'])->name('user.permissions');
 
     Route::prefix('/blog')->name('blog.')->group(function () {
-        Route::resource('/category', AdminBlogCategoryController::class);
-        Route::resource('/tag', AdminBlogTagController::class);
-        Route::resource('/post', AdminBlogPostController::class);
-        Route::get('/trashed-posts', [AdminBlogPostController::class, 'trashed'])->name('post.trashed');
-        Route::put('/post/restore/{id}', [AdminBlogPostController::class, 'restore'])->name('post.restore');
+        Route::resource('/category', BlogCategoryController::class);
+        Route::resource('/tag', BlogTagController::class);
+        Route::resource('/post', BlogPostController::class);
+        Route::get('/trashed-posts', [BlogPostController::class, 'trashed'])->name('post.trashed');
+        Route::put('/post/restore/{id}', [BlogPostController::class, 'restore'])->name('post.restore');
     });
 
     Route::prefix('/news')->name('news.')->group(function () {
-        Route::resource('/category', AdminNewsCategoryController::class);
-        Route::resource('/tag', AdminNewsTagController::class);
-        Route::resource('/post', AdminNewsPostController::class);
-        Route::get('/trashed-posts', [AdminNewsPostController::class, 'trashed'])->name('post.trashed');
-        Route::put('/post/restore/{id}', [AdminNewsPostController::class, 'restore'])->name('post.restore');
+        Route::resource('/category', NewsCategoryController::class);
+        Route::resource('/tag', NewsTagController::class);
+        Route::resource('/post', NewsPostController::class);
+        Route::get('/trashed-posts', [NewsPostController::class, 'trashed'])->name('post.trashed');
+        Route::put('/post/restore/{id}', [NewsPostController::class, 'restore'])->name('post.restore');
     });
 
-    Route::resource('/thought', AdminThoughtController::class);
-    Route::prefix('/thought')->name('thought.')->controller(AdminThoughtController::class)->group(function () {
+    Route::resource('/thought', ThoughtController::class);
+    Route::prefix('/thought')->name('thought.')->controller(ThoughtController::class)->group(function () {
         Route::get('/trashed-posts', 'trashed')->name('trashed');
         Route::put('/post/restore/{id}',  'restore')->name('restore');
     });
 
-    Route::resource('/saying', AdminSayingController::class);
-    Route::prefix('/saying')->name('saying.')->controller(AdminSayingController::class)->group(function () {
+    Route::resource('/saying', SayingController::class);
+    Route::prefix('/saying')->name('saying.')->controller(SayingController::class)->group(function () {
         Route::get('/trashed-posts', 'trashed')->name('trashed');
         Route::put('/post/restore/{id}',  'restore')->name('restore');
     });
+
+    Route::resource('/event', AdminEventController::class);
+
+    
+    Route::resource('/document', AdminDocumentController::class);
+    Route::resource('/library', AdminLibraryController::class);
 
     Route::resource('/member', AdminMembershipController::class)->except('index', 'show');
     Route::prefix('/member')->name('member.')->controller(AdminMembershipController::class)->group(function () {
@@ -97,14 +111,17 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
     Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
     Route::resource('/slider', AdminSliderController::class)->except('destroy');
-    Route::resource('/event', AdminEventController::class);
-    Route::resource('/document', AdminDocumentController::class);
-    Route::resource('/library', AdminLibraryController::class);
+
+
+
     Route::resource('/popup-notice', AdminPopupNoticeController::class);
     Route::resource('/bulk-message', AdminBulkMessagesController::class);
-    Route::resource('/leadership', AdminLeadershipController::class);
+
+
     Route::resource('/youtube-video', AdminYoutubeVideoController::class);
     Route::resource('/gallery', AdminGalleryController::class);
+
+
     Route::resource('/history', AdminHistoryController::class);
     Route::resource('/goverment', AdminGovermentController::class);
     Route::resource('/parliament', AdminParliamentController::class);

@@ -1,20 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Auth;
 
 use App\Models\Role;
-use App\Models\User;
 use App\Traits\AuthTrait;
 use App\Models\Permission;
 use App\Models\AppSettings;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Traits\Base\BaseCrudController;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Base\BaseAdminController;
 
 
-class RoleController extends BaseCrudController
+class RoleController extends BaseAdminController
 {
     use AuthTrait;
     // public $data;

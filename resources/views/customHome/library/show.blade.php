@@ -1,30 +1,6 @@
 @extends('layouts.customHome')
 
 @section('content')
-    {{-- <section class="news news-page section-gap">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-12 col-lg-12">
-                    <div class="card-wrap-section">
-                        <div class="card-content">
-                            <h1 class="news-title mb-2">
-                                {{$library->title}}
-                            </h1>
-                            <div class="news-content mt-1 pt-3">
-                                <p><img src="{{$library->image}}"
-                                        alt="{{$library->title}}" width="739" height="723" /></p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-3">
-                    <div class="row gy-4">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <section class="news news-page section-gap">
         <div class="container">
             <div class="row g-4">

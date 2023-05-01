@@ -7,10 +7,10 @@ use App\Models\Leadership;
 use App\Models\Types;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminTeamMemberController extends BaseCrudController
+class AdminTeamMemberController extends BaseAdminController
 {
     protected $model;
     public function __construct()

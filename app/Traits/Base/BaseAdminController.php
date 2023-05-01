@@ -7,7 +7,7 @@ use App\Traits\CheckPermission;
 use App\Http\Controllers\Controller;
 use App\Traits\FileTrait;
 
-class BaseCrudController extends Controller
+class BaseAdminController extends Controller
 {
     use CheckPermission;
     use FileTrait;

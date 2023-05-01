@@ -1,26 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Media;
 
-use App\Models\BlogPost;
-use App\Models\BlogTags;
-use App\Models\BlogCategory;
+use App\Models\NewsPost;
+use App\Models\NewsTags;
+use App\Traits\AuthTrait;
+use App\Models\NewsCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Http\Requests\StoreBlogPostRequest;
-use App\Http\Requests\UpdateBlogPostRequest;
+use App\Http\Requests\StoreNewsPostRequest;
+use App\Http\Requests\UpdateNewsPostRequest;
 
-class AdminBlogPostController extends BaseCrudController
+class NewsPostController extends BaseAdminController
 {
     protected $model;
 
     public function __construct()
     {
-        $this->model = BlogPost::class;
-        $this->data['categories'] = BlogCategory::get();
-        $this->data['tags'] = BlogTags::get();
+        $this->model = NewsPost::class;
+        $this->data['categories'] = NewsCategory::get();
+        $this->data['tags'] = NewsTags::get();
         $this->data['posts'] = $this->model::get();
     }
 
@@ -32,7 +34,7 @@ class AdminBlogPostController extends BaseCrudController
     public function index()
     {
         $this->checkPermission('list');
-        return view('ar.blog.post.index',$this->data);
+        return view('ar.news.post.index', $this->data);
     }
 
     /**
@@ -43,7 +45,7 @@ class AdminBlogPostController extends BaseCrudController
     public function create()
     {
         $this->checkPermission('create');
-        return view('ar.blog.post.form',$this->data);
+        return view('ar.news.post.form', $this->data);
     }
 
     /**
@@ -52,12 +54,12 @@ class AdminBlogPostController extends BaseCrudController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogPostRequest $request)
+    public function store(StoreNewsPostRequest $request)
     {
         $this->checkPermission('create');
         $post = new $this->model();
 
-        $path = $request->post_image->store('blogs/blog-post', 'public');
+        $path = $request->post_image->store('news/news-post', 'public');
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -88,9 +90,9 @@ class AdminBlogPostController extends BaseCrudController
         $post->keywords = $request->keywords;
         $post->created_by = Auth::user()->id;
         $post->save();
-        $post->blogTags()->attach($request->tags);
+        $post->newsTags()->attach($request->tags);
         Alert::toast('Post Created Successfully', 'success');
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('admin.news.post.index');
     }
 
     /**
@@ -101,11 +103,7 @@ class AdminBlogPostController extends BaseCrudController
      */
     public function show($id)
     {
-        $this->data['post'] = $this->model::find($id);
-        if($this->data['post']){
-            $this->data['post']->viewIncrement();
-        }
-        return view('ar.blog.post.show', $this->data);
+        //
     }
 
     /**
@@ -118,7 +116,7 @@ class AdminBlogPostController extends BaseCrudController
     {
         $this->checkPermission('update');
         $this->data['post'] = $this->model::find($id);
-        return view('ar.blog.post.form',$this->data);
+        return view('ar.news.post.form', $this->data);
     }
 
     /**
@@ -128,10 +126,12 @@ class AdminBlogPostController extends BaseCrudController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBlogPostRequest $request, $id)
+    public function update(UpdateNewsPostRequest $request, $id)
     {
         $this->checkPermission('update');
+        //
         $post = $this->model::find($id);
+
         $post->title = $request->title;
         $post->description = $request->description;
         $post->content = $request->content;
@@ -143,7 +143,7 @@ class AdminBlogPostController extends BaseCrudController
         $post->category_id = $request->category_id;
 
         if ($request->has('post_image')) {
-            $path = $request->post_image->store('blogs/blog-post', 'public');
+            $path = $request->post_image->store('news/news-post', 'public');
             $post->post_image = $path;
         }
 
@@ -154,7 +154,7 @@ class AdminBlogPostController extends BaseCrudController
                 unlink($imagePath);
                 $post->deleteImage();
             }
-            $path = $request->post_image->store('blogs/blog-post', 'public');
+            $path = $request->post_image->store('news/news-post', 'public');
             $post->post_image = $path;
         }
 
@@ -178,10 +178,10 @@ class AdminBlogPostController extends BaseCrudController
         $post->created_by = Auth::user()->id;
         $post->save();
 
-        $post->blogTags()->attach($request->tags);
+        $post->newsTags()->attach($request->tags);
 
         Alert::toast('Post Updated Successfully', 'success');
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('admin.news.post.index');
     }
 
     /**
@@ -193,7 +193,9 @@ class AdminBlogPostController extends BaseCrudController
     public function destroy($id)
     {
         $this->checkPermission('delete');
-        $post = $this->model::withTrashed()->where('id', $id)->first();
+        //
+        $post = $this->model::withTrashed()
+            ->where('id', $id)->first();
         $imagePath = $post->image;
         if ($post->trashed()) {
             if (File::exists($imagePath)) {
@@ -215,17 +217,18 @@ class AdminBlogPostController extends BaseCrudController
 
     public function trashed()
     {
-        $this->checkPermission('delete');
-        $this->data['posts'] = $this->model::onlyTrashed()->get();
-        return view('ar.blog.post.trash',$this->data);
+        # code...
+        $posts = $this->model::onlyTrashed()->get();
+        return view('ar.news.post.trash')
+            ->with('posts', $posts);
     }
 
     public function restore($id)
     {
-        $this->checkPermission('delete');
         $post = $this->model::onlyTrashed()
             ->where('id', $id)
             ->first();
+
         $post->restore();
         Alert::toast('Post Restored Successfully', 'success');
         return redirect()->back();

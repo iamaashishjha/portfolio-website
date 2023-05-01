@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreEventRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\UpdateEventRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminEventController extends BaseCrudController
+class AdminEventController extends BaseAdminController
 {
     protected $model;
     public function __construct()

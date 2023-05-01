@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Goverment;
 use Illuminate\Http\Request;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminGovermentController extends BaseCrudController
+class AdminGovermentController extends BaseAdminController
 {
     protected $model;
     public function __construct()

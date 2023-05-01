@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Media;
 
 use App\Models\BlogCategory;
 use Illuminate\Support\Facades\Auth;
@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreBlogCategoryRequest;
 use App\Http\Requests\UpdateBlogCategoryRequest;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 
-class AdminBlogCategoryController extends BaseCrudController
+class BlogCategoryController extends BaseAdminController
 {
     protected $model;
     public function __construct()

@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\YoutubeVideo;
 use Illuminate\Http\Request;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminYoutubeVideoController extends BaseCrudController
+class AdminYoutubeVideoController extends BaseAdminController
 {
     protected $model;
     public function __construct()

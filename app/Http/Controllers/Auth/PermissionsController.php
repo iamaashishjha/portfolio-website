@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Permission;
 use App\Models\AppSettings;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Traits\Base\BaseCrudController;
+use App\Traits\Base\BaseAdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
 
 
-class PermissionsController extends BaseCrudController
+class PermissionsController extends BaseAdminController
 {
     public $data;
 
