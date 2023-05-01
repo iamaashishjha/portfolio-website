@@ -98,16 +98,13 @@ Route::name('home.')->group(function () {
         });
 
         Route::prefix('/thoughts')->name('thoughts.')->group(function () {
-            Route::get('/', 'listBlog')->name('index');
-            Route::get('/{id}', 'showBlog')->name('show');
-            Route::get('/category/{id}', 'listCategoryBlogs')->name('categoryShow');
-            Route::post('/{id}', 'storeBlogComments')->name('comment');
+            Route::get('/', 'listThought')->name('index');
+            Route::get('/{id}', 'showThought')->name('show');
         });
 
         Route::prefix('/saying')->name('saying.')->group(function () {
-            Route::get('/', 'listBlog')->name('index');
-            Route::get('/{id}', 'showBlog')->name('show');
-            Route::post('/{id}', 'storeBlogComments')->name('comment');
+            Route::get('/', 'listSaying')->name('index');
+            Route::get('/{id}', 'showSaying')->name('show');
         });
     });
 

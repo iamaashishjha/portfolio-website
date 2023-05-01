@@ -327,28 +327,3 @@
         </div><!-- /.container -->
     </section><!-- /.blog-one -->
 @endsection
-
-@section('script')
-    <script>
-        // $('#languageBtn').click(function(e) {
-        //     debugger;
-        //     e.preventDefault();
-        //     const flag = $('#languageBtn img').attr('src');
-        //     const NepaliLang = '/customHome/assets/img/nepal.svg';
-        //     debugger;
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "locale",
-        //         success: function(response) {
-        //             if (response.success === true) {
-        //                 debugger;
-        //                 // window.location.reload();
-        //             }
-        //             debugger;
-        //         }
-        //     });
-        //     console.log(flag, NepaliLang);
-        //     debugger;
-        // });
-    </script>
-@endsection

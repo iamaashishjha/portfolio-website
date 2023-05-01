@@ -5,14 +5,14 @@
         <div class="container">
             <div class="main-title">
                 <h2 class="section-title">
-                    {{ __('home.menuItems.posts.saying') }}
+                    {{ __('home.menuItems.saying') }}
                 </h2>
             </div>
             <div class="row g-4">
                 @foreach ($sayings as $post)
                     <div class="col-md-6 col-lg-3">
                         <div class="card-wrap">
-                            <a href="{{ route('home.sayings.show', $post->id) }}">
+                            <a href="{{ route('home.saying.show', $post->id) }}">
                                 <div class="card-img">
                                     <img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
                                         alt="{{$post->title}}" class="img-fluid">

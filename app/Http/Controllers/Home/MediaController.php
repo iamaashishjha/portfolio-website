@@ -202,13 +202,13 @@ class MediaController extends BaseHomeController
 
     public function listSaying()
     {
-        $this->data['thoughts'] = Saying::paginate(15);
+        $this->data['sayings'] = Saying::paginate(15);
         return view('customHome.saying.index', $this->data);
     }
 
     public function showSaying($id)
     {
-        $this->data['thoughts'] = Saying::find($id);
+        $this->data['saying'] = Saying::find($id);
         return view('customHome.saying.show', $this->data);
     }
 }

@@ -15,7 +15,16 @@
             </a>
         </li>
 
-        @if ($authUser->hasAnyPermission(['list newspost', 'list blogpost', 'list thought', 'list event','list document', 'list library']))
+        {{-- cms  --}}
+        @if (
+            $authUser->hasAnyPermission([
+                'list newspost',
+                'list blogpost',
+                'list thought',
+                'list event',
+                'list document',
+                'list library',
+            ]))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
@@ -99,26 +108,163 @@
             </li>
         @endif
 
-        {{-- Membership --}}
+
+        {{-- content pages  --}}
+        @if ($authUser->hasAnyPermission(['list history']))
+            <li class="nav-item">
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="package"></i> </div>
+                    <div class="side-menu__title"> Content Pages
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                    </div>
+                </a>
+                <ul>
+                    {{-- History  --}}
+                    @if ($authUser->hasAnyPermission(['list history']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.history.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-history" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> History </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- History  --}}
+                    @if ($authUser->hasAnyPermission(['list parliament']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.parliament.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Parliament </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- History  --}}
+                    @if ($authUser->hasAnyPermission(['list goverment']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.goverment.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Goverment </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        {{-- Leadership  --}}
+        @if ($authUser->hasAnyPermission(['list leadership', 'list teammember']))
+            <li class="nav-item">
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="command"></i> </div>
+                    <div class="side-menu__title"> Leadership
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                    </div>
+                </a>
+                <ul>
+                    {{-- Team Member  --}}
+                    @if ($authUser->hasAnyPermission(['list teammember']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.team-member.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-users" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Team Member </div>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Committee --}}
+                    @if ($authUser->hasAnyPermission(['list leadership']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.leadership.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-leanpub" aria-hidden="true"></i> </div>
+                                <div class="side-menu__title"> Leadership </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        {{-- Gallery  --}}
+        @if ($authUser->hasAnyPermission(['list youtubevideo']))
+            <li class="nav-item">
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="image"></i> </div>
+                    <div class="side-menu__title"> Gallery
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                    </div>
+                </a>
+                <ul>
+                    {{-- Youtube Video --}}
+                    @if ($authUser->hasAnyPermission(['list youtubevideo']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Youtube Video </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        {{-- Members  --}}
         @if ($authUser->hasAnyPermission(['list membership']))
             <li class="nav-item">
-                <a href="{{ route('admin.member.index') }}" class="side-menu">
-                    <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
+                <a href="javascript:;" class="side-menu">
+                    <div class="side-menu__icon"> <i data-feather="image"></i> </div>
+                    <div class="side-menu__title"> Members
+                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
                     </div>
-                    <div class="side-menu__title"> Members </div>
+                </a>
+                <ul>
+                    {{-- Membership --}}
+                    @if ($authUser->hasAnyPermission(['list membership']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.member.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title">Registered Members </div>
+                            </a>
+                        </li>
+                    @endif
+                    @if ($authUser->hasAnyPermission(['list membership']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.member.getApprovedMembers') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Approved Members </div>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        {{-- Pop Up Notice --}}
+        @if ($authUser->hasAnyPermission(['list popupnotice']))
+            <li class="nav-item">
+                <a href="{{ route('admin.popup-notice.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                    </div>
+                    <div class="side-menu__title"> Notices Board </div>
+                </a>
+            </li>
+        @endif
+
+        {{-- Bulk Messages --}}
+        @if ($authUser->hasAnyPermission(['list bulkmessage']))
+            <li class="nav-item">
+                <a href="{{ route('admin.bulk-message.index') }}" class="side-menu">
+                    <div class="side-menu__icon"> <i class="fa fa-comments" aria-hidden="true"></i>
+                    </div>
+                    <div class="side-menu__title"> SMS System </div>
                 </a>
             </li>
         @endif
 
 
-        @if (
-            $authUser->hasAnyPermission([
-                'list bulkmessage',
-                'list popupnotice',
-                'list slider',
-                'list appsettings',
-                'list companydetails',
-            ]))
+        @if ($authUser->hasAnyPermission(['list slider', 'list appsettings', 'list companydetails']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
@@ -127,26 +273,7 @@
                     </div>
                 </a>
                 <ul>
-                    {{-- Bulk Messages --}}
-                    @if ($authUser->hasAnyPermission(['list bulkmessage']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.bulk-message.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-comments" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Bulk Messages </div>
-                            </a>
-                        </li>
-                    @endif
-                    {{-- Pop Up Notice --}}
-                    @if ($authUser->hasAnyPermission(['list popupnotice']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.popup-notice.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-bullhorn" aria-hidden="true"></i>
-                                </div>
-                                <div class="side-menu__title"> Pop up Notices </div>
-                            </a>
-                        </li>
-                    @endif
+
                     {{-- Sliders --}}
                     @if ($authUser->hasAnyPermission(['list slider']))
                         <li class="nav-item">
@@ -226,98 +353,6 @@
             </li>
         @endif
 
-        @if ($authUser->hasAnyPermission(['list youtubevideo']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="image"></i> </div>
-                    <div class="side-menu__title"> Gallery
-                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul>
-                    {{-- Youtube Video --}}
-                    @if ($authUser->hasAnyPermission(['list youtubevideo']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-youtube-play" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Youtube Video </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        @if ($authUser->hasAnyPermission(['list history']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="package"></i> </div>
-                    <div class="side-menu__title"> Content Pages
-                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul>
-                    {{-- History  --}}
-                    @if ($authUser->hasAnyPermission(['list history']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.history.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-history" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> History </div>
-                            </a>
-                        </li>
-                    @endif
-                    {{-- History  --}}
-                    @if ($authUser->hasAnyPermission(['list parliament']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.parliament.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-balance-scale" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Parliament </div>
-                            </a>
-                        </li>
-                    @endif
-                    {{-- History  --}}
-                    @if ($authUser->hasAnyPermission(['list goverment']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.goverment.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Goverment </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
-
-        @if ($authUser->hasAnyPermission(['list leadership', 'list teammember']))
-            <li class="nav-item">
-                <a href="javascript:;" class="side-menu">
-                    <div class="side-menu__icon"> <i data-feather="command"></i> </div>
-                    <div class="side-menu__title"> Leadership
-                        <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
-                    </div>
-                </a>
-                <ul>
-                    {{-- Team Member  --}}
-                    @if ($authUser->hasAnyPermission(['list teammember']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.team-member.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-users" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Team Member </div>
-                            </a>
-                        </li>
-                    @endif
-                    {{-- Committee --}}
-                    @if ($authUser->hasAnyPermission(['list leadership']))
-                        <li class="nav-item">
-                            <a href="{{ route('admin.leadership.index') }}" class="side-menu">
-                                <div class="side-menu__icon"> <i class="fa fa-leanpub" aria-hidden="true"></i> </div>
-                                <div class="side-menu__title"> Leadership </div>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </li>
-        @endif
     </ul>
 </nav>
 <!-- END: Side Menu -->

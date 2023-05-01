@@ -7,6 +7,20 @@
             </a>
         </div>
 
+        @if (count($histories))
+            <a href="#">
+                {{ __('home.menuItems.history') }}
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="ms-3">
+                @foreach ($histories as $history)
+                    <a href="{{ route('home.history.show', $history->id) }}">
+                        {{ $history->title }}
+                    </a>
+                @endforeach
+            </div>
+        @endif
+
         {{-- Ledaerships  --}}
         @if (count($leaderships))
             <div class="dropdown nav-link-menu">
@@ -144,20 +158,6 @@
                         <a href="{{ route('home.events.index') }}">
                             {{ __('home.menuItems.posts.events') }}
                         </a>
-                    @endif
-
-                    @if (count($histories))
-                        <a href="#">
-                            {{ __('home.menuItems.history') }}
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="ms-3">
-                            @foreach ($histories as $history)
-                                <a href="{{ route('home.history.show', $history->id) }}">
-                                    {{ $history->title }}
-                                </a>
-                            @endforeach
-                        </div>
                     @endif
                 </div>
             </div>

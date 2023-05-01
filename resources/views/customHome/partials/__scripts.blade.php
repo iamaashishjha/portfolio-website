@@ -13,3 +13,5 @@
     src='/customHome/assets/js/sharethis.js#property=62b802c194b4d00019a89bfa&product=analytics' async='async'></script>
 
 <script src="/customHome/assets/js/custom-scripts.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

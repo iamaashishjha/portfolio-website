@@ -3,17 +3,20 @@
 namespace App\Traits\Base;
 
 use App\Models\User;
+use App\Traits\GlobalScopesTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\GlobalRelationsEntityTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BaseModel extends Model
 {
     use HasFactory, SoftDeletes;
+    use GlobalScopesTrait, GlobalRelationsEntityTrait;
 
     protected $guarded = ['id'];
 
@@ -35,16 +38,16 @@ class BaseModel extends Model
             }
         });
 
-        static::deleting(function ($model){
+        static::deleting(function ($model) {
             $columns = Schema::getColumnListing($model->getTable());
             if (in_array('deleted_by', $columns)) {
                 $model->deleted_by =  Auth::id();
             }
         });
 
-            // static::addGlobalScope(function (Builder $builder) {
-            //     $builder->orderBy('display_order', 'ASC');
-            // });
+        // static::addGlobalScope(function (Builder $builder) {
+        //     $builder->orderBy('display_order', 'ASC');
+        // });
 
         // static::addGlobalScope(function (Builder $builder) use ($this $model) {
         //     $columns = Schema::getColumnListing($model->getTable());
@@ -70,43 +73,10 @@ class BaseModel extends Model
         }
     }
 
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', TRUE);
-    }
-
-    public function scopeIsActive($query)
-    {
-        return $query->where('status', TRUE);
-    }
-
-    public function scopeDeleted($query)
-    {
-        return $query->where('is_deleted', TRUE);
-    }
-
-    public function scopeNotDeleted($query)
-    {
-        return $query->where('is_deleted', FALSE);
-    }
-
     public function deleteImage()
     {
         Storage::delete($this->image);
     }
 
-    public function createdByEntity()
-    {
-        return $this->belongsTo(User::class, 'created_by', 'id');
-    }
 
-    public function updatedByEntity()
-    {
-        return $this->belongsTo(User::class, 'updated_by', 'id');
-    }
-
-    public function deletedByEntity()
-    {
-        return $this->belongsTo(User::class, 'deleted_by', 'id');
-    }
 }

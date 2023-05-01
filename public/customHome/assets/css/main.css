@@ -291,7 +291,8 @@ img {
 }
 
 .main-title {
-  border-bottom: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
+  border-bottom: 1px solid #E10101;
   margin-bottom: 30px;
 }
 .main-title .section-title {
@@ -1377,7 +1378,7 @@ a.read-more {
 .footer .divider {
   padding-top: 2px;
   padding-bottom: 2px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #E10101;
   margin-bottom: 5px;
 }
 

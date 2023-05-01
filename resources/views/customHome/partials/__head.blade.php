@@ -1,4 +1,4 @@
-<link rel="icon" href="/customHome/assets/img/cropped-logo.png">
+
 <link rel="stylesheet" href="/customHome/assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="/customHome/assets/css/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="/customHome/assets/css/font-awesome/5.15.2/css/all.min.css">

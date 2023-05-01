@@ -1,9 +1,9 @@
 .header .nav-section .container {
-    background-image: url("/customHome/assets/img/topbarjpg.jpg");
+    background-image: url("/customHome/assets/img/topbar.png");
 }
 
 .top-ban-img {
-    background-image: url("/customHome/assets/img/topbarjpg.jpg");
+    background-image: url("/customHome/assets/img/topbar.png");
 }
 
 a.read-more:after {
@@ -15,5 +15,5 @@ a.read-more:after {
 }
 
 .footer .container {
-    background-image: url("/customHome/assets/img/bottombarjpg.jpg");
+    background-image: url("/customHome/assets/img/topbar.png");
 }

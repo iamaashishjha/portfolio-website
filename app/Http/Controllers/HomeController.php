@@ -134,7 +134,13 @@ class HomeController extends BaseHomeController
         return redirect()->back();
     }
 
-    
+
+    // public function popUpNotice()
+    // {
+    //     # code...
+    // }
+
+
     public function notFound()
     {
         abort(404);

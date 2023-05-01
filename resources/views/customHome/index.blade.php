@@ -84,37 +84,6 @@
             </div>
         </section>
     @endif
-
-
-
-    @if (count($youtubeVideos))
-        <section class="videos section-gap bg-dark">
-            <div class="container">
-                <div class="main-title border-bottom-white d-flex
-                justify-content-between">
-                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
-                        style="cursor:
-                    pointer">
-                        {{ __('home.menuItems.video') }}
-                    </h2>
-                    <div class="">
-                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
-                            {{ __('home.menuItems.read_more') }}
-                        </a>
-                    </div>
-                </div>
-                <div class="row gy-4">
-                    @foreach ($youtubeVideos as $video)
-                        <div class="col-md-6">
-                            {!! $video->iframe !!}
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
-
     @if (count($thoughts))
         <section class="news bichar section-gap">
             <div class="container">
@@ -151,6 +120,74 @@
         </section>
     @endif
     {{-- Contact Section  --}}
+
+
+    @if (count($youtubeVideos))
+        <section class="videos section-gap bg-dark">
+            <div class="container">
+                <div class="main-title border-bottom-white d-flex
+                justify-content-between">
+                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
+                        style="cursor:
+                    pointer">
+                        {{ __('home.menuItems.video') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($youtubeVideos as $video)
+                        <div class="col-md-6">
+                            {!! $video->iframe !!}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    @if (count($sayings))
+        <section class="news bichar section-gap">
+            <div class="container">
+                <div class="main-title d-flex justify-content-between">
+                    <h2 class="section-title text-left">
+                        {{ __('home.menuItems.saying') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.saying.index') }}" class="read-more float-end">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($sayings as $post)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card-wrap">
+                                <a href="{{ route('home.saying.show', $post->id) }}">
+                                    <div class="card-img">
+                                        <img src="{{ isset($post->image) ? $post->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
+                                            alt="{{ $post->title }}" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h1 class="card-title mb-2">
+                                            {{ $post->title }}
+                                        </h1>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+    {{-- Contact Section  --}}
+
+
+    @include('customHome.partials.__notice')
 @endsection
 
 

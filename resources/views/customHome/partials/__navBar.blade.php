@@ -53,7 +53,6 @@
                         @isset($companyDetails->facebook_link)
                             <li>
                                 <a href="{{ $companyDetails->facebook_link }}" target="_blank" class="icon">
-                                    {{-- <i class="far fa-facebook"></i> --}}
                                     <i class="fab fa-facebook-square"></i>
                                 </a>
                             </li>
@@ -61,7 +60,6 @@
                         @isset($companyDetails->twitter_link)
                             <li>
                                 <a href="{{ $companyDetails->twitter_link }}" target="_blank" class="icon">
-                                    {{-- <i class="far fa-twitter"></i> --}}
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
@@ -99,30 +97,10 @@
 
 
 @push('script')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             const flag = $('#languageBtn img').attr('src');
             const NepaliLang = '/customHome/assets/img/nepal.svg';
-            console.log(flag, NepaliLang);
-
         });
-        // $('#languageBtn').click(function(e) {
-        //     e.preventDefault();
-        //     const flag = $('#languageBtn img').attr('src');
-        //     const NepaliLang = '/customHome/assets/img/nepal.svg';
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "locale",
-        //         success: function(response) {
-        //             if (response.success === true) {
-        //                 debugger;
-        //                 // window.location.reload();
-        //             }
-        //             debugger;
-        //         }
-        //     });
-        //     console.log(flag, NepaliLang);
-        //     debugger;
-        // });
-    </script>
+    </script> --}}
 @endpush

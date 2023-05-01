@@ -49,7 +49,7 @@
                         @method('PUT')
                     @endif
                     <div class="grid grid-cols-12 gap-2">
-                        <div class="col-span-6">
+                        <div class="col-span-12 md:col-span-4">
                             <div class="preview p-5">
                                 <div>
                                     <h5
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-6">
+                        <div class="col-span-12 md:col-span-4">
                             <div class="preview p-5">
                                 <div>
                                     <h5
@@ -88,6 +88,20 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 md:col-span-4">
+                            <div class="p-5 preview">
+                                <div class="w-full sm:w-auto flex items-center sm:ml-auto mt-3 sm:mt-0">
+                                    <h5
+                                        class="text-lg ext-theme-9 @error('description') text-theme-6 @enderror font-medium leading-none mr-3">
+                                        Is Active <span
+                                            class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
+                                    </h5>
+                                    <input
+                                        class="show-code input input--switch border @error('is_active') border-theme-6 @enderror"
+                                        type="checkbox" name="is_active" {{ isset($popupNotice) ? $popupNotice->checkStatus() : '' }}>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +146,7 @@
                                     <div class="px-4 pb-4 flex items-center cursor-pointer relative">
                                         <i data-feather="file" class="w-4 h-4 mr-2"></i> <span
                                             class="text-theme-1 mr-1">Upload a file</span> or drag and drop
-                                        <input type="file" name="file"
+                                        <input type="file" name="file" id="file"
                                             class="w-full h-full top-0 left-0 absolute opacity-0" onchange="loadFile(event)"
                                             value="{{ old('file') }}">
                                     </div>
@@ -165,13 +179,11 @@
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('file');
-            let file = event.target.files[0];
-            if (!file.type.startsWith('image/')) {
-                file = '{{ "/ar/dist/image/file.png" }}';
+            let file = URL.createObjectURL(event.target.files[0]);
+            if (!event.target.files[0].type.startsWith('image/')) {
+                file = '{{ "/ar/dist/images/file.png" }}';
             }
-            console.log(file);
-            debugger;
-            image.src = URL.createObjectURL(file);
+            image.src = file;
         };
 
         $('#noticeType').change(function(e) {

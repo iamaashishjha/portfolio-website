@@ -9,31 +9,10 @@
     <title>
         @yield('title', isset($appSetting->site_title) ? $appSetting->site_title : __('base.title'))
     </title>
-
     @isset($appSetting->image)
+        <link rel="icon" href="{{ $appSetting->image }}">
         <link href="{{ $appSetting->image }}" rel="shortcut icon">
     @endisset
-    <style>
-        .header .nav-section .container {
-            background-image: url("../assets/img/topbarjpg.jpg");
-        }
-
-        .top-ban-img {
-            background-image: url("../assets/img/topbarjpg.jpg");
-        }
-
-        a.read-more:after {
-            background: url("../assets/img/three-dots.png") no-repeat center
-        }
-
-        .services {
-            background: url("../assets/img/thumbs.jpg")
-        }
-
-        .footer .container {
-            background-image: url("../assets/img/bottombarjpg.jpg");
-        }
-    </style>
     @include('customHome.partials.__head')
 
     @yield('head')
@@ -61,6 +40,9 @@
 
     @yield('script')
     @stack('script')
+
+
+
 </body>
 
 </html>

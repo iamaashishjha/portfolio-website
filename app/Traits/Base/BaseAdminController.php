@@ -2,15 +2,16 @@
 
 namespace App\Traits\Base;
 
+use App\Traits\FileTrait;
 use App\Models\AppSettings;
+use App\Traits\IsActiveTrait;
 use App\Traits\CheckPermission;
 use App\Http\Controllers\Controller;
-use App\Traits\FileTrait;
 
 class BaseAdminController extends Controller
 {
     use CheckPermission;
-    use FileTrait;
+    use FileTrait, IsActiveTrait;
     public $data;
 
      /**

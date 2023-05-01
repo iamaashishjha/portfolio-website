@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div class="card-wrap-section">
                         <div class="card-img mt-80-sm">
-                            <img src="{{ isset($saying->image) ? $thought->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
+                            <img src="{{ isset($saying->image) ? $saying->image : '/hr/assets/images/blog/blog-1-1.jpg' }}"
                                 alt="detail-img" class="img-fluid">
                         </div>
                         <div class="card-content">

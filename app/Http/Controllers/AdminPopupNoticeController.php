@@ -49,13 +49,16 @@ class AdminPopupNoticeController extends BaseAdminController
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->checkPermission('create');
         $filePath = $this->uploadFileToDisk($request,'file','popup-notice');
+        $active = $this->getIsActive($request);
         $modelInstance = new $this->model();
         $modelInstance->title = $request->title;
         $modelInstance->content = $request->content;
         $modelInstance->file = $filePath;
         $modelInstance->type = $request->type;
+        $modelInstance->is_active = $active;
         $modelInstance->save();
         Alert::success('Pop Up Notice Created Successfully');
         return redirect()->route('admin.popup-notice.index');
@@ -87,9 +90,11 @@ class AdminPopupNoticeController extends BaseAdminController
         $this->checkPermission('update');
         $modelInstance = $this->model::find($id);
         $filePath = $this->uploadFileToDisk($request,'file','popup-notice', $modelInstance->file);
+        $active = $this->getIsActive($request);
         $modelInstance->title = $request->title;
         $modelInstance->content = $request->content;
         $modelInstance->file = $filePath;
+        $modelInstance->is_active = $active;
         $modelInstance->type = $request->type;
         $modelInstance->save();
         Alert::success('Popup Notice Updated Successfully');

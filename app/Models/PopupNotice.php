@@ -10,6 +10,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class PopupNotice extends BaseModel
 {
     protected $table = 'popup_notices';
+
+
+    public function checkStatus()
+    {
+        $status = $this->attributes['is_active'];
+        if($status == 0){
+            return '';
+        }else{
+            return 'checked';
+        }
+    }
+
     public function getStatusAttribute()
     {
         $status = $this->attributes['is_active'];

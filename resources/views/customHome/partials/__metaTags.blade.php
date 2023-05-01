@@ -42,12 +42,3 @@
 @isset($appSetting->image)
     <meta property="og:image" content="{{ $appSetting->image }}" />
 @endisset
-
-{{-- <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:description"
-    content="The Communist Party of Nepal
-        (Unified Marxist–Leninist), abbreviated CPN (UML), is the largest
-        left-wing party in Nepal since its formation in January 1991." />
-<meta name="twitter:title" content="CPN (UML)" />
-<meta name="twitter:site" content="@CPNUML" />
-<meta name="twitter:creator" content="@CPNUML" /> --}}

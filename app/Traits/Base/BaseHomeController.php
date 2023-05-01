@@ -18,6 +18,7 @@ use App\Models\Leadership;
 use App\Models\Library;
 use App\Models\Membership;
 use App\Models\Parliament;
+use App\Models\PopupNotice;
 use App\Models\Saying;
 use App\Models\Thought;
 
@@ -35,7 +36,6 @@ class BaseHomeController extends Controller
         $this->data['slider'] = Slider::first();
         $this->data['approvedMembers'] = Membership::approvedMember()->get();
 
-
         $this->data['documents'] = Document::orderBy('created_at', 'DESC')->get();
         $this->data['libraries'] = Library::orderBy('created_at', 'DESC')->get();
 
@@ -46,9 +46,8 @@ class BaseHomeController extends Controller
         $this->data['latestNewsPost'] = NewsPost::orderBy('created_at', 'DESC')->first();
         $this->data['exceptLatestNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(6)->get();
         
-        $this->data['thoughts'] = Thought::orderBy('created_at', 'DESC')->get();
-        $this->data['sayings'] = Saying::orderBy('created_at', 'DESC')->get();
-
+        $this->data['thoughts'] = Thought::orderBy('created_at', 'DESC')->take(4)->get();
+        $this->data['sayings'] = Saying::orderBy('created_at', 'DESC')->take(4)->get();
 
 
         $this->data['histories'] = History::orderBy('created_at', 'DESC')->get();
@@ -58,7 +57,10 @@ class BaseHomeController extends Controller
         $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->take(4)->get();
         $this->data['leaderships'] = Leadership::orderBy('created_at', 'DESC')->get();
 
-        $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
+        // Footer 
+        // $this->data['footerNews'] = NewsPost::orderBy('created_at', 'DESC')->skip(1)->take(2)->get();
+
+        $this->data['notices'] = PopupNotice::active()->orderBy('created_at', 'DESC')->get();
 
 
     }
