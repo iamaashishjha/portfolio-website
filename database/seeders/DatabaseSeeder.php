@@ -20,15 +20,15 @@ class DatabaseSeeder extends Seeder
             MasterSeeder::class,
             AppsettingSeeder::class,
 
-            BlogCategorySeeder::class,
-            BlogPostSeeder::class,
-            BlogTagsSeeder::class,
-            NewsCategorySeeder::class,
-            NewsPostSeeder::class,
-            NewsTagsSeeder::class,
-            EventSeeder::class,
-            PopupNoticeSeeder::class,
-            BulkMessageSeeder::class,
+            // BlogCategorySeeder::class,
+            // BlogPostSeeder::class,
+            // BlogTagsSeeder::class,
+            // NewsCategorySeeder::class,
+            // NewsPostSeeder::class,
+            // NewsTagsSeeder::class,
+            // EventSeeder::class,
+            // PopupNoticeSeeder::class,
+            // BulkMessageSeeder::class,
         ]);
     }
 }
