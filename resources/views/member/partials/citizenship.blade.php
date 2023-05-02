@@ -1,7 +1,7 @@
 <div class="px-5 sm:px-20 pt-10 border-t border-gray-200 tab-content__pane" id="citizenship-content">
 
-	<h1 class="text-4xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-		Citizenship Based Details (नागरिकता आधारित विवरण |)
+	<h1 class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
+		Citizenship Based Details (नागरिकता आधारित विवरण)
 	</h1>
 	<hr class="mt-5 mb-5">
 
@@ -186,9 +186,9 @@
 
 	{{-- Permnanent Address --}}
 	<hr class="mt-5 mb-5">
-	<h1 class="text-4xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Permanent
+	<h1 class="text-2xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Permanent
 		Address
-		(स्थायी ठेगाना |) </h1>
+		(स्थायी ठेगाना) </h1>
 	<hr class="mt-5 mb-5">
 
 	<div>
@@ -325,8 +325,8 @@
 	</div>
 
 	<hr class="mt-5 mb-5">
-	<h1 class="text-4xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Personal Details
-		(व्यक्तिगत बिबरण|) </h1>
+	<h1 class="text-2xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">Personal Details
+		(व्यक्तिगत विवरण) </h1>
 	<hr class="mt-5 mb-5">
 
 	<div class="grid grid-cols-12 gap-2">
