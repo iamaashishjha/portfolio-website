@@ -133,7 +133,6 @@ class SayingController extends BaseAdminController
         $post->meta_description = $request->meta_description;
         $post->meta_title = $request->meta_title;
         $post->slug = $request->slug;
-        $post->category_id = $request->category_id;
 
         if ($request->has('post_image')) {
             $path = $request->post_image->store('thoughts', 'public');
