@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MassOrganization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\Auth\RoleController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\AdminThoughtController;
 use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDocumentController;
 use App\Http\Controllers\AdminNewsPostController;
+use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\AdminCommitteeController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminGovermentController;
@@ -38,6 +40,7 @@ use App\Http\Controllers\Admin\Media\BlogPostController;
 use App\Http\Controllers\Admin\Media\NewsPostController;
 use App\Http\Controllers\Admin\Media\BlogCategoryController;
 use App\Http\Controllers\Admin\Media\NewsCategoryController;
+use App\Http\Controllers\Admin\Content\MassOrganizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +128,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/history', AdminHistoryController::class);
     Route::resource('/goverment', AdminGovermentController::class);
     Route::resource('/parliament', AdminParliamentController::class);
+    Route::resource('/mass-organization', MassOrganizationController::class);
+    Route::resource('/donation', DonationController::class);
 
     Route::resource('/team-member', AdminTeamMemberController::class);
     Route::prefix('/team-member')->name('team-member.')->controller(AdminMembershipController::class)->group(function () {

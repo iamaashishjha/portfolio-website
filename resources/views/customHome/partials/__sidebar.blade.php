@@ -42,6 +42,11 @@
             </div>
         @endif
 
+        {{-- Mass organization --}}
+        @if (isset($massOrganization))
+            <a href="{{ route('home.mass-organization.index') }}" class="nav-link-menu">{{ __('home.menuItems.mass-organization') }}</a>
+        @endif
+
         {{-- Membership  --}}
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">{{ __('home.menuItems.membership') }}
@@ -128,7 +133,12 @@
             <a href="{{ route('home.library.index') }}" class="nav-link-menu">{{ __('home.menuItems.library') }}</a>
         @endif
 
+
+        {{-- donation  --}}
+        @if (isset($donation))
+            
         <a href="{{ route('home.donation') }}" class="nav-link-menu">{{ __('home.menuItems.donation') }}</a>
+        @endif
 
         {{-- Pages  --}}
         @if (count($newsPosts) || count($blogPosts) || count($thoughts) || count($events))

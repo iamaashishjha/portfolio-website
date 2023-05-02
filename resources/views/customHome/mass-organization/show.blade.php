@@ -1,32 +1,19 @@
 @extends('layouts.customHome')
 
-@push('head')
-<style>
-	h4{
-		margin:2rem 0;
-		padding:2rem 0;
-	}
-</style>
-@endpush
-
 @section('content')
     <section class="news news-page section-gap">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-12 col-lg-12">
+                <div class="col-md-12">
                     <div class="card-wrap-section">
                         <div class="card-content">
-                            <h2 class="news-title mb-2">
-                                {{ __('about.donation.heading') }}
-                            </h2>
+                            <h1 class="news-title mb-2">
+                                {{ __('home.menuItems.mass-organization') }}
+                            </h1>
                             <div class="news-content mt-1 pt-3">
-                                {!! $donation->content !!}
+                                {!!  $massOrganization->content  !!}
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-3">
-                    <div class="row gy-4">
                     </div>
                 </div>
             </div>

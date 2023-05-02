@@ -3,10 +3,11 @@
 return [
 
     'header.donate' => 'अब दान गर्नुहोस्',
-    'header.join' => 'जन्सनगठन',
+    'header.join' => 'सदस्य',
 
     'menuItems.home' => 'गृह',
-    'menuItems.membership' => 'जन्सनगठन',
+    'menuItems.mass-organization' => 'जनसंगठन',
+    'menuItems.membership' => 'सदस्य',
     'menuItems.membership.create' => 'सदस्यता फारम',
     'menuItems.membership.form' => 'फोर्म',
 
