@@ -196,7 +196,7 @@ class MediaController extends BaseHomeController
 
     public function showThought($id)
     {
-        $this->data['thoughts'] = Thought::find($id);
+        $this->data['thought'] = Thought::find($id);
         return view('customHome.thought.show', $this->data);
     }
 

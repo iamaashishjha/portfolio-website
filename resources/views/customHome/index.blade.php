@@ -84,6 +84,7 @@
             </div>
         </section>
     @endif
+    
     @if (count($thoughts))
         <section class="news bichar section-gap">
             <div class="container">

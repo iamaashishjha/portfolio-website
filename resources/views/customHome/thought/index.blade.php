@@ -5,7 +5,7 @@
         <div class="container">
             <div class="main-title">
                 <h2 class="section-title">
-                    {{ __('home.menuItems.posts.thoughts') }}
+                    {{ __('home.menuItems.thoughts') }}
                 </h2>
             </div>
             <div class="row g-4">

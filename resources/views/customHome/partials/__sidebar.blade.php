@@ -8,16 +8,17 @@
         </div>
 
         @if (count($histories))
-            <a href="#">
-                {{ __('home.menuItems.history') }}
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="ms-3">
-                @foreach ($histories as $history)
-                    <a href="{{ route('home.history.show', $history->id) }}">
-                        {{ $history->title }}
-                    </a>
-                @endforeach
+            <div class="dropdown nav-link-menu">
+                <button class="dropdown-btn"> {{ __('home.menuItems.history') }}
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                    <div class="dropdown-container">
+                        @foreach ($histories as $history)
+                        <a href="{{ route('home.history.show', $history->id) }}">
+                            {{ $history->title }}
+                        </a>
+                        @endforeach
+                    </div>
             </div>
         @endif
 
