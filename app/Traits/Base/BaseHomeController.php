@@ -19,7 +19,9 @@ use App\Models\Membership;
 use App\Models\Parliament;
 use App\Models\AppSettings;
 use App\Models\PopupNotice;
+use App\Models\TwitterVideo;
 use App\Models\YoutubeVideo;
+use App\Models\FacebookVideo;
 use App\Models\CompanyDetails;
 use App\Models\MassOrganization;
 use App\Http\Controllers\Controller;
@@ -57,6 +59,8 @@ class BaseHomeController extends Controller
         $this->data['goverments'] = Goverment::orderBy('created_at', 'DESC')->get();
         
         $this->data['youtubeVideos'] = YoutubeVideo::orderBy('created_at', 'DESC')->take(4)->get();
+        $this->data['facebookVideos'] = FacebookVideo::orderBy('created_at', 'DESC')->take(4)->get();
+        $this->data['twitterVideos'] = TwitterVideo::orderBy('created_at', 'DESC')->take(4)->get();
         $this->data['leaderships'] = Leadership::orderBy('created_at', 'DESC')->get();
 
         // Footer 

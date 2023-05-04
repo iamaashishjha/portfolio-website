@@ -235,7 +235,7 @@
                             <a href="{{ route('admin.twitter-video.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-twitter" aria-hidden="true"></i>
                                 </div>
-                                <div class="side-menu__title"> Twitter Video </div>
+                                <div class="side-menu__title"> Twitter Post </div>
                             </a>
                         </li>
                     @endif

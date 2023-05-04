@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    All Twitter Videos || Admin
+    All Twitter Posts || Admin
 @endsection
 
 @push('breadcrumb')
-    All Twitter Videos
+    All Twitter Posts
 @endpush
 
 @section('content')
@@ -15,12 +15,12 @@
 
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            All Twitter Videos
+            All Twitter Posts
         </h2>
         @if ($authUser->hasPermissionTo('create twittervideo'))
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
                 <a href="javascript:;" class="button text-white bg-theme-1 shadow-md mr-2" data-toggle="modal"
-                    data-target="#create-modal">Add New Video</a>
+                    data-target="#create-modal">Add New Post</a>
             </div>
         @endif
     </div>
@@ -100,7 +100,7 @@
                                                     class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1"
                                                     data-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="button w-100 bg-theme-12 text-white">
-                                                    Update Video
+                                                    Update Post
                                                 </button>
                                             </div>
                                         </form>
@@ -148,7 +148,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6">No Videos Found</td>
+                        <td colspan="6">No Posts Found</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -158,7 +158,7 @@
     <div class="modal" id="create-modal">
         <div class="modal__content modal__content--lg ">
             <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
-                <h2 class="font-medium text-base mr-auto">Create New Video</h2>
+                <h2 class="font-medium text-base mr-auto">Create New Post</h2>
             </div>
             <form action="{{ route('admin.twitter-video.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -176,7 +176,7 @@
                     <button type="button"
                         class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1"
                         data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="button w-100 bg-theme-9 text-white"> Create Video</button>
+                    <button type="submit" class="button w-100 bg-theme-9 text-white"> Create Post</button>
                 </div>
             </form>
         </div>

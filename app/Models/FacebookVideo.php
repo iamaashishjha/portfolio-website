@@ -3,10 +3,24 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
+use Illuminate\Database\Eloquent\Builder;
 
 class FacebookVideo extends BaseModel
 {
-    protected $table = 'facebook_videos';
+    // protected $table = 'facebook_videos';
+
+    protected $table = 'online_videos';
+    protected $attributes = [
+        'type_id' => Types::FACEBOOKVIDEO,
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->where('type_id', Types::FACEBOOKVIDEO)->orderBy('id', 'desc');
+        });
+    }
 
     public function getStatusAttribute()
     {
@@ -22,6 +36,6 @@ class FacebookVideo extends BaseModel
 
     public function setIframeAttribute($value)
     {
-        $this->attributes['iframe'] = str_replace('width="560"', 'width="100%"', $value);
+        $this->attributes['iframe'] = str_replace('width="500"', 'width="100%"', $value);
     }
 }

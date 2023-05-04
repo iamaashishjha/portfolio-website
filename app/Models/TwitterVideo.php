@@ -3,10 +3,23 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
+use Illuminate\Database\Eloquent\Builder;
 
 class TwitterVideo extends BaseModel
 {
-    protected $table = 'twitter_videos';
+    // protected $table = 'twitter_videos';
+    protected $table = 'online_videos';
+    protected $attributes = [
+        'type_id' => Types::TWITTERVIDEO,
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->where('type_id', Types::TWITTERVIDEO)->orderBy('id', 'desc');
+        });
+    }
 
     public function getStatusAttribute()
     {

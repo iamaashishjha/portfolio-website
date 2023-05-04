@@ -84,6 +84,35 @@ class CreateVideosTables extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+
+        Schema::create('online_videos', function (Blueprint $table) {
+            $table->id();
+            $table->string('title')->nullable();
+            $table->text('iframe')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('created_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('updated_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('deleted_by')
+                ->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('type_id')
+                ->nullable()
+                ->constrained('types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -96,5 +125,6 @@ class CreateVideosTables extends Migration
         Schema::dropIfExists('youtube_videos');
         Schema::dropIfExists('facebook_videos');
         Schema::dropIfExists('twitter_videos');
+        Schema::dropIfExists('online_videos');
     }
 }

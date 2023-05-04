@@ -14,6 +14,9 @@ return [
     'menuItems.membership.approved-members' => 'क्रियाशील सदस्य',
 
     'menuItems.video' => 'भिडियो',
+    'menuItems.youtube-video' => 'भिडियो',
+    'menuItems.facebook-video' => 'नागरिक खबर',
+    'menuItems.twitter-video' => 'Twitter',
     'menuItems.read_more' => 'थप पढ्नुहोस्',
 
     'menuItems.thoughts' => 'विचार',

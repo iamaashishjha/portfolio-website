@@ -62,6 +62,10 @@ class TypesSeeder extends Seeder
             array('id' => 44, 'name_en' => 'Committee Secretray', 'name_lc' => 'समिति सचिव'),
             array('id' => 45, 'name_en' => 'Committee Deputy Secretray', 'name_lc' => 'समितिका उपसचिव'),
             array('id' => 46, 'name_en' => 'Committee Member', 'name_lc' => 'समिति सदस्य'),
+
+            array('id' => 61, 'name_en' => 'Youtube Video', 'name_lc' => 'युट्युब भिडियो'),
+            array('id' => 62, 'name_en' => 'Facebook Video', 'name_lc' => 'फेसबुक भिडियो'),
+            array('id' => 63, 'name_en' => 'Twitter Video', 'name_lc' => 'Twitter भिडियो'),
         ]);
     }
 }

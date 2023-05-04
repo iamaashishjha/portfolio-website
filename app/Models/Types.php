@@ -22,6 +22,7 @@ class Types extends BaseModel
     const ELECTIONWINNERS = 7;
 
 
+    //Content Page Type
     const HISTORY = 21;
     const GOVERMENT = 22;
     const PARLIAMENT = 23;
@@ -43,6 +44,13 @@ class Types extends BaseModel
     const COMMITTEESECRETRAY = 44;
     const COMMITTEESECRETRAYDEPUTY = 45;
     const COMMITTEEMEMBER = 46;
+
+
+
+    //Gallery Type
+    Const YOUTUBEVIDEO = 61;
+    Const FACEBOOKVIDEO = 62;
+    Const TWITTERVIDEO = 63;
 
     protected static function boot()
     {

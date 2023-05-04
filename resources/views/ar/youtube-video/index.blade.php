@@ -37,7 +37,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($youtubeVideos as $video)
+                @forelse ($videos as $video)
                     <tr class="intro-x">
                         <td></td>
                         <td>

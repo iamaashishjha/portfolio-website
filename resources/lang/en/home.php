@@ -6,6 +6,9 @@ return [
     'header.join' => 'Join Us',
 
     'menuItems.video' => 'Video',
+    'menuItems.youtube-video' => 'Videos',
+    'menuItems.facebook-video' => 'Nagrik News',
+    'menuItems.twitter-video' => 'Twitter Video',
     'menuItems.read_more' => 'Read More',
 
     'menuItems.home' => 'Home',

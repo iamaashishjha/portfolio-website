@@ -3,10 +3,24 @@
 namespace App\Models;
 
 use App\Traits\Base\BaseModel;
+use Illuminate\Database\Eloquent\Builder;
 
 class YoutubeVideo extends BaseModel
 {
-    protected $table = 'youtube_videos';
+    // protected $table = 'youtube_videos';
+    protected $table = 'online_videos';
+    protected $attributes = [
+        'type_id' => Types::YOUTUBEVIDEO,
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(function (Builder $builder) {
+            $builder->where('type_id', Types::YOUTUBEVIDEO)->orderBy('id', 'desc');
+        });
+    }
+
 
     public function getStatusAttribute()
     {

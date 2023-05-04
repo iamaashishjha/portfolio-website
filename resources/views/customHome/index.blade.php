@@ -136,7 +136,7 @@
                         {{ __('home.menuItems.video') }}
                     </h2>
                     <div class="">
-                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
+                        <a href="{{ route('home.video.youtube') }}" class="read-more float-end text-white">
                             {{ __('home.menuItems.read_more') }}
                         </a>
                     </div>
@@ -152,19 +152,17 @@
         </section>
     @endif
 
-    {{-- Youtube videos  --}}
+    {{-- facebook news  --}}
     @if (count($facebookVideos))
-        <section class="videos section-gap bg-dark">
+        <section class="videos section-gap bg-white">
             <div class="container">
-                <div class="main-title border-bottom-white d-flex
-                justify-content-between">
-                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.facebook') }}'"
-                        style="cursor:
-                    pointer">
-                        {{ __('home.menuItems.video') }}
+                <div class="main-title d-flex justify-content-between">
+                    <h2 class="section-title" onclick="location.href='{{ route('home.video.facebook') }}'"
+                        style="cursor: pointer">
+                        {{ __('home.menuItems.facebook-video') }}
                     </h2>
                     <div class="">
-                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
+                        <a href="{{ route('home.video.facebook') }}" class="read-more float-end">
                             {{ __('home.menuItems.read_more') }}
                         </a>
                     </div>
@@ -180,19 +178,17 @@
         </section>
     @endif
 
-    {{-- Youtube videos  --}}
+    {{-- Twitter videos  --}}
     @if (count($twitterVideos))
-        <section class="videos section-gap bg-dark">
+        <section class="section-gap">
             <div class="container">
-                <div class="main-title border-bottom-white d-flex
-                justify-content-between">
-                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
-                        style="cursor:
-                    pointer">
-                        {{ __('home.menuItems.video') }}
+                <div class="main-title d-flex justify-content-between">
+                    <h2 class="section-title" onclick="location.href='{{ route('home.video.twitter') }}'"
+                        style="cursor: pointer">
+                        {{ __('home.menuItems.twitter-video') }}
                     </h2>
                     <div class="">
-                        <a href="{{ route('home.video.twitter') }}" class="read-more float-end text-white">
+                        <a href="{{ route('home.video.twitter') }}" class="read-more float-end">
                             {{ __('home.menuItems.read_more') }}
                         </a>
                     </div>
@@ -207,6 +203,7 @@
             </div>
         </section>
     @endif
+
 
     {{-- sayings  --}}
     @if (count($sayings))
