@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta property="og:type" content="website" />
-
+{{-- 
 
 
 <link rel="canonical" href="/" />
@@ -41,4 +41,4 @@
 
 @isset($appSetting->image)
     <meta property="og:image" content="{{ $appSetting->image }}" />
-@endisset
+@endisset --}}
