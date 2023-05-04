@@ -3,6 +3,7 @@
 @section('meta')
     <meta property="og:title" content="{{ $committee->title }}">
     <meta name="title" content="{{ $committee->title }}">
+    <meta name="author" content="{{ $committee->createdByEntity->name }}">
 @endsection
 
 @section('content')

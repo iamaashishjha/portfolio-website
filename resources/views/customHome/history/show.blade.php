@@ -4,6 +4,7 @@
 @section('meta')
     <meta property="og:title" content="{{ $history->title }}">
     <meta name="title" content="{{ $history->title }}">
+    <meta name="author" content="{{ $history->createdByEntity->name }}">
 @endsection
 
 @section('content')

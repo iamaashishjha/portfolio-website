@@ -4,6 +4,7 @@
     <meta property="og:title" content="{{ $event->title }}">
     <meta property="og:image" content="{{ asset($event->image) }}">
     <meta name="title" content="{{ $event->title }}">
+    <meta name="author" content="{{ $event->createdByEntity->name }}">
 @endsection
 
 @section('content')

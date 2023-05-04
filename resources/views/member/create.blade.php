@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<!--
-Template Name: Midone - HTML Admin Dashboard Template
-Author: Left4code
-Website: http://www.left4code.com/
-Contact: muhammadrizki@left4code.com
-Purchase: https://themeforest.net/user/left4code/portfolio
-Renew Support: https://themeforest.net/user/left4code/portfolio
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en">
 <!-- BEGIN: Head -->
 
@@ -19,7 +10,7 @@ License: You must have a valid license purchased only from themeforest(the above
         content="{{ isset($appSetting->meta_description) ? $appSetting->meta_description : ''  }}">
     <meta name="keywords"
         content="{{ isset($appSetting->keywords) ? $appSetting->keywords : '' }}">
-    <meta name="author" content="LEFT4CODE">
+    {{-- <meta name="author" content="LEFT4CODE"> --}}
 
     <title>
         @yield('title', 'Register Membership')

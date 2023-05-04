@@ -6,6 +6,8 @@
         <meta property="og:image" content="{{ asset($saying->image) }}">
     @endisset
     <meta name="title" content="{{ $saying->title }}">
+    <meta name="author" content="{{ $saying->createdByEntity->name }}">
+
 @endsection
 
 @section('content')

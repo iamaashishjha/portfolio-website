@@ -2,8 +2,12 @@
 
 @section('meta')
     <meta property="og:title" content="{{ $document->title }}">
+    @isset($document->image)
+        
     <meta property="og:image" content="{{ asset($document->image) }}">
+    @endisset
     <meta name="title" content="{{ $document->title }}">
+    <meta name="author" content="{{ $document->createdByEntity->name }}">
 @endsection
 
 @section('content')

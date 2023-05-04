@@ -6,6 +6,8 @@
         <meta property="og:image" content="{{ asset($library->image) }}">
     @endisset
     <meta name="title" content="{{ $library->title }}">
+    <meta name="author" content="{{ $library->createdByEntity->name }}">
+
 @endsection
 
 @section('content')

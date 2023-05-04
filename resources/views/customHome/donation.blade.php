@@ -25,10 +25,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-lg-3">
-                    <div class="row gy-4">
-                    </div>
-                </div>
             </div>
         </div>
     </section>

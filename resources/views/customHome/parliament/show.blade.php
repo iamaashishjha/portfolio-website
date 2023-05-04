@@ -6,6 +6,8 @@
         <meta property="og:image" content="{{ asset($parliament->image) }}">
     @endisset
     <meta name="title" content="{{ $parliament->title }}">
+    <meta name="author" content="{{ $parliament->createdByEntity->name }}">
+
 @endsection
 
 @section('content')
