@@ -77,7 +77,7 @@
                         </li>
                         <li class="span">
                             <a href="{{ route('home.member.create') }}" target="_blank">
-                                <span>नयाँ सदस्यता</span>
+                                <span>सदस्यता</span>
                             </a>
                         </li>
                         <li>

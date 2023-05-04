@@ -26,7 +26,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="icon">
-                                <i class="fas fa-paper-plane"></i>
+                                <i class="far fa-envelope-open"></i>
                             </div>
                             <div class="icon-box-content">
                                 <h3 class="icon-box-title">
@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="icon">
-                                <i class="fas fa-map-pin"></i>
+                                <i class="fas fa-map-marked"></i>
                             </div>
                             <div class="icon-box-content">
                                 <h3 class="icon-box-title">

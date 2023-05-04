@@ -32,15 +32,15 @@
 </div>
 <div class="text-center footer">
     <div class="container">
-        <div class="row">
+        <div class="row text-dark">
             <div class="col-md-12">
-                <p>{{ __('base.title') }} केन्द्रीय सूचना प्रविधि टोलि द्वारा सञ्चालित ।
-                    <a href="https://www.facebook.com/imaashishjha" target="_blank" style="color:#E10101">आशिष</a>
+                <p class="text-dark">{{ __('base.title') }} केन्द्रीय सूचना प्रविधि टोलि द्वारा सञ्चालित ।
+                    <a href="https://www.facebook.com/imaashishjha" target="_blank" class="text-dark">आशिष</a>
                     |
-                    <a href="https://www.facebook.com/mejibachh" target="_blank" style="color:#E10101">जिबछ</a>
+                    <a href="https://www.facebook.com/mejibachh" target="_blank" class="text-dark">जिबछ</a>
                 </p>
                 <div class="divider"></div>
-                <p class="mb-4">{{ __('home.address') }}:{{ $companyDetails->company_address }},
+                <p class="mb-4 text-dark" >{{ __('home.address') }}:{{ $companyDetails->company_address }},
                     {{ __('home.phone') }}: {{ $companyDetails->phone_number }}, {{ $companyDetails->mobile_number }}
                     {{ __('home.email') }}: {{ $companyDetails->email_address }}
                 </p>
