@@ -66,7 +66,7 @@ return [
 
     'about.sub-heading' => 'Join Campaigns',
     'about.heading' => 'We Will Make History Together',
-
+    'menuItems.mass-organization' => 'Mass Organization',
 
 
     'subscribe-mail.pre-button' => 'Donot miss our monthly updates',

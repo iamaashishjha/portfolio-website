@@ -61,7 +61,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN: Wizard Layout -->
                 <div class="intro-y box pb-10 sm:py-20">
                     <div class="flex items-center mb-6 px-4">
-                        <h2 class="intro-y text-lg font-medium mr-auto text-center">
+                        <h2 class="intro-y text-lg font-medium mr-auto text-center pt-4">
                             यस नागरिक उन्मुक्ति पार्टीको विधान बमोजिम पार्टीको साधारण सदस्यताको निमित आवश्यक बिवरण सहित यो फारम अनलाईन भर्दैछु।  यस पार्टीको विधानअनुसार संगठानिक हित र लक्ष्य प्राप्तिका निमित्त  सदैब विधानअनुसार पार्टीको हित्तको लागि काम गर्नेछु।  विधान विपरित कार्य गरेमा मैले प्राप्त गरेको सदस्यता स्वत: खारेज हुनेमा मेरो पूर्ण मन्जुरी छ।   
                         </h2>
                     </div>
