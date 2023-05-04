@@ -35,9 +35,9 @@
         <div class="row">
             <div class="col-md-12">
                 <p>{{ __('base.title') }} केन्द्रीय सूचना प्रविधि टोलि द्वारा सञ्चालित ।
-                    <a href="https://www.facebook.com/imaashishjha" target="_blank" style="color:#E10101">आशिष झा</a>
+                    <a href="https://www.facebook.com/imaashishjha" target="_blank" style="color:#E10101">आशिष</a>
                     |
-                    <a href="https://www.facebook.com/mejibachh" target="_blank" style="color:#E10101">जिबछ यादव</a>
+                    <a href="https://www.facebook.com/mejibachh" target="_blank" style="color:#E10101">जिबछ</a>
                 </p>
                 <div class="divider"></div>
                 <p class="mb-4">{{ __('home.address') }}:{{ $companyDetails->company_address }},
