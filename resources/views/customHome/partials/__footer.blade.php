@@ -38,7 +38,7 @@
                 <div class="divider"></div>
                 <p class="mb-4">{{ __('home.address') }}:{{ $companyDetails->company_address }},
                     {{ __('home.phone') }}: {{ $companyDetails->phone_number }}, {{ $companyDetails->mobile_number }}
-                    {{ __('home.email') }}: {{ $companyDetails->email }}
+                    {{ __('home.email') }}: {{ $companyDetails->email_address }}
                 </p>
             </div>
         </div>
