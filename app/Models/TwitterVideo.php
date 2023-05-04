@@ -35,6 +35,7 @@ class TwitterVideo extends BaseModel
 
     public function setIframeAttribute($value)
     {
-        $this->attributes['iframe'] = str_replace('width="560"', 'width="100%"', $value);
+        $new_string = preg_replace('/(width=".{3})/', '$1' . '100%', $value);
+        $this->attributes['iframe'] =$new_string;
     }
 }
