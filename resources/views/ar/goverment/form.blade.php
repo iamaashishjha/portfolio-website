@@ -4,6 +4,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css" />
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/> --}}
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" /> --}}
+
+    <style>
+        .note-editor {
+  z-index: 9999;
+}
+    </style>
 @endsection
 
 @section('content')
@@ -89,7 +95,7 @@ $authUser = \App\Models\User::find(Auth::id());
                     <div class="intro-x col-span-12 lg:col-span-12 m-5 p-5">
                         <div class="preview" id="input">
                             <label class="font-extrabold">Page Content</label>
-                            <textarea class="summernote" data-height="250" name="content">{{ isset($goverment) ? $goverment->content : old('content') }}</textarea>
+                            <textarea class="summernote" data-height="250" name="content" class="note-editor">{{ isset($goverment) ? $goverment->content : old('content') }}</textarea>
                         </div>
 
                     </div>

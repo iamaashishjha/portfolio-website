@@ -5,17 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\AdminEventController;
-use App\Http\Controllers\AdminSayingController;
 use App\Http\Controllers\AdminSliderController;
-use App\Http\Controllers\AdminBlogTagController;
 use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\AdminLibraryController;
-use App\Http\Controllers\AdminNewsTagController;
-use App\Http\Controllers\AdminThoughtController;
-use App\Http\Controllers\AdminBlogPostController;
 use App\Http\Controllers\AdminDocumentController;
-use App\Http\Controllers\AdminNewsPostController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\AdminCommitteeController;
 use App\Http\Controllers\AdminDashboardController;
@@ -27,9 +21,7 @@ use App\Http\Controllers\AdminTeamMemberController;
 use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminPopupNoticeController;
 use App\Http\Controllers\Auth\PermissionsController;
-use App\Http\Controllers\AdminBlogCategoryController;
 use App\Http\Controllers\AdminBulkMessagesController;
-use App\Http\Controllers\AdminNewsCategoryController;
 use App\Http\Controllers\AdminYoutubeVideoController;
 use App\Http\Controllers\Admin\Media\SayingController;
 use App\Http\Controllers\Admin\Media\BlogTagController;
@@ -41,6 +33,8 @@ use App\Http\Controllers\Admin\Media\NewsPostController;
 use App\Http\Controllers\Admin\Media\BlogCategoryController;
 use App\Http\Controllers\Admin\Media\NewsCategoryController;
 use App\Http\Controllers\Admin\Content\MassOrganizationController;
+use App\Http\Controllers\AdminFacebookVideoController;
+use App\Http\Controllers\AdminTwitterVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,6 +116,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
 
     Route::resource('/youtube-video', AdminYoutubeVideoController::class);
+    Route::resource('/facebook-video', AdminFacebookVideoController::class);
+    Route::resource('/twitter-video', AdminTwitterVideoController::class);
     Route::resource('/gallery', AdminGalleryController::class);
 
 

@@ -114,7 +114,9 @@ Route::name('home.')->group(function () {
 
     Route::controller(GalleryController::class)->group(function () {
         Route::prefix('/videos')->name('video.')->group(function () {
-            Route::get('/', 'listVideos')->name('index');
+            Route::get('/youtube', 'listYoutubeVideos')->name('youtube');
+            Route::get('/facebook', 'listFacebookVideos')->name('facebook');
+            Route::get('/twitter', 'listTwitterVideos')->name('twitter');
         });
     });
 });

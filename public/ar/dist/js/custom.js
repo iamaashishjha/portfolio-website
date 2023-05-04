@@ -15,6 +15,9 @@ $(document).ready(function () {
     copyMetaData();
     convertToDataTable();
     $("#btnDiv").show();
+    debugger;
+    $("#summernote").summernote();
+    debugger;
 });
 
 function copyMetaData() {

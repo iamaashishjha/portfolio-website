@@ -160,7 +160,7 @@
                         </li>
                     @endif
 
-                    
+
                 </ul>
             </li>
         @endif
@@ -214,6 +214,28 @@
                                 <div class="side-menu__icon"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
                                 </div>
                                 <div class="side-menu__title"> Youtube Video </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    {{-- Facebook Video --}}
+                    @if ($authUser->hasAnyPermission(['list facebookvideo']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.facebook-video.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Facebook Video </div>
+                            </a>
+                        </li>
+                    @endif
+
+                    {{-- Twitter Video --}}
+                    @if ($authUser->hasAnyPermission(['list twittervideo']))
+                        <li class="nav-item">
+                            <a href="{{ route('admin.twitter-video.index') }}" class="side-menu">
+                                <div class="side-menu__icon"> <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </div>
+                                <div class="side-menu__title"> Twitter Video </div>
                             </a>
                         </li>
                     @endif
@@ -406,10 +428,10 @@
                     return false;
                 });
             }
-            $currentPageLink.closest('ul').addClass('side-menu__sub-open menu__sub-open');
-            $currentPageLink.closest('ul').siblings('a').addClass('side-menu--active menu--active');
+            $currentPageLink.closest('ul').addClass('side-menu__sub-open');
+            $currentPageLink.closest('ul').siblings('a').addClass('side-menu--active');
             $currentPageLink.each(function() {
-                $(this).addClass('side-menu--active menu--active');
+                $(this).addClass('side-menu--active');
             });
         }
     </script>

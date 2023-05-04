@@ -1,5 +1,11 @@
 @extends('layouts.customHome')
 
+
+@section('meta')
+    <meta property="og:title" content="{{ $committee->title }}">
+    <meta name="title" content="{{ $committee->title }}">
+@endsection
+
 @section('content')
     <section class="committee-list section-gap">
         <div class="container">

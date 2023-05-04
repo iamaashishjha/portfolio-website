@@ -114,8 +114,11 @@
                                     Content
                                     <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none">*</span>
                                 </h5>
+                                {{-- <div class=" editor" data-feature="all" data-height="250" name="content">
+                                    {{ isset($popupNotice->content) ? $popupNotice->content : old('content') }}
+                                </div> --}}
                                 <div class="mt-5">
-                                    <textarea data-feature="all" class="summernote" data-height="250" name="content">{{ isset($popupNotice->content) ? $popupNotice->content : old('content') }}</textarea>
+                                    <textarea id="summernote" name="content">{{ isset($popupNotice->content) ? $popupNotice->content : old('content') }}</textarea>
                                 </div>
                                 @error('content')
                                     <span class="text-theme-6 mt-2" role="alert">
@@ -205,8 +208,8 @@
     @if (!isset($popupNotice))
         <script>
             $(document).ready(function() {
-                $('#noticeFile').show();
-                $('#noticeContent').hide();
+                $('#noticeFile').hide();
+                $('#noticeContent').show();
             });
         </script>
     @endif

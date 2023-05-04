@@ -1,5 +1,6 @@
 @extends('layouts.customHome')
 
+
 @section('content')
     <section class="news news-page section-gap">
         <div class="container">

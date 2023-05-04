@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\YoutubeVideo;
 use Illuminate\Http\Request;
+use App\Models\FacebookVideo;
 use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminYoutubeVideoController extends BaseAdminController
+class AdminFacebookVideoController extends BaseAdminController
 {
     protected $model;
     public function __construct()
     {
-        $this->model = YoutubeVideo::class;
+        $this->model = FacebookVideo::class;
     }
 
 
@@ -24,8 +24,8 @@ class AdminYoutubeVideoController extends BaseAdminController
     public function index()
     {
         $this->checkPermission('list');
-        $this->data['videos'] = YoutubeVideo::all();
-        return view('ar.youtube-video.index', $this->data);
+        $this->data['videos'] = $this->model::all();
+        return view('ar.facebook-video.index', $this->data);
     }
 
     /**
@@ -38,10 +38,9 @@ class AdminYoutubeVideoController extends BaseAdminController
     {
         $this->checkPermission('create');
         $dataArr = $request->only(['title', 'iframe']);
-        YoutubeVideo::create($dataArr);
+        $this->model::create($dataArr);
         Alert::success('Video Created successfully');
-        return redirect()->route('admin.youtube-video.index');
-        //
+        return redirect()->route('admin.facebook-video.index');
     }
 
     /**
@@ -55,10 +54,10 @@ class AdminYoutubeVideoController extends BaseAdminController
     {
         $this->checkPermission('update');
         $dataArr = $request->only(['title', 'iframe']);
-        $video = YoutubeVideo::find($id);
+        $video = $this->model::find($id);
         $video->update($dataArr);
         Alert::success('Video Updated successfully');
-        return redirect()->route('admin.youtube-video.index');
+        return redirect()->route('admin.facebook-video.index');
         //
     }
 
@@ -71,9 +70,9 @@ class AdminYoutubeVideoController extends BaseAdminController
     public function destroy($id)
     {
         $this->checkPermission('delete');
-        $video = YoutubeVideo::find($id);
+        $video = $this->model::find($id);
         $video->delete();
         Alert::success('Video Deleted successfully');
-        return redirect()->route('admin.youtube-video.index');
+        return redirect()->route('admin.facebook-video.index');
     }
 }

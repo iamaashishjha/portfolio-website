@@ -1,5 +1,13 @@
 @extends('layouts.customHome')
 
+@section('meta')
+    <meta property="og:title" content="{{ $saying->title }}">
+    @isset($saying->image)
+        <meta property="og:image" content="{{ asset($saying->image) }}">
+    @endisset
+    <meta name="title" content="{{ $saying->title }}">
+@endsection
+
 @section('content')
     <section class="news news-page section-gap">
         <div class="container">

@@ -16,11 +16,12 @@
                 <div class="col-md-12 col-lg-5">
                     <a href="#">
                         <div class="img-section">
-                            <img src="{{isset($companyDetails->president_pic) ? $companyDetails->president_pic : '/ar/dist/images/profile-11.jpg'}}" alt="{{$companyDetails->president_name}}">
+                            <img src="{{ isset($companyDetails->president_pic) ? $companyDetails->president_pic : '/ar/dist/images/profile-11.jpg' }}"
+                                alt="{{ $companyDetails->president_name }}">
                             <div class="text-center">
-                                <h1 class="text-title mt-3">{{$companyDetails->president_name}}
+                                <h1 class="text-title mt-3">{{ $companyDetails->president_name }}
                                 </h1>
-                                <span class="text-title-small">{{__('home.president')}}</span>
+                                <span class="text-title-small">{{ __('home.president') }}</span>
                             </div>
                         </div>
                     </a>
@@ -84,7 +85,7 @@
             </div>
         </section>
     @endif
-    
+
     @if (count($thoughts))
         <section class="news bichar section-gap">
             <div class="container">
@@ -123,12 +124,13 @@
     {{-- Contact Section  --}}
 
 
+    {{-- Youtube videos  --}}
     @if (count($youtubeVideos))
         <section class="videos section-gap bg-dark">
             <div class="container">
                 <div class="main-title border-bottom-white d-flex
                 justify-content-between">
-                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
+                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.youtube') }}'"
                         style="cursor:
                     pointer">
                         {{ __('home.menuItems.video') }}
@@ -150,6 +152,63 @@
         </section>
     @endif
 
+    {{-- Youtube videos  --}}
+    @if (count($facebookVideos))
+        <section class="videos section-gap bg-dark">
+            <div class="container">
+                <div class="main-title border-bottom-white d-flex
+                justify-content-between">
+                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.facebook') }}'"
+                        style="cursor:
+                    pointer">
+                        {{ __('home.menuItems.video') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.video.index') }}" class="read-more float-end text-white">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($facebookVideos as $video)
+                        <div class="col-md-6">
+                            {!! $video->iframe !!}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- Youtube videos  --}}
+    @if (count($twitterVideos))
+        <section class="videos section-gap bg-dark">
+            <div class="container">
+                <div class="main-title border-bottom-white d-flex
+                justify-content-between">
+                    <h2 class="section-title text-white" onclick="location.href='{{ route('home.video.index') }}'"
+                        style="cursor:
+                    pointer">
+                        {{ __('home.menuItems.video') }}
+                    </h2>
+                    <div class="">
+                        <a href="{{ route('home.video.twitter') }}" class="read-more float-end text-white">
+                            {{ __('home.menuItems.read_more') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="row gy-4">
+                    @foreach ($twitterVideos as $video)
+                        <div class="col-md-6">
+                            {!! $video->iframe !!}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- sayings  --}}
     @if (count($sayings))
         <section class="news bichar section-gap">
             <div class="container">

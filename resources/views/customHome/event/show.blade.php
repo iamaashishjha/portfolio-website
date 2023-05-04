@@ -1,5 +1,11 @@
 @extends('layouts.hr')
 
+@section('meta')
+    <meta property="og:title" content="{{ $event->title }}">
+    <meta property="og:image" content="{{ asset($event->image) }}">
+    <meta name="title" content="{{ $event->title }}">
+@endsection
+
 @section('content')
     
         <section class="inner-banner">
