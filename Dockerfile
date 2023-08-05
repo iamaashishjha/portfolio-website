@@ -36,7 +36,7 @@ RUN php artisan key:generate
 # RUN php artisan migrate:fresh --seed
 
 # Expose the port
-EXPOSE 8070
+EXPOSE 8080
 
 # Start the server
-CMD php artisan serve --host=0.0.0.0 --port=8070
+CMD php artisan serve --host=0.0.0.0 --port=8080
