@@ -33,7 +33,7 @@ RUN composer install
 RUN php artisan key:generate
 
 # Run Migration and seed 
-# RUN php artisan migrate:fresh --seed
+RUN php artisan migrate:fresh --seed
 
 # Expose the port
 EXPOSE 8080
