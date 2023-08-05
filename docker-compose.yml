@@ -1,25 +1,27 @@
 version: '3'
 services:
+  database:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: portfolio-website-database-1
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - laravel-net
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: portfolio_website
+    image: php:8.1-apache
     ports:
       - '8080:8080'
     volumes:
       - .:/var/www/html
     depends_on:
       - database
-    networks:
-      - laravel-net
-  database:
-    image: mysql:5.7
-    environment:
-      MYSQL_DATABASE: portfolio_website_db
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    volumes:
-      - db-data:/var/lib/mysql
     networks:
       - laravel-net
 volumes:
