@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Payment\PaymentGatewayController;
 use App\Models\MassOrganization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
@@ -94,7 +95,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::resource('/event', AdminEventController::class);
 
-    
+
     Route::resource('/document', AdminDocumentController::class);
     Route::resource('/library', AdminLibraryController::class);
 
@@ -133,6 +134,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     });
     Route::resource('/committee', AdminCommitteeController::class);
     Route::resource('/leadership', AdminLeadershipController::class);
+
+    Route::resource('/payment-gateways', PaymentGatewayController::class);
 });
 
 // This should be the end of file and last line for this file

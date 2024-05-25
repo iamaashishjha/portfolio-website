@@ -398,6 +398,21 @@
                 </ul>
             </li>
         @endif
+        <li class="nav-item">
+            <a href="javascript:;" class="side-menu">
+                <div class="side-menu__icon"> <i data-feather="key"></i> </div>
+                <div class="side-menu__title"> Payment Setups
+                    <i data-feather="chevron-down" class="side-menu__sub-icon"></i>
+                </div>
+            </a>
+            <ul>
+                <li class="nav-item">
+                    <a href="{{ route('admin.payment-gateways.index') }}" class="side-menu">
+                        <div class="side-menu__icon"> <i class="fa fa-lock" aria-hidden="true"></i> </div>
+                        <div class="side-menu__title"> Payment Addresses </div>
+                    </a>
+                </li>
+            </ul>
 
     </ul>
 </nav>
