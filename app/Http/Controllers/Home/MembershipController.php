@@ -7,9 +7,10 @@ use App\Models\Province;
 use App\Models\Membership;
 use App\Models\AppSettings;
 use App\Models\LocalLevelType;
+use App\Models\PaymentGateways;
+use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
-use App\Traits\Base\BaseHomeController;
 
 class MembershipController extends BaseHomeController
 {
@@ -20,7 +21,8 @@ class MembershipController extends BaseHomeController
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
         $this->data['appSetting'] = AppSettings::first();
-        return view('member.create', $this->data);
+        // return view('member.create', $this->data);
+        return view('hr.membership.form', $this->data);
     }
 
     /**
@@ -31,7 +33,28 @@ class MembershipController extends BaseHomeController
      */
     public function store(StoreMemberRequest $request)
     {
+        $member = $this->storeMembershipForm($request);
+        Alert::success('Membership form submitted successfully. We will get back to you soon');
+        return redirect()->route('home.member.payment-form', $member->id);
+    }
 
+    public function getPayMembershipFeeForm(int $memberId){
+        $this->data['payment_gateways'] = PaymentGateways::all();
+        $this->data['memberId'] = $memberId;
+        return view('member.payment', $this->data);
+    }
+
+    public function payMembershipFee(){
+
+    }
+
+    public function getApprovedMembers()
+    {
+        $this->data['members'] = Membership::approvedMember()->get();
+        return view('customHome.member.approved-member', $this->data);
+    }
+
+    private function storeMembershipForm(StoreMemberRequest $request){
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
         }else{
@@ -144,6 +167,7 @@ class MembershipController extends BaseHomeController
 
         $member->property_other = $request->property_other;
 
+
         $member->party_post = $request->party_post;
         $member->committee_name = $request->committee_name;
         $member->party_lebidar = $request->party_lebidar;
@@ -167,13 +191,7 @@ class MembershipController extends BaseHomeController
         $member->pan_back = $panBack;
 
         $member->save();
-        Alert::success('Membership form submitted successfully. We will get back to you soon');
-        return redirect('/');
-    }
 
-    public function getApprovedMembers()
-    {
-        $this->data['members'] = Membership::approvedMember()->get();
-        return view('customHome.member.approved-member', $this->data);
+        return $member;
     }
 }

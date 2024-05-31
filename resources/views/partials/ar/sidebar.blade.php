@@ -409,7 +409,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.payment-gateways.index') }}" class="side-menu">
                         <div class="side-menu__icon"> <i class="fa fa-lock" aria-hidden="true"></i> </div>
-                        <div class="side-menu__title"> Payment Addresses </div>
+                        <div class="side-menu__title"> Payment Gateways </div>
                     </a>
                 </li>
             </ul>

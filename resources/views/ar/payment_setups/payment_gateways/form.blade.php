@@ -5,29 +5,28 @@
 @endsection
 
 @section('content')
-    @php
-        $authUser = \App\Models\User::find(Auth::id());
-    @endphp
-        <!-- END: Top Bar -->
-    <h2 class="intro-y text-lg font-medium mt-10">
-        @if (isset($parliament))
-            Edit "{{ $parliament->title }}" details
-        @else
-            Create Parliament
-        @endif
-    </h2>
-    <div class="grid grid-cols-12 gap-6 mt-5">
-        @if ($authUser->hasPermissionTo('create parliament'))
-            <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-                <a class="button text-white bg-theme-1 shadow-md mr-2" href="#">
-                    <i class="fa fa-list" aria-hidden="true"></i>
-                    All Parliaments
+
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            @if (isset($member))
+                Edit "{{ $member->name }}" details
+            @else
+                Create New Payment Gateway
+            @endif
+        </h2>
+        @if (auth()->user()->can('list paymentgateways'))
+            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+                <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.team-member.index') }}">
+                    <i class="fa fa-list mr-2" aria-hidden="true"></i>
+                    All Payment Gateways
                 </a>
             </div>
         @endif
+    </div>
+    <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="col-span-12">
             <form
-                action="{{ isset($parliament) ? route('admin.parliament.update', $parliament->id) : route('admin.parliament.store') }}"
+                action="{{ isset($parliament) ? route('admin.payment-gateways.update', $parliament->id) : route('admin.payment-gateways.store') }}"
                 method="post" enctype="multipart/form-data">
                 {{-- <form action="#" method="post" enctype="multipart/form-data"> --}}
                 @csrf
@@ -36,67 +35,86 @@
                 @endisset
                 <div class="intro-x box">
                     <h2 class="text-4xl font-medium leading-none m-3 p-4 text-theme-6">
-                        {{ isset($parliament) ? 'Edit ' . $parliament->title : 'Create Parliament' }}
+                        {{ isset($parliament) ? 'Edit ' . $parliament->title : 'Create Payment Gateway' }}
                     </h2>
                 </div>
                 <div class="grid grid-cols-12 gap-2 mt-5 box intro-y">
+
                     <div class="intro-y col-span-12 lg:col-span-8">
-                        <!-- BEGIN: Input -->
-                        <div class="pt-5 px-5 preview" id="input">
-                            <label class="font-extrabold">Title</label>
-                            <input type="text" class="input w-full border mt-2" placeholder="Enter Title" name="title"
-                                   required autocomplete="email"
-                                   value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
+                        <div class="grid w-full gap-2 md:grid-cols-2">
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Name</label>
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
+                                    name="name" required
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('name') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Base Url</label>
+                                <input type="url" class="input w-full border mt-2"
+                                    placeholder="Enter Payment Gateway Base Url" name="base_url" required
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Signing Key</label>
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Signing Key"
+                                    name="signing_key"
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Signing File</label>
+                                <input type="file" class="input w-full border mt-2" placeholder="Enter Signing File"
+                                    name="signing_file"
+                                    value="{{ isset($parliament->file) ? $parliament->file : old('file') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Secret Key Name</label>
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Secret Key Name"
+                                    name="secret_key_name"
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Secret Key</label>
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Secret Key"
+                                    name="secret_key"
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
+                            </div>
+                            <!-- END: Input -->
                         </div>
-                        <!-- END: Input -->
-                        <!-- BEGIN: Input -->
-                        <div class="pt-5 px-5 preview" id="input">
-                            <label class="font-extrabold">Base Url</label>
-                            <input type="text" class="input w-full border mt-2" placeholder="Enter Title" name="title"
-                                   required autocomplete="email"
-                                   value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
-                        </div>
-                        <!-- END: Input -->
-                        <!-- BEGIN: Input -->
-                        <div class="pt-5 px-5 preview" id="input">
-                            <label class="font-extrabold">Key</label>
-                            <input type="text" class="input w-full border mt-2" placeholder="Enter Title" name="title"
-                                   required autocomplete="email"
-                                   value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
-                        </div>
-                        <!-- END: Input -->
-                        <!-- BEGIN: Input -->
-                        <div class="pt-5 px-5 preview" id="input">
-                            <label class="font-extrabold">File</label>
-                            <input type="file" class="input w-full border mt-2" placeholder="Enter File" name="file"
-                                   required autocomplete="file"
-                                   value="{{ isset($parliament->file) ? $parliament->file : old('file') }}">
-                        </div>
-                        <!-- END: Input -->
                     </div>
                     <div class="intro-y col-span-12 lg:col-span-4">
                         <!-- BEGIN: Display Information -->
                         <div class="border border-gray-200 dark:border-dark-5 rounded-md p-5 mt-5">
                             <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
                                 <img class="rounded-md" alt="Midone Tailwind HTML Admin Template"
-                                     src="{{ isset($parliament->image) ? $parliament->image : '/ar/dist/images/profile-6.jpg' }}"
-                                     id="imagetoChange">
+                                    src="{{ isset($parliament->image) ? $parliament->image : '/ar/dist/images/profile-6.jpg' }}"
+                                    id="imagetoChange">
                             </div>
                             <div class="w-40 mx-auto cursor-pointer relative mt-5">
                                 <button type="button" class="button w-full bg-theme-1 text-white">Upload Photo</button>
                                 <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0" name="image"
-                                       id="inputBtn" onchange="loadFile(event)">
+                                    id="inputBtn" onchange="loadFile(event)">
                             </div>
                         </div>
                         <!-- END: Display Information -->
                     </div>
                     <div class="intro-x col-span-12 lg:col-span-12 m-5 p-5">
                         <button type="submit"
-                                class="button w-100 mr-2 mb-2 flex items-center justify-center bg-theme-9 text-white">
+                            class="button w-100 mr-2 mb-2 flex items-center justify-center bg-theme-9 text-white">
                             @if (isset($parliament))
                                 Edit {{ $parliament->name }}
                             @else
-                                Create Parliament
+                                Create Payment Gateway
                             @endif
                         </button>
                     </div>

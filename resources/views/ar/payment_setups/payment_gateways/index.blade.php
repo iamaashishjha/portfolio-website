@@ -9,17 +9,13 @@
 @endpush
 
 @section('content')
-    @php
-        $authUser = \App\Models\User::find(Auth::id());
-    @endphp
-
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            All Parliaments
+            All Payment Gateways    
         </h2>
-        @if ($authUser->hasPermissionTo('create parliament'))
+        @if (auth()->user()->can('create paymentgateways'))
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a href="{{route('admin.payment-gateways.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add New Parliament</a>
+                <a href="{{route('admin.payment-gateways.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add New Payment Gateway</a>
             </div>
         @endif
     </div>
@@ -28,10 +24,10 @@
             <thead>
             <tr>
                 <th class="whitespace-no-wrap">#</th>
-                <th class="whitespace-no-wrap">Title</th>
+                <th class="whitespace-no-wrap">Name</th>
                 <th class="text-center whitespace-no-wrap">Image</th>
-                <th class="text-center whitespace-no-wrap">URL</th>
-                <th class="text-center whitespace-no-wrap">Key</th>
+                <th class="text-center whitespace-no-wrap">Base URL</th>
+                <th class="text-center whitespace-no-wrap">Secret Key</th>
                 <th class="text-center whitespace-no-wrap">Is Active</th>
                 <th class="text-center whitespace-no-wrap">ACTIONS</th>
             </tr>
@@ -41,47 +37,47 @@
                 <tr class="intro-x">
                     <td></td>
                     <td>
-                        <a href="" class="font-medium whitespace-no-wrap">{{ $item->title }}</a>
+                        <a href="" class="font-medium whitespace-no-wrap">{{ $item->name }}</a>
                     </td>
                     <td class="w-40 border-b">
                         <div class="flex sm:justify-center">
                             <div class="intro-x w-10 h-10 image-fit">
-                                <img alt="{{ $item->title }}" class="rounded-full"
-                                     src="{{ $item->image ?? Avatar::create($item->title)->toBase64() }}">
+                                <img alt="{{ $item->name }}" class="rounded-full"
+                                     src="{{ $item->image ?? Avatar::create($item->name)->toBase64() }}">
                             </div>
                         </div>
                     </td>
                     <td class="">
-                        {!! $parliament->status !!}
+                        {!! $item->base_url !!}
                     </td>
                     <td>
-                        {{ $parliament->created_at->toDateString() }}
+                        {{ $item->secret_key }}
                         <div class="text-gray-600 text-xs whitespace-no-wrap">
                         </div>
                     </td>
                     <td>
                         <div class="text-gray-600 text-xs whitespace-no-wrap">
-                            {{ $parliament->createdByEntity->name }}
+                            {!! $item->is_active !!}
                         </div>
                     </td>
                     <td class="table-report__action w-56">
                         <div class="flex">
                             <a class="flex items-center mr-3 text-theme-3" href="javascript:;" data-toggle="modal"
-                               data-target="#view-modal-{{ $parliament->id }}">
+                               data-target="#view-modal-{{ $item->id }}">
                                 <i data-feather="eye" class="w-4 h-4 mr-1"></i>
                                 View
                             </a>
-                            @if ($authUser->hasPermissionTo('update parliament'))
-                                <a class="flex items-center mr-3" href="{{route('admin.parliament.edit', $parliament->id)}}">
+                            @if (auth()->user()->can('update paymentgateways'))
+                                <a class="flex items-center mr-3" href="{{route('admin.payment-gateways.edit', $item->id)}}">
                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i>
                                     Edit
                                 </a>
                             @endif
-                            @if ($authUser->hasPermissionTo('delete parliament'))
+                            @if (auth()->user()->can('delete paymentgateways'))
                                 <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
-                                   data-target="#delete-modal-preview-{{ $parliament->id }}"> <i data-feather="trash-2"
+                                   data-target="#delete-modal-preview-{{ $item->id }}"> <i data-feather="trash-2"
                                                                                                  class="w-4 h-4 mr-1"></i> Delete </a>
-                                <div class="modal" id="delete-modal-preview-{{ $parliament->id }}">
+                                <div class="modal" id="delete-modal-preview-{{ $item->id }}">
                                     <div class="modal__content">
                                         <div class="p-5 text-center"> <i data-feather="x-circle"
                                                                          class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
@@ -89,7 +85,7 @@
                                             <div class="text-gray-600 mt-2">Do you really want to delete this post?</div>
                                         </div>
                                         <div class="px-5 pb-8 text-center">
-                                            <form action="{{ route('admin.parliament.destroy', $parliament->id) }}" method="post">
+                                            <form action="{{ route('admin.payment-gateways.destroy', $item->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" data-dismiss="modal"
@@ -102,12 +98,12 @@
 
                             @endif
                             <!-- BEGIN: View Modal -->
-                            <div class="modal" id="view-modal-{{ $parliament->id }}">
+                            <div class="modal" id="view-modal-{{ $item->id }}">
                                 <div class="modal__content">
                                     <div class="p-5">
                                         <div class="mx-6">
                                             <div class="h-full image-fit rounded-md overflow-hidden">
-                                                {!! $parliament->content !!}
+                                                {!! $item->content !!}
                                             </div>
                                         </div>
                                     </div>

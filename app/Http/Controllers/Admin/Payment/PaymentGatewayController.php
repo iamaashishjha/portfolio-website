@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Payment;
 use App\Models\PaymentGateways;
 use App\Repositories\AdminEloquentResourceRepository;
 use App\Traits\Base\BaseAdminController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class PaymentGatewayController extends BaseAdminController
@@ -37,8 +38,20 @@ class PaymentGatewayController extends BaseAdminController
 
     public function create(){
         try {
-
             return  view('ar.payment_setups.payment_gateways.form');
+        } catch (\Exception $ex) {
+            Log::error($this->context."@index => ", [
+                "error_message" => $ex->getMessage(),
+                "error_trace" => $ex->getTraceAsString()
+            ]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
+        }
+    }
+
+    public function store(Request $request){
+        try {
+            $this->model->create($request->all());
+            return redirect()->back()->with('success', "Payment Gateway Successfully Added.");
         } catch (\Exception $ex) {
             Log::error($this->context."@index => ", [
                 "error_message" => $ex->getMessage(),

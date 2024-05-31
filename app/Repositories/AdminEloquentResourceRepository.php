@@ -9,8 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class AdminEloquentResourceRepository extends BaseRepository implements AdminEloquentResourceInterface
 {
     protected $model;
+    
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
+
+    // public function index(){
+    //     // dd('index admin eloquent repo');
+    //     return $this->model->all();
+    // }
 }
