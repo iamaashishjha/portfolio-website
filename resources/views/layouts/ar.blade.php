@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
     @yield('css')
     <style>
@@ -80,7 +81,8 @@
                 <!-- END: Search -->
                 <!-- BEGIN: Account Menu -->
                 <div class="intro-x dropdown w-8 h-8 relative">
-                    <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in">
+                    <div class="dropdown-toggle w-8 h-8 rounded-full over
+                    -hidden shadow-lg image-fit zoom-in">
                         <img alt="#"
                             src="{{ isset($authUser->image) ? $authUser->image : Avatar::create($authUser->name)->toBase64() }}">
                     </div>
@@ -144,7 +146,7 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
     <script src="/ar/dist/js/custom.js"></script>
     <!-- include summernote css/js -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('script')
     @stack('script')
 

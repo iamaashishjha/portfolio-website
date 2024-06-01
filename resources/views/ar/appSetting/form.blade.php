@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New App Setting | Nagrik Unmukti Party --}}
-    {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '". | Nagrik Unmukti Party' : 'Create New App Setting | Nagrik Unmukti Party' }}
+    {{-- Create New App Setting | Nagrik Unmukti PartyDetails --}}
+    {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '". | Nagrik Unmukti PartyDetails' : 'Create New App Setting | Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')

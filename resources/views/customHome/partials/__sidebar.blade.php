@@ -47,7 +47,7 @@
             <a href="{{ route('home.mass-organization.index') }}" class="nav-link-menu">{{ __('home.menuItems.mass-organization') }}</a>
         @endif
 
-        {{-- Membership  --}}
+        {{-- Member  --}}
         <div class="dropdown nav-link-menu">
             <button class="dropdown-btn">{{ __('home.menuItems.membership') }}
                 <i class="fas fa-chevron-down"></i>
@@ -136,7 +136,7 @@
 
         {{-- donation  --}}
         @if (isset($donation))
-            
+
         <a href="{{ route('home.donation') }}" class="nav-link-menu">{{ __('home.menuItems.donation') }}</a>
         @endif
 

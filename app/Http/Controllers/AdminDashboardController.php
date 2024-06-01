@@ -6,7 +6,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Models\Event;
-use App\Models\Membership;
+use App\Models\Member;
 use App\Models\NewsCategory;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
@@ -22,7 +22,8 @@ class AdminDashboardController extends BaseAdminController
     {
         // dd('ok');
         $this->data['userCount'] = count(User::all());
-        $this->data['memberCount'] = count(Membership::all());
+        // $this->data['memberCount'] = count(Member::all());
+        $this->data['memberCount'] = 0;
         $this->data['eventsCount'] = count(Event::all());
         $this->data['blogsCatCount'] = count(BlogCategory::where('status', 1)->get());
         $this->data['blogsTagsCount'] = count(BlogTags::where('status', 1)->get());

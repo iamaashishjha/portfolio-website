@@ -30,7 +30,7 @@ function copyMetaData() {
     $("#title").blur(function () {
         var Text = $(this).val();
         Text = Text.replace(/[^a-zA-Z0-9]+/g, " ");
-        $("#meta_title").val(Text + " || Nagrik Unmukti Party");
+        $("#meta_title").val(Text + " || Nagrik Unmukti PartyDetails");
     });
     $("#title").blur(function () {
         var Text = $(this).val();
@@ -154,8 +154,8 @@ function getProvince(value) {
     });
 }
 
-function getDistrict(value) {
-    var provinceId = $('select[name="' + value + '_province_id"]').val();
+function getDistrict(selectedProvinceId, districtId) {
+    const provinceId = $('#'+selectedProvinceId).val();
     if (provinceId) {
         $.ajax({
             url: "/getDistrict/" + provinceId,
@@ -165,36 +165,19 @@ function getDistrict(value) {
             },
             dataType: "json",
             success: function (data) {
+                $('#'+districtId).empty();
                 if (data) {
-                    $('select[name="' + value + '_district_id"]').empty();
-                    $('select[name="' + value + '_district_id"]').append(
-                        "<option hidden> जिल्ला छान्नुहोस् |</option>"
-                    );
+                    $('#'+districtId).append("<option hidden> जिल्ला छान्नुहोस् |</option>");
                     $.each(data, function (key, district) {
-                        $('select[name="' + value + '_district_id"]').append(
-                            '<option value="' +
-                                district.id +
-                                '">' +
-                                district.code +
-                                " - " +
-                                district.name_en +
-                                " (" +
-                                district.name_lc +
-                                ")" +
-                                "</option>"
-                        );
+                        $('#'+districtId).append('<option value="' + district.id + '">' + district.code + " - " + district.name_en + " (" +  district.name_lc + ")" + "</option>");
                     });
                 } else {
-                    $('select[name="' + value + '_district_id"]').append(
-                        "<option hidden> पहिला प्रदेश छान्नुहोस् |</option>"
-                    );
+                    $('select[name="' + value + '_district_id"]').append("<option hidden> पहिला प्रदेश छान्नुहोस् |</option>");
                 }
             },
         });
     } else {
-        $('select[name="' + value + '_province_id"]').append(
-            "<option hidden> प्रदेश छान्नुहोस् |</option>"
-        );
+        $('select[name="' + value + '_province_id"]').append("<option hidden> प्रदेश छान्नुहोस् |</option>");
     }
 }
 
@@ -239,8 +222,8 @@ function getLocalLevelType(value) {
     }
 }
 
-function getLocalLevel(value) {
-    var districtId = $('select[name="' + value + '_district_id"]').val();
+function getLocalLevel(selectedDistrictId, localLevelId) {
+    var districtId = $('#' + selectedDistrictId).val();
     if (districtId) {
         $.ajax({
             url: "/getLocalLevel/" + districtId,
@@ -251,28 +234,13 @@ function getLocalLevel(value) {
             dataType: "json",
             success: function (data) {
                 if (data) {
-                    $('select[name="' + value + '_local_level_id"]').empty();
-                    $('select[name="' + value + '_local_level_id"]').append(
-                        "<option hidden>---  स्थानइय तह छान्नुहोस् |  ---</option>"
-                    );
+                    $('#' + localLevelId).empty();
+                    $('#' + localLevelId).append("<option hidden>---  स्थानइय तह छान्नुहोस् |  ---</option>");
                     $.each(data, function (key, localLevel) {
-                        $('select[name="' + value + '_local_level_id"]').append(
-                            '<option value="' +
-                                localLevel.id +
-                                '">' +
-                                localLevel.code +
-                                " - " +
-                                localLevel.name_en +
-                                " (" +
-                                localLevel.name_lc +
-                                ")" +
-                                "</option>"
-                        );
+                        $('#' + localLevelId).append('<option value="' +localLevel.id +'">' +localLevel.code +" - " +localLevel.name_en +" (" +localLevel.name_lc +")" +"</option>");
                     });
                 } else {
-                    $('select[name="' + value + '_local_level_id"]').append(
-                        "<option hidden>---  पहिला जिल्ला छान्नुहोस् |  ---</option>"
-                    );
+                    $('#' + localLevelId).append("<option hidden>---  पहिला जिल्ला छान्नुहोस् |  ---</option>");
                 }
             },
         });

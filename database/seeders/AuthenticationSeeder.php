@@ -41,7 +41,7 @@ class AuthenticationSeeder extends Seeder
     private function userSeeder(){
         // DB::table('users')->truncate();
         User::create([
-            'name' => 'Nagrik Unmukti Party',
+            'name' => 'Nagrik Unmukti PartyDetails',
             'email' => 'admin@admin.com',
             'password' => Hash::make('Admin@1234'),
             'email_verified_at' => now(),

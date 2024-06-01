@@ -13,7 +13,7 @@
     {{-- <meta name="author" content="LEFT4CODE"> --}}
 
     <title>
-        @yield('title', 'Register Membership')
+        @yield('title', 'Register Member')
     </title>
     <!-- BEGIN: CSS Assets-->
     <link rel="stylesheet" href="/ar/dist/css/app.css" />

@@ -41,6 +41,14 @@ class TransactionController extends Controller
             // ];
         }
 
+        Log::debug("FETCH-MEMBER-CONFIGS", [
+            'transaction_id' => $transactionId,
+            'transaction_amount' => $amount,
+            'payment_gateway_refrence_id' => null,
+            'is_paid' => false,
+            'payment_gateway_id' => $paymentGatewayId,
+            'membership_id' => $memberId,
+        ]);
         $this->storeMemberTransactions([
             'transaction_id' => $transactionId,
             'transaction_amount' => $amount,
@@ -62,7 +70,7 @@ class TransactionController extends Controller
                 'payment_gateway_refrence_id' => $requests['payment_gateway_refrence_id'],
                 'is_paid' => $requests['is_paid'],
                 'payment_gateway_id' => $requests['payment_gateway_id'],
-                'membership_id' => $requests['membership_id'],
+                'member_id' => $requests['membership_id'],
             ];
             Transaction::create($transactionsRqst);
         } catch (\Throwable $th) {

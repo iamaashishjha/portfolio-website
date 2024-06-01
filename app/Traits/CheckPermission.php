@@ -13,7 +13,7 @@ trait CheckPermission
     {
         $reflection = new ReflectionClass($this->model);
         $user = User::find(Auth::id());
-        $permission = $user->hasPermissionTo($method . ' ' . Str::lower($reflection->getShortName()));
+        $permission = auth()->user()->hasPermissionTo($method . ' ' . Str::lower($reflection->getShortName()));
         if ($permission) {
             return;
         } else {

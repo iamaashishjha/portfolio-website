@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Popup Notice | Nagrik Unmukti Party --}}
+    {{-- Create New Popup Notice | Nagrik Unmukti PartyDetails --}}
     {{ isset($popupNotice)
-        ? 'Edit Popup Notice ' . '"' . $popupNotice->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Popup Notice ' . '"' . $popupNotice->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Popup Notice |
-                                        Nagrik Unmukti Party' }}
+                                        Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')

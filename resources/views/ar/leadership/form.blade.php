@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Leadership | Nagrik Unmukti Party --}}
+    {{-- Create New Leadership | Nagrik Unmukti PartyDetails --}}
     {{ isset($leadership)
-        ? 'Edit Leadership ' . '"' . $leadership->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Leadership ' . '"' . $leadership->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Leadership |
-                                                            Nagrik Unmukti Party' }}
+                                                            Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')

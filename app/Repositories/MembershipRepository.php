@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Models\Membership;
-use App\Repositories\Interfaces\MembershipInterface;
 use App\Traits\FileTrait;
+use App\Models\Member;
+use Illuminate\Support\Str;
+use App\Repositories\Interfaces\MembershipInterface;
 
 class MembershipRepository implements MembershipInterface
 {
@@ -12,12 +13,18 @@ class MembershipRepository implements MembershipInterface
 
     protected $model;
 
-    public function __construct(Membership $model)
+    public function __construct(Member $model)
     {
         $this->model = $model;
     }
 
-    public function storeOrUpdateMembership(array $requestsArr){
+
+    public function generateMembershipId()
+    {
+        return Str::uuid()->toString();
+    }
+
+    public function storeOrUpdateMembership(array $requestsArr, int $modelId){
 
         try {
             //code...
@@ -36,7 +43,7 @@ class MembershipRepository implements MembershipInterface
         $panBack = $this->uploadFileToDiskFromArray($requestsArr, 'pan_back', 'member/pan');
         $this->model->create($requestsArr);
 
-        // $member = new Membership();
+        // $member = new Member();
 
         // $member->name_en = $request->name_en;
         // $member->name_lc = $request->name_lc;

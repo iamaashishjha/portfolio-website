@@ -12,7 +12,7 @@ return [
     'menuItems.read_more' => 'Read More',
 
     'menuItems.home' => 'Home',
-    'menuItems.membership' => 'Membership',
+    'menuItems.membership' => 'Member',
     'menuItems.membership.create' => 'Register Form',
     'menuItems.membership.form' => 'Form',
 
@@ -100,7 +100,7 @@ return [
     'footer.explore' => 'Explore Us',
     'footer.events' => 'Latest Events',
     'footer.contact' => 'Contact',
-    'footer.copyright' => 'Nagrik Unmukti Party',
+    'footer.copyright' => 'Nagrik Unmukti PartyDetails',
 
 
 

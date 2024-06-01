@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Bulk Message | Nagrik Unmukti Party --}}
+    {{-- Create New Bulk Message | Nagrik Unmukti PartyDetails --}}
     {{ isset($bulkMessage)
-        ? 'Edit Bulk Message ' . '"' . $bulkMessage->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Bulk Message ' . '"' . $bulkMessage->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Bulk Message |
-                                                        Nagrik Unmukti Party' }}
+                                                        Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')

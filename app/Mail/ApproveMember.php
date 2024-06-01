@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\Membership;
+use App\Models\Member;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -19,7 +19,7 @@ class ApproveMember extends Mailable
      *
      * @return void
      */
-    public function __construct(Membership $member)
+    public function __construct(Member $member)
     {
         $this->member = $member;
     }

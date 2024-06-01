@@ -4,5 +4,6 @@ namespace App\Repositories\Interfaces;
 
 interface MembershipInterface
 {
-    public function storeOrUpdateMembership(array $requestsArr);
+    public function generateMembershipId();
+    public function storeOrUpdateMembership(array $requestsArr, int $modelId);
 }

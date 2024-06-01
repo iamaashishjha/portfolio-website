@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'Nagrik Unmukti Party',
+    'title' => 'Nagrik Unmukti PartyDetails',
     'title_short' => 'Na U Pa',
 
 ];

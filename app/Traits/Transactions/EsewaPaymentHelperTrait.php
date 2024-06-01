@@ -51,7 +51,7 @@ trait EsewaPaymentHelperTrait
         $transaction = Transaction::where([
             ['transaction_id', $decodedRqst['transaction_uuid']],
             ['payment_gateway_id', 1],
-            ['membership_id', $memberId],
+            ['member_id', $memberId],
             ['is_paid', false],
         ])->first();
 

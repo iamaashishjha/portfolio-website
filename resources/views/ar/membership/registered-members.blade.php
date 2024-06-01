@@ -24,9 +24,9 @@ All Registered Members | Nagrik Unmukti Party
             All Registered Members
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.member.create') }}">Register New
+            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.member.create') }}"><i class="fa fa-plus mx-2" aria-hidden="true"></i>Register New
                 Member</a>
-            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.member.getApprovedMembers') }}">All
+            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.member.getApprovedMembers') }}"><i class="fa fa-list mx-2" aria-hidden="true"></i>All
                 Approved Members</a>
         </div>
     </div>

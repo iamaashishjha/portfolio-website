@@ -8,12 +8,12 @@ use App\Models\Gender;
 use App\Models\Province;
 use App\Traits\AuthTrait;
 use App\Traits\FileTrait;
-use App\Models\Membership;
 
 use App\Mail\ApproveMember;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\LocalLevelType;
+use App\Models\PaymentGateways;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -22,14 +22,16 @@ use Illuminate\Support\Facades\Mail;
 use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Jobs\SendMembershipApprovalMailJob;
+use App\Http\Requests\Memeber\MemberRequest;
+use App\Models\Membership\Member;
 
 class AdminMembershipController extends BaseAdminController
 {
     use FileTrait;
     protected $model;
-    public function __construct()
+    public function __construct(Member $model)
     {
-        $this->model = Membership::class;
+        $this->model = $model;
     }
 
     public function getRegisteredMembers()
@@ -57,6 +59,7 @@ class AdminMembershipController extends BaseAdminController
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
         $this->data['localleveltypes'] = LocalLevelType::all();
+        $this->data['payment_gateways'] = PaymentGateways::all();
         return view('ar.membership.form', $this->data);
     }
 
@@ -66,103 +69,26 @@ class AdminMembershipController extends BaseAdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MemberRequest $request)
     {
         $this->checkPermission('create');
-        $destinationPath = 'member/';
-        $ownImage = $this->uploadFileToDisk($request, 'own_image', $destinationPath);
-        $signImage = $this->uploadFileToDisk($request, 'sign_image', $destinationPath);
-        $citizenshipFront = $this->uploadFileToDisk($request, 'citizenship_front', $destinationPath);
-        $citizenshipBack = $this->uploadFileToDisk($request, 'citizenship_back', $destinationPath);
-        $passportFront = $this->uploadFileToDisk($request, 'passport_front', $destinationPath);
-        $passportBack = $this->uploadFileToDisk($request, 'passport_back', $destinationPath);
-        $licenseImage = $this->uploadFileToDisk($request, 'license_image', $destinationPath);
-        $panFront = $this->uploadFileToDisk($request, 'pan_front', $destinationPath);
-        $panBack = $this->uploadFileToDisk($request, 'pan_back', $destinationPath);
-        $memberArr = [
-            'name_en' => $request->name_en,
-            'name_lc' => $request->name_lc,
-            'gender_id' => $request->gender_id,
-            'birth_date_ad' => $request->birth_date_ad,
-            'birth_date_bs' => $request->birth_date_bs,
-            'citizen_province_id' => $request->citizen_province_id,
-            'citizen_district_id' => $request->citizen_district_id,
-            'citizenship_number' => $request->citizenship_number,
-            'passport_number' => $request->passport_number,
-            'voter_id_number' => $request->voter_id_number,
-            'perm_province_id' => $request->perm_province_id,
-            'perm_district_id' => $request->perm_district_id,
-            'perm_local_level_id' => $request->perm_local_level_id,
-            'perm_local_level_type_id' => $request->perm_local_level_type_id,
-            'perm_ward_number' => $request->perm_ward_number,
-            'perm_tole' => $request->perm_tole,
-            'temp_province_id' => $request->temp_province_id,
-            'temp_district_id' => $request->temp_district_id,
-            'temp_local_level_id' => $request->temp_local_level_id,
-            'temp_local_level_type_id' => $request->temp_local_level_type_id,
-            'temp_ward_number' => $request->temp_ward_number,
-            'temp_tole' => $request->temp_tole,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'mobile_number' => $request->mobile_number,
-            'cast' => $request->cast,
-            'category' => $request->category,
-            'category_source' => $request->category_source,
-            'education_qualification' => $request->education_qualification,
-            'blood_group' => $request->blood_group,
-            'other_identity' => $request->other_identity,
-            'father_name' => $request->father_name,
-            'mother_name' => $request->mother_name,
-            'grand_father_name' => $request->grand_father_name,
-            'grand_mother_name' => $request->grand_mother_name,
-            'mariatal_status_id' => $request->mariatal_status_id,
-            'wife_name' => $request->wife_name,
-            'total_family_member' => $request->total_family_member,
-            'profession' => $request->profession,
-            'source_income' => $request->source_income,
-            'property_cash' => $request->property_cash,
-            'property_fixed' => $request->property_fixed,
-            'property_share' => $request->property_share,
-            'property_other' => $request->property_other,
-            'party_post' => $request->party_post,
-            'committee_name' => $request->committee_name,
-            'party_lebidar' => $request->party_lebidar,
-            'party_joined_date_ad' => $request->party_joined_date_ad,
-            'party_joined_date_bs' => $request->party_joined_date_bs,
-            'party_location' => $request->party_location,
-            'party_lebidar' => $request->political_background,
-            'political_background' => $ownImage,
-            'party_lebidar' => $ownImage,
-            'party_lebidar' => $ownImage,
-
-            // Images and File
-            'own_image' => $ownImage,
-            'sign_image' => $signImage,
-            'citizenship_front' => $citizenshipFront,
-
-            'citizenship_back' => $citizenshipBack,
-            'passport_front' => $passportFront,
-            'passport_back' => $passportBack,
-
-            'license_image' => $licenseImage,
-            'pan_front' => $panFront,
-            'pan_back' => $panBack,
-            'created_by' => Auth::id(),
-            'is_verified' => false,
-            'verified_at' => now(),
-            'approved_by' => Auth::id(),
-        ];
-
         try {
             DB::beginTransaction();
-            $this->model::create($memberArr);
+            $membership = $request->membership;
+            // $address = $request->address;
+            // $identity = $request->identity;
+            // dd($membership, $address, $identity, $request->all());
+            $member = $this->model->create($membership);
+            // $member->addressesEntity->create($address);
+            // $member->identityEntities->create($identity);
             DB::commit();
-            return redirect()->route('admin.member.index');
-            Alert::toast('New Member Created Successfully', 'success');
+            return response()->json(['data' => $member], 200);
+            // Alert::toast('New Member Created Successfully', 'success');
         } catch (\Throwable $th) {
             DB::rollback();
-            return redirect()->route('admin.member.index');
-            Alert::toast($th->getMessage(), 'error');
+            return response()->json(['error' => $th->getMessage()], 500);
+            // return redirect()->route('admin.member.index');
+            // Alert::toast($th->getMessage(), 'error');
         }
     }
 

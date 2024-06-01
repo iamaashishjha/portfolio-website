@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Types;
-use App\Models\Membership;
+use App\Models\Member;
 use App\Models\BulkMessage;
 use Illuminate\Http\Request;
 use App\Mail\BulkMessageMail;
@@ -29,13 +29,13 @@ class AdminBulkMessagesController extends BaseAdminController
         $this->checkPermission('list');
         $this->data['bulkMessages'] = $this->model::all();
         foreach ($this->data['bulkMessages'] as $msg) {
-            $members = Membership::findMany($msg->members);
+            $members = Member::findMany($msg->members);
             $emailArr = $members->pluck('email')->toArray();
             $phoneNumberArr = $members->pluck('phone_number')->toArray();
             $msg->email = $emailArr;
             $msg->phone_number = $phoneNumberArr;
         }
-        $this->data['members'] = Membership::all();
+        $this->data['members'] = Member::all();
         // dd($this->data['bulkMessages']);
         return view('ar.bulk-message.index', $this->data);
     }
@@ -48,7 +48,7 @@ class AdminBulkMessagesController extends BaseAdminController
     public function create()
     {
         $this->checkPermission('create');
-        $this->data['members'] = Membership::all();
+        $this->data['members'] = Member::all();
         $this->data['types'] = Types::whereIn('id', [1,2])->get();
         return view('ar.bulk-message.form', $this->data);
     }
@@ -67,7 +67,7 @@ class AdminBulkMessagesController extends BaseAdminController
         $members = $request->members;
 
         foreach ($request->members as $memeberId) {
-            $member = Membership::find($memeberId);
+            $member = Member::find($memeberId);
             $emailArr[] = $member->email;
             $phoneNumberArr[] = $member->phone_number;
         }
@@ -103,7 +103,7 @@ class AdminBulkMessagesController extends BaseAdminController
     {
         $this->checkPermission('update');
         $this->data['bulkMessage'] = $this->model::find($id);
-        $this->data['members'] = Membership::all();
+        $this->data['members'] = Member::all();
         $this->data['types'] = Types::whereIn('id', [1,2])->get();
         return view('ar.bulk-message.form', $this->data);
     }
@@ -121,7 +121,7 @@ class AdminBulkMessagesController extends BaseAdminController
         $phoneNumberArr = [];
 
         foreach ($request->members as $memeberId) {
-            $member = Membership::find($memeberId);
+            $member = Member::find($memeberId);
             $emailArr[] = $member->email;
             $phoneNumberArr[] = $member->phone_number;
         }

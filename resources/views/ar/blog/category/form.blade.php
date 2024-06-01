@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Blog Category | Nagrik Unmukti Party --}}
-{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti Party': 'Create New Blog Category | Nagrik Unmukti Party' }}
+{{-- Create New Blog Category | Nagrik Unmukti PartyDetails --}}
+{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti PartyDetails': 'Create New Blog Category | Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')
@@ -32,7 +32,7 @@
                 <h2 class="font-medium text-base mr-auto">
                     Enter Category Details
                 </h2>
-                
+
             </div>
             {{-- @include('partials.ar.messages') --}}
             {{-- @include('partials.ar.modelMessage') --}}

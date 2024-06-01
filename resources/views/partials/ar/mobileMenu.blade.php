@@ -159,7 +159,7 @@
                         </li>
                     @endif
 
-                    
+
                 </ul>
             </li>
         @endif
@@ -230,7 +230,7 @@
                     </div>
                 </a>
                 <ul>
-                    {{-- Membership --}}
+                    {{-- Member --}}
                     @if ($authUser->hasAnyPermission(['list membership']))
                         <li class="nav-item">
                             <a href="{{ route('admin.member.index') }}" class="menu">

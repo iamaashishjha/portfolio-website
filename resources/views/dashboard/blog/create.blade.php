@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Nagrik Unmukti Party' : 'Create New Blog Post | Nagrik Unmukti Party' }}
+{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Nagrik Unmukti PartyDetails' : 'Create New Blog Post | Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')
@@ -43,7 +43,7 @@
     <!-- BEGIN: Post Content -->
     <div class="intro-y col-span-12 lg:col-span-8">
         <input type="text" class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 {{ isset($post) ? ' cursor-not-allowed  bg-gray-100 ' : '' }} " placeholder="Title" name="title" id="title" value="{{ isset($post) ? $post->title : old('title') }}" {{ isset($post) ? 'readonly' : '' }}>
-        
+
         <div class="post intro-y overflow-hidden box mt-5">
             <div class="post__tabs nav-tabs flex justify-center items-center flex-col sm:flex-row bg-gray-200 text-gray-600" >
                 <a title="Fill in the article content" data-toggle="tab" id="content-button" data-target="#content" href="javascript:;" class="tooltip w-full sm:w-40 py-4 text-center flex justify-center items-center active"> <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Content </a>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="mt-5">
                             <input type="text" class="input w-full border mt-2  @error('description') border-theme-6 @enderror" placeholder="Write caption" name="description" id="description" value="{{ isset($post) ? $post->description : old('description') }}">
-                            
+
                         </div>
                     </div>
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
@@ -72,7 +72,7 @@
                         <div class="mt-5">
                             <textarea data-feature="all" class="summernote" data-height="250" name="content">{{ isset($post) ? $post->content : old('content') }}</textarea>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="tab-content__pane p-5 active" id="images">

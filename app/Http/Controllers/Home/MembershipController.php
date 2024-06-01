@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Models\Gender;
 use App\Models\Province;
-use App\Models\Membership;
+use App\Models\Member;
 use App\Models\AppSettings;
 use App\Models\LocalLevelType;
 use App\Models\PaymentGateways;
@@ -34,7 +34,7 @@ class MembershipController extends BaseHomeController
     public function store(StoreMemberRequest $request)
     {
         $member = $this->storeMembershipForm($request);
-        Alert::success('Membership form submitted successfully. We will get back to you soon');
+        Alert::success('Member form submitted successfully. We will get back to you soon');
         return redirect()->route('home.member.payment-form', $member->id);
     }
 
@@ -50,7 +50,7 @@ class MembershipController extends BaseHomeController
 
     public function getApprovedMembers()
     {
-        $this->data['members'] = Membership::approvedMember()->get();
+        $this->data['members'] = Member::approvedMember()->get();
         return view('customHome.member.approved-member', $this->data);
     }
 
@@ -103,7 +103,7 @@ class MembershipController extends BaseHomeController
             $panBack = null;
         }
 
-        $member = new Membership();
+        $member = new Member();
 
         $member->name_en = $request->name_en;
         $member->name_lc = $request->name_lc;

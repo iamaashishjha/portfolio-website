@@ -7,7 +7,7 @@ use App\Models\BlogPost;
 use App\Models\BlogTags;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
-use App\Models\Membership;
+use App\Models\Member;
 use App\Models\BulkMessage;
 use App\Models\PopupNotice;
 use App\Models\BlogCategory;
@@ -30,7 +30,7 @@ class FactorySeeder extends Seeder
         NewsTags::factory()->count(10)->create();
         NewsPost::factory()->count(10)->create();
         PopupNotice::factory()->count(10)->create();
-        // Membership::factory()->count(10)->create();
+        // Member::factory()->count(10)->create();
         Event::factory()->count(10)->create();
         BulkMessage::factory()->count(10)->create();
     }

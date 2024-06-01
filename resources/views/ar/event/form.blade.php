@@ -1,8 +1,8 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Event | Nagrik Unmukti Party --}}
-{{ isset($event)? 'Edit Event ' . '"' . $event->title . '". | Nagrik Unmukti Party': 'Create New Event | Nagrik Unmukti Party' }}
+{{-- Create New Event | Nagrik Unmukti PartyDetails --}}
+{{ isset($event)? 'Edit Event ' . '"' . $event->title . '". | Nagrik Unmukti PartyDetails': 'Create New Event | Nagrik Unmukti PartyDetails' }}
 @endsection
 
 @section('breadcum')

@@ -5,12 +5,15 @@ namespace App\Models;
 use App\Traits\Base\BaseModel;
 use Illuminate\Support\Facades\Storage;
 
-class Membership extends BaseModel
+class Member extends BaseModel
 {
-    protected $table = 'memberships';
+    protected $table = 'members';
 
+    private function setMembershipIdAttribute(){
+        
+    }
 
-    public function getNameAttribute()
+    public function getNameAttribute(): string
     {
         return $this->name_en.' ('.$this->name_lc.') ';
     }
@@ -25,7 +28,7 @@ class Membership extends BaseModel
         return $query->where('is_verified', true);
     }
 
-    public function getStatusAttribute()
+    public function getStatusAttribute(): string
     {
         $status = $this->attributes['is_verified'];
         if ($status == 0) {
@@ -37,7 +40,37 @@ class Membership extends BaseModel
         }
     }
 
-    public function getDocOwnImageAttribute()
+    public function partyDetailsEntity()
+    {
+        // return $this->hasOne(Mem); 
+    }
+
+    public function propertyEntities()
+    {
+        // return $this->hasOne(Mem); 
+    }
+
+    public function generalDetailsEntity()
+    {
+        // return $this->hasOne(Mem); 
+    }
+
+    public function addressesEntity()
+    {
+        // return $this->hasOne(Mem); 
+    }
+
+    public function identityEntities()
+    {
+        // return $this->hasOne(Mem); 
+    }
+
+    public function userEntity()
+    {
+        return $this->hasOne(User::class, 'user_id', 'id'); 
+    }
+
+    public function getDocOwnImageAttribute(): ?string
     {
         $image = $this->own_image;
         if($image !== NULL){
@@ -47,7 +80,7 @@ class Membership extends BaseModel
         }
     }
 
-    public function getDocSignImageAttribute()
+    public function getDocSignImageAttribute(): ?string
     {
         $image = $this->sign_image;
         if($image !== NULL){
@@ -57,7 +90,7 @@ class Membership extends BaseModel
         }
     }
 
-    public function getDocCitizenshipFrontAttribute()
+    public function getDocCitizenshipFrontAttribute(): ?string
     {
 
         $image = $this->citizenship_front;

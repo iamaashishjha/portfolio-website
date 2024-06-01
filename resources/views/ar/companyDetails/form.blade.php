@@ -1,10 +1,10 @@
 @extends('layouts.ar')
 
 @section('title')
-{{ isset($companyDetail) ? 'Edit Company Detail ' . '"' . $companyDetail->title . '". | Nagrik Unmukti Party' : 'Create
+{{ isset($companyDetail) ? 'Edit Company Detail ' . '"' . $companyDetail->title . '". | Nagrik Unmukti PartyDetails' : 'Create
 New
 Blog Post | Nagrik
-Unmukti Party' }}
+Unmukti PartyDetails' }}
 
 @endsection
 
@@ -279,7 +279,7 @@ Unmukti Party' }}
                                 class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
                                 placeholder="नेपाली मा पुरा नाम लेख्नुहोस |" name="facebook_link" id="facebook_link"
                                 value="{{ isset($companyDetail->facebook_link) ? $companyDetail->facebook_link : old('facebook_link') }}">
-                           
+
                         </div>
                         <div>
                             <div
@@ -291,8 +291,8 @@ Unmukti Party' }}
                                 class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
                                 placeholder="Write Full Name in English" name="twitter_link" id="twitter_link"
                                 value="{{ isset($companyDetail->twitter_link) ? $companyDetail->twitter_link : old('twitter_link') }}">
-                            
-                           
+
+
                         </div>
                         <div>
                             <div
@@ -304,7 +304,7 @@ Unmukti Party' }}
                                 class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 ml-2 mt-3"
                                 placeholder="नेपाली मा पुरा नाम लेख्नुहोस |" name="instagram_link" id="instagram_link"
                                 value="{{ isset($companyDetail->instagram_link) ? $companyDetail->instagram_link : old('instagram_link') }}">
-                            
+
                         </div>
                         <div>
                             <div
@@ -316,7 +316,7 @@ Unmukti Party' }}
                                 class="intro-y input input--lg w-full box pr-10 placeholder-theme-13 mr-2 mt-2"
                                 placeholder="Write Full Name in English" name="google_map" id="google_map"
                                 value="{{ isset($companyDetail->google_map) ? $companyDetail->google_map : old('google_map') }}">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -333,9 +333,9 @@ Unmukti Party' }}
                                         class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
                                 </div>
                             </div>
-                            
+
                             <div class="col-span-12 lg:col-span-8">
-                                
+
                                 <div class="mt-5">
                                     <textarea data-feature="all" class="summernote" data-height="250"
                                         name="our_mission">{{ isset($companyDetail) ? $companyDetail->our_mission : old('our_mission') }}</textarea>
@@ -343,7 +343,7 @@ Unmukti Party' }}
                             </div>
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="mt-5">
-                                    
+
                                     <div
                                         class="border-2 border-dashed rounded-md mt-2 pt-4 @error('our_mission_image') border-theme-6 @enderror">
                                         <div class="flex flex-wrap px-4">
@@ -378,7 +378,7 @@ Unmukti Party' }}
                                 </div>
                             </div>
                             <div class="col-span-12 lg:col-span-8">
-                                
+
                                 <div class="mt-5">
                                     <textarea data-feature="all" class="summernote" data-height="250"
                                         name="our_vision">{{ isset($companyDetail) ? $companyDetail->our_vision : old('our_vision') }}</textarea>
@@ -386,7 +386,7 @@ Unmukti Party' }}
                             </div>
                             <div class="col-span-12 lg:col-span-4">
                                 <div class="mt-5">
-                                    
+
                                     <div
                                         class="border-2 border-dashed rounded-md mt-2 pt-4 @error('our_vision_image') border-theme-6 @enderror">
                                         <div class="flex flex-wrap px-4">
@@ -409,8 +409,8 @@ Unmukti Party' }}
                                 </div>
                             </div>
                         </div>
-                        
-                       
+
+
                     </div>
                     <div class="border border-gray-200 rounded-md p-5 mt-5">
                         <div
@@ -495,7 +495,7 @@ Unmukti Party' }}
                             <div class="mt-3">
                                 <textarea data-feature="all" class="summernote" name="message_from_president">
                                     {{ isset($companyDetail->message_from_president) ? $companyDetail->message_from_president : old('message_from_president')  }}
-                                
+
                                 </textarea>
                             </div>
                             @error('message_from_president')
@@ -504,7 +504,7 @@ Unmukti Party' }}
                             </span>
                             @enderror
                         </div>
-                        
+
                     </div>
                     <div class="grid grid-cols-1 gap-1">
                         <div class="border border-gray-200 rounded-md p-5 mt-5">
@@ -595,7 +595,7 @@ Unmukti Party' }}
         var image = document.getElementById('president_image');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
-    
+
 
 </script>
 <script src="/ar/dist/js/custom.js"></script>
