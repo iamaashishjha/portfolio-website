@@ -33,5 +33,8 @@ require __DIR__ . '/depenedent.php';
 
 Route::get('/payment-gateway/get-payment-gateway-config/{payment_gateway_id}/{member_id}', [TransactionController::class, 'getPaymentGatewaysConfigs']);
 
+
+Route::view('test', 'ar.membership.show');
+// resources\views\ar\membership\show.blade.php
 Route::fallback([HomeController::class, 'notFound']);
 // This should be the end of file and last line for this file

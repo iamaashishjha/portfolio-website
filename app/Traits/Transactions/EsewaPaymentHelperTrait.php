@@ -56,13 +56,14 @@ trait EsewaPaymentHelperTrait
         ])->first();
 
         if ($transaction) {
-            DB::enableQueryLog();
+            // DB::enableQueryLog();
             DB::transaction(function () use ($transaction, $decodedRqst) {
                 $transaction->is_paid = true;
                 $transaction->payment_gateway_refrence_id = $decodedRqst['transaction_code'];
                 $transaction->save();
             });
-            Log::debug("QUERY-LOG => ", ["QUERY" => DB::getQueryLog()]);
+            // Log::debug("QUERY-LOG => ", ["QUERY" => DB::getQueryLog()]);
+            // return redirect()->route('admin.index');
         } else {
             throw new Exception("Oops! Error Occurred. Transaction doesnot exist or alredy completed successfully.", 400);
         }

@@ -101,7 +101,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::resource('/member', AdminMembershipController::class)->except('index', 'show');
     Route::prefix('/member')->name('member.')->controller(AdminMembershipController::class)->group(function () {
-        Route::get('/member', 'getRegisteredMembers')->name('index');
+        Route::get('/', 'getRegisteredMembers')->name('index');
         Route::get('/approved-members', 'getApprovedMembers')->name('getApprovedMembers');
         Route::post('/member/{id}', 'approveMember')->name('approve');
     });

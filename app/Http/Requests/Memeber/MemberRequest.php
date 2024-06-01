@@ -32,7 +32,7 @@ class MemberRequest extends FormRequest
             'membership.gender_id' => 'required|exists:genders,id',
             'membership.email' => 'required|email|unique:users,email',
             'membership.phone_number' => 'required',
-            'membership.mobile_number' => 'required|max:10|min:10',
+            'membership.mobile_number' => 'required',
             'membership.birth_date_ad' => 'required|date',
             'membership.birth_date_bs' => 'required',
 

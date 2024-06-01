@@ -126,7 +126,7 @@ class TransactionController extends Controller
                 //     'signature' => $signedStr,
                 // ];
             }
-            return redirect()->route('home.index')->with('success', 'Payment Done successfully');
+            return redirect()->route('admin.member.index')->with('success', 'Payment Done successfully');
         } catch (\Throwable $th) {
             Log::error("TRANSACTION-SUCCEESS:$memberId", [
                 'request' => $request->all(),

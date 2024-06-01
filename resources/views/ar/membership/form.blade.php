@@ -440,7 +440,7 @@ Unmukti PartyDetails' }}
         </div>
     </div>
     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-        <button type="button" class="button w-24 justify-center block bg-theme-1 text-white ml-2" id="admin-member-form-submit-btn">Submit</button>
+        <button type="submit" class="button w-24 justify-center block bg-theme-1 text-white ml-2" id="admin-member-form-submit-btn">Submit</button>
     </div>
 </form>
 
@@ -550,10 +550,10 @@ Unmukti PartyDetails' }}
         $('#payment_amount').val(value);
     });
 
-    $('#admin-member-form-submit-btn').click(function (e) { 
-        e.preventDefault();
-        debugger;
-    });
+    // $('#admin-member-form-submit-btn').click(function (e) { 
+    //     e.preventDefault();
+    //     debugger;
+    // });
 
     $('#admin-member-form').submit(function(e) {
         e.preventDefault();
@@ -561,41 +561,40 @@ Unmukti PartyDetails' }}
         const formSubmitMethod = $(this).attr('method');
         const formDataString = $(this).serialize();
         // console.log(new Date().getTime(), formSubmitUrl, formSubmitMethod);
-        debugger;
-        // $.ajax({
-        //     type: formSubmitMethod,
-        //     url: formSubmitUrl,
-        //     data: formDataString,
-        //     success: function(response) {
-        //         debugger;
-        //         const memberId = response.data.id;
-        //         $('#hidden-member-id').val(memberId);
-        //         $('#header-footer-modal-preview').modal('show');
-        //         debugger;
-        //     }, error: function(xhr, status, error) {
-        //         if (xhr.responseJSON.errors) {
-        //             const errors = xhr.responseJSON.errors
-        //             $.map(errors, function(value, index) {
-        //                 new Noty({
-        //                     type: 'error'
-        //                     , text: value[0]
-        //                 }).show();
-        //             });
-        //         } else if (xhr.responseJSON.error) {
-        //             new Noty({
-        //                 type: 'error'
-        //                 , text: xhr.responseJSON.error
-        //             }).show();
-        //         }
-        //         // Handle error response
-        //     }
-        // });
+        // debugger;
+        $.ajax({
+            type: formSubmitMethod,
+            url: formSubmitUrl,
+            data: formDataString,
+            success: function(response) {
+                debugger;
+                const memberId = response.data.id;
+                $('#hidden-member-id').val(memberId);
+                $('#header-footer-modal-preview').modal('show');
+                debugger;
+            }, error: function(xhr, status, error) {
+                if (xhr.responseJSON.errors) {
+                    const errors = xhr.responseJSON.errors
+                    $.map(errors, function(value, index) {
+                        new Noty({
+                            type: 'error'
+                            , text: value[0]
+                        }).show();
+                    });
+                } else if (xhr.responseJSON.error) {
+                    new Noty({
+                        type: 'error'
+                        , text: xhr.responseJSON.error
+                    }).show();
+                }
+                // Handle error response
+            }
+        });
     });
 
     $('#admin-submit-payment').click(function(e) {
         e.preventDefault();
         processPaymentForm();
-
     });
 
     // $('#admin-membership_payment_form').submit(function (e) {
@@ -646,11 +645,18 @@ Unmukti PartyDetails' }}
         const memberId = $('#hidden-member-id').val();
         const url = `/payment-gateway/get-payment-gateway-config/${id}/${memberId}?amount=${amount}`;
         let response = null;
+        debugger;
         $.ajax({
             url: url,
             type: 'GET',
             success: function(data, status) {
-                if ('payment-method' in data && 'url' in data) {
+                data = data.data;
+                console.log("Khalti Success Response => ", data);
+                console.log("Khalti Success Response METHOD => ", 'payment-method' in data);
+                console.log("Khalti Success Response URL => ", 'url' in data);
+                console.log("ESEWA Success Response PARAMS => ", 'params' in data);
+                console.log("Khalti Success Response BOTH => ", 'payment-method' in data && 'url' in data);
+                if ('payment-method' in data) {
                     const $a = $('<a>', {
                         href: data.url
                     });
@@ -658,10 +664,12 @@ Unmukti PartyDetails' }}
                     $a[0].click();
                     // Redirect to a new URL
                 } else if('params' in data) {
-                    const params = paymentConfigs.data.params;
-                    const formSubmitUrl = paymentConfigs.data.url;
+                    const params = data.params;
+                    const formSubmitUrl = data.url;
                     createAndSubmitForm(formSubmitUrl, params);
                 }
+                console.log("Payment Config Success Response => ", data);
+                debugger;
             }, error: function(xhr, status, error) {
                 if (xhr.responseJSON.errors) {
                     const errors = xhr.responseJSON.errors
