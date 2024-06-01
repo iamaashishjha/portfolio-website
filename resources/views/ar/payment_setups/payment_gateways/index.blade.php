@@ -62,11 +62,6 @@
                     </td>
                     <td class="table-report__action w-56">
                         <div class="flex">
-                            <a class="flex items-center mr-3 text-theme-3" href="javascript:;" data-toggle="modal"
-                               data-target="#view-modal-{{ $item->id }}">
-                                <i data-feather="eye" class="w-4 h-4 mr-1"></i>
-                                View
-                            </a>
                             @if (auth()->user()->can('update paymentgateways'))
                                 <a class="flex items-center mr-3" href="{{route('admin.payment-gateways.edit', $item->id)}}">
                                     <i data-feather="check-square" class="w-4 h-4 mr-1"></i>

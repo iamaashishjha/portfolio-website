@@ -15,8 +15,15 @@ class AdminEloquentResourceRepository extends BaseRepository implements AdminElo
         $this->model = $model;
     }
 
-    // public function index(){
-    //     // dd('index admin eloquent repo');
-    //     return $this->model->all();
-    // }
+    public function index(){
+        return $this->model->all();
+    }
+
+    public function storeOrUpdate($requestsArr, $modelId = null){
+        if ($modelId) {
+            $this->model->find($modelId);
+        } else {
+            $this->model->create($requestsArr);
+        }
+    }
 }

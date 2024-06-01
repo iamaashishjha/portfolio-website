@@ -9,25 +9,18 @@ class BaseRepository implements BaseInterface
     protected $model;
 
     public function index(){
-        // dd('index base repo');
         return $this->model->all();
     }
 
-    public function create(){
-
+    public function storeOrUpdate($requestsArr, $modelId = null){
+        if ($modelId) {
+            $this->model->find($modelId);
+        } else {
+            $this->model->create($requestsArr);
+        }
     }
 
-    public function store(){
-
-    }
-    
-    public function edit(){
-
-    }
-    public function update(){
-
-    }
-    public function destroy(){
-
+    public function delete(int $modelId){
+        $this->model->findOrFail($modelId)->delete();
     }
 }

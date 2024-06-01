@@ -50,7 +50,7 @@ class PaymentGatewayController extends BaseAdminController
 
     public function store(Request $request){
         try {
-            $this->model->create($request->all());
+            $this->model->store($request->all());
             return redirect()->back()->with('success', "Payment Gateway Successfully Added.");
         } catch (\Exception $ex) {
             Log::error($this->context."@index => ", [
