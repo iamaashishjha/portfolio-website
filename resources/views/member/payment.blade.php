@@ -125,8 +125,7 @@
 
                         <h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">How much do you expect to use
                             each month?</h3>
-                        <ul class="grid w-full gap-6 md:grid-cols-3">
-
+                        <ul class="grid w-full gap-6 md:grid-cols-4">
                             @foreach ($payment_gateways as $item)
                                 <li class="box px-4 py-4 mb-3 flex items-center zoom-in">
                                     <input type="radio" id="payment_gateway_{{ $item->id }}"
@@ -135,7 +134,7 @@
                                     <label for="payment_gateway_{{ $item->id }}"
                                         class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         <div
-                                            class="block w-20 h-20 sm:w-24 sm:h-24 flex-none lg:w-32 lg:h-32 image-fit relative">
+                                            class="block w-40 h-20 sm:w-44 sm:h-24 flex-none lg:w-42 lg:h-32 image-fit relative">
                                             <img alt="{{ $item->name }}" src="{{ $item->image }}">
                                         </div>
                                         <svg class="w-5 h-5 ms-3 rtl:rotate-180" aria-hidden="true"
@@ -264,12 +263,12 @@
                 type: 'GET',
                 async: false,
                 success: function(data, status) {
-                    // debugger;
+                    debugger;
                     // // // console.log(new Date() + " => Payment Configs Data Config => ", data.config);
                     // // // console.log(new Date() + " => Payment Configs Data Url => ", data.url);
                     console.log(new Date() + " => Payment Configs Data => ", data);
                     // console.log(new Date() + " => Payment Configs Status => ", status);
-                    // debugger;
+                    debugger;
                     if ('payment-method' in data) {
                         // Redirect to a new URL
                         window.location.href = data.url;

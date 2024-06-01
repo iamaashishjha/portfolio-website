@@ -96,6 +96,7 @@ class TransactionController extends Controller
 
     public function transactionSuccess(Request $request, int $memberId)
     {
+        // dd($memberId, $request->all());
         try {
             $paymentGatewayId = $this->getPaymentGatewayIdFromResponse($request->all());
             if ($paymentGatewayId == 1) {
@@ -103,7 +104,7 @@ class TransactionController extends Controller
             } elseif ($paymentGatewayId == 2){
                 $this->processKhaltiSuccessfullTransaction($request->all(), $memberId);
             } else {
-                DD($request->all(), $memberId);
+                // DD($request->all(), $memberId);
                 // $signingtKey = $paymentGateway->signing_key;
                 // $secretKey = $paymentGateway->secret_key;
                 // $signingStr = "total_amount=$amount,transaction_uuid=$transactionId,product_code=$secretKey";
