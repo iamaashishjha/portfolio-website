@@ -21,6 +21,7 @@ class MasterSeeder extends Seeder
         $this->mst_fed_local_level_type();
         $this->mst_fed_local_level();
         $this->mst_types();
+        $this->mst_identities_types();
         $this->mst_payment_gateways();
     }
 
@@ -954,6 +955,15 @@ class MasterSeeder extends Seeder
             array('id' => 61, 'name_en' => 'Youtube Video', 'name_lc' => 'युट्युब भिडियो'),
             array('id' => 62, 'name_en' => 'Facebook Video', 'name_lc' => 'फेसबुक भिडियो'),
             array('id' => 63, 'name_en' => 'Twitter Video', 'name_lc' => 'Twitter भिडियो'),
+        ]);
+    }
+
+    private function mst_identities_types(){
+        DB::table('identity_types')->insert([
+            array('id' => 1, 'name_en' => 'Citizenship', 'name_lc' => 'पुरुष'),
+            array('id' => 2, 'name_en' => 'Passport', 'name_lc' => 'महिला'),
+            array('id' => 3, 'name_en' => 'Licensce', 'name_lc' => 'तेश्रो लिंगी'),
+            array('id' => 4, 'name_en' => 'Voter Id', 'name_lc' => 'अन्य'),
         ]);
     }
 

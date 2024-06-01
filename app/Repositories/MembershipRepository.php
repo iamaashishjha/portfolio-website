@@ -2,46 +2,88 @@
 
 namespace App\Repositories;
 
+use Exception;
+use App\Models\Gender;
+use App\Models\Province;
 use App\Traits\FileTrait;
-use App\Models\Member;
 use Illuminate\Support\Str;
+use App\Models\LocalLevelType;
+use App\Models\PaymentGateways;
+use App\Models\Membership\Member;
+use Illuminate\Support\Facades\DB;
+use App\Traits\Base\BaseRepository;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use App\Jobs\SendMembershipApprovalMailJob;
 use App\Repositories\Interfaces\MembershipInterface;
 
-class MembershipRepository implements MembershipInterface
+class MembershipRepository extends BaseRepository implements MembershipInterface
 {
     use FileTrait;
-
     protected $model;
-
+    
     public function __construct(Member $model)
     {
         $this->model = $model;
     }
 
-
-    public function generateMembershipId()
+    public function getMembershipFormData()
     {
-        return Str::uuid()->toString();
+        return [
+            "genders" => Gender::all(),
+            "provinces" => Province::all(),
+            "payment_gateways" => PaymentGateways::all(),
+        ];
     }
 
-    public function storeOrUpdateMembership(array $requestsArr, int $modelId){
+    public function getRegisteredMemebers()
+    {
+        return $this->model->where('is_verified', false)->get();
+    }
 
-        try {
-            //code...
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
+    public function getApprovedMemebers()
+    {
+        return $this->model->where('is_verified', true)->get();
+    }
 
-        $ownImage = $this->uploadFileToDiskFromArray($requestsArr, 'own_image', 'member/profile');
-        $signImage = $this->uploadFileToDiskFromArray($requestsArr, 'sign_image', 'member/profile');
-        $citizenshipFront = $this->uploadFileToDiskFromArray($requestsArr, 'citizenship_front', 'member/citizenship');
-        $citizenshipBack = $this->uploadFileToDiskFromArray($requestsArr, 'citizenship_back', 'member/citizenship');
-        $passportFront = $this->uploadFileToDiskFromArray($requestsArr, 'passport_front', 'member/passport');
-        $passportBack = $this->uploadFileToDiskFromArray($requestsArr, 'passport_back', 'member/passport');
-        $licenseImage = $this->uploadFileToDiskFromArray($requestsArr, 'license_image', 'member/license');
-        $panFront = $this->uploadFileToDiskFromArray($requestsArr, 'pan_front', 'member/pan');
-        $panBack = $this->uploadFileToDiskFromArray($requestsArr, 'pan_back', 'member/pan');
-        $this->model->create($requestsArr);
+    public function storeOrUpdateMembership(array $requestsArr, int $modelId = null)
+    {
+        return  DB::transaction(function () use ($requestsArr, $modelId) {
+            $membershipRqstArr = $requestsArr['membership'];
+            $membershipRqstArr['membership_id'] = $this->generateMembershipId();
+            $addressRqstArr = $requestsArr['address'];
+            $identityRqstArr = $requestsArr['identity'];
+            $identityRqstArr['identity_type_id'] = 1;
+            $userRqstArr = $requestsArr['user'];
+            if ($modelId) {
+                $member = $this->model->findOrFail($modelId);
+                $member->update($membershipRqstArr);
+            } else {
+                $member = $this->model->create($membershipRqstArr);
+                $userRqstArr['name'] = $member->name;
+                $userRqstArr['password'] = Hash::make('Password@12345');
+                // Log::info("MEMBER => ", [$member]);
+                $address = $member->addressesEntity()->create($addressRqstArr);
+                // Log::info("MEMBER ADDRESS => ", [$address]);
+                $identity = $member->identityEntities()->create($identityRqstArr);
+                // Log::info("MEMBER IDENTITY => ", [$identity]);
+                $user = $member->userEntity()->create($userRqstArr);
+                // Log::info("MEMBER USER => ", [$user]);
+            }
+            return $member;
+        });
+
+
+        // $ownImage = $this->uploadFileToDiskFromArray($requestsArr, 'own_image', 'member/profile');
+        // $signImage = $this->uploadFileToDiskFromArray($requestsArr, 'sign_image', 'member/profile');
+        // $citizenshipFront = $this->uploadFileToDiskFromArray($requestsArr, 'citizenship_front', 'member/citizenship');
+        // $citizenshipBack = $this->uploadFileToDiskFromArray($requestsArr, 'citizenship_back', 'member/citizenship');
+        // $passportFront = $this->uploadFileToDiskFromArray($requestsArr, 'passport_front', 'member/passport');
+        // $passportBack = $this->uploadFileToDiskFromArray($requestsArr, 'passport_back', 'member/passport');
+        // $licenseImage = $this->uploadFileToDiskFromArray($requestsArr, 'license_image', 'member/license');
+        // $panFront = $this->uploadFileToDiskFromArray($requestsArr, 'pan_front', 'member/pan');
+        // $panBack = $this->uploadFileToDiskFromArray($requestsArr, 'pan_back', 'member/pan');
+        // $this->model->create($requestsArr);
 
         // $member = new Member();
 
@@ -110,6 +152,28 @@ class MembershipRepository implements MembershipInterface
         // $member->pan_back = $panBack;
 
         // $member->save();
+    }
+
+    public function approveMember(int $modelId)
+    {
+        $member = $this->model->with('userEntity')->findOrFail($modelId);
+        if ($member->is_verified) {
+            throw new Exception("Member Already Approved", 400);
+        } else {
+            DB::transaction(function () use ($member) {
+                $member->is_verified = true;
+                $member->verified_by = auth()->id();
+                $member->verified_at = now();
+                $member->save();
+            });
+            dispatch(new SendMembershipApprovalMailJob($member, $member->userEntity->email));
+        }
+    }
+
+    
+    private function generateMembershipId()
+    {
+        return Str::uuid()->toString();
     }
 
 }

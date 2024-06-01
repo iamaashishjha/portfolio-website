@@ -55,6 +55,8 @@ trait EsewaPaymentHelperTrait
             ['is_paid', false],
         ])->first();
 
+        $transactionCreatedEntity = (bool) $transaction->createdByEntity ?? false;
+
         if ($transaction) {
             // DB::enableQueryLog();
             DB::transaction(function () use ($transaction, $decodedRqst) {
@@ -63,7 +65,7 @@ trait EsewaPaymentHelperTrait
                 $transaction->save();
             });
             // Log::debug("QUERY-LOG => ", ["QUERY" => DB::getQueryLog()]);
-            // return redirect()->route('admin.index');
+            return $transactionCreatedEntity;
         } else {
             throw new Exception("Oops! Error Occurred. Transaction doesnot exist or alredy completed successfully.", 400);
         }

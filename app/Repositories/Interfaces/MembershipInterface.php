@@ -2,8 +2,12 @@
 
 namespace App\Repositories\Interfaces;
 
-interface MembershipInterface
+use App\Traits\Base\BaseInterface;
+
+interface MembershipInterface extends BaseInterface
 {
-    public function generateMembershipId();
+    public function getRegisteredMemebers();
+    public function getApprovedMemebers();
     public function storeOrUpdateMembership(array $requestsArr, int $modelId);
+    public function approveMember(int $modelId);
 }

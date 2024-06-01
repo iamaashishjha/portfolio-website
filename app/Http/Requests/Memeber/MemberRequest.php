@@ -30,12 +30,13 @@ class MemberRequest extends FormRequest
             'membership.name_en' => 'required|max:255',
             'membership.name_lc' => 'required|max:255',
             'membership.gender_id' => 'required|exists:genders,id',
-            'membership.email' => 'required|email|unique:users,email',
             'membership.phone_number' => 'required',
             'membership.mobile_number' => 'required',
             'membership.birth_date_ad' => 'required|date',
             'membership.birth_date_bs' => 'required',
-
+            //User
+            'user.email' => 'required|email|unique:users,email',
+            
             //GENERAL DETAILS
             'general_details.cast' => 'nullable',
             'general_details.category' => 'nullable',

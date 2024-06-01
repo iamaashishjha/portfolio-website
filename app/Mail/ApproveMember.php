@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ApproveMember extends Mailable
 {
@@ -31,10 +32,14 @@ class ApproveMember extends Mailable
  */
 public function build()
 {
-    return $this->view('email.verifyMember')
-                ->with([
-                    'memberName' => $this->member->name_en,
-                    'approvedBy' => $this->member->approveUser->name,
-                ]);
+    try {
+        return $this->view('email.verifyMember')
+                    ->with([
+                        'memberName' => $this->member->name_en,
+                        'approvedBy' => $this->member->approveUser->name,
+                    ]);
+    } catch (\Throwable $th) {
+        Log::error("APPROVE-MEMBER-MAIL", [$th->getMessage()]);
+    }
 }
 }

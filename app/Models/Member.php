@@ -9,10 +9,6 @@ class Member extends BaseModel
 {
     protected $table = 'members';
 
-    private function setMembershipIdAttribute(){
-        
-    }
-
     public function getNameAttribute(): string
     {
         return $this->name_en.' ('.$this->name_lc.') ';

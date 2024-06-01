@@ -62,17 +62,17 @@ All Registered Members | Nagrik Unmukti Party
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{-- {{ $member->permProvince->name }} --}}
+                                    {{ $member->addressesEntity->permProvince->name }}
                                 </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{-- {{ $member->permDistrict->name }} --}}
+                                    {{ $member->addressesEntity->permDistrict->name }}
                                 </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{-- {{ $member->permLocalLevel->name }} --}}
+                                    {{ $member->addressesEntity->permLocalLevel->name }}
                                 </div>
                             </td>
 

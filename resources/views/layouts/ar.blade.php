@@ -1,7 +1,7 @@
 @php
     use App\Models\AppSettings;
     $appSetting = AppSettings::first();
-    $authUser = Auth::user()->name;
+    // auth()->user() = Auth::user()->name;
 @endphp
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $appSetting->meta_description }}">
     <meta name="keywords" content="{{ $appSetting->keywords }}">
-    <meta name="author" content="{{ $authUser }}">
+    <meta name="author" content="{{ auth()->user()->name }}">
 
     <title>
         @yield('title', $appSetting->site_title ? $appSetting->site_title : 'Admin Panel')
@@ -26,19 +26,13 @@
     <link rel="icon" type="image/png" sizes="16x16"
         href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-16x16.png' }}">
     <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" href="/ar/dist/css/app.css" />
-    <link rel="stylesheet" href="/ar/dist/css/custom.css" />
-    <link rel="stylesheet" href="/ar/dist/css/nepali-date-picker.min.css">
-    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" />
-
-    <link rel="stylesheet" href="/hr/assets/css/font-awesome.min.css">
-
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/ar/dist/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/ar/dist/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/ar/dist/css/nepali-date-picker.min.css">
+    <link rel="stylesheet" type="text/css" href="/hr/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"  />
     {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
     @yield('css')
     <style>
@@ -55,11 +49,6 @@
 <!-- END: Head -->
 
 <body class="app">
-    @php
-        $authUser = \App\Models\User::find(Auth::id());
-    @endphp
-
-
     @include('sweetalert::alert')
     @include('partials.ar.mobileMenu')
     <div class="flex">
@@ -83,25 +72,25 @@
                     <div class="dropdown-toggle w-8 h-8 rounded-full over
                     -hidden shadow-lg image-fit zoom-in">
                         <img alt="#"
-                            src="{{ isset($authUser->image) ? $authUser->image : Avatar::create($authUser->name)->toBase64() }}">
+                            src="{{ isset(auth()->user()->image) ? auth()->user()->image : Avatar::create(auth()->user()->name)->toBase64() }}">
                     </div>
                     <div class="dropdown-box mt-10 absolute w-56 top-0 right-0 z-20">
                         <div class="dropdown-box__content box bg-theme-38 text-white">
                             <div class="p-4 border-b border-theme-40">
-                                <div class="font-medium">{{ $authUser->name }}</div>
+                                <div class="font-medium">{{ auth()->user()->name }}</div>
                                 <div class="text-xs text-theme-41">
-                                    {{ $authUser->designation ? $authUser->designation : 'Software Engineer' }}
+                                    {{ auth()->user()->designation ? auth()->user()->designation : 'Software Engineer' }}
                                 </div>
                             </div>
                             <div class="p-2">
-                                <a href="{{ route('admin.user.profile', $authUser->id) }}"
+                                <a href="{{ route('admin.user.profile', auth()->user()->id) }}"
                                     class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                                     <i data-feather="user" class="w-4 h-4 mr-2"></i>
                                     Profile
                                 </a>
                             </div>
                             {{-- <div>
-                                <a href="{{ route('user.profile.changePassword', $authUser->id) }}"
+                                <a href="{{ route('user.profile.changePassword', auth()->user()->id) }}"
                                     class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
                                     <i data-feather="lock" class="w-4 h-4 mr-2"></i>
                                     Reset Password
@@ -133,19 +122,18 @@
     {{-- <script src="/hr/assets/js/jquery.min.js"></script> --}}
 
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"></script>
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" ></script>
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
     --}}
     <script src="/ar/dist/js/app.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
     <script src="/ar/dist/js/custom.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
     <!-- include summernote css/js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('script')
     @stack('script')
     @include('partials.message')

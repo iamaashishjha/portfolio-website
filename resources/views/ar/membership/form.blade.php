@@ -14,7 +14,7 @@ Unmukti PartyDetails' }}
     <a href="{{ route('admin.member.index') }}" class="">Members</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
     <a href="" class="breadcrumb--active">
-        {{ isset($member) ? 'Edit Member ' . '"' . $member->name_en . '" details' : 'Create New Member' }}
+        {{ isset($member) ? 'सदस्यता सम्पादन गर्नुहोस्' : 'नयाँ सदस्य बनानुहोस' }}
     </a>
 </div>
 @endsection
@@ -22,19 +22,17 @@ Unmukti PartyDetails' }}
 @section('content')
 <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
-        {{ isset($member) ? 'Edit New Blog Post' : 'नयाँ सदस्य बनानुहोस' }}
+        {{ isset($member) ? 'सदस्यता सम्पादन गर्नुहोस्' : 'नयाँ सदस्य बनानुहोस' }}
     </h2>
     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">
+        <a class="button text-white bg-theme-3 shadow-md mr-2" href="{{ route('admin.member.index') }}">
             <i class="fa fa-list mx-2" aria-hidden="true"></i> All Registered Members</a>
 
-        <a class="button text-white bg-theme-6 shadow-md mr-2" href="{{ route('admin.blog.post.index') }}">
+        <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('home.member.approved') }}">
             <i class="fa fa-list mx-2" aria-hidden="true"></i> All Approved Members</a>
 
     </div>
 </div>
-
-{{-- @include('partials.ar.modelMessage') --}}
 
 <form action="{{ isset($member) ? route('admin.member.update', $member->id) : route('admin.member.store') }}"
     method="post" enctype="multipart/form-data" class="pos intro-y grid grid-cols-12 gap-5 mt-5" id="admin-member-form">
@@ -85,9 +83,6 @@ Unmukti PartyDetails' }}
                             </span>
                             @enderror
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-12 gap-2">
                         <div class="col-span-12 lg:col-span-4">
                             <div class="mt-3">
                                 <label class="font-medium mt-3  @error('gender_id') text-theme-6 @enderror">
@@ -144,25 +139,22 @@ Unmukti PartyDetails' }}
                             </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-12 gap-2">
+                    <div class="grid grid-cols-12 gap-2 mt-3">
                         <div class="col-span-12 lg:col-span-4">
-                            <div class="mt-3">
-                                <div class="font-medium  @error('email') text-theme-6 @enderror  flex items-center">
-                                    Email
-                                    <span
-                                        class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
-                                </div>
-                                <div class="">
-                                    <input type="email"
-                                        class="input w-full border mt-2  @error('email') border-theme-6 @enderror"
-                                        placeholder="Write Email Address (Email लेख्नुहोस |)" name="membership[email]"
-                                        id="email" value="{{ isset($member) ? $member->email : old('email') }}">
-                                    @error('email')
-                                    <span class="text-theme-6 mt-2" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                            <div class="font-medium  @error('email') text-theme-6 @enderror  flex items-center">
+                                Email
+                                <span class="text-lg ext-theme-9 text-theme-6 font-medium leading-none ml-1">*</span>
+                            </div>
+                            <div class="">
+                                <input type="email"
+                                    class="input w-full border mt-2  @error('email') border-theme-6 @enderror"
+                                    placeholder="Write Email Address (Email लेख्नुहोस |)" name="user[email]" id="email"
+                                    value="{{ isset($member) ? $member->email : old('email') }}">
+                                @error('email')
+                                <span class="text-theme-6 mt-2" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-span-12 lg:col-span-4">
@@ -413,7 +405,7 @@ Unmukti PartyDetails' }}
                                 Citizenship Issued Date AD
                             </div>
                             <input class="datepicker input w-full border mt-2" data-single="1"
-                                placeholder="Passport Number लेख्नुहोस |" name="identity[identity_issued_date_ad]"
+                                placeholder="Select Issued date in AD" name="identity[identity_issued_date_ad]"
                                 id="passport_number"
                                 value="{{ isset($member->passport_number) ? $member->passport_number : old('passport_number') }}">
                             @error('passport_number')
@@ -428,7 +420,7 @@ Unmukti PartyDetails' }}
                                 Citizenship Issued Date BS
                             </div>
                             <input type="text" class="nepalidatepicker input w-full border mt-2"
-                                placeholder="Voter Id Number लेख्नुहोस |" name="identity[identity_issued_date_bs]"
+                                placeholder="Select Issued date in BS" name="identity[identity_issued_date_bs]"
                                 id="voter_id_number"
                                 value="{{ isset($member->voter_id_number) ? $member->voter_id_number : old('voter_id_number') }}"
                                 data-single="1">
@@ -440,7 +432,8 @@ Unmukti PartyDetails' }}
         </div>
     </div>
     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
-        <button type="submit" class="button w-24 justify-center block bg-theme-1 text-white ml-2" id="admin-member-form-submit-btn">Submit</button>
+        <button type="submit" class="button w-24 justify-center block bg-theme-1 text-white ml-2"
+            id="admin-member-form-submit-btn">Submit</button>
     </div>
 </form>
 
@@ -544,34 +537,22 @@ Unmukti PartyDetails' }}
 
 
 @section('script')
+<script src="/js/payment_scripts.js"></script>
+
 <script>
-    $('.input-amount').click(function(e) {
-        const value = $(this).val();
-        $('#payment_amount').val(value);
-    });
-
-    // $('#admin-member-form-submit-btn').click(function (e) { 
-    //     e.preventDefault();
-    //     debugger;
-    // });
-
     $('#admin-member-form').submit(function(e) {
         e.preventDefault();
         const formSubmitUrl = $(this).attr('action');
         const formSubmitMethod = $(this).attr('method');
         const formDataString = $(this).serialize();
-        // console.log(new Date().getTime(), formSubmitUrl, formSubmitMethod);
-        // debugger;
         $.ajax({
             type: formSubmitMethod,
             url: formSubmitUrl,
             data: formDataString,
             success: function(response) {
-                debugger;
                 const memberId = response.data.id;
                 $('#hidden-member-id').val(memberId);
                 $('#header-footer-modal-preview').modal('show');
-                debugger;
             }, error: function(xhr, status, error) {
                 if (xhr.responseJSON.errors) {
                     const errors = xhr.responseJSON.errors
@@ -591,151 +572,7 @@ Unmukti PartyDetails' }}
             }
         });
     });
-
-    $('#admin-submit-payment').click(function(e) {
-        e.preventDefault();
-        processPaymentForm();
-    });
-
-    // $('#admin-membership_payment_form').submit(function (e) {
-    //     e.preventDefault();
-    //     processPaymentForm();
-    // });
-
-    function processPaymentForm() {
-        const paymentGatewayId = parseInt($("input[name='payment_gateway_id']:checked").val());
-        const amount = parseInt($('#payment_amount').val());
-        fetchAndProcessPaymentConfig(paymentGatewayId, amount);
-    }
-
-    function createAndSubmitForm(formSubmitUrl, params) {
-        const form = document.createElement("form");
-        form.setAttribute("method", "POST");
-        form.setAttribute("action", formSubmitUrl);
-        // debugger;
-        for (const key in params) {
-            const hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-            form.appendChild(hiddenField);
-        }
-        document.body.appendChild(form);
-        form.submit();
-        // const ajaxOptions = {
-        //     url: formSubmitUrl,
-        //     type: 'POST',
-        //     data: params,
-        //     success: function(response) {
-        //         console.log('Form submitted successfully:', response);
-        //     },
-        //     error: function(xhr, status, error) {
-        //         console.error('Error submitting form:', status, error);
-        //     }
-        // };
-
-        // if (headers) {
-        //     ajaxOptions.headers = headers;
-        // }
-
-        // $.ajax(ajaxOptions);
-    }
-
-    function fetchAndProcessPaymentConfig(id, amount) {
-        const memberId = $('#hidden-member-id').val();
-        const url = `/payment-gateway/get-payment-gateway-config/${id}/${memberId}?amount=${amount}`;
-        let response = null;
-        debugger;
-        $.ajax({
-            url: url,
-            type: 'GET',
-            success: function(data, status) {
-                data = data.data;
-                console.log("Khalti Success Response => ", data);
-                console.log("Khalti Success Response METHOD => ", 'payment-method' in data);
-                console.log("Khalti Success Response URL => ", 'url' in data);
-                console.log("ESEWA Success Response PARAMS => ", 'params' in data);
-                console.log("Khalti Success Response BOTH => ", 'payment-method' in data && 'url' in data);
-                if ('payment-method' in data) {
-                    const $a = $('<a>', {
-                        href: data.url
-                    });
-                    // Programmatically click the anchor tag
-                    $a[0].click();
-                    // Redirect to a new URL
-                } else if('params' in data) {
-                    const params = data.params;
-                    const formSubmitUrl = data.url;
-                    createAndSubmitForm(formSubmitUrl, params);
-                }
-                console.log("Payment Config Success Response => ", data);
-                debugger;
-            }, error: function(xhr, status, error) {
-                if (xhr.responseJSON.errors) {
-                    const errors = xhr.responseJSON.errors
-                    $.map(errors, function(value, index) {
-                        new Noty({
-                            type: 'error'
-                            , text: value[0]
-                        }).show();
-                    });
-                } else if(xhr.responseJSON.error){
-                    new Noty({
-                            type: 'error'
-                            , text: error
-                        }).show();
-                }
-                console.error('Error fetching payment config:', error);
-            }
-        });
-        console.log("Resposne after get => " + response);
-        // return response;
-    }
-
-    // var ownImage = function(event) {
-    //     var image = document.getElementById('own_image');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var signImage = function(event) {
-    //     var image = document.getElementById('sign_image');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var citizenshipFront = function(event) {
-    //     var image = document.getElementById('citizenship_front');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var citizenshipBack = function(event) {
-    //     var image = document.getElementById('citizenship_back');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var passportFront = function(event) {
-    //     var image = document.getElementById('passport_front');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var passportBack = function(event) {
-    //     var image = document.getElementById('passport_back');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var licenseImage = function(event) {
-    //     var image = document.getElementById('license_image');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var panFront = function(event) {
-    //     var image = document.getElementById('pan_front');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
-    // var panBack = function(event) {
-    //     var image = document.getElementById('pan_back');
-    //     image.src = URL.createObjectURL(event.target.files[0]);
-    // };
-
+    fillInputAmount('input-amount', 'payment_amount');
+    initiatePaymentTransaction('admin-submit-payment');
 </script>
 @endsection

@@ -40,15 +40,6 @@ class TransactionController extends Controller
             //     'signature' => $signedStr,
             // ];
         }
-
-        Log::debug("FETCH-MEMBER-CONFIGS", [
-            'transaction_id' => $transactionId,
-            'transaction_amount' => $amount,
-            'payment_gateway_refrence_id' => null,
-            'is_paid' => false,
-            'payment_gateway_id' => $paymentGatewayId,
-            'membership_id' => $memberId,
-        ]);
         $this->storeMemberTransactions([
             'transaction_id' => $transactionId,
             'transaction_amount' => $amount,
@@ -57,7 +48,6 @@ class TransactionController extends Controller
             'payment_gateway_id' => $paymentGatewayId,
             'membership_id' => $memberId,
         ]);
-
         return response()->json(['data' => $config]);
     }
 
@@ -72,6 +62,7 @@ class TransactionController extends Controller
                 'payment_gateway_id' => $requests['payment_gateway_id'],
                 'member_id' => $requests['membership_id'],
             ];
+            Log::debug("STORE-MEMBER-TRANSACTIONS:", $transactionsRqst);
             Transaction::create($transactionsRqst);
         } catch (\Throwable $th) {
             Log::error("TransactionController@storeMemberTransactions => ", [
@@ -81,6 +72,54 @@ class TransactionController extends Controller
         }
     }
 
+    public function transactionSuccess(Request $request, int $memberId)
+    {
+        /**
+         * FIXME: MANAGE THIS FROM REPO/SERVICE
+        */
+        try {
+            $paymentGatewayId = $this->getPaymentGatewayIdFromResponse($request->all());
+            if ($paymentGatewayId == 1) {
+                $fromAdmin = $this->processEsewaSuccessfullTransaction($request->data, $memberId);
+            } elseif ($paymentGatewayId == 2){
+                $fromAdmin = $this->processKhaltiSuccessfullTransaction($request->all(), $memberId);
+            } else {
+                /**
+                 * TODO Manage this for other payment gateways
+                 * 
+                */
+                // DD($request->all(), $memberId);
+                // $signingtKey = $paymentGateway->signing_key;
+                // $secretKey = $paymentGateway->secret_key;
+                // $signingStr = "total_amount=$amount,transaction_uuid=$transactionId,product_code=$secretKey";
+                // $signingStrHash = hash_hmac('sha256', $signingStr, $signingtKey, true);
+                // $signedStr = base64_encode($signingStrHash);
+                // $config = [
+                //     'secret_key' => $paymentGateway->secret_key,
+                //     'signing_key' => $paymentGateway->secret_key,
+                //     'transaction_id' => $transactionId,
+                //     'url' => $paymentGateway->base_url,
+                //     'signature' => $signedStr,
+                // ];
+            }
+            return $fromAdmin ? redirect()->route('admin.member.index')->with('success', 'Payment Done successfully') : redirect()->route('home.index')->with('success', 'Payment Done successfully');
+        } catch (\Throwable $th) {
+            Log::error("TRANSACTION-SUCCEESS:$memberId", [
+                'request' => $request->all(),
+                'error' => $th->getMessage(),
+            ]);
+            return redirect()->route('home.index')->with('error', $th->getMessage());
+        }
+        // dd("Member id $memberId has been successfully paid");
+        // dd($request->all(), "Member id $memberId has been successfully paid");
+    }
+
+    public function transactionFailure(Request $request, int $memberId)
+    {
+        dd($request->all(),  "Member id $memberId has been successfully paid");
+    }
+
+    
     private function getTransactionId(int $length = 22)
     {
         if ($length < 1) {
@@ -102,46 +141,6 @@ class TransactionController extends Controller
         return $string;
     }
 
-    public function transactionSuccess(Request $request, int $memberId)
-    {
-        // dd($memberId, $request->all());
-        try {
-            $paymentGatewayId = $this->getPaymentGatewayIdFromResponse($request->all());
-            if ($paymentGatewayId == 1) {
-                $this->processEsewaSuccessfullTransaction($request->data, $memberId);
-            } elseif ($paymentGatewayId == 2){
-                $this->processKhaltiSuccessfullTransaction($request->all(), $memberId);
-            } else {
-                // DD($request->all(), $memberId);
-                // $signingtKey = $paymentGateway->signing_key;
-                // $secretKey = $paymentGateway->secret_key;
-                // $signingStr = "total_amount=$amount,transaction_uuid=$transactionId,product_code=$secretKey";
-                // $signingStrHash = hash_hmac('sha256', $signingStr, $signingtKey, true);
-                // $signedStr = base64_encode($signingStrHash);
-                // $config = [
-                //     'secret_key' => $paymentGateway->secret_key,
-                //     'signing_key' => $paymentGateway->secret_key,
-                //     'transaction_id' => $transactionId,
-                //     'url' => $paymentGateway->base_url,
-                //     'signature' => $signedStr,
-                // ];
-            }
-            return redirect()->route('admin.member.index')->with('success', 'Payment Done successfully');
-        } catch (\Throwable $th) {
-            Log::error("TRANSACTION-SUCCEESS:$memberId", [
-                'request' => $request->all(),
-                'error' => $th->getMessage(),
-            ]);
-            return redirect()->route('home.index')->with('error', $th->getMessage());
-        }
-        // dd("Member id $memberId has been successfully paid");
-        // dd($request->all(), "Member id $memberId has been successfully paid");
-    }
-
-    public function transactionFailure(Request $request, int $memberId)
-    {
-        dd($request->all(),  "Member id $memberId has been successfully paid");
-    }
 
     private function getPaymentGatewayIdFromResponse($successResponse)
     {

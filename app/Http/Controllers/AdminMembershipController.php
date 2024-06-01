@@ -24,27 +24,28 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Jobs\SendMembershipApprovalMailJob;
 use App\Http\Requests\Memeber\MemberRequest;
 use App\Models\Membership\Member;
+use App\Repositories\MembershipRepository;
 
 class AdminMembershipController extends BaseAdminController
 {
     use FileTrait;
-    protected $model;
-    public function __construct(Member $model)
+    protected $repo;
+    public function __construct(MembershipRepository $repo)
     {
-        $this->model = $model;
+        $this->repo = $repo;
     }
 
     public function getRegisteredMembers()
     {
-        $this->checkPermission('list');
-        $this->data['members'] = $this->model::registeredMember()->get();
+        // $this->checkPermission('list');
+        $this->data['members'] = $this->repo->getRegisteredMemebers();
         return view('ar.membership.registered-members', $this->data);
     }
 
     public function getApprovedMembers()
     {
-        $this->checkPermission('list');
-        $this->data['members'] = $this->model::approvedMember()->get();
+        // $this->checkPermission('list');
+        $this->data['members'] = $this->repo->getApprovedMemebers();
         return view('ar.membership.approved-members', $this->data);
     }
 
@@ -56,10 +57,7 @@ class AdminMembershipController extends BaseAdminController
     public function create()
     {
         $this->checkPermission('create');
-        $this->data['provinces'] = Province::all();
-        $this->data['genders'] = Gender::all();
-        $this->data['localleveltypes'] = LocalLevelType::all();
-        $this->data['payment_gateways'] = PaymentGateways::all();
+        $this->data  = $this->repo->getMembershipFormData();
         return view('ar.membership.form', $this->data);
     }
 
@@ -71,24 +69,12 @@ class AdminMembershipController extends BaseAdminController
      */
     public function store(MemberRequest $request)
     {
-        $this->checkPermission('create');
         try {
-            DB::beginTransaction();
-            $membership = $request->membership;
-            // $address = $request->address;
-            // $identity = $request->identity;
-            // dd($membership, $address, $identity, $request->all());
-            $member = $this->model->create($membership);
-            // $member->addressesEntity->create($address);
-            // $member->identityEntities->create($identity);
-            DB::commit();
+            // $this->checkPermission('create');
+            $member = $this->repo->storeOrUpdateMembership($request->validated());
             return response()->json(['data' => $member], 200);
-            // Alert::toast('New Member Created Successfully', 'success');
         } catch (\Throwable $th) {
-            DB::rollback();
             return response()->json(['error' => $th->getMessage()], 500);
-            // return redirect()->route('admin.member.index');
-            // Alert::toast($th->getMessage(), 'error');
         }
     }
 
@@ -100,7 +86,7 @@ class AdminMembershipController extends BaseAdminController
      */
     public function edit($id)
     {
-        $this->checkPermission('update');
+        // $this->checkPermission('update');
         $this->data['member'] = $this->model::find($id);
         $this->data['provinces'] = Province::all();
         $this->data['genders'] = Gender::all();
@@ -276,25 +262,13 @@ class AdminMembershipController extends BaseAdminController
 
     public function approveMember($id)
     {
-        $member = $this->model::find($id);
-        if ($member->is_verified) {
-            Alert::error('Member Already Approved');
+        try {
+            $this->repo->approveMember($id);
+            Alert::success('Member Approved');
             return redirect()->back();
-        } else {
-            try {
-                DB::beginTransaction();
-                $member->is_verified = true;
-                $member->verified_by = Auth::id();
-                $member->save();
-                dispatch(new SendMembershipApprovalMailJob($member, $member->email));
-                DB::commit();
-                Alert::success('Member Approved');
-                return redirect()->back();
-            } catch (\Throwable $th) {
-                DB::rollBack();
-                Alert::error($th->getMessage());
-                return redirect()->back();
-            }
+        } catch (\Throwable $th) {
+            Alert::error($th->getMessage());
+            return redirect()->back();
         }
     }
 }

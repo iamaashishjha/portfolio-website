@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Traits\Base\BaseModel;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Transaction extends BaseModel
 {
     /**
      * The table associated with the model.
@@ -12,11 +13,4 @@ class Transaction extends Model
      * @var string
      */
     protected $table = 'transactions';
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = ['id'];
 }

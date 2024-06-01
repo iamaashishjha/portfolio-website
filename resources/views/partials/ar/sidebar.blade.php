@@ -17,7 +17,7 @@
 
         {{-- cms  --}}
         @if (
-            $authUser->hasAnyPermission([
+            auth()->user()->hasAnyPermission([
                 'list newspost',
                 'list blogpost',
                 'list thought',
@@ -34,7 +34,7 @@
                 </a>
                 <ul>
                     {{--  News  --}}
-                    @if ($authUser->hasAnyPermission(['list newspost']))
+                    @if (auth()->user()->hasAnyPermission(['list newspost']))
                         <li class="nav-item">
                             <a href="{{ route('admin.news.post.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-newspaper-o" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
                         </li>
                     @endif
                     {{--  Blogs  --}}
-                    @if ($authUser->hasAnyPermission(['list blogpost']))
+                    @if (auth()->user()->hasAnyPermission(['list blogpost']))
                         <li class="nav-item">
                             <a href="{{ route('admin.blog.post.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-rss" aria-hidden="true"></i> </div>
@@ -54,7 +54,7 @@
                         </li>
                     @endif
                     {{-- Thoughts --}}
-                    @if ($authUser->hasAnyPermission(['list thought']))
+                    @if (auth()->user()->hasAnyPermission(['list thought']))
                         <li class="nav-item">
                             <a href="{{ route('admin.thought.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </div>
@@ -64,7 +64,7 @@
                         </li>
                     @endif
                     {{-- Sayings --}}
-                    @if ($authUser->hasAnyPermission(['list saying']))
+                    @if (auth()->user()->hasAnyPermission(['list saying']))
                         <li class="nav-item">
                             <a href="{{ route('admin.saying.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-quote-left" aria-hidden="true"></i> </div>
@@ -74,7 +74,7 @@
                         </li>
                     @endif
                     {{-- Events --}}
-                    @if ($authUser->hasAnyPermission(['list event']))
+                    @if (auth()->user()->hasAnyPermission(['list event']))
                         <li class="nav-item">
                             <a href="{{ route('admin.event.index') }}" class="side-menu ">
                                 <div class="side-menu__icon"> <i class="fa fa-calendar" aria-hidden="true"></i> </div>
@@ -84,7 +84,7 @@
                         </li>
                     @endif
                     {{-- Documents --}}
-                    @if ($authUser->hasAnyPermission(['list document']))
+                    @if (auth()->user()->hasAnyPermission(['list document']))
                         <li class="nav-item">
                             <a href="{{ route('admin.document.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
@@ -95,7 +95,7 @@
                         </li>
                     @endif
                     {{-- Library --}}
-                    @if ($authUser->hasAnyPermission(['list library']))
+                    @if (auth()->user()->hasAnyPermission(['list library']))
                         <li class="nav-item">
                             <a href="{{ route('admin.library.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-book" aria-hidden="true"></i> </div>
@@ -110,7 +110,7 @@
 
 
         {{-- content pages  --}}
-        @if ($authUser->hasAnyPermission(['list history']))
+        @if (auth()->user()->hasAnyPermission(['list history']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="package"></i> </div>
@@ -120,7 +120,7 @@
                 </a>
                 <ul>
                     {{-- History  --}}
-                    @if ($authUser->hasAnyPermission(['list history']))
+                    @if (auth()->user()->hasAnyPermission(['list history']))
                         <li class="nav-item">
                             <a href="{{ route('admin.history.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-history" aria-hidden="true"></i> </div>
@@ -129,7 +129,7 @@
                         </li>
                     @endif
                     {{-- Parliament  --}}
-                    @if ($authUser->hasAnyPermission(['list parliament']))
+                    @if (auth()->user()->hasAnyPermission(['list parliament']))
                         <li class="nav-item">
                             <a href="{{ route('admin.parliament.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-balance-scale" aria-hidden="true"></i>
@@ -139,7 +139,7 @@
                         </li>
                     @endif
                     {{-- Goverment  --}}
-                    @if ($authUser->hasAnyPermission(['list goverment']))
+                    @if (auth()->user()->hasAnyPermission(['list goverment']))
                         <li class="nav-item">
                             <a href="{{ route('admin.goverment.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
@@ -150,7 +150,7 @@
                     @endif
 
                     {{-- Mass Organization  --}}
-                    @if ($authUser->hasAnyPermission(['list massorganization']))
+                    @if (auth()->user()->hasAnyPermission(['list massorganization']))
                         <li class="nav-item">
                             <a href="{{ route('admin.mass-organization.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
@@ -166,7 +166,7 @@
         @endif
 
         {{-- Leadership  --}}
-        @if ($authUser->hasAnyPermission(['list leadership', 'list teammember']))
+        @if (auth()->user()->hasAnyPermission(['list leadership', 'list teammember']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="command"></i> </div>
@@ -176,7 +176,7 @@
                 </a>
                 <ul>
                     {{-- Team Member  --}}
-                    @if ($authUser->hasAnyPermission(['list teammember']))
+                    @if (auth()->user()->hasAnyPermission(['list teammember']))
                         <li class="nav-item">
                             <a href="{{ route('admin.team-member.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-users" aria-hidden="true"></i> </div>
@@ -185,7 +185,7 @@
                         </li>
                     @endif
                     {{-- Committee --}}
-                    @if ($authUser->hasAnyPermission(['list leadership']))
+                    @if (auth()->user()->hasAnyPermission(['list leadership']))
                         <li class="nav-item">
                             <a href="{{ route('admin.leadership.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-leanpub" aria-hidden="true"></i> </div>
@@ -198,7 +198,7 @@
         @endif
 
         {{-- Gallery  --}}
-        @if ($authUser->hasAnyPermission(['list youtubevideo']))
+        @if (auth()->user()->hasAnyPermission(['list youtubevideo']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="image"></i> </div>
@@ -208,7 +208,7 @@
                 </a>
                 <ul>
                     {{-- Youtube Video --}}
-                    @if ($authUser->hasAnyPermission(['list youtubevideo']))
+                    @if (auth()->user()->hasAnyPermission(['list youtubevideo']))
                         <li class="nav-item">
                             <a href="{{ route('admin.youtube-video.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
@@ -219,7 +219,7 @@
                     @endif
 
                     {{-- Facebook Video --}}
-                    @if ($authUser->hasAnyPermission(['list facebookvideo']))
+                    @if (auth()->user()->hasAnyPermission(['list facebookvideo']))
                         <li class="nav-item">
                             <a href="{{ route('admin.facebook-video.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -230,7 +230,7 @@
                     @endif
 
                     {{-- Twitter Video --}}
-                    @if ($authUser->hasAnyPermission(['list twittervideo']))
+                    @if (auth()->user()->hasAnyPermission(['list twittervideo']))
                         <li class="nav-item">
                             <a href="{{ route('admin.twitter-video.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -244,7 +244,7 @@
         @endif
 
         {{-- Members  --}}
-        @if ($authUser->hasAnyPermission(['list membership']))
+        @if (auth()->user()->hasAnyPermission(['list member']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="image"></i> </div>
@@ -254,7 +254,7 @@
                 </a>
                 <ul>
                     {{-- Member --}}
-                    @if ($authUser->hasAnyPermission(['list membership']))
+                    @if (auth()->user()->hasAnyPermission(['list member']))
                         <li class="nav-item">
                             <a href="{{ route('admin.member.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
@@ -263,7 +263,7 @@
                             </a>
                         </li>
                     @endif
-                    @if ($authUser->hasAnyPermission(['list membership']))
+                    @if (auth()->user()->hasAnyPermission(['list member']))
                         <li class="nav-item">
                             <a href="{{ route('admin.member.getApprovedMembers') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-server" aria-hidden="true"></i>
@@ -277,7 +277,7 @@
         @endif
 
         {{-- Pop Up Notice --}}
-        @if ($authUser->hasAnyPermission(['list popupnotice']))
+        @if (auth()->user()->hasAnyPermission(['list popupnotice']))
             <li class="nav-item">
                 <a href="{{ route('admin.popup-notice.index') }}" class="side-menu">
                     <div class="side-menu__icon"> <i class="fa fa-bullhorn" aria-hidden="true"></i>
@@ -288,7 +288,7 @@
         @endif
 
         {{-- Bulk Messages --}}
-        @if ($authUser->hasAnyPermission(['list bulkmessage']))
+        @if (auth()->user()->hasAnyPermission(['list bulkmessage']))
             <li class="nav-item">
                 <a href="{{ route('admin.bulk-message.index') }}" class="side-menu">
                     <div class="side-menu__icon"> <i class="fa fa-comments" aria-hidden="true"></i>
@@ -299,7 +299,7 @@
         @endif
 
 
-        @if ($authUser->hasAnyPermission(['list slider', 'list appsettings', 'list companydetails']))
+        @if (auth()->user()->hasAnyPermission(['list slider', 'list appsettings', 'list companydetails']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
@@ -310,7 +310,7 @@
                 <ul>
 
                     {{-- Donation  --}}
-                    @if ($authUser->hasAnyPermission(['list donation']))
+                    @if (auth()->user()->hasAnyPermission(['list donation']))
                         <li class="nav-item">
                             <a href="{{ route('admin.donation.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-institution" aria-hidden="true"></i>
@@ -321,7 +321,7 @@
                     @endif
 
                     {{-- Sliders --}}
-                    @if ($authUser->hasAnyPermission(['list slider']))
+                    @if (auth()->user()->hasAnyPermission(['list slider']))
                         <li class="nav-item">
                             <a href="{{ route('admin.slider.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-sliders" aria-hidden="true"></i>
@@ -332,7 +332,7 @@
                     @endif
 
                     {{-- Company Details --}}
-                    @if ($authUser->hasAnyPermission(['list companydetails']))
+                    @if (auth()->user()->hasAnyPermission(['list companydetails']))
                         <li class="nav-item">
                             <a href="{{ route('admin.company-details.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-building" aria-hidden="true"></i>
@@ -343,7 +343,7 @@
                     @endif
 
                     {{-- App setting --}}
-                    @if ($authUser->hasAnyPermission(['list appsettings']))
+                    @if (auth()->user()->hasAnyPermission(['list appsettings']))
                         <li class="nav-item">
                             <a href="{{ route('admin.app-setting.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -357,7 +357,7 @@
         @endif
 
 
-        @if ($authUser->hasAnyPermission(['list user', 'list role', 'list permission']))
+        @if (auth()->user()->hasAnyPermission(['list user', 'list role', 'list permission']))
             <li class="nav-item">
                 <a href="javascript:;" class="side-menu">
                     <div class="side-menu__icon"> <i data-feather="key"></i> </div>
@@ -367,7 +367,7 @@
                 </a>
                 <ul>
                     {{-- Users --}}
-                    @if ($authUser->hasAnyPermission(['list user']))
+                    @if (auth()->user()->hasAnyPermission(['list user']))
                         <li class="nav-item">
                             <a href="{{ route('admin.user.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
@@ -377,7 +377,7 @@
                     @endif
 
                     {{-- Roles --}}
-                    @if ($authUser->hasAnyPermission(['list role']))
+                    @if (auth()->user()->hasAnyPermission(['list role']))
                         <li class="nav-item">
                             <a href="{{ route('admin.role.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-key" aria-hidden="true"></i> </div>
@@ -387,7 +387,7 @@
                     @endif
 
                     {{-- Permissions --}}
-                    @if ($authUser->hasAnyPermission(['list permission']))
+                    @if (auth()->user()->hasAnyPermission(['list permission']))
                         <li class="nav-item">
                             <a href="{{ route('admin.permission.index') }}" class="side-menu">
                                 <div class="side-menu__icon"> <i class="fa fa-lock" aria-hidden="true"></i> </div>

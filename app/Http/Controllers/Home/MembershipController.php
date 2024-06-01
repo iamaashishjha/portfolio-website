@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Requests\Memeber\MemberRequest;
 use App\Models\Gender;
 use App\Models\Province;
 use App\Models\Member;
@@ -11,17 +12,21 @@ use App\Models\PaymentGateways;
 use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
+use App\Repositories\MembershipRepository;
 
 class MembershipController extends BaseHomeController
 {
-    public $data;
+    public $data, $repo;
+
+    public function __construct(MembershipRepository $repo)
+    {
+        $this->repo = $repo;   
+    }
+
+ 
     public function create()
     {
-        $this->data['provinces'] = Province::all();
-        $this->data['genders'] = Gender::all();
-        $this->data['localleveltypes'] = LocalLevelType::all();
-        $this->data['appSetting'] = AppSettings::first();
-        // return view('member.create', $this->data);
+        $this->data  = $this->repo->getMembershipFormData();
         return view('hr.membership.form', $this->data);
     }
 
@@ -31,11 +36,16 @@ class MembershipController extends BaseHomeController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMemberRequest $request)
+    public function store(MemberRequest $request)
     {
-        $member = $this->storeMembershipForm($request);
-        Alert::success('Member form submitted successfully. We will get back to you soon');
-        return redirect()->route('home.member.payment-form', $member->id);
+        try {
+            $member = $this->repo->storeOrUpdateMembership($request->validated());
+            return response()->json(['data' => $member], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th->getMessage()], 500);
+        }
+        // Alert::success('Member form submitted successfully. We will get back to you soon');
+        // return redirect()->route('home.member.payment-form', $member->id);
     }
 
     public function getPayMembershipFeeForm(int $memberId){

@@ -58,8 +58,9 @@ class CreateMembershipsTable extends Migration
         Schema::create('member_identities', function (Blueprint $table) {
             $table->id();
             $table->string('identity_number');
-            $table->date('identity_issued_date');
-            $table->string('identity_image');
+            $table->string('identity_issued_date_ad');
+            $table->string('identity_issued_date_bs');
+            $table->string('identity_image')->nullable();
             $table->foreignId('identity_issued_province_id')->constrained('provinces')->cascadeOnDelete();
             $table->foreignId('identity_issued_district_id')->constrained('districts')->cascadeOnDelete();
             $table->foreignId('member_id')->constrained('members')->cascadeOnDelete();

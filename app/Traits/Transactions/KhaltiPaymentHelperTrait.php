@@ -75,15 +75,18 @@ trait KhaltiPaymentHelperTrait
             ['member_id', $memberId],
             ['is_paid', false],
         ])->first();
+        
+        $transactionCreatedEntity = (bool) $transaction->createdByEntity ?? false;
 
         if ($transaction) {
-            DB::enableQueryLog();
+            // DB::enableQueryLog();
             DB::transaction(function () use ($transaction, $requestsArr) {
                 $transaction->is_paid = true;
                 $transaction->payment_gateway_refrence_id = $requestsArr['pidx'];
                 $transaction->save();
             });
-            Log::debug("QUERY-LOG => ", ["QUERY" => DB::getQueryLog()]);
+            // Log::debug("QUERY-LOG => ", ["QUERY" => DB::getQueryLog()]);
+            return $transactionCreatedEntity;
         } else {
             throw new Exception("Oops! Error Occurred. Transaction doesnot exist or alredy completed successfully.", 400);
         }
