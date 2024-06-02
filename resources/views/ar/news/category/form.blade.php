@@ -5,7 +5,7 @@
 {{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti PartyDetails': 'Create New News Category | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.news.category.index') }}" class="">News Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

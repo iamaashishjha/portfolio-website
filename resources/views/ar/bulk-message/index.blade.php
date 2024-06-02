@@ -4,7 +4,7 @@
     All Bulk Messages || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.bulk-message.index') }}" class="">Bulk Messages</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

@@ -4,7 +4,7 @@
     {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '". | Nagrik Unmukti PartyDetails' : 'Create New News Tag | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.news.tag.index') }}" class="">News</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

@@ -5,7 +5,7 @@
 {{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti PartyDetails': 'Create New Blog Category | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.blog.category.index') }}" class="">Blog Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

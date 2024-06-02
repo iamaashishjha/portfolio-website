@@ -3,6 +3,7 @@
 namespace App\Traits\Base;
 
 use App\Traits\Base\BaseInterface;
+use Illuminate\Support\Facades\DB;
 
 class BaseRepository implements BaseInterface
 {
@@ -12,12 +13,20 @@ class BaseRepository implements BaseInterface
         return $this->model->all();
     }
 
-    public function storeOrUpdate($requestsArr, $modelId = null){
-        if ($modelId) {
-            $this->model->find($modelId);
-        } else {
-            $this->model->create($requestsArr);
-        }
+    public function find(int $modelId){
+        return $this->model->findOrFail($modelId);
+    }
+
+    public function storeOrUpdate(array $requestsArr, int $modelId = null){
+        return DB::transaction(function() use ($requestsArr, $modelId){
+            if ($modelId) {
+                $model = $this->model->find($modelId);
+                $model->update($requestsArr);
+            } else {
+                $model = $this->model->create($requestsArr);
+            }
+            return $model;
+        });
     }
 
     public function delete(int $modelId){

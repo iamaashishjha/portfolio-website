@@ -4,7 +4,7 @@
     All Committee || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.committee.index') }}" class="">Committee</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

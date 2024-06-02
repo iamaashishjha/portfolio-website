@@ -1,6 +1,6 @@
 @extends('layouts.dashboard');
 
-@section('breadcum')
+@section('breadcrumb')
 
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="/admin" class="breadcrumb--active">

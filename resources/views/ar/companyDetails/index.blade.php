@@ -4,7 +4,7 @@
 All Company Details || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.company-details.index') }}" class="">Company Details</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

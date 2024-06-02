@@ -4,7 +4,7 @@
     All Popup Notices || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.popup-notice.index') }}" class="">Popup Notices</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

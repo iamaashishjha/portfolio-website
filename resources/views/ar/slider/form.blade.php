@@ -5,7 +5,7 @@
     {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '". | Nagrik Unmukti PartyDetails' : 'Create New Slider | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.app-setting.index') }}" class="">Slider</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

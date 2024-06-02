@@ -1,37 +1,51 @@
 @extends('layouts.ar')
 
 @section('head')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.css" />
 @endsection
+
+
+@section('title')
+    Create Payment Gateways || Admin
+@endsection
+
+@section('breadcrumb')
+<div class="-intro-x breadcrumb mr-auto hidden sm:flex">
+    <a href="{{ route('admin.payment-gateways.index') }}" class="">Payments</a>
+    <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+    <a href="javascript:void(0);" class="breadcrumb--active">Create Payment Gateway </a>
+</div>
+@endsection
+
 
 @section('content')
 
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            @if (isset($member))
-                Edit "{{ $member->name }}" details
-            @else
-                Create New Payment Gateway
-            @endif
-        </h2>
-        @if (auth()->user()->can('list paymentgateways'))
-            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.team-member.index') }}">
-                    <i class="fa fa-list mr-2" aria-hidden="true"></i>
-                    All Payment Gateways
-                </a>
-            </div>
+<div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+        @if (isset($member))
+        Edit "{{ $member->name }}" details
+        @else
+        Create New Payment Gateway
         @endif
+    </h2>
+    @if (auth()->user()->can('list paymentgateways'))
+    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+        <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.team-member.index') }}">
+            <i class="fa fa-list mr-2" aria-hidden="true"></i>
+            All Payment Gateways
+        </a>
     </div>
-    <div class="grid grid-cols-12 gap-6 mt-5">
-        <div class="col-span-12">
-            <form
-                action="{{ isset($parliament) ? route('admin.payment-gateways.update', $parliament->id) : route('admin.payment-gateways.store') }}"
-                method="post" enctype="multipart/form-data">
-                {{-- <form action="#" method="post" enctype="multipart/form-data"> --}}
+    @endif
+</div>
+<div class="grid grid-cols-12 gap-6 mt-5">
+    <div class="col-span-12">
+        <form
+            action="{{ isset($parliament) ? route('admin.payment-gateways.update', $parliament->id) : route('admin.payment-gateways.store') }}"
+            method="post" enctype="multipart/form-data">
+            {{-- <form action="#" method="post" enctype="multipart/form-data"> --}}
                 @csrf
                 @isset($parliament)
-                    @method('PUT')
+                @method('PUT')
                 @endisset
                 <div class="intro-x box">
                     <h2 class="text-4xl font-medium leading-none m-3 p-4 text-theme-6">
@@ -45,9 +59,15 @@
                             <!-- BEGIN: Input -->
                             <div class="pt-5 px-5 preview" id="input">
                                 <label class="font-extrabold">Name</label>
-                                <input type="text" class="input w-full border mt-2" placeholder="Enter Name"
-                                    name="name" required
-                                    value="{{ isset($parliament->title) ? $parliament->title : old('name') }}">
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Name" name="name"
+                                    required value="{{ isset($parliament->title) ? $parliament->title : old('name') }}">
+                            </div>
+                            <!-- END: Input -->
+                            <!-- BEGIN: Input -->
+                            <div class="pt-5 px-5 preview" id="input">
+                                <label class="font-extrabold">Slug</label>
+                                <input type="text" class="input w-full border mt-2" placeholder="Enter Slug" name="slug"
+                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
                             </div>
                             <!-- END: Input -->
                             <!-- BEGIN: Input -->
@@ -72,14 +92,6 @@
                                 <input type="file" class="input w-full border mt-2" placeholder="Enter Signing File"
                                     name="signing_file"
                                     value="{{ isset($parliament->file) ? $parliament->file : old('file') }}">
-                            </div>
-                            <!-- END: Input -->
-                            <!-- BEGIN: Input -->
-                            <div class="pt-5 px-5 preview" id="input">
-                                <label class="font-extrabold">Secret Key Name</label>
-                                <input type="text" class="input w-full border mt-2" placeholder="Enter Secret Key Name"
-                                    name="secret_key_name"
-                                    value="{{ isset($parliament->title) ? $parliament->title : old('title') }}">
                             </div>
                             <!-- END: Input -->
                             <!-- BEGIN: Input -->
@@ -112,30 +124,24 @@
                         <button type="submit"
                             class="button w-100 mr-2 mb-2 flex items-center justify-center bg-theme-9 text-white">
                             @if (isset($parliament))
-                                Edit {{ $parliament->name }}
+                            Edit {{ $parliament->name }}
                             @else
-                                Create Payment Gateway
+                            Create Payment Gateway
                             @endif
                         </button>
                     </div>
                 </div>
             </form>
-        </div>
-        <!-- END: Create Confirmation Modal -->
     </div>
+    <!-- END: Create Confirmation Modal -->
+</div>
 @endsection
 
 @section('script')
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        var loadFile = function(event) {
+<script>
+    var loadFile = function(event) {
             var image = document.getElementById('imagetoChange');
             image.src = URL.createObjectURL(event.target.files[0]);
         };
-    </script>
+</script>
 @endsection

@@ -4,9 +4,13 @@
     All Payment Gateways || Admin
 @endsection
 
-@push('breadcrumb')
-    All Payment Gateways
-@endpush
+@section('breadcrumb')
+    <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
+        <a href="{{ route('admin.payment-gateways.index') }}" class="">Payments</a>
+        <i data-feather="chevron-right" class="breadcrumb__icon"></i>
+        <a href="javascript:void(0);" class="breadcrumb--active">All Payment Gateways</a>
+    </div>
+@endsection 
 
 @section('content')
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
@@ -15,7 +19,7 @@
         </h2>
         @if (auth()->user()->can('create paymentgateways'))
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a href="{{route('admin.payment-gateways.create')}}" class="button text-white bg-theme-1 shadow-md mr-2">Add New Payment Gateway</a>
+                <a href="{{route('admin.payment-gateways.create')}}" class="button text-white bg-theme-1 shadow-md mr-2"><i class="fa fa-plus mx-2" aria-hidden="true"></i>Add New Payment Gateway</a>
             </div>
         @endif
     </div>

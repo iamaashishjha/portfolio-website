@@ -1,10 +1,13 @@
+
 $(document).ready(function () {
-    // debugger;
+    console.log("DOC REDAY @TEST");
     var jqOld = jQuery.noConflict();
     jqOld(function () {
         jqOld(".nepalidatepicker").nepaliDatePicker();
     });
     // $('.nepalidatepicker').nepaliDatePicker();
+
+    // console.log("DOC REDAY @TEST2");
 
     createMemberPageLoad();
     getProvince();
@@ -134,15 +137,15 @@ function getProvince(value) {
                 $.each(data, function (key, province) {
                     $('select[name="' + value + '_province_id"]').append(
                         '<option value="' +
-                            province.id +
-                            '">' +
-                            province.code +
-                            " - " +
-                            province.name_en +
-                            " (" +
-                            province.name_lc +
-                            ")" +
-                            "</option>"
+                        province.id +
+                        '">' +
+                        province.code +
+                        " - " +
+                        province.name_en +
+                        " (" +
+                        province.name_lc +
+                        ")" +
+                        "</option>"
                     );
                 });
             } else {
@@ -155,7 +158,7 @@ function getProvince(value) {
 }
 
 function getDistrict(selectedProvinceId, districtId) {
-    const provinceId = $('#'+selectedProvinceId).val();
+    const provinceId = $('#' + selectedProvinceId).val();
     if (provinceId) {
         $.ajax({
             url: "/getDistrict/" + provinceId,
@@ -165,19 +168,19 @@ function getDistrict(selectedProvinceId, districtId) {
             },
             dataType: "json",
             success: function (data) {
-                $('#'+districtId).empty();
+                $('#' + districtId).empty();
                 if (data) {
-                    $('#'+districtId).append("<option hidden> जिल्ला छान्नुहोस् |</option>");
+                    $('#' + districtId).append("<option hidden> जिल्ला छान्नुहोस् |</option>");
                     $.each(data, function (key, district) {
-                        $('#'+districtId).append('<option value="' + district.id + '">' + district.code + " - " + district.name_en + " (" +  district.name_lc + ")" + "</option>");
+                        $('#' + districtId).append('<option value="' + district.id + '">' + district.code + " - " + district.name_en + " (" + district.name_lc + ")" + "</option>");
                     });
                 } else {
-                    $('select[name="' + value + '_district_id"]').append("<option hidden> पहिला प्रदेश छान्नुहोस् |</option>");
+                    $('#' + districtId).append("<option hidden> पहिला प्रदेश छान्नुहोस् |</option>");
                 }
             },
         });
     } else {
-        $('select[name="' + value + '_province_id"]').append("<option hidden> प्रदेश छान्नुहोस् |</option>");
+        $('#' + selectedProvinceId).append("<option hidden> प्रदेश छान्नुहोस् |</option>");
     }
 }
 
@@ -200,15 +203,15 @@ function getLocalLevelType(value) {
                         'select[name="' + value + '_local_level_type_id"]'
                     ).append(
                         '<option value="' +
-                            data.id +
-                            '" selected>' +
-                            data.code +
-                            " - " +
-                            data.name_en +
-                            " (" +
-                            data.name_lc +
-                            ")" +
-                            "</option>"
+                        data.id +
+                        '" selected>' +
+                        data.code +
+                        " - " +
+                        data.name_en +
+                        " (" +
+                        data.name_lc +
+                        ")" +
+                        "</option>"
                     );
                 } else {
                     $(
@@ -237,7 +240,7 @@ function getLocalLevel(selectedDistrictId, localLevelId) {
                     $('#' + localLevelId).empty();
                     $('#' + localLevelId).append("<option hidden>---  स्थानइय तह छान्नुहोस् |  ---</option>");
                     $.each(data, function (key, localLevel) {
-                        $('#' + localLevelId).append('<option value="' +localLevel.id +'">' +localLevel.code +" - " +localLevel.name_en +" (" +localLevel.name_lc +")" +"</option>");
+                        $('#' + localLevelId).append('<option value="' + localLevel.id + '">' + localLevel.code + " - " + localLevel.name_en + " (" + localLevel.name_lc + ")" + "</option>");
                     });
                 } else {
                     $('#' + localLevelId).append("<option hidden>---  पहिला जिल्ला छान्नुहोस् |  ---</option>");
@@ -278,34 +281,34 @@ function sameAddress() {
         $('select[name="temp_province_id"]').empty();
         $('select[name="temp_province_id"]').append(
             '<option value="' +
-                selectedProvinceValue +
-                '">' +
-                selecteProvinceText +
-                "</option>"
+            selectedProvinceValue +
+            '">' +
+            selecteProvinceText +
+            "</option>"
         );
         $('select[name="temp_district_id"]').empty();
         $('select[name="temp_district_id"]').append(
             '<option value="' +
-                selectedDistrictValue +
-                '">' +
-                selecteDistrictText +
-                "</option>"
+            selectedDistrictValue +
+            '">' +
+            selecteDistrictText +
+            "</option>"
         );
         $('select[name="temp_local_level_id"]').empty();
         $('select[name="temp_local_level_id"]').append(
             '<option value="' +
-                selectedLocalLevelValue +
-                '">' +
-                selecteLocalLevelText +
-                "</option>"
+            selectedLocalLevelValue +
+            '">' +
+            selecteLocalLevelText +
+            "</option>"
         );
         $('select[name="temp_local_level_type_id"]').empty();
         $('select[name="temp_local_level_type_id"]').append(
             '<option value="' +
-                selectedLocalLevelTypeValue +
-                '">' +
-                selecteLocalLevelTypeText +
-                "</option>"
+            selectedLocalLevelTypeValue +
+            '">' +
+            selecteLocalLevelTypeText +
+            "</option>"
         );
         $("#temp_ward_number").val(selectedWardNumberValue);
         $("#temp_tole").val(selectedToleValue);

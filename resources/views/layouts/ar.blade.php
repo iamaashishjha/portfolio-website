@@ -7,34 +7,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN: Head -->
-
+@include('layouts.partials.ar.__meta')
 <head>
-    <meta charset="utf-8">
-    <link href="{{ $appSetting->image }}" rel="shortcut icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $appSetting->meta_description }}">
-    <meta name="keywords" content="{{ $appSetting->keywords }}">
-    <meta name="author" content="{{ auth()->user()->name }}">
-
+    
     <title>
         @yield('title', $appSetting->site_title ? $appSetting->site_title : 'Admin Panel')
     </title>
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/apple-touch-icon.png' }}">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-32x32.png' }}">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ isset($appSetting->image) ? $appSetting->image : '/hr/assets/images/favicons/favicon-16x16.png' }}">
-    <!-- BEGIN: CSS Assets-->
-    <link rel="stylesheet" type="text/css" href="/ar/dist/css/app.css" />
-    <link rel="stylesheet" type="text/css" href="/ar/dist/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="/ar/dist/css/nepali-date-picker.min.css">
-    <link rel="stylesheet" type="text/css" href="/hr/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"  />
-    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
-    @yield('css')
+    
+    @include('layouts.partials.ar.__links')
     <style>
         .note-editor {
             z-index: 9999 !important;
@@ -44,20 +24,23 @@
             z-index: 9999 !important;
         }
     </style>
+    @yield('css')
     <!-- END: CSS Assets-->
 </head>
 <!-- END: Head -->
 
 <body class="app">
     @include('sweetalert::alert')
+    
     @include('partials.ar.mobileMenu')
+
     <div class="flex">
         @include('partials.ar.sidebar')
         <div class="content">
             <!-- BEGIN: Top Bar -->
             <div class="top-bar">
                 <!-- BEGIN: Breadcrumb -->
-                @yield('breadcum')
+                @yield('breadcrumb')
                 <!-- END: Breadcrumb -->
                 <!-- BEGIN: Search -->
                 <div class="intro-x relative mr-3 sm:mr-6">
@@ -79,7 +62,7 @@
                             <div class="p-4 border-b border-theme-40">
                                 <div class="font-medium">{{ auth()->user()->name }}</div>
                                 <div class="text-xs text-theme-41">
-                                    {{ auth()->user()->designation ? auth()->user()->designation : 'Software Engineer' }}
+                                    {{ auth()->user()->designation ? auth()->user()->designation : 'Administrator' }}
                                 </div>
                             </div>
                             <div class="p-2">
@@ -89,13 +72,7 @@
                                     Profile
                                 </a>
                             </div>
-                            {{-- <div>
-                                <a href="{{ route('user.profile.changePassword', auth()->user()->id) }}"
-                                    class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md">
-                                    <i data-feather="lock" class="w-4 h-4 mr-2"></i>
-                                    Reset Password
-                                </a>
-                            </div> --}}
+                            
                             <div class="p-2 border-t border-theme-40">
                                 <a class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"
                                     href="{{ route('logout') }}"
@@ -115,29 +92,14 @@
             @yield('content')
         </div>
         <!-- END: Content -->
-
     </div>
-    <!-- BEGIN: JS Assets-->
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    {{-- <script src="/hr/assets/js/jquery.min.js"></script> --}}
 
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"></script>
-    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" ></script>
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=[" your-google-map-api"]&libraries=places"></script>
-    --}}
-    <script src="/ar/dist/js/app.js"></script>
-    <script src="/ar/dist/js/nepali-date-picker.min.js"></script>
-    <script src="/ar/dist/js/custom.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
-    <!-- include summernote css/js -->
+    @include('layouts.partials.ar.__scripts')
+
     @yield('script')
     @stack('script')
-    @include('partials.message')
 
+    @include('partials.message')
     <!-- END: JS Assets-->
 </body>
 

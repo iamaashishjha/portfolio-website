@@ -1,6 +1,6 @@
 @extends('layouts.ar')
 
-{{-- @section('breadcum')
+{{-- @section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="/admin" class="">Profile</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -12,7 +12,7 @@
     Update Profile || Admin
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 @php
     $url = \Request::route()->getName();
     $authUser = \App\Models\User::find(Auth::id());

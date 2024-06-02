@@ -6,7 +6,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" /> --}}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="/admin" class="">Dashboard</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
