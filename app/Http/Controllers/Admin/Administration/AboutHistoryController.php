@@ -6,7 +6,7 @@ use App\Models\AboutHistory;
 use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 
-class AdminAboutHistoryController extends BaseAdminController
+class AboutHistoryController extends BaseAdminController
 {
     protected $model;
     public function __construct()

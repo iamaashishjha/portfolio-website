@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
-class AdminPopupNoticeController extends BaseAdminController
+class PopupNoticeController extends BaseAdminController
 {
     protected $model;
     public function __construct()
@@ -55,7 +55,7 @@ class AdminPopupNoticeController extends BaseAdminController
         $active = $this->getIsActive($request);
         $modelInstance = new $this->model();
         $modelInstance->title = $request->title;
-        $modelInstance->content = $request->content;
+//        $modelInstance->content = $request->content;
         $modelInstance->file = $filePath;
         $modelInstance->type = $request->type;
         $modelInstance->is_active = $active;
@@ -92,7 +92,7 @@ class AdminPopupNoticeController extends BaseAdminController
         $filePath = $this->uploadFileToDisk($request,'file','popup-notice', $modelInstance->file);
         $active = $this->getIsActive($request);
         $modelInstance->title = $request->title;
-        $modelInstance->content = $request->content;
+//        $modelInstance->content = $request->content;
         $modelInstance->file = $filePath;
         $modelInstance->is_active = $active;
         $modelInstance->type = $request->type;

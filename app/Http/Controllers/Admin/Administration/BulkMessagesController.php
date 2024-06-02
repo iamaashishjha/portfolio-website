@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminBulkMessagesController extends BaseAdminController
+class BulkMessagesController extends BaseAdminController
 {
     protected $model;
     public function __construct()

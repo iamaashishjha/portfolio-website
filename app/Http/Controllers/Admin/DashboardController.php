@@ -15,7 +15,7 @@ use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminDashboardController extends BaseAdminController
+class DashboardController extends BaseAdminController
 {
 
     public function index()

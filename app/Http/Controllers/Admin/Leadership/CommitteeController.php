@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Leadership;
 
 use App\Models\Committee;
 use App\Models\TeamMember;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminCommitteeController extends BaseAdminController
+class CommitteeController extends BaseAdminController
 {
     protected $model;
     public function __construct()
