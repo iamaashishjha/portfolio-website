@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Administration;
 
-use App\Models\Types;
-use App\Models\Member;
 use App\Models\BulkMessage;
-use Illuminate\Http\Request;
-use App\Mail\BulkMessageMail;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Mail;
+use App\Models\Member;
+use App\Models\Types;
 use App\Traits\Base\BaseAdminController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminBulkMessagesController extends BaseAdminController

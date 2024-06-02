@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Administration;
 
 use App\Models\AboutHistory;
 use App\Traits\Base\BaseAdminController;

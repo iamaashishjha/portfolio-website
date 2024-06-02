@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Administration;
 
-use App\Models\Types;
 use App\Models\PopupNotice;
+use App\Models\Types;
+use App\Traits\Base\BaseAdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
