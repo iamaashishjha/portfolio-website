@@ -6,6 +6,7 @@ use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LocalLevelController;
+use App\Http\Controllers\FallBackRouteController;
 use App\Http\Controllers\LocalLeveTypeController;
 use App\Http\Controllers\Transactions\TransactionController;
 
@@ -36,5 +37,6 @@ Route::get('/payment-gateway/get-payment-gateway-config/{payment_gateway_id}/{me
 
 Route::view('test', 'ar.membership.show');
 // resources\views\ar\membership\show.blade.php
-Route::fallback([HomeController::class, 'notFound']);
+
+Route::fallback(FallBackRouteController::class);
 // This should be the end of file and last line for this file

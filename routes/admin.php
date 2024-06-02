@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\Payment\PaymentGatewayController;
+use App\Http\Controllers\Admin\PaymentSetups\PaymentGatewayController;
 use App\Models\MassOrganization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
@@ -23,19 +23,19 @@ use App\Http\Controllers\AdminAppSettingsController;
 use App\Http\Controllers\AdminPopupNoticeController;
 use App\Http\Controllers\Auth\PermissionsController;
 use App\Http\Controllers\AdminBulkMessagesController;
-use App\Http\Controllers\AdminYoutubeVideoController;
-use App\Http\Controllers\Admin\Media\SayingController;
-use App\Http\Controllers\Admin\Media\BlogTagController;
-use App\Http\Controllers\Admin\Media\NewsTagController;
-use App\Http\Controllers\Admin\Media\ThoughtController;
+use App\Http\Controllers\YoutubeVideoController;
+use App\Http\Controllers\Admin\ContentManagement\SayingController;
+use App\Http\Controllers\Admin\ContentManagement\BlogTagController;
+use App\Http\Controllers\Admin\ContentManagement\NewsTagController;
+use App\Http\Controllers\Admin\ContentManagement\ThoughtController;
 use App\Http\Controllers\AdminCompanyDetailsController;
-use App\Http\Controllers\Admin\Media\BlogPostController;
-use App\Http\Controllers\Admin\Media\NewsPostController;
-use App\Http\Controllers\Admin\Media\BlogCategoryController;
-use App\Http\Controllers\Admin\Media\NewsCategoryController;
-use App\Http\Controllers\Admin\Content\MassOrganizationController;
+use App\Http\Controllers\Admin\ContentManagement\BlogPostController;
+use App\Http\Controllers\Admin\ContentManagement\NewsPostController;
+use App\Http\Controllers\Admin\ContentManagement\BlogCategoryController;
+use App\Http\Controllers\Admin\ContentManagement\NewsCategoryController;
+use App\Http\Controllers\Admin\ContentPages\MassOrganizationController;
 use App\Http\Controllers\AdminFacebookVideoController;
-use App\Http\Controllers\AdminTwitterVideoController;
+use App\Http\Controllers\TwitterVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,9 +116,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('/bulk-message', AdminBulkMessagesController::class);
 
 
-    Route::resource('/youtube-video', AdminYoutubeVideoController::class);
+    Route::resource('/youtube-video', YoutubeVideoController::class);
     Route::resource('/facebook-video', AdminFacebookVideoController::class);
-    Route::resource('/twitter-video', AdminTwitterVideoController::class);
+    Route::resource('/twitter-video', TwitterVideoController::class);
     Route::resource('/gallery', AdminGalleryController::class);
 
 
