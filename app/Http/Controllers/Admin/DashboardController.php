@@ -2,27 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\BlogCategory;
+use App\Models\User;
+use App\Models\Event;
 use App\Models\BlogPost;
 use App\Models\BlogTags;
-use App\Models\Event;
-use App\Models\Member;
-use App\Models\NewsCategory;
 use App\Models\NewsPost;
 use App\Models\NewsTags;
-use App\Models\User;
-use App\Traits\Base\BaseAdminController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\BlogCategory;
+use App\Models\NewsCategory;
+use App\Http\Controllers\Controller;
 
-class DashboardController extends BaseAdminController
+class DashboardController extends Controller
 {
-
+    public $data;
     public function index()
     {
-        // dd('ok');
         $this->data['userCount'] = count(User::all());
-        // $this->data['memberCount'] = count(Member::all());
         $this->data['memberCount'] = 0;
         $this->data['eventsCount'] = count(Event::all());
         $this->data['blogsCatCount'] = count(BlogCategory::where('status', 1)->get());

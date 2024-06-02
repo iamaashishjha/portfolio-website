@@ -2,31 +2,25 @@
 
 namespace App\Http\Controllers\Admin\PaymentSetups;
 
-use Illuminate\Http\Request;
 use App\Models\PaymentGateways;
 use Illuminate\Support\Facades\Log;
 use App\Traits\Base\BaseAdminController;
-use App\Repositories\AdminEloquentResourceRepository;
 use App\Http\Requests\Admin\Payment\PaymentGatewayRequest;
 
 class PaymentGatewayController extends BaseAdminController
 {
-    protected $model;
-    protected $repo;
-    protected $context;
+    protected $model, $repo, $context;
     public $data;
 
     public function __construct(PaymentGateways $model)
     {
-        parent::__construct();
-        $this->model = $model;
-        $this->repo = new AdminEloquentResourceRepository($model);
-        $this->context = class_basename($model);
+        parent::__construct($model);
     }
 
     public function index()
     {
         try {
+            $this->checkPermission('list');
             $this->data['data'] = $this->repo->index();
             return view('ar.payment_setups.payment_gateways.index', $this->data);
         } catch (\Exception $ex) {
@@ -38,6 +32,7 @@ class PaymentGatewayController extends BaseAdminController
     public function create()
     {
         try {
+            $this->checkPermission('create');
             return view('ar.payment_setups.payment_gateways.form');
         } catch (\Exception $ex) {
             Log::error($this->context . "@create => ", ["error_message" => $ex->getMessage()]);
@@ -48,6 +43,7 @@ class PaymentGatewayController extends BaseAdminController
     public function store(PaymentGatewayRequest $request)
     {
         try {
+            $this->checkPermission('create');
             $this->repo->storeOrUpdate($request->validated());
             return redirect()->back()->with('success', "Payment Gateway Successfully Added.");
         } catch (\Exception $ex) {
@@ -76,6 +72,7 @@ class PaymentGatewayController extends BaseAdminController
     public function edit($id)
     {
         try {
+            $this->checkPermission('update');
             $this->data['data'] = $this->repo->find($id);
             return view('payment_setups.payment_gateways.form', $this->data);
         } catch (\Exception $ex) {
@@ -93,8 +90,8 @@ class PaymentGatewayController extends BaseAdminController
      */
     public function update(PaymentGatewayRequest $request, $id)
     {
-        $this->checkPermission('create');
         try {
+            $this->checkPermission('update');
             $this->repo->storeOrUpdate($request->validated(), $id);
             return redirect()->back()->with('success', "Payment Gateway Successfully Updated.");
         } catch (\Exception $ex) {
@@ -112,6 +109,7 @@ class PaymentGatewayController extends BaseAdminController
     public function destroy($id)
     {
         try {
+            $this->checkPermission('delete');
             $this->repo->delete($id);
             return redirect()->back()->with('success', "Payment Gateway Successfully Deleted.");
         } catch (\Exception $ex) {

@@ -48,35 +48,35 @@
                             <td class="border-b text-center">
                             </td>
                             <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">{{ $message->title }}</div>
+                                <div class="font-medium whitespace-no-wrap">{{ $message['title'] }}</div>
                             </td>
                             <td class="text-center border-b">
                                 <a class="flex items-center text-theme-12" href="javascript:;" data-toggle="modal"
-                                    data-target="#notice-content-{{ $message->id }}"> <i data-feather="eye"
+                                    data-target="#notice-content-{{ $message['id'] }}"> <i data-feather="eye"
                                         class="w-4 h-4 mr-1"></i> View Content </a>
                             </td>
                             <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">{{ $message->createdByEntity->name }}</div>
+                                <div class="font-medium whitespace-no-wrap">{{ $message['created_by'] }}</div>
                             </td>
                             <td class="border-b text-center">
-                                <div class="font-medium whitespace-no-wrap">{{ $message->created_at->format('d-M-Y') }}
+                                <div class="font-medium whitespace-no-wrap">{{ $message['created_at'] }}
                                 </div>
                             </td>
                             <td class="border-b text-center">
-                                {!! $message->status !!}
+                                {!! $message['status'] !!}
                             </td>
                             <td class="border-b w-5">
                                 <div class="flex sm:justify-center items-center">
                                     <a class="flex items-center mr-3 text-theme-9"
-                                        href="{{ route('admin.bulk-message.edit', $message->id) }}"> <i
+                                        href="{{ route('admin.bulk-message.edit', $message['id']) }}"> <i
                                             data-feather="check-square" class="w-4 h-4 mr-1"></i> Edit </a>
                                     <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal"
-                                        data-target="#delete-modal-preview-{{ $message->id }}"> <i data-feather="trash-2"
+                                        data-target="#delete-modal-preview-{{ $message['id'] }}"> <i data-feather="trash-2"
                                             class="w-4 h-4 mr-1"></i> Delete </a>
                                 </div>
                             </td>
                         </tr>
-                        <div class="modal" id="delete-modal-preview-{{ $message->id }}">
+                        <div class="modal" id="delete-modal-preview-{{ $message['id'] }}">
                             <div class="modal__content">
                                 <div class="p-5 text-center"> <i data-feather="x-circle"
                                         class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
@@ -85,7 +85,7 @@
                                         cannot be undone.</div>
                                 </div>
                                 <div class="px-5 pb-8 text-center">
-                                    <form action="{{ route('admin.bulk-message.destroy', $message->id) }}" method="post">
+                                    <form action="{{ route('admin.bulk-message.destroy', $message['id']) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" data-dismiss="modal"
@@ -95,11 +95,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal" id="notice-content-{{ $message->id }}">
+                        <div class="modal" id="notice-content-{{ $message['id'] }}">
                             <div class="modal__content">
                                 {{-- <div class="p-5 text-center"> --}}
                                 <div class="p-5 text-center">
-                                    {!! $message->content !!}
+                                    {!! $message['content'] !!}
                                 </div>
                                 <div class="p-5 text-center">
                                     <div class="bg-white rounded-md shadow-md p-6">
@@ -109,7 +109,7 @@
                                                 {{-- <div class="flex flex-col gap-1"> --}}
                                                 <span class="text-gray-500 text-sm">Email:</span>
                                                 <div class="flex flex-col gap-1">
-                                                    @foreach ($message->email as $email)
+                                                    @foreach ($message['email'] as $email)
                                                         <a href="mailto:{{ $email }}"
                                                             class="text-blue-500 hover:underline">{{ $email }}</a>
                                                     @endforeach
@@ -121,7 +121,7 @@
                                                 {{-- <div class="flex flex-col gap-1"> --}}
                                                 <span class="text-gray-500 text-sm">Phone:</span>
                                                 <div class="flex flex-col gap-1">
-                                                    @foreach ($message->phone_number as $phone)
+                                                    @foreach ($message['phone_number'] as $phone)
                                                         <span class="text-gray-700">{{ $phone }}</span>
                                                     @endforeach
                                                 </div>

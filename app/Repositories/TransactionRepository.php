@@ -2,7 +2,9 @@
 
 namespace App\Repositories;
 
-class TransactionRepository
+use App\Repositories\Interfaces\TransactionInterface;
+
+class TransactionRepository implements TransactionInterface
 {
 
 }

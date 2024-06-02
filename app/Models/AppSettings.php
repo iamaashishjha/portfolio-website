@@ -27,6 +27,11 @@ class AppSettings extends BaseModel
         }
     }
 
+    public function setSiteTitleImageAttribute($value){
+        $destinationPath = 'App-Setttings';
+        $this->attributes['site_title_image'] = $value->store($destinationPath, 'public');
+    }
+
     public function createdUser()
     {
         return $this->belongsTo(User::class, 'created_by', 'id');

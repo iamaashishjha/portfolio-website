@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Admin\Administration;
 
 use App\Models\AppSettings;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
-use Illuminate\Support\Facades\File;
+use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreAppSettingRequest;
 use App\Http\Requests\UpdateAppSettingRequest;
-use App\Traits\Base\BaseAdminController;
 
 class AppSettingsController extends BaseAdminController
 {
-    protected $model;
-    public function __construct()
+    protected $model, $repo, $context;
+
+    public function __construct(AppSettings $model)
     {
-        $this->model = AppSettings::class;
+        parent::__construct($model);
     }
 
     /**
@@ -26,10 +26,15 @@ class AppSettingsController extends BaseAdminController
      */
     public function index()
     {
-        $this->checkPermission('list');
-        $this->data['appSettings'] = $this->model::all();
-        $this->data['totalData'] = count($this->model::all());
-        return view('ar.appSetting.index', $this->data);
+        try {
+            $this->checkPermission('list');
+            $this->data['appSettings'] = $this->repo->index();
+            $this->data['totalData'] = count($this->data['appSettings']);
+            return view('ar.appSetting.index', $this->data);
+        } catch (\Exception $ex) {
+            Log::error($this->context . "@index => ", ["error_message" => $ex->getMessage()]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
+        }
     }
 
     /**
@@ -39,14 +44,18 @@ class AppSettingsController extends BaseAdminController
      */
     public function create()
     {
-        $this->checkPermission('create');
-        $totalData = count($this->model::all());
-        // $totalData = $this->model->count();
-        if ($totalData < 1) {
-            return view('ar.appSetting.form');
-        } else {
-            Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.app-setting.index');
+        try {
+            $this->checkPermission('create');
+            $totalData = count($this->repo->index());
+            if ($totalData < 1) {
+                return view('ar.appSetting.form');
+            } else {
+                Alert::error('Header/Footer Data alreadty exists');
+                return redirect()->route('admin.app-setting.index');
+            }
+        } catch (\Exception $ex) {
+            Log::error($this->context . "@create => ", ["error_message" => $ex->getMessage()]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
         }
     }
 
@@ -58,23 +67,21 @@ class AppSettingsController extends BaseAdminController
      */
     public function store(StoreAppSettingRequest $request)
     {
-        $this->checkPermission('create');
-        $totalData = count($this->model::all());
-        if ($totalData <= 1) {
-            $path = $request->site_title_image->store('home/app-setting', 'public');
-            $appSetting = new $this->model();
-            $appSetting->site_title = $request->site_title;
-            $appSetting->site_title_image = $path;
-            $appSetting->meta_description = $request->meta_description;
-            $appSetting->meta_title = $request->meta_title;
-            $appSetting->keywords = $request->keywords;
-            $appSetting->created_by = Auth::user()->id;
-            $appSetting->save();
-            Alert::success('Header/Footer Created Successfully');
-            return redirect()->route('admin.app-setting.index');
-        } else {
-            Alert::error('Header/Footer Data alreadty exists');
-            return redirect()->route('admin.app-setting.index');
+        try {
+            $this->checkPermission('create');
+            $totalData = count($this->repo->index());
+            if ($totalData <= 1) {
+                $this->repo->storeOrUpdate($request->validated());
+                Alert::success('Header/Footer Created Successfully');
+                return redirect()->route('admin.app-setting.index');
+            } else {
+                Alert::error('Header/Footer Data alreadty exists');
+                return redirect()->route('admin.app-setting.index');
+            }
+            return redirect()->back()->with('success', "App Setting Successfully Added.");
+        } catch (\Exception $ex) {
+            Log::error($this->context . "@store => ", ["error_message" => $ex->getMessage()]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
         }
     }
 
@@ -86,9 +93,14 @@ class AppSettingsController extends BaseAdminController
      */
     public function edit($id)
     {
-        $this->checkPermission('update');
-        $this->data['appSetting'] = $this->model::find($id);
-        return view('ar.appSetting.form', $this->data);
+        try {
+            $this->checkPermission('update');
+            $this->data['appSetting'] = $this->repo->find($id);
+            return view('ar.appSetting.form', $this->data);
+        } catch (\Exception $ex) {
+            Log::error($this->context . "@edit => ", ["error_message" => $ex->getMessage()]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
+        }
     }
 
     /**
@@ -100,28 +112,37 @@ class AppSettingsController extends BaseAdminController
      */
     public function update(UpdateAppSettingRequest $request, $id)
     {
-        $this->checkPermission('update');
-        $appSetting = $this->model::find($id);
-        if ($request->has('site_title_image') && ($request->site_title_image != '')) {
-            $imagePath = $appSetting->image;
-            if (File::exists($imagePath)) {
-                unlink($imagePath);
-                $appSetting->deleteImage();
-            }
-            $path = $request->site_title_image->store('home/app-setting', 'public');
-            $appSetting->site_title_image = $path;
+
+        try {
+            $this->checkPermission('update');
+            $this->repo->storeOrUpdate($request->validated(), $id);
+            return redirect()->route('admin.app-setting.index')->with('success', "App Setting Successfully Updated.");
+        } catch (\Exception $ex) {
+            Log::error($this->context . "@store => ", ["error_message" => $ex->getMessage()]);
+            return redirect()->back()->with('error', "Oops! Something went wrong.");
         }
 
-        $appSetting->site_title = $request->site_title;
-        $appSetting->meta_description = $request->meta_description;
-        $appSetting->meta_title = $request->meta_title;
-        $appSetting->keywords = $request->keywords;
+        // $appSetting = $this->model::find($id);
+        // if ($request->has('site_title_image') && ($request->site_title_image != '')) {
+        //     $imagePath = $appSetting->image;
+        //     if (File::exists($imagePath)) {
+        //         unlink($imagePath);
+        //         $appSetting->deleteImage();
+        //     }
+        //     $path = $request->site_title_image->store('home/app-setting', 'public');
+        //     $appSetting->site_title_image = $path;
+        // }
 
-        $appSetting->updated_by = Auth::user()->id;
+        // $appSetting->site_title = $request->site_title;
+        // $appSetting->meta_description = $request->meta_description;
+        // $appSetting->meta_title = $request->meta_title;
+        // $appSetting->keywords = $request->keywords;
+
+        // $appSetting->updated_by = Auth::user()->id;
 
 
-        $appSetting->save();
-        Alert::toast('Header/Footer Updated Successfully', 'success');
-        return redirect()->route('admin.app-setting.index');
+        // $appSetting->save();
+        // Alert::toast('Header/Footer Updated Successfully', 'success');
+        // return redirect()->route('admin.app-setting.index');
     }
 }

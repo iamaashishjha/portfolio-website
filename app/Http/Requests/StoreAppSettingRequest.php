@@ -28,8 +28,8 @@ class StoreAppSettingRequest extends FormRequest
             'site_title' => 'required',
             'site_title_image' => 'image',
             'meta_description' => 'required',
-            'keywords' => 'required',
             'meta_title' => 'required',
+            'keywords' => 'required',
         ];
     }
 

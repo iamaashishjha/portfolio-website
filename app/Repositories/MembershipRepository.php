@@ -7,12 +7,10 @@ use App\Models\Gender;
 use App\Models\Province;
 use App\Traits\FileTrait;
 use Illuminate\Support\Str;
-use App\Models\LocalLevelType;
 use App\Models\PaymentGateways;
 use App\Models\Membership\Member;
 use Illuminate\Support\Facades\DB;
 use App\Traits\Base\BaseRepository;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use App\Jobs\SendMembershipApprovalMailJob;
 use App\Repositories\Interfaces\MembershipInterface;
@@ -21,7 +19,6 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
 {
     use FileTrait;
     protected $model;
-    
     public function __construct(Member $model)
     {
         $this->model = $model;
@@ -48,7 +45,7 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
 
     public function storeOrUpdateMembership(array $requestsArr, int $modelId = null)
     {
-        return  DB::transaction(function () use ($requestsArr, $modelId) {
+        return DB::transaction(function () use ($requestsArr, $modelId) {
             $membershipRqstArr = $requestsArr['membership'];
             $membershipRqstArr['membership_id'] = $this->generateMembershipId();
             $addressRqstArr = $requestsArr['address'];
@@ -170,7 +167,6 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
         }
     }
 
-    
     private function generateMembershipId()
     {
         return Str::uuid()->toString();
