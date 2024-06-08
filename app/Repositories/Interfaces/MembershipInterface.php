@@ -10,6 +10,6 @@ interface MembershipInterface extends BaseInterface
     public function getMembershipFormData();
     public function getRegisteredMemebers();
     public function getApprovedMemebers();
-    public function storeOrUpdateMembership(array $requestsArr, ?int $modelId): Member;
+    public function storeOrUpdateMembership(array $requestsArr, ?int $modelId = null): Member;
     public function approveMember(int $modelId);
 }

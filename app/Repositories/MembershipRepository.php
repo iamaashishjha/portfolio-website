@@ -43,7 +43,7 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
         return $this->model->where('is_verified', true)->get();
     }
 
-    public function storeOrUpdateMembership(array $requestsArr, ?int $modelId): Member
+    public function storeOrUpdateMembership(array $requestsArr, ?int $modelId = null): Member
     {
         return DB::transaction(function () use ($requestsArr, $modelId) {
             $membershipRqstArr = $requestsArr['membership'];
