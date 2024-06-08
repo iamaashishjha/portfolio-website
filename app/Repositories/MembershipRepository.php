@@ -43,7 +43,7 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
         return $this->model->where('is_verified', true)->get();
     }
 
-    public function storeOrUpdateMembership(array $requestsArr, int $modelId = null)
+    public function storeOrUpdateMembership(array $requestsArr, ?int $modelId): Member
     {
         return DB::transaction(function () use ($requestsArr, $modelId) {
             $membershipRqstArr = $requestsArr['membership'];
@@ -55,18 +55,19 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
             if ($modelId) {
                 $member = $this->model->findOrFail($modelId);
                 $member->update($membershipRqstArr);
+                $member->addressesEntity()->delete();
+                $member->identityEntities()->delete();
+                $userRqstArr['name'] = $member->name;
+                if (isset($userRqstArr['email'])) {
+                    $member->userEntity()->update($userRqstArr);
+                }
             } else {
                 $member = $this->model->create($membershipRqstArr);
-                $userRqstArr['name'] = $member->name;
                 $userRqstArr['password'] = Hash::make('Password@12345');
-                // Log::info("MEMBER => ", [$member]);
-                $address = $member->addressesEntity()->create($addressRqstArr);
-                // Log::info("MEMBER ADDRESS => ", [$address]);
-                $identity = $member->identityEntities()->create($identityRqstArr);
-                // Log::info("MEMBER IDENTITY => ", [$identity]);
-                $user = $member->userEntity()->create($userRqstArr);
-                // Log::info("MEMBER USER => ", [$user]);
+                $member->userEntity()->create($userRqstArr);
             }
+            $member->addressesEntity()->create($addressRqstArr);
+            $member->identityEntities()->create($identityRqstArr);
             return $member;
         });
 
@@ -151,7 +152,7 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
         // $member->save();
     }
 
-    public function approveMember(int $modelId)
+    public function approveMember(int $modelId): void
     {
         $member = $this->model->with('userEntity')->findOrFail($modelId);
         if ($member->is_verified) {
@@ -171,5 +172,4 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
     {
         return Str::uuid()->toString();
     }
-
 }

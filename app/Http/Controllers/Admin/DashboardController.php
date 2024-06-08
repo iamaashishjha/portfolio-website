@@ -15,7 +15,8 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     public $data;
-    public function index()
+
+    public function __invoke()
     {
         $this->data['userCount'] = count(User::all());
         $this->data['memberCount'] = 0;

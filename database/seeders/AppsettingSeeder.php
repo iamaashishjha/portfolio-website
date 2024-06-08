@@ -17,7 +17,7 @@ class AppsettingSeeder extends Seeder
     {
         AppSettings::create([
             'site_title' => 'Nagrik Unmukti PartyDetails',
-            'site_title_image' => 'https://picsum.photos/200/300',
+            // 'site_title_image' => 'https://picsum.photos/200/300',
             'meta_description' => 'admin@admin.com',
             'meta_title' => 'admin@admin.com',
             'keywords' => 'admin@admin.com',
