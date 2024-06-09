@@ -1,14 +1,14 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Popup Notice | Nagrik Unmukti Party --}}
+    {{-- Create New Popup Notice | Nagrik Unmukti PartyDetails --}}
     {{ isset($popupNotice)
-        ? 'Edit Popup Notice ' . '"' . $popupNotice->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Popup Notice ' . '"' . $popupNotice->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Popup Notice |
-                                        Nagrik Unmukti Party' }}
+                                        Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.popup-notice.index') }}" class="">Popup Notice</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

@@ -13,99 +13,6 @@ class CreateMasterDataTables extends Migration
      */
     public function up()
     {
-        Schema::create('app_settings', function (Blueprint $table) {
-            $table->id();
-            $table->string('site_title')->nullable();
-            $table->string('site_title_image')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->string('meta_title')->nullable();
-            $table->string('keywords')->nullable();
-            $table->boolean('is_active')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-        });
-
-        Schema::create('company_details', function (Blueprint $table) {
-            $table->id();
-            $table->string('company_name_en')->nullable();
-            $table->string('company_name_lc')->nullable();
-            $table->text('company_description')->nullable();
-            $table->string('logo_image')->nullable();
-
-            $table->string('phone_number')->nullable();
-            $table->string('mobile_number')->nullable();
-
-            $table->string('email_address')->nullable();
-            $table->string('company_address')->nullable();
-            $table->string('total_members')->nullable();
-
-            $table->text('google_map')->nullable();
-            $table->text('facebook_link')->nullable();
-            $table->text('twitter_link')->nullable();
-            $table->text('instagram_link')->nullable();
-
-            $table->string('start_date_ad')->nullable();
-            $table->string('start_date_bs')->nullable();
-
-            $table->text('about_us')->nullable();
-            $table->text('our_history')->nullable();
-            $table->text('our_mission')->nullable();
-            $table->text('our_vision')->nullable();
-
-            $table->string('our_mission_image')->nullable();
-            $table->string('our_vision_image')->nullable();
-
-            $table->text('home_about_content')->nullable();
-
-            $table->string('president_name')->nullable();
-            $table->string('president_image')->nullable();
-            $table->text('message_from_president')->nullable();
-            // $table->string('home_about_image_1')->nullable();
-            // $table->string('home_about_image_2')->nullable();
-            // $table->string('home_about_image_3')->nullable();
-
-            // $table->text('home_about_accordion_title_1')->nullable();
-            // $table->text('home_about_accordion_title_2')->nullable();
-            // $table->text('home_about_accordion_title_3')->nullable();
-
-            // $table->text('home_about_accordion_content_1')->nullable();
-            // $table->text('home_about_accordion_content_2')->nullable();
-            // $table->text('home_about_accordion_content_3')->nullable();
-
-            $table->boolean('is_active')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-        });
 
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
@@ -127,51 +34,29 @@ class CreateMasterDataTables extends Migration
             $table->string('heading5')->nullable();
             $table->string('subheading5')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('data', function (Blueprint $table) {
             $table->id();
             $table->string('slider_subscribe_email')->nullable();
             $table->string('slider_subscribe_zip')->nullable();
+
             $table->string('subscribe_us_email')->nullable();
+
             $table->string('contact_us_name')->nullable();
             $table->string('contact_us_email')->nullable();
             $table->string('contact_us_message')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('documents', function (Blueprint $table) {
@@ -186,50 +71,24 @@ class CreateMasterDataTables extends Migration
             $table->text('meta_description')->nullable();
             $table->string('keywords')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('genders', function (Blueprint $table) {
             $table->id();
-
             $table->string('code');
-
             $table->string('name_en');
             $table->string('name_lc');
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('provinces', function (Blueprint $table) {
@@ -237,29 +96,12 @@ class CreateMasterDataTables extends Migration
             $table->string('code', 20);
             $table->string('name_en', 200)->nullable();
             $table->string('name_lc', 200);
-
-            $table->unique('code', 'uq_provinces_code');
-            $table->unique('name_lc', 'uq_provinces_name_lc');
-            $table->unique('name_en', 'uq_provinces_name_en');
-
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('districts', function (Blueprint $table) {
@@ -267,35 +109,14 @@ class CreateMasterDataTables extends Migration
             $table->string('code', 20);
             $table->string('name_en', 200)->nullable();
             $table->string('name_lc', 200);
-
-            $table->unique('code', 'uq_districts_code');
-            $table->unique('name_lc', 'uq_districts_name_lc');
-            $table->unique('name_en', 'uq_districts_name_en');
-            $table->index('province_id', 'idx_districts_province_id');
-
-            $table->foreignId('province_id')
-                ->nullable()
-                ->constrained('provinces')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->boolean('is_active')->nullable();
+            $table->foreignId('province_id')->constrained('provinces')->cascadeOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->index('province_id', 'idx_districts_province_id');
         });
 
         Schema::create('local_level_types', function (Blueprint $table) {
@@ -305,23 +126,11 @@ class CreateMasterDataTables extends Migration
             $table->string('name_lc');
             $table->string('local_level_count')->nullable();
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
 
         Schema::create('local_levels', function (Blueprint $table) {
@@ -330,39 +139,27 @@ class CreateMasterDataTables extends Migration
             $table->string('name_en', 200)->nullable();
             $table->string('name_lc', 200);
             $table->integer('ward_count')->nullable();
-
-            $table->unique('code', 'uq_local_levels_type_code');
-
             $table->boolean('is_active')->nullable();
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('district_id')->constrained('districts')->cascadeOnDelete();
+            $table->foreignId('level_type_id')->constrained('local_level_types')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->foreignId('district_id')
-                ->nullable()
-                ->constrained('districts')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->foreignId('level_type_id')
-                ->nullable()
-                ->constrained('local_level_types')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            
+        });
+        
+        Schema::create('identity_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name_en')->nullable();
+            $table->string('name_lc')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('types', function (Blueprint $table) {
@@ -370,24 +167,13 @@ class CreateMasterDataTables extends Migration
             $table->string('name_en')->nullable();
             $table->string('name_lc')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
+            $table->foreignId('deleted_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('created_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('updated_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('deleted_by')
-                ->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
+
     }
 
     /**
@@ -397,24 +183,16 @@ class CreateMasterDataTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('app_settings');
-
-        Schema::dropIfExists('company_details');
 
         Schema::dropIfExists('sliders');
-
         Schema::dropIfExists('data');
-
         Schema::dropIfExists('documents');
-
         Schema::dropIfExists('genders');
-
         Schema::dropIfExists('provinces');
-
         Schema::dropIfExists('districts');
-
         Schema::dropIfExists('local_level_types');
-
         Schema::dropIfExists('local_levels');
+        Schema::dropIfExists('identity_types');
+        Schema::dropIfExists('types');
     }
 }

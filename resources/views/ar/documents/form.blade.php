@@ -1,14 +1,14 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Document | Nagrik Unmukti Party --}}
+    {{-- Create New Document | Nagrik Unmukti PartyDetails --}}
     {{ isset($document)
-        ? 'Edit Document ' . '"' . $document->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Document ' . '"' . $document->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Document |
-                    Nagrik Unmukti Party' }}
+                    Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.document.index') }}" class="">Document</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

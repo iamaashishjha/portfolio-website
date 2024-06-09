@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\BulkMessageMail;
-use App\Models\Membership;
+use App\Models\Member;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Queue\SerializesModels;
@@ -38,7 +38,7 @@ class SendBulkMessageMailJob implements ShouldQueue
     {
         $message = new BulkMessageMail($this->bulkMessage);
         foreach ($this->members as $memberId) {
-            $member = Membership::find($memberId);
+            $member = Member::find($memberId);
             Mail::to($member->email)->send($message);
         }
     }

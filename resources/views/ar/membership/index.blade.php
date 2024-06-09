@@ -4,7 +4,7 @@
     All Members | Nagrik Unmukti Party
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.member.index') }}" class="">Members</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

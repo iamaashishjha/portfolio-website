@@ -4,7 +4,7 @@
 All App Settings || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.app-setting.index') }}" class="">App Settings</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

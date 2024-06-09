@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Event | Nagrik Unmukti Party --}}
-{{ isset($event)? 'Edit Event ' . '"' . $event->title . '". | Nagrik Unmukti Party': 'Create New Event | Nagrik Unmukti Party' }}
+{{-- Create New Event | Nagrik Unmukti PartyDetails --}}
+{{ isset($event)? 'Edit Event ' . '"' . $event->title . '". | Nagrik Unmukti PartyDetails': 'Create New Event | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.event.index') }}" class="">Event</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

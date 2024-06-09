@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New App Setting | Nagrik Unmukti Party --}}
-    {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '". | Nagrik Unmukti Party' : 'Create New App Setting | Nagrik Unmukti Party' }}
+    {{-- Create New App Setting | Nagrik Unmukti PartyDetails --}}
+    {{ isset($appSetting) ? 'Edit App Setting ' . '"' . $appSetting->title . '". | Nagrik Unmukti PartyDetails' : 'Create New App Setting | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.app-setting.index') }}" class="">App Setting</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

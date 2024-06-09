@@ -1,10 +1,10 @@
 @extends('layouts.ar')
 @section('title')
-    {{-- Create New News Tag | Nagrik Unmukti Party --}}
-    {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '". | Nagrik Unmukti Party' : 'Create New News Tag | Nagrik Unmukti Party' }}
+    {{-- Create New News Tag | Nagrik Unmukti PartyDetails --}}
+    {{ isset($tag) ? 'Edit Tag ' . '"' . $tag->title . '". | Nagrik Unmukti PartyDetails' : 'Create New News Tag | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.news.tag.index') }}" class="">News</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -23,7 +23,7 @@
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.news.tag.index') }}">
-            <i class="fa fa-list mx-2"></i>    
+            <i class="fa fa-list mx-2"></i>
                 All Tags
             </a>
         </div>

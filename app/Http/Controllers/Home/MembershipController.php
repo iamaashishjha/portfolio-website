@@ -2,25 +2,32 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Requests\Memeber\MemberRequest;
 use App\Models\Gender;
 use App\Models\Province;
-use App\Models\Membership;
+use App\Models\Member;
 use App\Models\AppSettings;
 use App\Models\LocalLevelType;
+use App\Models\PaymentGateways;
+use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
-use App\Traits\Base\BaseHomeController;
+use App\Repositories\MembershipRepository;
 
 class MembershipController extends BaseHomeController
 {
-    public $data;
+    public $data, $repo;
+
+    public function __construct(MembershipRepository $repo)
+    {
+        $this->repo = $repo;   
+    }
+
+ 
     public function create()
     {
-        $this->data['provinces'] = Province::all();
-        $this->data['genders'] = Gender::all();
-        $this->data['localleveltypes'] = LocalLevelType::all();
-        $this->data['appSetting'] = AppSettings::first();
-        return view('member.create', $this->data);
+        $this->data  = $this->repo->getMembershipFormData();
+        return view('hr.membership.form', $this->data);
     }
 
     /**
@@ -29,9 +36,35 @@ class MembershipController extends BaseHomeController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMemberRequest $request)
+    public function store(MemberRequest $request)
     {
+        try {
+            $member = $this->repo->storeOrUpdateMembership($request->validated());
+            return response()->json(['data' => $member], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th->getMessage()], 500);
+        }
+        // Alert::success('Member form submitted successfully. We will get back to you soon');
+        // return redirect()->route('home.member.payment-form', $member->id);
+    }
 
+    public function getPayMembershipFeeForm(int $memberId){
+        $this->data['payment_gateways'] = PaymentGateways::all();
+        $this->data['memberId'] = $memberId;
+        return view('member.payment', $this->data);
+    }
+
+    public function payMembershipFee(){
+
+    }
+
+    public function getApprovedMembers()
+    {
+        $this->data['members'] = Member::approvedMember()->get();
+        return view('customHome.member.approved-member', $this->data);
+    }
+
+    private function storeMembershipForm(StoreMemberRequest $request){
         if ($request->has('own_image')) {
             $ownImage = $request->own_image->store('member/profile', 'public');
         }else{
@@ -80,7 +113,7 @@ class MembershipController extends BaseHomeController
             $panBack = null;
         }
 
-        $member = new Membership();
+        $member = new Member();
 
         $member->name_en = $request->name_en;
         $member->name_lc = $request->name_lc;
@@ -144,6 +177,7 @@ class MembershipController extends BaseHomeController
 
         $member->property_other = $request->property_other;
 
+
         $member->party_post = $request->party_post;
         $member->committee_name = $request->committee_name;
         $member->party_lebidar = $request->party_lebidar;
@@ -167,13 +201,7 @@ class MembershipController extends BaseHomeController
         $member->pan_back = $panBack;
 
         $member->save();
-        Alert::success('Membership form submitted successfully. We will get back to you soon');
-        return redirect('/');
-    }
 
-    public function getApprovedMembers()
-    {
-        $this->data['members'] = Membership::approvedMember()->get();
-        return view('customHome.member.approved-member', $this->data);
+        return $member;
     }
 }

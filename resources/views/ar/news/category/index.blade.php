@@ -4,7 +4,7 @@
 All News Categories || {{ __('base.title') }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.news.category.index') }}" class="">News Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

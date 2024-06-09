@@ -6,7 +6,9 @@ use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LocalLevelController;
+use App\Http\Controllers\FallBackRouteController;
 use App\Http\Controllers\LocalLeveTypeController;
+use App\Http\Controllers\Transactions\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +31,12 @@ require __DIR__ . '/admin.php';
 
 require __DIR__ . '/depenedent.php';
 
-Route::fallback([HomeController::class, 'notFound']);
+
+Route::get('/payment-gateway/get-payment-gateway-config/{payment_gateway_id}/{member_id}', [TransactionController::class, 'getPaymentGatewaysConfigs']);
+
+
+Route::view('test', 'ar.membership.show');
+// resources\views\ar\membership\show.blade.php
+
+Route::fallback(FallBackRouteController::class);
 // This should be the end of file and last line for this file

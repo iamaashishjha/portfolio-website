@@ -27,14 +27,14 @@ class BaseModel extends Model
         static::creating(function ($model) use ($user) {
             $columns = Schema::getColumnListing($model->getTable());
             if (in_array('created_by', $columns)) {
-                $model->created_by =  !is_null($user) ? $user->id : 1;
+                $model->created_by =  !is_null($user) ? $user->id : null;
             }
         });
 
         static::updating(function ($model) use ($user) {
             $columns = Schema::getColumnListing($model->getTable());
             if (in_array('updated_by', $columns)) {
-                $model->updated_by =  !is_null($user) ? $user->id : 1;
+                $model->updated_by =  !is_null($user) ? $user->id : null;
             }
         });
 

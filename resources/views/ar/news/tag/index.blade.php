@@ -6,7 +6,7 @@ All News Tags | {{ __('base.title') }}
 
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="" class="">Application</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>

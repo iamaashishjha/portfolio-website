@@ -16,17 +16,17 @@ class AppsettingSeeder extends Seeder
     public function run()
     {
         AppSettings::create([
-            'site_title' => 'Nagrik Unmukti Party',
-            'site_title_image' => 'https://picsum.photos/200/300',
+            'site_title' => 'Nagrik Unmukti PartyDetails',
+            // 'site_title_image' => 'https://picsum.photos/200/300',
             'meta_description' => 'admin@admin.com',
             'meta_title' => 'admin@admin.com',
             'keywords' => 'admin@admin.com',
         ]);
 
         CompanyDetails::create([
-            'company_name_en' => 'Nagrik Unmukti Party',
-            'company_name_lc' => 'Nagrik Unmukti Party',
-            'company_description' => 'Nagrik Unmukti Party',
+            'company_name_en' => 'Nagrik Unmukti PartyDetails',
+            'company_name_lc' => 'Nagrik Unmukti PartyDetails',
+            'company_description' => 'Nagrik Unmukti PartyDetails',
             'logo_image' => '',
             'phone_number' => '+977 XXXXXXXXXX',
             'mobile_number' => '+977 XXXXXXXXXX',
@@ -37,7 +37,7 @@ class AppsettingSeeder extends Seeder
             'about_us' => 'admin@admin.com',
             'our_history' => 'admin@admin.com',
             'our_vision' => 'admin@admin.com',
-            'our_mission' => 'Nagrik Unmukti Party',
+            'our_mission' => 'Nagrik Unmukti PartyDetails',
             'home_about_content' => 'https://picsum.photos/200/300',
             'president_image' => null,
             'message_from_president' => 'admin@admin.com',

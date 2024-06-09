@@ -13,6 +13,7 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
+        "laravel/telescope": "^4.10",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "laravolt/avatar": "^4.1",
@@ -23,6 +24,7 @@
         "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",

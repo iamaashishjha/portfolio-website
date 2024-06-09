@@ -133,16 +133,4 @@ class HomeController extends BaseHomeController
         Alert::toast('We Will get back to you', 'success');
         return redirect()->back();
     }
-
-
-    // public function popUpNotice()
-    // {
-    //     # code...
-    // }
-
-
-    public function notFound()
-    {
-        abort(404);
-    }
 }

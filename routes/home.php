@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\GalleryController;
 use App\Http\Controllers\Home\CommitteeController;
 use App\Http\Controllers\Home\MembershipController;
 use App\Http\Controllers\Home\ContentPageController;
+use App\Http\Controllers\Transactions\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\Home\ContentPageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/member/{memberId}/payment-successful', [TransactionController::class, 'transactionSuccess'])->name('home.transaction.success');
+Route::get('/member/{memberId}/payment-failure', [TransactionController::class, 'transactionFailure'])->name('home.transaction.failure');
+Route::get('/member/{memberId}/store-transaction-initiations', [TransactionController::class, 'transactionFailure'])->name('home.transaction.failure');
 
 
 Route::name('home.')->group(function () {
@@ -35,8 +39,10 @@ Route::name('home.')->group(function () {
     Route::prefix('/member')->name('member.')->controller(MembershipController::class)->group(function () {
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
+        Route::get('/{member_id}/membership-fee-payment', 'getPayMembershipFeeForm')->name('payment-form');
         Route::get('/approved-members', 'getApprovedMembers')->name('approved');
     });
+
 
     Route::controller(DocController::class)->group(function () {
         Route::prefix('/library')->name('library.')->group(function () {

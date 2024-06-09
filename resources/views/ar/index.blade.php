@@ -1,6 +1,6 @@
 @extends('layouts.ar');
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="/admin" class="breadcrumb--active">
             Admin Dashboard
@@ -21,37 +21,7 @@
                 </div>
                 <div class="grid grid-cols-12 gap-6 mt-5">
                     {{-- News --}}
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
-                                <div class="flex">
-                                    <div class="flex-auto">
-                                        <i class="fa fa-th-list fa-3x report-box__icon text-theme-3"></i>
-                                    </div>
-                                    <div class="flex-auto">
-                                        <div class="text-3xl font-bold leading-8">{{ $newsCatCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total News Categories</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
-                                <div class="flex">
-                                    <div class="flex-auto">
-                                        <i class="report-box__icon text-theme-6 fa fa-tags fa-3x"></i>
-                                    </div>
-                                    <div class="flex-auto">
-                                        <div class="text-3xl font-bold leading-8">{{ $newsTagsCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total News Tags</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
@@ -61,7 +31,7 @@
                                     </div>
                                     <div class="flex-auto">
                                         <div class="text-3xl font-bold leading-8">{{ $newsPostsCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total News Posts</div>
+                                        <div class="text-base text-gray-600 mt-1">Total News</div>
                                     </div>
                                 </div>
                             </div>
@@ -74,42 +44,11 @@
                             <div class="box p-5">
                                 <div class="flex">
                                     <div class="flex-auto">
-                                        <i class="fa fa-th-list fa-3x report-box__icon text-theme-3"></i>
-                                    </div>
-                                    <div class="flex-auto">
-                                        <div class="text-3xl font-bold leading-8 ">{{ $blogsCatCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total Blog Categories</div>
-                                    </div>
-                                    {{-- <i data-feather="credit-card" class="report-box__icon text-theme-11"></i> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
-                                <div class="flex">
-                                    <div class="flex-auto">
-                                        <i class="report-box__icon text-theme-6  fa fa-tags fa-3x"></i>
-                                    </div>
-                                    <div class="flex-auto">
-                                        <div class="text-3xl font-bold leading-8 ">{{ $blogsTagsCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total Blog Tags</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
-                                <div class="flex">
-                                    <div class="flex-auto">
                                         <i class="report-box__icon text-theme-9  fa fa-list fa-3x"></i>
                                     </div>
                                     <div class="flex-auto">
                                         <div class="text-3xl font-bold leading-8 ">{{ $blogsPostsCount }}</div>
-                                        <div class="text-base text-gray-600 mt-1">Total Blog Posts</div>
+                                        <div class="text-base text-gray-600 mt-1">Total Blogs</div>
                                     </div>
                                 </div>
                             </div>

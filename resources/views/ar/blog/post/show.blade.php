@@ -1,12 +1,12 @@
 @extends('layouts.ar')
 
 @section('title')
-{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Nagrik Unmukti Party' : 'Create New Blog Post | Nagrik Unmukti Party' }}
+{{ isset($post) ? 'Edit Blog Post ' . '"' . $post->title . '". | Nagrik Unmukti PartyDetails' : 'Create New Blog Post | Nagrik Unmukti PartyDetails' }}
 
 
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.blog.post.index') }}" class="">Blog Post</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -34,7 +34,7 @@
 			<div class="intro-x w-8 h-8 sm:w-10 sm:h-10 image-fit">
 				<img alt="{{ $post->description }}" class="rounded-full border border-white zoom-in tooltip" src="/ar/dist/images/preview-15.jpg" title="{{ $post->createdUser->name }} " >
 			</div>
-			
+
 		</div>
 		<div class="absolute sm:relative -mt-12 sm:mt-0 w-full flex text-gray-700 text-xs sm:text-sm">
 			<div class="intro-x mr-1 sm:mr-3"> Comments: <span class="font-medium">{{ count($post->comments) }}</span> </div>
@@ -54,14 +54,14 @@
 				<img alt="" class="rounded-full" src="dist/images/profile-3.jpg">
 			</div>
 			<div class="ml-3 mr-auto">
-				<a href="" class="font-medium">{{ $post->createdUser->name }}</a>, Author 
+				<a href="" class="font-medium">{{ $post->createdUser->name }}</a>, Author
 				@if (isset($post->createdUser->designation))
 				<div class="text-gray-600">{{ $post->createdUser->designation }}</div>
 				@endif
 			</div>
 		</div>
 		{{-- <div class="flex items-center text-gray-700 sm:ml-auto mt-5 sm:mt-0">
-			Share this post: 
+			Share this post:
 			<a href="" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border ml-2 text-gray-500 zoom-in tooltip" title="Facebook"> <i class="w-3 h-3 fill-current" data-feather="facebook"></i> </a>
 			<a href="" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border ml-2 text-gray-500 zoom-in tooltip" title="Twitter"> <i class="w-3 h-3 fill-current" data-feather="twitter"></i> </a>
 			<a href="" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border ml-2 text-gray-500 zoom-in tooltip" title="Linked In"> <i class="w-3 h-3 fill-current" data-feather="linkedin"></i> </a>
@@ -72,7 +72,7 @@
 	<div class="intro-y mt-5 pt-5 border-t border-gray-200">
 		<div class="text-base sm:text-lg font-medium">2 Responses</div>
 		<div class="news__input relative mt-5">
-			<i data-feather="message-circle" class="w-5 h-5 absolute my-auto inset-y-0 ml-6 left-0 text-gray-600"></i> 
+			<i data-feather="message-circle" class="w-5 h-5 absolute my-auto inset-y-0 ml-6 left-0 text-gray-600"></i>
 			<textarea class="input w-full bg-gray-200 pl-16 py-6 placeholder-theme-13 resize-none" rows="1" placeholder="Post a comment..."></textarea>
 		</div>
 	</div>

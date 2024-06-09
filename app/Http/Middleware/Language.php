@@ -9,7 +9,7 @@ use Illuminate\Foundation\Application;
 
 class Language
 {
-
+    protected $app, $request;
     public function __construct(Application $app, Request $request)
     {
         $this->app = $app;

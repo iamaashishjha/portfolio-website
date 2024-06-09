@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Support\Facades\Log;
 
 class SendMembershipApprovalMailJob implements ShouldQueue
 {
@@ -36,7 +37,12 @@ class SendMembershipApprovalMailJob implements ShouldQueue
      */
     public function handle()
     {
-        $message = new ApproveMember($this->member);
-        Mail::to($this->email)->send($message);
+        try {
+            //code...
+            $message = new ApproveMember($this->member);
+            Mail::to($this->email)->send($message);
+        } catch (\Throwable $th) {
+            Log::error("SEND-MEMBERSHIP-APPROVAL-MAIL-JOB", [$th->getMessage()]);
+        }
     }
 }

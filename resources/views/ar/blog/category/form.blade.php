@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-{{-- Create New Blog Category | Nagrik Unmukti Party --}}
-{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti Party': 'Create New Blog Category | Nagrik Unmukti Party' }}
+{{-- Create New Blog Category | Nagrik Unmukti PartyDetails --}}
+{{ isset($category)? 'Edit Category ' . '"' . $category->title . '". | Nagrik Unmukti PartyDetails': 'Create New Blog Category | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
 <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
     <a href="{{ route('admin.blog.category.index') }}" class="">Blog Category</a>
     <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -32,7 +32,7 @@
                 <h2 class="font-medium text-base mr-auto">
                     Enter Category Details
                 </h2>
-                
+
             </div>
             {{-- @include('partials.ar.messages') --}}
             {{-- @include('partials.ar.modelMessage') --}}

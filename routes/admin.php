@@ -1,40 +1,40 @@
 <?php
 
-use App\Models\MassOrganization;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminUserController;
-use App\Http\Controllers\Auth\RoleController;
-use App\Http\Controllers\AdminEventController;
-use App\Http\Controllers\AdminSliderController;
-use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\AdminHistoryController;
-use App\Http\Controllers\AdminLibraryController;
-use App\Http\Controllers\AdminDocumentController;
-use App\Http\Controllers\Admin\DonationController;
-use App\Http\Controllers\AdminCommitteeController;
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdminGovermentController;
-use App\Http\Controllers\AdminLeadershipController;
-use App\Http\Controllers\AdminMembershipController;
-use App\Http\Controllers\AdminParliamentController;
-use App\Http\Controllers\AdminTeamMemberController;
-use App\Http\Controllers\AdminAppSettingsController;
-use App\Http\Controllers\AdminPopupNoticeController;
-use App\Http\Controllers\Auth\PermissionsController;
-use App\Http\Controllers\AdminBulkMessagesController;
-use App\Http\Controllers\AdminYoutubeVideoController;
-use App\Http\Controllers\Admin\Media\SayingController;
-use App\Http\Controllers\Admin\Media\BlogTagController;
-use App\Http\Controllers\Admin\Media\NewsTagController;
-use App\Http\Controllers\Admin\Media\ThoughtController;
-use App\Http\Controllers\AdminCompanyDetailsController;
-use App\Http\Controllers\Admin\Media\BlogPostController;
-use App\Http\Controllers\Admin\Media\NewsPostController;
-use App\Http\Controllers\Admin\Media\BlogCategoryController;
-use App\Http\Controllers\Admin\Media\NewsCategoryController;
-use App\Http\Controllers\Admin\Content\MassOrganizationController;
-use App\Http\Controllers\AdminFacebookVideoController;
-use App\Http\Controllers\AdminTwitterVideoController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Members\MemberController;
+use App\Http\Controllers\Admin\Gallery\GalleryController;
+use App\Http\Controllers\Admin\Authentication\RoleController;
+use App\Http\Controllers\Admin\Authentication\UserController;
+use App\Http\Controllers\Admin\ContentPages\HistoryController;
+use App\Http\Controllers\Admin\Gallery\TwitterVideoController;
+use App\Http\Controllers\Admin\Gallery\YoutubeVideoController;
+use App\Http\Controllers\Admin\Leadership\CommitteeController;
+use App\Http\Controllers\Admin\Administration\SliderController;
+use App\Http\Controllers\Admin\Gallery\FacebookVideoController;
+use App\Http\Controllers\Admin\Leadership\LeadershipController;
+use App\Http\Controllers\Admin\Leadership\TeamMemberController;
+use App\Http\Controllers\Admin\ContentPages\GovermentController;
+use App\Http\Controllers\Admin\Administration\DonationController;
+use App\Http\Controllers\Admin\ContentManagement\EventController;
+use App\Http\Controllers\Admin\ContentPages\ParliamentController;
+use App\Http\Controllers\Admin\ContentManagement\SayingController;
+use App\Http\Controllers\Admin\ContentManagement\BlogTagController;
+use App\Http\Controllers\Admin\ContentManagement\LibraryController;
+use App\Http\Controllers\Admin\ContentManagement\NewsTagController;
+use App\Http\Controllers\Admin\ContentManagement\ThoughtController;
+use App\Http\Controllers\Admin\Administration\AppSettingsController;
+use App\Http\Controllers\Admin\Administration\PopupNoticeController;
+use App\Http\Controllers\Admin\Authentication\PermissionsController;
+use App\Http\Controllers\Admin\ContentManagement\BlogPostController;
+use App\Http\Controllers\Admin\ContentManagement\DocumentController;
+use App\Http\Controllers\Admin\ContentManagement\NewsPostController;
+use App\Http\Controllers\Admin\Administration\BulkMessagesController;
+use App\Http\Controllers\Admin\PaymentSetups\PaymentGatewayController;
+use App\Http\Controllers\Admin\Administration\CompanyDetailsController;
+use App\Http\Controllers\Admin\ContentPages\MassOrganizationController;
+use App\Http\Controllers\Admin\ContentManagement\BlogCategoryController;
+use App\Http\Controllers\Admin\ContentManagement\NewsCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +48,9 @@ use App\Http\Controllers\AdminTwitterVideoController;
 */
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
-    Route::resource('/user', AdminUserController::class);
-    Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+    Route::resource('/user', UserController::class);
+    Route::prefix('/user')->name('user.')->controller(UserController::class)->group(function () {
         Route::get('/profile/{id}', 'profile')->name('profile');
         Route::put('/profile/{id}', 'profileUpdate')->name('update');
         Route::get('/changepassword/{id}', 'changePasswordform')->name('changePassword.form');
@@ -92,47 +92,49 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::put('/post/restore/{id}',  'restore')->name('restore');
     });
 
-    Route::resource('/event', AdminEventController::class);
+    Route::resource('/event', EventController::class);
 
-    
-    Route::resource('/document', AdminDocumentController::class);
-    Route::resource('/library', AdminLibraryController::class);
 
-    Route::resource('/member', AdminMembershipController::class)->except('index', 'show');
-    Route::prefix('/member')->name('member.')->controller(AdminMembershipController::class)->group(function () {
-        Route::get('/member', 'getRegisteredMembers')->name('index');
+    Route::resource('/document', DocumentController::class);
+    Route::resource('/library', LibraryController::class);
+
+    Route::resource('/member', MemberController::class)->except('index', 'show');
+    Route::prefix('/member')->name('member.')->controller(MemberController::class)->group(function () {
+        Route::get('/', 'getRegisteredMembers')->name('index');
         Route::get('/approved-members', 'getApprovedMembers')->name('getApprovedMembers');
         Route::post('/member/{id}', 'approveMember')->name('approve');
     });
 
-    Route::resource('/app-setting', AdminAppSettingsController::class)->except('destroy');
-    Route::resource('/company-details', AdminCompanyDetailsController::class)->except('destroy');
-    Route::resource('/slider', AdminSliderController::class)->except('destroy');
+    Route::resource('/app-setting', AppSettingsController::class)->except('destroy');
+    Route::resource('/company-details', CompanyDetailsController::class)->except('destroy');
+    Route::resource('/slider', SliderController::class)->except('destroy');
 
 
 
-    Route::resource('/popup-notice', AdminPopupNoticeController::class);
-    Route::resource('/bulk-message', AdminBulkMessagesController::class);
+    Route::resource('/popup-notice', PopupNoticeController::class);
+    Route::resource('/bulk-message', BulkMessagesController::class);
 
 
-    Route::resource('/youtube-video', AdminYoutubeVideoController::class);
-    Route::resource('/facebook-video', AdminFacebookVideoController::class);
-    Route::resource('/twitter-video', AdminTwitterVideoController::class);
-    Route::resource('/gallery', AdminGalleryController::class);
+    Route::resource('/youtube-video', YoutubeVideoController::class);
+    Route::resource('/facebook-video', FacebookVideoController::class);
+    Route::resource('/twitter-video', TwitterVideoController::class);
+    Route::resource('/gallery', GalleryController::class);
 
 
-    Route::resource('/history', AdminHistoryController::class);
-    Route::resource('/goverment', AdminGovermentController::class);
-    Route::resource('/parliament', AdminParliamentController::class);
+    Route::resource('/history', HistoryController::class);
+    Route::resource('/goverment', GovermentController::class);
+    Route::resource('/parliament', ParliamentController::class);
     Route::resource('/mass-organization', MassOrganizationController::class);
     Route::resource('/donation', DonationController::class);
 
-    Route::resource('/team-member', AdminTeamMemberController::class);
-    Route::prefix('/team-member')->name('team-member.')->controller(AdminMembershipController::class)->group(function () {
+    Route::resource('/team-member', TeamMemberController::class);
+    Route::prefix('/team-member')->name('team-member.')->controller(MemberController::class)->group(function () {
         Route::post('/filter-serach', 'filterSearch')->name('filter');
     });
-    Route::resource('/committee', AdminCommitteeController::class);
-    Route::resource('/leadership', AdminLeadershipController::class);
+    Route::resource('/committee', CommitteeController::class);
+    Route::resource('/leadership', LeadershipController::class);
+
+    Route::resource('/payment-gateways', PaymentGatewayController::class);
 });
 
 // This should be the end of file and last line for this file

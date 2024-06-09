@@ -1,14 +1,14 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Leadership | Nagrik Unmukti Party --}}
+    {{-- Create New Leadership | Nagrik Unmukti PartyDetails --}}
     {{ isset($leadership)
-        ? 'Edit Leadership ' . '"' . $leadership->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Leadership ' . '"' . $leadership->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Leadership |
-                                                            Nagrik Unmukti Party' }}
+                                                            Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.leadership.index') }}" class="">Leadership</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

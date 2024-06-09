@@ -1,11 +1,11 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Slider | Nagrik Unmukti Party --}}
-    {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '". | Nagrik Unmukti Party' : 'Create New Slider | Nagrik Unmukti Party' }}
+    {{-- Create New Slider | Nagrik Unmukti PartyDetails --}}
+    {{ isset($slider) ? 'Edit Slider ' . '"' . $slider->title . '". | Nagrik Unmukti PartyDetails' : 'Create New Slider | Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.app-setting.index') }}" class="">Slider</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -52,7 +52,7 @@
                                         <h5
                                             class="text-lg ext-theme-9 @error('slider_title') text-theme-6 @enderror font-medium leading-none">
                                             Slider Title
-                                            
+
                                         </h5>
                                         <input type="text" id="slider_title" name="slider_title"
                                             class=" input w-full border mt-2 @error('slider_title') border-theme-6 @enderror"
@@ -92,7 +92,7 @@
                                     <div class="mt-3">
                                         <h5 class="text-lg ext-theme-9 @error('slider_image_a') text-theme-6 @enderror font-medium leading-none">
                                             Image 1
-                                            
+
                                         </h5>
                                         <div
                                             class="border-2 border-dashed rounded-md mt-2 pt-4 @error('slider_image_a') border-theme-6 @enderror">
@@ -121,7 +121,7 @@
                                         <h5
                                             class="text-lg ext-theme-9 @error('heading1') text-theme-6 @enderror font-medium leading-none">
                                             Heading 1
-                                            
+
                                         </h5>
                                         <input type="text" id="heading1" name="heading1"
                                             class="input w-full border mt-2 @error('heading1') border-theme-6 @enderror"
@@ -132,7 +132,7 @@
                                     <div class="mt-3">
                                         <h5 class="text-lg ext-theme-9 @error('subheading1') text-theme-6 @enderror font-medium leading-none">
                                             Sub Heading 1
-                                            
+
                                         </h5>
                                         <input type="text" id="subheading1" name="subheading1"
                                             class="input w-full border mt-2 @error('subheading1') border-theme-6 @enderror"
@@ -261,7 +261,7 @@
                             <hr class="mt-3 mb-3">
 
                             <div class="grid grid-cols-4 gap-4">
-                                
+
                                 {{-- Image 4 --}}
                                 <div class="col-span-1 ...">
                                     <div class="mt-3">

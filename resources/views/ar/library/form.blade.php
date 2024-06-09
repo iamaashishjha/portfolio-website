@@ -1,14 +1,14 @@
 @extends('layouts.ar')
 
 @section('title')
-    {{-- Create New Library | Nagrik Unmukti Party --}}
+    {{-- Create New Library | Nagrik Unmukti PartyDetails --}}
     {{ isset($library)
-        ? 'Edit Library ' . '"' . $library->title . '". | Nagrik Unmukti Party'
+        ? 'Edit Library ' . '"' . $library->title . '". | Nagrik Unmukti PartyDetails'
         : 'Create New Library |
-    Nagrik Unmukti Party' }}
+    Nagrik Unmukti PartyDetails' }}
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.library.index') }}" class="">Library</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>

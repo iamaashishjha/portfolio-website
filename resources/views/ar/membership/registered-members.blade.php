@@ -4,7 +4,7 @@
 All Registered Members | Nagrik Unmukti Party
 @endsection
 
-@section('breadcum')
+@section('breadcrumb')
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
         <a href="{{ route('admin.member.index') }}" class="">Members</a>
         <i data-feather="chevron-right" class="breadcrumb__icon"></i>
@@ -24,9 +24,9 @@ All Registered Members | Nagrik Unmukti Party
             All Registered Members
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.member.create') }}">Register New
+            <a class="button text-white bg-theme-1 shadow-md mr-2" href="{{ route('admin.member.create') }}"><i class="fa fa-plus mx-2" aria-hidden="true"></i>Register New
                 Member</a>
-            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.member.getApprovedMembers') }}">All
+            <a class="button text-white bg-theme-9 shadow-md mr-2" href="{{ route('admin.member.getApprovedMembers') }}"><i class="fa fa-list mx-2" aria-hidden="true"></i>All
                 Approved Members</a>
         </div>
     </div>
@@ -62,17 +62,17 @@ All Registered Members | Nagrik Unmukti Party
                             </td>
                             <td class="border-b text-center">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->permProvince->name }}
+                                    {{ $member->addressesEntity->permProvince->name }}
                                 </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->permDistrict->name }}
+                                    {{ $member->addressesEntity->permDistrict->name }}
                                 </div>
                             </td>
                             <td class="text-center border-b">
                                 <div class="font-medium whitespace-no-wrap">
-                                    {{ $member->permLocalLevel->name }}
+                                    {{ $member->addressesEntity->permLocalLevel->name }}
                                 </div>
                             </td>
 
@@ -119,221 +119,7 @@ All Registered Members | Nagrik Unmukti Party
                                 </div>
                             </div>
                         </div>
-                        <div class="modal" id="view-modal-preview-{{ $member->id }}">
-                            <div class="modal__content modal__content--xl">
-                                <!-- BEGIN: Boxed Accordion -->
-                                <div class="col-span-12 lg:col-span-6">
-                                    <div class="intro-y box">
-                                        <div class="p-5" id="boxed-accordion">
-                                            <div class="preview">
-                                                <div class="accordion">
-                                                    {{-- citizenship --}}
-                                                    <div class="accordion__pane active border border-gray-200 p-4">
-
-                                                        <a href="javascript:;"
-                                                            class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                            Citizenship
-                                                        </a>
-                                                        <div
-                                                            class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Citizenship Based Details (नागरिकता आधारित विवरण |)
-                                                            </h5>
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Full Name : {{ $member->name_en }}</p>
-                                                                <p>पुरा नाम : {{ $member->name_lc }}</p>
-                                                                <p>Citizenship Issued Province :
-                                                                    {{ $member->citizenProvince->name }}</p>
-                                                                <p>Citizenship Issued District :
-                                                                    {{ $member->citizenProvince->name }}</p>
-                                                            </div>
-                                                            <div class="grid grid-cols-3 gap-4">
-                                                                <p>Gender : {{ $member->gender->name_en }}</p>
-                                                                <p>DOB (AD) : {{ $member->gender->birth_date_ad }}</p>
-                                                                <p>DOB (BS) : {{ $member->gender->birth_date_bs }}</p>
-                                                                <p>Citizenship Number : {{ $member->citizenship_number }}
-                                                                </p>
-                                                                <p>Passport Number :
-                                                                    {{ $member->passport_number ? $member->passport_number : null }}
-                                                                </p>
-                                                                <p>Voter Id Number :
-                                                                    {{ $member->voter_id_number ? $member->voter_id_number : null }}
-                                                                </p>
-                                                            </div>
-                                                            <hr class="mt-2 mb-2">
-                                                            <h1
-                                                                class="text-2xl text-theme-6 font-medium leading-none mt-2 mb-2 text-center">
-                                                                Permanent Address (स्थायी ठेगाना |)
-                                                            </h1>
-                                                            <hr class="mt-2 mb-2">
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Province (प्रदेश) : {{ $member->name_en }}</p>
-                                                                <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                                <p>Local Level (स्थानीय तह) : {{ $member->name_lc }}</p>
-                                                                <p>Local Level Type (स्थानीय तहको प्रकार) :
-                                                                    {{ $member->name_lc }}
-                                                                </p>
-                                                                <p>Ward Number (वडा नम्बर) : {{ $member->name_lc }}</p>
-                                                                <p>Tole (टोल) : {{ $member->name_lc }}</p>
-                                                            </div>
-                                                            <<hr class="mt-2 mb-2">
-                                                                <h1
-                                                                    class="text-2xl text-theme-1 font-medium leading-none mt-2 mb-2 text-center">
-                                                                    Temporary Address (अस्थायी ठेगाना |)
-                                                                </h1>
-                                                                <hr class="mt-2 mb-2">
-                                                                <div class="grid grid-cols-2 gap-4">
-                                                                    <p>Province (प्रदेश) : {{ $member->name_en }}</p>
-                                                                    <p>District (जिल्ला) : {{ $member->name_lc }}</p>
-                                                                    <p>Local Level (स्थानीय तह) : {{ $member->name_lc }}
-                                                                    </p>
-                                                                    <p>Local Level Type (स्थानीय तहको प्रकार) :
-                                                                        {{ $member->name_lc }}</p>
-                                                                    <p>Ward Number (वडा नम्बर) : {{ $member->name_lc }}</p>
-                                                                    <p>Tole (टोल) : {{ $member->name_lc }}</p>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- personal --}}
-                                                    <div class="accordion__pane border border-gray-200 p-4">
-
-                                                        <a href="javascript:;"
-                                                            class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                            Personal
-                                                        </a>
-                                                        <div
-                                                            class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Citizenship Based Details (नागरिकता आधारित विवरण |)
-                                                            </h5>
-                                                            <hr class="mt-2 mb-2">
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Email : {{ $member->name_en }}</p>
-                                                                <p>Phone Number : {{ $member->name_lc }}</p>
-                                                                <p>Mobile Number : {{ $member->name_lc }}</p>
-                                                                <p>Cast (जाति) : {{ $member->name_lc }}</p>
-                                                                <p>वर्ग : {{ $member->name_lc }}</p>
-                                                                <p>वर्ग स्रोत : {{ $member->name_lc }}</p>
-                                                                <p>Education Qualification (शैक्षिक् योग्यता) :
-                                                                    {{ $member->name_lc }}</p>
-                                                                <p>Blood Group (रक्त समूह ) : {{ $member->name_lc }}</p>
-                                                                <p>Other Identity (अन्य पहिचान) : {{ $member->name_lc }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- property --}}
-                                                    <div class="accordion__pane border border-gray-200 p-4">
-
-                                                        <a href="javascript:;"
-                                                            class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                            Income / Property
-                                                        </a>
-                                                        <div
-                                                            class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Income Details (आय विवरण |)
-                                                            </h5>
-                                                            <hr class="mt-2 mb-2">
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Profession : {{ $member->name_en }}</p>
-                                                                <p>Source of Income : {{ $member->name_lc }}</p>
-                                                            </div>
-
-
-                                                            <hr class="mt-2 mb-2">
-
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Property Details (सम्पति बिबरण |)
-                                                            </h5>
-                                                            <hr class="mt-2 mb-2">
-
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Property in Cash (नगद सम्पत्ति) : {{ $member->name_en }}
-                                                                </p>
-                                                                <p>Fixed Property (अचल सम्पति) : {{ $member->name_lc }}</p>
-                                                                <p>Property in Share (सेयर सम्पत्ति) :
-                                                                    {{ $member->name_lc }}</p>
-                                                                <p>Other Property (अन्य सम्पत्ति) : {{ $member->name_lc }}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- political --}}
-                                                    <div class="accordion__pane border border-gray-200 p-4">
-                                                        <a href="javascript:;"
-                                                            class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                            Political
-                                                        </a>
-                                                        <div
-                                                            class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Political Details (राजनैतिक विवरण |)
-                                                            </h5>
-                                                            <hr class="mt-2 mb-2">
-                                                            <div class="grid grid-cols-2 gap-4">
-                                                                <p>Haisiyat : {{ $member->name_en }}</p>
-                                                                <p>Committee Name : {{ $member->name_lc }}</p>
-                                                                <p>मासिक लेवी दर : {{ $member->name_lc }}</p>
-                                                                <p>संगठनको सदस्यता प्राप्त मिति(AD) :
-                                                                    {{ $member->name_lc }}</p>
-                                                                <p>संगठनको सदस्यता प्राप्त मिति(बि.सं.) :
-                                                                    {{ $member->name_lc }}</p>
-                                                                <p>Party Location : {{ $member->name_lc }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- documents --}}
-                                                    <div class="accordion__pane border border-gray-200 p-4">
-
-                                                        <a href="javascript:;"
-                                                            class="text-4xl accordion__pane__toggle font-medium block text-center">
-                                                            Documents
-                                                        </a>
-                                                        <div
-                                                            class="accordion__pane__content mt-3 text-gray-700 leading-relaxed">
-                                                            <h5
-                                                                class="text-2xl text-theme-9 font-medium leading-none mt-7 mb-5 mb-2 text-center">
-                                                                Important Documents (जरुरि कागजात)
-                                                            </h5>
-                                                            <hr class="mt-2 mb-2">
-                                                            <div class="intro-y box mt-5">
-                                                                <div class="p-5" id="fade-animation-slider">
-                                                                    <div class="preview">
-                                                                        <div class="slider mx-6 fade-mode">
-                                                                            @foreach ($member->getDocs() as $file)
-                                                                                <div class="h-64 px-2">
-                                                                                    <div
-                                                                                        class="h-full image-fit rounded-md overflow-hidden">
-                                                                                        <img alt="{{ $file['name'] }}"
-                                                                                            src="{{ $file['file'] }}" />
-                                                                                    </div>
-                                                                                </div>
-                                                                            @endforeach
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- END: Boxed Accordion -->
-                            </div>
-                        </div>
+                       
                         <div class="modal" id="delete-modal-preview-{{ $member->id }}">
                             <div class="modal__content">
                                 <div class="p-5 text-center"> <i data-feather="x-circle"

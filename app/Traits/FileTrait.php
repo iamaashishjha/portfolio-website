@@ -23,4 +23,25 @@ trait FileTrait
         }
         return $fileName;
     }
+
+
+    public function uploadFileToDiskFromArray($requestsArr, $requestName, $destinationPath, $oldPath = null){
+        $fileName = null;
+        if(isset($oldFilePath)) {
+            $fileName = $oldFilePath;
+        }
+
+        if (array_key_exists($requestName, $requestsArr)) {
+            $fileName = $requestsArr[$requestName]->store($destinationPath, 'public');
+            if($oldPath){
+                $oldFilePath = $destinationPath.'/'.$oldPath;
+                if (Storage::exists($oldFilePath)) {
+                    Storage::delete($oldFilePath);
+                }
+            }
+        }
+
+        $requestsArr[$requestName] = $fileName;
+        return $fileName;
+    }
 }
