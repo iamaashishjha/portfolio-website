@@ -13,14 +13,16 @@ use App\Traits\Base\BaseHomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoreMemberRequest;
 use App\Repositories\MembershipRepository;
+use Illuminate\Support\Facades\Log;
 
 class MembershipController extends BaseHomeController
 {
-    public $data, $repo;
+    public $data, $repo, $context;
 
     public function __construct(MembershipRepository $repo)
     {
         $this->repo = $repo;   
+        $this->context = 'Membership';
     }
 
  
@@ -42,6 +44,7 @@ class MembershipController extends BaseHomeController
             $member = $this->repo->storeOrUpdateMembership($request->validated());
             return response()->json(['data' => $member], 200);
         } catch (\Throwable $th) {
+            Log::error($this->context, []);
             return response()->json(['error' => $th->getMessage()], 500);
         }
         // Alert::success('Member form submitted successfully. We will get back to you soon');

@@ -76,18 +76,18 @@ class TransactionController extends Controller
     {
         /**
          * FIXME: MANAGE THIS FROM REPO/SERVICE
-        */
+         */
         try {
             $paymentGatewayId = $this->getPaymentGatewayIdFromResponse($request->all());
             if ($paymentGatewayId == 1) {
                 $fromAdmin = $this->processEsewaSuccessfullTransaction($request->data, $memberId);
-            } elseif ($paymentGatewayId == 2){
+            } elseif ($paymentGatewayId == 2) {
                 $fromAdmin = $this->processKhaltiSuccessfullTransaction($request->all(), $memberId);
             } else {
                 /**
                  * TODO Manage this for other payment gateways
                  * 
-                */
+                 */
                 // DD($request->all(), $memberId);
                 // $signingtKey = $paymentGateway->signing_key;
                 // $secretKey = $paymentGateway->secret_key;
@@ -114,12 +114,31 @@ class TransactionController extends Controller
         // dd($request->all(), "Member id $memberId has been successfully paid");
     }
 
-    public function transactionFailure(Request $request, int $memberId)
+    public function transactionFailure(Request $request, int $memberId, ?string $transactionId = null)
     {
-        dd($request->all(),  "Member id $memberId has been successfully paid");
+        // dd($request->all(),  "Transaction with Member Id $memberId and transaction Id $transactionId has been failed.");
+        
+        /**
+         * FIXME: MANAGE THIS FROM REPO/SERVICE
+         */
+        try {
+            $transaction = Transaction::where([
+                ['transaction_id', $transactionId],
+                ['payment_gateway_id', 1],
+                ['member_id', $memberId],
+                ['is_paid', false],
+            ])->first();
+            return redirect()->route('admin.member.index')->with('error', "Transaction with Member Id $memberId and transaction Id $transactionId has been failed.");
+        } catch (\Throwable $th) {
+            Log::error("TRANSACTION-FAILURE:$memberId", [
+                'request' => $request->all(),
+                'error' => $th->getMessage(),
+            ]);
+            return redirect()->route('home.index')->with('error', $th->getMessage());
+        }
     }
 
-    
+
     private function getTransactionId(int $length = 22)
     {
         if ($length < 1) {

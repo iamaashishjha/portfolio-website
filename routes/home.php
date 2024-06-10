@@ -21,7 +21,7 @@ use App\Http\Controllers\Transactions\TransactionController;
 |
 */
 Route::get('/member/{memberId}/payment-successful', [TransactionController::class, 'transactionSuccess'])->name('home.transaction.success');
-Route::get('/member/{memberId}/payment-failure', [TransactionController::class, 'transactionFailure'])->name('home.transaction.failure');
+Route::get('/member/{memberId}/payment-failure/{transactionId?}', [TransactionController::class, 'transactionFailure'])->name('home.transaction.failure');
 Route::get('/member/{memberId}/store-transaction-initiations', [TransactionController::class, 'transactionFailure'])->name('home.transaction.failure');
 
 
