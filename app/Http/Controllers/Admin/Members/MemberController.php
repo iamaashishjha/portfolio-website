@@ -14,25 +14,27 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\LocalLevelType;
 use App\Models\PaymentGateways;
+use App\Models\Membership\Member;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Traits\Base\BaseAdminController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Repositories\MembershipRepository;
 use App\Jobs\SendMembershipApprovalMailJob;
 use App\Http\Requests\Memeber\MemberRequest;
-use App\Models\Membership\Member;
-use App\Repositories\MembershipRepository;
 
 class MemberController extends BaseAdminController
 {
     use FileTrait;
-    protected $repo;
+    protected $repo, $context;
     public function __construct(MembershipRepository $repo)
     {
         $this->repo = $repo;
+        $this->context ='ADMIN-MEMBER:';
     }
 
     public function getRegisteredMembers()
@@ -74,6 +76,10 @@ class MemberController extends BaseAdminController
             $member = $this->repo->storeOrUpdateMembership($request->validated());
             return response()->json(['data' => $member], 200);
         } catch (\Throwable $th) {
+            Log::error($this->context, [
+                'error' => $th->getMessage(),
+                'error_strace' => $th->getTraceAsString(),
+            ]);
             return response()->json(['error' => $th->getMessage()], 500);
         }
     }

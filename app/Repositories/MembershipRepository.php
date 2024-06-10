@@ -57,12 +57,13 @@ class MembershipRepository extends BaseRepository implements MembershipInterface
                 $member->update($membershipRqstArr);
                 $member->addressesEntity()->delete();
                 $member->identityEntities()->delete();
-                $userRqstArr['name'] = $member->name;
                 if (isset($userRqstArr['email'])) {
+                    $userRqstArr['name'] = $member->name;
                     $member->userEntity()->update($userRqstArr);
                 }
             } else {
                 $member = $this->model->create($membershipRqstArr);
+                $userRqstArr['name'] = $member->name;
                 $userRqstArr['password'] = Hash::make('Password@12345');
                 $member->userEntity()->create($userRqstArr);
             }
