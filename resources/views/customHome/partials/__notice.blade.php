@@ -1,5 +1,17 @@
 @if (count($notices))
+        @push('head')
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        @endpush
+        @push('script')
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        @endpush
     @foreach ($notices as $notice)
+            {{-- @push('script')
+                <script>
+                    $('#noticeModal-{{ $loop->iteration }}').modal('show');
+                </script>
+            @endpush --}}
         <!-- Modal -->
         <div class="modal fade" id="noticeModal-{{ $loop->iteration }}" tabindex="-1" aria-labelledby="noticeModalLabel"
             aria-hidden="true">
@@ -25,16 +37,5 @@
                 </div>
             </div>
         </div>
-
-        @push('head')
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-        @endpush
-        @push('script')
-            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-            <script>
-                $('#noticeModal-{{ $loop->iteration }}').modal('show');
-            </script>
-        @endpush
     @endforeach
 @endif

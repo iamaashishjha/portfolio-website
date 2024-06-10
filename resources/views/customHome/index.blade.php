@@ -244,7 +244,7 @@
     {{-- Contact Section  --}}
 
 
-    @include('customHome.partials.__notice')
+    {{-- @include('customHome.partials.__notice') --}}
 @endsection
 
 
